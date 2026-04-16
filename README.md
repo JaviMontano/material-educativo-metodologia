@@ -43,11 +43,36 @@ El inventario operativo completo. 669 prompts con cuerpo íntegro, buscador con 
 
 ---
 
-### 2. Playbook Aprender-Aprehender-Revolucionar 2026
+### 2. Playbook Aprender, Aprehender, (R)Evolucionar 2026
 
 **`playbook-aprender-aprehender-revolucionar-2026.html`** · 278 KB · self-contained
 
-El sistema operativo personal para aprender cualquier competencia profesional con IA. 3 fases (adquirir, retener, soltar), 10 escalas de progresión, 14 prompts copiables (10 de alto rendimiento + 4 meta-prompts), 8 arquetipos de NotebookLM, y 1 protocolo de verificación.
+El sistema operativo personal para aprender cualquier competencia profesional con IA. El ciclo completo: adquirir conocimiento, retenerlo para defenderlo, y soltar lo que ya no sirve.
+
+| Característica | Detalle |
+|---|---|
+| Escalas | 10 niveles de dominio (0 Ignorante → 9 Referente) con criterios de aceptación |
+| Modos | 4 universales: Self-learning (1-64h), Upskilling (64h+), ReSkilling (64h+), Collaborative |
+| Técnicas | 6 basadas en ciencia cognitiva (recuperación, espaciado, intercalado, elaboración, dual coding, ejemplos) |
+| Prompts | 14 copiables: 10 de alto rendimiento + 4 meta-prompts que generan system prompts |
+| Arquetipos | 8 personalidades para NotebookLM (Profesor, Examinador, Entrevistador, Coach QBR, Auditor, Mentor, Investigador, Fact-Checker) |
+| Protocolo | Triangulación + Regla del 3 + GIGO + 3 errores que importan |
+| Workflows | 3 AI-Native progresivos (Curioso 1h → Explorador 4h → Iniciado 20h) + 1 transversal |
+| Rutinas | 3 sugeridas: diaria (15 min), semanal (1h), mensual (30 min) |
+| Estándares | 7 principios operativos + ecuación de impacto |
+| Glosario | 30 términos con búsqueda interactiva |
+| FAQ | 6 preguntas frecuentes (details/summary) |
+| Calendar | 9 eventos pre-configurados con rutina de entrenamiento progresiva |
+| Idiomas | Bilingüe ES/EN · Dark mode · Mobile-first · Funciona offline |
+
+**Asistentes recomendados (públicos, sin costo):**
+
+| Asistente | Plataforma | Fortaleza | Link |
+|---|---|---|---|
+| Prompting | Custom GPT | Audita y reescribe prompts con método | [Abrir GPT](https://chatgpt.com/g/g-68f4434cf0348191a569cf526fa53654-prompting) |
+| Estudio | Custom GPT | Ciencia cognitiva, evaluación, planes de estudio | [Abrir GPT](https://chatgpt.com/g/g-69396067bbd88191aaa7b2479be71ff8-estudio) |
+| Research Blueprint | Custom GPT | Planificación metodológica de deep research | [Abrir GPT](https://chatgpt.com/g/g-69d59bec507c819197750fbbc1e74aae-research-blueprint) |
+| Research Blueprint | Gemini Gem | Mismo, ventaja si fuentes en Google Drive | [Abrir Gema](https://gemini.google.com/gem/7092d04b2915) |
 
 ---
 
