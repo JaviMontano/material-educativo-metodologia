@@ -104,7 +104,6 @@ No necesitas servidor, npm, ni dependencias. Abre el `.html` en cualquier navega
 | Katherine Oquendo | Chief Enablement Officer |
 
 - **Web**: [metodologia.info](https://metodologia.info)
-- **Programa**: [metodologia.info/empoderamiento](https://metodologia.info/empoderamiento)
 - **Contacto**: contacto@metodologia.info
 
 ---
