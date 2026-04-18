@@ -18,7 +18,7 @@ La idea de este repo es simple: que puedas abrir la biblioteca sin instalar nada
 
 ## Estado de la publicación
 
-La biblioteca publicada en este repo corresponde al corte renovado con `1492` prompts canónicos exactos. El conteo no incluye aliases como piezas adicionales, no cambia las `42` categorías públicas y conserva la regla de biblioteca útil para vida, trabajo y aprendizaje. El bundle `Prompster` publicado aquí también expone `1492` claves únicas listas para carga como objeto JSON `clave -> prompt`, que es la estructura que la extensión usa internamente para su librería. Desde este corte, además, las `1492` piezas incorporan un `BUCLE DE EXCELENCIA` uniforme para obligar evaluación interna, refinamiento iterativo y entrega solo de la versión final. [CÓDIGO][INFERENCIA]
+La biblioteca publicada en este repo corresponde al corte renovado con `1492` prompts canónicos exactos. El conteo no incluye aliases como piezas adicionales, no cambia las `42` categorías públicas y conserva la regla de biblioteca útil para vida, trabajo y aprendizaje. El bundle `Prompster` publicado aquí también expone `1492` claves únicas listas para carga como objeto JSON `clave -> prompt`, que es la estructura que la extensión usa internamente para su librería. Desde este corte, además, las `1492` piezas incorporan un `BUCLE DE EXCELENCIA` uniforme para obligar evaluación interna, refinamiento iterativo y entrega solo de la versión final. Dentro de las macros actuales, `ñ` queda reservada para traducción desde español hacia `inglés`, `francés`, `portugués`, `chino`, `japonés` e `hindi`. [CÓDIGO][INFERENCIA]
 
 ## Cómo usarla
 
@@ -39,7 +39,7 @@ El flujo recomendado es este:
 5. Usa `Upload Prompts`.
 6. Carga `prompts_universales_v1492_prompster.json`.
 
-Después de subir el archivo, opera la biblioteca con el carácter gatillo que configures en Prompster y las claves limpias del bundle. Ejemplos reales incluidos en esta publicación: `0`, `a`, `a-b-testing`, `finanzas-presupuesto-familiar`, `prompting-zero-shot-limpio`, `demo-05-genera-video`. [CÓDIGO]
+Después de subir el archivo, opera la biblioteca con el carácter gatillo que configures en Prompster y las claves limpias del bundle. Ejemplos reales incluidos en esta publicación: `0`, `a`, `ñ`, `a-b-testing`, `finanzas-presupuesto-familiar`, `prompting-zero-shot-limpio`, `demo-05-genera-video`. [CÓDIGO]
 
 ## Qué se verificó sobre Prompster
 
