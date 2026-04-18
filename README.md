@@ -1,124 +1,54 @@
-# Material Educativo · MetodologIA 2026
+# Biblioteca Universal de Prompting 2026 · v1492
 
-> **"40.000 horas convirtiendo retos en casos de éxito."**
-> — Javier Montaño · Chief Empowerment Officer · [MetodologIA](https://metodologia.info)
+Repositorio público de distribución de la **Biblioteca Universal de Prompting 2026** de MetodologIA. La publicación actual consolida la biblioteca renovada en su corte **v1492**, con `1492` prompts canónicos exactos, `42` categorías públicas visibles y una doble superficie de uso: exploración directa en HTML auto contenido y operación diaria desde **Prompster**. [CÓDIGO]
 
----
+La idea de este repo es simple: que puedas abrir la biblioteca sin instalar nada, pero también que puedas llevarla a un expansor de prompts real cuando quieras trabajar dentro de ChatGPT, Claude, Gemini, Grok u otros chats soportados. En esta versión el repo queda explícitamente preparado para usar la biblioteca **ahí**, dentro de Prompster, no solo para leerla como material editorial. [DOC][CÓDIGO][INFERENCIA]
 
-Recursos educativos abiertos del **Programa de Empoderamiento MetodologIA**. Copyleft. Sin cuentas, sin instaladores, sin red. Un solo archivo HTML por recurso — abre en cualquier navegador y funciona.
+## Qué contiene este repo
 
-Cada recurso es el *spoiler* del programa completo: el método, los rieles operativos, los artefactos productivos y el acompañamiento vivo se entregan dentro del Programa de Empoderamiento.
+| Archivo | Rol | Uso recomendado |
+|---|---|---|
+| `biblioteca-universal-prompting-2026.html` | Biblioteca integral auto contenida | Abrir en navegador y trabajar offline con buscador, modal y navegación editorial |
+| `prompts_universales_v1492.json` | JSON canónico de publicación | Integraciones, auditoría, trazabilidad y consumo programático |
+| `prompts_universales_v1492_prompster.json` | Bundle dedicado para Prompster | Subirlo en la extensión y operar por comando limpio |
+| `prompts_universales_v1492_prompster.js` | Variante JS del bundle Prompster | Embebido o inspección técnica |
+| `prompts_universales_v2026_prompster.json` | Alias de compatibilidad del bundle Prompster | Mantener continuidad con referencias previas del repo |
+| `prompts_universales_v2026_prompster.js` | Alias JS de compatibilidad | Mantener continuidad con referencias previas del repo |
+| `playbook-aprender-aprehender-revolucionar-2026.html` | Recurso complementario de aprendizaje | Profundizar en estudio, práctica y apropiación de la biblioteca |
 
----
+## Estado de la publicación
 
-## Recursos disponibles
+La biblioteca publicada en este repo corresponde al corte renovado con `1492` prompts canónicos exactos. El conteo no incluye aliases como piezas adicionales, no cambia las `42` categorías públicas y conserva la regla de biblioteca útil para vida, trabajo y aprendizaje. El bundle `Prompster` publicado aquí también expone `1492` claves únicas listas para carga como objeto JSON `clave -> prompt`, que es la estructura que la extensión usa internamente para su librería. [CÓDIGO]
 
-### 1. Biblioteca Universal de Prompting 2026
+## Cómo usarla
 
-**`biblioteca-universal-prompting-2026.html`** · 2.98 MB · self-contained
+### Opción 1 · HTML offline
 
-El inventario operativo completo. 669 prompts con cuerpo íntegro, buscador con filtros, modal de inspección, export JSON y metadata embebida.
+Abre `biblioteca-universal-prompting-2026.html` en cualquier navegador moderno. No requiere servidor, cuenta, extensión, npm ni conexión permanente. Esta es la mejor puerta si quieres explorar por categorías, leer contexto, enseñar la biblioteca, hacer demos o copiar prompts desde el modal de forma manual. [CÓDIGO]
 
-| Característica | Detalle |
-|---|---|
-| Prompts | 669 piezas íntegras (pipeline 0-9, a-z, SPECs, artefactos, métodos) |
-| Glosario | 21 términos interactivos (accordion) |
-| Asistentes | 3 entrenados: Prompting Assistant (GPT), Gema de Prompting (Gemini), Research Blueprint (GPT + Gema) |
-| Workflows | 6 AI-Native progresivos + 1 transversal (con Google Calendar pre-configurado) |
-| Rutina | 15 días × 30 min × lun-vie (3 semanas de práctica deliberada) |
-| Flujos universales | CV con IA, conversación difícil, decisión compleja — con `/alias` reales |
-| Export | JSON plano con 1 click para Prompster y expansores |
-| Idiomas | Bilingüe ES/EN · Dark mode · Funciona offline |
+### Opción 2 · Prompster
 
-**Asistentes incluidos (públicos, sin costo):**
+Instala **Prompster** desde la [Chrome Web Store](https://chromewebstore.google.com/detail/prompster/fbagfekcjdidpmmookklbaeddgkjddml?hl=es) y, si quieres validar su proyecto oficial, revisa también el [repositorio de Prompster](https://github.com/LucasAschenbach/prompster). La razón de esta referencia es directa: la biblioteca publicada en este repo está preparada para trabajar ahí. La ficha oficial describe a Prompster como una extensión de slash commands para apps de chat con biblioteca integrada, prompts personalizados y variables; el código del proyecto confirma además una ruta explícita de `Settings > Import/Export Prompts > Upload Prompts` sobre un archivo JSON de prompts. [DOC][CÓDIGO]
 
-| Asistente | Plataforma | Fortaleza | Link |
-|---|---|---|---|
-| Prompting Assistant | Custom GPT | Redacción prolija, obediente, auditoría SPEC + rúbrica 5×3 | [Abrir GPT](https://chatgpt.com/g/g-68f4434cf0348191a569cf526fa53654-prompting) |
-| Gema de Prompting | Gemini Gem | Contexto largo, Google Docs/Sheets, few-shot batch | [Abrir Gema](https://gemini.google.com/gem/1MzzZU0voHB4NS-5CeLYV0fim4KqdaHtY) |
-| Research Blueprint | Custom GPT | Planificación metodológica de deep research | [Abrir GPT](https://chatgpt.com/g/g-69d59bec507c819197750fbbc1e74aae-research-blueprint) |
-| Research Blueprint | Gemini Gem | Mismo, ventaja si fuentes en Google Drive | [Abrir Gema](https://gemini.google.com/gem/7092d04b2915) |
+El flujo recomendado es este:
 
-> **Claude** como alternativa premium: más costoso pero más preciso en razonamiento largo y análisis de documentos complejos.
+1. Instala Prompster.
+2. Abre el popup de la extensión.
+3. Entra a `Settings`.
+4. Ve a `Import/Export Prompts`.
+5. Usa `Upload Prompts`.
+6. Carga `prompts_universales_v1492_prompster.json`.
 
----
+Después de subir el archivo, opera la biblioteca con el carácter gatillo que configures en Prompster y las claves limpias del bundle. Ejemplos reales incluidos en esta publicación: `0`, `a`, `a-b-testing`, `finanzas-presupuesto-familiar`, `prompting-zero-shot-limpio`, `demo-05-genera-video`. [CÓDIGO]
 
-### 2. Playbook Aprender, Aprehender, (R)Evolucionar 2026
+## Qué se verificó sobre Prompster
 
-**`playbook-aprender-aprehender-revolucionar-2026.html`** · 278 KB · self-contained
+Prompster no se menciona aquí como una sugerencia genérica sino como una superficie verificada. La ficha pública de la tienda indica que la extensión inserta prompts por slash command dentro del chat, soporta biblioteca propia, variables y varios chats populares. El README oficial del proyecto confirma que Prompster parte de un archivo `static/default_prompts.json` y que la biblioteca puede personalizarse desde el popup. El código de `SettingsPage.tsx` muestra la carga y descarga de archivos JSON, y el código de `background/storage/prompts.ts` confirma que la estructura persistida es un objeto JSON de prompts ordenado alfabéticamente. Por eso este repo publica un bundle Prompster dedicado en JSON y no solo el HTML editorial. [DOC][CÓDIGO][INFERENCIA]
 
-El sistema operativo personal para aprender cualquier competencia profesional con IA. El ciclo completo: adquirir conocimiento, retenerlo para defenderlo, y soltar lo que ya no sirve.
+## Trazabilidad mínima
 
-| Característica | Detalle |
-|---|---|
-| Escalas | 10 niveles de dominio (0 Ignorante → 9 Referente) con criterios de aceptación |
-| Modos | 4 universales: Self-learning (1-64h), Upskilling (64h+), ReSkilling (64h+), Collaborative |
-| Técnicas | 6 basadas en ciencia cognitiva (recuperación, espaciado, intercalado, elaboración, dual coding, ejemplos) |
-| Prompts | 14 copiables: 10 de alto rendimiento + 4 meta-prompts que generan system prompts |
-| Arquetipos | 8 personalidades para NotebookLM (Profesor, Examinador, Entrevistador, Coach QBR, Auditor, Mentor, Investigador, Fact-Checker) |
-| Protocolo | Triangulación + Regla del 3 + GIGO + 3 errores que importan |
-| Workflows | 3 AI-Native progresivos (Curioso 1h → Explorador 4h → Iniciado 20h) + 1 transversal |
-| Rutinas | 3 sugeridas: diaria (15 min), semanal (1h), mensual (30 min) |
-| Estándares | 7 principios operativos + ecuación de impacto |
-| Glosario | 30 términos con búsqueda interactiva |
-| FAQ | 6 preguntas frecuentes (details/summary) |
-| Calendar | 9 eventos pre-configurados con rutina de entrenamiento progresiva |
-| Idiomas | Bilingüe ES/EN · Dark mode · Mobile-first · Funciona offline |
+La publicación renovada mantiene una separación útil entre superficie pública y fuente operativa. El HTML es el artefacto de consumo humano. `prompts_universales_v1492.json` es la superficie canónica de publicación. `prompts_universales_v1492_prompster.json` es la superficie de operación en expansores y, en particular, en Prompster. Los aliases `v2026_prompster` se dejan como continuidad para referencias anteriores del repo, pero la versión vigente recomendada para uso nuevo es `v1492`. [CÓDIGO][INFERENCIA]
 
-**Asistentes recomendados (públicos, sin costo):**
+## MetodologIA
 
-| Asistente | Plataforma | Fortaleza | Link |
-|---|---|---|---|
-| Prompting | Custom GPT | Audita y reescribe prompts con método | [Abrir GPT](https://chatgpt.com/g/g-68f4434cf0348191a569cf526fa53654-prompting) |
-| Estudio | Custom GPT | Ciencia cognitiva, evaluación, planes de estudio | [Abrir GPT](https://chatgpt.com/g/g-69396067bbd88191aaa7b2479be71ff8-estudio) |
-| Research Blueprint | Custom GPT | Planificación metodológica de deep research | [Abrir GPT](https://chatgpt.com/g/g-69d59bec507c819197750fbbc1e74aae-research-blueprint) |
-| Research Blueprint | Gemini Gem | Mismo, ventaja si fuentes en Google Drive | [Abrir Gema](https://gemini.google.com/gem/7092d04b2915) |
-
----
-
-## Cómo usar
-
-```bash
-# Opción 1: Descarga directa
-# Click en el archivo → Download raw file
-
-# Opción 2: Clone
-git clone https://github.com/JaviMontano/material-educativo-metodologia.git
-cd material-educativo-metodologia
-open biblioteca-universal-prompting-2026.html
-```
-
-No necesitas servidor, npm, ni dependencias. Abre el `.html` en cualquier navegador.
-
----
-
-## Sobre MetodologIA
-
-**Estrategas para cocrear entornos de abundancia.**
-
-| Officer | Rol |
-|---|---|
-| [Javier Montaño](https://github.com/JaviMontano) | Chief Empowerment Officer |
-| Daniel Zuluaga | Chief Efficiency Officer |
-| Germán Eliécer Sepúlveda | Chief Ecosystem Officer |
-| Katherine Oquendo | Chief Enablement Officer |
-
-- **Web**: [metodologia.info](https://metodologia.info)
-- **Contacto**: contacto@metodologia.info
-
----
-
-## Principios operativos
-
-- **Evidence tagging**: `[CÓDIGO]` `[CONFIG]` `[DOC]` `[INFERENCIA]` `[SUPUESTO]`
-- **Quality gates**: G0 (security) → G3 (validation)
-- **MOAT Pattern**: Methods · Ontology · Assets · Templates
-- **Zero Hallucination Protocol**: nada se promueve sin procedencia
-
----
-
-## Licencia
-
-Copyleft · MetodologIA 2026 · Acceso abierto · Comunidad activa
-
-> *"El método es lo que permite que el trabajo viaje, se replique y escale."*
+MetodologIA publica esta biblioteca como infraestructura práctica de apropiación de IA para personas reales. Si vienes por el HTML, úsalo como biblioteca editorial y operativa. Si vienes por Prompster, este repo ya quedó preparado para eso. [INFERENCIA]
