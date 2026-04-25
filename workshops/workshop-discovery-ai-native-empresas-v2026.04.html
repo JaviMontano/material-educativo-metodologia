@@ -1,0 +1,665 @@
+<!--
+MetodologIA | Workshop Discovery AI-Native — Variante Empresas
+v2026.04 | 2 días workshop + 5 días HITL · Governance corporativa · RFP-ready · Compliance addendum
+Bilingüe ES/EN · Brand v2026 · Por Javier Montaño · metodologia.info · CC BY-NC-SA 4.0
+-->
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<title>Workshop Discovery AI-Native · Empresas · MetodologIA 2026</title>
+<meta name="description" content="Workshop Discovery AI-Native · Variante Empresas · 2 días + 5 días HITL. Governance multi-stakeholder, procurement-ready, compliance addendum (ISO 27001, GDPR, SOX, BCBS 239, HIPAA). MetodologIA 2026.">
+<meta name="theme-color" content="#122562">
+<meta name="color-scheme" content="light">
+<link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 36 36'%3E%3Crect width='36' height='36' rx='10' fill='%23122562'/%3E%3Ctext x='18' y='24' font-family='Poppins,sans-serif' font-size='18' font-weight='800' fill='%23FFD700' text-anchor='middle'%3EM%3C/text%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&family=Poppins:wght@700;800&display=swap">
+
+<style>
+/* ═══════════════════════════════════════════════════════════
+   MetodologIA · Workshop Empresas · Brand v2026
+   ═══════════════════════════════════════════════════════════ */
+:root{
+  --navy:#122562;--gold:#FFD700;--blue:#137DC5;--lilac:#BBA0CC;
+  --bg:#F0F0EC;--dark:#1F2833;--gold-d:#B8860B;
+  --white:#FFF;--g100:#F4F0EC;--g200:#E4DED7;--g500:#6B6560;--g700:#333130;--g900:#111110;
+  --warn:#D97706;--crit:#DC2626;--info:#137DC5;
+  --f:'Montserrat',system-ui,sans-serif;
+  --fd:'Poppins','Montserrat',sans-serif;
+  --fm:'Trebuchet MS','Lucida Sans Unicode',sans-serif;
+  --r-sm:6px;--r-md:12px;--r-lg:20px;
+  --max-w:1180px;
+  --shadow-card:0 1px 3px rgba(18,37,98,.06),0 8px 24px rgba(18,37,98,.08);
+  --shadow-soft:0 2px 14px rgba(18,37,98,.05);
+  --border:rgba(18,37,98,.1);
+}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth;-webkit-font-smoothing:antialiased;scroll-padding-top:78px}
+body{font-family:var(--f);background:var(--bg);color:var(--g700);line-height:1.7;font-size:16px;overflow-x:hidden}
+h1,h2,h3,h4{font-family:var(--fd);font-weight:800;line-height:1.2;color:var(--navy)}
+h1{font-size:clamp(2rem,5vw,3.4rem);letter-spacing:-.02em}
+h2{font-size:clamp(1.5rem,3vw,2.2rem);border-left:6px solid var(--gold);padding-left:1rem;margin:2.25rem 0 1.25rem}
+h3{font-size:1.25rem;color:var(--navy);margin:1.5rem 0 .75rem}
+h4{font-size:1rem;color:var(--blue);margin:1rem 0 .5rem;text-transform:uppercase;letter-spacing:.04em}
+p{margin:.75rem 0}
+a{color:var(--blue);text-decoration:none;font-weight:600}
+a:hover{text-decoration:underline}
+strong{color:var(--g900);font-weight:700}
+em{color:var(--gold-d);font-style:normal;font-weight:600}
+ul,ol{margin:.75rem 0 .75rem 1.5rem}
+li{margin:.35rem 0}
+code{font-family:'SF Mono',Menlo,Consolas,monospace;font-size:.88em;background:rgba(18,37,98,.06);padding:.1em .35em;border-radius:4px;color:var(--navy)}
+pre{font-family:'SF Mono',Menlo,Consolas,monospace;background:#1F2833;color:#F0F4F8;padding:1.25rem;border-radius:var(--r-md);overflow-x:auto;font-size:.78rem;line-height:1.55;margin:1rem 0;border-left:4px solid var(--gold)}
+
+/* ── BILINGÜE TOGGLE ── */
+.en{display:none}
+html[lang="en"] .es{display:none}
+html[lang="en"] .en{display:inline}
+
+/* ── NAV ── */
+.topnav{position:sticky;top:0;z-index:100;background:rgba(255,255,255,.93);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);border-bottom:1px solid var(--border);padding:.65rem 1.25rem}
+.topnav-inner{max-width:var(--max-w);margin:0 auto;display:flex;align-items:center;justify-content:space-between;gap:1rem;flex-wrap:wrap}
+.brand{font-family:var(--fd);font-weight:800;font-size:1.05rem;color:var(--navy);letter-spacing:.02em}
+.brand .ia{color:var(--gold-d)}
+.nav-links{display:flex;gap:.2rem;flex-wrap:wrap}
+.nav-links a{font-family:var(--fm);font-size:.74rem;font-weight:700;color:var(--g500);padding:.3rem .6rem;border-radius:var(--r-sm);text-transform:uppercase;letter-spacing:.06em}
+.nav-links a:hover{background:rgba(255,215,0,.18);color:var(--navy);text-decoration:none}
+.lang-btn{background:transparent;border:1px solid var(--border);color:var(--g700);padding:.35rem .75rem;border-radius:var(--r-sm);font-family:var(--fd);font-size:.7rem;font-weight:700;letter-spacing:.08em;cursor:pointer;text-transform:uppercase}
+.lang-btn:hover{background:var(--navy);color:var(--white);border-color:var(--navy)}
+
+/* ── HERO ── */
+.hero{background:linear-gradient(135deg,#122562 0%,#1F2833 100%);color:var(--white);padding:4rem 1.5rem 3.5rem;position:relative;overflow:hidden;border-bottom:6px solid var(--gold)}
+.hero::before{content:"";position:absolute;top:-40%;right:-10%;width:560px;height:560px;background:radial-gradient(circle,rgba(255,215,0,.18) 0%,transparent 65%);pointer-events:none}
+.hero::after{content:"";position:absolute;bottom:-20%;left:-5%;width:420px;height:420px;background:radial-gradient(circle,rgba(19,125,197,.20) 0%,transparent 60%);pointer-events:none}
+.hero-inner{max-width:var(--max-w);margin:0 auto;position:relative;z-index:1}
+.hero-eyebrow{font-family:var(--fm);font-size:.72rem;font-weight:700;letter-spacing:.18em;text-transform:uppercase;color:var(--gold);margin-bottom:1rem}
+.hero h1{color:var(--white);margin-bottom:1rem}
+.hero h1 .ac{color:var(--gold)}
+.hero-sub{font-size:1.05rem;color:rgba(255,255,255,.85);max-width:72ch;line-height:1.7;margin-bottom:1.75rem}
+.hero-sub strong{color:var(--white)}
+.hero-sub em{color:var(--gold)}
+.kpis{display:grid;grid-template-columns:repeat(auto-fit,minmax(160px,1fr));gap:.75rem;margin-top:1.5rem;max-width:880px}
+.kpi{background:rgba(255,255,255,.06);border:1px solid rgba(255,215,0,.2);border-radius:var(--r-md);padding:1rem;backdrop-filter:blur(8px)}
+.kpi-v{font-family:var(--fd);font-size:1.7rem;font-weight:800;color:var(--gold);line-height:1}
+.kpi-v small{font-size:.6em;font-weight:700;color:rgba(255,215,0,.8)}
+.kpi-l{font-family:var(--fm);font-size:.74rem;color:#fff;margin-top:.4rem;font-weight:600}
+.kpi-s{font-family:var(--fm);font-size:.65rem;color:rgba(255,255,255,.55);margin-top:.15rem;text-transform:uppercase;letter-spacing:.04em}
+
+/* ── MAIN ── */
+main{max-width:var(--max-w);margin:0 auto;padding:2.5rem 1.5rem 3rem}
+section{margin:2.25rem 0;padding:1.25rem 0;border-top:1px solid var(--border)}
+section:first-of-type{border-top:none;padding-top:0}
+section .lead{font-size:1.02rem;color:var(--g700);max-width:72ch;margin-bottom:1rem}
+
+/* ── TL;DR ── */
+.tldr{background:linear-gradient(135deg,rgba(255,215,0,.10),rgba(19,125,197,.06));border:1px solid rgba(255,215,0,.4);border-left:6px solid var(--gold);padding:1.5rem 1.75rem;border-radius:var(--r-md);margin:1rem 0}
+.tldr h2{margin-top:0;border-left:none;padding-left:0;font-size:1.4rem}
+.tldr p{font-size:1rem;color:var(--g900)}
+
+/* ── TABLAS ── */
+.tbl-wrap{overflow-x:auto;margin:1rem 0;border-radius:var(--r-md);box-shadow:var(--shadow-soft);border:1px solid var(--border)}
+table{width:100%;border-collapse:collapse;background:var(--white);font-size:.88rem}
+thead{background:var(--navy);color:var(--white)}
+th{padding:.7rem .85rem;text-align:left;font-family:var(--fd);font-weight:700;font-size:.72rem;text-transform:uppercase;letter-spacing:.05em;border-right:1px solid rgba(255,255,255,.12)}
+th:last-child{border-right:none}
+td{padding:.7rem .85rem;border-bottom:1px solid var(--g200);border-right:1px solid var(--g200);vertical-align:top;line-height:1.55;color:var(--g700)}
+td:last-child{border-right:none}
+tbody tr:nth-child(even) td{background:rgba(240,240,236,.5)}
+tbody tr:hover td{background:rgba(255,215,0,.08)}
+tbody tr:last-child td{border-bottom:none}
+
+/* ── CALLOUTS ── */
+.callout{display:flex;gap:.85rem;padding:1rem 1.2rem;border-radius:var(--r-md);margin:1rem 0;border-left:4px solid;background:var(--white);box-shadow:var(--shadow-soft)}
+.callout-icon{width:30px;height:30px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-family:var(--fd);font-weight:800;flex-shrink:0;color:var(--white)}
+.callout-body{flex:1;font-size:.9rem;line-height:1.55}
+.callout-body strong{display:block;font-family:var(--fd);font-size:.78rem;text-transform:uppercase;letter-spacing:.06em;margin-bottom:.25rem}
+.callout.gold{border-color:var(--gold);background:rgba(255,215,0,.08)}.callout.gold .callout-icon{background:var(--gold-d)}
+.callout.warn{border-color:var(--warn);background:rgba(217,119,6,.06)}.callout.warn .callout-icon{background:var(--warn)}
+.callout.crit{border-color:var(--crit);background:rgba(220,38,38,.05)}.callout.crit .callout-icon{background:var(--crit)}
+.callout.info{border-color:var(--info);background:rgba(19,125,197,.06)}.callout.info .callout-icon{background:var(--info)}
+.callout.navy{border-color:var(--navy);background:rgba(18,37,98,.05)}.callout.navy .callout-icon{background:var(--navy)}
+
+/* ── EVIDENCE TAGS ── */
+.tag{display:inline-block;padding:.08rem .42rem;border-radius:4px;font-family:'SF Mono',Menlo,monospace;font-size:.66rem;font-weight:700;letter-spacing:.02em;border:1px solid;margin:0 .1rem;vertical-align:middle}
+.tag-i{background:rgba(217,119,6,.1);color:var(--warn);border-color:rgba(217,119,6,.3)}
+.tag-s{background:rgba(220,38,38,.08);color:var(--crit);border-color:rgba(220,38,38,.25)}
+.tag-d{background:rgba(19,125,197,.08);color:var(--info);border-color:rgba(19,125,197,.25)}
+
+/* ── GATE ── */
+.gate{display:flex;align-items:center;gap:.9rem;background:var(--dark);color:var(--white);border-radius:var(--r-md);padding:1.1rem 1.3rem;margin:1.25rem 0;border-left:6px solid var(--gold);box-shadow:var(--shadow-card)}
+.gate-b{font-family:var(--fd);font-size:.8rem;font-weight:800;color:var(--gold);background:rgba(255,215,0,.16);padding:.35rem .65rem;border-radius:6px;letter-spacing:.05em}
+.gate-t{flex:1;font-size:.92rem;line-height:1.5}
+.gate-t em{color:var(--gold)}
+
+/* ── CARDS GRID ── */
+.cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:.85rem;margin:1rem 0}
+.card{background:var(--white);border:1px solid var(--border);border-radius:var(--r-md);padding:1.1rem 1.2rem;box-shadow:var(--shadow-soft);border-top:3px solid var(--navy)}
+.card-h{font-family:var(--fd);font-weight:700;font-size:.95rem;color:var(--navy);margin-bottom:.4rem;line-height:1.3}
+.card-d{font-size:.85rem;color:var(--g700);line-height:1.55}
+.card.gold{border-top-color:var(--gold)}
+.card.lilac{border-top-color:var(--lilac)}
+
+/* ── PRE BLOCK BOARD REPORT ── */
+.report-box{background:var(--white);border:2px solid var(--navy);border-radius:var(--r-md);padding:0;margin:1rem 0;font-family:'SF Mono',Menlo,Consolas,monospace;font-size:.78rem;line-height:1.55;color:var(--g900);box-shadow:var(--shadow-card);overflow:hidden}
+.report-row{padding:.6rem 1rem;border-bottom:1px solid var(--g200)}
+.report-row:last-child{border-bottom:none}
+.report-row.head{background:var(--navy);color:var(--white);font-family:var(--fd);font-weight:700;letter-spacing:.04em}
+.report-row.kv{background:rgba(255,215,0,.06)}
+.report-row strong{color:var(--navy)}
+
+/* ── FOOTER ── */
+.site-footer{background:var(--dark);color:rgba(255,255,255,.85);padding:2.5rem 1.5rem 1.5rem;margin-top:3rem;border-top:6px solid var(--gold)}
+.footer-inner{max-width:var(--max-w);margin:0 auto}
+.footer-row{display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:1rem;padding-bottom:1.25rem;border-bottom:1px solid rgba(255,255,255,.12)}
+.footer-logo{font-family:var(--fd);font-weight:800;font-size:1.4rem;color:var(--white);letter-spacing:.02em}
+.footer-logo .ia{color:var(--gold)}
+.footer-badges{display:flex;gap:.5rem;flex-wrap:wrap}
+.footer-badge{background:rgba(255,215,0,.12);color:var(--gold);padding:.3rem .7rem;border-radius:100px;font-family:var(--fm);font-size:.7rem;font-weight:700;letter-spacing:.06em;border:1px solid rgba(255,215,0,.3)}
+.footer-bottom{display:flex;justify-content:space-between;flex-wrap:wrap;gap:.5rem;padding-top:1rem;font-family:var(--fm);font-size:.78rem;color:rgba(255,255,255,.6)}
+.footer-bottom a{color:var(--gold)}
+
+/* ── RESPONSIVE ── */
+@media(max-width:768px){
+  .topnav-inner{flex-direction:column;align-items:flex-start}
+  .nav-links{order:3;width:100%}
+  .hero{padding:2.5rem 1rem 2rem}
+  main{padding:1.5rem 1rem 2rem}
+  table{font-size:.78rem}
+  th,td{padding:.5rem .55rem}
+}
+</style>
+</head>
+<body>
+
+<!-- ════════════ NAV ════════════ -->
+<nav class="topnav">
+  <div class="topnav-inner">
+    <div class="brand">Metodolog<span class="ia">IA</span> · <span class="es">Workshop Empresas</span><span class="en">Workshop Enterprise</span></div>
+    <div class="nav-links">
+      <a href="#tldr">TL;DR</a>
+      <a href="#cuando"><span class="es">Cuándo</span><span class="en">When</span></a>
+      <a href="#pre"><span class="es">Pre-workshop</span><span class="en">Pre-workshop</span></a>
+      <a href="#agenda">Agenda</a>
+      <a href="#procurement">Procurement</a>
+      <a href="#governance">Governance</a>
+      <a href="#sla">SLA</a>
+      <a href="#compliance">Compliance</a>
+      <a href="#board">Board</a>
+      <a href="#bandas"><span class="es">Bandas</span><span class="en">Bands</span></a>
+      <a href="#gates">Gates</a>
+      <a href="#anexos">Anexos</a>
+    </div>
+    <button class="lang-btn" onclick="toggleLang()" id="langBtn">EN</button>
+  </div>
+</nav>
+
+<!-- ════════════ HERO ════════════ -->
+<header class="hero">
+  <div class="hero-inner">
+    <div class="hero-eyebrow"><span class="es">Variante Empresas · v2026.04 · MetodologIA</span><span class="en">Enterprise Variant · v2026.04 · MetodologIA</span></div>
+    <h1>
+      <span class="es">Workshop Discovery <span class="ac">AI-Native</span> · <br>2 días + 5 días HITL para gobierno corporativo</span>
+      <span class="en">Discovery <span class="ac">AI-Native</span> Workshop · <br>2 days + 5 HITL business days for corporate governance</span>
+    </h1>
+    <p class="hero-sub">
+      <span class="es">Para <strong>comité ejecutivo, equipos técnicos del cliente, PMO, procurement y compliance</strong>. Convertimos una iniciativa AI-Native ambigua en un <em>paquete defendible ante el board, anexable a un RFP y trazable contra ISO 27001, GDPR y normativa sectorial</em>. Sin precios prematuros, con disclaimer comercial, con SLAs por etapa.</span>
+      <span class="en">For <strong>executive committee, client technical teams, PMO, procurement and compliance</strong>. We turn an ambiguous AI-Native initiative into a <em>board-defensible package, annexable to an RFP and traceable against ISO 27001, GDPR and sector regulation</em>. No premature pricing, mandatory commercial disclaimer, SLAs per stage.</span>
+    </p>
+    <div class="kpis">
+      <div class="kpi"><div class="kpi-v">2<small>d</small></div><div class="kpi-l"><span class="es">Workshop presencial</span><span class="en">On-site workshop</span></div><div class="kpi-s">8 <span class="es">sesiones</span><span class="en">sessions</span></div></div>
+      <div class="kpi"><div class="kpi-v">5<small>d</small></div><div class="kpi-l"><span class="es">Consolidación HITL</span><span class="en">HITL consolidation</span></div><div class="kpi-s">T+1 → T+5</div></div>
+      <div class="kpi"><div class="kpi-v">4</div><div class="kpi-l">Quality Gates</div><div class="kpi-s">G1 · G1.5 · G2 · G3</div></div>
+      <div class="kpi"><div class="kpi-v">12</div><div class="kpi-l"><span class="es">Anexos entregables</span><span class="en">Deliverable annexes</span></div><div class="kpi-s">{WIP} → {Aprobado}</div></div>
+      <div class="kpi"><div class="kpi-v">18<small>d</small></div><div class="kpi-l"><span class="es">De carta a backlog CCB</span><span class="en">Letter to CCB backlog</span></div><div class="kpi-s">T-10 → T+6</div></div>
+    </div>
+  </div>
+</header>
+
+<main>
+
+<!-- ════════════ TL;DR ════════════ -->
+<section id="tldr">
+  <div class="tldr">
+    <h2><span class="es">TL;DR · La promesa enterprise</span><span class="en">TL;DR · The enterprise promise</span></h2>
+    <p>
+      <span class="es">En <strong>2 días de workshop + 5 días hábiles de consolidación HITL</strong> (Human-in-the-Loop — humano-en-el-bucle) transformamos una iniciativa AI-Native ambigua en un paquete <em>listo para gobernanza corporativa</em>: spec destilada por iniciativa (3 lentes Es/Hace/F-NF), arquitectura TO-BE con ADRs (Architecture Decision Records), dimensionamiento P50/P80/P95 en FTE-meses con bandas RAT/MVP/(R)Evolución, RACI ampliada, risk register, plan de comunicación al Steering Committee y addendum de cumplimiento (ISO 27001, GDPR/leyes locales, sectorial). El paquete se entrega bajo <strong>SLA contractual</strong> y se anexa directamente a un RFP o se traduce a líneas de SoW.</span>
+      <span class="en">In <strong>2 workshop days + 5 business days of HITL consolidation</strong> (Human-in-the-Loop) we transform an ambiguous AI-Native initiative into a <em>corporate-governance-ready package</em>: distilled spec per initiative (3 lenses Is/Does/F-NF), TO-BE architecture with ADRs (Architecture Decision Records), P50/P80/P95 FTE-month sizing with RAT/MVP/(R)Evolution bands, extended RACI, risk register, Steering Committee communication plan and compliance addendum (ISO 27001, GDPR/local laws, sectoral). The package is delivered under <strong>contractual SLA</strong> and annexes directly to an RFP or translates into SoW lines.</span>
+    </p>
+  </div>
+  <div class="callout navy">
+    <div class="callout-icon">i</div>
+    <div class="callout-body">
+      <strong><span class="es">Lo que esta variante añade</span><span class="en">What this variant adds</span></strong>
+      <span class="es">Frente al playbook completo: <em>procurement-readiness</em>, governance multi-stakeholder formal (Steering + CCB + PMO), SLAs contractuales por etapa, addendum de compliance y reporting al board. Para profesional individual o equipo de 3–6, ver variante <em>Profesional</em>. Para iniciativas de un solo equipo sin gobierno formal, usar el <em>playbook completo</em>.</span>
+      <span class="en">Versus the full playbook: <em>procurement-readiness</em>, formal multi-stakeholder governance (Steering + CCB + PMO), contractual SLAs per stage, compliance addendum and board reporting. For individual or 3–6 person teams, see <em>Professional</em> variant. For single-team initiatives without formal governance, use the <em>full playbook</em>.</span>
+    </div>
+  </div>
+</section>
+
+<!-- ════════════ CUÁNDO ════════════ -->
+<section id="cuando">
+  <h2><span class="es">Cuándo usar esta variante</span><span class="en">When to use this variant</span></h2>
+  <div class="tbl-wrap"><table>
+    <thead><tr><th><span class="es">Escenario</span><span class="en">Scenario</span></th><th><span class="es">Encaja porque…</span><span class="en">Fits because…</span></th></tr></thead>
+    <tbody>
+      <tr><td><span class="es">Hay un RFP en curso o por publicar y se necesita anexo técnico defendible.</span><span class="en">There is an RFP in progress or about to publish and a defensible technical annex is needed.</span></td><td><span class="es">El paquete HITL T+5 viene con tabla de mapeo a líneas de SoW y scoring criteria sugeridos.</span><span class="en">The HITL T+5 package comes with mapping to SoW lines and suggested scoring criteria.</span></td></tr>
+      <tr><td><span class="es">La iniciativa cruza ≥ 3 áreas (negocio + tecnología + riesgos + compliance).</span><span class="en">The initiative crosses ≥ 3 areas (business + technology + risk + compliance).</span></td><td><span class="es">Steering Committee, RACI ampliada y CCB están integrados al método.</span><span class="en">Steering Committee, extended RACI and CCB are integrated into the method.</span></td></tr>
+      <tr><td><span class="es">La organización tiene PMO formal y exige reporting consistente.</span><span class="en">The organization has a formal PMO and demands consistent reporting.</span></td><td><span class="es">Templates de status, EVM (Earned Value Management) y board report mensual incluidos.</span><span class="en">Templates for status, EVM (Earned Value Management) and monthly board report included.</span></td></tr>
+      <tr><td><span class="es">Sector regulado (banca, salud, gobierno, seguros, energía).</span><span class="en">Regulated sector (banking, health, government, insurance, energy).</span></td><td><span class="es">Addendum compliance con matriz control ↔ etapa ↔ evidencia, mapeado a ISO 27001, GDPR/LFPDPPP/LPDP/LPD, SOX, BCBS 239, HIPAA, HL7.</span><span class="en">Compliance addendum with control ↔ stage ↔ evidence matrix, mapped to ISO 27001, GDPR/LFPDPPP/LPDP/LPD, SOX, BCBS 239, HIPAA, HL7.</span></td></tr>
+      <tr><td><span class="es">El sponsor necesita defender la iniciativa frente al board en 1 página.</span><span class="en">The sponsor needs to defend the initiative before the board in 1 page.</span></td><td><span class="es">El resumen ejecutivo a C-level es entregable estándar.</span><span class="en">The C-level executive summary is a standard deliverable.</span></td></tr>
+    </tbody>
+  </table></div>
+  <div class="callout warn">
+    <div class="callout-icon">!</div>
+    <div class="callout-body">
+      <strong><span class="es">No la uses si</span><span class="en">Do not use if</span></strong>
+      <span class="es">La iniciativa la lidera un solo equipo sin gobernanza formal, la decisión la toma una sola persona, o el plazo de respuesta es &lt; 5 días hábiles. Para esos casos usa la variante <em>Profesional</em> o el <em>playbook completo</em>.</span>
+      <span class="en">A single team without formal governance leads the initiative, one person makes the decision, or the response window is &lt; 5 business days. For those cases use the <em>Professional</em> variant or the <em>full playbook</em>.</span>
+    </div>
+  </div>
+</section>
+
+<!-- ════════════ PRE-WORKSHOP ════════════ -->
+<section id="pre">
+  <h2><span class="es">Pre-workshop · 10 días hábiles de preparación gobernada</span><span class="en">Pre-workshop · 10 business days of governed preparation</span></h2>
+  <p class="lead"><span class="es">Siete tareas con owners explícitos. Si al iniciar el día 1 falta cualquiera, el workshop se posterga sin penalización contractual: la calidad de governance no se improvisa.</span><span class="en">Seven tasks with explicit owners. If any one is missing at Day 1 start, the workshop is rescheduled without contractual penalty: governance quality is not improvised.</span></p>
+  <div class="tbl-wrap"><table>
+    <thead><tr><th>#</th><th><span class="es">Tarea</span><span class="en">Task</span></th><th>Owner</th><th><span class="es">Salida concreta</span><span class="en">Concrete output</span></th></tr></thead>
+    <tbody>
+      <tr><td>1</td><td><strong><span class="es">Carta de patrocinio firmada</span><span class="en">Signed sponsorship letter</span></strong><span class="es"> · objetivo, restricciones, autoridad delegada.</span><span class="en"> · goal, constraints, delegated authority.</span></td><td>Sponsor + Conductor</td><td><span class="es">Documento 1 página firmado.</span><span class="en">1-page signed document.</span></td></tr>
+      <tr><td>2</td><td><strong>Stakeholder mapping</strong> <span class="es">según método de Mendelow (poder × interés). Mínimo 12 stakeholders.</span><span class="en">via Mendelow's method (power × interest). Minimum 12 stakeholders.</span></td><td>PMO + Conductor</td><td><span class="es">Mapa visual + lista priorizada.</span><span class="en">Visual map + prioritized list.</span></td></tr>
+      <tr><td>3</td><td><strong>NDA</strong> (Non-Disclosure Agreement) <span class="es">y acceso seguro a evidencia.</span><span class="en">and secure access to evidence.</span></td><td>Procurement + <span class="es">Seguridad</span><span class="en">Security</span></td><td><span class="es">NDA firmado · accesos provisionados.</span><span class="en">Signed NDA · provisioned access.</span></td></tr>
+      <tr><td>4</td><td><strong><span class="es">Evidence pack enterprise</span><span class="en">Enterprise evidence pack</span></strong><span class="es"> · ≥ 12 artefactos clasificados con tags <span class="tag tag-d">CÓDIGO</span> <span class="tag tag-d">CONFIG</span> <span class="tag tag-d">DOC</span> <span class="tag tag-i">INFERENCIA</span> <span class="tag tag-s">SUPUESTO</span>.</span><span class="en"> · ≥ 12 artifacts classified with tags <span class="tag tag-d">CODE</span> <span class="tag tag-d">CONFIG</span> <span class="tag tag-d">DOC</span> <span class="tag tag-i">INFERENCE</span> <span class="tag tag-s">ASSUMPTION</span>.</span></td><td>Domain + Tech Lead</td><td><span class="es">Carpeta <code>pre-read/</code> versionada.</span><span class="en">Versioned <code>pre-read/</code> folder.</span></td></tr>
+      <tr><td>5</td><td><strong><span class="es">Convocatoria formal</span><span class="en">Formal convocation</span></strong><span class="es"> · workshop + Steering review T+5.</span><span class="en"> · workshop + T+5 Steering review.</span></td><td>PMO</td><td><span class="es">Asistencia confirmada ≥ 90%.</span><span class="en">Confirmed attendance ≥ 90%.</span></td></tr>
+      <tr><td>6</td><td><strong>Risk Appetite Statement</strong><span class="es"> · qué riesgos tolera la organización.</span><span class="en"> · what risks the organization tolerates.</span></td><td>Risk Officer + Sponsor</td><td><span class="es">Documento 1 página firmado por Risk Officer.</span><span class="en">1-page document signed by Risk Officer.</span></td></tr>
+      <tr><td>7</td><td><strong><span class="es">Briefing al CCB</span><span class="en">CCB briefing</span></strong> (Change Control Board) <span class="es">· agendar slot post-workshop.</span><span class="en">· schedule post-workshop slot.</span></td><td>PMO + CCB Chair</td><td><span class="es">Slot agendado en próxima cadencia CCB.</span><span class="en">Slot scheduled in next CCB cadence.</span></td></tr>
+    </tbody>
+  </table></div>
+</section>
+
+<!-- ════════════ AGENDA ════════════ -->
+<section id="agenda">
+  <h2><span class="es">Agenda · 2 días, 8 sesiones · foco enterprise</span><span class="en">Agenda · 2 days, 8 sessions · enterprise focus</span></h2>
+  <p class="lead"><span class="es">El detalle bloque-por-bloque vive en el playbook completo. Esta tabla destaca <em>qué cambia con governance corporativa</em>.</span><span class="en">The block-by-block detail lives in the full playbook. This table highlights <em>what changes with corporate governance</em>.</span></p>
+  <div class="tbl-wrap"><table>
+    <thead><tr><th><span class="es">Día</span><span class="en">Day</span></th><th><span class="es">Sesión</span><span class="en">Session</span></th><th><span class="es">Hora</span><span class="en">Time</span></th><th><span class="es">Foco enterprise</span><span class="en">Enterprise focus</span></th></tr></thead>
+    <tbody>
+      <tr><td><strong>D1</strong></td><td>S1 · <span class="es">Alineación de Expectativas</span><span class="en">Expectation Alignment</span></td><td>09:00–10:30</td><td><span class="es">Sponsor + Steering chair presentan objetivo de negocio; Risk Officer presenta apetito.</span><span class="en">Sponsor + Steering chair present business goal; Risk Officer presents appetite.</span></td></tr>
+      <tr><td>D1</td><td>S2 · Problem Space Exploration</td><td>10:45–12:15</td><td><span class="es">Journey AS-IS con métricas operativas; pain points cuantificados con costo organizacional.</span><span class="en">AS-IS journey with operational metrics; pain points quantified with organizational cost.</span></td></tr>
+      <tr><td>D1</td><td>S3 · AI Opportunity Mapping</td><td>13:30–15:00</td><td><span class="es">Filtro AI-native + filtro de cumplimiento (¿cabe en nuestro apetito de riesgo regulatorio?).</span><span class="en">AI-native filter + compliance filter (does it fit our regulatory risk appetite?).</span></td></tr>
+      <tr><td>D1</td><td>S4 · <span class="es">Priorización · Gate G1</span><span class="en">Prioritization · Gate G1</span></td><td>15:15–16:45</td><td><span class="es">Sponsor firma top-3 hipótesis; CCB queda informado.</span><span class="en">Sponsor signs top-3 hypotheses; CCB is informed.</span></td></tr>
+      <tr><td><strong>D2</strong></td><td>S5 · Vibe Coding Kickoff</td><td>09:00–10:30</td><td><span class="es">Prototipos en sandbox segregada; logs auditables desde el primer prompt.</span><span class="en">Prototypes in segregated sandbox; auditable logs from the first prompt.</span></td></tr>
+      <tr><td>D2</td><td>S6 · Demos · Feedback · <span class="es">Iteración</span><span class="en">Iteration</span></td><td>10:45–12:15</td><td><span class="es">Stakeholder técnico y oficial de cumplimiento presentes en demos.</span><span class="en">Technical stakeholder and compliance officer present in demos.</span></td></tr>
+      <tr><td>D2</td><td>S7 · <span class="es">Destilación · 3 Lentes</span><span class="en">Distillation · 3 Lenses</span></td><td>13:30–15:00</td><td><span class="es">Spec firmada por Sponsor + Tech Lead + Risk Officer en cada lente.</span><span class="en">Spec signed by Sponsor + Tech Lead + Risk Officer per lens.</span></td></tr>
+      <tr><td>D2</td><td>S8 · <span class="es">Cierre · Gate G2</span><span class="en">Close · Gate G2</span></td><td>15:15–16:45</td><td><span class="es">Acta firmada y enviada a Steering Committee por Conductor.</span><span class="en">Minutes signed and sent to Steering Committee by Conductor.</span></td></tr>
+    </tbody>
+  </table></div>
+  <div class="callout info">
+    <div class="callout-icon">i</div>
+    <div class="callout-body">
+      <strong><span class="es">Referencia</span><span class="en">Reference</span></strong>
+      <span class="es">Detalle de bloques, técnicas, criterios de aceptación, casos borde y anti-patrones por sesión: <code>playbook-workshop-discovery-ai-native-v2026.04.2.html</code>.</span>
+      <span class="en">Block-by-block detail, techniques, acceptance criteria, edge cases and anti-patterns per session: <code>playbook-workshop-discovery-ai-native-v2026.04.2.html</code>.</span>
+    </div>
+  </div>
+</section>
+
+<!-- ════════════ PROCUREMENT ════════════ -->
+<section id="procurement">
+  <h2><span class="es">Procurement / RFP-ready · cómo se conecta con un RFP existente</span><span class="en">Procurement / RFP-ready · how it connects to an existing RFP</span></h2>
+  <p class="lead"><span class="es">El paquete HITL T+5 está diseñado para <strong>anexarse directamente a un RFP</strong> (Request for Proposal) o <strong>convertirse en líneas de SoW</strong> (Statement of Work — declaración de trabajo) sin reescritura.</span><span class="en">The HITL T+5 package is designed to <strong>annex directly to an RFP</strong> (Request for Proposal) or <strong>translate into SoW lines</strong> (Statement of Work) without rewrite.</span></p>
+
+  <h3><span class="es">Mapeo paquete HITL ↔ RFP</span><span class="en">HITL package ↔ RFP mapping</span></h3>
+  <div class="tbl-wrap"><table>
+    <thead><tr><th><span class="es">Output del workshop</span><span class="en">Workshop output</span></th><th><span class="es">Sección típica de RFP</span><span class="en">Typical RFP section</span></th><th><span class="es">Cómo se reutiliza</span><span class="en">How it is reused</span></th></tr></thead>
+    <tbody>
+      <tr><td><span class="es">Spec destilada (3 lentes)</span><span class="en">Distilled spec (3 lenses)</span></td><td><span class="es">Bases técnicas / Especificaciones funcionales</span><span class="en">Technical bases / Functional specs</span></td><td><span class="es">Cada fila <em>HACE / NO HACE / F / NF</em> es un requisito numerado.</span><span class="en">Each <em>DOES / DOES NOT / F / NF</em> row is a numbered requirement.</span></td></tr>
+      <tr><td><span class="es">Arquitectura TO-BE + ADRs</span><span class="en">TO-BE Architecture + ADRs</span></td><td><span class="es">Anexo arquitectónico</span><span class="en">Architectural annex</span></td><td><span class="es">Diagramas C4 nivel 2 + ADRs firmados como anexo defendible ante auditoría.</span><span class="en">C4 level 2 diagrams + signed ADRs as audit-defensible annex.</span></td></tr>
+      <tr><td><span class="es">Dimensionamiento P50/P80/P95</span><span class="en">Sizing P50/P80/P95</span></td><td><span class="es">Volumetría / Magnitud del esfuerzo</span><span class="en">Volumetry / Effort magnitude</span></td><td><span class="es">Tabla FTE-meses por banda; el oferente alinea su propuesta.</span><span class="en">FTE-months table per band; the bidder aligns their proposal.</span></td></tr>
+      <tr><td><span class="es">RACI por iniciativa</span><span class="en">RACI per initiative</span></td><td><span class="es">Modelo de gobierno</span><span class="en">Governance model</span></td><td><span class="es">Roles cliente/proveedor preasignados.</span><span class="en">Client/vendor roles pre-assigned.</span></td></tr>
+      <tr><td>Risk Register</td><td><span class="es">Análisis de riesgos</span><span class="en">Risk analysis</span></td><td><span class="es">Matriz severidad × probabilidad con dueño y mitigación.</span><span class="en">Severity × probability matrix with owner and mitigation.</span></td></tr>
+      <tr><td><span class="es">Compliance addendum</span><span class="en">Compliance addendum</span></td><td><span class="es">Cumplimiento normativo</span><span class="en">Regulatory compliance</span></td><td><span class="es">Matriz control ↔ etapa ↔ evidencia mapeada al estándar exigido.</span><span class="en">Control ↔ stage ↔ evidence matrix mapped to required standard.</span></td></tr>
+      <tr><td>Plan 30/60/90</td><td><span class="es">Cronograma macro</span><span class="en">Macro schedule</span></td><td><span class="es">Hitos relativos a kickoff con dependencias.</span><span class="en">Milestones relative to kickoff with dependencies.</span></td></tr>
+    </tbody>
+  </table></div>
+
+  <h3><span class="es">Scoring criteria sugeridos · evaluación de ofertas</span><span class="en">Suggested scoring criteria · bid evaluation</span></h3>
+  <div class="tbl-wrap"><table>
+    <thead><tr><th><span class="es">Criterio</span><span class="en">Criterion</span></th><th><span class="es">Peso</span><span class="en">Weight</span></th><th><span class="es">Cómo se evalúa</span><span class="en">How it is evaluated</span></th></tr></thead>
+    <tbody>
+      <tr><td><span class="es">Comprensión del problema (uso explícito de la spec destilada)</span><span class="en">Problem understanding (explicit use of distilled spec)</span></td><td>20%</td><td><span class="es">Mención literal a las 3 lentes en la propuesta.</span><span class="en">Literal mention of the 3 lenses in the proposal.</span></td></tr>
+      <tr><td><span class="es">Viabilidad técnica AI-native</span><span class="en">AI-native technical feasibility</span></td><td>20%</td><td><span class="es">Propuesta arquitectónica alineada con ADRs entregados.</span><span class="en">Architectural proposal aligned with delivered ADRs.</span></td></tr>
+      <tr><td><span class="es">Equipo y experiencia (perfiles ↔ FTE-meses)</span><span class="en">Team and experience (profiles ↔ FTE-months)</span></td><td>15%</td><td><span class="es">CV con casos análogos de banda equivalente.</span><span class="en">CVs with analogous cases of equivalent band.</span></td></tr>
+      <tr><td><span class="es">Plan de mitigación de riesgos</span><span class="en">Risk mitigation plan</span></td><td>15%</td><td><span class="es">Cobertura ≥ 80% del Risk Register entregado.</span><span class="en">≥ 80% coverage of the delivered Risk Register.</span></td></tr>
+      <tr><td><span class="es">Cumplimiento normativo y compliance addendum</span><span class="en">Regulatory compliance and addendum</span></td><td>15%</td><td><span class="es">Mapeo control-por-control.</span><span class="en">Control-by-control mapping.</span></td></tr>
+      <tr><td><span class="es">Modelo de gobierno y reporting</span><span class="en">Governance and reporting model</span></td><td>10%</td><td><span class="es">Cadencia, dashboards, integración con PMO cliente.</span><span class="en">Cadence, dashboards, integration with client PMO.</span></td></tr>
+      <tr><td><span class="es">Modelo comercial (firme, separado del workshop)</span><span class="en">Commercial model (firm, separate from workshop)</span></td><td>5%</td><td><span class="es">Disclaimer respetado; precio en propuesta independiente.</span><span class="en">Disclaimer respected; price in independent proposal.</span></td></tr>
+    </tbody>
+  </table></div>
+  <div class="callout warn">
+    <div class="callout-icon">!</div>
+    <div class="callout-body">
+      <strong><span class="es">Regla</span><span class="en">Rule</span></strong>
+      <span class="es">El workshop <em>no fija precio</em>. Entrega magnitudes (FTE-meses), bandas y scope-cost-time. La oferta firme se construye sobre estos insumos en documento comercial separado bajo NDA.</span>
+      <span class="en">The workshop <em>does not fix price</em>. It delivers magnitudes (FTE-months), bands and scope-cost-time. The firm offer is built on these inputs in a separate commercial document under NDA.</span>
+    </div>
+  </div>
+</section>
+
+<!-- ════════════ GOVERNANCE ════════════ -->
+<section id="governance">
+  <h2><span class="es">Multi-stakeholder governance</span><span class="en">Multi-stakeholder governance</span></h2>
+
+  <h3>Steering Committee</h3>
+  <div class="tbl-wrap"><table>
+    <thead><tr><th style="width:170px"><span class="es">Atributo</span><span class="en">Attribute</span></th><th><span class="es">Definición</span><span class="en">Definition</span></th></tr></thead>
+    <tbody>
+      <tr><td><strong><span class="es">Composición</span><span class="en">Composition</span></strong></td><td><span class="es">Sponsor ejecutivo (chair), CIO/CTO, COO o líder de área de negocio, CFO o delegado, Risk Officer, Conductor MetodologIA, PMO Lead. 5–7 personas máximo.</span><span class="en">Executive Sponsor (chair), CIO/CTO, COO or business area lead, CFO or delegate, Risk Officer, MetodologIA Conductor, PMO Lead. Max 5–7 people.</span></td></tr>
+      <tr><td><strong><span class="es">Cadencia</span><span class="en">Cadence</span></strong></td><td><span class="es">Quincenal durante consolidación; mensual post-handover hasta cierre del primer hito (RAT/MVP).</span><span class="en">Bi-weekly during consolidation; monthly post-handover until first milestone close (RAT/MVP).</span></td></tr>
+      <tr><td><strong><span class="es">Agenda tipo (60 min)</span><span class="en">Standard agenda (60 min)</span></strong></td><td>(1) <span class="es">Estado vs plan</span><span class="en">Status vs plan</span> 5 min · (2) <span class="es">Decisiones requeridas</span><span class="en">Decisions required</span> 15 min · (3) <span class="es">Riesgos y bloqueos</span><span class="en">Risks and blockers</span> 15 min · (4) <span class="es">Métricas de adopción</span><span class="en">Adoption metrics</span> 10 min · (5) <span class="es">Próximos hitos</span><span class="en">Next milestones</span> 10 min · (6) <span class="es">Acuerdos firmados</span><span class="en">Signed agreements</span> 5 min.</td></tr>
+      <tr><td><strong>Quórum</strong></td><td><span class="es">Sponsor + 50% restante. Sin quórum, decisiones se difieren máx 5 días hábiles.</span><span class="en">Sponsor + 50% remaining. Without quorum, decisions defer max 5 business days.</span></td></tr>
+      <tr><td><strong>Acta</strong></td><td><span class="es">Firmada por chair en sesión; distribuida por Scribe en máx 24 h.</span><span class="en">Signed by chair in session; distributed by Scribe within max 24 h.</span></td></tr>
+      <tr><td><strong>Escalation matrix</strong></td><td><span class="es">Severidad 1 (crítico) → Sponsor en &lt; 4 h · Severidad 2 (alto) → Steering en &lt; 24 h · Severidad 3 (medio) → próxima sesión Steering.</span><span class="en">Severity 1 (critical) → Sponsor &lt; 4 h · Severity 2 (high) → Steering &lt; 24 h · Severity 3 (medium) → next Steering session.</span></td></tr>
+    </tbody>
+  </table></div>
+
+  <h3><span class="es">Comité de Cambio · CCB · Change Control Board</span><span class="en">Change Control Board · CCB</span></h3>
+  <p><span class="es">El workshop <strong>alimenta el backlog del CCB existente del cliente</strong> — no compite con él.</span><span class="en">The workshop <strong>feeds the existing client CCB backlog</strong> — it does not compete with it.</span></p>
+  <div class="cards">
+    <div class="card"><div class="card-h"><span class="es">Touchpoint pre-workshop</span><span class="en">Pre-workshop touchpoint</span></div><div class="card-d"><span class="es">PMO presenta al CCB la iniciativa propuesta; CCB asigna slot de review post-workshop.</span><span class="en">PMO presents the proposed initiative to CCB; CCB assigns post-workshop review slot.</span></div></div>
+    <div class="card"><div class="card-h"><span class="es">Touchpoint post-workshop · T+6</span><span class="en">Post-workshop touchpoint · T+6</span></div><div class="card-d"><span class="es">Conductor presenta al CCB las iniciativas aprobadas (Gate G2) con scope-cost-time. El CCB aprueba ingreso al backlog formal de cambios.</span><span class="en">Conductor presents approved initiatives (Gate G2) with scope-cost-time. CCB approves entry to formal change backlog.</span></div></div>
+    <div class="card gold"><div class="card-h"><span class="es">Outputs que recibe el CCB</span><span class="en">Outputs CCB receives</span></div><div class="card-d"><span class="es">Spec destilada, arquitectura TO-BE, risk register, dependencias con sistemas existentes, FTE-meses por banda.</span><span class="en">Distilled spec, TO-BE architecture, risk register, dependencies with existing systems, FTE-months per band.</span></div></div>
+    <div class="card lilac"><div class="card-h"><span class="es">Decisiones del CCB</span><span class="en">CCB decisions</span></div><div class="card-d"><span class="es">Aprobación, aprobación condicionada (con condiciones documentadas), rechazo (con razón), o solicitud de información adicional (con plazo de 5 días hábiles).</span><span class="en">Approval, conditional approval (documented conditions), rejection (with reason), or request for additional info (5 business days).</span></div></div>
+  </div>
+
+  <h3><span class="es">Integración con la PMO existente</span><span class="en">Integration with existing PMO</span></h3>
+  <div class="tbl-wrap"><table>
+    <thead><tr><th>Touchpoint</th><th><span class="es">Cuándo</span><span class="en">When</span></th><th><span class="es">Qué intercambia</span><span class="en">What is exchanged</span></th></tr></thead>
+    <tbody>
+      <tr><td>Kickoff PMO</td><td>T-10 <span class="es">días</span><span class="en">days</span></td><td><span class="es">Carta de patrocinio + plan de workshop + RACI preliminar.</span><span class="en">Sponsorship letter + workshop plan + preliminary RACI.</span></td></tr>
+      <tr><td><span class="es">Daily ligero</span><span class="en">Light daily</span></td><td><span class="es">Durante consolidación T+1..T+5</span><span class="en">During T+1..T+5 consolidation</span></td><td><span class="es">Status diario en formato del cliente.</span><span class="en">Daily status in client format.</span></td></tr>
+      <tr><td><span class="es">Reporte semanal</span><span class="en">Weekly report</span></td><td>T+5</td><td><span class="es">Dashboard compartido con métricas del paquete.</span><span class="en">Shared dashboard with package metrics.</span></td></tr>
+      <tr><td><span class="es">Reporte mensual board</span><span class="en">Monthly board report</span></td><td>T+30, T+60, T+90</td><td><span class="es">1 página ejecutiva (template incluido).</span><span class="en">1 executive page (template included).</span></td></tr>
+    </tbody>
+  </table></div>
+  <div class="callout navy">
+    <div class="callout-icon">i</div>
+    <div class="callout-body">
+      <strong><span class="es">Principio</span><span class="en">Principle</span></strong>
+      <span class="es">La PMO del cliente es la dueña del reporting. MetodologIA entrega en el formato que la PMO usa, no el inverso.</span>
+      <span class="en">The client PMO owns the reporting. MetodologIA delivers in the format the PMO uses, not the inverse.</span>
+    </div>
+  </div>
+</section>
+
+<!-- ════════════ SLA ════════════ -->
+<section id="sla">
+  <h2><span class="es">SLAs contractuales por etapa</span><span class="en">Contractual SLAs per stage</span></h2>
+  <div class="tbl-wrap"><table>
+    <thead><tr><th><span class="es">Etapa</span><span class="en">Stage</span></th><th>SLA</th><th><span class="es">Penalización</span><span class="en">Penalty</span> <span class="tag tag-i">INFERENCIA</span></th><th><span class="es">Exclusiones</span><span class="en">Exclusions</span></th><th>Escalation</th></tr></thead>
+    <tbody>
+      <tr><td><strong>T+1 · <span class="es">Síntesis</span><span class="en">Synthesis</span></strong></td><td><span class="es">Entregable disponible en repo seguro antes de 18:00 hora cliente.</span><span class="en">Deliverable available in secure repo before 18:00 client time.</span></td><td><span class="es">Crédito 0.5 FTE-día sobre próxima fase.</span><span class="en">0.5 FTE-day credit on next phase.</span></td><td><span class="es">Demoras causadas por accesos no provisionados por cliente.</span><span class="en">Delays caused by client-side missing access.</span></td><td>Conductor → Sponsor &lt; 4 h.</td></tr>
+      <tr><td><strong>T+2 · <span class="es">Modelado</span><span class="en">Modeling</span></strong></td><td><span class="es">ADRs firmados por Tech Lead cliente o documentado bloqueo.</span><span class="en">ADRs signed by client Tech Lead or blocker logged.</span></td><td><span class="es">Crédito 0.5 FTE-día.</span><span class="en">0.5 FTE-day credit.</span></td><td><span class="es">Indisponibilidad de Tech Lead cliente.</span><span class="en">Client Tech Lead unavailability.</span></td><td>Tech Lead → CTO &lt; 8 h.</td></tr>
+      <tr><td><strong>T+3 · <span class="es">Dimensionamiento</span><span class="en">Sizing</span></strong></td><td><span class="es">P50/P80/P95 entregados con disclaimer comercial textual.</span><span class="en">P50/P80/P95 delivered with textual commercial disclaimer.</span></td><td><span class="es">Crédito 1 FTE-día.</span><span class="en">1 FTE-day credit.</span></td><td><span class="es">Cambios de alcance solicitados por cliente posteriores a Gate G2.</span><span class="en">Scope changes requested by client after Gate G2.</span></td><td>PMO → Sponsor &lt; 24 h.</td></tr>
+      <tr><td><strong>T+4 · <span class="es">Ensamblaje + QA</span><span class="en">Assembly + QA</span></strong></td><td><span class="es">Paquete con 0 inconsistencias en checklist cross-deliverable.</span><span class="en">Package with 0 inconsistencies in cross-deliverable checklist.</span></td><td><span class="es">Crédito 0.5 FTE-día + iteración de QA.</span><span class="en">0.5 FTE-day credit + QA iteration.</span></td><td><span class="es">Evidencia retenida por compliance del cliente.</span><span class="en">Evidence retained by client compliance.</span></td><td>Risk Controller → Steering.</td></tr>
+      <tr><td><strong>T+5 · Handover</strong></td><td><span class="es">Sesión 90 min con equipos técnicos · acta firmada.</span><span class="en">90-min session with tech teams · signed minutes.</span></td><td><span class="es">Crédito 1 FTE-día + reagenda en &lt; 5 días.</span><span class="en">1 FTE-day credit + reschedule &lt; 5 days.</span></td><td><span class="es">Indisponibilidad de equipo técnico cliente.</span><span class="en">Client technical team unavailability.</span></td><td>Sponsor → Steering.</td></tr>
+    </tbody>
+  </table></div>
+  <div class="callout warn">
+    <div class="callout-icon">!</div>
+    <div class="callout-body">
+      <strong><span class="es">Disclaimer comercial obligatorio</span><span class="en">Mandatory commercial disclaimer</span></strong>
+      <span class="es">Las penalizaciones aquí descritas son de referencia metodológica y se vuelven exigibles únicamente al ser incorporadas a un contrato comercial firmado por ambas partes. La oferta firme se entrega como documento independiente bajo NDA y firma del responsable comercial.</span>
+      <span class="en">Penalties described here are methodological references and become enforceable only when incorporated into a commercial contract signed by both parties. The firm offer is delivered as an independent document under NDA, signed by the commercial lead.</span>
+    </div>
+  </div>
+</section>
+
+<!-- ════════════ COMPLIANCE ════════════ -->
+<section id="compliance">
+  <h2><span class="es">Compliance addendum</span><span class="en">Compliance addendum</span></h2>
+
+  <h3><span class="es">Frameworks cubiertos</span><span class="en">Frameworks covered</span></h3>
+  <div class="tbl-wrap"><table>
+    <thead><tr><th>Framework</th><th><span class="es">Aplicabilidad típica</span><span class="en">Typical applicability</span></th><th><span class="es">Controles tocados por el workshop</span><span class="en">Controls touched by the workshop</span></th></tr></thead>
+    <tbody>
+      <tr><td><strong>ISO 27001</strong></td><td><span class="es">Cualquier organización con SGSI (Sistema de Gestión de Seguridad de la Información).</span><span class="en">Any organization with an ISMS (Information Security Management System).</span></td><td>A.5 (<span class="es">políticas</span><span class="en">policies</span>), A.8 (<span class="es">activos — datos del workshop</span><span class="en">assets — workshop data</span>), A.12 (<span class="es">operación segura</span><span class="en">secure operation</span>), A.18 (<span class="es">cumplimiento</span><span class="en">compliance</span>).</td></tr>
+      <tr><td><strong>GDPR / LFPDPPP (MX) / LPDP (CO) / LPD (AR)</strong></td><td><span class="es">Iniciativas que tocan datos personales.</span><span class="en">Initiatives touching personal data.</span></td><td><span class="es">Base legal, minimización, derechos del titular, DPIA (Data Protection Impact Assessment) si aplica.</span><span class="en">Legal basis, minimization, data-subject rights, DPIA (Data Protection Impact Assessment) if applicable.</span></td></tr>
+      <tr><td><strong>SOX</strong> (Sarbanes-Oxley)</td><td><span class="es">Servicios financieros listados en EE.UU. o subsidiarias.</span><span class="en">Financial services listed in the US or subsidiaries.</span></td><td><span class="es">Trazabilidad de decisiones, segregación de funciones, ITGC (IT General Controls).</span><span class="en">Decision traceability, segregation of duties, ITGC (IT General Controls).</span></td></tr>
+      <tr><td><strong>BCBS 239</strong></td><td><span class="es">Banca con riesgos materiales.</span><span class="en">Banking with material risks.</span></td><td><span class="es">Calidad de datos para riesgo, gobernanza de datos, capacidad de agregación.</span><span class="en">Data quality for risk, data governance, aggregation capacity.</span></td></tr>
+      <tr><td><strong>HIPAA · HL7</strong></td><td><span class="es">Salud (EE.UU. y proveedores).</span><span class="en">Health (US and providers).</span></td><td><span class="es">PHI (Protected Health Information), interoperabilidad HL7/FHIR si toca historia clínica.</span><span class="en">PHI (Protected Health Information), HL7/FHIR interoperability if touching clinical record.</span></td></tr>
+      <tr><td><strong><span class="es">Clasificación de información (gobierno)</span><span class="en">Information classification (government)</span></strong></td><td><span class="es">Sector público.</span><span class="en">Public sector.</span></td><td><span class="es">Manejo de información reservada, confidencial, pública conforme a ley nacional.</span><span class="en">Handling of restricted, confidential, public information per national law.</span></td></tr>
+    </tbody>
+  </table></div>
+
+  <h3><span class="es">Matriz control ↔ etapa ↔ evidencia generada</span><span class="en">Control ↔ stage ↔ evidence matrix</span></h3>
+  <div class="tbl-wrap"><table>
+    <thead><tr><th><span class="es">Control representativo</span><span class="en">Representative control</span></th><th><span class="es">Etapa del workshop</span><span class="en">Workshop stage</span></th><th><span class="es">Evidencia generada</span><span class="en">Evidence generated</span></th></tr></thead>
+    <tbody>
+      <tr><td>ISO 27001 A.8.2 (<span class="es">clasificación de información</span><span class="en">information classification</span>)</td><td>Pre-workshop · Evidence pack</td><td><span class="es">Cada artefacto del <code>pre-read/</code> clasificado: público / interno / confidencial / restringido.</span><span class="en">Each <code>pre-read/</code> artifact classified: public / internal / confidential / restricted.</span></td></tr>
+      <tr><td>ISO 27001 A.12.1 (<span class="es">procedimientos operativos</span><span class="en">operational procedures</span>)</td><td>S5 · Vibe Coding</td><td><span class="es">Sandbox segregada con logging habilitado · prompts auditables.</span><span class="en">Segregated sandbox with logging enabled · auditable prompts.</span></td></tr>
+      <tr><td>GDPR Art. 35 (DPIA)</td><td>T+1 <span class="es">Síntesis</span><span class="en">Synthesis</span></td><td><span class="es">Si la iniciativa procesa datos personales, se inicia DPIA con Risk Officer firmando.</span><span class="en">If initiative processes personal data, DPIA started with Risk Officer signing.</span></td></tr>
+      <tr><td>GDPR Art. 5 (<span class="es">minimización</span><span class="en">minimization</span>)</td><td>S7 · Spec lente F/NF</td><td><span class="es">Cada NF de datos declara qué dato se procesa y por qué.</span><span class="en">Each data NF declares what data is processed and why.</span></td></tr>
+      <tr><td>SOX 404 (<span class="es">controles internos</span><span class="en">internal controls</span>)</td><td>T+2 <span class="es">Modelado · ADRs</span><span class="en">Modeling · ADRs</span></td><td><span class="es">ADRs firmados son evidencia auditable de decisiones arquitectónicas.</span><span class="en">Signed ADRs are auditable evidence of architectural decisions.</span></td></tr>
+      <tr><td>BCBS 239 <span class="es">Principios</span><span class="en">Principles</span> 3 y 4</td><td>T+3 <span class="es">Dimensionamiento</span><span class="en">Sizing</span></td><td><span class="es">Trazabilidad de supuestos sobre datos y calidad.</span><span class="en">Traceability of assumptions about data and quality.</span></td></tr>
+      <tr><td>HIPAA §164.312 (<span class="es">controles técnicos</span><span class="en">technical controls</span>)</td><td>S5 + T+2</td><td><span class="es">Diseño con encriptación en reposo y tránsito si toca PHI.</span><span class="en">Design with encryption at rest and in transit if touching PHI.</span></td></tr>
+      <tr><td><span class="es">Clasificación gobierno</span><span class="en">Government classification</span></td><td>Pre-workshop + T+4</td><td><span class="es">Marca de clasificación en cada documento del paquete.</span><span class="en">Classification mark on every package document.</span></td></tr>
+    </tbody>
+  </table></div>
+  <div class="callout crit">
+    <div class="callout-icon">×</div>
+    <div class="callout-body">
+      <strong><span class="es">Regla</span><span class="en">Rule</span></strong>
+      <span class="es">Ningún paquete HITL T+5 sale sin la matriz compliance llena para el framework aplicable. El Risk Officer firma la matriz como prerrequisito de Gate G2.</span>
+      <span class="en">No HITL T+5 package leaves without the compliance matrix filled for the applicable framework. The Risk Officer signs the matrix as Gate G2 prerequisite.</span>
+    </div>
+  </div>
+</section>
+
+<!-- ════════════ BOARD ════════════ -->
+<section id="board">
+  <h2><span class="es">Reporting al comité directivo</span><span class="en">Reporting to the board</span></h2>
+
+  <h3><span class="es">Template de reporte mensual a board · 1 página</span><span class="en">Monthly board report template · 1 page</span></h3>
+  <div class="report-box">
+    <div class="report-row head"><span class="es">INICIATIVA AI-NATIVE · [Nombre] · Reporte Board · MMM/AAAA</span><span class="en">AI-NATIVE INITIATIVE · [Name] · Board Report · MMM/YYYY</span></div>
+    <div class="report-row kv"><strong>ESTADO:</strong> [<span class="es">Verde · Amarillo · Rojo</span><span class="en">Green · Yellow · Red</span>] &nbsp;&nbsp; <strong>BANDA / BAND:</strong> RAT / MVP / (R)Evol</div>
+    <div class="report-row kv"><strong><span class="es">HITO ACTUAL</span><span class="en">CURRENT MILESTONE</span>:</strong> [<span class="es">Hito M+X</span><span class="en">Milestone M+X</span>] &nbsp;&nbsp; <strong><span class="es">FECHA</span><span class="en">DATE</span>:</strong> DD/MM/YYYY</div>
+    <div class="report-row"><strong><span class="es">PROGRESO (últimos 30 días)</span><span class="en">PROGRESS (last 30 days)</span></strong><br>· [<span class="es">bullet medible 1</span><span class="en">measurable bullet 1</span>]<br>· [<span class="es">bullet medible 2</span><span class="en">measurable bullet 2</span>]<br>· [<span class="es">bullet medible 3</span><span class="en">measurable bullet 3</span>]</div>
+    <div class="report-row"><strong><span class="es">KPIs EJECUTIVOS</span><span class="en">EXECUTIVE KPIs</span></strong><br>· Time-to-traction: X <span class="es">días vs Y plan</span><span class="en">days vs Y plan</span> [↑ ↓ →]<br>· <span class="es">Costo evitado / valor proyectado</span><span class="en">Cost avoided / projected value</span>: X FTE-<span class="es">meses equivalentes</span><span class="en">months equivalent</span><br>· <span class="es">Riesgo mitigado</span><span class="en">Risk mitigated</span>: X <span class="es">de</span><span class="en">of</span> Y <span class="es">riesgos cerrados</span><span class="en">risks closed</span><br>· <span class="es">Adopción interna</span><span class="en">Internal adoption</span>: X% <span class="es">usuarios activos vs cohorte</span><span class="en">active users vs cohort</span></div>
+    <div class="report-row kv"><strong><span class="es">DECISIÓN REQUERIDA AL BOARD</span><span class="en">DECISION REQUIRED FROM BOARD</span>:</strong> [<span class="es">Sí · No · Informativo</span><span class="en">Yes · No · Informational</span>]<br><span class="es">Si Sí: [pregunta concreta de 1 línea]</span><span class="en">If Yes: [concrete 1-line question]</span></div>
+    <div class="report-row"><strong><span class="es">PRÓXIMO HITO</span><span class="en">NEXT MILESTONE</span>:</strong> [<span class="es">hito + fecha + criterio binario de éxito</span><span class="en">milestone + date + binary success criterion</span>]</div>
+  </div>
+
+  <h3><span class="es">KPIs ejecutivos · definiciones operativas</span><span class="en">Executive KPIs · operational definitions</span></h3>
+  <div class="tbl-wrap"><table>
+    <thead><tr><th>KPI</th><th><span class="es">Definición</span><span class="en">Definition</span></th><th><span class="es">Cómo se mide</span><span class="en">How it is measured</span></th><th><span class="es">Frecuencia</span><span class="en">Frequency</span></th></tr></thead>
+    <tbody>
+      <tr><td><strong>Time-to-traction</strong></td><td><span class="es">Días desde kickoff hasta el primer evento de uso recurrente por un usuario real (no equipo de proyecto).</span><span class="en">Days from kickoff to first recurring usage event by a real user (not project team).</span></td><td><span class="es">Telemetría del prototipo / piloto.</span><span class="en">Prototype / pilot telemetry.</span></td><td><span class="es">Diaria post-handover.</span><span class="en">Daily post-handover.</span></td></tr>
+      <tr><td><strong><span class="es">Costo evitado / valor proyectado</span><span class="en">Cost avoided / projected value</span></strong></td><td><span class="es">FTE-meses ahorrados o ingreso atribuible, declarado y validado.</span><span class="en">FTE-months saved or attributable revenue, declared and validated.</span></td><td><span class="es">Modelo de business case actualizado mensualmente con datos reales.</span><span class="en">Business case model updated monthly with real data.</span></td><td><span class="es">Mensual al board.</span><span class="en">Monthly to board.</span></td></tr>
+      <tr><td><strong><span class="es">Riesgo mitigado</span><span class="en">Risk mitigated</span></strong></td><td><span class="es">Número de riesgos del Risk Register inicial cerrados o reducidos en severidad.</span><span class="en">Number of initial Risk Register risks closed or severity-reduced.</span></td><td><span class="es">Risk Register vivo con auditoría mensual.</span><span class="en">Live Risk Register with monthly audit.</span></td><td><span class="es">Mensual al board.</span><span class="en">Monthly to board.</span></td></tr>
+      <tr><td><strong><span class="es">Adopción interna (DAU/WAU)</span><span class="en">Internal adoption (DAU/WAU)</span></strong></td><td><span class="es">Usuarios activos diarios sobre semanales en cohorte. Umbral MVP ≥ 0.4.</span><span class="en">Daily over weekly active users in cohort. MVP threshold ≥ 0.4.</span></td><td><span class="es">Analítica del producto + cohorte registrada.</span><span class="en">Product analytics + registered cohort.</span></td><td><span class="es">Semanal al Steering, mensual al board.</span><span class="en">Weekly to Steering, monthly to board.</span></td></tr>
+    </tbody>
+  </table></div>
+  <div class="callout info">
+    <div class="callout-icon">i</div>
+    <div class="callout-body">
+      <strong><span class="es">Regla de honestidad</span><span class="en">Honesty rule</span></strong>
+      <span class="es">Si un KPI no se puede medir aún (porque la iniciativa no lo permite todavía), se reporta como <code>[NO APLICA AÚN — esperado para hito M+X]</code>. Nunca se inventa.</span>
+      <span class="en">If a KPI can not be measured yet (because the initiative does not allow it yet), it is reported as <code>[NOT APPLICABLE YET — expected for milestone M+X]</code>. Never invented.</span>
+    </div>
+  </div>
+</section>
+
+<!-- ════════════ BANDAS ════════════ -->
+<section id="bandas">
+  <h2><span class="es">Cotización completa con bandas + disclaimer comercial</span><span class="en">Complete sizing with bands + commercial disclaimer</span></h2>
+
+  <h3><span class="es">Bandas estándar MetodologIA</span><span class="en">Standard MetodologIA bands</span></h3>
+  <div class="tbl-wrap"><table>
+    <thead><tr><th>Banda</th><th><span class="es">Horizonte</span><span class="en">Horizon</span></th><th>P50</th><th>P80</th><th>P95</th><th><span class="es">Equipo peak</span><span class="en">Peak team</span></th><th><span class="es">Cuándo se elige</span><span class="en">When chosen</span></th></tr></thead>
+    <tbody>
+      <tr><td><strong>S · RAT</strong> (Riskiest Assumption Test)</td><td>1 <span class="es">mes</span><span class="en">month</span></td><td>2</td><td>3</td><td>5</td><td>2–3 FTE</td><td><span class="es">Hipótesis crítica sin validar; resultado binario.</span><span class="en">Unvalidated critical hypothesis; binary result.</span></td></tr>
+      <tr><td><strong>M · MVP</strong> (Minimum Viable Product)</td><td>3 <span class="es">meses</span><span class="en">months</span></td><td>8</td><td>12</td><td>18</td><td>4–6 FTE</td><td><span class="es">Hipótesis validada; se busca tracción medible.</span><span class="en">Validated hypothesis; measurable traction sought.</span></td></tr>
+      <tr><td><strong>L · (R)<span class="es">Evolución</span><span class="en">Evolution</span></strong></td><td>16 <span class="es">semanas</span><span class="en">weeks</span></td><td>22</td><td>32</td><td>48</td><td>6–10 FTE</td><td><span class="es">MVP probó tracción; se escala a sistema productivo.</span><span class="en">MVP proved traction; scales to production system.</span></td></tr>
+      <tr style="background:rgba(187,160,204,.18)"><td><strong>XL · <span class="es">Política</span><span class="en">Policy</span></strong></td><td>&gt; 16 <span class="es">semanas</span><span class="en">weeks</span></td><td colspan="3"><span class="es">Recalculado por fase</span><span class="en">Recalculated per phase</span></td><td><span class="es">Por fase</span><span class="en">Per phase</span></td><td><strong><span class="es">Prohibido como bloque único.</span><span class="en">Forbidden as single block.</span></strong> <span class="es">Cascada RAT → MVP → (R)Evolución con gates comerciales.</span><span class="en">RAT → MVP → (R)Evolution cascade with commercial gates.</span></td></tr>
+    </tbody>
+  </table></div>
+  <p style="font-size:.82rem;color:var(--g500);font-family:var(--fm)"><span class="tag tag-i">INFERENCIA</span> <span class="es">Cifras de referencia para escenarios típicos AI-Native; cada iniciativa real recalibra con sus supuestos específicos en el dimensionamiento T+3.</span><span class="en">Reference figures for typical AI-Native scenarios; each real initiative recalibrates with its specific assumptions during T+3 sizing.</span></p>
+
+  <h3><span class="es">Disclaimer comercial obligatorio (textual)</span><span class="en">Mandatory commercial disclaimer (textual)</span></h3>
+  <div class="callout warn">
+    <div class="callout-icon">!</div>
+    <div class="callout-body">
+      <strong><span class="es">Disclaimer comercial</span><span class="en">Commercial disclaimer</span></strong>
+      <span class="es">Las magnitudes en FTE-meses, las bandas RAT / MVP / (R)Evolución, los percentiles P50 / P80 / P95 y los SLAs descritos en este documento son <em>estimaciones de dimensionamiento y referencias metodológicas</em> basadas en los prototipos, specs destiladas y supuestos explícitos del workshop. <strong>No constituyen oferta comercial ni compromiso de precio.</strong> La oferta firme con precio en moneda, términos de pago, garantías, indemnizaciones, propiedad intelectual y SLAs contractuales se entrega como <em>documento independiente bajo NDA y firma del responsable comercial</em>, posterior al cierre del Gate G2 del workshop y a la aceptación del paquete HITL T+5.</span>
+      <span class="en">FTE-month magnitudes, RAT / MVP / (R)Evolution bands, P50 / P80 / P95 percentiles and SLAs described in this document are <em>sizing estimates and methodological references</em> based on workshop prototypes, distilled specs and explicit assumptions. <strong>They do not constitute a commercial offer nor a price commitment.</strong> The firm offer with currency price, payment terms, guarantees, indemnifications, IP and contractual SLAs is delivered as <em>an independent document under NDA, signed by the commercial lead</em>, after Gate G2 close and HITL T+5 package acceptance.</span>
+    </div>
+  </div>
+</section>
+
+<!-- ════════════ GATES ════════════ -->
+<section id="gates">
+  <h2><span class="es">Quality gates · hard stops</span><span class="en">Quality gates · hard stops</span></h2>
+  <div class="tbl-wrap"><table>
+    <thead><tr><th>Gate</th><th><span class="es">Cuándo</span><span class="en">When</span></th><th><span class="es">Qué se firma</span><span class="en">What is signed</span></th><th><span class="es">Quién firma</span><span class="en">Who signs</span></th><th><span class="es">Si no se firma</span><span class="en">If not signed</span></th></tr></thead>
+    <tbody>
+      <tr><td><strong>G1</strong></td><td><span class="es">Cierre Día 1</span><span class="en">Day 1 close</span></td><td><span class="es">Top-3 hipótesis con scores</span><span class="en">Top-3 hypotheses with scores</span></td><td>Sponsor + Risk Officer</td><td><span class="es">Día 2 no arranca · se reagenda.</span><span class="en">Day 2 does not start · reschedule.</span></td></tr>
+      <tr><td><strong>G1.5</strong></td><td>T+2 (<span class="es">consolidación</span><span class="en">consolidation</span>)</td><td>ADRs <span class="es">por iniciativa</span><span class="en">per initiative</span></td><td><span class="es">Tech Lead cliente</span><span class="en">Client Tech Lead</span></td><td><span class="es">Dimensionamiento T+3 se difiere.</span><span class="en">T+3 sizing deferred.</span></td></tr>
+      <tr><td><strong>G2</strong></td><td><span class="es">Cierre Día 2</span><span class="en">Day 2 close</span></td><td>Spec + RACI + <span class="es">bandas</span><span class="en">bands</span></td><td>Sponsor + Tech Lead + Risk Officer</td><td><span class="es">Pipeline HITL no inicia.</span><span class="en">HITL pipeline does not start.</span></td></tr>
+      <tr><td><strong>G3</strong></td><td>T+5 handover</td><td><span class="es">Aceptación del paquete</span><span class="en">Package acceptance</span></td><td>Sponsor + CIO/CTO + Risk Officer</td><td><span class="es">Workshop se cierra parcial; brecha documentada.</span><span class="en">Workshop closes partial; gap documented.</span></td></tr>
+    </tbody>
+  </table></div>
+  <div class="gate"><span class="gate-b">Gate G1</span><div class="gate-t"><em><span class="es">Alineación de Expectativas</span><span class="en">Expectation Alignment</span></em> — <span class="es">hard stop. Sin acta firmada, el Día 2 no arranca.</span><span class="en">hard stop. Without signed minutes, Day 2 does not start.</span></div></div>
+  <div class="gate"><span class="gate-b">Gate G2</span><div class="gate-t"><em><span class="es">Cierre Workshop</span><span class="en">Workshop Close</span></em> — <span class="es">spec, RACI y bandas firmadas. Sin firma, pipeline HITL no arranca.</span><span class="en">spec, RACI and bands signed. Without signature, HITL pipeline does not start.</span></div></div>
+  <div class="gate"><span class="gate-b">Gate G3</span><div class="gate-t"><em><span class="es">Handover Técnico</span><span class="en">Technical Handover</span></em> — <span class="es">aceptación firmada por Sponsor + CIO/CTO + Risk Officer.</span><span class="en">acceptance signed by Sponsor + CIO/CTO + Risk Officer.</span></div></div>
+</section>
+
+<!-- ════════════ ROLES ════════════ -->
+<section id="roles">
+  <h2><span class="es">Roles ampliados (frente al playbook completo)</span><span class="en">Extended roles (vs full playbook)</span></h2>
+  <p class="lead"><span class="es">Adicional al equipo base (Conductor, Sponsor, Domain Lead, Tech Lead, Data Lead, User Proxy, Scribe, Devil's Advocate), la variante Empresas requiere:</span><span class="en">In addition to the base team (Conductor, Sponsor, Domain Lead, Tech Lead, Data Lead, User Proxy, Scribe, Devil's Advocate), the Enterprise variant requires:</span></p>
+  <div class="tbl-wrap"><table>
+    <thead><tr><th><span class="es">Rol enterprise</span><span class="en">Enterprise role</span></th><th><span class="es">Responsabilidad</span><span class="en">Responsibility</span></th><th><span class="es">Presencia</span><span class="en">Presence</span></th></tr></thead>
+    <tbody>
+      <tr><td><strong>Risk Officer / Compliance Officer</strong></td><td><span class="es">Firma del Risk Appetite Statement, matriz compliance, mitigaciones del Risk Register.</span><span class="en">Signs Risk Appetite Statement, compliance matrix, Risk Register mitigations.</span></td><td>Pre-workshop · S1 · S7 · T+4 · G2 · G3.</td></tr>
+      <tr><td><strong>PMO Lead</strong></td><td><span class="es">Integración con metodología y reporting del cliente; daily ligero durante consolidación.</span><span class="en">Integration with client methodology and reporting; light daily during consolidation.</span></td><td>Pre-workshop · D1 · T+1..T+5.</td></tr>
+      <tr><td><strong>Procurement Lead</strong></td><td><span class="es">Garantizar trazabilidad workshop → SoW; revisar disclaimer comercial.</span><span class="en">Ensure workshop → SoW traceability; review commercial disclaimer.</span></td><td>Pre-workshop · G3.</td></tr>
+      <tr><td><strong>CCB Chair</strong></td><td><span class="es">Recibir paquete post-workshop; aprobar ingreso al backlog formal.</span><span class="en">Receive post-workshop package; approve entry to formal backlog.</span></td><td>T+6.</td></tr>
+      <tr><td><strong>Steering Chair</strong></td><td><span class="es">Quincenal durante consolidación; mensual post-handover.</span><span class="en">Bi-weekly during consolidation; monthly post-handover.</span></td><td><span class="es">Sesiones Steering programadas.</span><span class="en">Scheduled Steering sessions.</span></td></tr>
+    </tbody>
+  </table></div>
+</section>
+
+<!-- ════════════ ANTI-PATRONES ════════════ -->
+<section id="anti">
+  <h2><span class="es">Anti-patrones enterprise específicos</span><span class="en">Enterprise-specific anti-patterns</span></h2>
+  <div class="tbl-wrap"><table>
+    <thead><tr><th><span class="es">Anti-patrón</span><span class="en">Anti-pattern</span></th><th><span class="es">Señal temprana</span><span class="en">Early signal</span></th><th><span class="es">Intervención</span><span class="en">Intervention</span></th></tr></thead>
+    <tbody>
+      <tr><td><strong><span class="es">"Este workshop reemplaza al CCB."</span><span class="en">"This workshop replaces the CCB."</span></strong></td><td><span class="es">Alguien sugiere saltar el CCB.</span><span class="en">Someone suggests skipping the CCB.</span></td><td><span class="es">Conductor recuerda: el workshop alimenta al CCB; no lo sustituye.</span><span class="en">Conductor reminds: the workshop feeds the CCB; it does not replace it.</span></td></tr>
+      <tr><td><strong><span class="es">Sponsor delega firma a un proxy.</span><span class="en">Sponsor delegates signature to a proxy.</span></strong></td><td><span class="es">El sponsor no aparece en G1 o G2.</span><span class="en">Sponsor missing at G1 or G2.</span></td><td><span class="es">Pausa: sin firma del sponsor titular, el gate no se cierra. Autoridad delegada documentada en carta de patrocinio.</span><span class="en">Pause: without titular sponsor signature, the gate does not close. Delegated authority must be documented in the sponsorship letter.</span></td></tr>
+      <tr><td><strong><span class="es">PMO impone formato propio en medio del workshop.</span><span class="en">PMO imposes own format mid-workshop.</span></strong></td><td><span class="es">A mitad de D2, PMO pide rehacer outputs.</span><span class="en">Mid Day 2, PMO asks to redo outputs.</span></td><td><span class="es">Negociar capa de transformación T+4; el contenido es del workshop, el formato se adapta.</span><span class="en">Negotiate T+4 transformation layer; content is the workshop's, format adapts.</span></td></tr>
+      <tr><td><strong><span class="es">Compliance llega solo a Gate G3.</span><span class="en">Compliance only arrives at Gate G3.</span></strong></td><td><span class="es">Risk Officer no asistió a S7.</span><span class="en">Risk Officer absent from S7.</span></td><td><span class="es">Insistir en presencia desde S1; si no, paquete sale con <code>[REQUIERE VALIDACIÓN COMPLIANCE]</code> y NO se socializa hasta firma.</span><span class="en">Insist on presence from S1; otherwise package ships with <code>[REQUIRES COMPLIANCE VALIDATION]</code> and is NOT socialized until signed.</span></td></tr>
+      <tr><td><strong><span class="es">Procurement quiere precio en T+5.</span><span class="en">Procurement wants price at T+5.</span></strong></td><td><span class="es">Procurement presiona por número en moneda.</span><span class="en">Procurement pushes for currency figure.</span></td><td><span class="es">Aplicar disclaimer textual; redirigir a propuesta comercial separada bajo NDA.</span><span class="en">Apply textual disclaimer; redirect to separate commercial proposal under NDA.</span></td></tr>
+      <tr><td><strong><span class="es">Steering pide cambios de scope post-G2.</span><span class="en">Steering requests scope changes post-G2.</span></strong></td><td><span class="es">Cambio llega T+3 o T+4.</span><span class="en">Change arrives at T+3 or T+4.</span></td><td><span class="es">CR (Change Request) formal · scope-cost-time se recalcula · nuevo gate.</span><span class="en">Formal CR (Change Request) · scope-cost-time recalculated · new gate.</span></td></tr>
+    </tbody>
+  </table></div>
+</section>
+
+<!-- ════════════ KPIs WORKSHOP ════════════ -->
+<section id="kpis-workshop">
+  <h2><span class="es">KPIs del workshop · calidad metodológica</span><span class="en">Workshop KPIs · methodological quality</span></h2>
+  <div class="tbl-wrap"><table>
+    <thead><tr><th>KPI</th><th><span class="es">Meta</span><span class="en">Target</span></th><th><span class="es">Cómo se mide</span><span class="en">How measured</span></th><th><span class="es">Reportado a</span><span class="en">Reported to</span></th></tr></thead>
+    <tbody>
+      <tr><td><span class="es">Asistencia Sponsor + Tech Lead + Risk Officer ambos días</span><span class="en">Sponsor + Tech Lead + Risk Officer attendance both days</span></td><td>100%</td><td><span class="es">Lista de asistencia firmada.</span><span class="en">Signed attendance list.</span></td><td>Steering.</td></tr>
+      <tr><td><span class="es">Gates G1, G2 firmados sin extensión</span><span class="en">Gates G1, G2 signed without extension</span></td><td>≥ 80%</td><td><span class="es">Acta firmada en horario.</span><span class="en">Minutes signed on time.</span></td><td>PMO + Steering.</td></tr>
+      <tr><td><span class="es">Cobertura compliance addendum</span><span class="en">Compliance addendum coverage</span></td><td>100%</td><td><span class="es">Matriz control ↔ etapa ↔ evidencia.</span><span class="en">Control ↔ stage ↔ evidence matrix.</span></td><td>Risk Officer.</td></tr>
+      <tr><td><span class="es">Paquete HITL T+5 entregado en plazo</span><span class="en">HITL T+5 package delivered on time</span></td><td>100% (<span class="es">o crédito SLA</span><span class="en">or SLA credit</span>)</td><td><span class="es">Timestamp + acta de aceptación.</span><span class="en">Timestamp + acceptance minutes.</span></td><td>Sponsor + PMO.</td></tr>
+      <tr><td><span class="es">Iniciativas aprobadas por CCB sin observaciones críticas</span><span class="en">Initiatives approved by CCB without critical observations</span></td><td>≥ 75%</td><td><span class="es">Acta CCB T+6.</span><span class="en">CCB minutes T+6.</span></td><td>CCB Chair + Steering.</td></tr>
+      <tr><td><span class="es">Aceptación Sponsor en Gate G3</span><span class="en">Sponsor acceptance at Gate G3</span></td><td>100%</td><td><span class="es">Firma digital.</span><span class="en">Digital signature.</span></td><td>Steering + Board.</td></tr>
+    </tbody>
+  </table></div>
+</section>
+
+<!-- ════════════ ANEXOS ════════════ -->
+<section id="anexos">
+  <h2><span class="es">Anexos referenciados · paquete HITL T+5</span><span class="en">Referenced annexes · HITL T+5 package</span></h2>
+  <div class="cards">
+    <div class="card"><div class="card-h">01 · Spec destilada</div><div class="card-d"><code>01_Spec_destilada_[iniciativa]_{WIP|Aprobado}.md</code></div></div>
+    <div class="card"><div class="card-h">02 · Acta workshop</div><div class="card-d"><code>02_Acta_workshop_{Aprobado}.md</code></div></div>
+    <div class="card"><div class="card-h">03 · RACI</div><div class="card-d"><code>03_RACI_{Aprobado}.md</code></div></div>
+    <div class="card"><div class="card-h">04 · <span class="es">Arquitectura TO-BE</span><span class="en">TO-BE Architecture</span></div><div class="card-d"><code>04_Arquitectura_TOBE_{WIP|Aprobado}.md</code> + <code>04a_ADRs/</code></div></div>
+    <div class="card gold"><div class="card-h">05 · <span class="es">Dimensionamiento</span><span class="en">Sizing</span></div><div class="card-d"><code>05_Dimensionamiento_{WIP|Aprobado}.xlsx</code> · P50/P80/P95 + <span class="es">bandas</span><span class="en">bands</span></div></div>
+    <div class="card"><div class="card-h">06 · Risk Register</div><div class="card-d"><code>06_Risk_register_{WIP|Aprobado}.md</code></div></div>
+    <div class="card"><div class="card-h">07 · Compliance addendum</div><div class="card-d"><code>07_Compliance_addendum_{WIP|Aprobado}.md</code></div></div>
+    <div class="card"><div class="card-h">08 · Plan 30/60/90</div><div class="card-d"><code>08_Plan_30_60_90_{Aprobado}.md</code></div></div>
+    <div class="card"><div class="card-h">09 · SLA & governance</div><div class="card-d"><code>09_SLA_y_governance_{Aprobado}.md</code></div></div>
+    <div class="card lilac"><div class="card-h">10 · <span class="es">Reporte board</span><span class="en">Board report</span></div><div class="card-d"><code>10_Reporte_board_template_{Aprobado}.md</code></div></div>
+    <div class="card"><div class="card-h">11 · <span class="es">Mapeo RFP / SoW</span><span class="en">RFP / SoW mapping</span></div><div class="card-d"><code>11_Mapeo_RFP_SoW_{Aprobado}.md</code></div></div>
+    <div class="card"><div class="card-h">12 · Onboarding runbook</div><div class="card-d"><code>12_Onboarding_runbook_{Aprobado}.md</code></div></div>
+  </div>
+  <div class="callout navy">
+    <div class="callout-icon">i</div>
+    <div class="callout-body">
+      <strong>Naming convention</strong>
+      <span class="es"><code>{NN}_{Nombre}_{cliente}_{WIP|Aprobado}.{ext}</code>. WIP durante consolidación; Aprobado tras Gate G3.</span>
+      <span class="en"><code>{NN}_{Name}_{client}_{WIP|Approved}.{ext}</code>. WIP during consolidation; Approved after Gate G3.</span>
+    </div>
+  </div>
+</section>
+
+<!-- ════════════ PRÓXIMO PASO ════════════ -->
+<section id="proximo">
+  <h2><span class="es">Próximo paso · cómo agendarlo</span><span class="en">Next step · how to schedule</span></h2>
+  <ol>
+    <li><strong><span class="es">Carta de intención</span><span class="en">Letter of intent</span></strong> <span class="es">firmada por sponsor ejecutivo en plantilla MetodologIA.</span><span class="en">signed by executive sponsor in MetodologIA template.</span></li>
+    <li><strong>Slot Steering pre-workshop</strong> <span class="es">confirmado para Risk Appetite + carta de patrocinio.</span><span class="en">confirmed for Risk Appetite + sponsorship letter.</span></li>
+    <li><strong><span class="es">Acceso seguro provisionado</span><span class="en">Secure access provisioned</span></strong> <span class="es">y NDA firmado.</span><span class="en">and NDA signed.</span></li>
+    <li><strong><span class="es">Workshop calendarizado</span><span class="en">Workshop scheduled</span></strong> <span class="es">en 2 días consecutivos + slot Steering T+5 + slot CCB T+6.</span><span class="en">on 2 consecutive days + T+5 Steering slot + T+6 CCB slot.</span></li>
+  </ol>
+  <div class="callout gold">
+    <div class="callout-icon">★</div>
+    <div class="callout-body">
+      <strong><span class="es">Compromiso MetodologIA</span><span class="en">MetodologIA commitment</span></strong>
+      <span class="es">Una vez firmada la carta de intención: T-10 días para arrancar workshop, T+0/+1 workshop, T+1..T+5 consolidación HITL, T+5 handover técnico, T+6 ingreso al CCB. <em>18 días hábiles del compromiso al backlog formal del cliente.</em></span>
+      <span class="en">Once the letter of intent is signed: T-10 days to start workshop, T+0/+1 workshop, T+1..T+5 HITL consolidation, T+5 technical handover, T+6 CCB entry. <em>18 business days from commitment to client formal backlog.</em></span>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<!-- ════════════ FOOTER ════════════ -->
+<footer class="site-footer">
+  <div class="footer-inner">
+    <div class="footer-row">
+      <div class="footer-logo">Metodolog<span class="ia">IA</span></div>
+      <div class="footer-badges">
+        <span class="footer-badge">Human First AI-Next</span>
+        <span class="footer-badge">Empresas</span>
+        <span class="footer-badge">2026</span>
+        <span class="footer-badge">CC BY-NC-SA 4.0</span>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span><span class="es">Por Javier Montaño</span><span class="en">By Javier Montaño</span> · <a href="https://metodologia.info" target="_blank" rel="noopener">metodologia.info</a> · CC BY-NC-SA 4.0</span>
+      <span>Workshop Discovery AI-Native · <span class="es">Variante Empresas</span><span class="en">Enterprise Variant</span> · v2026.04</span>
+    </div>
+  </div>
+</footer>
+
+<script>
+function toggleLang(){
+  var html=document.documentElement;
+  var btn=document.getElementById('langBtn');
+  if(html.lang==='es'){html.lang='en';btn.textContent='ES';}
+  else{html.lang='es';btn.textContent='EN';}
+}
+</script>
+
+</body>
+</html>
