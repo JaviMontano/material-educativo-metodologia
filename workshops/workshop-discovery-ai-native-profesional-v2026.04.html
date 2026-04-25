@@ -1,0 +1,747 @@
+<!--
+MetodologIA | Workshop Discovery AI-Native — Variante Profesional
+v2026.04 | 1 día · 4 sesiones de 90 min · consolidación 48h
+Por Javier Montaño · metodologia.info · CC BY-NC-SA 4.0
+-->
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<title>Workshop Discovery AI-Native · Profesional · MetodologIA 2026</title>
+<meta name="description" content="1 día · 4 sesiones de 90 min · consolidación 48h. Para profesional individual o equipo de 3–6 que aplica Discovery AI-Native a un problema real. Spec emerge del prototipo. Bandas RAT/MVP/(R)Evolución.">
+<meta name="theme-color" content="#122562">
+<meta name="color-scheme" content="light">
+<link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 36 36'%3E%3Crect width='36' height='36' rx='10' fill='%23122562'/%3E%3Ctext x='18' y='24' font-family='Poppins,sans-serif' font-size='18' font-weight='800' fill='%23FFD700' text-anchor='middle'%3EM%3C/text%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&family=Poppins:wght@700;800&display=swap">
+
+<style>
+/* ═══════════════════════════════════════════════════════════
+   MetodologIA · Workshop Profesional · Brand v2026
+   ═══════════════════════════════════════════════════════════ */
+
+:root{
+  --navy:#122562;--gold:#FFD700;--blue:#137DC5;--lilac:#BBA0CC;
+  --bg:#F0F0EC;--dark:#1F2833;--gold-d:#B8860B;
+  --white:#FFF;--g100:#F4F0EC;--g200:#E4DED7;--g500:#6B6560;--g700:#333130;--g900:#111110;
+  --warn:#D97706;--crit:#DC2626;--info:#137DC5;
+  --f:'Montserrat',system-ui,sans-serif;
+  --fd:'Poppins','Montserrat',sans-serif;
+  --fm:'Trebuchet MS','Lucida Sans Unicode',sans-serif;
+  --r-sm:6px;--r-md:12px;--r-lg:20px;
+  --max-w:1100px;
+  --shadow-card:0 1px 3px rgba(18,37,98,.06),0 8px 24px rgba(18,37,98,.08);
+  --shadow-soft:0 2px 14px rgba(18,37,98,.05);
+  --border:rgba(18,37,98,.1);
+}
+
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth;-webkit-font-smoothing:antialiased;scroll-padding-top:72px}
+body{
+  font-family:var(--f);background:var(--bg);color:var(--g700);
+  line-height:1.7;font-size:16px;overflow-x:hidden;
+}
+
+h1,h2,h3,h4{font-family:var(--fd);font-weight:800;line-height:1.2;color:var(--navy)}
+h1{font-size:clamp(2rem,5vw,3.4rem);letter-spacing:-.02em}
+h2{font-size:clamp(1.5rem,3vw,2.2rem);border-left:6px solid var(--gold);padding-left:1rem;margin:2rem 0 1.25rem}
+h3{font-size:1.25rem;color:var(--navy);margin:1.5rem 0 .75rem}
+h4{font-size:1rem;color:var(--blue);margin:1rem 0 .5rem}
+
+p{margin:.75rem 0}
+a{color:var(--blue);text-decoration:none;font-weight:600}
+a:hover{text-decoration:underline}
+strong{color:var(--g900);font-weight:700}
+em{color:var(--gold-d);font-style:normal;font-weight:600}
+ul,ol{margin:.75rem 0 .75rem 1.5rem}
+li{margin:.35rem 0}
+code{font-family:'SF Mono',Menlo,Consolas,monospace;font-size:.88em;background:rgba(18,37,98,.06);padding:.1em .35em;border-radius:4px;color:var(--navy)}
+pre{font-family:'SF Mono',Menlo,Consolas,monospace;background:#1F2833;color:#F0F4F8;padding:1.25rem;border-radius:var(--r-md);overflow-x:auto;font-size:.82rem;line-height:1.6;margin:1rem 0;border-left:4px solid var(--gold)}
+
+/* ── NAV STICKY ── */
+.topnav{
+  position:sticky;top:0;z-index:100;
+  background:rgba(255,255,255,.92);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);
+  border-bottom:1px solid var(--border);
+  padding:.75rem 1.25rem;
+}
+.topnav-inner{max-width:var(--max-w);margin:0 auto;display:flex;align-items:center;justify-content:space-between;gap:1rem;flex-wrap:wrap}
+.brand{font-family:var(--fd);font-weight:800;font-size:1.05rem;color:var(--navy);letter-spacing:.02em}
+.brand .ia{color:var(--gold-d)}
+.nav-links{display:flex;gap:.25rem;flex-wrap:wrap}
+.nav-links a{
+  font-family:var(--fm);font-size:.78rem;font-weight:600;
+  color:var(--g500);padding:.3rem .65rem;border-radius:var(--r-sm);
+  text-transform:uppercase;letter-spacing:.06em;
+}
+.nav-links a:hover{background:rgba(255,215,0,.18);color:var(--navy);text-decoration:none}
+
+/* ── HERO ── */
+.hero{
+  background:linear-gradient(135deg,#122562 0%,#1F2833 100%);
+  color:var(--white);padding:4rem 1.5rem 3.5rem;position:relative;overflow:hidden;
+}
+.hero::before{
+  content:"";position:absolute;top:-40%;right:-10%;width:500px;height:500px;
+  background:radial-gradient(circle,rgba(255,215,0,.18) 0%,transparent 65%);pointer-events:none;
+}
+.hero-inner{max-width:var(--max-w);margin:0 auto;position:relative;z-index:1}
+.hero-eyebrow{font-family:var(--fm);font-size:.72rem;font-weight:700;letter-spacing:.18em;text-transform:uppercase;color:var(--gold);margin-bottom:1rem}
+.hero h1{color:var(--white);margin-bottom:1rem}
+.hero h1 .ac{color:var(--gold)}
+.hero-sub{font-size:1.05rem;color:rgba(255,255,255,.85);max-width:64ch;line-height:1.7;margin-bottom:1.75rem}
+.hero-sub strong{color:var(--white)}
+.hero-sub em{color:var(--gold)}
+.kpis{display:grid;grid-template-columns:repeat(auto-fit,minmax(140px,1fr));gap:.75rem;margin-top:1.5rem}
+.kpi{background:rgba(255,255,255,.06);border:1px solid rgba(255,215,0,.2);border-radius:var(--r-md);padding:1rem;backdrop-filter:blur(8px)}
+.kpi-v{font-family:var(--fd);font-size:1.7rem;font-weight:800;color:var(--gold);line-height:1}
+.kpi-v small{font-size:.6em;font-weight:700;color:rgba(255,215,0,.8)}
+.kpi-l{font-family:var(--fm);font-size:.74rem;color:#fff;margin-top:.4rem;font-weight:600}
+.kpi-s{font-family:var(--fm);font-size:.65rem;color:rgba(255,255,255,.55);margin-top:.15rem;text-transform:uppercase;letter-spacing:.04em}
+
+/* ── MAIN ── */
+main{max-width:var(--max-w);margin:0 auto;padding:2.5rem 1.5rem 3rem}
+section{margin:2.5rem 0;padding:1.5rem 0;border-top:1px solid var(--border)}
+section:first-of-type{border-top:none;padding-top:0}
+section .lead{font-size:1.02rem;color:var(--g700);max-width:68ch;margin-bottom:1rem}
+
+/* ── TL;DR ── */
+.tldr{
+  background:linear-gradient(135deg,rgba(255,215,0,.08),rgba(19,125,197,.05));
+  border:1px solid rgba(255,215,0,.4);border-left:6px solid var(--gold);
+  padding:1.5rem 1.75rem;border-radius:var(--r-md);margin:1rem 0;
+}
+.tldr h2{margin-top:0;border-left:none;padding-left:0;font-size:1.4rem}
+.tldr p{font-size:1rem;color:var(--g900)}
+
+/* ── TABLAS ── */
+.tbl-wrap{overflow-x:auto;margin:1rem 0;border-radius:var(--r-md);box-shadow:var(--shadow-soft)}
+table{width:100%;border-collapse:collapse;background:var(--white);font-size:.92rem}
+thead{background:var(--navy);color:var(--white)}
+thead th{padding:.85rem 1rem;text-align:left;font-family:var(--fd);font-weight:700;font-size:.82rem;text-transform:uppercase;letter-spacing:.04em}
+tbody td{padding:.7rem 1rem;border-top:1px solid var(--border);vertical-align:top}
+tbody tr:nth-child(even){background:rgba(18,37,98,.025)}
+tbody tr:hover{background:rgba(255,215,0,.06)}
+tbody td strong{color:var(--navy)}
+
+/* ── CALLOUTS SEMÁNTICOS ── */
+.callout{display:grid;grid-template-columns:auto 1fr;gap:.85rem;align-items:start;padding:1rem 1.25rem;border-radius:var(--r-md);margin:1rem 0;border-left:5px solid;background:var(--white);box-shadow:var(--shadow-soft);font-size:.94rem}
+.callout-icon{font-family:var(--fd);font-weight:800;font-size:1rem;width:32px;height:32px;display:flex;align-items:center;justify-content:center;border-radius:50%;flex-shrink:0;color:#fff}
+.callout-body strong{display:block;margin-bottom:.25rem;font-family:var(--fd);font-size:.95rem}
+.callout.info{border-left-color:var(--info);background:rgba(19,125,197,.05)}
+.callout.info .callout-icon{background:var(--info)}
+.callout.info .callout-body strong{color:var(--info)}
+.callout.warn{border-left-color:var(--warn);background:rgba(217,119,6,.06)}
+.callout.warn .callout-icon{background:var(--warn)}
+.callout.warn .callout-body strong{color:var(--warn)}
+.callout.crit{border-left-color:var(--crit);background:rgba(220,38,38,.06)}
+.callout.crit .callout-icon{background:var(--crit)}
+.callout.crit .callout-body strong{color:var(--crit)}
+.callout.gold{border-left-color:var(--gold-d);background:rgba(255,215,0,.08)}
+.callout.gold .callout-icon{background:var(--gold-d)}
+.callout.gold .callout-body strong{color:var(--gold-d)}
+
+/* ── SESSION CARDS ── */
+.session{
+  display:grid;grid-template-columns:6px 1fr;gap:1.25rem;
+  background:var(--white);border-radius:var(--r-md);overflow:hidden;
+  box-shadow:var(--shadow-card);margin:1.25rem 0;
+}
+.session-bar{background:linear-gradient(180deg,var(--navy) 0%,var(--blue) 100%)}
+.session-body{padding:1.5rem 1.75rem 1.5rem 0}
+.session-head{display:flex;flex-wrap:wrap;align-items:baseline;gap:.75rem;margin-bottom:.5rem}
+.session-tag{font-family:var(--fm);background:var(--navy);color:var(--gold);font-size:.7rem;font-weight:700;padding:.2rem .6rem;border-radius:var(--r-sm);text-transform:uppercase;letter-spacing:.08em}
+.session-time{font-family:var(--fm);color:var(--g500);font-size:.78rem;font-weight:600}
+.session-title{font-family:var(--fd);font-size:1.2rem;font-weight:800;color:var(--navy);margin:.25rem 0}
+.session-goal{font-size:.94rem;color:var(--g700);margin-bottom:.75rem;font-style:italic}
+.session-goal strong{font-style:normal;color:var(--navy)}
+
+/* ── RULES GRID ── */
+.rules{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:.85rem;margin:1rem 0}
+.rule{
+  background:var(--white);border-radius:var(--r-md);padding:1rem 1.15rem;
+  border-top:3px solid var(--gold);box-shadow:var(--shadow-soft);
+  display:grid;grid-template-columns:auto 1fr;gap:.75rem;align-items:start;
+}
+.rule-num{
+  font-family:var(--fd);font-weight:800;font-size:1.4rem;color:var(--gold-d);
+  line-height:1;width:32px;
+}
+.rule-body strong{display:block;color:var(--navy);font-size:.95rem;margin-bottom:.25rem;font-family:var(--fd)}
+.rule-body span{font-size:.84rem;color:var(--g500);line-height:1.55}
+
+/* ── ANTI-PATTERN CARDS ── */
+.antipatterns{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:1rem;margin:1rem 0}
+.ap{
+  background:var(--white);border-left:4px solid var(--crit);border-radius:var(--r-md);
+  padding:1rem 1.2rem;box-shadow:var(--shadow-soft);
+}
+.ap-name{font-family:var(--fd);font-weight:800;color:var(--crit);font-size:.98rem;margin-bottom:.5rem}
+.ap-row{display:grid;grid-template-columns:90px 1fr;gap:.5rem;font-size:.84rem;margin:.35rem 0;line-height:1.5}
+.ap-row span:first-child{font-family:var(--fm);font-weight:700;color:var(--g500);text-transform:uppercase;font-size:.68rem;letter-spacing:.06em;padding-top:.15rem}
+.ap-row span:last-child{color:var(--g700)}
+
+/* ── BAND TABLE highlight ── */
+.band-rat{background:rgba(217,119,6,.08)!important}
+.band-mvp{background:rgba(19,125,197,.07)!important}
+.band-rev{background:rgba(187,160,204,.12)!important}
+
+/* ── EVIDENCE TAGS (highlight in lists) ── */
+.tag{display:inline-block;font-family:var(--fm);font-size:.66rem;font-weight:700;padding:.1rem .4rem;border-radius:3px;margin:0 .15rem;text-transform:uppercase;letter-spacing:.04em;vertical-align:baseline}
+.tag.dato{background:#10B981;color:#fff}
+.tag.obs{background:var(--info);color:#fff}
+.tag.inf{background:var(--warn);color:#fff}
+.tag.sup{background:var(--g500);color:#fff}
+
+/* ── FOOTER ── */
+.site-footer{background:#1F2833;border-top:6px solid var(--gold);color:rgba(255,255,255,.65);padding:2.5rem 1.5rem;margin-top:3rem}
+.footer-inner{max-width:var(--max-w);margin:0 auto}
+.footer-row{display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:1rem}
+.footer-logo{font-family:var(--fd);font-size:1.15rem;font-weight:800;color:#fff;letter-spacing:.02em}
+.footer-logo .ia{color:var(--gold)}
+.footer-badges{display:flex;gap:.5rem;flex-wrap:wrap}
+.footer-badge{font-family:var(--fm);background:rgba(255,215,0,.12);color:var(--gold);padding:.3rem .7rem;border-radius:var(--r-sm);font-size:.66rem;font-weight:700;text-transform:uppercase;letter-spacing:.06em}
+.footer-bottom{font-family:var(--fm);margin-top:1.25rem;padding-top:1rem;border-top:1px solid rgba(255,255,255,.1);font-size:.72rem;color:rgba(255,255,255,.55);display:flex;gap:1.5rem;flex-wrap:wrap;justify-content:space-between}
+.footer-bottom a{color:rgba(255,255,255,.7)}
+.footer-bottom a:hover{color:var(--gold)}
+
+/* ── RESPONSIVE ── */
+@media (max-width:680px){
+  .nav-links{font-size:.7rem;gap:.1rem}
+  .nav-links a{padding:.25rem .5rem;font-size:.7rem}
+  .hero{padding:2.5rem 1rem 2rem}
+  .session{grid-template-columns:4px 1fr}
+  .session-body{padding:1.15rem 1.15rem 1.15rem 0}
+  table{font-size:.84rem}
+  thead th,tbody td{padding:.55rem .6rem}
+}
+
+@media print{
+  .topnav,.site-footer{display:none}
+  .hero{background:var(--navy);color:#fff;-webkit-print-color-adjust:exact;print-color-adjust:exact}
+  section{page-break-inside:avoid}
+  .session,.rule,.ap,.callout{box-shadow:none;border:1px solid var(--border)}
+}
+</style>
+</head>
+<body>
+
+<!-- ════════ NAV ════════ -->
+<nav class="topnav" aria-label="Navegación principal">
+  <div class="topnav-inner">
+    <div class="brand">Metodolog<span class="ia">IA</span> · Workshop Profesional</div>
+    <div class="nav-links">
+      <a href="#tldr">TL;DR</a>
+      <a href="#cuando">Cuándo</a>
+      <a href="#pre">Pre</a>
+      <a href="#agenda">Agenda</a>
+      <a href="#reglas">Reglas</a>
+      <a href="#antipatrones">Anti-patrones</a>
+      <a href="#consolidacion">48 h</a>
+      <a href="#bandas">Bandas</a>
+      <a href="#kpis">KPIs</a>
+      <a href="#spec">Spec</a>
+      <a href="#escalar">Escalar</a>
+    </div>
+  </div>
+</nav>
+
+<!-- ════════ HERO ════════ -->
+<header class="hero">
+  <div class="hero-inner">
+    <div class="hero-eyebrow">Discovery AI-Native · Variante Profesional · v2026.04</div>
+    <h1>Del problema a la <span class="ac">spec destilada</span><br>en <span class="ac">1 día</span>.</h1>
+    <p class="hero-sub">
+      Para <strong>profesional individual o equipo de 3–6</strong> que aplica Discovery AI-Native a un problema real.
+      <em>Acotar · Mapear · Vibe coding · Destilar.</em> La spec emerge del prototipo, no del papel.
+      Cierra el día con <strong>prototipo navegable + spec en 3 lentes + plan 30 días</strong> con owner asignado.
+      Consolidación liviana en <strong>48 h</strong>. Sin comité, sin matriz RACI completa, sin pipeline HITL formal.
+    </p>
+    <div class="kpis" role="list">
+      <div class="kpi" role="listitem"><div class="kpi-v">1<small>d</small></div><div class="kpi-l">Día efectivo</div><div class="kpi-s">6 horas</div></div>
+      <div class="kpi" role="listitem"><div class="kpi-v">4</div><div class="kpi-l">Sesiones de 90 min</div><div class="kpi-s">Reloj duro</div></div>
+      <div class="kpi" role="listitem"><div class="kpi-v">3</div><div class="kpi-l">Lentes de spec</div><div class="kpi-s">Es · Hace · F-NF</div></div>
+      <div class="kpi" role="listitem"><div class="kpi-v">48<small>h</small></div><div class="kpi-l">Consolidación</div><div class="kpi-s">3 entregables livianos</div></div>
+      <div class="kpi" role="listitem"><div class="kpi-v">3-6</div><div class="kpi-l">Personas</div><div class="kpi-s">Equipo o solo</div></div>
+      <div class="kpi" role="listitem"><div class="kpi-v">RAT<small>/MVP</small></div><div class="kpi-l">Bandas</div><div class="kpi-s">1m · 3m · 16s</div></div>
+    </div>
+  </div>
+</header>
+
+<main>
+
+<!-- ════════ TL;DR ════════ -->
+<section id="tldr">
+  <div class="tldr">
+    <h2>TL;DR · El método en 60 segundos</h2>
+    <p>
+      Tomas <strong>un problema concreto</strong> de tu trabajo. En <strong>un día</strong> lo conviertes en un
+      <strong>prototipo navegable + spec destilada en 3 lentes (Es / Hace / F-NF) + plan de 30 días</strong> con owner asignado.
+      La spec <em>emerge del prototipo</em>, no del papel. La IA es copiloto: tú diriges, ella construye.
+      En <strong>48 h post-workshop</strong> consolidas tres entregables livianos que cualquier compañero puede leer y ejecutar.
+    </p>
+    <p>
+      No hay comité ejecutivo, no hay matriz RACI completa, no hay 2 días de talleres. Hay <strong>decisión rápida con evidencia</strong>.
+    </p>
+  </div>
+</section>
+
+<!-- ════════ CUÁNDO ════════ -->
+<section id="cuando">
+  <h2>Cuándo usar este workshop</h2>
+  <div class="tbl-wrap">
+  <table>
+    <thead><tr><th>Escenario</th><th>Encaja porque…</th></tr></thead>
+    <tbody>
+      <tr><td>Tienes una idea de automatización con IA y quieres validar si vale la pena antes de pedir presupuesto.</td><td>El RAT de 1 mes te da una respuesta binaria sin compromiso largo.</td></tr>
+      <tr><td>Tu equipo (3–6 personas) propone "deberíamos usar IA para X" y nadie sabe por dónde empezar.</td><td>El workshop fuerza acotar el qué antes de saltar al cómo.</td></tr>
+      <tr><td>Recibiste un encargo ambiguo de tu jefe ("hagan algo con IA en este proceso") y necesitas convertirlo en algo demostrable.</td><td>Sales del día con un prototipo que puedes mostrar.</td></tr>
+      <tr><td>Quieres entrenar al equipo en un método replicable, no en una herramienta.</td><td>El framework Es / Hace / F-NF se aplica a cualquier futura iniciativa.</td></tr>
+    </tbody>
+  </table>
+  </div>
+  <div class="callout warn">
+    <div class="callout-icon">!</div>
+    <div class="callout-body">
+      <strong>No lo uses si</strong>
+      La iniciativa requiere aprobación de comité corporativo, integra 5+ áreas, o el sponsor no puede dedicar 6 h continuas. Para esos casos, escala a la variante <em>Empresas</em> (2 días + consolidación HITL 5 días).
+    </div>
+  </div>
+</section>
+
+<!-- ════════ PRE ════════ -->
+<section id="pre">
+  <h2>Pre-workshop · 60 min de preparación</h2>
+  <p class="lead">Tres tareas, una sola persona (el conductor), día previo.</p>
+  <div class="tbl-wrap">
+  <table>
+    <thead><tr><th>#</th><th>Tarea</th><th>Salida concreta</th></tr></thead>
+    <tbody>
+      <tr><td><strong>1</strong></td><td><strong>Problem statement borrador</strong> — escribe en una frase: <em>"Quiero ayudar a [usuario] cuando [contexto] para que [resultado] sin [restricción]."</em></td><td>Un párrafo de máximo 5 líneas, en un doc compartido.</td></tr>
+      <tr><td><strong>2</strong></td><td><strong>3 stakeholders confirmados</strong> — identifica 3 personas que sufren o resuelven el problema hoy. Confirma asistencia 6 h.</td><td>Calendario aceptado por las 3.</td></tr>
+      <tr><td><strong>3</strong></td><td><strong>Evidence pack mínimo</strong> — 3 a 5 artefactos: screenshots, métricas, ticket real, ejemplo de output actual, dataset pequeño.</td><td>Carpeta <code>pre-read/</code> con archivos numerados.</td></tr>
+    </tbody>
+  </table>
+  </div>
+  <div class="callout crit">
+    <div class="callout-icon">×</div>
+    <div class="callout-body">
+      <strong>Regla de bloqueo</strong>
+      Si al iniciar el día falta cualquiera de los tres, <strong>se posterga el workshop</strong>. No improvises evidencia — se nota y contamina las decisiones.
+    </div>
+  </div>
+</section>
+
+<!-- ════════ AGENDA ════════ -->
+<section id="agenda">
+  <h2>Agenda · 4 sesiones de 90 min</h2>
+  <div class="tbl-wrap">
+  <table>
+    <thead><tr><th>Hora</th><th>Sesión</th><th>Meta</th><th>Artefacto que sale</th></tr></thead>
+    <tbody>
+      <tr><td>09:00–10:30</td><td><strong>S1 · Acotar el qué</strong></td><td>Pasar de la idea ambigua a un problem statement firmado.</td><td>Problem statement v1 + lista <em>no-hace</em>.</td></tr>
+      <tr><td>10:30–10:45</td><td>Break</td><td>—</td><td>—</td></tr>
+      <tr><td>10:45–12:15</td><td><strong>S2 · Mapeo de oportunidades</strong></td><td>Identificar 2–3 hipótesis con evidencia, no con opinión.</td><td>Tabla <em>hipótesis → evidencia → métrica</em>.</td></tr>
+      <tr><td>12:15–13:15</td><td>Almuerzo</td><td>—</td><td>—</td></tr>
+      <tr><td>13:15–14:45</td><td><strong>S3 · Vibe coding</strong></td><td>Construir un prototipo navegable con IA como copiloto.</td><td>Prototipo demo-able + log de prompts.</td></tr>
+      <tr><td>14:45–15:00</td><td>Break</td><td>—</td><td>—</td></tr>
+      <tr><td>15:00–16:30</td><td><strong>S4 · Spec destilada + plan 30 días</strong></td><td>Destilar la spec del prototipo y comprometer próximos pasos.</td><td>Spec en 3 lentes + plan 30 días + owner.</td></tr>
+    </tbody>
+  </table>
+  </div>
+  <div class="callout gold">
+    <div class="callout-icon">⏱</div>
+    <div class="callout-body">
+      <strong>Reloj duro</strong>
+      Cada sesión termina cuando termina. Si una corre larga, la siguiente se recorta — no se extiende el día.
+    </div>
+  </div>
+
+  <!-- S1 -->
+  <div class="session">
+    <div class="session-bar"></div>
+    <div class="session-body">
+      <div class="session-head">
+        <span class="session-tag">S1 · 09:00</span>
+        <span class="session-time">90 min</span>
+        <h3 class="session-title">Acotar el qué</h3>
+      </div>
+      <p class="session-goal"><strong>Objetivo:</strong> alinear qué es éxito y qué <strong>NO</strong> se va a resolver hoy.</p>
+      <div class="tbl-wrap">
+      <table>
+        <thead><tr><th>Bloque</th><th>Tiempo</th><th>Qué hacen</th></tr></thead>
+        <tbody>
+          <tr><td>Lectura del borrador pre-workshop</td><td>15 min</td><td>El conductor lee el problem statement v0. Cada asistente subraya en silencio lo que NO entiende.</td></tr>
+          <tr><td>Edición colaborativa en vivo</td><td>35 min</td><td>Reescritura en pantalla compartida hasta que las 3 personas firmen verbalmente.</td></tr>
+          <tr><td>Lista <em>no-hace</em></td><td>25 min</td><td>Por cada cosa que el statement implica, escribir explícitamente lo que NO se va a resolver. Esta lista vale tanto como el statement.</td></tr>
+          <tr><td>Cierre</td><td>15 min</td><td>Lectura final + firma digital del statement v1.</td></tr>
+        </tbody>
+      </table>
+      </div>
+      <div class="callout warn">
+        <div class="callout-icon">!</div>
+        <div class="callout-body">
+          <strong>Si al minuto 90 no hay statement firmado</strong>
+          Extiende 15 min y recorta S2. <strong>No avances con ambigüedad</strong>. Un párrafo firmado + lista <em>no-hace</em> de mínimo 5 ítems es el piso de salida.
+        </div>
+      </div>
+      <h4>Output esperado</h4>
+<pre>PROBLEM STATEMENT v1
+Para [usuario] que sufre [dolor concreto y medible] cuando [contexto],
+queremos [resultado deseado] sin [restricción dura].
+Éxito se mide como [métrica única, observable, accionable].
+
+NO-HACE (alcance excluido):
+- ___
+- ___
+- ___</pre>
+    </div>
+  </div>
+
+  <!-- S2 -->
+  <div class="session">
+    <div class="session-bar"></div>
+    <div class="session-body">
+      <div class="session-head">
+        <span class="session-tag">S2 · 10:45</span>
+        <span class="session-time">90 min</span>
+        <h3 class="session-title">Mapeo de oportunidades</h3>
+      </div>
+      <p class="session-goal"><strong>Objetivo:</strong> generar 2–3 hipótesis de solución y filtrarlas por evidencia, no por entusiasmo.</p>
+      <div class="tbl-wrap">
+      <table>
+        <thead><tr><th>Bloque</th><th>Tiempo</th><th>Qué hacen</th></tr></thead>
+        <tbody>
+          <tr><td>Brainstorming dirigido</td><td>25 min</td><td>Cada persona escribe en silencio 3 ideas de cómo resolver el problema con IA. Sin discutir.</td></tr>
+          <tr><td>Agrupar y descartar</td><td>20 min</td><td>Se pegan en pizarra. Se agrupan duplicados. Se descartan las que no superan el filtro de 4 preguntas.</td></tr>
+          <tr><td>Hipótesis con evidencia</td><td>35 min</td><td>Las 2–3 sobrevivientes se escriben como tabla: <em>hipótesis → evidencia que la respalda → métrica que la valida</em>.</td></tr>
+          <tr><td>Selección</td><td>10 min</td><td>Voto con peso: el sponsor del problema vota último y desempata.</td></tr>
+        </tbody>
+      </table>
+      </div>
+      <h4>Filtro de 4 preguntas (cada hipótesis)</h4>
+      <ol>
+        <li>¿Tenemos datos o podemos conseguirlos en menos de 2 semanas?</li>
+        <li>¿El problema tiene matices y no se resuelve con una regla determinista?</li>
+        <li>¿Hay al menos 5 personas/casos por mes que lo sufren?</li>
+        <li>¿Si la IA se equivoca, hay un paso humano antes de causar daño?</li>
+      </ol>
+      <div class="callout info">
+        <div class="callout-icon">i</div>
+        <div class="callout-body">
+          <strong>Lectura del filtro</strong>
+          Menos de 3 sí → la hipótesis se descarta o se rebaja a <em>"investigar antes"</em>. <strong>Output:</strong> tabla con 2–3 filas — hipótesis · evidencia · métrica · banda tentativa (RAT / MVP / (R)Evolución).
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- S3 -->
+  <div class="session">
+    <div class="session-bar"></div>
+    <div class="session-body">
+      <div class="session-head">
+        <span class="session-tag">S3 · 13:15</span>
+        <span class="session-time">90 min</span>
+        <h3 class="session-title">Vibe coding</h3>
+      </div>
+      <p class="session-goal"><strong>Objetivo:</strong> <strong>construir</strong> el prototipo. No pensar en construirlo. Construirlo.</p>
+      <h4>Stack permitido (elige UNO)</h4>
+      <ul>
+        <li>Conversación larga con ChatGPT, Claude o Gemini donde la IA hace lo que tu producto haría (wizard of oz textual).</li>
+        <li>Sitio interactivo con v0, bolt, lovable o Replit (sin escribir código a mano).</li>
+        <li>Notebook (Colab, Jupyter) con un flujo end-to-end usando un LLM por API.</li>
+        <li>Mockup clickeable en Figma + IA generando los outputs reales.</li>
+      </ul>
+      <h4>Reglas del vibe coding (no negociables)</h4>
+      <div class="rules">
+        <div class="rule"><div class="rule-num">1</div><div class="rule-body"><strong>Empezar feo</strong><span>Funcionalidad primero, estética después.</span></div></div>
+        <div class="rule"><div class="rule-num">2</div><div class="rule-body"><strong>Inicio y fin claros</strong><span>Alguien entra con una entrada real, alguien sale con una salida útil.</span></div></div>
+        <div class="rule"><div class="rule-num">3</div><div class="rule-body"><strong>Datos reales o sintéticos etiquetados</strong><span>Si inventas datos, dilo en pantalla.</span></div></div>
+        <div class="rule"><div class="rule-num">4</div><div class="rule-body"><strong>Snapshot cada 20 min</strong><span>Foto, captura, commit. Si rompes algo, hay vuelta atrás.</span></div></div>
+        <div class="rule"><div class="rule-num">5</div><div class="rule-body"><strong>3 prompts maestros guardados</strong><span>Los prompts son parte del entregable.</span></div></div>
+        <div class="rule"><div class="rule-num">6</div><div class="rule-body"><strong>Cero refactor</strong><span>Hoy se construye, no se ordena.</span></div></div>
+        <div class="rule"><div class="rule-num">7</div><div class="rule-body"><strong>Demo cruzada cada 30 min</strong><span>Feedback corto: qué sorprende · qué confunde · qué falta.</span></div></div>
+        <div class="rule"><div class="rule-num">8</div><div class="rule-body"><strong>Si te trabas 10 min, cambia</strong><span>Otro modelo, otro prompt, otra herramienta.</span></div></div>
+      </div>
+      <div class="callout gold">
+        <div class="callout-icon">✓</div>
+        <div class="callout-body">
+          <strong>Cómo sabes que funcionó</strong>
+          Puedes mostrar el flujo completo a alguien externo en menos de 5 minutos y entiende qué hace.
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- S4 -->
+  <div class="session">
+    <div class="session-bar"></div>
+    <div class="session-body">
+      <div class="session-head">
+        <span class="session-tag">S4 · 15:00</span>
+        <span class="session-time">90 min</span>
+        <h3 class="session-title">Spec destilada + plan 30 días</h3>
+      </div>
+      <p class="session-goal"><strong>Objetivo:</strong> la spec <em>emerge del prototipo</em>. Capturar lo aprendido y comprometer los siguientes 30 días con owner.</p>
+      <div class="tbl-wrap">
+      <table>
+        <thead><tr><th>Bloque</th><th>Tiempo</th><th>Qué hacen</th></tr></thead>
+        <tbody>
+          <tr><td>Demo formal</td><td>15 min</td><td>El equipo muestra el prototipo a sí mismo. Recorrido completo, sin saltarse pasos.</td></tr>
+          <tr><td>Destilación 3 lentes</td><td>45 min</td><td>Llenar la plantilla <em>Es / Hace / F-NF</em> leyendo el prototipo, no la cabeza. Ver template más abajo.</td></tr>
+          <tr><td>Banda y FTE-meses</td><td>15 min</td><td>Asignar banda <strong>RAT (1m) / MVP (3m) / (R)Evolución (16s)</strong> + estimación FTE-meses indicativa.</td></tr>
+          <tr><td>Plan 30 días + owner</td><td>15 min</td><td>Cada iniciativa aprobada tiene <strong>un owner explícito</strong> y 3 hitos a 30 días. Sin owner, no se aprueba.</td></tr>
+        </tbody>
+      </table>
+      </div>
+      <div class="callout gold">
+        <div class="callout-icon">✓</div>
+        <div class="callout-body">
+          <strong>Cómo sabes que funcionó</strong>
+          Sales con una spec firmada, una banda asignada, un owner con nombre y apellido, y 3 hitos calendarizados.
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ════════ REGLAS ════════ -->
+<section id="reglas">
+  <h2>Reglas del juego (8, no negociables)</h2>
+  <div class="rules">
+    <div class="rule"><div class="rule-num">1</div><div class="rule-body"><strong>La spec emerge del prototipo, no del papel</strong><span>El papel oculta la complejidad real; el prototipo la expone.</span></div></div>
+    <div class="rule"><div class="rule-num">2</div><div class="rule-body"><strong>Evidencia &gt; opinión</strong><span>Cada afirmación se etiqueta <span class="tag dato">DATO</span> <span class="tag obs">OBS</span> <span class="tag inf">INF</span> <span class="tag sup">SUP</span>. Si &gt;30% es supuesto, banner de advertencia.</span></div></div>
+    <div class="rule"><div class="rule-num">3</div><div class="rule-body"><strong>Reloj duro</strong><span>Cada sesión termina cuando termina. La presión protege la decisión.</span></div></div>
+    <div class="rule"><div class="rule-num">4</div><div class="rule-body"><strong>NO-hace pesa tanto como Hace</strong><span>Sin alcance excluido, la spec se infla durante consolidación.</span></div></div>
+    <div class="rule"><div class="rule-num">5</div><div class="rule-body"><strong>Owner explícito o no se aprueba</strong><span>RACI completa es lujo; owner es mínimo.</span></div></div>
+    <div class="rule"><div class="rule-num">6</div><div class="rule-body"><strong>Snapshot cada 20 min en S3</strong><span>El prototipo es el artefacto central; perderlo es perder el día.</span></div></div>
+    <div class="rule"><div class="rule-num">7</div><div class="rule-body"><strong>Si te trabas 10 min, cambia de aproximación</strong><span>Persistir en una vía rota es la forma más cara de aprender.</span></div></div>
+    <div class="rule"><div class="rule-num">8</div><div class="rule-body"><strong>Parking lot visible</strong><span>Toda idea fuera de scope va a una lista pública. Nada se pierde, nada se discute hoy.</span></div></div>
+  </div>
+</section>
+
+<!-- ════════ ANTI-PATRONES ════════ -->
+<section id="antipatrones">
+  <h2>Anti-patrones del profesional</h2>
+  <p class="lead">Cada uno tiene su señal temprana y su intervención. Memorizar la señal vale más que conocer el anti-patrón.</p>
+  <div class="antipatterns">
+    <div class="ap">
+      <div class="ap-name">"Deberíamos usar un LLM para…" antes del problem statement</div>
+      <div class="ap-row"><span>Señal</span><span>Alguien menciona la solución en S1.</span></div>
+      <div class="ap-row"><span>Acción</span><span>Conductor redirige al parking lot: <em>"seguimos en el problema."</em></span></div>
+    </div>
+    <div class="ap">
+      <div class="ap-name">Prototipo bonito antes que funcional</div>
+      <div class="ap-row"><span>Señal</span><span>Más de 15 min en CSS / colores / layout en S3.</span></div>
+      <div class="ap-row"><span>Acción</span><span>Cronómetro a la vista. Funcionalidad primero.</span></div>
+    </div>
+    <div class="ap">
+      <div class="ap-name">Hipótesis sin métrica</div>
+      <div class="ap-row"><span>Señal</span><span>"Vamos a mejorar la experiencia."</span></div>
+      <div class="ap-row"><span>Acción</span><span>Forzar la pregunta: <em>"¿cómo lo medirías en 30 días?"</em>. Sin respuesta, no avanza.</span></div>
+    </div>
+    <div class="ap">
+      <div class="ap-name">Sponsor que no firma</div>
+      <div class="ap-row"><span>Señal</span><span>El sponsor delega la decisión a "lo vemos después".</span></div>
+      <div class="ap-row"><span>Acción</span><span>Pausa la sesión. Sin firma del sponsor, no hay workshop.</span></div>
+    </div>
+    <div class="ap">
+      <div class="ap-name">Equipo decide en paralelo sin compartir</div>
+      <div class="ap-row"><span>Señal</span><span>Dos personas trabajan en cosas distintas y no hablan.</span></div>
+      <div class="ap-row"><span>Acción</span><span>Forzar demo cruzada cada 30 min.</span></div>
+    </div>
+    <div class="ap">
+      <div class="ap-name">Banda RAT/MVP asignada sin discutir hipótesis crítica</div>
+      <div class="ap-row"><span>Señal</span><span>"Esto es MVP, claramente."</span></div>
+      <div class="ap-row"><span>Acción</span><span>Pregunta de control: <em>"¿qué supuesto, si fuera falso, mata esta iniciativa?"</em>. Eso va al RAT primero.</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- ════════ CONSOLIDACIÓN 48h ════════ -->
+<section id="consolidacion">
+  <h2>Consolidación 48 h post-workshop</h2>
+  <p class="lead">Cierra el día, arranca el reloj. <strong>T + 48 h</strong> entregas tres documentos livianos al equipo y al sponsor.</p>
+  <div class="tbl-wrap">
+  <table>
+    <thead><tr><th>Entregable</th><th>Para qué sirve</th><th>Largo máximo</th></tr></thead>
+    <tbody>
+      <tr><td><strong>1. Spec destilada (limpia)</strong></td><td>La versión editada del template de S4, con los 3 lentes completos y banda asignada.</td><td>1–2 páginas.</td></tr>
+      <tr><td><strong>2. Plan 30 días</strong></td><td>3 hitos con fecha, owner por hito, criterio de éxito por hito. Si la banda es RAT, debe haber métrica binaria de la hipótesis crítica.</td><td>1 página.</td></tr>
+      <tr><td><strong>3. Lista de riesgos</strong></td><td>Top 5 riesgos detectados durante el día, con dueño de seguimiento y acción mitigadora propuesta.</td><td>Media página.</td></tr>
+    </tbody>
+  </table>
+  </div>
+  <div class="callout gold">
+    <div class="callout-icon">★</div>
+    <div class="callout-body">
+      <strong>Regla de oro</strong>
+      Los 3 entregables se publican juntos o no se publican. Documento aislado pierde contexto.
+    </div>
+  </div>
+  <div class="callout info">
+    <div class="callout-icon">i</div>
+    <div class="callout-body">
+      <strong>Por qué 48 h y no 5 días</strong>
+      El profesional individual / equipo pequeño no necesita pipeline HITL formal. Necesita un cierre rápido que mantenga la energía del día. Lo que en <em>Empresas</em> toma 5 días con 5 etapas, aquí lo hace una persona en una tarde concentrada.
+    </div>
+  </div>
+</section>
+
+<!-- ════════ BANDAS ════════ -->
+<section id="bandas">
+  <h2>Bandas RAT / MVP / (R)Evolución</h2>
+  <div class="tbl-wrap">
+  <table>
+    <thead><tr><th>Banda</th><th>Plazo</th><th>FTE-meses indicativos</th><th>Cuándo se elige</th><th>Ejemplo</th></tr></thead>
+    <tbody>
+      <tr class="band-rat"><td><strong>RAT</strong><br><small>Riskiest Assumption Test</small></td><td>1 mes</td><td>1–3</td><td>Hay una hipótesis crítica sin validar. La métrica de éxito es <strong>binaria</strong>.</td><td>"¿Los usuarios prefieren respuesta de IA o humana en el chat de soporte?"</td></tr>
+      <tr class="band-mvp"><td><strong>MVP</strong></td><td>3 meses</td><td>4–10</td><td>Hipótesis ya validada. Se busca <strong>tracción medible</strong> en cohorte real.</td><td>Asistente de búsqueda interno con DAU/WAU ≥ 0.4 a 8 semanas.</td></tr>
+      <tr class="band-rev"><td><strong>(R)Evolución</strong></td><td>16 semanas (4 meses)</td><td>12–25</td><td>MVP probó tracción y se escala a sistema productivo.</td><td>Ampliar el asistente a 3 áreas y conectar a fuentes oficiales con guardrails.</td></tr>
+    </tbody>
+  </table>
+  </div>
+  <div class="callout gold">
+    <div class="callout-icon">↪</div>
+    <div class="callout-body">
+      <strong>Regla simple</strong>
+      Si no sabes en qué banda cae, es porque te falta validar la hipótesis crítica → empieza por <strong>RAT</strong>. La banda no se elige por ambición, se elige por evidencia.
+    </div>
+  </div>
+  <div class="callout warn">
+    <div class="callout-icon">»</div>
+    <div class="callout-body">
+      <strong>Si la iniciativa proyecta más de 16 semanas</strong>
+      Este workshop no la cubre completa. Lo que sí hace es identificar el <strong>primer RAT</strong> que valida o invalida el supuesto más caro. Para conceptualización XL completa (big picture + cascada formal con gates comerciales), escala a la variante <em>Empresas</em>.
+    </div>
+  </div>
+</section>
+
+<!-- ════════ KPIs ════════ -->
+<section id="kpis">
+  <h2>KPIs del workshop</h2>
+  <p class="lead">Mide tu propio workshop. Si fallan 2 o más, la próxima vez ajusta antes.</p>
+  <div class="tbl-wrap">
+  <table>
+    <thead><tr><th>KPI</th><th>Meta</th><th>Cómo se mide</th></tr></thead>
+    <tbody>
+      <tr><td>Statement firmado al cierre de S1</td><td>100%</td><td>Firma digital o foto de pizarra.</td></tr>
+      <tr><td>Hipótesis con métrica al cierre de S2</td><td>≥ 2 con métrica concreta</td><td>Tabla S2 revisada.</td></tr>
+      <tr><td>Prototipo demo-able al cierre de S3</td><td>Sí / No</td><td>Demo de 5 min a alguien externo.</td></tr>
+      <tr><td>Spec con owner al cierre de S4</td><td>100% de iniciativas aprobadas</td><td>Tabla S4 sin TBD en columna owner.</td></tr>
+      <tr><td>Entregables 48 h publicados a tiempo</td><td>T+48 h</td><td>Timestamp del repositorio o doc compartido.</td></tr>
+      <tr><td>Energía del equipo al final</td><td>NPS interno ≥ +20</td><td>1 pregunta al cierre: <em>"¿recomendarías este formato a un colega?"</em></td></tr>
+    </tbody>
+  </table>
+  </div>
+</section>
+
+<!-- ════════ GLOSARIO ════════ -->
+<section id="glosario">
+  <h2>Glosario mínimo</h2>
+  <ul>
+    <li><strong>Spec.</strong> Especificación destilada del prototipo en 3 lentes (Es / Hace / F-NF). Es el contrato de qué se construye y qué no.</li>
+    <li><strong>Vibe coding.</strong> Construir un prototipo dirigiendo una IA en lenguaje natural, sin escribir código manual línea a línea. La IA hace, tú decides.</li>
+    <li><strong>RAT (Riskiest Assumption Test).</strong> Experimento mínimo de 1 mes diseñado para validar o invalidar el supuesto más peligroso de una iniciativa. Resultado binario.</li>
+    <li><strong>MVP.</strong> Producto mínimo de 3 meses que demuestra <em>tracción medible</em> (uso recurrente, retención) en cohorte real, no en prueba de concepto.</li>
+    <li><strong>HITL (Human-in-the-Loop).</strong> Decisión clave revisada por un humano antes de tener efecto. En Profesional es ligero; en Empresas es pipeline formal.</li>
+  </ul>
+</section>
+
+<!-- ════════ TEMPLATE SPEC ════════ -->
+<section id="spec">
+  <h2>Template de spec destilada (3 lentes)</h2>
+  <p class="lead">Llena uno por iniciativa aprobada. Sale del prototipo, no de la cabeza.</p>
+<pre>SPEC DESTILADA — [Nombre de la iniciativa]
+Owner: ________________ · Banda: RAT / MVP / (R)Evolución · FTE-meses: ____
+
+────────────────────────────────────────────────────
+LENTE 1 · ES / NO ES
+ES:        Qué es esta iniciativa, en una línea.
+NO ES:     Qué se confunde con esto pero no lo es. Mínimo 3 ítems.
+
+────────────────────────────────────────────────────
+LENTE 2 · HACE / NO HACE
+HACE:      Bullets de capacidades concretas (verbo + objeto + condición).
+NO HACE:   Bullets de capacidades explícitamente excluidas. Mínimo 3 ítems.
+
+────────────────────────────────────────────────────
+LENTE 3 · FUNCIONAL / NO FUNCIONAL
+FUNCIONAL (F):
+- F1 · El sistema hace ___ cuando ___.
+- F2 · ...
+
+NO FUNCIONAL (NF) — cada uno con métrica observable:
+- NF · Latencia: respuesta ≤ X segundos en P95.
+- NF · Costo: ≤ X FTE-meses equivalentes por interacción / por mes.
+- NF · Calidad: precisión ≥ X% en golden set de 30 casos.
+- NF · Seguridad: log auditable + aprobación humana en acciones de tipo Y.
+
+────────────────────────────────────────────────────
+HIPÓTESIS CRÍTICA (solo banda RAT):
+"Si [supuesto X] resultara falso, esta iniciativa se detiene o se pivota."
+Métrica binaria de validación: __________________</pre>
+  <div class="callout crit">
+    <div class="callout-icon">×</div>
+    <div class="callout-body">
+      <strong>Regla</strong>
+      Ningún <code>NF</code> se firma sin métrica concreta. Si no sabes medirlo, va a la lista <em>requiere benchmark en RAT</em>.
+    </div>
+  </div>
+</section>
+
+<!-- ════════ ESCALAR A EMPRESAS ════════ -->
+<section id="escalar">
+  <h2>Cómo escalar a Empresas</h2>
+  <p class="lead">Si en S2 detectas que la iniciativa supera 16 semanas, integra 3 o más áreas, o requiere aprobación de comité, <strong>no la metas a la fuerza</strong> en la banda (R)Evolución. Lo que haces:</p>
+  <ol>
+    <li><strong>Acotas el RAT</strong> que valida la hipótesis crítica (sigue siendo 1 mes, sigue siendo viable en formato Profesional).</li>
+    <li><strong>Documentas el big picture pendiente</strong> en una sección "Para escalar a Empresas" en el plan 30 días.</li>
+    <li><strong>Recomiendas la variante Empresas</strong> (2 días + consolidación HITL 5 días + ADRs + dimensionamiento P50/P80/P95) para la conceptualización completa, una vez el RAT haya pasado.</li>
+  </ol>
+  <div class="callout gold">
+    <div class="callout-icon">⚐</div>
+    <div class="callout-body">
+      <strong>Principio</strong>
+      Profesional valida la hipótesis. Empresas conceptualiza el sistema. Cada uno sirve mejor en su tamaño.
+    </div>
+  </div>
+
+  <h3>Lo que llevas a casa</h3>
+  <ul>
+    <li><strong>Un método replicable</strong> que funciona la próxima vez con otro problema, sin necesidad de facilitador externo.</li>
+    <li><strong>Una manera de dirigir IA con intención</strong>: prompt + contexto + criterio de aceptación, en vez de "preguntale a ver".</li>
+    <li><strong>Un prototipo, una spec y un plan</strong> que cualquier compañero puede leer y ejecutar.</li>
+    <li><strong>Confianza para decidir rápido con evidencia</strong>, no por intuición ni por presión.</li>
+  </ul>
+
+  <h3>Próximo nivel</h3>
+  <p>Cuando este workshop te quede pequeño — porque ya lideras 5 iniciativas en paralelo, o porque la organización te pide cascadas comerciales formales — el siguiente paso es la <strong>variante Empresas</strong> (2 días workshop + consolidación HITL 5 días hábiles + handover técnico formal). Pídele a tu sponsor el playbook <code>playbook-workshop-discovery-ai-native-v2026.04.2.html</code>.</p>
+</section>
+
+</main>
+
+<!-- ════════ FOOTER ════════ -->
+<footer class="site-footer">
+  <div class="footer-inner">
+    <div class="footer-row">
+      <div class="footer-logo">Metodolog<span class="ia">IA</span></div>
+      <div class="footer-badges">
+        <span class="footer-badge">Human First AI-Next</span>
+        <span class="footer-badge">Profesional</span>
+        <span class="footer-badge">2026</span>
+        <span class="footer-badge">CC BY-NC-SA 4.0</span>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>Por Javier Montaño · <a href="https://metodologia.info" target="_blank" rel="noopener">metodologia.info</a> · CC BY-NC-SA 4.0</span>
+      <span>Workshop Discovery AI-Native · Variante Profesional · v2026.04</span>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>

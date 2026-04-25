@@ -1,54 +1,63 @@
-# Biblioteca Universal de Prompting 2026 · v1492
+# MetodologIA Onboarding Kit — Ciclo 1 2026
 
-Repositorio público de distribución de la **Biblioteca Universal de Prompting 2026** de MetodologIA. La publicación actual consolida la biblioteca renovada en su corte **v1492**, con `1492` prompts canónicos exactos, `42` categorías públicas visibles y una doble superficie de uso: exploración directa en HTML auto contenido y operación diaria desde **Prompster**. [CÓDIGO]
+Kit consolidado, armonizado y **100% comprensivo** de documentos de onboarding para el Programa de Empoderamiento en Power Skills. Versión **2.3.0** ejecuta el rebuild dirigible de la Biblioteca Universal (v2026) y el Playbook de Prompting (v2): onboarding "Empieza aquí", favoritos persistentes, búsqueda fuzzy, quiz de nivel, glosario ampliado a 24 términos, sección de debugging con 12 síntomas, rúbrica 5×3, comparativa de modelos 2026, lab de prompt injection, FAQ EXPERTO con 15 preguntas, 5 mini-packs por vertical, tabs en modal con output esperado y bridges cross-doc playbook↔biblioteca. La base v2.1 (kinetic typography, animated counters, role-cards, manifesto footer) se preserva sin regresiones.
 
-La idea de este repo es simple: que puedas abrir la biblioteca sin instalar nada, pero también que puedas llevarla a un expansor de prompts real cuando quieras trabajar dentro de ChatGPT, Claude, Gemini, Grok u otros chats soportados. En esta versión el repo queda explícitamente preparado para usar la biblioteca **ahí**, dentro de Prompster, no solo para leerla como material editorial. [DOC][CÓDIGO][INFERENCIA]
+## Documentos (6)
 
-## Qué contiene este repo
+| Documento | Descripción |
+|-----------|-------------|
+| `cartilla-onboarding-programa-v11.html` | Cartilla principal del programa — 3 técnicas de procesamiento (Mind Mapping, Ensayo & Síntesis, Feynman) + 6 workflows prácticos + 35 modales |
+| `cartilla-google-drive-v2.html` | Guía de onboarding a Google Drive — estructura, permisos, prompts de búsqueda, troubleshooting |
+| `playbook-aprender-a-aprender-v6.html` | Playbook de aprendizaje — 8 escalas, 32 técnicas, 14 prompts (incluye meta-prompts M1-M4), arquetipos NotebookLM, rutinas, estándares, FAQ |
+| `playbook-prompting-universal-v2.html` | Playbook de prompting universal v2 — quiz de nivel + 25 capítulos: fundamentos, glosario de 24 términos, anatomía SPEC, rúbrica 5×3, modelos 2026, debugging de 12 síntomas, 6 técnicas élite, lab de prompt injection, 15 FAQs EXPERTO, mini-packs por vertical, bridges a la biblioteca |
+| `playbook-deep-research-ia-v1.html` | Playbook de investigación profunda — framework de 6 fases (Define → Blueprint → Triangulate → Synthesize → Fact-Check → Document), 5 prompts SPEC, 25+ FAQs |
+| `biblioteca-universal-prompting-v2026.html` | Biblioteca universal de prompting v2026 — corpus preservado + artefactos canónicos + métodos aplicables, favoritos con migración desde v7, búsqueda operativa y devoted Prompster con comando limpio |
 
-| Archivo | Rol | Uso recomendado |
-|---|---|---|
-| `biblioteca-universal-prompting-2026.html` | Biblioteca integral auto contenida | Abrir en navegador y trabajar offline con buscador, modal y navegación editorial |
-| `prompts_universales_v1492.json` | JSON canónico de publicación | Integraciones, auditoría, trazabilidad y consumo programático |
-| `prompts_universales_v1492_prompster.json` | Bundle dedicado para Prompster | Subirlo en la extensión y operar por comando limpio |
-| `prompts_universales_v1492_prompster.js` | Variante JS del bundle Prompster | Embebido o inspección técnica |
-| `prompts_universales_v2026_prompster.json` | Alias de compatibilidad del bundle Prompster | Mantener continuidad con referencias previas del repo |
-| `prompts_universales_v2026_prompster.js` | Alias JS de compatibilidad | Mantener continuidad con referencias previas del repo |
-| `playbook-aprender-aprehender-revolucionar-2026.html` | Recurso complementario de aprendizaje | Profundizar en estudio, práctica y apropiación de la biblioteca |
+## Estructura
 
-## Estado de la publicación
+```
+dist/                       → HTML autocontenidos listos para distribución + datasets `prompts_universales_v2026.*`
+src/css/design-system.css   → CSS canónico (Layers 1-12, includes kit-pro-max)
+src/css/kit-pro-max.css     → Layer 12 standalone (UI Pro-Max v2.1)
+src/js/engine.js            → JS canónico (modules 1-16, includes pro-max)
+src/js/kit-pro-max.js       → Modules 13-16 standalone (count-up, kinetic, back-top, sibling)
+src/templates/              → Reference HTML snippets para inlining
+src/content/                → Briefs y complementos editoriales del kit
+                              · biblioteca-v2026-consolidacion.md
+                              · biblioteca-v2026-metodos-202.md
+                              · playbook-prompting-complementario-v1.md
+src/tools/                  → Scripts Node reproducibles para regenerar prompts_universales.js
+                              · enrich-prompts.mjs        (poblar keywords + level + version)
+                              · inject-new-prompts.mjs    (añadir 22 prompts del expansion set)
+                              · add-example-outputs.mjs   (poblar example_output en core)
+archive/                    → Versiones originales preservadas (v1.0 + v2.0 sources + v2.1 + v2.3 pre-rebuild)
+PLAN-MEJORAS-vNEXT.md       → Plan completo del rebuild v2.3 (8 secciones, 23 tareas, snippets, verificaciones)
+```
 
-La biblioteca publicada en este repo corresponde al corte renovado con `1492` prompts canónicos exactos. El conteo no incluye aliases como piezas adicionales, no cambia las `42` categorías públicas y conserva la regla de biblioteca útil para vida, trabajo y aprendizaje. El bundle `Prompster` publicado aquí también expone `1492` claves únicas listas para carga como objeto JSON `clave -> prompt`, que es la estructura que la extensión usa internamente para su librería. Desde este corte, además, las `1492` piezas incorporan un `BUCLE DE EXCELENCIA` uniforme para obligar evaluación interna, refinamiento iterativo y entrega solo de la versión final. La publicación ahora también queda alineada sobre un segundo contrato transversal: cada prompt está corregido para ser **auto contenido y funcional por sí solo**, con insumos mínimos, salida esperada y tratamiento explícito de vacíos críticos, sin depender de contexto conversacional implícito. Ese contrato aplica por igual a la superficie HTML, al JSON canónico y al bundle Prompster. Dentro de las macros actuales, `ñ` queda reservada para traducción bilateral: de español hacia `inglés`, `francés`, `portugués`, `chino`, `japonés` o `hindi`, o desde uno de esos idiomas hacia español. Su default operativo queda en traducción contextual, no literal, con salida `simple`, `semi formal`, `cercana` y `neutra sin voseo` cuando el resultado está en español, con modos ajustables como `general`, `negocios`, `oficial`, `académico`, `técnico` y `marketing`. [CÓDIGO][INFERENCIA]
+## Design System
 
-## Cómo usarla
+- Neo-Swiss Clean · Mobile-first · Dark mode · Bilingual ES/EN
+- Poppins (titulares) · Montserrat (cuerpo) · Lucide Icons
+- Paleta: Navy `#122562` · Gold `#FFD700` · Blue `#137DC5`
+- WCAG 2.5.8 (touch targets ≥ 44×44px) · `env(safe-area-inset-bottom)` · scroll-snap proximity
+- CSS Layers (12, incluye `kit-pro-max`) · `content-visibility: auto` · IntersectionObserver reveals
 
-### Opción 1 · HTML offline
+## UI Pro-Max v2.1 (Layer 12)
 
-Abre `biblioteca-universal-prompting-2026.html` en cualquier navegador moderno. No requiere servidor, cuenta, extensión, npm ni conexión permanente. Esta es la mejor puerta si quieres explorar por categorías, leer contexto, enseñar la biblioteca, hacer demos o copiar prompts desde el modal de forma manual. [CÓDIGO]
+Componentes compartidos en los 6 docs:
+- **Hero**: narrative pre-headline + kinetic accent typography + animated icon-stats con count-up
+- **Footer**: manifesto editorial + 6-card sibling grid (auto-highlight current doc) + facilitator card + version meta
+- **Visualización**: role-cards (permisos), 14-card module preview, 5-step program timeline, 6-node Deep Research journey, 7-card source grid, 8-step Aprender ladder, 2×2 SPEC quadrant
+- **Stickies**: back-to-top button con keyboard focus
+- **Reduced-motion**: animaciones desactivadas vía `@media (prefers-reduced-motion: reduce)`
 
-### Opción 2 · Prompster
+## Armonización
 
-Instala **Prompster** desde la [Chrome Web Store](https://chromewebstore.google.com/detail/prompster/fbagfekcjdidpmmookklbaeddgkjddml?hl=es) y, si quieres validar su proyecto oficial, revisa también el [repositorio de Prompster](https://github.com/LucasAschenbach/prompster). La razón de esta referencia es directa: la biblioteca publicada en este repo está preparada para trabajar ahí. La ficha oficial describe a Prompster como una extensión de slash commands para apps de chat con biblioteca integrada, prompts personalizados y variables; el código del proyecto confirma además una ruta explícita de `Settings > Import/Export Prompts > Upload Prompts` sobre un archivo JSON de prompts. [DOC][CÓDIGO]
+- **SPEC** (Situación | Pedido | Ejecución | Criterio) como framework canónico de prompting en todo el kit
+- Glosario unificado: prompt stacking (anidamiento recursivo) · chaining (encadenamiento secuencial) · meta-prompting · Pipeline 0-9 · Protocolo Metacognitivo (Interpreta > Planifica > Ejecuta)
+- Cross-references bidireccionales entre los 6 documentos
+- Nomenclatura de fases alineada (adquirir → retener → soltar)
 
-El flujo recomendado es este:
+## Licencia
 
-1. Instala Prompster.
-2. Abre el popup de la extensión.
-3. Entra a `Settings`.
-4. Ve a `Import/Export Prompts`.
-5. Usa `Upload Prompts`.
-6. Carga `prompts_universales_v1492_prompster.json`.
-
-Después de subir el archivo, opera la biblioteca con el carácter gatillo que configures en Prompster y las claves limpias del bundle. Ejemplos reales incluidos en esta publicación: `0`, `a`, `ñ`, `a-b-testing`, `finanzas-presupuesto-familiar`, `prompting-zero-shot-limpio`, `demo-05-genera-video`. En particular, `ñ` ya no es solo una traducción unidireccional: acepta dirección automática o explícita, ajuste de tono y registro, contexto de uso y modos como `negocios` u `oficial`. [CÓDIGO]
-
-## Qué se verificó sobre Prompster
-
-Prompster no se menciona aquí como una sugerencia genérica sino como una superficie verificada. La ficha pública de la tienda indica que la extensión inserta prompts por slash command dentro del chat, soporta biblioteca propia, variables y varios chats populares. El README oficial del proyecto confirma que Prompster parte de un archivo `static/default_prompts.json` y que la biblioteca puede personalizarse desde el popup. El código de `SettingsPage.tsx` muestra la carga y descarga de archivos JSON, y el código de `background/storage/prompts.ts` confirma que la estructura persistida es un objeto JSON de prompts ordenado alfabéticamente. Por eso este repo publica un bundle Prompster dedicado en JSON y no solo el HTML editorial. [DOC][CÓDIGO][INFERENCIA]
-
-## Trazabilidad mínima
-
-La publicación renovada mantiene una separación útil entre superficie pública y fuente operativa. El HTML es el artefacto de consumo humano. `prompts_universales_v1492.json` es la superficie canónica de publicación. `prompts_universales_v1492_prompster.json` es la superficie de operación en expansores y, en particular, en Prompster. Los aliases `v2026_prompster` se dejan como continuidad para referencias anteriores del repo, pero la versión vigente recomendada para uso nuevo es `v1492`. En las tres superficies activas, el contenido ya está alineado bajo el mismo contrato de prompt auto contenido. [CÓDIGO][INFERENCIA]
-
-## MetodologIA
-
-MetodologIA publica esta biblioteca como infraestructura práctica de apropiación de IA para personas reales. Si vienes por el HTML, úsalo como biblioteca editorial y operativa. Si vienes por Prompster, este repo ya quedó preparado para eso. [INFERENCIA]
+© 2026 MetodologIA. CC BY-NC-SA 4.0

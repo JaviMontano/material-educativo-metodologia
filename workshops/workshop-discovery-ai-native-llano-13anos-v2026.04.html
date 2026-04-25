@@ -1,0 +1,590 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Workshop Discovery AI-Native — versión llana para curiosos de 13 años en adelante. Convertí una molestia en un mini-proyecto real con IA en media jornada.">
+<meta name="author" content="Javier Montaño · MetodologIA">
+<title>Workshop Discovery AI-Native · Llano · 13+ · MetodologIA</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&family=Poppins:wght@600;700;800&display=swap" rel="stylesheet">
+<style>
+:root{
+  --navy:#122562;--gold:#FFD700;--blue:#137DC5;--lilac:#BBA0CC;
+  --bg:#F0F0EC;--dark:#1F2833;--gold-d:#B8860B;
+  --white:#FFF;--g100:#F4F0EC;--g200:#E4DED7;--g500:#6B6560;--g700:#333130;--g900:#111110;
+  --f:'Montserrat',system-ui,sans-serif;
+  --fd:'Poppins','Montserrat',sans-serif;
+  --fm:'Trebuchet MS','Lucida Sans Unicode',sans-serif;
+  --r:14px;--r-sm:8px;--r-lg:24px;
+  --shadow-sm:0 2px 8px rgba(18,37,98,.08);
+  --shadow-md:0 8px 24px rgba(18,37,98,.12);
+  --shadow-lg:0 16px 48px rgba(18,37,98,.18);
+  --maxw:1100px;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth;scroll-padding-top:80px}
+body{font-family:var(--f);background:var(--bg);color:var(--g900);line-height:1.6;font-size:16px}
+a{color:var(--blue);text-decoration:none;font-weight:600}
+a:hover{color:var(--navy);text-decoration:underline}
+strong{color:var(--navy);font-weight:700}
+em{color:var(--g700);font-style:italic}
+
+/* ---------- NAV ---------- */
+.nav{position:sticky;top:0;z-index:100;background:rgba(18,37,98,.96);backdrop-filter:blur(12px);border-bottom:2px solid var(--gold)}
+.nav-inner{max-width:var(--maxw);margin:0 auto;padding:14px 24px;display:flex;justify-content:space-between;align-items:center;gap:16px;flex-wrap:wrap}
+.nav-brand{font-family:var(--fd);font-weight:800;color:var(--white);font-size:18px;letter-spacing:.5px}
+.nav-brand .ia{color:var(--gold)}
+.nav-links{display:flex;gap:18px;flex-wrap:wrap}
+.nav-links a{color:var(--white);font-size:13px;font-weight:600;opacity:.85;text-transform:uppercase;letter-spacing:.5px}
+.nav-links a:hover{color:var(--gold);opacity:1;text-decoration:none}
+
+/* ---------- HERO ---------- */
+.hero{background:linear-gradient(135deg,var(--navy) 0%,#0d1a47 60%,#1a2f7a 100%);color:var(--white);padding:80px 24px 96px;position:relative;overflow:hidden}
+.hero::before{content:"";position:absolute;top:-100px;right:-100px;width:400px;height:400px;background:radial-gradient(circle,rgba(255,215,0,.15) 0%,transparent 70%);border-radius:50%}
+.hero::after{content:"";position:absolute;bottom:-80px;left:-80px;width:300px;height:300px;background:radial-gradient(circle,rgba(187,160,204,.18) 0%,transparent 70%);border-radius:50%}
+.hero-inner{max-width:var(--maxw);margin:0 auto;position:relative;z-index:2}
+.chip{display:inline-flex;align-items:center;gap:8px;background:rgba(255,215,0,.15);color:var(--gold);font-family:var(--fm);font-weight:700;font-size:12px;padding:8px 16px;border-radius:999px;border:1px solid rgba(255,215,0,.4);text-transform:uppercase;letter-spacing:1px;margin-bottom:24px}
+.chip::before{content:"";width:8px;height:8px;background:var(--gold);border-radius:50%;box-shadow:0 0 12px var(--gold)}
+.hero h1{font-family:var(--fd);font-weight:800;font-size:clamp(34px,5.5vw,58px);line-height:1.05;margin-bottom:20px;letter-spacing:-.5px}
+.hero h1 .accent{color:var(--gold)}
+.hero .sub{font-size:clamp(16px,2.2vw,20px);max-width:760px;color:#E8EAF3;margin-bottom:32px;line-height:1.5}
+.hero-meta{display:flex;flex-wrap:wrap;gap:12px;margin-top:28px}
+.hero-meta span{background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.18);color:var(--white);padding:8px 14px;border-radius:999px;font-size:13px;font-weight:600}
+
+/* ---------- SECTION ---------- */
+section{padding:64px 24px;scroll-margin-top:80px}
+section.alt{background:var(--white)}
+.wrap{max-width:var(--maxw);margin:0 auto}
+.eyebrow{display:inline-block;font-family:var(--fm);font-weight:700;color:var(--blue);font-size:13px;text-transform:uppercase;letter-spacing:2px;margin-bottom:12px}
+h2{font-family:var(--fd);font-weight:700;font-size:clamp(26px,3.5vw,38px);color:var(--navy);margin-bottom:24px;line-height:1.15;letter-spacing:-.3px}
+h2 .accent{color:var(--gold-d)}
+h3{font-family:var(--fd);font-weight:700;font-size:20px;color:var(--navy);margin-bottom:12px}
+p{margin-bottom:14px;color:var(--g700)}
+p.lead{font-size:18px;color:var(--g900);max-width:760px}
+
+/* ---------- CALLOUT 30s ---------- */
+.callout{background:linear-gradient(135deg,#FFF9E0 0%,#FFFEF7 100%);border-left:6px solid var(--gold);border-radius:var(--r);padding:32px 36px;box-shadow:var(--shadow-md);position:relative}
+.callout .tag{position:absolute;top:-14px;left:24px;background:var(--gold);color:var(--navy);font-family:var(--fd);font-weight:800;font-size:12px;padding:6px 14px;border-radius:999px;letter-spacing:1px;text-transform:uppercase}
+.callout p{font-size:17px;color:var(--g900);margin-bottom:12px}
+.callout p:last-child{margin-bottom:0}
+.callout .punch{font-family:var(--fd);font-weight:700;color:var(--navy);font-size:18px}
+
+/* ---------- ANALOGIA CARD ---------- */
+.analogy{background:var(--white);border:2px solid var(--lilac);border-radius:var(--r-lg);padding:36px;box-shadow:var(--shadow-sm);position:relative;overflow:hidden}
+.analogy::before{content:"🍳";position:absolute;top:-30px;right:-10px;font-size:140px;opacity:.06}
+.analogy h3{color:var(--navy);font-size:22px;margin-bottom:18px}
+.analogy ol{padding-left:24px;margin:18px 0}
+.analogy li{margin-bottom:10px;color:var(--g700);font-size:16px}
+.analogy li strong{color:var(--navy)}
+.analogy .closer{margin-top:20px;padding-top:18px;border-top:1px dashed var(--lilac);font-family:var(--fd);font-weight:600;color:var(--navy);font-size:17px}
+
+/* ---------- CARDS GRID ---------- */
+.grid{display:grid;gap:20px}
+.grid-3{grid-template-columns:repeat(3,1fr)}
+.grid-2{grid-template-columns:repeat(2,1fr)}
+.grid-6{grid-template-columns:repeat(3,1fr)}
+@media(max-width:840px){.grid-3,.grid-2,.grid-6{grid-template-columns:1fr}}
+@media(max-width:840px){.grid-6{grid-template-columns:1fr}}
+
+.card{background:var(--white);border-radius:var(--r);padding:24px;box-shadow:var(--shadow-sm);border-top:4px solid var(--blue);transition:transform .18s ease,box-shadow .18s ease}
+.card:hover{transform:translateY(-3px);box-shadow:var(--shadow-md)}
+.card .num{display:inline-flex;align-items:center;justify-content:center;width:36px;height:36px;background:var(--navy);color:var(--gold);font-family:var(--fd);font-weight:800;border-radius:50%;margin-bottom:12px;font-size:15px}
+.card h4{font-family:var(--fd);font-weight:700;color:var(--navy);font-size:17px;margin-bottom:10px;line-height:1.3}
+.card p{font-size:15px;color:var(--g700);margin-bottom:0}
+.card.gold{border-top-color:var(--gold)}
+.card.lilac{border-top-color:var(--lilac)}
+.card.navy{border-top-color:var(--navy)}
+
+.deliv{background:linear-gradient(180deg,var(--white) 0%,#FAFAF6 100%);border:1px solid var(--g200);border-left:5px solid var(--gold);border-radius:var(--r);padding:24px}
+.deliv .icon{font-size:32px;margin-bottom:10px;display:block}
+.deliv h4{color:var(--navy);font-family:var(--fd);font-weight:700;font-size:17px;margin-bottom:8px}
+.deliv p{font-size:14px;color:var(--g700);margin:0}
+
+/* ---------- RULE CARDS ---------- */
+.rule{background:var(--white);border-radius:var(--r);padding:22px;box-shadow:var(--shadow-sm);border-left:5px solid var(--gold);position:relative}
+.rule .badge{display:inline-block;background:var(--navy);color:var(--gold);font-family:var(--fd);font-weight:700;font-size:11px;padding:4px 10px;border-radius:999px;margin-bottom:10px;letter-spacing:.5px;text-transform:uppercase}
+.rule h4{color:var(--navy);font-family:var(--fd);font-weight:700;font-size:16px;margin-bottom:8px;line-height:1.3}
+.rule p{font-size:14px;color:var(--g700);margin:0;font-style:italic}
+
+/* ---------- TIMELINE / SESIONES ---------- */
+.session{background:var(--white);border-radius:var(--r-lg);box-shadow:var(--shadow-sm);margin-bottom:24px;overflow:hidden;border-left:6px solid var(--blue)}
+.session.s2{border-left-color:var(--lilac)}
+.session.s3{border-left-color:var(--gold)}
+.session.s4{border-left-color:var(--navy)}
+.session-head{background:linear-gradient(135deg,var(--navy) 0%,#1a2f7a 100%);color:var(--white);padding:22px 28px;display:flex;justify-content:space-between;align-items:flex-start;gap:16px;flex-wrap:wrap}
+.session-head .num{font-family:var(--fd);font-weight:800;font-size:48px;line-height:1;color:var(--gold);opacity:.9}
+.session-head .title{flex:1;min-width:240px}
+.session-head h3{color:var(--white);font-size:22px;margin-bottom:4px;font-family:var(--fd);font-weight:700}
+.session-head .duration{font-family:var(--fm);font-weight:700;color:var(--gold);font-size:13px;text-transform:uppercase;letter-spacing:1px}
+.session-body{padding:24px 28px}
+.session-body .obj{background:#FFF9E0;padding:14px 18px;border-radius:var(--r-sm);margin-bottom:18px;border-left:4px solid var(--gold);font-size:15px}
+.session-body .obj strong{color:var(--navy)}
+.session-table{width:100%;border-collapse:collapse;margin:14px 0;font-size:14px}
+.session-table th{background:var(--g100);color:var(--navy);font-family:var(--fd);font-weight:700;text-align:left;padding:10px 12px;border-bottom:2px solid var(--gold)}
+.session-table td{padding:10px 12px;border-bottom:1px solid var(--g200);vertical-align:top;color:var(--g700)}
+.session-table tr:last-child td{border-bottom:none}
+.session-table .time{font-family:var(--fm);font-weight:700;color:var(--blue);white-space:nowrap}
+.session-body ul,.session-body ol{padding-left:22px;margin:12px 0}
+.session-body li{margin-bottom:8px;color:var(--g700);font-size:15px}
+.success{background:#EAF5E8;border-left:4px solid #4A7C3A;padding:12px 16px;border-radius:var(--r-sm);margin-top:18px;font-size:14px;color:var(--g900)}
+.success strong{color:#2F5C20}
+.filter-q{background:var(--g100);border-radius:var(--r-sm);padding:18px;margin:16px 0}
+.filter-q ol{padding-left:22px}
+.filter-q li{margin-bottom:8px;color:var(--g900);font-size:15px}
+.filter-read{margin-top:14px}
+.filter-read li{font-size:14px;color:var(--g700)}
+.filter-read .ok{color:#2F5C20;font-weight:700}
+.filter-read .warn{color:var(--gold-d);font-weight:700}
+.filter-read .stop{color:#A0301B;font-weight:700}
+
+/* ---------- TARJETÓN ---------- */
+.tarjeton{background:var(--white);border:3px solid var(--navy);border-radius:var(--r-lg);padding:36px;box-shadow:var(--shadow-md);font-family:var(--fm);position:relative}
+.tarjeton::before{content:"";position:absolute;inset:8px;border:1px dashed var(--lilac);border-radius:18px;pointer-events:none}
+.tarjeton-title{font-family:var(--fd);font-weight:800;color:var(--navy);font-size:22px;margin-bottom:6px;text-align:center;text-transform:uppercase;letter-spacing:1px}
+.tarjeton-sub{text-align:center;color:var(--g500);font-size:13px;margin-bottom:24px;font-style:italic}
+.field{margin-bottom:18px;position:relative;z-index:1}
+.field label{display:block;font-family:var(--fd);font-weight:700;color:var(--navy);font-size:13px;text-transform:uppercase;letter-spacing:.5px;margin-bottom:6px}
+.field .line{display:block;border-bottom:2px dotted var(--g500);height:24px;width:100%}
+.field .line.tall{height:48px;border-bottom:none;background-image:linear-gradient(transparent calc(24px - 2px),var(--g500) calc(24px - 2px),var(--g500) 24px,transparent 24px),linear-gradient(transparent calc(48px - 2px),var(--g500) calc(48px - 2px),var(--g500) 48px,transparent 48px)}
+.field-row{display:grid;grid-template-columns:2fr 1fr;gap:18px}
+@media(max-width:600px){.field-row{grid-template-columns:1fr}}
+.steps-list{counter-reset:step;list-style:none;padding:0;margin:0}
+.steps-list li{counter-increment:step;display:flex;align-items:center;gap:12px;margin-bottom:10px}
+.steps-list li::before{content:counter(step);background:var(--navy);color:var(--gold);width:24px;height:24px;border-radius:50%;display:inline-flex;align-items:center;justify-content:center;font-family:var(--fd);font-weight:700;font-size:13px;flex-shrink:0}
+.steps-list li .line{flex:1;border-bottom:2px dotted var(--g500);height:24px}
+
+/* ---------- TABLA ERRORES ---------- */
+.errors-table{width:100%;border-collapse:collapse;background:var(--white);border-radius:var(--r);overflow:hidden;box-shadow:var(--shadow-sm)}
+.errors-table th{background:var(--navy);color:var(--white);font-family:var(--fd);font-weight:700;padding:14px 18px;text-align:left;font-size:14px;text-transform:uppercase;letter-spacing:.5px}
+.errors-table th:last-child{background:var(--gold);color:var(--navy)}
+.errors-table td{padding:14px 18px;border-bottom:1px solid var(--g200);vertical-align:top;font-size:15px;color:var(--g700)}
+.errors-table tr:last-child td{border-bottom:none}
+.errors-table td:first-child{color:#A0301B;font-weight:600}
+.errors-table td:last-child{color:var(--navy);font-weight:600}
+
+/* ---------- HOMEWORK ---------- */
+.takeaway{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+@media(max-width:840px){.takeaway{grid-template-columns:1fr}}
+.take{background:linear-gradient(135deg,var(--navy) 0%,#1a2f7a 100%);color:var(--white);border-radius:var(--r);padding:26px;border-top:5px solid var(--gold);position:relative;overflow:hidden}
+.take::before{content:"";position:absolute;top:-30px;right:-30px;width:120px;height:120px;background:radial-gradient(circle,rgba(255,215,0,.2) 0%,transparent 70%);border-radius:50%}
+.take .icon{font-size:34px;display:block;margin-bottom:12px;position:relative;z-index:1}
+.take h4{color:var(--gold);font-family:var(--fd);font-weight:700;font-size:18px;margin-bottom:10px;position:relative;z-index:1}
+.take p{color:#E8EAF3;font-size:15px;margin:0;position:relative;z-index:1;line-height:1.5}
+
+/* ---------- NEXT LEVEL ---------- */
+.next{background:linear-gradient(135deg,var(--lilac) 0%,#D4BFE0 100%);border-radius:var(--r-lg);padding:32px;text-align:center;color:var(--navy)}
+.next h3{color:var(--navy);font-size:22px;margin-bottom:10px}
+.next p{color:var(--g900);font-size:16px;max-width:640px;margin:0 auto 18px}
+.next code{background:var(--white);padding:4px 10px;border-radius:6px;font-family:var(--fm);color:var(--navy);font-size:14px;border:1px solid var(--g200)}
+
+/* ---------- FOOTER ---------- */
+footer{background:var(--navy);color:var(--white);padding:48px 24px 32px;text-align:center}
+.footer-brand{font-family:var(--fd);font-weight:800;font-size:24px;margin-bottom:8px;letter-spacing:.5px}
+.footer-brand .ia{color:var(--gold)}
+.footer-tag{color:#BBC4DC;font-size:14px;margin-bottom:24px;font-style:italic}
+.badges{display:flex;flex-wrap:wrap;justify-content:center;gap:10px;margin-bottom:24px}
+.badges span{background:rgba(255,255,255,.08);border:1px solid rgba(255,215,0,.3);color:var(--gold);padding:6px 14px;border-radius:999px;font-size:12px;font-family:var(--fm);font-weight:700;letter-spacing:.5px}
+.footer-by{color:#9AA4C0;font-size:13px;border-top:1px solid rgba(255,255,255,.1);padding-top:20px}
+.footer-by a{color:var(--gold)}
+
+/* ---------- PRINT ---------- */
+@media print{
+  .nav,.next,footer{display:none !important}
+  body{background:var(--white);font-size:11pt}
+  .hero{background:var(--white);color:var(--navy);padding:24px 0;page-break-after:avoid}
+  .hero::before,.hero::after{display:none}
+  .hero h1,.hero h1 .accent{color:var(--navy)}
+  .hero .sub{color:var(--g700)}
+  .chip{background:var(--white);border:1px solid var(--gold-d);color:var(--gold-d)}
+  .hero-meta span{background:var(--white);border:1px solid var(--g500);color:var(--g700)}
+  section{padding:18px 0;page-break-inside:avoid}
+  section.alt{background:var(--white)}
+  .session{box-shadow:none;border:1px solid var(--g200);page-break-inside:avoid}
+  .session-head{background:var(--white);color:var(--navy);border-bottom:2px solid var(--gold)}
+  .session-head h3,.session-head .num,.session-head .duration{color:var(--navy)}
+  .tarjeton{box-shadow:none;page-break-inside:avoid;page-break-before:always;min-height:90vh}
+  .tarjeton .field .line,.tarjeton .field .line.tall{border-color:var(--g700)}
+  .take{background:var(--white);color:var(--navy);border:1px solid var(--g200)}
+  .take h4,.take p{color:var(--navy)}
+  .callout,.analogy,.card,.rule,.deliv{box-shadow:none;border:1px solid var(--g200)}
+  a{color:var(--navy);text-decoration:none}
+  h2,h3,h4{page-break-after:avoid}
+}
+</style>
+</head>
+<body>
+
+<!-- ============ NAV ============ -->
+<nav class="nav">
+  <div class="nav-inner">
+    <div class="nav-brand">Metodolog<span class="ia">IA</span> · Workshop Llano</div>
+    <div class="nav-links">
+      <a href="#idea">Idea</a>
+      <a href="#analogia">Analogía</a>
+      <a href="#reglas">Reglas</a>
+      <a href="#agenda">Agenda</a>
+      <a href="#tarjeton">Tarjetón</a>
+      <a href="#errores">Errores</a>
+      <a href="#casa">Llevás a casa</a>
+    </div>
+  </div>
+</nav>
+
+<!-- ============ HERO ============ -->
+<header class="hero">
+  <div class="hero-inner">
+    <span class="chip">v2026.04 · Llano · 13 años en adelante</span>
+    <h1>Workshop Discovery <span class="accent">AI-Native</span><br>para curiosos que recién empiezan</h1>
+    <p class="sub">Convertí algo que te molesta en un mini-proyecto real con inteligencia artificial. Sin teoría aburrida, sin saber programar. Salís con algo navegable que podés mostrarle a tu familia o a tu profe.</p>
+    <div class="hero-meta">
+      <span>⏱ Media jornada · 4 horas</span>
+      <span>🇦🇷 Español llano</span>
+      <span>👥 Equipos de 2</span>
+      <span>🎓 Secundaria · Clubes · Talleres</span>
+      <span>📜 CC BY-NC-SA 4.0</span>
+    </div>
+  </div>
+</header>
+
+<!-- ============ IDEA 30s ============ -->
+<section id="idea">
+  <div class="wrap">
+    <span class="eyebrow">Empezamos por acá</span>
+    <h2>La idea en <span class="accent">30 segundos</span></h2>
+    <div class="callout">
+      <span class="tag">30 seg</span>
+      <p>¿Tenés un problema que te molesta y pensás que la inteligencia artificial podría ayudarte? Genial. Este taller te enseña a <strong>convertir esa molestia en un mini-proyecto real</strong>, sin teoría aburrida. Vas a salir con algo navegable que podés mostrarle a tu familia o a tu profe.</p>
+      <p class="punch">No vas a aprender a programar IA. Vas a aprender a <em>dirigir</em> la IA para que ella programe por vos. Ese es el truco.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ============ ANALOGIA ============ -->
+<section id="analogia" class="alt">
+  <div class="wrap">
+    <span class="eyebrow">Para que se entienda</span>
+    <h2>Analogía: tu primer plato <span class="accent">sin receta</span></h2>
+    <div class="analogy">
+      <h3>Pensalo como cocinar algo nuevo:</h3>
+      <ol>
+        <li>Decidís <strong>qué hambre tenés</strong> (el problema).</li>
+        <li>Mirás <strong>qué ingredientes hay en la cocina</strong> (datos, herramientas, gente).</li>
+        <li><strong>Probás</strong> una primera versión rápido y la <strong>probás vos mismo</strong> antes de servirla.</li>
+        <li>Le pedís a alguien que la pruebe y te diga <strong>qué le faltó</strong>.</li>
+        <li><strong>Mejorás la receta</strong> para que cualquiera de tu casa pueda cocinarla.</li>
+      </ol>
+      <p class="closer">Eso es el método. Lo único nuevo es que el "horno" es una IA.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ============ ENTREGABLES ============ -->
+<section id="entregables">
+  <div class="wrap">
+    <span class="eyebrow">El botín</span>
+    <h2>Lo que vas a tener <span class="accent">al final del día</span></h2>
+    <div class="grid grid-3">
+      <div class="deliv">
+        <span class="icon">🧪</span>
+        <h4>1 mini-prototipo navegable</h4>
+        <p>Una pantalla o conversación con IA que demuestra tu idea funcionando. Aunque sea fea.</p>
+      </div>
+      <div class="deliv">
+        <span class="icon">🎴</span>
+        <h4>1 tarjetón del proyecto</h4>
+        <p>Una hoja con: qué problema resuelve, para quién, qué hace, qué NO hace, próximos 3 pasos.</p>
+      </div>
+      <div class="deliv">
+        <span class="icon">📅</span>
+        <h4>1 plan de 7 días</h4>
+        <p>Qué probar después del taller, con quién hablar, qué medir.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ REGLAS ============ -->
+<section id="reglas" class="alt">
+  <div class="wrap">
+    <span class="eyebrow">No negociables (y son las divertidas)</span>
+    <h2>Las <span class="accent">6 reglas</span> del taller</h2>
+    <div class="grid grid-3" style="margin-top:24px">
+      <div class="rule">
+        <span class="badge">Regla 1</span>
+        <h4>Prohibido decir "no se puede" sin probar primero.</h4>
+        <p>El 90% de las veces sí se puede; lo que falta es intentarlo.</p>
+      </div>
+      <div class="rule">
+        <span class="badge">Regla 2</span>
+        <h4>Si no podés explicarlo a tu hermano/a menor, no lo entendés.</h4>
+        <p>Esa es la prueba final del taller.</p>
+      </div>
+      <div class="rule">
+        <span class="badge">Regla 3</span>
+        <h4>Feo está bien.</h4>
+        <p>Lo bonito viene después. Hoy lo importante es que funcione.</p>
+      </div>
+      <div class="rule">
+        <span class="badge">Regla 4</span>
+        <h4>Si te trabás más de 5 minutos, levantá la mano.</h4>
+        <p>El profe está para destrabar, no para evaluarte.</p>
+      </div>
+      <div class="rule">
+        <span class="badge">Regla 5</span>
+        <h4>Cero pantallas durante las charlas grupales.</h4>
+        <p>Excepto cuando estés construyendo.</p>
+      </div>
+      <div class="rule">
+        <span class="badge">Regla 6</span>
+        <h4>Cada cosa que decida el grupo, se escribe.</h4>
+        <p>Si no está escrito, después nadie se acuerda.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ AGENDA ============ -->
+<section id="agenda">
+  <div class="wrap">
+    <span class="eyebrow">4 sesiones · ritmo cortito</span>
+    <h2>Agenda · <span class="accent">4 sesiones</span> de 45 minutos</h2>
+
+    <!-- SESION 1 -->
+    <div class="session s1">
+      <div class="session-head">
+        <span class="num">01</span>
+        <div class="title">
+          <h3>¿Qué te molesta?</h3>
+          <span class="duration">45 minutos</span>
+        </div>
+      </div>
+      <div class="session-body">
+        <div class="obj"><strong>Objetivo:</strong> elegir un problema real, no inventado.</div>
+        <table class="session-table">
+          <thead><tr><th>Bloque</th><th>Tiempo</th><th>Qué hacés</th></tr></thead>
+          <tbody>
+            <tr><td><strong>Calentamiento</strong></td><td class="time">10 min</td><td>Cada uno escribe en 3 papelitos: algo que te molesta en tu casa, en tu escuela, en tu barrio.</td></tr>
+            <tr><td><strong>Compartir</strong></td><td class="time">15 min</td><td>Lectura rápida en círculo. Sin discutir, solo escuchar.</td></tr>
+            <tr><td><strong>Agrupar y elegir</strong></td><td class="time">15 min</td><td>El grupo elige los 2–3 problemas que parecen más interesantes para resolver con IA.</td></tr>
+            <tr><td><strong>Cierre</strong></td><td class="time">5 min</td><td>Cada equipo (de 2 personas) elige 1 problema y escribe en una frase: <em>"Quiero ayudar a [quién] cuando le pasa [qué problema] para que pueda [qué resultado]."</em></td></tr>
+          </tbody>
+        </table>
+        <div class="success"><strong>Cómo sabés que funcionó:</strong> cada equipo tiene 1 frase clara y firmada por los dos integrantes.</div>
+      </div>
+    </div>
+
+    <!-- SESION 2 -->
+    <div class="session s2">
+      <div class="session-head">
+        <span class="num">02</span>
+        <div class="title">
+          <h3>¿La IA puede con esto?</h3>
+          <span class="duration">45 minutos</span>
+        </div>
+      </div>
+      <div class="session-body">
+        <div class="obj"><strong>Objetivo:</strong> decidir si tu problema es un buen candidato para IA o si conviene resolverlo con otra cosa.</div>
+        <h4 style="font-family:var(--fd);color:var(--navy);margin:8px 0 6px">Filtro de 4 preguntas (sí / no / no sé):</h4>
+        <div class="filter-q">
+          <ol>
+            <li>¿Existe información disponible en internet o que vos puedas conseguir sobre este problema?</li>
+            <li>¿El problema tiene matices, es decir, no se resuelve con una sola fórmula matemática?</li>
+            <li>¿Le pasa a varias personas, no solo a vos?</li>
+            <li>¿Si la IA se equivoca, alguien puede revisar antes de que cause un problema serio?</li>
+          </ol>
+        </div>
+        <h4 style="font-family:var(--fd);color:var(--navy);margin:14px 0 6px">Lectura del filtro:</h4>
+        <ul class="filter-read">
+          <li><span class="ok">4 sí</span> → problema súper apto para IA. Adelante.</li>
+          <li><span class="warn">3 sí</span> → problema apto. Adelante con cuidado.</li>
+          <li><span class="stop">2 sí o menos</span> → mejor resolvelo con otra herramienta (una hoja de cálculo, una conversación con tu profe, una app que ya existe).</li>
+        </ul>
+        <div class="success"><strong>Cómo sabés que funcionó:</strong> tenés decisión escrita: <em>"Mi problema sí/no es bueno para IA porque…"</em></div>
+      </div>
+    </div>
+
+    <!-- SESION 3 -->
+    <div class="session s3">
+      <div class="session-head">
+        <span class="num">03</span>
+        <div class="title">
+          <h3>Construir el mini-prototipo</h3>
+          <span class="duration">90 minutos · break de 15 min al medio</span>
+        </div>
+      </div>
+      <div class="session-body">
+        <div class="obj"><strong>Objetivo:</strong> que cualquiera del grupo pueda ver tu idea funcionando, aunque sea con datos inventados.</div>
+        <h4 style="font-family:var(--fd);color:var(--navy);margin:8px 0 6px">Stack permitido (cualquiera, el que tengas a mano):</h4>
+        <ul>
+          <li>Una conversación larga con ChatGPT, Claude o Gemini, donde la IA hace lo que tu producto haría.</li>
+          <li>Un sitio creado con v0, bolt o lovable (sin saber programar).</li>
+          <li>Un dibujo en papel + una explicación en voz.</li>
+        </ul>
+        <h4 style="font-family:var(--fd);color:var(--navy);margin:14px 0 6px">Reglas del prototipo:</h4>
+        <ol>
+          <li>Tiene que tener un <strong>principio y un final</strong> (alguien entra, alguien sale con algo).</li>
+          <li>Si te falta data real, <strong>inventá data parecida</strong> y avisá que es inventada.</li>
+          <li><strong>Cada 15 minutos, sacale una foto</strong> o guardalo. Si rompés algo, podés volver atrás.</li>
+          <li>Anotá los <strong>3 prompts más importantes</strong> que usaste. Esos prompts son parte de tu proyecto.</li>
+        </ol>
+        <div class="success"><strong>Cómo sabés que funcionó:</strong> podés mostrar el flujo completo a otro equipo en menos de 3 minutos.</div>
+      </div>
+    </div>
+
+    <!-- SESION 4 -->
+    <div class="session s4">
+      <div class="session-head">
+        <span class="num">04</span>
+        <div class="title">
+          <h3>Mostrar, ajustar, comprometer</h3>
+          <span class="duration">45 minutos</span>
+        </div>
+      </div>
+      <div class="session-body">
+        <div class="obj"><strong>Objetivo:</strong> recibir feedback honesto y comprometerse con los próximos 3 pasos.</div>
+        <table class="session-table">
+          <thead><tr><th>Bloque</th><th>Tiempo</th><th>Qué hacés</th></tr></thead>
+          <tbody>
+            <tr><td><strong>Demo cruzada</strong></td><td class="time">15 min</td><td>Cada equipo muestra a otro equipo en 3 min. El que escucha solo puede decir: <em>qué le sorprendió, qué le confundió, qué esperaba ver y no vio.</em></td></tr>
+            <tr><td><strong>Mejora rápida</strong></td><td class="time">15 min</td><td>Volvés a tu prototipo con el feedback y cambiás 1 sola cosa. Una.</td></tr>
+            <tr><td><strong>Tarjetón final</strong></td><td class="time">10 min</td><td>Llenás el tarjetón del proyecto (1 hoja).</td></tr>
+            <tr><td><strong>Compromiso</strong></td><td class="time">5 min</td><td>Cada equipo dice en voz alta: <em>"En los próximos 7 días vamos a probar [algo concreto] con [alguien real]."</em></td></tr>
+          </tbody>
+        </table>
+        <div class="success"><strong>Cómo sabés que funcionó:</strong> los compromisos son específicos, con fecha y con nombre.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ TARJETÓN ============ -->
+<section id="tarjeton" class="alt">
+  <div class="wrap">
+    <span class="eyebrow">Lo que entregás al final · imprimible</span>
+    <h2>El tarjetón <span class="accent">del proyecto</span></h2>
+    <p class="lead" style="margin-bottom:28px">Una sola hoja. Si no entra ahí, sobra. Imprimilo o copialo a mano.</p>
+    <div class="tarjeton">
+      <div class="tarjeton-title">Tarjetón del Proyecto</div>
+      <div class="tarjeton-sub">Workshop Discovery AI-Native · Llano · v2026.04</div>
+
+      <div class="field">
+        <label>PROYECTO</label>
+        <span class="line"></span>
+      </div>
+      <div class="field">
+        <label>Para quién es</label>
+        <span class="line tall"></span>
+      </div>
+      <div class="field">
+        <label>Qué hace</label>
+        <span class="line tall"></span>
+      </div>
+      <div class="field">
+        <label>Qué NO hace (importante)</label>
+        <span class="line tall"></span>
+      </div>
+      <div class="field">
+        <label>Cómo se prueba si funciona</label>
+        <span class="line tall"></span>
+      </div>
+      <div class="field">
+        <label>Qué nos sorprendió hoy</label>
+        <span class="line tall"></span>
+      </div>
+      <div class="field">
+        <label>Próximos 3 pasos en los próximos 7 días</label>
+        <ol class="steps-list">
+          <li><span class="line"></span></li>
+          <li><span class="line"></span></li>
+          <li><span class="line"></span></li>
+        </ol>
+      </div>
+      <div class="field-row">
+        <div class="field">
+          <label>Equipo</label>
+          <span class="line"></span>
+        </div>
+        <div class="field">
+          <label>Fecha</label>
+          <span class="line"></span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ ERRORES ============ -->
+<section id="errores">
+  <div class="wrap">
+    <span class="eyebrow">Banderas rojas</span>
+    <h2>Errores típicos que <span class="accent">vamos a evitar</span></h2>
+    <table class="errors-table">
+      <thead>
+        <tr><th>Si te ves haciendo esto…</th><th>…pará y hacé esto.</th></tr>
+      </thead>
+      <tbody>
+        <tr><td>Querer que el prototipo sea bonito antes de que funcione.</td><td>Funcionalidad primero, belleza después.</td></tr>
+        <tr><td>Inventar un problema porque "queda copado".</td><td>Volvé a la sesión 1 y elegí algo que te moleste de verdad.</td></tr>
+        <tr><td>Trabajar solo con la IA sin hablar con tu equipo.</td><td>Cada decisión grande, en voz alta, con tu compañero.</td></tr>
+        <tr><td>Querer hacer 5 cosas a la vez.</td><td>Una. Sola. Cosa. Bien hecha.</td></tr>
+        <tr><td>No anotar nada porque "te acordás".</td><td>No te vas a acordar. Anotá.</td></tr>
+      </tbody>
+    </table>
+  </div>
+</section>
+
+<!-- ============ LLEVÁS A CASA ============ -->
+<section id="casa" class="alt">
+  <div class="wrap">
+    <span class="eyebrow">Más allá del tarjetón</span>
+    <h2>Lo que <span class="accent">llevás a casa</span></h2>
+    <div class="takeaway">
+      <div class="take">
+        <span class="icon">🧭</span>
+        <h4>Un método</h4>
+        <p>Para convertir cualquier idea futura en un proyecto pequeño, sin esperar a saberlo todo.</p>
+      </div>
+      <div class="take">
+        <span class="icon">🗣️</span>
+        <h4>Una manera de hablar con IA</h4>
+        <p>Que no es "preguntale y ya"; es <strong style="color:var(--gold)">dirigirla con intención</strong>.</p>
+      </div>
+      <div class="take">
+        <span class="icon">⚡</span>
+        <h4>La confianza</h4>
+        <p>De saber que podés construir algo, aunque no sepas programar todavía.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ NEXT LEVEL ============ -->
+<section id="next">
+  <div class="wrap">
+    <div class="next">
+      <h3>Próximo nivel</h3>
+      <p>Cuando ya domines este taller, el siguiente paso natural es la <strong>versión Profesional</strong> (1 día completo, equipos de 3–6 personas, problemas de tu trabajo o pasantía). Pedile al profe el playbook:</p>
+      <code>workshop-discovery-ai-native-profesional-v2026.04.md</code>
+    </div>
+  </div>
+</section>
+
+<!-- ============ FOOTER ============ -->
+<footer>
+  <div class="footer-brand">Metodolog<span class="ia">IA</span></div>
+  <div class="footer-tag">Construido por profesionales · Human First, AI-Next</div>
+  <div class="badges">
+    <span>Human First AI-Next</span>
+    <span>Llano</span>
+    <span>2026</span>
+    <span>CC BY-NC-SA 4.0</span>
+  </div>
+  <div class="footer-by">
+    Por <strong style="color:var(--white)">Javier Montaño</strong> · <a href="https://metodologia.info">metodologia.info</a> · v2026.04
+  </div>
+</footer>
+
+</body>
+</html>
