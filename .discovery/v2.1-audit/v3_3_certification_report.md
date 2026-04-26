@@ -12,7 +12,7 @@
 
 ## Capa 2 · Métricas cuantitativas por bloque
 
-**Tamaño content:** min=12,855 · median=13,639 · mean=13,908 · max=18,476 chars
+**Tamaño content:** min=12,855 · median=13,639 · mean=13,909 · max=18,476 chars
 **Suma total contents:** 26.87 MB
 
 ### Distribución por bloque (chars)

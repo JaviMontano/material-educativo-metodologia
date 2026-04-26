@@ -157,10 +157,21 @@ def check_abstract_coherence(content: str, label_title: str) -> dict:
 # ---------------------------------------------------------------------------
 # Capa 4 · No-regresión vs backup
 # ---------------------------------------------------------------------------
+def normalize_for_regression(text: str) -> str:
+    """Normaliza renames aprobados antes de comparar (Prompster → Biblioteca Universal de Prompts)."""
+    if not text:
+        return text
+    # El usuario aprobó el rename oficial 2026-04-26. Tratamos las variantes como equivalentes
+    # para el test de no-regresión (de lo contrario el rename se reportaría como "regresión").
+    return (text
+            .replace("Prompster v1492", "Biblioteca Universal de Prompts v1492")
+            .replace("Baseline Prompster", "Baseline · Biblioteca Universal de Prompts")
+            .replace("Prompster", "Biblioteca Universal de Prompts"))
+
 def check_no_regression(new_prompt: dict, old_prompt: dict) -> dict:
     """Verifica que TÍTULO, ROL y RESUMEN del original estén dentro del v3.3."""
     new_c = new_prompt["content"]
-    old_c = old_prompt["content"]
+    old_c = normalize_for_regression(old_prompt["content"])
 
     # Extraer TÍTULO original
     old_title_m = re.match(r"TÍTULO:\s*(.+?)\n", old_c)

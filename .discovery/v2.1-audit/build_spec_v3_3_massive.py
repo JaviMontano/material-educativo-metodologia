@@ -492,11 +492,11 @@ def main():
     with open(OUT_MIN, "w") as f:
         json.dump(d, f, ensure_ascii=False, separators=(",", ":"))
 
-    # Escribir Prompster
+    # Escribir Biblioteca Universal de Prompts
     print(f"Writing {OUT_PROMPSTER} ...")
-    prompster = {p["id"]: p["content"] for p in prompts}
+    biblioteca universal de prompts = {p["id"]: p["content"] for p in prompts}
     with open(OUT_PROMPSTER, "w") as f:
-        json.dump(prompster, f, ensure_ascii=False, indent=2)
+        json.dump(biblioteca universal de prompts, f, ensure_ascii=False, indent=2)
 
     # Sample 50 random reproducible
     random.seed(20260426)

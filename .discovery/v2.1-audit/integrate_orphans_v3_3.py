@@ -345,9 +345,9 @@ def main():
         json.dump(d, f, ensure_ascii=False, indent=2)
     with open(OUT_MIN, "w") as f:
         json.dump(d, f, ensure_ascii=False, separators=(",", ":"))
-    prompster = {p["id"]: p["content"] for p in prompts}
+    biblioteca universal de prompts = {p["id"]: p["content"] for p in prompts}
     with open(OUT_PROMPSTER, "w") as f:
-        json.dump(prompster, f, ensure_ascii=False, indent=2)
+        json.dump(biblioteca universal de prompts, f, ensure_ascii=False, indent=2)
 
     AUDIT_DIR.mkdir(parents=True, exist_ok=True)
     DIFF_LOG.write_text("".join(log_lines), encoding="utf-8")
