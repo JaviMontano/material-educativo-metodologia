@@ -12,8 +12,8 @@
 
 ## Capa 2 · Métricas cuantitativas por bloque
 
-**Tamaño content:** min=12,340 · median=13,449 · mean=13,533 · max=18,024 chars
-**Suma total contents:** 26.15 MB
+**Tamaño content:** min=12,855 · median=13,639 · mean=13,908 · max=18,476 chars
+**Suma total contents:** 26.87 MB
 
 ### Distribución por bloque (chars)
 
@@ -31,7 +31,7 @@
 | `SISTEMA DE ETIQUETAS` | 873 | 873 | 873 | 2026 |
 | `METACOGNICIÓN` | 581 | 581 | 581 | 2026 |
 | `REGLA DE CONFIANZA:` | 339 | 339 | 339 | 2026 |
-| `EJECUCIÓN:` | 823 | 1,002 | 2,160 | 2026 |
+| `EJECUCIÓN:` | 866 | 1,500 | 2,863 | 2026 |
 | `SALIDA OBLIGATORIA:` | 540 | 540 | 540 | 2026 |
 | `METADATA DE RAZONAMIENTO (cier` | 396 | 396 | 396 | 2026 |
 | `CRITERIO DE ÉXITO:` | 600 | 929 | 1,142 | 2026 |
@@ -51,28 +51,15 @@
 
 ## Capa 3 · Coherencia semántica
 
-**Prompts con tokens huérfanos** (declarados en INPUTS pero no usados): 1273
+**Prompts con tokens huérfanos** (declarados en INPUTS pero no usados): 0
 
 ### Delta vs backup pre-v3.3
 
-- **Heredados del v3000 anterior** (NO regresión, persisten): 1273 prompts
+- **Heredados del v3000 anterior** (NO regresión, persisten): 0 prompts
 - **Introducidos por v3.3** (regresión real, bloqueante): 0 prompts
 
 ✅ **Cero huérfanos introducidos por v3.3** — todos los huérfanos detectados son herencia pre-existente del v3000.
 
-**Huérfanos heredados (issue conocido pre-existente, NO bloqueante para v3.3):**
-
-- `/demo_combinar_imagenes_publicitaria`: ['fondo', 'mensaje', 'producto']
-- `/demo_crear_imagen_desde_input`: ['descripcion', 'estilo', 'formato']
-- `/demo_imagen_a_video`: ['accion', 'duracion', 'imagen_descripcion']
-- `/demo_juego_culebrita`: ['estilo', 'logica', 'tipo_app']
-- `/demo_presentacion_tema_actualidad`: ['audiencia', 'enfoque', 'tema']
-- `/COP_AUT_01`: ['disparador', 'nombre']
-- `/COP_AUT_02`: ['aprobador', 'tema']
-- `/COP_AUT_03`: ['estructura', 'schema']
-- `/COP_AUT_04`: ['accion', 'politica']
-- `/COP_AUT_05`: ['coleccion', 'proceso']
-- ... (1263 más · ver `v3_3_inherited_orphans.md` para lista completa)
 
 **Prompts con tokens fantasma** (usados pero no declarados): 0
 
@@ -127,7 +114,7 @@
 **Resumen ejecutivo:**
 - 26/26 checks estructurales pass al 100%.
 - 5/5 checks de no-regresión (TÍTULO/ROL/RESUMEN/SITUACIÓN/PEDIDO) pass al 100%.
-- 0 huérfanos introducidos por v3.3 (1273 heredados son issue conocido del v3000 anterior, no bloqueante).
+- 0 huérfanos introducidos por v3.3 (0 heredados son issue conocido del v3000 anterior, no bloqueante).
 - 0 tokens fantasma · 0 IDs duplicados · 0 invokes duplicados.
 - Tamaño content: median 13,449 chars · max 18,024 · suma 26.15 MB.
 - Distribución por bloque dentro de rangos esperados (excepto outliers heredados de /v11_*).
