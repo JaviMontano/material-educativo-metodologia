@@ -321,14 +321,18 @@ def score_entrusted(content: str, prompt: dict) -> dict:
     if "fallback" in content.lower(): transfer += 5
     scores["T_transferibilidad"] = min(100, transfer)
 
-    # R · Rol — específico vs genérico
+    # R · Rol — específico vs genérico (lee bloque ROL completo, no solo 1 línea)
     rol = 60
-    rol_match = re.search(r"\nROL:\s*\n([^\n]+)", content)
+    rol_match = re.search(r"\nROL:\s*\n([^\n]+(?:\n[^\n]+)*?)(?=\n\nABSTRACT:|\n\nSITUACIÓN:|\nSITUACIÓN:)", content, re.DOTALL)
     if rol_match:
         rol_text = rol_match.group(1).lower()
-        if "experto general" in rol_text or "asistente" in rol_text: rol += 0
-        elif "senior" in rol_text or "especialista" in rol_text or "experto" in rol_text: rol += 25
-        if "orquestador" in rol_text or "metacognitivo" in rol_text or "calibración" in rol_text: rol += 10
+        # Senior/especialista/experto suma 25 (override de 'asistente' como tema válido)
+        if "senior" in rol_text or "especialista" in rol_text or re.search(r"\bexperto\b", rol_text):
+            rol += 25
+        elif "experto general" in rol_text:
+            rol += 0  # genérico explícito
+        if "orquestador" in rol_text or "metacognitivo" in rol_text or "calibración" in rol_text or "meta-cognit" in rol_text:
+            rol += 10
         if len(rol_text) > 100: rol += 5
     scores["R_rol"] = min(100, rol)
 
@@ -366,12 +370,12 @@ def score_entrusted(content: str, prompt: dict) -> dict:
     if "EDGE CASES" in content: tareafit += 10
     scores["T_tarea_fit"] = min(100, tareafit)
 
-    # E · Edge cases — ≥3 casos
+    # E · Edge cases — ≥3 casos = 100
     edgecases = 0
     edge_block_m = re.search(r"EDGE CASES:\n(.+?)(?=\n\n|\n—|\Z)", content, re.DOTALL)
     if edge_block_m:
         n_edges = sum(1 for l in edge_block_m.group(1).split("\n") if l.strip().startswith("-"))
-        edgecases = min(100, n_edges * 33)
+        edgecases = 100 if n_edges >= 3 else n_edges * 33
     scores["E_edge_cases"] = edgecases
 
     # Score agregado promedio

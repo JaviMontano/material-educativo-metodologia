@@ -12,8 +12,8 @@
 
 ## Capa 2 · Métricas cuantitativas por bloque
 
-**Tamaño content:** min=12,855 · median=13,639 · mean=13,909 · max=18,476 chars
-**Suma total contents:** 26.87 MB
+**Tamaño content:** min=15,209 · median=16,190 · mean=16,446 · max=21,013 chars
+**Suma total contents:** 31.78 MB
 
 ### Distribución por bloque (chars)
 
@@ -34,8 +34,8 @@
 | `EJECUCIÓN:` | 866 | 1,500 | 2,863 | 2026 |
 | `SALIDA OBLIGATORIA:` | 540 | 540 | 540 | 2026 |
 | `METADATA DE RAZONAMIENTO (cier` | 396 | 396 | 396 | 2026 |
-| `CRITERIO DE ÉXITO:` | 600 | 929 | 1,142 | 2026 |
-| `— CLÁUSULAS TRANSVERSALES` | 4,923 | 4,923 | 4,923 | 2026 |
+| `CRITERIO DE ÉXITO:` | 1,567 | 1,976 | 2,144 | 2026 |
+| `— CLÁUSULAS TRANSVERSALES` | 6,421 | 6,421 | 6,421 | 2026 |
 
 ### Outliers (fuera del rango esperado)
 

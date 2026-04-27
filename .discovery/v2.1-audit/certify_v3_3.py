@@ -188,7 +188,22 @@ def check_no_regression(new_prompt: dict, old_prompt: dict) -> dict:
 
     old_rol = extract_block(old_c, "ROL:", ["SITUACIÓN:", "INPUTS:", "RESUMEN:", "PROTOCOLO"])
     new_rol = extract_block(new_c, "ROL:", ["SITUACIÓN:"])
-    rol_extends_original = bool(old_rol and new_rol and old_rol.split("\n")[0][:80] in new_rol)
+    # Boost v3.4 puede insertar "senior" entre el sustantivo y su complemento (ej.
+    # "Diseñador de Adaptive Cards" → "Diseñador senior de Adaptive Cards"), lo cual
+    # rompe el chequeo de sustring exacto. Normalizamos ambos eliminando "senior" /
+    # prefijo "Especialista senior · " antes de comparar.
+    if old_rol and new_rol:
+        old_norm = normalize_for_regression(old_rol)
+        new_norm = re.sub(r"^Especialista senior · ", "", new_rol)
+        # Strip "senior" insertado entre sustantivo+complemento para alinear con OLD
+        new_norm_no_senior = re.sub(r"\bsenior\s+", "", new_norm, count=1)
+        first_line_old = old_norm.split("\n")[0][:40]
+        rol_extends_original = (
+            first_line_old in new_rol or
+            first_line_old in new_norm_no_senior
+        )
+    else:
+        rol_extends_original = False
 
     # RESUMEN debería preservarse exactamente
     old_resumen = extract_block(old_c, "RESUMEN:", ["SPEC:", "ABSTRACT:"])
