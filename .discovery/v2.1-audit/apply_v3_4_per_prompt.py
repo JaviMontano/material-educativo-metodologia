@@ -54,6 +54,13 @@ CATEGORY_MAP = {
     "documenta": "generación",   # Documentar · produce artefacto doc
     "estructura": "procedimiento", # Estructurar · organiza con jerarquía
     "defiende": "generación",    # Argumentar · construye defensa
+    "empatiza": "análisis",      # Análisis empático
+    "desafia": "análisis",       # Reto / contra-argumento
+    "compara": "análisis",       # Comparación
+    "operacionaliza": "procedimiento", # Convertir abstracto en plan
+    "prioriza": "análisis",      # Ordenar por criterio
+    "reformula": "generación",   # Reescribir / pivotar
+    "investiga": "investigación", # Investigación dirigida
 }
 
 BATCHES = {
@@ -74,6 +81,15 @@ BATCHES = {
         "documenta",    # Documentar
         "estructura",   # Estructurar
         "defiende",     # Argumentar
+    ],
+    "aceleradores_2": [
+        "empatiza",     # Análisis empático
+        "desafia",      # Reto / contra-argumento
+        "compara",      # Comparación
+        "operacionaliza", # Convertir abstracto en plan
+        "prioriza",     # Ordenar por criterio
+        "reformula",    # Reescribir / pivotar
+        "investiga",    # Investigación dirigida
     ],
 }
 
