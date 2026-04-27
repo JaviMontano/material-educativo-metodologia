@@ -46,6 +46,14 @@ CATEGORY_MAP = {
     "v11_artefacto_5_fuerzas_porter": "estrategia",
     "v11_artefacto_lean_canvas": "estrategia",
     "v11_artefacto_okr": "estrategia",
+    # Aceleradores 1-palabra — macros operativos de continuación/transformación
+    "a": "procedimiento",        # Aprobado · proceder · macro de continuación
+    "e": "procedimiento",        # Excelencia · activa bucle de validación
+    "s": "generación",           # Sintetiza · combina opciones en una unificada
+    "simplifica": "procedimiento", # Destilar · reduce a esencia
+    "documenta": "generación",   # Documentar · produce artefacto doc
+    "estructura": "procedimiento", # Estructurar · organiza con jerarquía
+    "defiende": "generación",    # Argumentar · construye defensa
 }
 
 BATCHES = {
@@ -56,6 +64,16 @@ BATCHES = {
         "v11_artefacto_5_fuerzas_porter",
         "v11_artefacto_lean_canvas",
         "v11_artefacto_okr",
+    ],
+    # Aceleradores 1-palabra · alta reutilización (macros operativos)
+    "aceleradores_1": [
+        "a",            # Aprobado · proceder
+        "e",            # Excelencia (bucle 10/10)
+        "s",            # Sintetiza
+        "simplifica",   # Destilar
+        "documenta",    # Documentar
+        "estructura",   # Estructurar
+        "defiende",     # Argumentar
     ],
 }
 
