@@ -419,10 +419,47 @@ def diagnose_prompt(content: str, prompt: dict) -> list:
 # ---------------------------------------------------------------------------
 # Main
 # ---------------------------------------------------------------------------
+def auto_categorize(p: dict) -> str:
+    """Heurística de categorización ENTRUSTED+ por metadata."""
+    rail = p.get("rail", "")
+    cat = p.get("category", "")
+    pid = p.get("id", "").lower()
+    label = p.get("label_title", "").lower()
+    text = pid + " " + label
+
+    # Reglas explícitas por id pattern
+    if "artefacto" in pid:
+        # Frameworks específicos → estrategia
+        if any(k in pid for k in ["swot","porter","bcg","ansoff","lean_canvas","okr","north_star","ikigai","balanced_scorecard","jtbd","matriz_eisenhower","matriz_raci","matriz_decisiones","blue_ocean"]):
+            return "estrategia"
+        return "procedimiento"
+    if rail == "metodo":
+        return "procedimiento"
+    if any(k in text for k in ["analiz","analiz", "audit", "evalu", "diagn"]):
+        return "análisis"
+    if any(k in text for k in ["genera", "redact", "escribe", "produc", "diseñ"]):
+        return "generación"
+    if any(k in text for k in ["extra", "parse", "lista"]):
+        return "extracción"
+    if any(k in text for k in ["agente", "flujo", "pipeline"]):
+        return "agente"
+    if any(k in text for k in ["automatiz", "automation", "flow"]):
+        return "automatización"
+    if any(k in text for k in ["investi", "research", "explor"]):
+        return "investigación"
+    if any(k in text for k in ["estrateg", "framework"]):
+        return "estrategia"
+    if any(k in text for k in ["imagen", "video", "audio", "diseñ visual"]):
+        return "multimedia"
+    return "procedimiento"
+
 def main():
     parser = argparse.ArgumentParser()
     parser.add_argument("--batch", choices=list(BATCHES.keys()), help="Nombre del batch predefinido")
     parser.add_argument("--ids", nargs="+", help="IDs específicos a procesar")
+    parser.add_argument("--pattern", help="Aplicar a todos los prompts cuyos ids matcheen este regex (no v3.4 aún)")
+    parser.add_argument("--rail", help="Aplicar a todos con rail=X (no v3.4 aún)")
+    parser.add_argument("--auto-batch-size", type=int, default=7, help="Tamaño de chunk al usar --pattern o --rail")
     parser.add_argument("--dry-run", action="store_true")
     args = parser.parse_args()
 
@@ -432,8 +469,22 @@ def main():
     elif args.ids:
         target_ids = args.ids
         batch_name = "custom"
+    elif args.pattern or args.rail:
+        with open(SRC) as f:
+            _d = json.load(f)
+        _ps = _d["prompts"] if isinstance(_d, dict) and "prompts" in _d else _d
+        target_ids = []
+        for p in _ps:
+            if p.get("novelty_class") == "spec_v3_4_entrusted":
+                continue
+            if args.pattern and not re.search(args.pattern, p["id"]):
+                continue
+            if args.rail and p.get("rail") != args.rail:
+                continue
+            target_ids.append(p["id"])
+        batch_name = f"auto_{args.pattern or args.rail}".replace("/", "_")
     else:
-        print("Error: provide --batch or --ids")
+        print("Error: provide --batch, --ids, --pattern o --rail")
         sys.exit(1)
 
     print(f"Loading {SRC} ...")
@@ -456,7 +507,7 @@ def main():
             continue
         p = by_id[tid]
         content_before = p["content"]
-        category = CATEGORY_MAP.get(tid, "procedimiento")
+        category = CATEGORY_MAP.get(tid) or auto_categorize(p)
 
         # 1. Score before
         scores_before = score_entrusted(content_before, p)
