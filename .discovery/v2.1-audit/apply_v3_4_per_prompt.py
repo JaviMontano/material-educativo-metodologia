@@ -61,6 +61,13 @@ CATEGORY_MAP = {
     "prioriza": "análisis",      # Ordenar por criterio
     "reformula": "generación",   # Reescribir / pivotar
     "investiga": "investigación", # Investigación dirigida
+    # COP suite Microsoft — automatización (flow/dashboard/spec/study/manage)
+    **{f"COP_AUT_{i:02d}": "automatización" for i in range(1, 26)},
+    **{f"COP_EXC_{i:02d}": "automatización" for i in range(1, 26)},
+    **{f"COP_PBI_{i:02d}": "automatización" for i in range(1, 21)},
+    **{f"COP_PRD_{i:02d}": "automatización" for i in range(1, 26)},
+    **{f"COP_STU_{i:02d}": "investigación" for i in range(1, 16)},
+    **{f"COP_MGT_{i:02d}": "procedimiento" for i in range(1, 16)},
 }
 
 BATCHES = {
@@ -91,6 +98,25 @@ BATCHES = {
         "reformula",    # Reescribir / pivotar
         "investiga",    # Investigación dirigida
     ],
+    "cop_aut_1": ["COP_AUT_01","COP_AUT_02","COP_AUT_03","COP_AUT_04","COP_AUT_05","COP_AUT_06","COP_AUT_07"],
+    "cop_aut_2": ["COP_AUT_08","COP_AUT_09","COP_AUT_10","COP_AUT_11","COP_AUT_12","COP_AUT_13","COP_AUT_14"],
+    "cop_aut_3": ["COP_AUT_15","COP_AUT_16","COP_AUT_17","COP_AUT_18","COP_AUT_19","COP_AUT_20","COP_AUT_21"],
+    "cop_aut_4": ["COP_AUT_22","COP_AUT_23","COP_AUT_24","COP_AUT_25"],
+    "cop_exc_1": [f"COP_EXC_{i:02d}" for i in range(1, 8)],
+    "cop_exc_2": [f"COP_EXC_{i:02d}" for i in range(8, 15)],
+    "cop_exc_3": [f"COP_EXC_{i:02d}" for i in range(15, 22)],
+    "cop_exc_4": [f"COP_EXC_{i:02d}" for i in range(22, 26)],
+    "cop_pbi_1": [f"COP_PBI_{i:02d}" for i in range(1, 8)],
+    "cop_pbi_2": [f"COP_PBI_{i:02d}" for i in range(8, 15)],
+    "cop_pbi_3": [f"COP_PBI_{i:02d}" for i in range(15, 21)],
+    "cop_prd_1": [f"COP_PRD_{i:02d}" for i in range(1, 8)],
+    "cop_prd_2": [f"COP_PRD_{i:02d}" for i in range(8, 15)],
+    "cop_prd_3": [f"COP_PRD_{i:02d}" for i in range(15, 22)],
+    "cop_prd_4": [f"COP_PRD_{i:02d}" for i in range(22, 26)],
+    "cop_stu_1": [f"COP_STU_{i:02d}" for i in range(1, 8)],
+    "cop_stu_2": [f"COP_STU_{i:02d}" for i in range(8, 16)],
+    "cop_mgt_1": [f"COP_MGT_{i:02d}" for i in range(1, 8)],
+    "cop_mgt_2": [f"COP_MGT_{i:02d}" for i in range(8, 16)],
 }
 
 # ---------------------------------------------------------------------------
