@@ -41,11 +41,22 @@ CATEGORY_MAP = {
     "7": "análisis",        # VALIDAR — audita
     "8": "generación",      # ENTREGAR — adapta formato
     "9": "procedimiento",   # CRISTALIZAR — plantilla
+    # Frameworks clásicos — todos categoría estrategia
+    "v11_artefacto_matriz_swot_completa": "estrategia",
+    "v11_artefacto_5_fuerzas_porter": "estrategia",
+    "v11_artefacto_lean_canvas": "estrategia",
+    "v11_artefacto_okr": "estrategia",
 }
 
 BATCHES = {
     "pipeline_0_6": ["0", "1", "2", "3", "4", "5", "6"],
-    "pipeline_7_9_plus_4": ["7", "8", "9", "swot", "porter_5_fuerzas", "lean_canvas", "okr_design"],
+    "pipeline_7_9_plus_4": [
+        "7", "8", "9",
+        "v11_artefacto_matriz_swot_completa",
+        "v11_artefacto_5_fuerzas_porter",
+        "v11_artefacto_lean_canvas",
+        "v11_artefacto_okr",
+    ],
 }
 
 # ---------------------------------------------------------------------------
