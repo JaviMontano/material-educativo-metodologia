@@ -1,0 +1,869 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=5">
+<title>Cartilla universal de prompting · MetodologIA · 2026</title>
+<meta name="description" content="Aprender a hacer prompting · cartilla pedagógica con storytelling, pipeline P.I.V.O.T.E., 12 cláusulas paramétricas, rubricario ENTRUSTED+ y 30 prompts ejemplo curados.">
+<link rel="preconnect" href="https://fonts.googleapis.com" crossorigin>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700;800&family=Montserrat:wght@400;500;600;700&display=swap">
+<style>
+:root{
+  --navy:#122562; --navy-deep:#0a1740;
+  --gold:#FFD700; --gold-dark:#D4A017;
+  --blue:#137DC5; --lilac:#BAA0CC;
+  --red:#dc2626; --green:#059669;
+  --text:#0F172A; --text-soft:#475569;
+  --bg:#FAF9F6; --bg-card:#FFFFFF;
+  --border:rgba(18,37,98,.12);
+  --shadow:0 8px 22px rgba(15,23,42,.06);
+  --shadow-lg:0 16px 40px rgba(15,23,42,.10);
+  --radius:14px; --radius-sm:8px;
+  --transition:0.4s cubic-bezier(0.4,0,0.2,1);
+  --max-content:1100px;
+}
+html.dark{
+  --text:#F0F4F8; --text-soft:#94A3B8;
+  --bg:#0A0F1F; --bg-card:rgba(18,37,98,.4);
+  --border:rgba(255,215,0,.18);
+  --shadow:0 8px 22px rgba(0,0,0,.4);
+  --shadow-lg:0 16px 40px rgba(0,0,0,.5);
+}
+*,*::before,*::after{box-sizing:border-box}
+html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}
+body{
+  margin:0; font-family:'Montserrat',system-ui,sans-serif;
+  font-size:16px; line-height:1.7; color:var(--text);
+  background:var(--bg);
+  transition:background var(--transition), color var(--transition);
+}
+h1,h2,h3,h4,h5{font-family:'Poppins',sans-serif; font-weight:800; line-height:1.2; color:var(--navy); margin:0 0 .6em}
+html.dark h1, html.dark h2, html.dark h3, html.dark h4, html.dark h5{color:var(--gold)}
+h1{font-size:clamp(2rem,5vw,3.5rem); letter-spacing:-.02em}
+h2{font-size:clamp(1.5rem,3.5vw,2.4rem); letter-spacing:-.01em}
+h3{font-size:clamp(1.15rem,2.4vw,1.5rem)}
+h4{font-size:1.1rem; font-weight:700}
+p{margin:0 0 1em}
+a{color:var(--blue); text-decoration:none; transition:color var(--transition)}
+a:hover{color:var(--gold-dark); text-decoration:underline}
+html.dark a{color:var(--gold)}
+html.dark a:hover{color:var(--gold-dark)}
+code,pre{font-family:'Courier New',monospace; font-size:.92em}
+code{background:rgba(255,215,0,.15); padding:.15em .4em; border-radius:4px; color:var(--navy)}
+html.dark code{color:var(--gold); background:rgba(255,215,0,.1)}
+pre{background:var(--bg-card); padding:1em 1.2em; border-radius:var(--radius-sm); border:1px solid var(--border); overflow-x:auto; box-shadow:var(--shadow)}
+pre code{background:transparent; padding:0; color:inherit}
+.label,.eyebrow{font-family:'Trebuchet MS',sans-serif; font-weight:700; font-size:.72rem; letter-spacing:.18em; text-transform:uppercase; color:var(--gold-dark)}
+html.dark .eyebrow{color:var(--gold)}
+
+/* ═══ READING BAR ═══ */
+.reading-bar{position:fixed; top:0; left:0; height:3px; background:linear-gradient(90deg,var(--navy),var(--gold)); z-index:1000; transition:width .12s linear; width:0}
+
+/* ═══ NAV STICKY ═══ */
+.topnav{
+  position:sticky; top:3px; z-index:900; background:rgba(250,249,246,.92); backdrop-filter:blur(10px);
+  border-bottom:1px solid var(--border); padding:.6em 1.2em;
+  display:flex; align-items:center; gap:1rem; justify-content:space-between;
+}
+html.dark .topnav{background:rgba(10,15,31,.92)}
+.topnav .brand{font-family:'Poppins',sans-serif; font-weight:800; color:var(--navy); font-size:.95rem}
+html.dark .topnav .brand{color:var(--gold)}
+.topnav .controls{display:flex; gap:.6em; align-items:center}
+.btn{
+  display:inline-flex; align-items:center; gap:.5em;
+  padding:.5em 1em; border-radius:999px; border:1px solid var(--border);
+  background:transparent; color:var(--text); cursor:pointer;
+  font-family:'Montserrat',sans-serif; font-weight:600; font-size:.85rem;
+  transition:all var(--transition);
+}
+.btn:hover{background:var(--gold); color:var(--navy); border-color:var(--gold); box-shadow:0 4px 14px rgba(255,215,0,.3)}
+.btn-primary{background:var(--gold); color:var(--navy); border-color:var(--gold); font-weight:700}
+.btn-primary:hover{background:var(--gold-dark); color:#FFF}
+
+/* ═══ SECTIONS ═══ */
+section{padding:clamp(3rem,8vh,6rem) 1.2rem; max-width:var(--max-content); margin:0 auto}
+section.full-bleed{max-width:none; padding-left:0; padding-right:0}
+.section-inner{max-width:var(--max-content); margin:0 auto; padding:0 1.2rem}
+
+/* ═══ HERO ═══ */
+.hero{
+  background:linear-gradient(135deg, var(--navy) 0%, var(--navy-deep) 100%);
+  color:#FFF; text-align:center; padding:clamp(4rem,12vh,8rem) 1.2rem clamp(3rem,8vh,5rem);
+  position:relative; overflow:hidden;
+}
+.hero h1{color:#FFF; max-width:18ch; margin-left:auto; margin-right:auto}
+.hero h1 strong{color:var(--gold)}
+.hero .promesa{font-size:clamp(1rem,2vw,1.25rem); color:rgba(255,255,255,.85); max-width:50ch; margin:1.5em auto 2.5em; line-height:1.6}
+.hero .ctas{display:flex; gap:1em; justify-content:center; flex-wrap:wrap}
+.hero::after{content:""; position:absolute; bottom:-100px; right:-100px; width:300px; height:300px; background:radial-gradient(circle, rgba(255,215,0,.15), transparent 70%); pointer-events:none}
+
+/* ═══ STORYTELLING TWO-COLS ═══ */
+.story-grid{display:grid; gap:1.5rem; margin-top:2.5rem}
+@media(min-width:780px){.story-grid{grid-template-columns:1fr 1fr 1fr}}
+.story-card{
+  background:var(--bg-card); border:1px solid var(--border); border-left:4px solid var(--red);
+  border-radius:var(--radius); padding:1.6rem; box-shadow:var(--shadow);
+  transition:transform var(--transition), box-shadow var(--transition);
+}
+.story-card.hoy{border-left-color:var(--gold)}
+.story-card.manana{border-left-color:var(--blue)}
+.story-card:hover{transform:translateY(-6px); box-shadow:var(--shadow-lg)}
+.story-card h3{margin:0 0 .8em; font-size:1.1rem}
+.story-card ul{margin:0; padding:0 0 0 1.2em; list-style:disc}
+.story-card li{margin-bottom:.5em; line-height:1.5}
+.story-card .icon-tag{display:inline-block; padding:.25em .7em; border-radius:999px; font-size:.7rem; letter-spacing:.1em; text-transform:uppercase; font-weight:700; margin-bottom:.8em}
+.story-card .icon-tag.dolor{background:rgba(220,38,38,.1); color:var(--red)}
+.story-card .icon-tag.motiva{background:rgba(255,215,0,.15); color:var(--gold-dark)}
+.story-card .icon-tag.futuro{background:rgba(19,125,197,.1); color:var(--blue)}
+
+/* ═══ ATTRIBUTE GRID ═══ */
+.attr-grid{display:grid; gap:1.2rem; margin-top:2rem}
+@media(min-width:680px){.attr-grid{grid-template-columns:repeat(2,1fr)}}
+@media(min-width:1080px){.attr-grid{grid-template-columns:repeat(4,1fr)}}
+.attr-card{
+  background:var(--bg-card); border:1px solid var(--border); border-radius:var(--radius);
+  padding:1.4rem 1.2rem; box-shadow:var(--shadow); transition:all var(--transition);
+}
+.attr-card:hover{transform:translateY(-4px); box-shadow:var(--shadow-lg); border-color:var(--gold)}
+.attr-card .num{font-family:'Poppins',sans-serif; font-weight:800; font-size:2rem; color:var(--gold-dark); line-height:1; margin-bottom:.3em}
+html.dark .attr-card .num{color:var(--gold)}
+.attr-card h3{margin:.3em 0 .5em; font-size:1.05rem}
+.attr-card p{margin:0; font-size:.92rem; color:var(--text-soft); line-height:1.55}
+.attr-card .rubric{margin-top:1em; padding-top:.8em; border-top:1px dashed var(--border); font-size:.78rem; color:var(--text-soft); font-style:italic}
+
+/* ═══ PIPELINE ═══ */
+.pipeline-list{margin-top:2rem; display:flex; flex-direction:column; gap:.8rem}
+.pipeline-step{
+  background:var(--bg-card); border:1px solid var(--border); border-left:4px solid var(--gold);
+  border-radius:var(--radius); overflow:hidden; transition:all var(--transition);
+}
+.pipeline-step:hover{box-shadow:var(--shadow-lg); border-left-color:var(--blue)}
+.pipeline-step summary{cursor:pointer; padding:1.1rem 1.4rem; display:flex; align-items:center; gap:1rem; font-weight:700; list-style:none}
+.pipeline-step summary::-webkit-details-marker{display:none}
+.pipeline-step summary::after{content:"+"; margin-left:auto; font-size:1.4rem; color:var(--gold-dark); transition:transform var(--transition)}
+.pipeline-step[open] summary::after{transform:rotate(45deg)}
+.pipeline-step .num-pill{
+  background:var(--navy); color:var(--gold); width:36px; height:36px; border-radius:50%;
+  display:inline-flex; align-items:center; justify-content:center; font-family:'Poppins'; font-weight:800; font-size:1rem; flex-shrink:0;
+}
+.pipeline-step .step-title{font-size:1.05rem}
+.pipeline-step .body{padding:0 1.4rem 1.4rem; border-top:1px dashed var(--border); padding-top:1rem; margin-top:.4rem}
+.pipeline-step .body p{margin:0 0 .8em; font-size:.95rem}
+.pipeline-step .body strong{color:var(--gold-dark)}
+html.dark .pipeline-step .body strong{color:var(--gold)}
+
+/* ═══ CLAUSES TABLE ═══ */
+.clauses-grid{display:grid; gap:1rem; margin-top:2rem}
+@media(min-width:780px){.clauses-grid{grid-template-columns:repeat(2,1fr)}}
+.clause-card{
+  background:var(--bg-card); border:1px solid var(--border); border-left:4px solid var(--blue);
+  border-radius:var(--radius); padding:1.2rem 1.3rem; transition:all var(--transition);
+}
+.clause-card:hover{transform:translateY(-3px); box-shadow:var(--shadow)}
+.clause-card.new{border-left-color:var(--gold)}
+.clause-card h4{margin:0 0 .4em; font-size:.92rem; color:var(--navy); display:flex; align-items:center; gap:.5em}
+html.dark .clause-card h4{color:var(--gold)}
+.clause-card .badge-new{background:var(--gold); color:var(--navy); font-size:.6rem; padding:.1em .5em; border-radius:999px; font-weight:700}
+.clause-card .params{font-family:'Courier New',monospace; font-size:.78rem; color:var(--text-soft); background:rgba(0,0,0,.04); padding:.4em .6em; border-radius:4px; margin:.4em 0; overflow-x:auto}
+html.dark .clause-card .params{background:rgba(255,255,255,.05)}
+.clause-card p{margin:.5em 0 0; font-size:.85rem}
+
+/* ═══ TAG GLOSSARY ═══ */
+.tag-grid{display:grid; gap:.7rem; margin-top:2rem}
+@media(min-width:680px){.tag-grid{grid-template-columns:repeat(2,1fr)}}
+@media(min-width:1080px){.tag-grid{grid-template-columns:repeat(5,1fr)}}
+.tag-card{background:var(--bg-card); border:1px solid var(--border); border-radius:var(--radius-sm); padding:.9rem 1rem; transition:all var(--transition)}
+.tag-card:hover{border-color:var(--gold); transform:translateY(-2px)}
+.tag-card code{display:inline-block; margin-bottom:.3em; font-size:.78rem; font-weight:700}
+.tag-card p{margin:0; font-size:.78rem; color:var(--text-soft); line-height:1.5}
+
+/* ═══ DSV STEPS ═══ */
+.dsv-steps{display:grid; gap:1rem; margin-top:2rem}
+@media(min-width:780px){.dsv-steps{grid-template-columns:repeat(5,1fr)}}
+.dsv-step{
+  background:var(--bg-card); border:1px solid var(--border); border-top:4px solid var(--blue);
+  border-radius:var(--radius); padding:1.1rem 1rem; text-align:center; transition:all var(--transition);
+}
+.dsv-step:hover{transform:translateY(-4px); border-top-color:var(--gold)}
+.dsv-step .num{font-family:'Poppins'; font-size:1.6rem; font-weight:800; color:var(--gold-dark); margin-bottom:.3em}
+html.dark .dsv-step .num{color:var(--gold)}
+.dsv-step h4{font-size:.95rem; margin:0 0 .5em}
+.dsv-step p{margin:0; font-size:.78rem; color:var(--text-soft); line-height:1.5}
+
+/* ═══ EXERCISES ═══ */
+.exercise-grid{display:grid; gap:1.2rem; margin-top:2rem}
+@media(min-width:680px){.exercise-grid{grid-template-columns:repeat(2,1fr)}}
+.exercise-card{
+  background:var(--bg-card); border:1px solid var(--border); border-radius:var(--radius);
+  padding:1.4rem; box-shadow:var(--shadow); transition:all var(--transition);
+}
+.exercise-card:hover{transform:translateY(-4px); box-shadow:var(--shadow-lg)}
+.exercise-card .duration{display:inline-block; background:var(--gold); color:var(--navy); font-size:.7rem; font-weight:700; padding:.3em .8em; border-radius:999px; letter-spacing:.05em; margin-bottom:.8em}
+.exercise-card .duration.l{background:var(--blue); color:#FFF}
+.exercise-card .duration.xl{background:var(--lilac); color:var(--navy)}
+.exercise-card h4{margin:0 0 .5em}
+.exercise-card .crit{margin-top:.8em; padding:.7em 1em; background:rgba(255,215,0,.08); border-left:3px solid var(--gold); border-radius:4px; font-size:.85rem; line-height:1.5}
+
+/* ═══ PROMPTS GALLERY ═══ */
+.prompts-gallery{display:grid; gap:.8rem; margin-top:1.6rem}
+@media(min-width:680px){.prompts-gallery{grid-template-columns:repeat(2,1fr)}}
+@media(min-width:1080px){.prompts-gallery{grid-template-columns:repeat(3,1fr)}}
+.prompt-card{
+  background:var(--bg-card); border:1px solid var(--border); border-radius:var(--radius-sm);
+  padding:1rem 1.1rem; cursor:pointer; transition:all var(--transition);
+}
+.prompt-card:hover{border-color:var(--gold); transform:translateY(-2px); box-shadow:var(--shadow)}
+.prompt-card .invoke{font-family:'Courier New'; font-weight:700; color:var(--gold-dark); font-size:.9rem}
+html.dark .prompt-card .invoke{color:var(--gold)}
+.prompt-card h4{margin:.3em 0 .4em; font-size:.95rem; line-height:1.3}
+.prompt-card .cat{font-size:.7rem; color:var(--text-soft); letter-spacing:.05em; text-transform:uppercase}
+
+/* ═══ MODAL ═══ */
+.modal-backdrop{
+  display:none; position:fixed; inset:0; background:rgba(10,15,31,.85);
+  backdrop-filter:blur(4px); z-index:1500; padding:2rem 1rem; overflow-y:auto;
+}
+.modal-backdrop.open{display:flex; align-items:flex-start; justify-content:center}
+.modal{
+  background:var(--bg); border-radius:var(--radius); max-width:780px; width:100%;
+  padding:2rem; box-shadow:var(--shadow-lg); position:relative;
+}
+.modal .close{position:absolute; top:1rem; right:1rem; background:transparent; border:none; font-size:1.6rem; cursor:pointer; color:var(--text-soft)}
+.modal .close:hover{color:var(--gold-dark)}
+.modal pre{max-height:60vh; overflow-y:auto}
+
+/* ═══ CALENDAR EMBEDS ═══ */
+.calendar-grid{display:grid; gap:1.2rem; margin-top:2rem}
+@media(min-width:780px){.calendar-grid{grid-template-columns:repeat(3,1fr)}}
+.cal-card{
+  background:linear-gradient(135deg, var(--navy) 0%, var(--navy-deep) 100%);
+  color:#FFF; border-radius:var(--radius); padding:1.6rem; text-align:center; transition:all var(--transition);
+}
+.cal-card:hover{transform:translateY(-6px); box-shadow:var(--shadow-lg)}
+.cal-card h3{color:var(--gold); margin:0 0 .4em}
+.cal-card p{color:rgba(255,255,255,.85); font-size:.88rem; margin:0 0 1.2em}
+.cal-card .duration{display:inline-block; background:rgba(255,215,0,.2); color:var(--gold); font-size:.75rem; font-weight:700; padding:.3em .8em; border-radius:999px; margin-bottom:.8em}
+.cal-card .btn-primary{background:var(--gold); color:var(--navy); display:inline-block; padding:.6em 1.4em; border-radius:999px; font-weight:700; text-decoration:none}
+.cal-card .btn-primary:hover{background:#FFF}
+
+/* ═══ FOOTER ═══ */
+.site-footer{
+  background:var(--navy-deep); color:rgba(255,255,255,.8);
+  padding:clamp(2.5rem,6vh,4rem) 1.2rem 1.5rem; margin-top:4rem;
+}
+.site-footer .footer-grid{max-width:var(--max-content); margin:0 auto; display:grid; gap:2rem}
+@media(min-width:780px){.site-footer .footer-grid{grid-template-columns:1fr 1fr}}
+.site-footer .salida{
+  background:rgba(255,215,0,.05); border:1px solid rgba(255,215,0,.18);
+  border-radius:var(--radius); padding:1.6rem; transition:all var(--transition);
+}
+.site-footer .salida:hover{background:rgba(255,215,0,.1)}
+.site-footer .salida h3{color:var(--gold)}
+.site-footer .salida ul{padding-left:1.2em; margin:.5em 0}
+.site-footer .salida li{margin-bottom:.4em; font-size:.92rem}
+.site-footer .salida a{color:#FFF; text-decoration:underline}
+.site-footer .salida a:hover{color:var(--gold)}
+.site-footer .legal{max-width:var(--max-content); margin:2.5rem auto 0; padding-top:1.2rem; border-top:1px solid rgba(255,255,255,.1); text-align:center; font-size:.8rem; color:rgba(255,255,255,.5)}
+
+/* ═══ REVEAL ANIMATION ═══ */
+@media (prefers-reduced-motion: no-preference){
+  .reveal{opacity:0; transform:translateY(20px); transition:opacity .7s ease-out, transform .7s ease-out}
+  .reveal.in{opacity:1; transform:translateY(0)}
+}
+
+/* ═══ TOGGLE LANG ═══ */
+.es,.en{display:inline}
+html[lang="es"] .en{display:none}
+html[lang="en"] .es{display:none}
+
+/* ═══ BACK TO TOP ═══ */
+.back-top{position:fixed; bottom:1.5rem; right:1.5rem; width:48px; height:48px; border-radius:50%; background:var(--gold); color:var(--navy); border:none; cursor:pointer; opacity:0; pointer-events:none; transition:all var(--transition); box-shadow:0 4px 14px rgba(255,215,0,.4); font-size:1.2rem; font-weight:700}
+.back-top.show{opacity:1; pointer-events:auto}
+.back-top:hover{transform:translateY(-3px); background:var(--gold-dark); color:#FFF}
+</style>
+</head>
+<body>
+
+<div class="reading-bar" id="reading-bar"></div>
+
+<nav class="topnav">
+  <span class="brand">MetodologIA · Cartilla Universal de Prompting · 2026</span>
+  <div class="controls">
+    <button class="btn" id="lang-toggle" aria-label="Toggle language">ES / EN</button>
+    <button class="btn" id="theme-toggle" aria-label="Toggle theme">🌓</button>
+  </div>
+</nav>
+
+<!-- ═══ § 0 · HERO ═══ -->
+<header class="hero">
+  <span class="eyebrow"><span class="es">Cartilla universal de prompting</span><span class="en">Universal prompting playbook</span></span>
+  <h1 style="margin-top:1em">
+    <span class="es">Una cosa es <strong>tener</strong> los prompts.<br>Otra es <strong>aprender a hacerlos</strong>.</span>
+    <span class="en">It's one thing to <strong>have</strong> the prompts.<br>It's another to <strong>learn to craft them</strong>.</span>
+  </h1>
+  <p class="promesa">
+    <span class="es">Esta cartilla te enseña el método. Pasás de usuario de IA a operador profesional con resultados defendibles, reproducibles y auditables — sin fricción, sin alucinación, sin depender del catálogo cuando el caso real no encaje.</span>
+    <span class="en">This playbook teaches you the method. You move from AI user to professional operator with defensible, reproducible and auditable results — no friction, no hallucination, no dependence on a catalog when the real case doesn't fit.</span>
+  </p>
+  <div class="ctas">
+    <a class="btn btn-primary" href="#storytelling"><span class="es">Empezar a leer</span><span class="en">Start reading</span></a>
+    <a class="btn" href="#pipeline"><span class="es">Saltar al pipeline P.I.V.O.T.E.</span><span class="en">Jump to P.I.V.O.T.E. pipeline</span></a>
+  </div>
+</header>
+
+<!-- ═══ § 1 · STORYTELLING ═══ -->
+<section id="storytelling" class="reveal">
+  <span class="eyebrow"><span class="es">§ 1 · Por qué importa</span><span class="en">§ 1 · Why it matters</span></span>
+  <h2 style="margin-top:.4em">
+    <span class="es">Tres horizontes: <strong>dolores</strong> que se van, <strong>motivadores</strong> que se acercan, <strong>nuevos jobs</strong> que aparecen.</span>
+    <span class="en">Three horizons: <strong>pains</strong> leaving, <strong>motivators</strong> arriving, <strong>new jobs</strong> emerging.</span>
+  </h2>
+  <p style="max-width:60ch">
+    <span class="es">Antes de aprender la técnica, mirá lo que cambia cuando dominás prompting con método. La cartilla no se trata del prompt perfecto: se trata de <strong>soberanía digital y de IA</strong> — la capacidad de operar con criterio, sin depender de oráculos amables ni de catálogos infinitos.</span>
+    <span class="en">Before learning the technique, look at what changes when you master prompting with method. This playbook isn't about the perfect prompt: it's about <strong>digital and AI sovereignty</strong> — the ability to operate with judgment, without depending on friendly oracles or endless catalogs.</span>
+  </p>
+
+  <div class="story-grid">
+    <div class="story-card">
+      <span class="icon-tag dolor"><span class="es">Antes · dolores</span><span class="en">Before · pains</span></span>
+      <h3><span class="es">El oráculo amable</span><span class="en">The friendly oracle</span></h3>
+      <ul>
+        <li><span class="es">Pedís algo y recibís un texto que <em>suena</em> bien pero no defiende.</span><span class="en">You ask and get text that <em>sounds</em> right but doesn't defend.</span></li>
+        <li><span class="es">Adivinas el contexto, alucinas datos, padding académico.</span><span class="en">It guesses context, hallucinates data, padding everywhere.</span></li>
+        <li><span class="es">Cada sesión empieza de cero, no aprendés.</span><span class="en">Every session starts over, you don't learn.</span></li>
+        <li><span class="es">Fricción: explicarle todo cada vez.</span><span class="en">Friction: explain everything every time.</span></li>
+        <li><span class="es">Dependencia: si la IA falla, vos también.</span><span class="en">Dependency: if AI fails, you fail.</span></li>
+      </ul>
+    </div>
+
+    <div class="story-card hoy">
+      <span class="icon-tag motiva"><span class="es">Hoy · motivadores</span><span class="en">Today · motivators</span></span>
+      <h3><span class="es">El operador profesional</span><span class="en">The professional operator</span></h3>
+      <ul>
+        <li><span class="es">Cada output con etiquetas de procedencia y confianza ≥ 0.95.</span><span class="en">Every output tagged with provenance and confidence ≥ 0.95.</span></li>
+        <li><span class="es">Entregables defendibles: cita lo que sabe, marca lo que infiere.</span><span class="en">Defensible deliverables: cites what it knows, marks what it infers.</span></li>
+        <li><span class="es">Velocidad real: el método cierra ciclo en menos vueltas.</span><span class="en">Real speed: the method closes loops in fewer turns.</span></li>
+        <li><span class="es">Reproducibilidad: el mismo SPEC, la misma calidad.</span><span class="en">Reproducibility: same SPEC, same quality.</span></li>
+        <li><span class="es">Trazabilidad: cualquiera audita qué pasó y por qué.</span><span class="en">Traceability: anyone can audit what happened and why.</span></li>
+      </ul>
+    </div>
+
+    <div class="story-card manana">
+      <span class="icon-tag futuro"><span class="es">Mañana · nuevos jobs</span><span class="en">Tomorrow · new jobs</span></span>
+      <h3><span class="es">Soberanía digital y de IA</span><span class="en">Digital + AI sovereignty</span></h3>
+      <ul>
+        <li><span class="es">Diseñador de SPECs: convierte ideas vagas en contratos ejecutables.</span><span class="en">SPEC designer: turns vague ideas into executable contracts.</span></li>
+        <li><span class="es">Auditor de outputs: rubricario ENTRUSTED+ aplicado en segundos.</span><span class="en">Output auditor: ENTRUSTED+ rubric applied in seconds.</span></li>
+        <li><span class="es">Curador de pipelines: orquesta P.I.V.O.T.E. sobre cualquier dominio.</span><span class="en">Pipeline curator: orchestrates P.I.V.O.T.E. across any domain.</span></li>
+        <li><span class="es">Maestro del contexto: capitaliza hilo, memoria, adjuntos sin pedir.</span><span class="en">Context master: capitalizes thread, memory, attachments without asking.</span></li>
+        <li><span class="es">No depende del catálogo: con el método, hace prompts nuevos cuando hace falta.</span><span class="en">Independent of the catalog: with the method, crafts new prompts when needed.</span></li>
+      </ul>
+    </div>
+  </div>
+
+  <p style="max-width:60ch; margin-top:2.5rem; padding:1.2rem 1.4rem; background:rgba(255,215,0,.08); border-left:4px solid var(--gold); border-radius:var(--radius-sm)">
+    <strong><span class="es">La promesa de esta cartilla:</span><span class="en">The promise of this playbook:</span></strong>
+    <span class="es"> al cerrarla, vas a poder diseñar, auditar y orquestar prompts profesionales sin abrir la biblioteca. La biblioteca queda como referencia; el método queda en vos.</span>
+    <span class="en"> when you close it, you'll be able to design, audit and orchestrate professional prompts without opening the library. The library stays as reference; the method stays with you.</span>
+  </p>
+</section>
+
+<!-- ═══ § 2 · LOS 8 ATRIBUTOS ═══ -->
+<section id="atributos" class="reveal">
+  <span class="eyebrow"><span class="es">§ 2 · Qué aprenderás</span><span class="en">§ 2 · What you'll learn</span></span>
+  <h2><span class="es">Los <strong>8 atributos</strong> del prompting profesional</span><span class="en">The <strong>8 attributes</strong> of professional prompting</span></h2>
+  <p style="max-width:60ch"><span class="es">Cada atributo viene con un rubricario observable. No es opinión: es checkable.</span><span class="en">Each attribute comes with an observable rubric. Not opinion: checkable.</span></p>
+
+  <div class="attr-grid">
+    <div class="attr-card"><div class="num">01</div><h3><span class="es">Sistemático</span><span class="en">Systematic</span></h3><p><span class="es">Cada paso tiene precondición, entregable y validación. Nada al azar.</span><span class="en">Every step has precondition, deliverable, validation. Nothing random.</span></p><div class="rubric"><span class="es">Rúbrica: ¿podés auditar qué hizo y por qué? Sí = sistemático.</span><span class="en">Rubric: can you audit what it did and why? Yes = systematic.</span></div></div>
+
+    <div class="attr-card"><div class="num">02</div><h3><span class="es">Sin fricción</span><span class="en">Frictionless</span></h3><p><span class="es">La IA infiere desde hilo / memoria / adjuntos antes de pedirte algo.</span><span class="en">AI infers from thread / memory / attachments before asking you.</span></p><div class="rubric"><span class="es">Rúbrica: ¿te pidió algo que pudo inferir? No = sin fricción.</span><span class="en">Rubric: did it ask something inferable? No = frictionless.</span></div></div>
+
+    <div class="attr-card"><div class="num">03</div><h3><span class="es">Replicable</span><span class="en">Replicable</span></h3><p><span class="es">Mismo SPEC + mismos inputs = mismo output (con misma confianza).</span><span class="en">Same SPEC + same inputs = same output (same confidence).</span></p><div class="rubric"><span class="es">Rúbrica: ¿otro operador llega al mismo resultado? Sí = replicable.</span><span class="en">Rubric: does another operator land same result? Yes = replicable.</span></div></div>
+
+    <div class="attr-card"><div class="num">04</div><h3><span class="es">Portable</span><span class="en">Portable</span></h3><p><span class="es">Funciona standalone fuera del hilo original. Cero contexto invisible.</span><span class="en">Works standalone outside the original thread. Zero invisible context.</span></p><div class="rubric"><span class="es">Rúbrica: ¿lo ejecutás en otra sesión y funciona? Sí = portable.</span><span class="en">Rubric: run it in another session and it works? Yes = portable.</span></div></div>
+
+    <div class="attr-card"><div class="num">05</div><h3><span class="es">Metacognitivo</span><span class="en">Metacognitive</span></h3><p><span class="es">Aplica DSV: descompone, resuelve con confianza, verifica, sintetiza, reflexiona.</span><span class="en">Applies DSV: decompose, solve with confidence, verify, synthesize, reflect.</span></p><div class="rubric"><span class="es">Rúbrica: ¿declara qué supuso vs qué sabe? Sí = metacognitivo.</span><span class="en">Rubric: declares what it assumed vs knows? Yes = metacognitive.</span></div></div>
+
+    <div class="attr-card"><div class="num">06</div><h3><span class="es">Auditable</span><span class="en">Auditable</span></h3><p><span class="es">Cada bloque del output con etiqueta de procedencia y confianza visible.</span><span class="en">Every output block with provenance tag and visible confidence.</span></p><div class="rubric"><span class="es">Rúbrica: ¿podés trazar cada claim a su fuente? Sí = auditable.</span><span class="en">Rubric: can you trace each claim to its source? Yes = auditable.</span></div></div>
+
+    <div class="attr-card"><div class="num">07</div><h3><span class="es">Orquestado</span><span class="en">Orchestrated</span></h3><p><span class="es">Invoca tools, web, MCP, code-exec proactivamente cuando aporta evidencia.</span><span class="en">Proactively invokes tools, web, MCP, code-exec when adds evidence.</span></p><div class="rubric"><span class="es">Rúbrica: ¿usó los recursos disponibles sin pedirle? Sí = orquestado.</span><span class="en">Rubric: did it use available resources unprompted? Yes = orchestrated.</span></div></div>
+
+    <div class="attr-card"><div class="num">08</div><h3><span class="es">Insight-oriented</span><span class="en">Insight-oriented</span></h3><p><span class="es">Cierra con sugerencias + recomendaciones + riesgos no obvios + preguntas.</span><span class="en">Closes with suggestions + recommendations + non-obvious risks + questions.</span></p><div class="rubric"><span class="es">Rúbrica: ¿agregó valor más allá del pedido? Sí = insight-oriented.</span><span class="en">Rubric: added value beyond the ask? Yes = insight-oriented.</span></div></div>
+  </div>
+</section>
+
+<!-- ═══ § 3 · PIPELINE P.I.V.O.T.E. ═══ -->
+<section id="pipeline" class="reveal">
+  <span class="eyebrow"><span class="es">§ 3 · Espina dorsal</span><span class="en">§ 3 · Backbone</span></span>
+  <h2><span class="es">El pipeline <strong>P.I.V.O.T.E.</strong> · 10 pasos</span><span class="en">The <strong>P.I.V.O.T.E.</strong> pipeline · 10 steps</span></h2>
+  <p style="max-width:60ch"><span class="es">Cada paso resuelve algo standalone Y se encadena con el siguiente. No tenés que ejecutar los 10 cada vez: invocás el que necesitás. Pero conocer la secuencia te da el mapa completo.</span><span class="en">Each step solves something standalone AND chains with the next. You don't have to run all 10 every time: invoke what you need. But knowing the sequence gives you the full map.</span></p>
+
+  <div class="pipeline-list">
+    <details class="pipeline-step">
+      <summary><span class="num-pill">0</span><span class="step-title">PRIMING — Calibrar la sesión</span></summary>
+      <div class="body">
+        <p>Antes de pedir algo serio, le decís a la IA con qué cabeza pensar: rol experto, modo de razonamiento, manejo de adjuntos, sensibilidad de PII. Sin priming, llena los huecos a ciegas y arrastra supuestos por todo el hilo.</p>
+        <p><strong><span class="es">Cómo activarlo:</span><span class="en">How to activate:</span></strong> Pegá <code>/0</code> con tipo de sesión + adjuntos + sensibilidad. Default: la IA infiere lo que falta.</p>
+      </div>
+    </details>
+    <details class="pipeline-step">
+      <summary><span class="num-pill">1</span><span class="step-title">ENTENDER — Convertir un pedido difuso en necesidad concreta</span></summary>
+      <div class="body">
+        <p>El usuario dijo X pero necesita Y. Este paso descompone la intención real, mapea audiencia y restricciones, y declara los vacíos críticos.</p>
+        <p><strong><span class="es">Cómo activarlo:</span><span class="en">How to activate:</span></strong> Pegá <code>/1</code> con tu reto en sus términos crudos. Recibís una reformulación con etiquetas de procedencia.</p>
+      </div>
+    </details>
+    <details class="pipeline-step">
+      <summary><span class="num-pill">2</span><span class="step-title">DEFINIR — Construir un SPEC ejecutable</span></summary>
+      <div class="body">
+        <p>La necesidad concreta se convierte en contrato: rol, inputs tipados, situación, pedido, ejecución paso-a-paso, criterio de éxito falsable.</p>
+        <p><strong><span class="es">Cómo activarlo:</span><span class="en">How to activate:</span></strong> Pegá <code>/2</code> con la necesidad de /1. Recibís SPEC autocontenido portable a otro operador.</p>
+      </div>
+    </details>
+    <details class="pipeline-step">
+      <summary><span class="num-pill">3</span><span class="step-title">PLANIFICAR — Plan de acción accionable</span></summary>
+      <div class="body">
+        <p>El SPEC se ejecuta vía un plan: secuencia de tareas, dependencias, tiempos, riesgos por paso, checkpoints.</p>
+        <p><strong><span class="es">Cómo activarlo:</span><span class="en">How to activate:</span></strong> Pegá <code>/3</code> con el SPEC. Recibís plan con camino crítico y handlers de error.</p>
+      </div>
+    </details>
+    <details class="pipeline-step">
+      <summary><span class="num-pill">4</span><span class="step-title">EJECUTAR — Producir primera versión completa</span></summary>
+      <div class="body">
+        <p>Draft 1.0 funcional, completo, etiquetado por procedencia. No es perfecto: es defendible aunque imperfecto.</p>
+        <p><strong><span class="es">Cómo activarlo:</span><span class="en">How to activate:</span></strong> Pegá <code>/4</code> con el plan. Recibís artefacto con tabla de procedencia y vacíos críticos marcados.</p>
+      </div>
+    </details>
+    <details class="pipeline-step">
+      <summary><span class="num-pill">5</span><span class="step-title">ROBUSTECER — Agregar evidencia y sustancia</span></summary>
+      <div class="body">
+        <p>El draft pasa de ≥0.85 a ≥0.95 de confianza con evidencia, citas verificables, contraargumentos.</p>
+        <p><strong><span class="es">Cómo activarlo:</span><span class="en">How to activate:</span></strong> Pegá <code>/5</code> con el draft + áreas débiles + tipo de evidencia. Recibís versión defendible ante experto.</p>
+      </div>
+    </details>
+    <details class="pipeline-step">
+      <summary><span class="num-pill">6</span><span class="step-title">SIMPLIFICAR — Destilar a su forma esencial</span></summary>
+      <div class="body">
+        <p>Cortar redundancia, fusionar ideas, eliminar relleno. Misma confianza, menos texto.</p>
+        <p><strong><span class="es">Cómo activarlo:</span><span class="en">How to activate:</span></strong> Pegá <code>/6</code> con el contenido + objetivo de simplificación. Recibís versión compacta sin perder evidencia.</p>
+      </div>
+    </details>
+    <details class="pipeline-step">
+      <summary><span class="num-pill">7</span><span class="step-title">VALIDAR — Auditar contra criterio explícito</span></summary>
+      <div class="body">
+        <p>Aplicar el rubricario ENTRUSTED+ al entregable. Veredicto: PASA / PASA CON OBSERVACIONES / FALLA.</p>
+        <p><strong><span class="es">Cómo activarlo:</span><span class="en">How to activate:</span></strong> Pegá <code>/7</code> con entregable + criterio. Recibís tabla de auditoría auditable.</p>
+      </div>
+    </details>
+    <details class="pipeline-step">
+      <summary><span class="num-pill">8</span><span class="step-title">ENTREGAR — Adaptar formato al canal y audiencia</span></summary>
+      <div class="body">
+        <p>El entregable validado pasa al canal de destino (email, slide, doc, voz) sin perder rigor.</p>
+        <p><strong><span class="es">Cómo activarlo:</span><span class="en">How to activate:</span></strong> Pegá <code>/8</code> con entregable + canal + audiencia. Recibís versión empaquetada lista para soltar.</p>
+      </div>
+    </details>
+    <details class="pipeline-step">
+      <summary><span class="num-pill">9</span><span class="step-title">CRISTALIZAR — Convertir el proceso en plantilla reusable</span></summary>
+      <div class="body">
+        <p>Una ejecución exitosa se convierte en activo: parámetros variables identificados, constantes documentadas, instrucciones de invocación.</p>
+        <p><strong><span class="es">Cómo activarlo:</span><span class="en">How to activate:</span></strong> Pegá <code>/9</code> con la ejecución origen + parámetros variables. Recibís plantilla portable a casos similares.</p>
+      </div>
+    </details>
+  </div>
+</section>
+
+<!-- ═══ § 4 · 12 CLÁUSULAS ═══ -->
+<section id="clausulas" class="reveal">
+  <span class="eyebrow"><span class="es">§ 4 · Configuración universal</span><span class="en">§ 4 · Universal config</span></span>
+  <h2><span class="es">Las <strong>12 cláusulas</strong> paramétricas (ajustables al vuelo)</span><span class="en">The <strong>12 parametric clauses</strong> (tunable on the fly)</span></h2>
+  <p style="max-width:60ch"><span class="es">Cada cláusula es una directiva con parámetros. Default = máxima delegación a IA + cero fricción. Podés sobreescribir cualquiera con 1 línea al invocar (ej: <code>INSIGHTS_PROACTIVOS: sugerencias=5 · riesgos=0</code>).</span><span class="en">Each clause is a directive with parameters. Default = maximum delegation + zero friction. Override any with one line (e.g.: <code>INSIGHTS_PROACTIVOS: suggestions=5 · risks=0</code>).</span></p>
+  <div class="clauses-grid">
+    <div class="clause-card">
+      <h4><code>BUCLE_DE_EXCELENCIA</code> </h4>
+      <div class="params">iteraciones=10·umbral=0.95</div>
+      <p>Iterar contra rúbrica de 10 criterios hasta 10/10 o defendible. Solo entrega versión final.</p>
+    </div>
+    <div class="clause-card">
+      <h4><code>ORQUESTACIÓN_RECURSOS</code> </h4>
+      <div class="params">tool_use=auto·web=auto·adjuntos=read-first·mcp=on·code_exec=on</div>
+      <p>Invocar tools/web/MCP/code-exec proactivamente sin pedir permiso explícito.</p>
+    </div>
+    <div class="clause-card">
+      <h4><code>INFERENCIA_AMPLIFICADA</code> </h4>
+      <div class="params">modo=inferir-y-marcar·preguntas_max=3·umbral=0.85</div>
+      <p>Autocompletar inputs no diligenciados antes de preguntar al usuario.</p>
+    </div>
+    <div class="clause-card">
+      <h4><code>INSIGHTS_PROACTIVOS</code> </h4>
+      <div class="params">sugerencias=3·recomendaciones=3·riesgos=3·preguntas=3</div>
+      <p>Cierre obligatorio con 4 categorías de valor adicional.</p>
+    </div>
+    <div class="clause-card">
+      <h4><code>AUTO_CONTENCIÓN</code> </h4>
+      <div class="params">hilo_previo=use-if-available·fallback=standalone</div>
+      <p>Capitaliza hilo si hay; standalone si no.</p>
+    </div>
+    <div class="clause-card">
+      <h4><code>VACÍOS_CRÍTICOS</code> </h4>
+      <div class="params">tolerancia=baja·propuesta_cierre=on</div>
+      <p>Marca {VACIO_CRITICO} con propuesta concreta de cierre.</p>
+    </div>
+    <div class="clause-card">
+      <h4><code>PRIVACIDAD_PII</code> </h4>
+      <div class="params">nivel=auto-detect·anonimizacion=on</div>
+      <p>Detecta y anonimiza PII automáticamente.</p>
+    </div>
+    <div class="clause-card">
+      <h4><code>METADATA_RAZONAMIENTO</code> </h4>
+      <div class="params">formato=table·confianza=on</div>
+      <p>Cierre con tabla de confianza/fuentes/debilidades/checkpoint/rigidez.</p>
+    </div>
+    <div class="clause-card">
+      <h4><code>SINERGIA_PIPELINE</code> </h4>
+      <div class="params">herencia=on·encadenamiento=auto</div>
+      <p>Hereda insumo del paso anterior; cierra con handoff al siguiente.</p>
+    </div>
+    <div class="clause-card new">
+      <h4><code>EVIDENCIA_CITAS</code> <span class="badge-new">v3.4 NEW</span></h4>
+      <div class="params">obligatorio=on·invento=prohibido</div>
+      <p>Toda afirmación factual con etiqueta inline. Cero citas inventadas.</p>
+    </div>
+    <div class="clause-card new">
+      <h4><code>NO_ALUCINACIÓN_EXPLÍCITA</code> <span class="badge-new">v3.4 NEW</span></h4>
+      <div class="params">prohibición=alta·declarar_brechas=obligatorio</div>
+      <p>Nunca afirma acceso a memoria/adjuntos no disponibles. Si falta, marca {VACIO_CRITICO}.</p>
+    </div>
+    <div class="clause-card new">
+      <h4><code>INFERENCIA_VS_HECHO</code> <span class="badge-new">v3.4 NEW</span></h4>
+      <div class="params">separar=obligatorio·confianza_visible=on</div>
+      <p>Etiqueta cada bloque como FACT o INFERENCE con confianza visible.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ § 5 · RUBRICARIO ENTRUSTED+ ═══ -->
+<section id="entrusted" class="reveal">
+  <span class="eyebrow"><span class="es">§ 5 · Auditoría</span><span class="en">§ 5 · Audit</span></span>
+  <h2><span class="es">Rubricario <strong>ENTRUSTED+</strong> · 8 ejes</span><span class="en"><strong>ENTRUSTED+</strong> rubric · 8 axes</span></h2>
+  <p style="max-width:60ch"><span class="es">Antes de soltar un output, audítalo contra estos 8 ejes. Threshold ≥ 92/100 = EXCELLENT. Promedio actual de la biblioteca v3.4: 100/100.</span><span class="en">Before releasing an output, audit it against these 8 axes. Threshold ≥ 92/100 = EXCELLENT. Current library v3.4 average: 100/100.</span></p>
+
+  <div class="attr-grid">
+    <div class="attr-card"><div class="num">E</div><h3>Explicitud</h3><p><span class="es">Claridad de instrucciones, sin ambigüedad, sin pedidos vagos.</span><span class="en">Instruction clarity, zero ambiguity, no vague asks.</span></p></div>
+    <div class="attr-card"><div class="num">N</div><h3>No-alucinación</h3><p><span class="es">Cero claims sobre material no accesible. Etiquetas de procedencia obligatorias.</span><span class="en">Zero claims on inaccessible material. Mandatory provenance tags.</span></p></div>
+    <div class="attr-card"><div class="num">T</div><h3>Transferibilidad</h3><p><span class="es">Funciona standalone fuera del hilo original.</span><span class="en">Works standalone outside the original thread.</span></p></div>
+    <div class="attr-card"><div class="num">R</div><h3>Rol</h3><p><span class="es">ROL específico (no "experto general") con framing meta-cognitivo.</span><span class="en">Specific ROLE (not "general expert") with meta-cognitive framing.</span></p></div>
+    <div class="attr-card"><div class="num">U</div><h3>Uso de inputs</h3><p><span class="es">Cada input declarado se usa en EJECUCIÓN o CRITERIO. Cero huérfanos.</span><span class="en">Every declared input used in EXECUTION or CRITERION. Zero orphans.</span></p></div>
+    <div class="attr-card"><div class="num">S</div><h3>Structure</h3><p><span class="es">Markers v1492 + bloques v3.3 + DoD/Criterios/EdgeCases v3.4 presentes.</span><span class="en">v1492 markers + v3.3 blocks + v3.4 DoD/Criteria/EdgeCases present.</span></p></div>
+    <div class="attr-card"><div class="num">T</div><h3>Tarea-fit</h3><p><span class="es">DoD alineado a categoría + criterios observables (no opinables).</span><span class="en">DoD aligned to category + observable criteria (not opinable).</span></p></div>
+    <div class="attr-card"><div class="num">E</div><h3>Edge cases</h3><p><span class="es">≥ 3 casos límite con manejo concreto declarado.</span><span class="en">≥ 3 edge cases with concrete handling declared.</span></p></div>
+  </div>
+</section>
+
+<!-- ═══ § 6 · 10 ETIQUETAS DE PROCEDENCIA ═══ -->
+<section id="etiquetas" class="reveal">
+  <span class="eyebrow"><span class="es">§ 6 · Trazabilidad</span><span class="en">§ 6 · Traceability</span></span>
+  <h2><span class="es">10 <strong>etiquetas</strong> de procedencia</span><span class="en">10 provenance <strong>tags</strong></span></h2>
+  <p style="max-width:60ch"><span class="es">El sistema de etiquetas hace cada output auditable. Cada bloque del entregable lleva su etiqueta inline. Es lo que diferencia "creo que" de "sé que".</span><span class="en">The tag system makes every output auditable. Each deliverable block carries its inline tag. It's what separates "I think" from "I know".</span></p>
+  <div class="tag-grid">
+    <div class="tag-card"><code>{SUPUESTO}</code><p>Hipótesis provisional sin evidencia.</p></div>
+    <div class="tag-card"><code>{INFERENCIA}</code><p>Conclusión derivada de señales indirectas.</p></div>
+    <div class="tag-card"><code>{EXTRAIDO_HILO}</code><p>Contexto extraído de mensajes previos.</p></div>
+    <div class="tag-card"><code>{MEMORIA}</code><p>Contexto desde memoria viva del pipeline.</p></div>
+    <div class="tag-card"><code>{CONOCIMIENTO}</code><p>Apoyado en conocimiento general del modelo.</p></div>
+    <div class="tag-card"><code>{WEB}</code><p>Verificado por búsqueda en internet.</p></div>
+    <div class="tag-card"><code>{ADJUNTO}</code><p>De documentos / archivos provistos.</p></div>
+    <div class="tag-card"><code>{AUTOCOMPLETADO}</code><p>Diligenciado por el modelo para reducir fricción.</p></div>
+    <div class="tag-card"><code>{POR_CONFIRMAR}</code><p>Provisional · validar antes de cerrar decisión.</p></div>
+    <div class="tag-card"><code>{VACIO_CRITICO}</code><p>Faltante · impide avanzar con confianza.</p></div>
+  </div>
+</section>
+
+<!-- ═══ § 7 · METACOGNICIÓN DSV ═══ -->
+<section id="dsv" class="reveal">
+  <span class="eyebrow"><span class="es">§ 7 · Metacognición</span><span class="en">§ 7 · Metacognition</span></span>
+  <h2><span class="es">Flujo <strong>DSV</strong> · 5 pasos</span><span class="en"><strong>DSV</strong> flow · 5 steps</span></h2>
+  <p style="max-width:60ch"><span class="es">Cuando un problema es no-trivial, la IA aplica DSV: divide, resuelve con confianza explícita, verifica, sintetiza y reflexiona. Es el cerebro detrás de los outputs defendibles.</span><span class="en">When a problem is non-trivial, AI applies DSV: divide, solve with explicit confidence, verify, synthesize, reflect. It's the brain behind defensible outputs.</span></p>
+
+  <div class="dsv-steps">
+    <div class="dsv-step"><div class="num">D</div><h4>DECOMPOSE</h4><p><span class="es">Sub-problemas atómicos con dependencias.</span><span class="en">Atomic sub-problems with dependencies.</span></p></div>
+    <div class="dsv-step"><div class="num">S</div><h4>SOLVE</h4><p><span class="es">Cada sub-problema resuelto con confianza 0.0-1.0.</span><span class="en">Each sub-problem solved with confidence 0.0-1.0.</span></p></div>
+    <div class="dsv-step"><div class="num">V</div><h4>VERIFY</h4><p><span class="es">Lógica + hechos + completitud + sesgos.</span><span class="en">Logic + facts + completeness + bias.</span></p></div>
+    <div class="dsv-step"><div class="num">S</div><h4>SYNTHESIZE</h4><p><span class="es">Combinar con confianza ponderada · etiqueta cada parte.</span><span class="en">Combine with weighted confidence · tag each part.</span></p></div>
+    <div class="dsv-step"><div class="num">R</div><h4>REFLECT</h4><p><span class="es">Si confianza < 0.95: declarar debilidad y plan.</span><span class="en">If confidence < 0.95: declare weakness and plan.</span></p></div>
+  </div>
+</section>
+
+<!-- ═══ § 8 · PRÁCTICAS ═══ -->
+<section id="practicas" class="reveal">
+  <span class="eyebrow"><span class="es">§ 8 · Prácticas escalonadas</span><span class="en">§ 8 · Scaffolded practice</span></span>
+  <h2><span class="es"><strong>12 ejercicios</strong> · de 3 min a sesión completa</span><span class="en"><strong>12 exercises</strong> · from 3 min to full session</span></h2>
+  <p style="max-width:60ch"><span class="es">Cada ejercicio tiene criterio de éxito observable. No es "hacer algo": es validar que aprendiste.</span><span class="en">Each exercise has observable success criterion. It's not "do something": it's validate you learned.</span></p>
+  <div class="exercise-grid">
+    <div class="exercise-card">
+      <span class="duration s">3 min</span>
+      <h4>Calibrá tu próxima sesión</h4>
+      <p style="margin:0">Antes de pedirle algo a la IA, pegá /0 con tipo de sesión + adjuntos + sensibilidad. Lee el acuse de calibración. Si rol cuadra, sigue. Si no, corrige.</p>
+      <div class="crit"><strong><span class="es">Criterio de éxito:</span><span class="en">Success criterion:</span></strong> Acuse declara rol específico, adjuntos inventariados, vacíos marcados.</div>
+    </div>
+    <div class="exercise-card">
+      <span class="duration s">3 min</span>
+      <h4>Detectá un huérfano</h4>
+      <p style="margin:0">Tomá un prompt que uses repetido. Listá los inputs que declarás. ¿Cuáles aparecen en el body? Los que no aparecen son huérfanos.</p>
+      <div class="crit"><strong><span class="es">Criterio de éxito:</span><span class="en">Success criterion:</span></strong> ≥1 token huérfano detectado y eliminado o integrado en EJECUCIÓN.</div>
+    </div>
+    <div class="exercise-card">
+      <span class="duration s">3 min</span>
+      <h4>Etiquetá un output</h4>
+      <p style="margin:0">Tomá una respuesta IA reciente. Marcá inline cada afirmación con la etiqueta correspondiente. Identifica los {SUPUESTO} no marcados.</p>
+      <div class="crit"><strong><span class="es">Criterio de éxito:</span><span class="en">Success criterion:</span></strong> Cada bloque con etiqueta o marcado como {SUPUESTO} explícito.</div>
+    </div>
+    <div class="exercise-card">
+      <span class="duration l">30 min</span>
+      <h4>Construí un SPEC v3.4 desde cero</h4>
+      <p style="margin:0">Elegí una tarea repetida tuya. Aplicá /1 → /2 secuencial. Genera SPEC con TÍTULO + INPUTS + ABSTRACT + EJECUCIÓN + CRITERIO + 12 cláusulas paramétricas.</p>
+      <div class="crit"><strong><span class="es">Criterio de éxito:</span><span class="en">Success criterion:</span></strong> SPEC ejecutable por otro operador sin reabrir contexto.</div>
+    </div>
+    <div class="exercise-card">
+      <span class="duration l">30 min</span>
+      <h4>Audita un output con ENTRUSTED+</h4>
+      <p style="margin:0">Tomá un entregable IA reciente. Calificá los 8 ejes 0-100. Identificá los 2 ejes más bajos y reescribí el prompt para subirlos.</p>
+      <div class="crit"><strong><span class="es">Criterio de éxito:</span><span class="en">Success criterion:</span></strong> Score promedio ≥92/100 tras la reescritura.</div>
+    </div>
+    <div class="exercise-card">
+      <span class="duration l">30 min</span>
+      <h4>Aplicá DSV a un problema complejo</h4>
+      <p style="margin:0">Elegí una decisión que estás postergando. Pegá /1 con el caso. Marcá DSV explícito en el output. Lee REFLECT con confianza visible.</p>
+      <div class="crit"><strong><span class="es">Criterio de éxito:</span><span class="en">Success criterion:</span></strong> Confianza global ≥0.95 declarada o debilidad explícita con plan.</div>
+    </div>
+    <div class="exercise-card">
+      <span class="duration xl">60 min</span>
+      <h4>Diseña tu ritual matutino de prompting</h4>
+      <p style="margin:0">Identificá la decisión #1 de cada día. Diseñá un /0 + /1 + /2 personalizado. Probálo 5 días. Cristalízalo en /9 al día 6.</p>
+      <div class="crit"><strong><span class="es">Criterio de éxito:</span><span class="en">Success criterion:</span></strong> Plantilla v9 funcional · ejecutable en <5 min cada mañana.</div>
+    </div>
+    <div class="exercise-card">
+      <span class="duration xl">60 min</span>
+      <h4>Migrá un workflow a P.I.V.O.T.E.</h4>
+      <p style="margin:0">Tomá un proceso de tu trabajo de 5+ pasos. Mapealo al pipeline. Ejecutá los 10 pasos secuenciales con tu caso real.</p>
+      <div class="crit"><strong><span class="es">Criterio de éxito:</span><span class="en">Success criterion:</span></strong> Workflow completo con 10 outputs encadenados.</div>
+    </div>
+    <div class="exercise-card">
+      <span class="duration xl">60 min</span>
+      <h4>Construí tu propia categoría DoD</h4>
+      <p style="margin:0">Para una tarea recurrente sin DoD claro, definí: output esperado, criterios observables (5), edge cases (3). Aplicalos a 3 casos reales.</p>
+      <div class="crit"><strong><span class="es">Criterio de éxito:</span><span class="en">Success criterion:</span></strong> DoD valida en 3/3 casos · criterios todos cumplidos.</div>
+    </div>
+    <div class="exercise-card">
+      <span class="duration xl">90 min</span>
+      <h4>Audita 10 prompts viejos</h4>
+      <p style="margin:0">Tomá 10 prompts que usás. Calificá ENTRUSTED+ promedio actual. Aplicá v3.4 a 3 con el playbook. Comparalos.</p>
+      <div class="crit"><strong><span class="es">Criterio de éxito:</span><span class="en">Success criterion:</span></strong> Score promedio sube ≥15 puntos en los 3 reescritos.</div>
+    </div>
+    <div class="exercise-card">
+      <span class="duration xl">Sesión</span>
+      <h4>Cristalizá tu primera plantilla</h4>
+      <p style="margin:0">Tomá un proceso que ejecutaste con éxito. Pegá /9 con el caso origen. Generá plantilla con parámetros variables tipados. Probala en 1 caso nuevo.</p>
+      <div class="crit"><strong><span class="es">Criterio de éxito:</span><span class="en">Success criterion:</span></strong> Plantilla reproduce 80%+ del output original con caso nuevo.</div>
+    </div>
+    <div class="exercise-card">
+      <span class="duration xl">Sesión</span>
+      <h4>Escribí tu manifiesto de prompting</h4>
+      <p style="margin:0">¿Qué jamás hace tu prompting? ¿Qué siempre hace? ¿Cuál es tu firma metodológica? Escribilo en 1 página y aplicalo a tus próximos 5 prompts.</p>
+      <div class="crit"><strong><span class="es">Criterio de éxito:</span><span class="en">Success criterion:</span></strong> Manifiesto coherente · 5/5 prompts honran el manifiesto.</div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ § 9 · PROMPTS Y META-PROMPTS ═══ -->
+<section id="prompts" class="reveal">
+  <span class="eyebrow"><span class="es">§ 9 · De cartilla a biblioteca</span><span class="en">§ 9 · From playbook to library</span></span>
+  <h2><span class="es"><strong>30 prompts</strong> ejemplo · curados de la biblioteca</span><span class="en"><strong>30 example prompts</strong> · curated from the library</span></h2>
+  <p style="max-width:60ch"><span class="es">La cartilla enseña el método. La biblioteca tiene 2026 prompts SPEC v3.4 listos para usar (score 100/100 ENTRUSTED+). Estos 30 son una selección estratégica para que veas el método aplicado. Click en cualquiera para ver el SPEC compacto.</span><span class="en">The playbook teaches the method. The library has 2026 SPEC v3.4 prompts ready to use (score 100/100 ENTRUSTED+). These 30 are a strategic selection so you see the method applied. Click any to see the compact SPEC.</span></p>
+
+  <p style="text-align:center; margin:1.5rem 0">
+    <a class="btn btn-primary" href="biblioteca-universal-prompting-2026.html"><span class="es">Abrir biblioteca completa (2026 prompts)</span><span class="en">Open full library (2026 prompts)</span></a>
+  </p>
+
+  <div class="prompts-gallery" id="prompts-gallery"></div>
+</section>
+
+<!-- ═══ § 10 · ESPACIOS DE PRÁCTICA ═══ -->
+<section id="practica-agenda" class="reveal">
+  <span class="eyebrow"><span class="es">§ 10 · Agenda tu práctica</span><span class="en">§ 10 · Book your practice</span></span>
+  <h2><span class="es">Tres <strong>ritmos</strong> · diaria · semanal · mensual</span><span class="en">Three <strong>rhythms</strong> · daily · weekly · monthly</span></h2>
+  <p style="max-width:60ch"><span class="es">El método se asienta con repetición. Estos espacios son estructuras pre-armadas que podés agendarte directo en tu calendario.</span><span class="en">The method settles with repetition. These spaces are pre-built structures you can directly book on your calendar.</span></p>
+
+  <div class="calendar-grid">
+    <div class="cal-card">
+      <span class="duration">15 min · diario</span>
+      <h3><span class="es">Ritual matutino</span><span class="en">Morning ritual</span></h3>
+      <p><span class="es">Antes de empezar el día, calibrar la sesión: /0 con la decisión #1. Cierra con foco operativo.</span><span class="en">Before starting the day, calibrate the session: /0 with decision #1. Close with operational focus.</span></p>
+      <a class="btn-primary" href="https://calendar.app.google/" target="_blank" rel="noopener"><span class="es">Agendar</span><span class="en">Book</span></a>
+    </div>
+
+    <div class="cal-card">
+      <span class="duration">1 h · semanal</span>
+      <h3><span class="es">Práctica semanal</span><span class="en">Weekly practice</span></h3>
+      <p><span class="es">Domingo en la tarde: 1 ejercicio de 30 min de la § 8 + cristalización en plantilla.</span><span class="en">Sunday afternoon: 1 thirty-min exercise from § 8 + template crystallization.</span></p>
+      <a class="btn-primary" href="https://calendar.app.google/" target="_blank" rel="noopener"><span class="es">Agendar</span><span class="en">Book</span></a>
+    </div>
+
+    <div class="cal-card">
+      <span class="duration">3 h · mensual</span>
+      <h3><span class="es">Acelerador mensual</span><span class="en">Monthly accelerator</span></h3>
+      <p><span class="es">Workshop sincrónico: aplicar el método sobre un caso real grande. Auditoría grupal con ENTRUSTED+.</span><span class="en">Synchronous workshop: apply the method to a real big case. Group audit with ENTRUSTED+.</span></p>
+      <a class="btn-primary" href="https://calendar.app.google/" target="_blank" rel="noopener"><span class="es">Agendar</span><span class="en">Book</span></a>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ § 11 · FOOTER ═══ -->
+<footer class="site-footer">
+  <div class="footer-grid">
+    <div class="salida">
+      <h3><span class="es">🎓 Soy estudiante · ¿qué sigue?</span><span class="en">🎓 I'm a learner · what's next?</span></h3>
+      <p><span class="es">Si llegaste hasta acá leyendo, esta es tu ruta:</span><span class="en">If you got here by reading, here's your path:</span></p>
+      <ul>
+        <li><span class="es">Hacé 3 ejercicios "3 min" de § 8 esta semana.</span><span class="en">Do 3 "3 min" exercises from § 8 this week.</span></li>
+        <li><span class="es">Agendá tu ritual matutino (§ 10).</span><span class="en">Book your morning ritual (§ 10).</span></li>
+        <li><span class="es">Volvé en 7 días y hacé 1 ejercicio "30 min".</span><span class="en">Return in 7 days and do 1 "30 min" exercise.</span></li>
+        <li><span class="es">Cristaliza tu primera plantilla con /9.</span><span class="en">Crystallize your first template with /9.</span></li>
+        <li><a href="biblioteca-universal-prompting-2026.html"><span class="es">Abrir biblioteca completa</span><span class="en">Open full library</span></a> · 2026 prompts ready</li>
+      </ul>
+    </div>
+
+    <div class="salida">
+      <h3><span class="es">🎁 Recibí esto · ¿por dónde empiezo?</span><span class="en">🎁 I received this · where do I start?</span></h3>
+      <p><span class="es">Si te llegó esta cartilla de alguien, este es el camino corto:</span><span class="en">If this playbook was sent to you, here's the short path:</span></p>
+      <ul>
+        <li><span class="es">Leé § 1 (storytelling · 5 min). Decidí si te interesa.</span><span class="en">Read § 1 (storytelling · 5 min). Decide if it's for you.</span></li>
+        <li><span class="es">Pegá <code>/0</code> en tu IA con el caso real más urgente.</span><span class="en">Paste <code>/0</code> in your AI with your most urgent real case.</span></li>
+        <li><span class="es">Ejecutá un ejercicio de 3 min de § 8.</span><span class="en">Run a 3 min exercise from § 8.</span></li>
+        <li><span class="es">Si te sirvió: agendá la práctica semanal de § 10.</span><span class="en">If it worked: book the weekly practice from § 10.</span></li>
+        <li><a href="biblioteca-universal-prompting-2026.html"><span class="es">Saltar a la biblioteca</span><span class="en">Jump to library</span></a> · 2026 prompts</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="legal">
+    <p>MetodologIA · Cartilla universal de prompting · v1.0 · 2026<br>
+    <span class="es">Compañera de la</span><span class="en">Companion to the</span> <a href="biblioteca-universal-prompting-2026.html">biblioteca-universal-prompting-2026</a> · 2026 prompts SPEC v3.4 ENTRUSTED+ · score 100/100<br>
+    <span class="es">Brand voice: informa-inspira · sin "arquitecto" · sin "hack"</span><span class="en">Brand voice: inform-inspire · no "architect" · no "hack"</span></p>
+  </div>
+</footer>
+
+<button class="back-top" id="back-top" aria-label="Back to top">↑</button>
+
+<!-- ═══ MODAL PROMPT ═══ -->
+<div class="modal-backdrop" id="modal" role="dialog" aria-modal="true">
+  <div class="modal">
+    <button class="close" id="modal-close" aria-label="Close">×</button>
+    <h2 id="modal-title"></h2>
+    <p id="modal-meta" style="font-size:.85rem;color:var(--text-soft)"></p>
+    <pre id="modal-content"></pre>
+    <p style="margin-top:1rem;text-align:right">
+      <a class="btn btn-primary" href="biblioteca-universal-prompting-2026.html" target="_blank">
+        <span class="es">Abrir SPEC completo en biblioteca →</span>
+        <span class="en">Open full SPEC in library →</span>
+      </a>
+    </p>
+  </div>
+</div>
+
+<script>
+window.curatedPrompts = [{"id":"0","label_title":"0 · PRIMING — Calibrar la sesión antes de pedir algo importante","invoke":["/0","/p0","/paso0"],"category":"pipeline-pivote","category_display":"Pipeline P.I.V.O.T.E. · paso 0","content_compact":"TÍTULO: 0 · PRIMING — Calibrar la sesión antes de pedir algo importante\n\nINPUTS:\nTipo de sesión: {[tipo_sesion]} → string · default: requerido · Brief operativo del trabajo · ej. 'analizar contrato de licenciamiento'\nAdjuntos disponibles: {[adjuntos]} → string · default: requerido · Lista de archivos, datos o links que vas a usar (puede estar vacío)\nSensibilidad PII: {[sensibilidad]} → string · default: requerido · alto/medio/bajo según presencia de datos personales o financieros\nINSUMO_DEL_PIPELINE (opcional): {[insumo_del_pipeline]} → string · default: vacío · Vacío si invocas standalone. Si vienes desde otro paso, output anterior aquí.\n\nDefault de invocación: modo inferencia activo. La IA NO requiere que el usuario llene campos; capitaliza contexto y solo pregunta lo mínimo si la confianza queda < 0.85.\n\nABSTRACT:\nCalibra cómo va a pensar la IA antes de pedirle algo que importa: rol experto, modo de razonamiento, manejo de adjuntos y trazabilidad de fuentes. Útil por sí solo al inicio de cualquier sesión que requiera resultado defendible. Este prompt opera con default de máxima delegación a la IA: si los INPUTS llegan vacíos, infiere desde hilo, memoria y adjuntos antes de pedir aclaración. Estándar operativo: confianza global ≥ 0.95 con etiquetas de procedencia visibles. Invocación: /0.\n\nRESUMEN:\nCalibra cómo va a pensar la IA antes de pedirle algo que importa: rol experto, modo de razonamiento, manejo de adjuntos y trazabilidad de fuentes. Útil por sí solo al inicio de c\n\n[...] ver SPEC completo en biblioteca-universal-prompting-2026.html","strategy_how":"Antes de pedirle algo serio a la IA, abre una ventana nueva y pega /0. Le dices tres cosas en una línea cada una: qué vas a hacer (revisar un contrato, redactar una propuesta), qué archivos le pasas, y qué tan delicada es la info (si hay nombres, plata, datos médicos: alto). La IA te devuelve un acu"},{"id":"1","label_title":"1 · ENTENDER — Convertir un pedido difuso en necesidad concreta","invoke":["/1","/p1","/paso1"],"category":"pipeline-pivote","category_display":"Pipeline P.I.V.O.T.E. · paso 1","content_compact":"TÍTULO: 1 · ENTENDER — Convertir un pedido difuso en necesidad concreta\n\nINPUTS:\nPedido recibido: {[pedido_recibido]} → string · default: requerido · La frase o solicitud original tal cual te llegó\nFuente y contexto: {[fuente_contexto]} → string · default: requerido · Quién lo pidió, en qué reunión/canal, con qué urgencia\nSospecha inicial: {[sospecha_inicial]} → string · default: requerido · Lo que tú crees que están pidiendo realmente (puede estar errada)\nINSUMO_DEL_PIPELINE (opcional): {[insumo_del_pipeline]} → string · default: vacío · Vacío si invocas standalone. Si vienes desde /0, su acuse de calibración aquí.\n\nDefault de invocación: modo inferencia activo. La IA NO requiere que el usuario llene campos; capitaliza contexto y solo pregunta lo mínimo si la confianza queda < 0.85.\n\nABSTRACT:\nToma un pedido difuso (de un jefe, cliente o stakeholder) y lo presiona hasta sacar a la luz a quién sirve, qué éxito significa y qué supuestos están en juego. Útil por sí solo cuando recibes una solicitud confusa antes de comprometerte. Este prompt opera con default de máxima delegación a la IA: si los INPUTS llegan vacíos, infiere desde hilo, memoria y adjuntos antes de pedir aclaración. Estándar operativo: confianza global ≥ 0.95 con etiquetas de procedencia visibles. Invocación: /1.\n\nRESUMEN:\nToma un pedido difuso (de un jefe, cliente o stakeholder) y lo presiona hasta sacar a la luz a quién sirve, qué éxito significa y qué supuestos están en juego. Útil por sí solo cuando recibes \n\n[...] ver SPEC completo en biblioteca-universal-prompting-2026.html","strategy_how":"Cuando alguien te pida algo y tú no estés 100% seguro de qué quiere de verdad (un profe, tu mamá, un cliente, tu jefe), copia el pedido tal cual te llegó, anota dónde te lo dijeron y escribe lo que tú crees que están pidiendo. Lanzas /1 y la IA te empuja a separar lo que dijeron de lo que de verdad "},{"id":"2","label_title":"2 · DEFINIR — Convertir una necesidad en SPEC ejecutable","invoke":["/2","/p2","/paso2"],"category":"pipeline-pivote","category_display":"Pipeline P.I.V.O.T.E. · paso 2","content_compact":"TÍTULO: 2 · DEFINIR — Convertir una necesidad en SPEC ejecutable\n\nINPUTS:\nNecesidad refinada: {[necesidad]} → string · default: requerido · Output de /1 o tu propia descripción concreta de la necesidad\nEntregable esperado: {[entregable]} → string · default: requerido · Forma final del trabajo · ej. 'memo 1 página', 'deck 8 slides', 'fragmento de código Python'\nRestricciones: {[restricciones]} → string · default: requerido · Lo que NO puede ocurrir · regulatorio, brand, técnico, presupuestal\nINSUMO_DEL_PIPELINE (opcional): {[insumo_del_pipeline]} → string · default: vacío · Vacío si invocas standalone. Si vienes desde /1, su necesidad refinada aquí.\n\nDefault de invocación: modo inferencia activo. La IA NO requiere que el usuario llene campos; capitaliza contexto y solo pregunta lo mínimo si la confianza queda < 0.85.\n\nABSTRACT:\nToma una necesidad clara (formal o informal) y la convierte en un SPEC ejecutable: ROL, SITUACIÓN, PEDIDO, EJECUCIÓN, CRITERIOS. Útil por sí solo cuando tienes que armar un brief profesional para ti, un colaborador o un proveedor. Este prompt opera con default de máxima delegación a la IA: si los INPUTS llegan vacíos, infiere desde hilo, memoria y adjuntos antes de pedir aclaración. Estándar operativo: confianza global ≥ 0.95 con etiquetas de procedencia visibles. Invocación: /2.\n\nRESUMEN:\nToma una necesidad clara (formal o informal) y la convierte en un SPEC ejecutable: ROL, SITUACIÓN, PEDIDO, EJECUCIÓN, CRITERIOS. Útil por sí solo cuando tienes que ar\n\n[...] ver SPEC completo en biblioteca-universal-prompting-2026.html","strategy_how":"Escribe /2 cuando ya sabes lo que necesitas pero todavía no sabes cómo pedirlo bien. Le pasas tres cosas: qué necesitas, qué quieres recibir al final (un correo, un resumen, un código) y qué cosas NO pueden pasar. Si vienes desde /1, el paso anterior ya te llenó la primera casilla. Te devuelve un co"},{"id":"3","label_title":"3 · PLANIFICAR — Convertir un SPEC en plan de acción accionable","invoke":["/3","/p3","/paso3"],"category":"pipeline-pivote","category_display":"Pipeline P.I.V.O.T.E. · paso 3","content_compact":"TÍTULO: 3 · PLANIFICAR — Convertir un SPEC en plan de acción accionable\n\nINPUTS:\nSPEC del trabajo: {[spec]} → string · default: requerido · Output de /2 o tu propio SPEC informal\nRecursos disponibles: {[recursos]} → string · default: requerido · Tiempo, personas, herramientas, presupuesto reales (no ideales)\nRiesgos conocidos: {[riesgos]} → string · default: requerido · Lo que sospechas que puede fallar (técnico, humano, externo)\nINSUMO_DEL_PIPELINE (opcional): {[insumo_del_pipeline]} → string · default: vacío · Vacío si invocas standalone. Si vienes desde /2, el SPEC aquí.\n\nDefault de invocación: modo inferencia activo. La IA NO requiere que el usuario llene campos; capitaliza contexto y solo pregunta lo mínimo si la confianza queda < 0.85.\n\nABSTRACT:\nToma un SPEC aprobado (formal o informal) y lo descompone en un plan de acción con pasos secuenciados, dependencias mapeadas, riesgos identificados y mitigaciones. Útil por sí solo cuando tienes que ejecutar algo no trivial. Este prompt opera con default de máxima delegación a la IA: si los INPUTS llegan vacíos, infiere desde hilo, memoria y adjuntos antes de pedir aclaración. Estándar operativo: confianza global ≥ 0.95 con etiquetas de procedencia visibles. Invocación: /3.\n\nRESUMEN:\nToma un SPEC aprobado (formal o informal) y lo descompone en un plan de acción con pasos secuenciados, dependencias mapeadas, riesgos identificados y mitigaciones. Útil por sí solo cuando tienes que ejecutar algo no trivial. En el pipeline genera e\n\n[...] ver SPEC completo en biblioteca-universal-prompting-2026.html","strategy_how":"Imagina que tu mamá te dice: 'organiza una fiesta para 20 amigos el sábado'. Ya tienes claro QUÉ hacer (eso era el SPEC del paso 2). Pero si te lanzas a comprar refrescos sin pensar, te das cuenta tarde de que no reservaste el lugar, o que la torta tarda 2 días. /3 PLANIFICAR es el paso donde haces "},{"id":"4","label_title":"4 · EJECUTAR — Producir primera versión completa del entregable","invoke":["/4","/p4","/paso4"],"category":"pipeline-pivote","category_display":"Pipeline P.I.V.O.T.E. · paso 4","content_compact":"TÍTULO: 4 · EJECUTAR — Producir primera versión completa del entregable\n\nINPUTS:\nSPEC + plan: {[spec_plan]} → string · default: requerido · Outputs de /2+/3 o tu propio brief consolidado\nInsumos crudos: {[insumos_crudos]} → string · default: requerido · Datos, material, fuentes que la primera versión va a procesar\nEnergía disponible: {[energia]} → string · default: requerido · rapida (5-15 min) / completa (30-90 min) / exhaustiva (>2h)\nINSUMO_DEL_PIPELINE (opcional): {[insumo_del_pipeline]} → string · default: vacío · Vacío si invocas standalone. Si vienes desde /3, el plan aquí.\n\nDefault de invocación: modo inferencia activo. La IA NO requiere que el usuario llene campos; capitaliza contexto y solo pregunta lo mínimo si la confianza queda < 0.85.\n\nABSTRACT:\nProduce la primera versión completa de un entregable siguiendo SPEC y plan, sin auto-edición prematura. Útil por sí solo cuando tienes que sacar un draft 1.0 antes de iterar. Este prompt opera con default de máxima delegación a la IA: si los INPUTS llegan vacíos, infiere desde hilo, memoria y adjuntos antes de pedir aclaración. Estándar operativo: confianza global ≥ 0.95 con etiquetas de procedencia visibles. Invocación: /4.\n\nRESUMEN:\nProduce la primera versión completa de un entregable siguiendo SPEC y plan, sin auto-edición prematura. Útil por sí solo cuando tienes que sacar un draft 1.0 antes de iterar. Velocidad sobre pulido en este paso. El pipeline lo posiciona después de /3 PLANIFICAR; el pulido llega en /5 y /6.\n\n\n\n[...] ver SPEC completo en biblioteca-universal-prompting-2026.html","strategy_how":"Solo úsalo cuando ya tengas claro QUÉ vas a escribir y CÓMO (eso lo hicieron /2 y /3). Aquí simplemente te sientas y escribes el primer borrador completo de principio a fin, sin parar a corregir cada frase. Si te falta un dato, pones [PENDIENTE: lo que falta] y sigues. Si dudas de algo, pones [VERIF"},{"id":"5","label_title":"5 · ROBUSTECER — Agregar evidencia y sustancia a un borrador","invoke":["/5","/p5","/paso5"],"category":"pipeline-pivote","category_display":"Pipeline P.I.V.O.T.E. · paso 5","content_compact":"TÍTULO: 5 · ROBUSTECER — Agregar evidencia y sustancia a un borrador\n\nINPUTS:\nBorrador a robustecer: {[borrador]} → string · default: requerido · Output de /4 o tu propio draft que sientes superficial\nÁreas débiles: {[areas_debiles]} → string · default: requerido · Secciones específicas donde falta sustancia (no 'todo')\nTipo de evidencia: {[tipo_evidencia]} → string · default: requerido · Datos cuantitativos / citas académicas / casos reales / fuentes oficiales / etc.\nINSUMO_DEL_PIPELINE (opcional): {[insumo_del_pipeline]} → string · default: vacío · Vacío si invocas standalone. Si vienes desde /4, el borrador aquí.\n\nDefault de invocación: modo inferencia activo. La IA NO requiere que el usuario llene campos; capitaliza contexto y solo pregunta lo mínimo si la confianza queda < 0.85.\n\nABSTRACT:\nToma un borrador (de /4 o cualquier draft propio) y lo expande con evidencia, citas, datos cuantitativos, casos y matices que el primer pase no exploró. Útil por sí solo cuando un texto tuyo necesita robustez para defenderse ante un experto. Este prompt opera con default de máxima delegación a la IA: si los INPUTS llegan vacíos, infiere desde hilo, memoria y adjuntos antes de pedir aclaración. Estándar operativo: confianza global ≥ 0.95 con etiquetas de procedencia visibles. Invocación: /5.\n\nRESUMEN:\nToma un borrador (de /4 o cualquier draft propio) y lo expande con evidencia, citas, datos cuantitativos, casos y matices que el primer pase no exploró. Útil por sí solo cuando un texto tu\n\n[...] ver SPEC completo en biblioteca-universal-prompting-2026.html","strategy_how":"Imagina que escribiste una tarea y la respuesta es 'sí, está bien, pero ¿cómo sabes?'. Eso es un borrador superficial. /5 lo agarra y le mete pruebas: datos, ejemplos reales, citas con fuente. Úsalo solo (cuando un texto tuyo se siente flojo y vas a presentarlo ante alguien que pregunta duro) o como"},{"id":"6","label_title":"6 · SIMPLIFICAR — Destilar contenido a su forma esencial","invoke":["/6","/p6","/paso6"],"category":"pipeline-pivote","category_display":"Pipeline P.I.V.O.T.E. · paso 6","content_compact":"TÍTULO: 6 · SIMPLIFICAR — Destilar contenido a su forma esencial\n\nINPUTS:\nVersión robusta: {[version_robusta]} → string · default: requerido · Output de /5 o cualquier texto tuyo que necesites condensar\nAudiencia destino: {[audiencia]} → string · default: requerido · Perfil concreto · ej. 'CEO con 5 min', 'cliente técnico', 'comité regulatorio'\nLongitud objetivo: {[longitud]} → string · default: requerido · Páginas/palabras/minutos de lectura que la situación admite\nINSUMO_DEL_PIPELINE (opcional): {[insumo_del_pipeline]} → string · default: vacío · Vacío si invocas standalone. Si vienes desde /5, la versión robusta aquí.\n\nDefault de invocación: modo inferencia activo. La IA NO requiere que el usuario llene campos; capitaliza contexto y solo pregunta lo mínimo si la confianza queda < 0.85.\n\nABSTRACT:\nToma una versión densa o robusta y la destila a su forma esencial calibrada para una audiencia y longitud específicas. Elimina ruido, condensa argumentos, endurece el lenguaje sin perder lo importante. Este prompt opera con default de máxima delegación a la IA: si los INPUTS llegan vacíos, infiere desde hilo, memoria y adjuntos antes de pedir aclaración. Estándar operativo: confianza global ≥ 0.95 con etiquetas de procedencia visibles. Invocación: /6.\n\nRESUMEN:\nToma una versión densa o robusta y la destila a su forma esencial calibrada para una audiencia y longitud específicas. Elimina ruido, condensa argumentos, endurece el lenguaje sin perder lo importante. Útil por sí solo cuan\n\n[...] ver SPEC completo en biblioteca-universal-prompting-2026.html","strategy_how":"Imagina que tienes que contarle a tu mamá la peli de 2 horas que viste, pero solo te da 1 minuto en el carro. No le cuentas todo: le cuentas lo que le va a importar a ELLA. Eso hace /6: agarra un texto largo y lo deja del tamaño que tu lector aguanta, sin perder lo importante. Úsalo solo cuando un d"},{"id":"7","label_title":"7 · VALIDAR — Auditar entregable contra criterio explícito","invoke":["/7","/p7","/paso7"],"category":"pipeline-pivote","category_display":"Pipeline P.I.V.O.T.E. · paso 7","content_compact":"TÍTULO: 7 · VALIDAR — Auditar entregable contra criterio explícito\n\nINPUTS:\nEntregable: {[entregable]} → string · default: requerido · Output de /6 o cualquier pieza tuya lista para auditar\nCRITERIO de éxito: {[criterio]} → string · default: requerido · Del SPEC original o lista que acordaste con stakeholder\nTolerancia de fallos: {[tolerancia]} → string · default: requerido · Qué fallos son críticos (bloquean envío) vs cosméticos (se documentan)\nINSUMO_DEL_PIPELINE (opcional): {[insumo_del_pipeline]} → string · default: vacío · Vacío si invocas standalone. Si vienes desde /6, el entregable aquí.\n\nDefault de invocación: modo inferencia activo. La IA NO requiere que el usuario llene campos; capitaliza contexto y solo pregunta lo mínimo si la confianza queda < 0.85.\n\nABSTRACT:\nToma un entregable terminado y lo audita contra un CRITERIO explícito (del SPEC o de un acuerdo previo). Detecta vacíos críticos, deudas pendientes y riesgos invisibles. Este prompt opera con default de máxima delegación a la IA: si los INPUTS llegan vacíos, infiere desde hilo, memoria y adjuntos antes de pedir aclaración. Estándar operativo: confianza global ≥ 0.95 con etiquetas de procedencia visibles. Invocación: /7.\n\nRESUMEN:\nToma un entregable terminado y lo audita contra un CRITERIO explícito (del SPEC o de un acuerdo previo). Detecta vacíos críticos, deudas pendientes y riesgos invisibles. Útil por sí solo antes de enviar cualquier pieza a cliente o jefe. En el pipeline es la última red antes de /8 \n\n[...] ver SPEC completo en biblioteca-universal-prompting-2026.html","strategy_how":"Solo: úsalo siempre como último filtro antes de mandar algo a un profe, un cliente o tu jefe. En cadena: es el paso 7, justo después de /6 SIMPLIFICAR. Regla de oro: pásale el criterio que acordaste DESDE EL INICIO, no uno que inventes ahora. La auditoría solo vale lo que vale el criterio que usas p"},{"id":"8","label_title":"8 · ENTREGAR — Adaptar formato al canal y audiencia destino","invoke":["/8","/p8","/paso8"],"category":"pipeline-pivote","category_display":"Pipeline P.I.V.O.T.E. · paso 8","content_compact":"TÍTULO: 8 · ENTREGAR — Adaptar formato al canal y audiencia destino\n\nINPUTS:\nEntregable validado: {[entregable]} → string · default: requerido · Output de /7 o cualquier pieza tuya aprobada para circular\nCanal destino: {[canal]} → string · default: requerido · Email/Slack/Doc/Deck/PDF/Print/Voice\nAudiencia específica: {[audiencia]} → string · default: requerido · Persona, comité o cliente concreto con expectativa real\nINSUMO_DEL_PIPELINE (opcional): {[insumo_del_pipeline]} → string · default: vacío · Vacío si invocas standalone. Si vienes desde /7, el entregable validado aquí.\n\nDefault de invocación: modo inferencia activo. La IA NO requiere que el usuario llene campos; capitaliza contexto y solo pregunta lo mínimo si la confianza queda < 0.85.\n\nABSTRACT:\nToma un entregable validado y lo adapta al formato exacto que el canal destino requiere — DOCX corporativo, deck, email ejecutivo, mensaje de Slack. Preserva rigor y elimina metadata interna (notas, supuestos, dudas). Este prompt opera con default de máxima delegación a la IA: si los INPUTS llegan vacíos, infiere desde hilo, memoria y adjuntos antes de pedir aclaración. Estándar operativo: confianza global ≥ 0.95 con etiquetas de procedencia visibles. Invocación: /8.\n\nRESUMEN:\nToma un entregable validado y lo adapta al formato exacto que el canal destino requiere — DOCX corporativo, deck, email ejecutivo, mensaje de Slack. Preserva rigor y elimina metadata interna (notas, supuestos, dudas). Útil por sí solo cuando el mismo c\n\n[...] ver SPEC completo en biblioteca-universal-prompting-2026.html","strategy_how":"Tienes un texto bueno y ahora hay que vestirlo según dónde se va a leer. No es lo mismo un email al jefe que un mensaje de Slack al equipo o una diapo para una reunión. Pásale tres cosas: el contenido validado, el canal exacto (email, Slack, doc, deck) y a quién va dirigido (una persona de verdad, n"},{"id":"9","label_title":"9 · CRISTALIZAR — Convertir un proceso en plantilla reutilizable","invoke":["/9","/p9","/paso9"],"category":"pipeline-pivote","category_display":"Pipeline P.I.V.O.T.E. · paso 9","content_compact":"TÍTULO: 9 · CRISTALIZAR — Convertir un proceso en plantilla reutilizable\n\nINPUTS:\nProceso completo: {[proceso]} → string · default: requerido · Outputs 0-8 del pipeline, o cualquier secuencia de trabajo que terminó bien\nFrecuencia esperada: {[frecuencia]} → string · default: requerido · Cuántas veces al mes/año se reaplicaría · ej. '1x trimestre', 'cada propuesta'\nPróximo usuario: {[proximo_usuario]} → string · default: requerido · Quién usaría la plantilla la próxima vez · junior, par, cliente, futuro yo\nINSUMO_DEL_PIPELINE (opcional): {[insumo_del_pipeline]} → string · default: vacío · Vacío si invocas standalone. Si vienes desde /8 o de un pipeline completo 0-8, los outputs aquí.\n\nDefault de invocación: modo inferencia activo. La IA NO requiere que el usuario llene campos; capitaliza contexto y solo pregunta lo mínimo si la confianza queda < 0.85.\n\nABSTRACT:\nToma un proceso completo (los outputs 0-8 o cualquier secuencia de trabajo terminada) y produce la plantilla genérica con sus parámetros y criterios de uso. Útil por sí solo cuando hiciste algo bien que vale la pena reaplicar. Este prompt opera con default de máxima delegación a la IA: si los INPUTS llegan vacíos, infiere desde hilo, memoria y adjuntos antes de pedir aclaración. Estándar operativo: confianza global ≥ 0.95 con etiquetas de procedencia visibles. Invocación: /9.\n\nRESUMEN:\nToma un proceso completo (los outputs 0-8 o cualquier secuencia de trabajo terminada) y produce la plantilla genérica con sus parámetro\n\n[...] ver SPEC completo en biblioteca-universal-prompting-2026.html","strategy_how":"Cuando termines algo que salió bien, antes de cerrar la pestaña y olvidarte, pasalo por /9. Es como tomar la foto de una receta justo después de cocinar: si esperás una semana, ya no te acordás del truco que la hizo funcionar. Decí con nombre y apellido quién va a usar la plantilla la próxima vez (t"},{"id":"v11_artefacto_matriz_swot_completa","label_title":"Matriz Swot Completa","invoke":["/v11_artefacto_matriz_swot_completa"],"category":"artefacto","category_display":"Artefacto","content_compact":"TÍTULO: Matriz Swot Completa\n\nINPUTS:\nEntidad — Entidad a analizar: {[entidad]} → string · default: contextualiza · valor real para personalizar la salida\nContexto — Contexto del análisis: {[contexto]} → string · default: contextualiza · valor real para personalizar la salida\nHorizonte: {[horizonte]} → string · default: contextualiza · valor real para personalizar la salida\nRef Previa: {[ref_previa]} → string · default: contextualiza · valor real para personalizar la salida\nAdjuntos — (indica si hay adjuntos y qué se anexa; si no hay,: {[adjuntos]} → string · default: contextualiza · valor real para personalizar la salida\n\nDefault de invocación: modo inferencia activo. La IA NO requiere que el usuario llene campos; capitaliza contexto y solo pregunta lo mínimo si la confianza queda < 0.85.\n\nABSTRACT:\nConstruye una matriz analítica con dimensiones explícitas y celdas accionables. Útil cuando una decisión 2D requiere visualización defendible. Este prompt opera con default de máxima delegación a la IA: si los INPUTS llegan vacíos, infiere desde hilo, memoria y adjuntos antes de pedir aclaración. Estándar operativo: confianza global ≥ 0.95 con etiquetas de procedencia visibles. Invocación: /v11_artefacto_matriz_swot_completa.\n\nRESUMEN:\nConstruye una matriz analítica con dimensiones explícitas y celdas accionables. Útil cuando una decisión 2D requiere visualización defendible. Convierte texto narrativo en herramienta visual de decisión.\n\nSPEC:\n\nROL:\nExperto senior en MetodologIA c\n\n[...] ver SPEC completo en biblioteca-universal-prompting-2026.html","strategy_how":"Activa con /v11_artefacto_matriz_swot_completa en sesión nueva o pega el SPEC directo en tu IA. Si tenés contexto en hilo/memoria/adjuntos, la IA infiere los parámetros automáticamente y solo pregunta lo mínimo si su confianza queda <0.85. Default = máxima delegación · cero fricción."},{"id":"v11_artefacto_5_fuerzas_porter","label_title":"5 Fuerzas Porter","invoke":["/v11_artefacto_5_fuerzas_porter"],"category":"artefacto","category_display":"Artefacto","content_compact":"TÍTULO: 5 Fuerzas Porter\n\nINPUTS:\nIndustria — Sector o nicho de mercado: {[industria]} → string · default: contextualiza · valor real para personalizar la salida\nEmpresa — Jugador específico: {[empresa]} → string · default: contextualiza · valor real para personalizar la salida\nAdjuntos — (indica si hay adjuntos y qué se anexa; si no hay,: {[adjuntos]} → string · default: contextualiza · valor real para personalizar la salida\n\nDefault de invocación: modo inferencia activo. La IA NO requiere que el usuario llene campos; capitaliza contexto y solo pregunta lo mínimo si la confianza queda < 0.85.\n\nABSTRACT:\nAplica las 5 fuerzas de Porter al sector específico con evidencia local. Útil cuando una estrategia depende de entender la dinámica competitiva real. Este prompt opera con default de máxima delegación a la IA: si los INPUTS llegan vacíos, infiere desde hilo, memoria y adjuntos antes de pedir aclaración. Estándar operativo: confianza global ≥ 0.95 con etiquetas de procedencia visibles. Invocación: /v11_artefacto_5_fuerzas_porter.\n\nRESUMEN:\nAplica las 5 fuerzas de Porter al sector específico con evidencia local. Útil cuando una estrategia depende de entender la dinámica competitiva real. Pasa de 'el mercado está difícil' a análisis estructural.\n\nSPEC:\n\nROL:\nExperto senior en MetodologIA con foco en artefacto. Maximiza calidad del entregable mediante razonamiento de primer nivel. Responde en español neutro panregional, profesional.\nOperación: avanza con criterio profesional, no \n\n[...] ver SPEC completo en biblioteca-universal-prompting-2026.html","strategy_how":"Escribe /5_fuerzas_porter en una sesion nueva con tu IA y dale dos datos: la industria que quieres analizar (ej. cafeterias de barrio, apps de delivery, gimnasios) y la empresa o jugador que te interesa dentro de esa industria. Si tienes notas, articulos o reportes, los anexas como adjunto. Sin esos"},{"id":"v11_artefacto_lean_canvas","label_title":"Lean Canvas","invoke":["/v11_artefacto_lean_canvas"],"category":"artefacto","category_display":"Artefacto","content_compact":"TÍTULO: Lean Canvas\n\nINPUTS:\nIdea — Concepto de negocio: {[idea]} → string · default: contextualiza · valor real para personalizar la salida\nProblema — Dolor a resolver: {[problema]} → string · default: contextualiza · valor real para personalizar la salida\nAdjuntos — (indica si hay adjuntos y qué se anexa; si no hay,: {[adjuntos]} → string · default: contextualiza · valor real para personalizar la salida\n\nDefault de invocación: modo inferencia activo. La IA NO requiere que el usuario llene campos; capitaliza contexto y solo pregunta lo mínimo si la confianza queda < 0.85.\n\nABSTRACT:\nAplica principios Lean: valor para el cliente, eliminación de desperdicios, mejora continua. Útil cuando un proceso tiene grasa que reducir y velocidad que ganar. Este prompt opera con default de máxima delegación a la IA: si los INPUTS llegan vacíos, infiere desde hilo, memoria y adjuntos antes de pedir aclaración. Estándar operativo: confianza global ≥ 0.95 con etiquetas de procedencia visibles. Invocación: /v11_artefacto_lean_canvas.\n\nRESUMEN:\nAplica principios Lean: valor para el cliente, eliminación de desperdicios, mejora continua. Útil cuando un proceso tiene grasa que reducir y velocidad que ganar. Convierte operación pesada en operación ágil.\n\nSPEC:\n\nROL:\nExperto senior en MetodologIA con foco en artefacto. Maximiza calidad del entregable mediante razonamiento de primer nivel. Responde en español neutro panregional, profesional.\nOperación: avanza con criterio profesional, no con instinto\n\n[...] ver SPEC completo en biblioteca-universal-prompting-2026.html","strategy_how":"Lean Canvas es como una hoja con 9 cajas vacías para tu idea (un canal de YouTube, vender pulseras en el cole, una app). Antes de gastar tiempo o plata, llenas las cajas: ¿qué problema resuelves?, ¿a quién?, ¿cómo lo cobras?, ¿qué te cuesta? Escribes /v11_artefacto_lean_canvas, le cuentas a la IA tu"},{"id":"v11_artefacto_okr","label_title":"artefacto","invoke":["/v11_artefacto_okr"],"category":"artefacto","category_display":"Artefacto","content_compact":"TÍTULO: Okr\n\nINPUTS:\nObjetivo — Meta cualitativa aspiracional: {[objetivo]} → string · default: contextualiza · valor real para personalizar la salida\nResultados Clave — Ideas iniciales de métricas: {[resultados_clave]} → string · default: contextualiza · valor real para personalizar la salida\nAdjuntos — (indica si hay adjuntos y qué se anexa; si no hay,: {[adjuntos]} → string · default: contextualiza · valor real para personalizar la salida\n\nDefault de invocación: modo inferencia activo. La IA NO requiere que el usuario llene campos; capitaliza contexto y solo pregunta lo mínimo si la confianza queda < 0.85.\n\nABSTRACT:\nDefine Objetivos y Resultados Clave con ambición y medición. Útil cuando una organización necesita foco compartido y trazabilidad. Este prompt opera con default de máxima delegación a la IA: si los INPUTS llegan vacíos, infiere desde hilo, memoria y adjuntos antes de pedir aclaración. Estándar operativo: confianza global ≥ 0.95 con etiquetas de procedencia visibles. Invocación: /v11_artefacto_okr.\n\nRESUMEN:\nDefine Objetivos y Resultados Clave con ambición y medición. Útil cuando una organización necesita foco compartido y trazabilidad. Convierte intenciones en compromiso medible.\n\nSPEC:\n\nROL:\nExperto senior en MetodologIA con foco en artefacto. Maximiza calidad del entregable mediante razonamiento de primer nivel. Responde en español neutro panregional, profesional.\nOperación: avanza con criterio profesional, no con instinto. NO se desvía hacia ornamentación, \n\n[...] ver SPEC completo en biblioteca-universal-prompting-2026.html","strategy_how":"Activa con /v11_artefacto_okr en sesión nueva o pega el SPEC directo en tu IA. Si tenés contexto en hilo/memoria/adjuntos, la IA infiere los parámetros automáticamente y solo pregunta lo mínimo si su confianza queda <0.85. Default = máxima delegación · cero fricción."},{"id":"v11_artefacto_matriz_bcg","label_title":"Matriz Bcg","invoke":["/v11_artefacto_matriz_bcg"],"category":"artefacto","category_display":"Artefacto","content_compact":"TÍTULO: Matriz Bcg\n\nINPUTS:\nEmpresa — Empresa/Portfolio a analizar: {[empresa]} → string · default: contextualiza · valor real para personalizar la salida\nUnidades — Unidades de negocio/productos: {[unidades]} → string · default: contextualiza · valor real para personalizar la salida\nAdjuntos — (indica si hay adjuntos; si no hay, escribe \"No ha: {[adjuntos]} → string · default: contextualiza · valor real para personalizar la salida\n\nDefault de invocación: modo inferencia activo. La IA NO requiere que el usuario llene campos; capitaliza contexto y solo pregunta lo mínimo si la confianza queda < 0.85.\n\nABSTRACT:\nConstruye una matriz analítica con dimensiones explícitas y celdas accionables. Útil cuando una decisión 2D requiere visualización defendible. Este prompt opera con default de máxima delegación a la IA: si los INPUTS llegan vacíos, infiere desde hilo, memoria y adjuntos antes de pedir aclaración. Estándar operativo: confianza global ≥ 0.95 con etiquetas de procedencia visibles. Invocación: /v11_artefacto_matriz_bcg.\n\nRESUMEN:\nConstruye una matriz analítica con dimensiones explícitas y celdas accionables. Útil cuando una decisión 2D requiere visualización defendible. Convierte texto narrativo en herramienta visual de decisión.\n\nSPEC:\n\nROL:\nExperto senior en MetodologIA con foco en artefacto. Maximiza calidad del entregable mediante razonamiento de primer nivel. Responde en español neutro panregional, profesional.\nOperación: avanza con criterio profesional, no con instint\n\n[...] ver SPEC completo en biblioteca-universal-prompting-2026.html","strategy_how":"Abre tu IA y escribe /matriz_bcg. Pasale una lista corta de productos o iniciativas con dos datos de cada uno: cuánto está creciendo (mucho o poco) y qué tan grande es tu pedazo comparado con el más fuerte. Con eso la IA dibuja una tabla de 4 cajitas y te dice cuál es estrella, cuál vaca, cuál inter"},{"id":"a","label_title":"A — Aprobado · proceder sin metadiscurso","invoke":["/a","/aprobar","/proceder"],"category":"procesamiento","category_display":"Procesamiento","content_compact":"TÍTULO: A — Aprobado · proceder sin metadiscurso\n\nINPUTS:\nninguno requerido — el prompt opera sobre el último output del modelo en el hilo activo o, si no hay hilo, sobre el contenido que el usuario pegue a continuación.\n  · modo manual: el usuario puede pasar parámetros explícitos override en formato `KEY: valor` antes de invocar.\n  · modo inferencia (default): la IA capitaliza {EXTRAIDO_HILO} | {MEMORIA} | {ADJUNTO}; si no hay hilo ni adjuntos y la inferencia no es defendible, formula 1-3 preguntas mínimas al usuario y declara qué autocompletó.\n\nABSTRACT:\nMacro de continuación: el usuario aprueba el último output y avanza al siguiente paso lógico sin escribir \"perfecto, sigue\". Úsalo justo después de un output aprobado en hilo activo, cuando ya hay una continuación natural identificable. Este prompt opera con default de máxima delegación a la IA: si los INPUTS llegan vacíos, infiere desde hilo, memoria y adjuntos antes de pedir aclaración. Estándar operativo: confianza global ≥ 0.95 con etiquetas de procedencia visibles. Invocación: /a.\n\nRESUMEN:\nMacro de continuación: el usuario aprueba el último output y avanza al siguiente paso lógico sin escribir \"perfecto, sigue\".\nÚsalo justo después de un output aprobado en hilo activo, cuando ya hay una continuación natural identificable.\nEntrega directamente el siguiente paso, sin agradecer, parafrasear ni explicar lo que va a hacer.\n\nSPEC:\n\nROL:\nEspecialista senior · Ejecutor MetodologIA de continuación operativa. Tu trabajo es eli\n\n[...] ver SPEC completo en biblioteca-universal-prompting-2026.html","strategy_how":"Estás chateando con tu IA y te entrega algo bueno: un esquema, un borrador, una lista. En vez de escribir 'perfecto, ahora hazme la siguiente parte', tecleas /a y mandas. Ya. La IA entiende: 'aprobado, sigue al siguiente paso'. Sin parámetros, sin nada extra. Como cuando le dices a un amigo 'dale' y"},{"id":"e","label_title":"E — Activa Bucle de Excelencia (rúbrica 10/10)","invoke":["/e","/excelencia","/bucle"],"category":"excelencia","category_display":"Excelencia","content_compact":"TÍTULO: E — Activa Bucle de Excelencia (rúbrica 10/10)\n\nINPUTS:\nninguno requerido — el prompt opera sobre el último output del modelo en el hilo activo o, si no hay hilo, sobre el contenido que el usuario pegue a continuación.\n  · modo manual: el usuario puede pasar parámetros explícitos override en formato `KEY: valor` antes de invocar.\n  · modo inferencia (default): la IA capitaliza {EXTRAIDO_HILO} | {MEMORIA} | {ADJUNTO}; si no hay hilo ni adjuntos y la inferencia no es defendible, formula 1-3 preguntas mínimas al usuario y declara qué autocompletó.\n\nABSTRACT:\nMacro que activa un Bucle de Excelencia: el modelo evalúa su propio output con una rúbrica de 10 criterios e itera hasta llegar a 10/10 sin alucinar. Úsalo después de cualquier output que quieres llevar al máximo defendible, especialmente entregables ejecutivos, propuestas y SPECs. Este prompt opera con default de máxima delegación a la IA: si los INPUTS llegan vacíos, infiere desde hilo, memoria y adjuntos antes de pedir aclaración. Estándar operativo: confianza global ≥ 0.95 con etiquetas de procedencia visibles. Invocación: /e.\n\nRESUMEN:\nMacro que activa un Bucle de Excelencia: el modelo evalúa su propio output con una rúbrica de 10 criterios e itera hasta llegar a 10/10 sin alucinar.\nÚsalo después de cualquier output que quieres llevar al máximo defendible, especialmente entregables ejecutivos, propuestas y SPECs.\nEntrega solo la versión final que pasó la rúbrica, sin metadiscurso ni borradores intermedios.\n\nSPEC\n\n[...] ver SPEC completo en biblioteca-universal-prompting-2026.html","strategy_how":"Cuando la IA te entregue una respuesta y pienses 'está bien, pero podría estar mejor', escribe /e y pulsa enter. La IA vuelve sobre lo que acaba de decir, se pone una nota a sí misma del 1 al 10 en diez cosas (si está bien fundada, si es clara, si es densa, si es útil, etc.) y la reescribe hasta sac"},{"id":"s","label_title":"S — Sintetiza opciones abiertas en una solución unificada","invoke":["/s","/sintetiza","/sintetizar"],"category":"decision","category_display":"Decisión","content_compact":"TÍTULO: S — Sintetiza opciones abiertas en una solución unificada\n\nINPUTS:\nninguno requerido — el prompt opera sobre el último output del modelo en el hilo activo o, si no hay hilo, sobre el contenido que el usuario pegue a continuación.\n  · modo manual: el usuario puede pasar parámetros explícitos override en formato `KEY: valor` antes de invocar.\n  · modo inferencia (default): la IA capitaliza {EXTRAIDO_HILO} | {MEMORIA} | {ADJUNTO}; si no hay hilo ni adjuntos y la inferencia no es defendible, formula 1-3 preguntas mínimas al usuario y declara qué autocompletó.\n\nABSTRACT:\nMacro de cierre: toma N opciones abiertas en discusión y consolida una propuesta unificada que integra fortalezas y mitiga debilidades de cada alternativa. Úsalo cuando llegaste a un punto de la conversación con varias opciones pero ninguna sola es la respuesta — necesitas la mejor síntesis posible. Este prompt opera con default de máxima delegación a la IA: si los INPUTS llegan vacíos, infiere desde hilo, memoria y adjuntos antes de pedir aclaración. Estándar operativo: confianza global ≥ 0.95 con etiquetas de procedencia visibles. Invocación: /s.\n\nRESUMEN:\nMacro de cierre: toma N opciones abiertas en discusión y consolida una propuesta unificada que integra fortalezas y mitiga debilidades de cada alternativa.\nÚsalo cuando llegaste a un punto de la conversación con varias opciones pero ninguna sola es la respuesta — necesitas la mejor síntesis posible.\nEntrega una propuesta única lista para presentar, con\n\n[...] ver SPEC completo en biblioteca-universal-prompting-2026.html","strategy_how":"Imagina que estás con tres amigos planeando el cumpleaños y cada uno propone un plan distinto: cine, parque, casa con pizza. Ninguno gana solo, pero juntos hay un planazo escondido. Eso hace /s. Cuando llevas un rato hablando con la IA y ya hay 2, 3 o 5 opciones dando vueltas, escribes /s y la IA ag"},{"id":"simplifica","label_title":"simplifica","invoke":["/simplifica"],"category":"v1492-baseline","category_display":"MetodologIA · Biblioteca Universal de Prompts","content_compact":"TÍTULO: simplifica\n\nINPUTS:\nContenido: {[CONTENIDO]} → string · default: valor real · personaliza con tu contexto\n\nDefault de invocación: modo inferencia activo. La IA NO requiere que el usuario llene campos; capitaliza contexto y solo pregunta lo mínimo si la confianza queda < 0.85.\n\nABSTRACT:\nSimplifica eliminando complejidad innecesaria sin perder función. Útil cuando algo se siente más complicado de lo que debería ser. Este prompt opera con default de máxima delegación a la IA: si los INPUTS llegan vacíos, infiere desde hilo, memoria y adjuntos antes de pedir aclaración. Estándar operativo: confianza global ≥ 0.95 con etiquetas de procedencia visibles. Invocación: /simplifica.\n\nRESUMEN:\nSimplifica eliminando complejidad innecesaria sin perder función. Útil cuando algo se siente más complicado de lo que debería ser. Lo simple cuando es justo es elegante; cuando es flojo es trampa.\n\nSPEC:\n\nROL:\nExperto senior en MetodologIA con foco en simplifica. Maximiza calidad del entregable mediante razonamiento de primer nivel. Responde en español neutro panregional, profesional.\nOperación: preserva la intención original aunque el vehículo cambie. NO se desvía hacia reescritura que pierde el sustrato. Operás también como Orquestador de Continuidad: capitalizás contexto, etiquetás procedencia, declarás confianza y no ocultás inferencias.\n\nSITUACIÓN:\nVas a ejecutar el prompt legado \"simplifica\" proveniente de Biblioteca v2026 actual. El objetivo base es Reduce {contenido} a lo esencial.\n\n[...] ver SPEC completo en biblioteca-universal-prompting-2026.html","strategy_how":"Activa con /simplifica en sesión nueva o pega el SPEC directo en tu IA. Si tenés contexto en hilo/memoria/adjuntos, la IA infiere los parámetros automáticamente y solo pregunta lo mínimo si su confianza queda <0.85. Default = máxima delegación · cero fricción."},{"id":"estructura","label_title":"estructura","invoke":["/estructura"],"category":"v1492-baseline","category_display":"MetodologIA · Biblioteca Universal de Prompts","content_compact":"TÍTULO: estructura\n\nINPUTS:\nContenido: {[CONTENIDO]} → string · default: valor real · personaliza con tu contexto\n\nDefault de invocación: modo inferencia activo. La IA NO requiere que el usuario llene campos; capitaliza contexto y solo pregunta lo mínimo si la confianza queda < 0.85.\n\nABSTRACT:\nEstructura material disperso en arquitectura coherente. Útil cuando lo que tienes es valioso pero está desordenado. Este prompt opera con default de máxima delegación a la IA: si los INPUTS llegan vacíos, infiere desde hilo, memoria y adjuntos antes de pedir aclaración. Estándar operativo: confianza global ≥ 0.95 con etiquetas de procedencia visibles. Invocación: /estructura.\n\nRESUMEN:\nEstructura material disperso en arquitectura coherente. Útil cuando lo que tienes es valioso pero está desordenado. Convierte material crudo en pieza navegable.\n\nSPEC:\n\nROL:\nExperto senior en MetodologIA con foco en estructura. Maximiza calidad del entregable mediante razonamiento de primer nivel. Responde en español neutro panregional, profesional.\nOperación: arquitectura clara, no decoración. NO se desvía hacia sobre-diseño ni añade complejidad innecesaria. Operás también como Orquestador de Continuidad: capitalizás contexto, etiquetás procedencia, declarás confianza y no ocultás inferencias.\n\nSITUACIÓN:\nVas a ejecutar el prompt legado \"estructura\" proveniente de Biblioteca v2026 actual. El objetivo base es Organiza {contenido} en estructura piramidal de Minto: conclusion primero, argumentos de soporte\n\n[...] ver SPEC completo en biblioteca-universal-prompting-2026.html","strategy_how":"Lo usas cuando tienes un montón de cosas tiradas: notas del cole, ideas para un proyecto, capturas de pantalla, links guardados, lluvia de ideas con amigos. Le pegas todo el material tal cual está (aunque sea un caos) y le dices /estructura. Te devuelve el mismo material pero ya ordenado: en cajones"},{"id":"documenta","label_title":"documenta","invoke":["/documenta"],"category":"v1492-baseline","category_display":"MetodologIA · Biblioteca Universal de Prompts","content_compact":"TÍTULO: documenta\n\nINPUTS:\nContenido: {[CONTENIDO]} → string · default: valor real · personaliza con tu contexto\n\nDefault de invocación: modo inferencia activo. La IA NO requiere que el usuario llene campos; capitaliza contexto y solo pregunta lo mínimo si la confianza queda < 0.85.\n\nABSTRACT:\nAplica criterio de prompting al caso: claridad, especificidad, formato esperado. Útil cuando una interacción con IA merece más que petición casual. Este prompt opera con default de máxima delegación a la IA: si los INPUTS llegan vacíos, infiere desde hilo, memoria y adjuntos antes de pedir aclaración. Estándar operativo: confianza global ≥ 0.95 con etiquetas de procedencia visibles. Invocación: /documenta.\n\nRESUMEN:\nAplica criterio de prompting al caso: claridad, especificidad, formato esperado. Útil cuando una interacción con IA merece más que petición casual. Pasa de pedir a programar con lenguaje natural.\n\nSPEC:\n\nROL:\nExperto senior en MetodologIA con foco en documenta. Maximiza calidad del entregable mediante razonamiento de primer nivel. Responde en español neutro panregional, profesional.\nOperación: trabajo profesional defendible, no improvisación. NO se desvía hacia respuestas vagas ni padding académico. Operás también como Orquestador de Continuidad: capitalizás contexto, etiquetás procedencia, declarás confianza y no ocultás inferencias.\n\nSITUACIÓN:\nVas a ejecutar el prompt legado \"documenta\" proveniente de Biblioteca v2026 actual. El objetivo base es Formaliza {contenido} en d\n\n[...] ver SPEC completo en biblioteca-universal-prompting-2026.html","strategy_how":"Cuando termines algo importante (un partido, una entrega, una decisión), abre tu IA y escribe /documenta. Cuéntale tres cosas: qué pasó, qué decidiste y por qué. La IA te devuelve una nota ordenada que puedes guardar y releer en un mes. Si vas a usarlo más de una vez, guarda el formato como plantill"},{"id":"empatiza","label_title":"empatiza","invoke":["/empatiza"],"category":"v1492-baseline","category_display":"MetodologIA · Biblioteca Universal de Prompts","content_compact":"TÍTULO: empatiza\n\nINPUTS:\nPersona: {[PERSONA]} → string · default: valor real · personaliza con tu contexto\n\nDefault de invocación: modo inferencia activo. La IA NO requiere que el usuario llene campos; capitaliza contexto y solo pregunta lo mínimo si la confianza queda < 0.85.\n\nABSTRACT:\nAplica criterio de prompting al caso: claridad, especificidad, formato esperado. Útil cuando una interacción con IA merece más que petición casual. Este prompt opera con default de máxima delegación a la IA: si los INPUTS llegan vacíos, infiere desde hilo, memoria y adjuntos antes de pedir aclaración. Estándar operativo: confianza global ≥ 0.95 con etiquetas de procedencia visibles. Invocación: /empatiza.\n\nRESUMEN:\nAplica criterio de prompting al caso: claridad, especificidad, formato esperado. Útil cuando una interacción con IA merece más que petición casual. Pasa de pedir a programar con lenguaje natural.\n\nSPEC:\n\nROL:\nExperto senior en MetodologIA con foco en empatiza. Maximiza calidad del entregable mediante razonamiento de primer nivel. Responde en español neutro panregional, profesional.\nOperación: trabajo profesional defendible, no improvisación. NO se desvía hacia respuestas vagas ni padding académico. Operás también como Orquestador de Continuidad: capitalizás contexto, etiquetás procedencia, declarás confianza y no ocultás inferencias.\n\nSITUACIÓN:\nVas a ejecutar el prompt legado \"empatiza\" proveniente de Biblioteca v2026 actual. El objetivo base es Ponte en la perspectiva de {person\n\n[...] ver SPEC completo en biblioteca-universal-prompting-2026.html","strategy_how":"Escribes /empatiza y le dices a la IA de quién quieres entender la cabeza: tu mamá, tu profe, tu amigo enojado, tu hermana. La IA arma un mapa con seis cuadros: qué piensa esa persona por dentro, qué oye de la gente que la rodea, qué ve en su día, qué dice y qué hace, qué le duele y qué quiere. Cuan"},{"id":"investiga","label_title":"investiga","invoke":["/investiga"],"category":"v1492-baseline","category_display":"MetodologIA · Biblioteca Universal de Prompts","content_compact":"TÍTULO: investiga\n\nINPUTS:\nTema: {[TEMA]} → string · default: valor real · personaliza con tu contexto\nFuente: {[FUENTE]} → string · default: valor real · personaliza con tu contexto\n\nDefault de invocación: modo inferencia activo. La IA NO requiere que el usuario llene campos; capitaliza contexto y solo pregunta lo mínimo si la confianza queda < 0.85.\n\nABSTRACT:\nInvestiga un caso con método, fuentes y trazabilidad de evidencia. Útil cuando una decisión requiere base sólida más que intuición. Este prompt opera con default de máxima delegación a la IA: si los INPUTS llegan vacíos, infiere desde hilo, memoria y adjuntos antes de pedir aclaración. Estándar operativo: confianza global ≥ 0.95 con etiquetas de procedencia visibles. Invocación: /investiga.\n\nRESUMEN:\nInvestiga un caso con método, fuentes y trazabilidad de evidencia. Útil cuando una decisión requiere base sólida más que intuición. Pasa de creer a saber.\n\nSPEC:\n\nROL:\nExperto senior en MetodologIA con foco en investiga. Maximiza calidad del entregable mediante razonamiento de primer nivel. Responde en español neutro panregional, profesional.\nOperación: presiona suave hasta que la información honesta aparece. NO se desvía hacia interrogatorio ni a confirmar lo que ya sospechabas. Operás también como Orquestador de Continuidad: capitalizás contexto, etiquetás procedencia, declarás confianza y no ocultás inferencias.\n\nSITUACIÓN:\nVas a ejecutar el prompt legado \"investiga\" proveniente de Biblioteca v2026 actual. El objetivo \n\n[...] ver SPEC completo en biblioteca-universal-prompting-2026.html","strategy_how":"Escribes /investiga y le pasas el tema que quieres entender de verdad (no solo curiosear). La IA te arma un mapa: qué se sabe, quién lo dice, qué está en duda y qué falta. Es como pedirle a alguien que ya leyó 30 fuentes que te las resuma sin trampa, en vez de tú abrir 30 pestañas y perderte."},{"id":"prioriza","label_title":"prioriza","invoke":["/prioriza"],"category":"v1492-baseline","category_display":"MetodologIA · Biblioteca Universal de Prompts","content_compact":"TÍTULO: prioriza\n\nINPUTS:\nItems: {[ITEMS]} → string · default: valor real · personaliza con tu contexto\n\nDefault de invocación: modo inferencia activo. La IA NO requiere que el usuario llene campos; capitaliza contexto y solo pregunta lo mínimo si la confianza queda < 0.85.\n\nABSTRACT:\nPrioriza opciones contra criterios y restricciones explícitas. Útil cuando hay más cosas que tiempo y necesitas orden defendible. Este prompt opera con default de máxima delegación a la IA: si los INPUTS llegan vacíos, infiere desde hilo, memoria y adjuntos antes de pedir aclaración. Estándar operativo: confianza global ≥ 0.95 con etiquetas de procedencia visibles. Invocación: /prioriza.\n\nRESUMEN:\nPrioriza opciones contra criterios y restricciones explícitas. Útil cuando hay más cosas que tiempo y necesitas orden defendible. Convierte 'todo es importante' en secuencia accionable.\n\nSPEC:\n\nROL:\nExperto senior en MetodologIA con foco en prioriza. Maximiza calidad del entregable mediante razonamiento de primer nivel. Responde en español neutro panregional, profesional.\nOperación: pronúnciate. NO se desvía hacia análisis sin conclusión ni a pesar opciones eternamente. Operás también como Orquestador de Continuidad: capitalizás contexto, etiquetás procedencia, declarás confianza y no ocultás inferencias.\n\nSITUACIÓN:\nVas a ejecutar el prompt legado \"prioriza\" proveniente de Biblioteca v2026 actual. El objetivo base es Ordena {items} por impacto real.. Conserva el contenido útil y no inventes contexto a\n\n[...] ver SPEC completo en biblioteca-universal-prompting-2026.html","strategy_how":"Tienes una lista de cosas pendientes y dices 'todo es urgente'. Escribe /prioriza, pega tu lista (8-10 cosas máximo) y dile a la IA con qué reglas ordenarlas: cuánto te cuesta cada una, qué tan importante es y para cuándo. La IA te devuelve la lista numerada del 1 al 10. Empiezas por el 1."},{"id":"compara","label_title":"compara","invoke":["/compara"],"category":"v1492-baseline","category_display":"MetodologIA · Biblioteca Universal de Prompts","content_compact":"TÍTULO: compara\n\nINPUTS:\nOpciones: {[OPCIONES]} → string · default: valor real · personaliza con tu contexto\n\nDefault de invocación: modo inferencia activo. La IA NO requiere que el usuario llene campos; capitaliza contexto y solo pregunta lo mínimo si la confianza queda < 0.85.\n\nABSTRACT:\nCompara opciones bajo dimensiones explícitas en tabla legible. Útil cuando una decisión depende de ver diferencias claras entre alternativas. Este prompt opera con default de máxima delegación a la IA: si los INPUTS llegan vacíos, infiere desde hilo, memoria y adjuntos antes de pedir aclaración. Estándar operativo: confianza global ≥ 0.95 con etiquetas de procedencia visibles. Invocación: /compara.\n\nRESUMEN:\nCompara opciones bajo dimensiones explícitas en tabla legible. Útil cuando una decisión depende de ver diferencias claras entre alternativas. Convierte impresiones difusas en tabla comparativa defendible.\n\nSPEC:\n\nROL:\nExperto senior en MetodologIA con foco en compara. Maximiza calidad del entregable mediante razonamiento de primer nivel. Responde en español neutro panregional, profesional.\nOperación: poner las opciones en la misma escala antes de juzgarlas. NO se desvía hacia favoritismo implícito ni a comparar peras con manzanas. Operás también como Orquestador de Continuidad: capitalizás contexto, etiquetás procedencia, declarás confianza y no ocultás inferencias.\n\nSITUACIÓN:\nVas a ejecutar el prompt legado \"compara\" proveniente de Biblioteca v2026 actual. El objetivo base es Tabla co\n\n[...] ver SPEC completo en biblioteca-universal-prompting-2026.html","strategy_how":"Escribes /compara y le pasas dos o más cosas que estás mirando al mismo tiempo. La IA arma una tabla: opciones en filas, lo que importa en columnas. Cada casilla muestra cómo se porta esa opción en ese punto. No te dice cuál elegir. Te muestra dónde se parecen y dónde se separan, para que tú decidas"},{"id":"COP_AUT_01","label_title":"COP_AUT_01 — Power Automate · Diseñar Flow desde cero","invoke":["/cop_aut_01","/cop-aut-01","/power-automate-flow"],"category":"cop-automate","category_display":"Copilot · Power Automate","content_compact":"TÍTULO: COP_AUT_01 — Power Automate · Diseñar Flow desde cero\n\nINPUTS:\nNombre: {[nombre]} → oración · default: ninguno (CRÍTICO) · propósito del flujo en una línea\nDisparador: {[disparador]} → enum + descripción · default: ninguno (CRÍTICO) · valores: scheduled / instant / automated / hybrid\n\nDefault de invocación: modo inferencia activo. La IA NO requiere que el usuario llene campos; capitaliza contexto y solo pregunta lo mínimo si la confianza queda < 0.85.\n\nABSTRACT:\nDiseña un blueprint completo de Power Automate (trigger + acciones + variables + manejo de errores + gobernanza) listo para implementar en el designer. Úsalo antes de tocar el designer cuando vas a automatizar una tarea repetitiva o conectar dos sistemas en Microsoft 365. Este prompt opera con default de máxima delegación a la IA: si los INPUTS llegan vacíos, infiere desde hilo, memoria y adjuntos antes de pedir aclaración. Estándar operativo: confianza global ≥ 0.95 con etiquetas de procedencia visibles. Invocación: /cop_aut_01.\n\nRESUMEN:\nDiseña un blueprint completo de Power Automate (trigger + acciones + variables + manejo de errores + gobernanza) listo para implementar en el designer.\nÚsalo antes de tocar el designer cuando vas a automatizar una tarea repetitiva o conectar dos sistemas en Microsoft 365.\nEntrega un Markdown estructurado con todo lo necesario para evitar disparadores mal elegidos, variables sin nombre y flujos sin Try/Catch.\n\nSPEC:\n\nROL:\nEspecialista senior · Arquitecto de Power Automate cer\n\n[...] ver SPEC completo en biblioteca-universal-prompting-2026.html","strategy_how":"Antes de abrir Power Automate, escribe en una línea qué tarea quieres que la máquina haga sola y cuándo debe arrancar (cuando llega un correo, todos los lunes, cuando tú aprietas un botón). Llamas a /cop_aut_01 con esos dos datos y te devuelve el plano del flujo: qué pasos pone, qué nombres tienen, "},{"id":"COP_EXC_01","label_title":"COP_EXC_01 — Análisis de rendimiento corporativo (KPIs sobre tabla)","invoke":["/cop_exc_01","/cop-exc-01"],"category":"cop-excel","category_display":"Copilot · Excel","content_compact":"TÍTULO: COP_EXC_01 — Análisis de rendimiento corporativo (KPIs sobre tabla)\n\nINPUTS:\nTabla: {[tabla]} → texto · default: ninguno (CRÍTICO si está vacío) · Rango con datos (ej. 'Ventas 2026' o 'A1:K500')\nKPI: {[kpi]} → texto · default: ninguno (CRÍTICO si está vacío) · Métrica a calcular (ej. 'CAGR ingresos', 'EBITDA margin')\n\nDefault de invocación: modo inferencia activo. La IA NO requiere que el usuario llene campos; capitaliza contexto y solo pregunta lo mínimo si la confianza queda < 0.85.\n\nABSTRACT:\nAnalista de FP&A senior con dominio Excel. Calculas KPIs corporativos con fórmulas auditab — El usuario tiene una tabla de datos en Excel y necesita derivar KPIs corporativos (CAGR, margin, ratios) con fórmulas legibles que. Este prompt opera con default de máxima delegación a la IA: si los INPUTS llegan vacíos, infiere desde hilo, memoria y adjuntos antes de pedir aclaración. Estándar operativo: confianza global ≥ 0.95 con etiquetas de procedencia visibles. Invocación: /cop_exc_01.\n\nRESUMEN:\nAnalista de FP&A senior con dominio Excel. Calculas KPIs corporativos con fórmulas auditab — El usuario tiene una tabla de datos en Excel y necesita derivar KPIs corporativos (CAGR, margin, ratios) con fórmulas legibles que.\nÚsalo cuando  el equipo financiero pueda auditar.\nEntrega blueprint en Markdown con 5 criterios verificables.\n\nSPEC:\n\nROL:\nAnalista de FP&A senior con dominio Excel. Calculas KPIs corporativos con fórmulas auditables, sin VBA innecesario.\nOperación: separa hechos de i\n\n[...] ver SPEC completo en biblioteca-universal-prompting-2026.html","strategy_how":"Tienes una tabla con datos (partidos, notas, ventas, lo que sea). Le dices a Excel dos cosas: qué tabla mirar y qué número quieres saber (el KPI: el dato que más importa). Ejemplo: tabla = mis 10 últimos partidos, KPI = promedio de goles. Excel devuelve la fórmula y el resultado, con un comentario a"},{"id":"COP_PBI_01","label_title":"Power BI · Diseño de medidas DAX senior","invoke":["/cop_pbi_01"],"category":"copilots-microsoft","category_display":"Copilots Microsoft · Power BI","content_compact":"TÍTULO: Power BI · Diseño de medidas DAX senior\n\nINPUTS:\nModelo de datos: {[modelo]} → string · default: tablas y relaciones · describe brevemente las tablas y relaciones disponibles\nMétrica objetivo: {[metrica]} → string · default: KPI o cálculo solicitado · qué necesitas medir (ej. ventas YTD, margen rolling 12m)\nGranularidad: {[granularidad]} → string · default: diaria · nivel temporal o de dimensión\n\nDefault de invocación: modo inferencia activo. La IA NO requiere que el usuario llene campos; capitaliza contexto y solo pregunta lo mínimo si la confianza queda < 0.85.\n\nABSTRACT:\nPlantilla v3.1 lista para Copilot Power BI o asistentes equivalentes. Aborda diseño de medidas dax senior con criterio senior y entrega defendible. Este prompt opera con default de máxima delegación a la IA: si los INPUTS llegan vacíos, infiere desde hilo, memoria y adjuntos antes de pedir aclaración. Estándar operativo: confianza global ≥ 0.95 con etiquetas de procedencia visibles. Invocación: /cop_pbi_01.\n\nRESUMEN:\nPlantilla v3.1 lista para Copilot Power BI o asistentes equivalentes. Aborda diseño de medidas dax senior con criterio senior y entrega defendible.\n\nSPEC:\n\nROL:\nDiseñador senior de medidas DAX en Power BI con 10+ años en modelos semánticos de alto rendimiento.\nOperación: separa hechos de inferencias y evidencia de opinión. NO se desvía hacia conclusiones sin pasar por análisis. Operás también como Orquestador de Continuidad: capitalizás contexto, etiquetás procedencia, declarás confian\n\n[...] ver SPEC completo en biblioteca-universal-prompting-2026.html","strategy_how":"Una medida DAX es como una calculadora mágica dentro de tu tablero: si haces clic en 'enero', toda la pantalla reacciona y los números se recalculan solos. Para usar este prompt, abre Copilot dentro de Power BI (o pégalo en Claude). Llena tres huecos: qué tablas tienes y cómo se conectan ('ventas co"},{"id":"COP_PRD_01","label_title":"Word · Redacción técnica y creativa senior","invoke":["/cop_prd_01"],"category":"copilots-microsoft","category_display":"Copilots Microsoft · M365 Productividad","content_compact":"TÍTULO: Word · Redacción técnica y creativa senior\n\nINPUTS:\nTipo de documento: {[tipo]} → string · default: informe/manual/artículo · tipo de pieza\nAudiencia: {[audiencia]} → string · default: perfil del lector · quién leerá\nTono: {[tono]} → string · default: técnico/divulgativo/ejecutivo · registro a usar\nExtensión: {[extension]} → string · default: palabras objetivo · tamaño deseado\n\nDefault de invocación: modo inferencia activo. La IA NO requiere que el usuario llene campos; capitaliza contexto y solo pregunta lo mínimo si la confianza queda < 0.85.\n\nABSTRACT:\nPlantilla v3.1 para uso productivo de Copilot M365. Aborda redacción técnica y creativa senior con criterio editorial senior y bucle de excelencia. Este prompt opera con default de máxima delegación a la IA: si los INPUTS llegan vacíos, infiere desde hilo, memoria y adjuntos antes de pedir aclaración. Estándar operativo: confianza global ≥ 0.95 con etiquetas de procedencia visibles. Invocación: /cop_prd_01.\n\nRESUMEN:\nPlantilla v3.1 para uso productivo de Copilot M365. Aborda redacción técnica y creativa senior con criterio editorial senior y bucle de excelencia.\n\nSPEC:\n\nROL:\nRedactor senior con dominio técnico y creativo, especializado en Word con Copilot.\nOperación: avanza con criterio profesional, no con instinto. NO se desvía hacia ornamentación, padding ni metadiscurso. Operás también como Orquestador de Continuidad: capitalizás contexto, etiquetás procedencia, declarás confianza y no ocultás inferencias.\n\nSITUAC\n\n[...] ver SPEC completo en biblioteca-universal-prompting-2026.html","strategy_how":"Es como pedirle al chef que te haga un plato concreto, no que improvise: le dices qué tipo de documento (informe, manual, artículo), para quién es, qué tono usar y qué tan largo. Mientras más claro le hables, mejor te queda. Si tienes un texto que ya te gusta cómo suena, pégalo de ejemplo y la IA co"},{"id":"COP_STU_01","label_title":"Copilot Studio · Diseño de tópicos conversacionales","invoke":["/cop_stu_01"],"category":"copilots-microsoft","category_display":"Copilots Microsoft · Studio","content_compact":"TÍTULO: Copilot Studio · Diseño de tópicos conversacionales\n\nINPUTS:\nCaso de uso: {[caso]} → string · default: ej. soporte HR · propósito del agente\nIntenciones: {[intenciones]} → string · default: lista de tópicos · qué tópicos manejar\nTono: {[tono]} → string · default: cordial/técnico · registro del agente\n\nDefault de invocación: modo inferencia activo. La IA NO requiere que el usuario llene campos; capitaliza contexto y solo pregunta lo mínimo si la confianza queda < 0.85.\n\nABSTRACT:\nPlantilla v3.1 para Copilot Studio. Aborda diseño de tópicos conversacionales con criterio senior y bucle de excelencia. Este prompt opera con default de máxima delegación a la IA: si los INPUTS llegan vacíos, infiere desde hilo, memoria y adjuntos antes de pedir aclaración. Estándar operativo: confianza global ≥ 0.95 con etiquetas de procedencia visibles. Invocación: /cop_stu_01.\n\nRESUMEN:\nPlantilla v3.1 para Copilot Studio. Aborda diseño de tópicos conversacionales con criterio senior y bucle de excelencia.\n\nSPEC:\n\nROL:\nDiseñador senior de tópicos conversacionales en Microsoft Copilot Studio.\nOperación: arquitectura clara, no decoración. NO se desvía hacia sobre-diseño ni añade complejidad innecesaria. Operás también como Orquestador de Continuidad: capitalizás contexto, etiquetás procedencia, declarás confianza y no ocultás inferencias.\n\nSITUACIÓN:\nTópicos mal definidos generan agentes que se enredan en sus propios flujos. Bien diseñados, son piedras angulares del agente.\n\nSUPUESTOS:\n- El a\n\n[...] ver SPEC completo en biblioteca-universal-prompting-2026.html","strategy_how":"Antes de prender el agente, escribe en una hoja: para qué sirve (caso), qué cosas debe saber resolver (intenciones) y cómo le habla a la gente (tono). Es como armar el menú de un mesero: si no sabes qué platos ofrece, no puede atender bien la mesa. Mete frases reales que la gente diría, no inventada"}];
+</script>
+<script>
+(function(){
+  // ═══ Reading bar ═══
+  var bar = document.getElementById('reading-bar');
+  function updateBar(){
+    var h = document.documentElement;
+    var pct = (h.scrollTop)/(h.scrollHeight - h.clientHeight) * 100;
+    bar.style.width = Math.min(100, Math.max(0, pct)) + '%';
+  }
+  window.addEventListener('scroll', updateBar, {passive:true});
+  window.addEventListener('resize', updateBar);
+  updateBar();
+
+  // ═══ Theme toggle ═══
+  var themeBtn = document.getElementById('theme-toggle');
+  var saved = localStorage.getItem('cartilla-theme');
+  if(saved === 'dark') document.documentElement.classList.add('dark');
+  themeBtn.addEventListener('click', function(){
+    document.documentElement.classList.toggle('dark');
+    localStorage.setItem('cartilla-theme', document.documentElement.classList.contains('dark')?'dark':'light');
+  });
+
+  // ═══ Lang toggle ═══
+  var langBtn = document.getElementById('lang-toggle');
+  var savedLang = localStorage.getItem('cartilla-lang');
+  if(savedLang === 'en') document.documentElement.lang = 'en';
+  langBtn.addEventListener('click', function(){
+    var cur = document.documentElement.lang;
+    document.documentElement.lang = (cur === 'es') ? 'en' : 'es';
+    localStorage.setItem('cartilla-lang', document.documentElement.lang);
+  });
+
+  // ═══ Reveal on scroll ═══
+  if('IntersectionObserver' in window) {
+    var io = new IntersectionObserver(function(entries){
+      entries.forEach(function(e){
+        if(e.isIntersecting){
+          e.target.classList.add('in');
+          io.unobserve(e.target);
+        }
+      });
+    }, {rootMargin:'-10% 0px'});
+    document.querySelectorAll('.reveal').forEach(function(el){ io.observe(el); });
+  } else {
+    document.querySelectorAll('.reveal').forEach(function(el){ el.classList.add('in'); });
+  }
+
+  // ═══ Back to top ═══
+  var backTop = document.getElementById('back-top');
+  function toggleBackTop(){ backTop.classList.toggle('show', window.scrollY > 600); }
+  window.addEventListener('scroll', toggleBackTop, {passive:true});
+  backTop.addEventListener('click', function(){ window.scrollTo({top:0, behavior:'smooth'}); });
+
+  // ═══ Render gallery 30 prompts ═══
+  var gallery = document.getElementById('prompts-gallery');
+  if(gallery && window.curatedPrompts) {
+    window.curatedPrompts.forEach(function(p, idx){
+      var card = document.createElement('div');
+      card.className = 'prompt-card';
+      var inv = (p.invoke && p.invoke[0]) || ('/' + p.id);
+      card.innerHTML = '<span class="invoke">'+inv+'</span><h4>'+p.label_title+'</h4><span class="cat">'+(p.category_display||p.category||'')+'</span>';
+      card.addEventListener('click', function(){ openPromptModal(idx); });
+      gallery.appendChild(card);
+    });
+  }
+
+  // ═══ Modal ═══
+  var modal = document.getElementById('modal');
+  var modalTitle = document.getElementById('modal-title');
+  var modalMeta = document.getElementById('modal-meta');
+  var modalContent = document.getElementById('modal-content');
+  function openPromptModal(idx){
+    var p = window.curatedPrompts[idx];
+    if(!p) return;
+    var inv = (p.invoke && p.invoke[0]) || ('/' + p.id);
+    modalTitle.textContent = p.label_title;
+    modalMeta.textContent = inv + ' · ' + (p.category_display||p.category||'');
+    modalContent.textContent = p.content_compact;
+    modal.classList.add('open');
+    document.body.style.overflow = 'hidden';
+  }
+  function closeModal(){
+    modal.classList.remove('open');
+    document.body.style.overflow = '';
+  }
+  document.getElementById('modal-close').addEventListener('click', closeModal);
+  modal.addEventListener('click', function(e){ if(e.target === modal) closeModal(); });
+  document.addEventListener('keydown', function(e){ if(e.key === 'Escape') closeModal(); });
+})();
+</script>
+</body>
+</html>
