@@ -1,0 +1,41 @@
+{
+  "total_prompts": 2026,
+  "size_stats": {
+    "content_min": 15209,
+    "content_max": 21013,
+    "content_median": 16190,
+    "content_mean": 16446,
+    "content_total_mb": 31.776448249816895
+  },
+  "structural_failures": {},
+  "outliers_count": {
+    "PEDIDO:": 1,
+    "TÍTULO:": 65
+  },
+  "orphan_total_count": 0,
+  "orphan_inherited_count": 0,
+  "orphan_introduced_count": 0,
+  "ghost_issues_count": 0,
+  "abstract_issues_count": 0,
+  "regression_failures_count": {},
+  "duplicate_ids": {},
+  "duplicate_invokes": {},
+  "no_old_counterpart": [],
+  "categories": {
+    "procesamiento": 1,
+    "excelencia": 1,
+    "decision": 1,
+    "multimedia": 3,
+    "ingenieria": 1,
+    "presentacion": 1,
+    "cop-automate": 25,
+    "cop-excel": 25,
+    "copilots-microsoft": 75,
+    "core": 467,
+    "artefacto": 101,
+    "metodo": 101,
+    "pipeline-pivote": 10,
+    "v1492-baseline": 1214
+  },
+  "verdict": "CERTIFIED"
+}
