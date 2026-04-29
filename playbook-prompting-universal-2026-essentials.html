@@ -281,74 +281,11 @@ html[lang="en"] .es{display:none}
 .back-top{position:fixed; bottom:1.5rem; right:1.5rem; width:48px; height:48px; border-radius:50%; background:var(--gold); color:var(--navy); border:none; cursor:pointer; opacity:0; pointer-events:none; transition:all var(--transition); box-shadow:0 4px 14px rgba(255,215,0,.4); font-size:1.2rem; font-weight:700}
 .back-top.show{opacity:1; pointer-events:auto}
 .back-top:hover{transform:translateY(-3px); background:var(--gold-dark); color:#FFF}
-
-.level-marker{
-  background:linear-gradient(135deg, var(--navy) 0%, var(--navy-deep) 100%);
-  color:#FFF; padding:clamp(2.5rem,5vh,4rem) 1.2rem; max-width:none; margin:0;
-}
-.level-marker h2{color:#FFF}
-.level-marker h2 strong{color:var(--gold)}
-.level-marker.level-1{border-bottom:6px solid var(--blue)}
-.level-marker.level-2{border-bottom:6px solid var(--gold)}
-.level-marker.level-3{border-bottom:6px solid var(--lilac)}
-.level-marker.level-4{border-bottom:6px solid var(--green)}
-.level-marker .eyebrow{color:var(--gold)}
-.level-marker p{color:rgba(255,255,255,.85)}
-
-/* TOC sidebar */
-.toc-toggle{position:fixed; left:1rem; top:50%; transform:translateY(-50%); z-index:950; background:var(--navy); color:var(--gold); border:none; width:44px; height:44px; border-radius:50%; cursor:pointer; box-shadow:var(--shadow); font-size:1.2rem; font-weight:700}
-.toc-toggle:hover{background:var(--gold); color:var(--navy)}
-.toc{position:fixed; left:0; top:0; bottom:0; width:300px; background:var(--bg-card); border-right:1px solid var(--border); box-shadow:var(--shadow-lg); z-index:1100; padding:5rem 1.4rem 1.4rem; overflow-y:auto; transform:translateX(-100%); transition:transform var(--transition)}
-.toc.open{transform:translateX(0)}
-.toc h3{font-size:.78rem; letter-spacing:.18em; text-transform:uppercase; color:var(--text-soft); margin:1.2rem 0 .5rem; font-weight:700}
-.toc h3.lvl-1{color:var(--blue)}
-.toc h3.lvl-2{color:var(--gold-dark)}
-.toc h3.lvl-3{color:var(--lilac)}
-.toc h3.lvl-4{color:var(--green)}
-.toc a{display:block; padding:.45em 0; font-size:.88rem; color:var(--text); text-decoration:none}
-.toc a:hover{color:var(--gold-dark); padding-left:.4em}
-.toc .close{position:absolute; top:1rem; right:1rem; background:transparent; border:none; font-size:1.4rem; color:var(--text-soft); cursor:pointer}
-
 </style>
 </head>
 <body>
 
 <div class="reading-bar" id="reading-bar"></div>
-
-<button class="toc-toggle" id="toc-toggle" aria-label="Open table of contents">☰</button>
-<aside class="toc" id="toc" role="navigation" aria-label="Tabla de contenidos">
-  <button class="close" id="toc-close" aria-label="Close">×</button>
-  <h3 class="lvl-1"><span class="es">Nivel 1 · Fundamentos</span><span class="en">Level 1 · Fundamentals</span></h3>
-  <a href="#que-es-ia"><span class="es">§ 2 · ¿Qué es la IA?</span><span class="en">§ 2 · What is AI?</span></a>
-  <a href="#glosario"><span class="es">§ 3 · Glosario esencial</span><span class="en">§ 3 · Essential glossary</span></a>
-  <a href="#pilares"><span class="es">§ 4 · 5 pilares del prompting</span><span class="en">§ 4 · 5 pillars of prompting</span></a>
-  <a href="#anatomia"><span class="es">§ 5 · Anatomía de un prompt</span><span class="en">§ 5 · Anatomy of a prompt</span></a>
-  <a href="#taxonomia"><span class="es">§ 6 · Taxonomía · 6 tipos</span><span class="en">§ 6 · Taxonomy · 6 types</span></a>
-  <a href="#stack"><span class="es">§ 7 · Stack de herramientas</span><span class="en">§ 7 · Tool stack</span></a>
-
-  <h3 class="lvl-2"><span class="es">Nivel 2 · Método</span><span class="en">Level 2 · Method</span></h3>
-  <a href="#atributos"><span class="es">§ 8 · 8 atributos del prompting pro</span><span class="en">§ 8 · 8 attributes of pro prompting</span></a>
-  <a href="#pipeline"><span class="es">§ 9 · Pipeline P.I.V.O.T.E.</span><span class="en">§ 9 · P.I.V.O.T.E. pipeline</span></a>
-  <a href="#clausulas"><span class="es">§ 10 · 12 cláusulas paramétricas</span><span class="en">§ 10 · 12 parametric clauses</span></a>
-  <a href="#entrusted"><span class="es">§ 24 · Rubricario ENTRUSTED+</span><span class="en">§ 11 · ENTRUSTED+ rubric</span></a>
-  <a href="#etiquetas"><span class="es">§ 12 · 10 etiquetas de procedencia</span><span class="en">§ 12 · 10 provenance tags</span></a>
-  <a href="#dsv"><span class="es">§ 13 · Metacognición DSV</span><span class="en">§ 13 · DSV metacognition</span></a>
-
-  <h3 class="lvl-3"><span class="es">Nivel 3 · Avanzado</span><span class="en">Level 3 · Advanced</span></h3>
-  <a href="#cadenas"><span class="es">§ 14 · Cadenas de pensamiento</span><span class="en">§ 14 · Chains of thought</span></a>
-  <a href="#elite"><span class="es">§ 15 · 6 técnicas élite</span><span class="en">§ 15 · 6 elite techniques</span></a>
-  <a href="#system-prompts"><span class="es">§ 16 · System prompts</span><span class="en">§ 16 · System prompts</span></a>
-  <a href="#meta"><span class="es">§ 17 · Metaprompting</span><span class="en">§ 17 · Metaprompting</span></a>
-  <a href="#etica"><span class="es">§ 18 · Ética</span><span class="en">§ 18 · Ethics</span></a>
-
-  <h3 class="lvl-4"><span class="es">Nivel 4 · Práctica</span><span class="en">Level 4 · Practice</span></h3>
-  <a href="#protocolo"><span class="es">§ 19 · Protocolo paso a paso</span><span class="en">§ 19 · Step-by-step protocol</span></a>
-  <a href="#practicas"><span class="es">§ 20 · 12 prácticas</span><span class="en">§ 20 · 12 exercises</span></a>
-  <a href="#prompts"><span class="es">§ 21 · 30 prompts curados</span><span class="en">§ 21 · 30 curated prompts</span></a>
-  <a href="#practica-agenda"><span class="es">§ 22 · Espacios de práctica</span><span class="en">§ 22 · Practice spaces</span></a>
-  <a href="#faq"><span class="es">§ 23 · FAQ</span><span class="en">§ 23 · FAQ</span></a>
-</aside>
-
 
 <nav class="topnav">
   <span class="brand">MetodologIA · Cartilla Universal de Prompting · 2026</span>
@@ -371,7 +308,7 @@ html[lang="en"] .es{display:none}
   </p>
   <div class="ctas">
     <a class="btn btn-primary" href="#storytelling"><span class="es">Empezar a leer</span><span class="en">Start reading</span></a>
-    <a class="btn" href="#atributos"><span class="es">Saltar al pipeline P.I.V.O.T.E.</span><span class="en">Jump to P.I.V.O.T.E. pipeline</span></a>
+    <a class="btn" href="#pipeline"><span class="es">Saltar al pipeline P.I.V.O.T.E.</span><span class="en">Jump to P.I.V.O.T.E. pipeline</span></a>
   </div>
 </header>
 
@@ -432,139 +369,9 @@ html[lang="en"] .es{display:none}
   </p>
 </section>
 
-
-<!-- ═══════════════════════════════════════════════════════════════════
-     NIVEL 1 · FUNDAMENTOS  (lo que necesitás saber antes de empezar)
-     ═══════════════════════════════════════════════════════════════════ -->
-<section class="reveal level-marker level-1">
-  <span class="eyebrow"><span class="es">Nivel 1 · Fundamentos</span><span class="en">Level 1 · Fundamentals</span></span>
-  <h2><span class="es">Antes del método: <strong>el lenguaje común</strong></span><span class="en">Before the method: <strong>the shared vocabulary</strong></span></h2>
-  <p style="max-width:60ch"><span class="es">Si recién empezás con IA, estos 6 capítulos te dan el piso conceptual. Si ya operás, podés saltar al Nivel 2 (§ 8) y volver acá cuando un término se sienta opaco.</span><span class="en">If you're new to AI, these 6 chapters give you the conceptual floor. If you already operate, jump to Level 2 (§ 8) and come back when a term feels opaque.</span></p>
-</section>
-
-<!-- ═══ § 2 · ¿QUÉ ES LA IA? ═══ -->
-<section id="que-es-ia" class="reveal">
-  <span class="eyebrow"><span class="es">§ 2 · Fundamentos · Conceptos</span><span class="en">§ 2 · Fundamentals · Concepts</span></span>
-  <h2><span class="es">¿Qué es la <strong>Inteligencia Artificial</strong>?</span><span class="en">What is <strong>Artificial Intelligence</strong>?</span></h2>
-  <p style="max-width:60ch"><span class="es">Antes de prompts, qué hay debajo. Seis ideas que reencuadran cómo pensás esta tecnología.</span><span class="en">Before prompts, what's underneath. Six ideas that reframe how you think about this tech.</span></p>
-
-  <div class="attr-grid">
-    <div class="attr-card"><h3><span class="es">LLM · Modelo de Lenguaje</span><span class="en">LLM · Language Model</span></h3><p><span class="es">Sistema entrenado sobre miles de millones de textos. Predice el próximo token (palabra/sub-palabra) más probable dado el contexto. No "entiende": modela patrones estadísticos de lenguaje a escala.</span><span class="en">A system trained on billions of texts. Predicts the next most likely token given the context. Doesn't "understand": models statistical patterns of language at scale.</span></p></div>
-
-    <div class="attr-card"><h3><span class="es">Herramienta IA</span><span class="en">AI Tool</span></h3><p><span class="es">Aplicación que usa un LLM por debajo (ChatGPT, Claude, Gemini). Le agrega UI, memoria, herramientas externas y guardrails. La herramienta NO es la IA — es el envase.</span><span class="en">App that uses an LLM underneath (ChatGPT, Claude, Gemini). Adds UI, memory, external tools, guardrails. The tool is NOT the AI — it's the container.</span></p></div>
-
-    <div class="attr-card"><h3><span class="es">Agente IA</span><span class="en">AI Agent</span></h3><p><span class="es">LLM con autonomía: planifica, invoca herramientas, toma decisiones intermedias, mantiene estado. Va más allá de "responder" — ejecuta procesos.</span><span class="en">LLM with autonomy: plans, invokes tools, makes intermediate decisions, maintains state. Goes beyond "responding" — executes processes.</span></p></div>
-
-    <div class="attr-card"><h3><span class="es">Generativa vs Tradicional</span><span class="en">Generative vs Traditional</span></h3><p><span class="es">IA tradicional clasifica/predice (filtro spam, recomendaciones). Generativa <em>crea</em> contenido nuevo (texto, imagen, código). El cambio: de "elegir entre opciones" a "producir desde cero".</span><span class="en">Traditional AI classifies/predicts (spam filter, recommendations). Generative <em>creates</em> new content (text, image, code). The shift: from "choose among options" to "produce from scratch".</span></p></div>
-
-    <div class="attr-card"><h3><span class="es">Prompt</span><span class="en">Prompt</span></h3><p><span class="es">La instrucción que le das al LLM. No es solo "pregunta": es el contrato operativo que define rol, contexto, tarea, restricciones y formato. Calidad del prompt = calidad del output.</span><span class="en">The instruction you give the LLM. Not just "question": it's the operational contract defining role, context, task, constraints, format. Prompt quality = output quality.</span></p></div>
-
-    <div class="attr-card"><h3><span class="es">Interfaz Conversacional</span><span class="en">Conversational Interface</span></h3><p><span class="es">El chat es solo UNA forma de invocar al LLM. También hay APIs, integraciones, agentes. La conversación es accesible pero limita: el SPEC + invoke programático escala mejor.</span><span class="en">Chat is just ONE way to invoke the LLM. There are also APIs, integrations, agents. Conversation is accessible but limits: SPEC + programmatic invoke scales better.</span></p></div>
-  </div>
-</section>
-
-<!-- ═══ § 3 · GLOSARIO ESENCIAL ═══ -->
-<section id="glosario" class="reveal">
-  <span class="eyebrow"><span class="es">§ 3 · Fundamentos · Glosario</span><span class="en">§ 3 · Fundamentals · Glossary</span></span>
-  <h2><span class="es"><strong>11 conceptos</strong> que vas a oír todo el tiempo</span><span class="en"><strong>11 concepts</strong> you'll hear constantly</span></h2>
-  <p style="max-width:60ch"><span class="es">Glosario en 1 frase. Si dominás estos términos, leés papers y blogs sin perderte.</span><span class="en">Glossary in 1 sentence each. If you master these terms, you'll read papers and blogs without getting lost.</span></p>
-
-  <div class="tag-grid">
-    <div class="tag-card"><code>Token</code><p><span class="es">Unidad mínima del LLM (sub-palabra). "ChatGPT" ≈ 2 tokens. Los modelos cobran por tokens.</span><span class="en">LLM minimum unit (sub-word). "ChatGPT" ≈ 2 tokens. Models charge per token.</span></p></div>
-    <div class="tag-card"><code>Context Window</code><p><span class="es">Tokens que el modelo "ve" en una sesión. Claude Sonnet 4.5: 200K. Más ventana = más memoria.</span><span class="en">Tokens the model "sees" in a session. Claude Sonnet 4.5: 200K. Bigger window = more memory.</span></p></div>
-    <div class="tag-card"><code>Temperature</code><p><span class="es">Aleatoriedad del output (0-2). 0 = determinista. 1.0 = creativo. 2 = caos.</span><span class="en">Output randomness (0-2). 0 = deterministic. 1.0 = creative. 2 = chaos.</span></p></div>
-    <div class="tag-card"><code>System Prompt</code><p><span class="es">Instrucción persistente que define rol y comportamiento. Invisible al usuario final.</span><span class="en">Persistent instruction defining role and behavior. Invisible to the end user.</span></p></div>
-    <div class="tag-card"><code>Few-Shot / Zero-Shot</code><p><span class="es">Few-shot: das 2-5 ejemplos. Zero-shot: solo descripción. Few-shot mejora calidad.</span><span class="en">Few-shot: give 2-5 examples. Zero-shot: only description. Few-shot improves quality.</span></p></div>
-    <div class="tag-card"><code>Chain-of-Thought</code><p><span class="es">"Piensa paso a paso". Razonamiento intermedio explícito antes de la respuesta final.</span><span class="en">"Think step by step". Explicit intermediate reasoning before the final answer.</span></p></div>
-    <div class="tag-card"><code>Alucinación</code><p><span class="es">Output que suena correcto pero es factualmente falso. Síntoma de baja confianza no declarada.</span><span class="en">Output that sounds correct but is factually false. Symptom of undeclared low confidence.</span></p></div>
-    <div class="tag-card"><code>Fine-Tuning</code><p><span class="es">Re-entrenamiento del modelo con datos propios. Costoso. Casi siempre gana SPEC + few-shot.</span><span class="en">Re-training the model with custom data. Expensive. SPEC + few-shot almost always wins.</span></p></div>
-    <div class="tag-card"><code>RAG</code><p><span class="es">Retrieval-Augmented Generation. Busca en una base de datos y le da al LLM lo relevante.</span><span class="en">Retrieval-Augmented Generation. Searches a database and feeds the LLM what's relevant.</span></p></div>
-    <div class="tag-card"><code>Embedding</code><p><span class="es">Texto convertido en vector numérico. Permite buscar por similitud semántica, no por keywords.</span><span class="en">Text converted to numeric vector. Allows semantic similarity search, not keyword matching.</span></p></div>
-    <div class="tag-card"><code>Multimodal</code><p><span class="es">Modelo que procesa texto + imagen + audio + video. GPT-4o, Gemini, Claude 3.5+ son multimodales.</span><span class="en">Model that processes text + image + audio + video. GPT-4o, Gemini, Claude 3.5+ are multimodal.</span></p></div>
-  </div>
-</section>
-
-<!-- ═══ § 4 · 5 PILARES DEL PROMPTING ═══ -->
-<section id="pilares" class="reveal">
-  <span class="eyebrow"><span class="es">§ 4 · Fundamentos · Principios</span><span class="en">§ 4 · Fundamentals · Principles</span></span>
-  <h2><span class="es">Los <strong>5 pilares</strong> del prompting</span><span class="en">The <strong>5 pillars</strong> of prompting</span></h2>
-  <p style="max-width:60ch"><span class="es">Si tu prompt cumple estos 5, el 80% del trabajo está hecho. Memorízalos: <em>Claridad · Contexto · Especificidad · Formato · Ejemplos</em>.</span><span class="en">If your prompt nails these 5, 80% of the work is done. Memorize them: <em>Clarity · Context · Specificity · Format · Examples</em>.</span></p>
-
-  <div class="attr-grid">
-    <div class="attr-card"><div class="num">1</div><h3><span class="es">Claridad</span><span class="en">Clarity</span></h3><p><span class="es">Verbo en imperativo. Una instrucción por frase. Sin ambigüedades. Si lo lees y no sabés qué pide, la IA tampoco.</span><span class="en">Imperative verb. One instruction per sentence. No ambiguities. If you read it and don't know what it asks, neither does the AI.</span></p></div>
-    <div class="attr-card"><div class="num">2</div><h3><span class="es">Contexto</span><span class="en">Context</span></h3><p><span class="es">¿Quién pregunta? ¿Para qué? ¿Qué decisión sigue? El contexto hace que el output sea relevante en vez de genérico.</span><span class="en">Who's asking? For what? What decision follows? Context makes the output relevant instead of generic.</span></p></div>
-    <div class="attr-card"><div class="num">3</div><h3><span class="es">Especificidad</span><span class="en">Specificity</span></h3><p><span class="es">"Resume" es vago. "Resume en 3 viñetas accionables para mi jefe el lunes" es específico. Incluye dimensiones: tamaño, audiencia, deadline.</span><span class="en">"Summarize" is vague. "Summarize in 3 actionable bullets for my boss Monday" is specific. Include dimensions: size, audience, deadline.</span></p></div>
-    <div class="attr-card"><div class="num">4</div><h3><span class="es">Formato</span><span class="en">Format</span></h3><p><span class="es">Tabla con columnas X/Y/Z. Markdown. JSON. CSV. Decir el formato evita un round-trip de "ahora ponelo en tabla".</span><span class="en">Table with columns X/Y/Z. Markdown. JSON. CSV. Stating format avoids a "now put it in a table" round-trip.</span></p></div>
-    <div class="attr-card"><div class="num">5</div><h3><span class="es">Ejemplos</span><span class="en">Examples</span></h3><p><span class="es">Few-shot: 2-3 ejemplos del output deseado. Le ahorra a la IA inferir el patrón. Calidad sube ~30%.</span><span class="en">Few-shot: 2-3 examples of the desired output. Saves the AI from inferring the pattern. Quality up ~30%.</span></p></div>
-  </div>
-</section>
-
-<!-- ═══ § 5 · ANATOMÍA DE UN PROMPT ═══ -->
-<section id="anatomia" class="reveal">
-  <span class="eyebrow"><span class="es">§ 5 · Fundamentos · Estructura</span><span class="en">§ 5 · Fundamentals · Structure</span></span>
-  <h2><span class="es"><strong>Anatomía</strong> de un prompt efectivo</span><span class="en"><strong>Anatomy</strong> of an effective prompt</span></h2>
-  <p style="max-width:60ch"><span class="es">Los 5 pilares condensados en 6 partes que se pueden replicar. Un prompt completo tiene esta estructura. Esto es la base; el SPEC v3.4 (§ 9) la lleva al estándar profesional.</span><span class="en">The 5 pillars condensed into 6 replicable parts. A complete prompt has this structure. This is the base; SPEC v3.4 (§ 9) takes it to the professional standard.</span></p>
-
-  <div class="attr-grid">
-    <div class="attr-card"><div class="num">1</div><h3><span class="es">Rol</span><span class="en">Role</span></h3><p><span class="es">"Actúa como [perfil específico]". No "experto general": "Coach senior en ventas B2B con 10 años en SaaS".</span><span class="en">"Act as [specific profile]". Not "general expert": "Senior B2B sales coach with 10 years in SaaS".</span></p></div>
-    <div class="attr-card"><div class="num">2</div><h3><span class="es">Contexto</span><span class="en">Context</span></h3><p><span class="es">Información de fondo necesaria. Cliente, sector, restricciones, decisiones previas. Sin contexto = output genérico.</span><span class="en">Necessary background. Client, sector, restrictions, prior decisions. No context = generic output.</span></p></div>
-    <div class="attr-card"><div class="num">3</div><h3><span class="es">Tarea</span><span class="en">Task</span></h3><p><span class="es">Verbo en imperativo + objeto + propósito. "Diseña una estrategia X para lograr Y, dirigida a Z".</span><span class="en">Imperative verb + object + purpose. "Design strategy X to achieve Y, targeted at Z".</span></p></div>
-    <div class="attr-card"><div class="num">4</div><h3><span class="es">Formato</span><span class="en">Format</span></h3><p><span class="es">Cómo querés el output. Tabla, JSON, párrafo, slide deck. Incluye longitud, idioma, registro.</span><span class="en">How you want the output. Table, JSON, paragraph, slide deck. Include length, language, register.</span></p></div>
-    <div class="attr-card"><div class="num">5</div><h3><span class="es">Restricciones</span><span class="en">Constraints</span></h3><p><span class="es">Lo que NO debe hacer. "Sin jerga", "no inventes datos", "no más de 200 palabras". Negativos protegen.</span><span class="en">What it must NOT do. "No jargon", "don't invent data", "no more than 200 words". Negatives protect.</span></p></div>
-    <div class="attr-card"><div class="num">6</div><h3><span class="es">Ejemplos</span><span class="en">Examples</span></h3><p><span class="es">Few-shot opcional pero potente. 2-3 ejemplos del input/output deseado. Calibra el modelo a tu estándar.</span><span class="en">Optional but powerful few-shot. 2-3 examples of desired input/output. Calibrates the model to your standard.</span></p></div>
-  </div>
-
-  <div style="margin-top:2.5rem; padding:1.4rem 1.6rem; background:rgba(19,125,197,.08); border-left:4px solid var(--blue); border-radius:var(--radius-sm)">
-    <h4 style="margin:0 0 .6em"><span class="es">SPEC visual · los 4 cuadrantes mentales</span><span class="en">SPEC visual · the 4 mental quadrants</span></h4>
-    <p style="margin:0; font-size:.92rem"><span class="es"><strong>QUIÉN</strong> (Rol) · <strong>QUÉ</strong> (Tarea) · <strong>CÓMO</strong> (Formato + Restricciones) · <strong>POR QUÉ</strong> (Contexto + Propósito). Si tu prompt tiene los 4, está completo.</span><span class="en"><strong>WHO</strong> (Role) · <strong>WHAT</strong> (Task) · <strong>HOW</strong> (Format + Constraints) · <strong>WHY</strong> (Context + Purpose). If your prompt has all 4, it's complete.</span></p>
-  </div>
-</section>
-
-<!-- ═══ § 6 · TAXONOMÍA ═══ -->
-<section id="taxonomia" class="reveal">
-  <span class="eyebrow"><span class="es">§ 6 · Fundamentos · Tipos</span><span class="en">§ 6 · Fundamentals · Types</span></span>
-  <h2><span class="es"><strong>Taxonomía</strong> · 6 tipos de prompts</span><span class="en"><strong>Taxonomy</strong> · 6 prompt types</span></h2>
-  <p style="max-width:60ch"><span class="es">Reconocer el tipo te ahorra trabajo. Cada tipo tiene estructura, riesgos y técnicas óptimas distintas.</span><span class="en">Recognizing the type saves you work. Each type has different structure, risks, and optimal techniques.</span></p>
-
-  <div class="attr-grid">
-    <div class="attr-card"><h3><span class="es">Instrucción Directa</span><span class="en">Direct Instruction</span></h3><p><span class="es">"Resume este texto". Tarea acotada, output predecible. Mejor con few-shot si querés un formato exacto.</span><span class="en">"Summarize this text". Bounded task, predictable output. Better with few-shot if you want an exact format.</span></p></div>
-    <div class="attr-card"><h3><span class="es">Conversacional</span><span class="en">Conversational</span></h3><p><span class="es">Diálogo iterativo. Pregunta → respuesta → refinamiento. Útil para explorar. Cuidado con perder hilo en sesiones largas.</span><span class="en">Iterative dialogue. Question → answer → refinement. Useful to explore. Beware of losing thread in long sessions.</span></p></div>
-    <div class="attr-card"><h3><span class="es">Creativo</span><span class="en">Creative</span></h3><p><span class="es">Escritura, ideación, brainstorming. Temperature alta, restricciones bajas. Pedile variantes (3-5) y elegí.</span><span class="en">Writing, ideation, brainstorming. High temperature, low constraints. Ask for variants (3-5) and choose.</span></p></div>
-    <div class="attr-card"><h3><span class="es">Analítico</span><span class="en">Analytical</span></h3><p><span class="es">Análisis de datos, decisiones, evaluaciones. Activá Chain-of-Thought y exigí confianza por hallazgo.</span><span class="en">Data analysis, decisions, evaluations. Activate Chain-of-Thought and require confidence per finding.</span></p></div>
-    <div class="attr-card"><h3><span class="es">Extractivo</span><span class="en">Extractive</span></h3><p><span class="es">Sacar info estructurada de texto desordenado. Pedí JSON/tabla con campos exactos. Cero invención.</span><span class="en">Pull structured info from messy text. Ask for JSON/table with exact fields. Zero invention.</span></p></div>
-    <div class="attr-card"><h3><span class="es">Transformacional</span><span class="en">Transformational</span></h3><p><span class="es">Convertir A en B (texto → código, español → inglés, formal → casual). Especifica el patrón con ejemplo.</span><span class="en">Convert A into B (text → code, Spanish → English, formal → casual). Specify the pattern with an example.</span></p></div>
-  </div>
-</section>
-
-<!-- ═══ § 7 · STACK DE HERRAMIENTAS ═══ -->
-<section id="stack" class="reveal">
-  <span class="eyebrow"><span class="es">§ 7 · Fundamentos · Stack</span><span class="en">§ 7 · Fundamentals · Stack</span></span>
-  <h2><span class="es"><strong>Stack</strong> de herramientas IA · perfil + cuándo usar</span><span class="en"><strong>Stack</strong> of AI tools · profile + when to use</span></h2>
-  <p style="max-width:60ch"><span class="es">No hay "la mejor". Cada herramienta tiene su perfil. Esta tabla te ayuda a elegir según el caso.</span><span class="en">There's no "best". Each tool has a profile. This table helps you pick by use case.</span></p>
-
-  <div class="attr-grid">
-    <div class="attr-card" style="border-left:4px solid #10A37F"><h3>ChatGPT (OpenAI)</h3><p><span class="es"><strong>Mejor para:</strong> tareas administrativas, código rápido, ecosistema integrado. Custom GPTs para flujos repetidos.</span><span class="en"><strong>Best for:</strong> admin tasks, quick code, integrated ecosystem. Custom GPTs for repeated flows.</span></p></div>
-    <div class="attr-card" style="border-left:4px solid #C97A4A"><h3>Claude (Anthropic)</h3><p><span class="es"><strong>Mejor para:</strong> razonamiento profundo, redacción de calidad, análisis largos. Context window 200K. Premium para criterio.</span><span class="en"><strong>Best for:</strong> deep reasoning, quality writing, long analyses. 200K context window. Premium for judgment.</span></p></div>
-    <div class="attr-card" style="border-left:4px solid #4285F4"><h3>Gemini (Google)</h3><p><span class="es"><strong>Mejor para:</strong> integración con ecosistema Google (Drive, Calendar, Sheets), context window 1M+, multimodal nativo.</span><span class="en"><strong>Best for:</strong> Google ecosystem integration (Drive, Calendar, Sheets), 1M+ context window, native multimodal.</span></p></div>
-    <div class="attr-card" style="border-left:4px solid #6F46BB"><h3>Perplexity (IA)</h3><p><span class="es"><strong>Mejor para:</strong> investigación con citas verificables. Cada claim con fuente. Antialucinación nativa.</span><span class="en"><strong>Best for:</strong> research with verifiable citations. Each claim with source. Native anti-hallucination.</span></p></div>
-    <div class="attr-card" style="border-left:4px solid #0078D4"><h3>Copilot (Microsoft)</h3><p><span class="es"><strong>Mejor para:</strong> ecosistema 365 (Excel, Word, Teams, Power BI). Automatización empresarial nativa.</span><span class="en"><strong>Best for:</strong> 365 ecosystem (Excel, Word, Teams, Power BI). Native enterprise automation.</span></p></div>
-    <div class="attr-card" style="border-left:4px solid var(--lilac)"><h3><span class="es">Especializadas</span><span class="en">Specialized</span></h3><p><span class="es">Midjourney/DALL-E/Imagen (visuales), Suno/Udio (audio), Veo/Sora (video), Cursor/Aider (código), NotebookLM (sintesis).</span><span class="en">Midjourney/DALL-E/Imagen (visual), Suno/Udio (audio), Veo/Sora (video), Cursor/Aider (code), NotebookLM (synthesis).</span></p></div>
-  </div>
-</section>
-
-
-<!-- ═══════════════════════════════════════════════════════════════════
-     NIVEL 2 · MÉTODO  (cómo aplicarlo profesionalmente)
-     ═══════════════════════════════════════════════════════════════════ -->
-<section class="reveal level-marker level-2">
-  <span class="eyebrow"><span class="es">Nivel 2 · Método</span><span class="en">Level 2 · Method</span></span>
-  <h2><span class="es">Ahora sí: <strong>el método P.I.V.O.T.E.</strong></span><span class="en">Now: <strong>the P.I.V.O.T.E. method</strong></span></h2>
-  <p style="max-width:60ch"><span class="es">Con los fundamentos en la mano, lo que sigue es el método operativo. Cada parte construye sobre la anterior.</span><span class="en">With the fundamentals in hand, the operational method follows. Each part builds on the previous.</span></p>
-</section>
-
-<!-- ═══ § 8 · LOS 8 ATRIBUTOS ═══ -->
+<!-- ═══ § 2 · LOS 8 ATRIBUTOS ═══ -->
 <section id="atributos" class="reveal">
-  <span class="eyebrow"><span class="es">§ 8 · Qué aprenderás</span><span class="en">§ 8 · What you'll learn</span></span>
+  <span class="eyebrow"><span class="es">§ 2 · Qué aprenderás</span><span class="en">§ 2 · What you'll learn</span></span>
   <h2><span class="es">Los <strong>8 atributos</strong> del prompting profesional</span><span class="en">The <strong>8 attributes</strong> of professional prompting</span></h2>
   <p style="max-width:60ch"><span class="es">Cada atributo viene con un rubricario observable. No es opinión: es checkable.</span><span class="en">Each attribute comes with an observable rubric. Not opinion: checkable.</span></p>
 
@@ -587,9 +394,9 @@ html[lang="en"] .es{display:none}
   </div>
 </section>
 
-<!-- ═══ § 9 · PIPELINE P.I.V.O.T.E. ═══ -->
+<!-- ═══ § 3 · PIPELINE P.I.V.O.T.E. ═══ -->
 <section id="pipeline" class="reveal">
-  <span class="eyebrow"><span class="es">§ 9 · Espina dorsal</span><span class="en">§ 9 · Backbone</span></span>
+  <span class="eyebrow"><span class="es">§ 3 · Espina dorsal</span><span class="en">§ 3 · Backbone</span></span>
   <h2><span class="es">El pipeline <strong>P.I.V.O.T.E.</strong> · 10 pasos</span><span class="en">The <strong>P.I.V.O.T.E.</strong> pipeline · 10 steps</span></h2>
   <p style="max-width:60ch"><span class="es">Cada paso resuelve algo standalone Y se encadena con el siguiente. No tenés que ejecutar los 10 cada vez: invocás el que necesitás. Pero conocer la secuencia te da el mapa completo.</span><span class="en">Each step solves something standalone AND chains with the next. You don't have to run all 10 every time: invoke what you need. But knowing the sequence gives you the full map.</span></p>
 
@@ -667,9 +474,9 @@ html[lang="en"] .es{display:none}
   </div>
 </section>
 
-<!-- ═══ § 10 · 12 CLÁUSULAS ═══ -->
+<!-- ═══ § 4 · 12 CLÁUSULAS ═══ -->
 <section id="clausulas" class="reveal">
-  <span class="eyebrow"><span class="es">§ 10 · Configuración universal</span><span class="en">§ 10 · Universal config</span></span>
+  <span class="eyebrow"><span class="es">§ 4 · Configuración universal</span><span class="en">§ 4 · Universal config</span></span>
   <h2><span class="es">Las <strong>12 cláusulas</strong> paramétricas (ajustables al vuelo)</span><span class="en">The <strong>12 parametric clauses</strong> (tunable on the fly)</span></h2>
   <p style="max-width:60ch"><span class="es">Cada cláusula es una directiva con parámetros. Default = máxima delegación a IA + cero fricción. Podés sobreescribir cualquiera con 1 línea al invocar (ej: <code>INSIGHTS_PROACTIVOS: sugerencias=5 · riesgos=0</code>).</span><span class="en">Each clause is a directive with parameters. Default = maximum delegation + zero friction. Override any with one line (e.g.: <code>INSIGHTS_PROACTIVOS: suggestions=5 · risks=0</code>).</span></p>
   <div class="clauses-grid">
@@ -736,9 +543,9 @@ html[lang="en"] .es{display:none}
   </div>
 </section>
 
-<!-- ═══ § 11 · RUBRICARIO ENTRUSTED+ ═══ -->
+<!-- ═══ § 5 · RUBRICARIO ENTRUSTED+ ═══ -->
 <section id="entrusted" class="reveal">
-  <span class="eyebrow"><span class="es">§ 11 · Auditoría</span><span class="en">§ 11 · Audit</span></span>
+  <span class="eyebrow"><span class="es">§ 5 · Auditoría</span><span class="en">§ 5 · Audit</span></span>
   <h2><span class="es">Rubricario <strong>ENTRUSTED+</strong> · 8 ejes</span><span class="en"><strong>ENTRUSTED+</strong> rubric · 8 axes</span></h2>
   <p style="max-width:60ch"><span class="es">Antes de soltar un output, audítalo contra estos 8 ejes. Threshold ≥ 92/100 = EXCELLENT. Promedio actual de la biblioteca v3.4: 100/100.</span><span class="en">Before releasing an output, audit it against these 8 axes. Threshold ≥ 92/100 = EXCELLENT. Current library v3.4 average: 100/100.</span></p>
 
@@ -754,9 +561,9 @@ html[lang="en"] .es{display:none}
   </div>
 </section>
 
-<!-- ═══ § 12 · 10 ETIQUETAS DE PROCEDENCIA ═══ -->
+<!-- ═══ § 6 · 10 ETIQUETAS DE PROCEDENCIA ═══ -->
 <section id="etiquetas" class="reveal">
-  <span class="eyebrow"><span class="es">§ 12 · Trazabilidad</span><span class="en">§ 12 · Traceability</span></span>
+  <span class="eyebrow"><span class="es">§ 6 · Trazabilidad</span><span class="en">§ 6 · Traceability</span></span>
   <h2><span class="es">10 <strong>etiquetas</strong> de procedencia</span><span class="en">10 provenance <strong>tags</strong></span></h2>
   <p style="max-width:60ch"><span class="es">El sistema de etiquetas hace cada output auditable. Cada bloque del entregable lleva su etiqueta inline. Es lo que diferencia "creo que" de "sé que".</span><span class="en">The tag system makes every output auditable. Each deliverable block carries its inline tag. It's what separates "I think" from "I know".</span></p>
   <div class="tag-grid">
@@ -773,9 +580,9 @@ html[lang="en"] .es{display:none}
   </div>
 </section>
 
-<!-- ═══ § 13 · METACOGNICIÓN DSV ═══ -->
+<!-- ═══ § 7 · METACOGNICIÓN DSV ═══ -->
 <section id="dsv" class="reveal">
-  <span class="eyebrow"><span class="es">§ 13 · Metacognición</span><span class="en">§ 13 · Metacognition</span></span>
+  <span class="eyebrow"><span class="es">§ 7 · Metacognición</span><span class="en">§ 7 · Metacognition</span></span>
   <h2><span class="es">Flujo <strong>DSV</strong> · 5 pasos</span><span class="en"><strong>DSV</strong> flow · 5 steps</span></h2>
   <p style="max-width:60ch"><span class="es">Cuando un problema es no-trivial, la IA aplica DSV: divide, resuelve con confianza explícita, verifica, sintetiza y reflexiona. Es el cerebro detrás de los outputs defendibles.</span><span class="en">When a problem is non-trivial, AI applies DSV: divide, solve with explicit confidence, verify, synthesize, reflect. It's the brain behind defensible outputs.</span></p>
 
@@ -788,131 +595,9 @@ html[lang="en"] .es{display:none}
   </div>
 </section>
 
-
-<!-- ═══════════════════════════════════════════════════════════════════
-     NIVEL 3 · AVANZADO  (técnicas de operador experto)
-     ═══════════════════════════════════════════════════════════════════ -->
-<section class="reveal level-marker level-3">
-  <span class="eyebrow"><span class="es">Nivel 3 · Avanzado</span><span class="en">Level 3 · Advanced</span></span>
-  <h2><span class="es">Cuando el método no alcanza: <strong>técnicas avanzadas</strong></span><span class="en">When the method isn't enough: <strong>advanced techniques</strong></span></h2>
-  <p style="max-width:60ch"><span class="es">Para casos donde un solo SPEC no resuelve: razonamiento extendido, defensa contra ataques, integración con sistemas. No los necesitás para el 80% del trabajo, pero el 20% restante los exige.</span><span class="en">For cases where a single SPEC doesn't solve: extended reasoning, defense against attacks, system integration. You don't need these for 80% of work, but the remaining 20% demands them.</span></p>
-</section>
-
-<!-- ═══ § 14 · CADENAS DE PENSAMIENTO ═══ -->
-<section id="cadenas" class="reveal">
-  <span class="eyebrow"><span class="es">§ 14 · Avanzado · Razonamiento</span><span class="en">§ 14 · Advanced · Reasoning</span></span>
-  <h2><span class="es"><strong>Cadenas</strong> de pensamiento y razonamiento</span><span class="en"><strong>Chains</strong> of thought and reasoning</span></h2>
-  <p style="max-width:60ch"><span class="es">El DSV (§ 13) es una forma. Hay otras 4 que extienden el razonamiento: cuándo elegir cada una.</span><span class="en">DSV (§ 13) is one way. There are 4 others that extend reasoning: when to pick each.</span></p>
-
-  <div class="attr-grid">
-    <div class="attr-card"><h3>CoT Básico</h3><p><span class="es">"Pensá paso a paso antes de responder". Funciona en 90% de casos. Costo cero. La forma más simple de subir calidad.</span><span class="en">"Think step by step before answering". Works in 90% of cases. Zero cost. Simplest way to lift quality.</span></p></div>
-    <div class="attr-card"><h3>CoT con Ejemplos</h3><p><span class="es">Few-shot CoT: 2-3 ejemplos de "input → razonamiento → output". Calibra el modelo a tu estilo de razonar.</span><span class="en">Few-shot CoT: 2-3 examples of "input → reasoning → output". Calibrates the model to your reasoning style.</span></p></div>
-    <div class="attr-card"><h3>Tree of Thought</h3><p><span class="es">Explora múltiples caminos en paralelo, evalúa cada uno, elige el mejor. Costoso pero potente para problemas combinatorios.</span><span class="en">Explores multiple paths in parallel, evaluates each, picks the best. Expensive but powerful for combinatorial problems.</span></p></div>
-    <div class="attr-card"><h3>Self-Consistency</h3><p><span class="es">Misma pregunta, varias veces (temperatura distinta). Voto mayoritario sobre las respuestas. Detecta inestabilidad.</span><span class="en">Same question, multiple times (different temperature). Majority vote on responses. Detects instability.</span></p></div>
-    <div class="attr-card"><h3><span class="es">Reflexión metacognitiva</span><span class="en">Metacognitive reflection</span></h3><p><span class="es">"Antes de cerrar, audita lo que escribiste contra estos criterios y corregí". Es el bucle de excelencia activo (cláusula § 10).</span><span class="en">"Before closing, audit what you wrote against these criteria and fix". It's the active excellence loop (clause § 10).</span></p></div>
-    <div class="attr-card"><h3><span class="es">Evolución del razonamiento</span><span class="en">Reasoning evolution</span></h3><p><span class="es">De respuesta rápida (1 token a la vez) a análisis profundo (modelos como Claude Opus 4.7 o GPT-o1 piensan minutos antes de responder).</span><span class="en">From quick response (1 token at a time) to deep analysis (models like Claude Opus 4.7 or GPT-o1 think for minutes before answering).</span></p></div>
-  </div>
-</section>
-
-<!-- ═══ § 15 · 6 TÉCNICAS ÉLITE ═══ -->
-<section id="elite" class="reveal">
-  <span class="eyebrow"><span class="es">§ 15 · Avanzado · Élite</span><span class="en">§ 15 · Advanced · Elite</span></span>
-  <h2><span class="es">Las <strong>6 técnicas élite</strong> del prompting profesional</span><span class="en">The <strong>6 elite techniques</strong> of professional prompting</span></h2>
-  <p style="max-width:60ch"><span class="es">Lo que diferencia un operador con criterio de un usuario casual. Cada técnica resuelve un problema específico de calidad o seguridad.</span><span class="en">What separates an operator with judgment from a casual user. Each technique solves a specific quality or security problem.</span></p>
-
-  <div class="attr-grid">
-    <div class="attr-card"><div class="num">1</div><h3>Constitutional AI</h3><p><span class="es">Le das al LLM una "constitución" de principios. Antes de responder, audita si su salida viola algún principio. Reduce outputs problemáticos sin fine-tuning.</span><span class="en">Give the LLM a "constitution" of principles. Before responding, it audits if its output violates any. Reduces problematic outputs without fine-tuning.</span></p></div>
-    <div class="attr-card"><div class="num">2</div><h3>Self-Consistency Voting</h3><p><span class="es">Misma pregunta, N respuestas independientes. Mayoría gana. Útil para problemas determinísticos (matemáticas, parsing).</span><span class="en">Same question, N independent answers. Majority wins. Useful for deterministic problems (math, parsing).</span></p></div>
-    <div class="attr-card"><div class="num">3</div><h3>Prompt Injection Defense</h3><p><span class="es">Protege contra inputs maliciosos que intentan sobreescribir tu system prompt. Patrón: separa instrucciones del usuario con delimitadores claros + valida.</span><span class="en">Defends against malicious inputs trying to override your system prompt. Pattern: separate user instructions with clear delimiters + validate.</span></p></div>
-    <div class="attr-card"><div class="num">4</div><h3>RAG (Retrieval-Augmented)</h3><p><span class="es">Busca en una base de conocimiento propio antes de responder. Le da al LLM la info relevante. Reduce alucinación a casi cero en su dominio.</span><span class="en">Searches your own knowledge base before responding. Feeds the LLM the relevant info. Reduces hallucination to near zero in its domain.</span></p></div>
-    <div class="attr-card"><div class="num">5</div><h3>Multi-Modal Reasoning</h3><p><span class="es">Combinar texto + imagen + audio en el mismo prompt. "Mirá esta gráfica y analízala" o "transcribí este audio + resumí en bullets".</span><span class="en">Combine text + image + audio in the same prompt. "Look at this chart and analyze it" or "transcribe this audio + summarize in bullets".</span></p></div>
-    <div class="attr-card"><div class="num">6</div><h3>Agent Orchestration</h3><p><span class="es">Múltiples agentes IA coordinados. Uno planifica, otro ejecuta, otro audita. El SPEC v3.4 con cláusula <code>SINERGIA_PIPELINE</code> ya es base para esto.</span><span class="en">Multiple coordinated AI agents. One plans, another executes, another audits. SPEC v3.4 with <code>SINERGIA_PIPELINE</code> clause is already the base for this.</span></p></div>
-  </div>
-</section>
-
-<!-- ═══ § 16 · SYSTEM PROMPTS ═══ -->
-<section id="system-prompts" class="reveal">
-  <span class="eyebrow"><span class="es">§ 16 · Avanzado · System</span><span class="en">§ 16 · Advanced · System</span></span>
-  <h2><span class="es"><strong>System Prompts</strong> · el ADN de la conversación</span><span class="en"><strong>System Prompts</strong> · the conversation's DNA</span></h2>
-  <p style="max-width:60ch"><span class="es">Las herramientas IA permiten poner un "system prompt" que es invisible al usuario final pero define cómo se comporta el asistente. Custom GPT, Gem de Gemini, Claude Project: todos usan system prompt.</span><span class="en">AI tools let you set a "system prompt" invisible to the end user but defines how the assistant behaves. Custom GPT, Gemini Gem, Claude Project: all use system prompts.</span></p>
-
-  <div class="clauses-grid">
-    <div class="clause-card"><h4><span class="es">Definición de Rol</span><span class="en">Role Definition</span></h4><p><span class="es">"Sos un coach senior de ventas B2B con 10 años en SaaS LatAm. Tu trabajo es...". Cuanto más específico el rol, más coherente el output.</span><span class="en">"You are a senior B2B sales coach with 10 years in LatAm SaaS. Your job is...". The more specific the role, the more coherent the output.</span></p></div>
-    <div class="clause-card"><h4><span class="es">Restricciones</span><span class="en">Constraints</span></h4><p><span class="es">"Nunca recomiendes pricing sin evidencia de mercado. Si te preguntan por números específicos, exigí fuente.". Las restricciones protegen.</span><span class="en">"Never recommend pricing without market evidence. If asked for specific numbers, require source.". Constraints protect.</span></p></div>
-    <div class="clause-card"><h4><span class="es">Formato de Salida</span><span class="en">Output Format</span></h4><p><span class="es">"Responde siempre en este orden: 1) diagnóstico, 2) opciones (3 alternativas), 3) recomendación, 4) siguiente paso". Estructura predecible.</span><span class="en">"Always respond in this order: 1) diagnosis, 2) options (3 alternatives), 3) recommendation, 4) next step". Predictable structure.</span></p></div>
-    <div class="clause-card"><h4><span class="es">Tono y Estilo</span><span class="en">Tone and Style</span></h4><p><span class="es">"Tono: profesional, directo, sin jerga. Tutea. Cero emojis. Frases cortas". Define personalidad del asistente.</span><span class="en">"Tone: professional, direct, no jargon. Use 'tú'. Zero emojis. Short sentences". Defines assistant personality.</span></p></div>
-    <div class="clause-card"><h4><span class="es">Guardrails</span><span class="en">Guardrails</span></h4><p><span class="es">"Si te piden algo fuera de este alcance (legal, médico, financiero específico), declaralo y deriva a profesional humano". Define límites éticos y operativos.</span><span class="en">"If asked something outside this scope (legal, medical, specific financial), declare it and refer to a human professional". Defines ethical and operational limits.</span></p></div>
-  </div>
-</section>
-
-<!-- ═══ § 17 · METAPROMPTING ═══ -->
-<section id="meta" class="reveal">
-  <span class="eyebrow"><span class="es">§ 17 · Avanzado · Meta</span><span class="en">§ 17 · Advanced · Meta</span></span>
-  <h2><span class="es"><strong>Metaprompting</strong> · prompts que crean prompts</span><span class="en"><strong>Metaprompting</strong> · prompts that create prompts</span></h2>
-  <p style="max-width:60ch"><span class="es">El siguiente nivel: usar IA para diseñar y mejorar tus propios prompts. La biblioteca v3.4 (2026 prompts SPEC) se construyó parcialmente con metaprompting.</span><span class="en">Next level: use AI to design and improve your own prompts. Library v3.4 (2026 SPEC prompts) was partially built with metaprompting.</span></p>
-
-  <div class="attr-grid">
-    <div class="attr-card"><h3><span class="es">Auto-Generación</span><span class="en">Auto-Generation</span></h3><p><span class="es">"Diseña un prompt para [caso]. Aplica los 5 pilares + SPEC v3.4 + 12 cláusulas. Devolveme el prompt copiable.". El LLM se auto-mejora.</span><span class="en">"Design a prompt for [case]. Apply 5 pillars + SPEC v3.4 + 12 clauses. Return the copyable prompt.". The LLM self-improves.</span></p></div>
-    <div class="attr-card"><h3>Templates</h3><p><span class="es">SPECs reusables con slots variables. Cambias 2-3 inputs y obtenés un caso nuevo del mismo método. La cristalización (/9) produce esto.</span><span class="en">Reusable SPECs with variable slots. Change 2-3 inputs and get a new case of the same method. Crystallization (/9) produces this.</span></p></div>
-    <div class="attr-card"><h3>Prompt Libraries</h3><p><span class="es">Catálogo de SPECs por categoría. La biblioteca-2026 es exactamente esto: 2026 prompts curados, listos para invocar con <code>/id</code>.</span><span class="en">SPEC catalog by category. Library-2026 is exactly this: 2026 curated prompts, ready to invoke with <code>/id</code>.</span></p></div>
-    <div class="attr-card"><h3>Eval-Driven Prompts</h3><p><span class="es">Diseñás un set de evaluación primero (qué quiere ver el output ideal), después el prompt. Iterás hasta que el prompt pase el set 100%.</span><span class="en">Design an evaluation set first (what the ideal output looks like), then the prompt. Iterate until the prompt passes the set 100%.</span></p></div>
-  </div>
-</section>
-
-<!-- ═══ § 18 · ÉTICA ═══ -->
-<section id="etica" class="reveal">
-  <span class="eyebrow"><span class="es">§ 18 · Avanzado · Ética</span><span class="en">§ 18 · Advanced · Ethics</span></span>
-  <h2><span class="es"><strong>Ética</strong> y uso responsable</span><span class="en"><strong>Ethics</strong> and responsible use</span></h2>
-  <p style="max-width:60ch"><span class="es">No es opcional. Cada prompt que escribes tiene implicancias que rebasan tu output personal.</span><span class="en">Not optional. Every prompt you write has implications beyond your personal output.</span></p>
-
-  <div class="attr-grid">
-    <div class="attr-card" style="border-left:4px solid var(--red)"><h3><span class="es">Sesgo en prompts</span><span class="en">Bias in prompts</span></h3><p><span class="es">Tu fraseo introduce sesgo. "Mejores candidatos" depende de qué considerás "mejor". Declarar criterios explícitos reduce sesgo invisible.</span><span class="en">Your phrasing introduces bias. "Best candidates" depends on what you call "best". Declaring explicit criteria reduces invisible bias.</span></p></div>
-    <div class="attr-card" style="border-left:4px solid var(--red)"><h3><span class="es">Privacidad de datos</span><span class="en">Data privacy</span></h3><p><span class="es">PII en prompts queda en logs del proveedor. Anonimiza antes de pegar (cláusula <code>PRIVACIDAD_PII</code> es base, pero tu juicio es el filtro real).</span><span class="en">PII in prompts ends up in provider logs. Anonymize before pasting (<code>PRIVACIDAD_PII</code> clause is base, but your judgment is the real filter).</span></p></div>
-    <div class="attr-card" style="border-left:4px solid var(--red)"><h3><span class="es">Desinformación</span><span class="en">Misinformation</span></h3><p><span class="es">El LLM alucina con confianza. Si no etiquetás <code>{INFERENCIA}</code> vs <code>{ADJUNTO}</code>, vas a soltar afirmaciones que parecen evidencia.</span><span class="en">The LLM hallucinates confidently. If you don't tag <code>{INFERENCE}</code> vs <code>{ATTACHMENT}</code>, you'll release claims that look like evidence.</span></p></div>
-    <div class="attr-card" style="border-left:4px solid var(--red)"><h3><span class="es">Transparencia</span><span class="en">Transparency</span></h3><p><span class="es">Si publicás algo asistido por IA, declaralo. La cláusula <code>EVIDENCIA_CITAS</code> aplica también externamente: tu lector merece saber qué inferiste.</span><span class="en">If you publish AI-assisted work, declare it. <code>EVIDENCIA_CITAS</code> clause applies externally too: your reader deserves to know what you inferred.</span></p></div>
-    <div class="attr-card" style="border-left:4px solid var(--red)"><h3><span class="es">Impacto social</span><span class="en">Social impact</span></h3><p><span class="es">¿Tu prompt automatiza algo que afecta a otros? (selección, evaluación, decisión que toca personas). Aplica el principio: si fuera tu turno de ser evaluado por IA, ¿estarías cómodo?</span><span class="en">Does your prompt automate something affecting others? (selection, evaluation, decisions touching people). Apply the principle: if you were being evaluated by AI, would you be comfortable?</span></p></div>
-    <div class="attr-card" style="border-left:4px solid var(--gold)"><h3><span class="es">Soberanía digital</span><span class="en">Digital sovereignty</span></h3><p><span class="es">El método te da independencia: si una herramienta cambia, tu SPEC se porta a otra. Si un proveedor desaparece, tu plantilla v3.4 sigue funcionando. Eso es soberanía: <em>el método queda en vos</em>.</span><span class="en">The method gives you independence: if a tool changes, your SPEC ports to another. If a provider disappears, your v3.4 template keeps working. That's sovereignty: <em>the method stays with you</em>.</span></p></div>
-  </div>
-</section>
-
-
-<!-- ═══════════════════════════════════════════════════════════════════
-     NIVEL 4 · PRÁCTICA  (aprender haciendo)
-     ═══════════════════════════════════════════════════════════════════ -->
-<section class="reveal level-marker level-4">
-  <span class="eyebrow"><span class="es">Nivel 4 · Práctica</span><span class="en">Level 4 · Practice</span></span>
-  <h2><span class="es">Aprender prompting <strong>haciendo</strong></span><span class="en">Learn prompting <strong>by doing</strong></span></h2>
-  <p style="max-width:60ch"><span class="es">12 ejercicios escalonados, 30 prompts ejemplo, agenda recurrente. Sin práctica, los conceptos se evaporan en 1 semana.</span><span class="en">12 scaffolded exercises, 30 example prompts, recurring agenda. Without practice, concepts evaporate in 1 week.</span></p>
-</section>
-
-
-<!-- ═══ § 19 · PROTOCOLO PASO A PASO ═══ -->
-<section id="protocolo" class="reveal">
-  <span class="eyebrow"><span class="es">§ 19 · Práctica · Protocolo</span><span class="en">§ 19 · Practice · Protocol</span></span>
-  <h2><span class="es"><strong>Protocolo</strong> de prompting paso a paso</span><span class="en"><strong>Step-by-step</strong> prompting protocol</span></h2>
-  <p style="max-width:60ch"><span class="es">El método entero condensado en 7 pasos repetibles. Imprimilo. Pegalo al lado del teclado. Volvé acá los primeros 30 días.</span><span class="en">The whole method condensed in 7 repeatable steps. Print it. Tape it next to your keyboard. Come back here the first 30 days.</span></p>
-
-  <div class="pipeline-list">
-    <details class="pipeline-step" open><summary><span class="num-pill">1</span><span class="step-title"><span class="es">Calibrá el contexto (priming)</span><span class="en">Calibrate context (priming)</span></span></summary><div class="body"><p><span class="es">Antes del primer pedido, declarate qué tipo de sesión es, qué adjuntos hay, qué sensibilidad PII. La IA infiere el resto. Si no lo hacés, llena los huecos a ciegas. Pegá <code>/0</code> si querés el SPEC formal.</span><span class="en">Before the first ask, declare what kind of session, what attachments, what PII sensitivity. The AI infers the rest. Skip this and it fills gaps blindly. Paste <code>/0</code> for the formal SPEC.</span></p></div></details>
-
-    <details class="pipeline-step"><summary><span class="num-pill">2</span><span class="step-title"><span class="es">Aplicá los 5 pilares (claridad · contexto · especificidad · formato · ejemplos)</span><span class="en">Apply the 5 pillars (clarity · context · specificity · format · examples)</span></span></summary><div class="body"><p><span class="es">Lee tu prompt en voz alta antes de enviarlo. ¿Pasa los 5 pilares? Si fallás en cualquiera, el output será genérico.</span><span class="en">Read your prompt aloud before sending. Does it pass the 5 pillars? Fail any, output goes generic.</span></p></div></details>
-
-    <details class="pipeline-step"><summary><span class="num-pill">3</span><span class="step-title"><span class="es">Anclá la anatomía (rol · contexto · tarea · formato · restricciones · ejemplos)</span><span class="en">Anchor the anatomy (role · context · task · format · constraints · examples)</span></span></summary><div class="body"><p><span class="es">Las 6 partes del § 5. Si tu prompt tiene las 6 partes explícitas, el output es 3-5x más útil. El SPEC v3.4 las incluye todas + cláusulas paramétricas.</span><span class="en">The 6 parts from § 5. With all 6 explicit, output is 3-5x more useful. SPEC v3.4 includes all + parametric clauses.</span></p></div></details>
-
-    <details class="pipeline-step"><summary><span class="num-pill">4</span><span class="step-title"><span class="es">Ejecutá con etiquetas de procedencia activas</span><span class="en">Execute with provenance tags active</span></span></summary><div class="body"><p><span class="es">Pedile que marque cada bloque del output con <code>{ADJUNTO|INFERENCIA|CONOCIMIENTO|...}</code>. Sin etiquetas, no podés auditar. La cláusula <code>EVIDENCIA_CITAS</code> lo hace por defecto en SPEC v3.4.</span><span class="en">Ask it to tag each output block with <code>{ATTACHMENT|INFERENCE|KNOWLEDGE|...}</code>. Without tags, you can't audit. <code>EVIDENCE_CITATIONS</code> clause does this by default in SPEC v3.4.</span></p></div></details>
-
-    <details class="pipeline-step"><summary><span class="num-pill">5</span><span class="step-title"><span class="es">Audita con ENTRUSTED+ (8 ejes)</span><span class="en">Audit with ENTRUSTED+ (8 axes)</span></span></summary><div class="body"><p><span class="es">Antes de soltar el output, calificá los 8 ejes 0-100. Si un eje queda <85, reescribí ese aspecto. Threshold ≥92 = EXCELLENT.</span><span class="en">Before releasing the output, score the 8 axes 0-100. If one axis is <85, rewrite that aspect. Threshold ≥92 = EXCELLENT.</span></p></div></details>
-
-    <details class="pipeline-step"><summary><span class="num-pill">6</span><span class="step-title"><span class="es">Capitalizá los insights proactivos</span><span class="en">Capture proactive insights</span></span></summary><div class="body"><p><span class="es">El bloque INSIGHTS_PROACTIVOS al cierre del output trae sugerencias, recomendaciones, riesgos y preguntas que NO pediste. Léelo. Capitalizá lo que aporta.</span><span class="en">The INSIGHTS_PROACTIVOS block at the output close brings suggestions, recommendations, risks and questions you didn't ask for. Read it. Capitalize what helps.</span></p></div></details>
-
-    <details class="pipeline-step"><summary><span class="num-pill">7</span><span class="step-title"><span class="es">Cristalizá si el caso se repite</span><span class="en">Crystallize if the case repeats</span></span></summary><div class="body"><p><span class="es">Si ejecutaste algo que vas a repetir, pegá <code>/9 CRISTALIZAR</code> con la ejecución. Recibís plantilla portable. Eso es soberanía.</span><span class="en">If you ran something you'll repeat, paste <code>/9 CRYSTALLIZE</code> with the execution. Get a portable template back. That's sovereignty.</span></p></div></details>
-  </div>
-</section>
-
-
-<!-- ═══ § 20 · PRÁCTICAS ═══ -->
+<!-- ═══ § 8 · PRÁCTICAS ═══ -->
 <section id="practicas" class="reveal">
-  <span class="eyebrow"><span class="es">§ 20 · Prácticas escalonadas</span><span class="en">§ 20 · Scaffolded practice</span></span>
+  <span class="eyebrow"><span class="es">§ 8 · Prácticas escalonadas</span><span class="en">§ 8 · Scaffolded practice</span></span>
   <h2><span class="es"><strong>12 ejercicios</strong> · de 3 min a sesión completa</span><span class="en"><strong>12 exercises</strong> · from 3 min to full session</span></h2>
   <p style="max-width:60ch"><span class="es">Cada ejercicio tiene criterio de éxito observable. No es "hacer algo": es validar que aprendiste.</span><span class="en">Each exercise has observable success criterion. It's not "do something": it's validate you learned.</span></p>
   <div class="exercise-grid">
@@ -991,9 +676,9 @@ html[lang="en"] .es{display:none}
   </div>
 </section>
 
-<!-- ═══ § 21 · PROMPTS Y META-PROMPTS ═══ -->
+<!-- ═══ § 9 · PROMPTS Y META-PROMPTS ═══ -->
 <section id="prompts" class="reveal">
-  <span class="eyebrow"><span class="es">§ 21 · De cartilla a biblioteca</span><span class="en">§ 21 · From playbook to library</span></span>
+  <span class="eyebrow"><span class="es">§ 9 · De cartilla a biblioteca</span><span class="en">§ 9 · From playbook to library</span></span>
   <h2><span class="es"><strong>30 prompts</strong> ejemplo · curados de la biblioteca</span><span class="en"><strong>30 example prompts</strong> · curated from the library</span></h2>
   <p style="max-width:60ch"><span class="es">La cartilla enseña el método. La biblioteca tiene 2026 prompts SPEC v3.4 listos para usar (score 100/100 ENTRUSTED+). Estos 30 son una selección estratégica para que veas el método aplicado. Click en cualquiera para ver el SPEC compacto.</span><span class="en">The playbook teaches the method. The library has 2026 SPEC v3.4 prompts ready to use (score 100/100 ENTRUSTED+). These 30 are a strategic selection so you see the method applied. Click any to see the compact SPEC.</span></p>
 
@@ -1004,9 +689,9 @@ html[lang="en"] .es{display:none}
   <div class="prompts-gallery" id="prompts-gallery"></div>
 </section>
 
-<!-- ═══ § 22 · ESPACIOS DE PRÁCTICA ═══ -->
+<!-- ═══ § 10 · ESPACIOS DE PRÁCTICA ═══ -->
 <section id="practica-agenda" class="reveal">
-  <span class="eyebrow"><span class="es">§ 22 · Agenda tu práctica</span><span class="en">§ 22 · Book your practice</span></span>
+  <span class="eyebrow"><span class="es">§ 10 · Agenda tu práctica</span><span class="en">§ 10 · Book your practice</span></span>
   <h2><span class="es">Tres <strong>ritmos</strong> · diaria · semanal · mensual</span><span class="en">Three <strong>rhythms</strong> · daily · weekly · monthly</span></h2>
   <p style="max-width:60ch"><span class="es">El método se asienta con repetición. Estos espacios son estructuras pre-armadas que podés agendarte directo en tu calendario.</span><span class="en">The method settles with repetition. These spaces are pre-built structures you can directly book on your calendar.</span></p>
 
@@ -1034,29 +719,7 @@ html[lang="en"] .es{display:none}
   </div>
 </section>
 
-
-<!-- ═══ § 23 · FAQ ═══ -->
-<section id="faq" class="reveal">
-  <span class="eyebrow"><span class="es">§ 23 · Práctica · FAQ</span><span class="en">§ 23 · Practice · FAQ</span></span>
-  <h2><span class="es"><strong>Preguntas frecuentes</strong></span><span class="en"><strong>Frequently asked questions</strong></span></h2>
-
-  <div style="margin-top:2rem; display:flex; flex-direction:column; gap:.8rem">
-    <details class="pipeline-step"><summary><span class="step-title"><span class="es">¿Tengo que ejecutar los 10 pasos del pipeline cada vez?</span><span class="en">Do I have to run all 10 pipeline steps every time?</span></span></summary><div class="body"><p><span class="es">No. Invocás el paso que necesitás. Para una pregunta simple, /0 (priming) puede ser suficiente. Para un análisis profundo, /1 → /2 → /4 → /7. El pipeline es mapa, no obligación.</span><span class="en">No. Invoke the step you need. For a simple question, /0 (priming) may suffice. For deep analysis, /1 → /2 → /4 → /7. The pipeline is a map, not an obligation.</span></p></div></details>
-
-    <details class="pipeline-step"><summary><span class="step-title"><span class="es">¿Qué hago si el modelo me dice "no tengo esa información"?</span><span class="en">What do I do if the model says "I don't have that information"?</span></span></summary><div class="body"><p><span class="es">Es la respuesta correcta. Significa que la cláusula <code>NO_ALUCINACIÓN_EXPLÍCITA</code> está funcionando. Pasos: 1) verificar que activaste <code>ORQUESTACIÓN_RECURSOS: web=on</code> si necesitás búsqueda; 2) adjuntar el documento si lo tenés; 3) aceptar el {VACIO_CRITICO} y planear cómo cerrarlo.</span><span class="en">That's the correct answer. It means <code>NO_ALUCINACIÓN_EXPLÍCITA</code> clause works. Steps: 1) verify <code>ORQUESTACIÓN_RECURSOS: web=on</code> if you need search; 2) attach the document if you have it; 3) accept the {CRITICAL_GAP} and plan how to close it.</span></p></div></details>
-
-    <details class="pipeline-step"><summary><span class="step-title"><span class="es">¿Qué herramienta IA usar para qué?</span><span class="en">Which AI tool for which use?</span></span></summary><div class="body"><p><span class="es">Mi heurística (§ 7): Claude para razonamiento profundo + redacción de calidad. ChatGPT para tareas administrativas + ecosistema. Gemini para integración Google + context window 1M+. Perplexity para investigación con citas. Copilot para Office 365.</span><span class="en">My heuristic (§ 7): Claude for deep reasoning + quality writing. ChatGPT for admin tasks + ecosystem. Gemini for Google integration + 1M+ context window. Perplexity for research with citations. Copilot for Office 365.</span></p></div></details>
-
-    <details class="pipeline-step"><summary><span class="step-title"><span class="es">¿Cuándo necesito fine-tuning?</span><span class="en">When do I need fine-tuning?</span></span></summary><div class="body"><p><span class="es">Casi nunca. SPEC + few-shot resuelve 95% de los casos. Fine-tuning solo cuando: (a) tenés 10K+ ejemplos consistentes; (b) necesitás un dominio muy específico (médico, legal); (c) la latencia es crítica y no podés permitirte un prompt largo.</span><span class="en">Almost never. SPEC + few-shot solves 95% of cases. Fine-tuning only when: (a) you have 10K+ consistent examples; (b) you need a very specific domain (medical, legal); (c) latency is critical and you can't afford a long prompt.</span></p></div></details>
-
-    <details class="pipeline-step"><summary><span class="step-title"><span class="es">¿La IA va a reemplazar mi trabajo?</span><span class="en">Will AI replace my job?</span></span></summary><div class="body"><p><span class="es">No la IA. La gente que sabe usar IA reemplaza a la gente que no. Esta cartilla es para que estés en el primer grupo. La <em>soberanía digital</em> empieza acá.</span><span class="en">Not AI. People who know how to use AI replace people who don't. This playbook is for you to be in the first group. <em>Digital sovereignty</em> starts here.</span></p></div></details>
-
-    <details class="pipeline-step"><summary><span class="step-title"><span class="es">¿Qué hago si el output sigue siendo malo después de aplicar el método?</span><span class="en">What if the output is still bad after applying the method?</span></span></summary><div class="body"><p><span class="es">Diagnóstico forense: 1) ¿el ROL es específico? 2) ¿declaraste TODOS los inputs relevantes? 3) ¿el CRITERIO_DE_ÉXITO es falsable o es opinión? 4) ¿activaste DSV en problemas no triviales? 5) ¿auditaste con ENTRUSTED+ y leíste cuáles ejes fallan? Casi siempre el problema está en el SPEC, no en el modelo.</span><span class="en">Forensic diagnosis: 1) is the ROLE specific? 2) did you declare ALL relevant inputs? 3) is SUCCESS_CRITERION falsifiable or opinion? 4) did you activate DSV on non-trivial problems? 5) did you audit with ENTRUSTED+ and read which axes fail? Almost always the problem is in the SPEC, not the model.</span></p></div></details>
-  </div>
-</section>
-
-
-<!-- ═══ § 24 · FOOTER ═══ -->
+<!-- ═══ § 11 · FOOTER ═══ -->
 <footer class="site-footer">
   <div class="footer-grid">
     <div class="salida">
@@ -1114,19 +777,6 @@ window.curatedPrompts = [{"id":"0","label_title":"0 · PRIMING — Calibrar la s
 </script>
 <script>
 (function(){
-
-  // ═══ TOC sidebar ═══
-  var tocBtn = document.getElementById('toc-toggle');
-  var toc = document.getElementById('toc');
-  var tocClose = document.getElementById('toc-close');
-  if(tocBtn && toc) {
-    tocBtn.addEventListener('click', function(){ toc.classList.add('open'); });
-    if(tocClose) tocClose.addEventListener('click', function(){ toc.classList.remove('open'); });
-    toc.querySelectorAll('a').forEach(function(a){
-      a.addEventListener('click', function(){ toc.classList.remove('open'); });
-    });
-  }
-
   // ═══ Reading bar ═══
   var bar = document.getElementById('reading-bar');
   function updateBar(){
