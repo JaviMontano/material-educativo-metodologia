@@ -253,8 +253,8 @@
     "when": "Cuando recibís texto crudo (transcripts, emails, notas) y necesitás estructura para análisis posterior."
   },
   "tax-transformacional": {
-    "title_es": "Transformacional",
-    "title_en": "Transformational",
+    "title_es": "Conversor",
+    "title_en": "Converter",
     "body_es": "Convertir A en B: texto → código, español → inglés, formal → casual, prosa → tabla. Especifica el patrón con ejemplo si la transformación es no-trivial. La transformación bien hecha es 1-shot.",
     "body_en": "Convert A into B: text → code, Spanish → English, formal → casual, prose → table. Specify the pattern with an example if the transformation is non-trivial. Well-done transformation is 1-shot.",
     "when": "Cuando el output es 'lo mismo en otro formato/idioma/registro/lenguaje'."
@@ -332,8 +332,8 @@
   "attr-metacognitivo": {
     "title_es": "Metacognitivo",
     "title_en": "Metacognitive",
-    "body_es": "Aplica DSV: descompone, resuelve con confianza, verifica, sintetiza, reflexiona. La IA piensa SOBRE cómo está pensando antes de cerrar. Distingue lo que sabe de lo que infiere de lo que asume.",
-    "body_en": "Applies DSV: decompose, solve with confidence, verify, synthesize, reflect. AI thinks ABOUT how it's thinking before closing. Distinguishes what it knows from what it infers from what it assumes.",
+    "body_es": "Aplica DSVSR: descompone, resuelve con confianza, verifica, sintetiza, reflexiona. La IA piensa SOBRE cómo está pensando antes de cerrar. Distingue lo que sabe de lo que infiere de lo que asume.",
+    "body_en": "Applies DSVSR: decompose, solve with confidence, verify, synthesize, reflect. AI thinks ABOUT how it's thinking before closing. Distinguishes what it knows from what it infers from what it assumes.",
     "rubric": "¿El output declara qué supuso vs qué sabe? Sí = metacognitivo."
   },
   "attr-auditable": {
@@ -851,16 +851,16 @@
     "title_es": "Audita un output con ENTRUSTED+",
     "title_en": "Audita un output con ENTRUSTED+",
     "duration": "30 min",
-    "body_es": "Tomá un entregable IA reciente. Calificá los 8 ejes 0-100 (E·N·T·R·U·S·T·E). Identificá los 2 ejes más bajos y reescribí el prompt para subirlos.",
-    "body_en": "Take a recent AI deliverable. Score the 8 axes 0-100 (E·N·T·R·U·S·T·E). Identify the 2 lowest and rewrite the prompt to lift them.",
+    "body_es": "Tomá un entregable IA reciente. Calificá los 9 ejes 0-100 (E·N·T·R·U·S·T·E). Identificá los 2 ejes más bajos y reescribí el prompt para subirlos.",
+    "body_en": "Take a recent AI deliverable. Score the 9 axes 0-100 (E·N·T·R·U·S·T·E). Identify the 2 lowest and rewrite the prompt to lift them.",
     "criterion": "Score promedio ≥92/100 tras la reescritura. Documentá qué cambió en el prompt para subir cada eje."
   },
   "prac-06": {
-    "title_es": "Aplicá DSV a un problema complejo",
-    "title_en": "Aplicá DSV a un problema complejo",
+    "title_es": "Aplicá DSVSR a un problema complejo",
+    "title_en": "Aplicá DSVSR a un problema complejo",
     "duration": "30 min",
-    "body_es": "Elegí una decisión que estás postergando. Pegá /1 con el caso. Marcá DSV explícito en el prompt. Lee REFLECT con confianza visible. ¿Qué descubriste?",
-    "body_en": "Pick a postponed decision. Paste /1 with the case. Mark DSV explicitly in the prompt. Read REFLECT with visible confidence. What did you discover?",
+    "body_es": "Elegí una decisión que estás postergando. Pegá /1 con el caso. Marcá DSVSR explícito en el prompt. Lee REFLECT con confianza visible. ¿Qué descubriste?",
+    "body_en": "Pick a postponed decision. Paste /1 with the case. Mark DSVSR explicitly in the prompt. Read REFLECT with visible confidence. What did you discover?",
     "criterion": "Confianza global ≥0.95 declarada o debilidad explícita con plan. Anota el INSIGHT que no habías visto."
   },
   "prac-07": {
@@ -966,8 +966,8 @@
   "prot-5": {
     "title_es": "Auditá con ENTRUSTED+",
     "title_en": "Auditá con ENTRUSTED+",
-    "body_es": "Antes de soltar el output, calificá los 8 ejes 0-100. Si un eje queda <85, reescribí ese aspecto del prompt y reejecutá. Threshold ≥92 = EXCELLENT.",
-    "body_en": "Before releasing the output, score the 8 axes 0-100. If one axis is <85, rewrite that aspect of the prompt and re-execute. Threshold ≥92 = EXCELLENT.",
+    "body_es": "Antes de soltar el output, calificá los 9 ejes 0-100. Si un eje queda <85, reescribí ese aspecto del prompt y reejecutá. Threshold ≥92 = EXCELLENT.",
+    "body_en": "Before releasing the output, score the 9 axes 0-100. If one axis is <85, rewrite that aspect of the prompt and re-execute. Threshold ≥92 = EXCELLENT.",
     "extra": "Si tu output va a un cliente, jefe o decisión: auditá. Si es exploratorio personal: skipeable. La auditoría es proporcional al riesgo."
   },
   "prot-6": {
@@ -1022,8 +1022,8 @@
   "faq-6": {
     "title_es": "¿Qué hago si el output sigue siendo malo?",
     "title_en": "What if the output is still bad?",
-    "body_es": "Diagnóstico forense: 1) ¿el ROL es específico? 2) ¿declaraste TODOS los inputs relevantes? 3) ¿el CRITERIO_DE_ÉXITO es falsable o es opinión? 4) ¿activaste DSV en problemas no triviales? 5) ¿auditaste con ENTRUSTED+ y leíste cuáles ejes fallan? Casi siempre el problema está en el SPEC, no en el modelo.",
-    "body_en": "Forensic diagnosis: 1) is the ROLE specific? 2) did you declare ALL relevant inputs? 3) is SUCCESS_CRITERION falsifiable? 4) did you activate DSV on non-trivial problems? 5) did you audit with ENTRUSTED+ and read which axes fail? Almost always the problem is in the SPEC, not the model.",
+    "body_es": "Diagnóstico forense: 1) ¿el ROL es específico? 2) ¿declaraste TODOS los inputs relevantes? 3) ¿el CRITERIO_DE_ÉXITO es falsable o es opinión? 4) ¿activaste DSVSR en problemas no triviales? 5) ¿auditaste con ENTRUSTED+ y leíste cuáles ejes fallan? Casi siempre el problema está en el SPEC, no en el modelo.",
+    "body_en": "Forensic diagnosis: 1) is the ROLE specific? 2) did you declare ALL relevant inputs? 3) is SUCCESS_CRITERION falsifiable? 4) did you activate DSVSR on non-trivial problems? 5) did you audit with ENTRUSTED+ and read which axes fail? Almost always the problem is in the SPEC, not the model.",
     "is_faq": true
   },
   "st-d1": {
@@ -1209,5 +1209,77 @@
     "body_en": "The '+' in ENTRUSTED+ is not filler: it's the meta layer that operates ON the 9 axes. It activates two automatic behaviors: (1) excellence loop (AI iterates internally up to 10/10 before releasing), (2) proactive insights (closes with suggestions + recommendations + non-obvious risks + deepening questions). Lifts PASS → EXCELLENT.",
     "rubric": "¿El output muestra evidencia de iteración interna (no es draft 1.0)? ¿Cierra con bloque de insights más allá del pedido? Si ambos sí, '+' activado.",
     "example": "Pedís un análisis SWOT. Output normal: 4 cuadrantes. Output con '+': 4 cuadrantes + bloque INSIGHTS_PROACTIVOS al cierre con 'cruces TOWS no obvios' + 'supuestos del SWOT que cuestionarías' + 'qué dato decisor falta'. Misma pregunta — 3x el valor."
+  },
+  "orch-chaining": {
+    "title_es": "Prompt Chaining · encadenamiento secuencial",
+    "title_en": "Prompt Chaining · sequential linking",
+    "body_es": "Encadenar prompts es ejecutar varios SPECs en secuencia donde cada output alimenta el input del siguiente. El pipeline operativo /0-/9 (§ 9.5) es chaining canónico: PRIMING → ENTENDER → DEFINIR → ... cada paso aporta una transformación validable. Patrón clave cuando un solo prompt no alcanza: mantener trazabilidad y poder corregir un paso sin rehacer todo el cadena.",
+    "body_en": "Chaining means running multiple SPECs sequentially where each output feeds the next input. The operational pipeline /0-/9 (§ 9.5) is canonical chaining: PRIMING → UNDERSTAND → DEFINE → ... each step adds a validatable transformation. Key pattern when one prompt isn't enough: keep traceability and be able to fix one step without redoing the whole chain.",
+    "when": "Cuando el problema requiere transformaciones múltiples con validación intermedia: análisis → diseño → ejecución → audit. También cuando los modelos tienen límite de contexto y necesitás dividir el caso.",
+    "example": "/1 ENTENDER recibe un retro mal estructurado, devuelve necesidad concreta. /2 DEFINIR toma esa necesidad, devuelve SPEC. /4 EJECUTAR toma el SPEC, devuelve draft. /5 ROBUSTECER eleva confianza. Cada eslabón es portable y reutilizable."
+  },
+  "orch-tree-prompts": {
+    "title_es": "Tree of Prompts · árbol de invocaciones",
+    "title_en": "Tree of Prompts · invocation tree",
+    "body_es": "No confundir con Tree of Thought (que vive dentro de UN prompt). Tree of Prompts orquesta un árbol de PROMPTS independientes: ramas paralelas exploran soluciones desde distintos ángulos (uno por persona, hipótesis o escenario), y un prompt evaluador elige la mejor rama o sintetiza un resultado consensuado. Es el patrón típico de sistemas multi-agente y comités de expertos virtuales.",
+    "body_en": "Don't confuse with Tree of Thought (which lives inside ONE prompt). Tree of Prompts orchestrates a tree of independent PROMPTS: parallel branches explore solutions from different angles (one per persona, hypothesis or scenario), and an evaluator prompt picks the best branch or synthesizes a consensus result. Typical pattern in multi-agent systems and virtual expert committees.",
+    "when": "Decisiones de alto impacto donde varios ángulos compiten · cuando un solo punto de vista sesga · diseño de sistemas multi-rol como Pristino (committee in 1 chat).",
+    "example": "Decisión: ¿lanzamos en septiembre? Branch 1 (CFO): SPEC de análisis financiero. Branch 2 (CTO): SPEC de capacidad técnica. Branch 3 (CMO): SPEC de readiness de mercado. Branch 4 (Sintetizador): toma los 3 outputs, identifica conflictos, propone decisión con confianza."
+  },
+  "orch-stacking": {
+    "title_es": "Prompt Stacking · capas simultáneas",
+    "title_en": "Prompt Stacking · simultaneous layers",
+    "body_es": "Stacking apila CAPAS de prompts que se aplican al mismo turno: capa 0 = system prompt (rol, restricciones permanentes · § 16), capa 1 = project rules / custom instructions (estándares de tu organización), capa 2 = per-message prompt (caso específico). Cada capa restringe y especializa la siguiente. Es la diferencia entre un GPT custom como Pristino y un chat genérico: las capas inferiores ya cargaron método antes de que escribas la primera letra.",
+    "body_en": "Stacking layers prompts applied to the same turn: layer 0 = system prompt (permanent role, constraints · § 16), layer 1 = project rules / custom instructions (your org's standards), layer 2 = per-message prompt (specific case). Each layer constrains and specializes the next. It's the difference between a custom GPT like Pristino and a generic chat: lower layers loaded the method before you typed the first letter.",
+    "when": "Diseñando un Custom GPT, Gemini Gem, ChatGPT Project, Claude Project o Cursor rules. Cuando querés que cada caso parta de una base común sin repetir 30 líneas.",
+    "example": "Custom GPT 'Pristino': capa 0 declara 'sos comité de 7 expertos · DSVSR activo · ENTRUSTED+ obligatorio · 12 cláusulas v3.4 por default'. Capa 1 (project rules): 'usás biblioteca-2026 como contexto activo'. Capa 2 (vos): 'analizá esta decisión'. Capa 0+1 son invisibles pero hacen el 80% del trabajo."
+  },
+  "exp-espanso": {
+    "title_es": "Espanso · OSS multi-plataforma",
+    "title_en": "Espanso · OSS multi-platform",
+    "body_es": "Espanso es un text expander open source escrito en Rust. Funciona en macOS, Linux y Windows con cero dependencias gráficas. Los snippets viven como YAML en el filesystem, lo que permite versionarlos en Git con tu equipo. Soporta variables, formularios interactivos, scripts shell embebidos y triggers contextuales (solo en ciertas apps).",
+    "body_en": "Espanso is an open-source text expander written in Rust. Runs on macOS, Linux and Windows with zero graphical dependencies. Snippets live as YAML on filesystem, version-controllable in Git with your team. Supports variables, interactive forms, embedded shell scripts and contextual triggers (only in certain apps).",
+    "when": "Cuando querés cero costo, cero telemetría, control total. Cuando tu equipo quiere versionar SPECs en Git. Cuando trabajás en Linux o cambiás de OS.",
+    "example": "Archivo `~/Library/Application Support/espanso/match/spec.yml`:\n```\nmatches:\n  - trigger: ';swot'\n    replace: |\n      TÍTULO: SWOT v3.4\n      ROL: ...\n      INPUTS: {[ORG]} {[OBJETIVO]}\n      ...\n```\nTipeás `;swot` en cualquier app y se expande. Total: <2 caracteres dispara 80 líneas de SPEC profesional."
+  },
+  "exp-raycast": {
+    "title_es": "Raycast · launcher + AI Commands",
+    "title_en": "Raycast · launcher + AI Commands",
+    "body_es": "Raycast es un launcher para macOS que reemplaza Spotlight. Sus Snippets son text expanders nativos con search by keyword. Lo que lo distingue: AI Commands integrados — invocás un snippet con ⌥+Space, lo editás si querés, y Raycast AI lo ejecuta sin abrir ChatGPT. El ciclo intent → output baja a <5 segundos.",
+    "body_en": "Raycast is a macOS launcher replacing Spotlight. Its Snippets are native text expanders with keyword search. What sets it apart: integrated AI Commands — fire a snippet with ⌥+Space, edit if needed, and Raycast AI runs it without opening ChatGPT. Intent → output cycle drops to <5 seconds.",
+    "when": "Trabajás en macOS · valorás velocidad de invocación · te frustra cambiar de app cada vez que querés ejecutar un SPEC.",
+    "example": "⌘+Space → tipeás 'swot' → Raycast muestra el snippet → ⏎ pega y ejecuta vía AI Command. Si pagás Pro ($8/mes), AI Commands corren GPT-4o, Claude o un local model sin salir de Raycast."
+  },
+  "exp-textexpander": {
+    "title_es": "TextExpander · veterano del segmento",
+    "title_en": "TextExpander · segment veteran",
+    "body_es": "TextExpander de Smile lleva 20 años en el espacio. Su valor diferencial: gestión de equipos. Sincronización entre macOS / Windows / iOS / iPadOS, formularios robustos con tipos de campo (texto, dropdown, fecha, checkbox), analytics de qué snippet usa cada miembro, biblioteca compartida con permisos. Plan personal $5/mes, equipos $10/mes/usuario.",
+    "body_en": "TextExpander by Smile has been in the space 20 years. Differentiator: team management. Sync across macOS / Windows / iOS / iPadOS, robust forms with field types (text, dropdown, date, checkbox), analytics of who uses which snippet, shared library with permissions. Personal $5/mo, teams $10/mo/user.",
+    "when": "Equipos de 3+ personas que comparten SPECs · operás en múltiples dispositivos (Mac + iPad + iPhone) · necesitás formularios complejos con validación.",
+    "example": "Snippet 'xspec-cliente' abre un form: dropdown de cliente, fecha, dropdown de tipo de SPEC. El usuario rellena, TextExpander construye el SPEC final personalizado. Analytics muestran qué SPECs son más usados → cristalización guiada por datos."
+  },
+  "exp-keyboard-maestro": {
+    "title_es": "Keyboard Maestro + Karabiner · macros completas",
+    "title_en": "Keyboard Maestro + Karabiner · full macros",
+    "body_es": "Para cuando expander no alcanza: Keyboard Maestro permite macros completas (paste + abrir browser + clic en chat + paste + send). Karabiner-Elements remapea cualquier tecla a cualquier otra; el patrón Hyper Key (Caps Lock → ⇧+⌃+⌥+⌘) libera 26 atajos que no colisionan con nada. Curva alta. ROI altísimo si invocás SPECs 30+ veces al día.",
+    "body_en": "When expander isn't enough: Keyboard Maestro runs full macros (paste + open browser + click chat + paste + send). Karabiner-Elements remaps any key to any other; the Hyper Key pattern (Caps Lock → ⇧+⌃+⌥+⌘) unlocks 26 collision-free shortcuts. Steep curve. Very high ROI if you fire SPECs 30+ times daily.",
+    "when": "Power user en macOS · invocás los mismos 5-10 SPECs todo el día · querés zero-friction absoluto.",
+    "example": "Hyper+S = macro: copia el contenido visible al clipboard → abre Pristino en browser → pega → presiona Enter. 1 tecla = 1 SPEC ejecutado. Karabiner libera teclas de función F13-F19 como triggers dedicados."
+  },
+  "exp-built-in": {
+    "title_es": "Reemplazos del sistema · cero apps extra",
+    "title_en": "System replacements · zero extra apps",
+    "body_es": "macOS, iOS y Android traen reemplazos de texto integrados. macOS los sincroniza con iOS vía iCloud. Cero apps extra, cero costo. Limitación: en algunas plataformas no preservan saltos de línea, así que sirven para los 5-10 atajos cortos (alias de prompts) pero no para SPECs largos completos.",
+    "body_en": "macOS, iOS and Android ship with built-in text replacements. macOS syncs with iOS via iCloud. Zero extra apps, zero cost. Limit: some platforms don't preserve line breaks, so it works for 5-10 short shortcuts (prompt aliases) but not for long full SPECs.",
+    "when": "Empezando · todavía no querés instalar nada · querés expandir 5-10 atajos cortos como `,p` → 'Por favor traduce al inglés'.",
+    "example": "macOS: Ajustes → Teclado → Texto → +. Trigger: 'asap'. Replace: 'as soon as possible'. iOS sincroniza solo. Android: Ajustes → General → Teclado → Diccionario personal."
+  },
+  "exp-ide": {
+    "title_es": "Snippets de IDE · VS Code · JetBrains · Vim",
+    "title_en": "IDE snippets · VS Code · JetBrains · Vim",
+    "body_es": "Si vivís en un IDE, los snippets nativos son el camino: tab-stops para saltar entre slots variables, scope por lenguaje, sync vía Settings Sync. VS Code: Cmd+Shift+P → 'Configure User Snippets'. JetBrains: Live Templates. Vim: UltiSnips. Funciona en cualquier archivo (markdown, prompts.yaml, README) sin instalar nada extra.",
+    "body_en": "If you live in an IDE, native snippets are the way: tab-stops to jump between variable slots, scope per language, sync via Settings Sync. VS Code: Cmd+Shift+P → 'Configure User Snippets'. JetBrains: Live Templates. Vim: UltiSnips. Works in any file (markdown, prompts.yaml, README) without installing anything extra.",
+    "when": "Tu vida pasa en un IDE · escribís prompts dentro de archivos versionados · querés tab-stops para llenar slots variables.",
+    "example": "VS Code snippet `swot` con tab-stops: tipeás `swot` → Tab → expande SPEC → cursor en `${1:ORG}`, Tab → cursor en `${2:OBJETIVO}`. Ideal para mantener tus SPECs en el repo del proyecto bajo `.vscode/prompts.code-snippets`."
   }
 }
