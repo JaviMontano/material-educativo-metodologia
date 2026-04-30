@@ -4,29 +4,29 @@
     "title_en": "LLM · Language Model",
     "body_es": "Un modelo de lenguaje es un sistema entrenado en miles de millones de palabras para predecir qué token (palabra/sub-palabra) viene después basándose en patrones estadísticos. No 'entiende' como un humano — mapea relaciones entre conceptos con precisión matemática. Cada respuesta que ves es el resultado de cálculos de probabilidad sofisticados sobre el contexto que le diste. Ejemplos: GPT-4o (OpenAI), Claude Opus 4.7 (Anthropic), Gemini 2.0 (Google), Llama 4 (Meta).",
     "body_en": "A language model is a system trained on billions of words to predict what token (word/sub-word) comes next based on statistical patterns. It doesn't 'understand' like a human — it maps relationships between concepts with mathematical precision. Each response you see is the result of sophisticated probability calculations over the context you provided. Examples: GPT-4o (OpenAI), Claude Opus 4.7 (Anthropic), Gemini 2.0 (Google), Llama 4 (Meta).",
-    "when": "Cuando necesitás generar/transformar texto, código o estructura. Si la tarea es classify/predict numérico, un modelo tradicional puede ser más eficiente.",
-    "example": "Pedido: 'Resumí este reporte en 3 bullets'. El LLM lee tu reporte, calcula el siguiente token más probable miles de veces, produce 3 bullets coherentes. No 'leyó'  — modeló."
+    "when": "Cuando necesitas generar/transformar texto, código o estructura. Si la tarea es classify/predict numérico, un modelo tradicional puede ser más eficiente.",
+    "example": "Pedido: 'Resume este reporte en 3 bullets'. El LLM lee tu reporte, calcula el siguiente token más probable miles de veces, produce 3 bullets coherentes. No 'leyó'  — modeló."
   },
   "herramienta-ia": {
     "title_es": "Herramienta IA · Container del LLM",
     "title_en": "AI Tool · LLM Container",
     "body_es": "Una herramienta de IA es cualquier software que utiliza un LLM por debajo para resolver un problema específico. ChatGPT, Claude, Gemini son ejemplos generales (envases de propósito amplio). Pero también existen herramientas especializadas: Perplexity para investigación con citas, GitHub Copilot para código, Midjourney para imagen, NotebookLM para síntesis. La herramienta NO es la IA — es el envase que le agrega UI, memoria, herramientas externas y guardrails.",
     "body_en": "An AI tool is any software that uses an LLM underneath to solve a specific problem. ChatGPT, Claude, Gemini are general examples (broad-purpose containers). Specialized tools also exist: Perplexity for research with citations, GitHub Copilot for code, Midjourney for images, NotebookLM for synthesis. The tool is NOT the AI — it's the container that adds UI, memory, external tools and guardrails.",
-    "when": "Elegí la herramienta según la tarea. Para razonamiento profundo: Claude. Para integración Google: Gemini. Para investigación citada: Perplexity. Para Office: Copilot.",
-    "example": "ChatGPT y Claude usan LLMs distintos pero ambos son 'herramientas IA'. Si cambiás el LLM detrás (ej. ChatGPT con GPT-3.5 vs GPT-4o), la herramienta es la misma pero el output cambia drásticamente."
+    "when": "Elige la herramienta según la tarea. Para razonamiento profundo: Claude. Para integración Google: Gemini. Para investigación citada: Perplexity. Para Office: Copilot.",
+    "example": "ChatGPT y Claude usan LLMs distintos pero ambos son 'herramientas IA'. Si cambias el LLM detrás (ej. ChatGPT con GPT-3.5 vs GPT-4o), la herramienta es la misma pero el output cambia drásticamente."
   },
   "agente": {
     "title_es": "Agente IA · LLM con autonomía",
     "title_en": "AI Agent · LLM with autonomy",
     "body_es": "Un agente de IA es un sistema que puede ejecutar acciones — no solo generar texto, sino tomar decisiones, usar herramientas, investigar, iterar. Es como tener un asistente que puede no solo pensar, sino actuar. Los agentes representan la próxima frontera del prompting: en lugar de pedir una respuesta, definís un objetivo y el agente decide cómo lograrlo. Ejemplos: Claude Code, AutoGPT, AgentGPT, sistemas con MCP (Model Context Protocol).",
     "body_en": "An AI agent is a system that can execute actions — not just generate text, but make decisions, use tools, research, iterate. It's like having an assistant who can not only think but act. Agents represent the next frontier of prompting: instead of asking for a response, you define a goal and the agent decides how to achieve it. Examples: Claude Code, AutoGPT, AgentGPT, MCP-based systems.",
-    "when": "Cuando una tarea requiere múltiples pasos coordinados con tool use (búsqueda + escritura + ejecución + auditoría) y querés delegar el orquestamiento.",
+    "when": "Cuando una tarea requiere múltiples pasos coordinados con tool use (búsqueda + escritura + ejecución + auditoría) y quieres delegar el orquestamiento.",
     "example": "Le decís 'investigá X tema y dame reporte ejecutivo'. El agente: 1) busca en web, 2) lee 10 fuentes, 3) sintetiza, 4) escribe el reporte, 5) audita, 6) entrega. Tú no orquestás cada paso."
   },
   "gen-vs-trad": {
     "title_es": "Generativa vs Tradicional",
     "title_en": "Generative vs Traditional",
-    "body_es": "IA tradicional clasifica/predice: filtro spam, recomendaciones, scoring de crédito, detección de fraude. Recibe input → elige entre opciones predefinidas. IA generativa CREA contenido nuevo: texto, imagen, código, audio, video. Recibe input → produce output desde cero. El cambio fundamental: de 'elegir entre opciones' a 'producir desde cero con guidance'. Esto cambia QUÉ podés delegar.",
+    "body_es": "IA tradicional clasifica/predice: filtro spam, recomendaciones, scoring de crédito, detección de fraude. Recibe input → elige entre opciones predefinidas. IA generativa CREA contenido nuevo: texto, imagen, código, audio, video. Recibe input → produce output desde cero. El cambio fundamental: de 'elegir entre opciones' a 'producir desde cero con guidance'. Esto cambia QUÉ puedes delegar.",
     "body_en": "Traditional AI classifies/predicts: spam filter, recommendations, credit scoring, fraud detection. Takes input → picks among predefined options. Generative AI CREATES new content: text, image, code, audio, video. Takes input → produces output from scratch. The fundamental shift: from 'choose among options' to 'produce from scratch with guidance'. This changes WHAT you can delegate.",
     "when": "Tradicional: tareas con dataset cerrado y output discreto. Generativa: tareas creativas, redacción, código, análisis open-ended.",
     "example": "Tradicional: 'es este email spam?' → sí/no. Generativa: 'redactá una respuesta apropiada a este email' → texto nuevo basado en contexto."
@@ -42,7 +42,7 @@
   "interfaz-conversacional": {
     "title_es": "Interfaz Conversacional",
     "title_en": "Conversational Interface",
-    "body_es": "El chat es solo UNA forma de invocar al LLM, la más visible. También hay APIs (Anthropic API, OpenAI API), integraciones (Zapier, n8n, Power Automate), agentes con MCP, embeddings en aplicaciones propias. La conversación es accesible pero limita: el SPEC + invoke programático escala mejor para casos repetidos. Cuando dominás prompting, dejas de pensar en 'el chat' y empezás a pensar en 'invocaciones'.",
+    "body_es": "El chat es solo UNA forma de invocar al LLM, la más visible. También hay APIs (Anthropic API, OpenAI API), integraciones (Zapier, n8n, Power Automate), agentes con MCP, embeddings en aplicaciones propias. La conversación es accesible pero limita: el SPEC + invoke programático escala mejor para casos repetidos. Cuando dominas prompting, dejas de pensar en 'el chat' y empiezas a pensar en 'invocaciones'.",
     "body_en": "Chat is just ONE way to invoke the LLM, the most visible. There are also APIs (Anthropic API, OpenAI API), integrations (Zapier, n8n, Power Automate), MCP-based agents, embeddings in custom apps. Conversation is accessible but limits: SPEC + programmatic invoke scales better for repeated cases. When you master prompting, you stop thinking 'the chat' and start thinking 'invocations'.",
     "when": "Chat: tarea única, exploración. API: integración con tu workflow. Custom GPT/Gem: tarea repetitiva con system prompt fijo.",
     "example": "Si traduces 50 docs/mes manualmente vía ChatGPT, perdés tiempo. Una integración API con tu Notion automatiza la traducción al click. El método es el mismo; el envase cambia."
@@ -60,8 +60,8 @@
     "title_en": "Context Window",
     "body_es": "Tokens que el modelo 've' simultáneamente en una sesión. Cuanto más grande, más memoria de la conversación. Claude Sonnet 4.5: 200K tokens (~150K palabras). Gemini 2.0 Pro: 1M+ tokens (~750K palabras). Si tu input + el historial conversacional + la respuesta esperada superan el window, el modelo TRUNCA (olvida lo más viejo).",
     "body_en": "Tokens the model 'sees' simultaneously in a session. The bigger, the more memory of the conversation. Claude Sonnet 4.5: 200K tokens (~150K words). Gemini 2.0 Pro: 1M+ tokens (~750K words). If your input + conversational history + expected response exceeds the window, the model TRUNCATES (forgets the oldest).",
-    "when": "Crítico para análisis de documentos largos. Si vas a procesar un libro completo, elegí un modelo con window grande (Gemini 1M, Claude 200K) y NO ChatGPT (128K).",
-    "example": "Ejecutás una conversación de 5h. Después del token #200K, Claude empieza a olvidar el principio. Si necesitás continuidad, exportás resumen y arrancás sesión nueva."
+    "when": "Crítico para análisis de documentos largos. Si vas a procesar un libro completo, elige un modelo con window grande (Gemini 1M, Claude 200K) y NO ChatGPT (128K).",
+    "example": "Ejecutás una conversación de 5h. Después del token #200K, Claude empieza a olvidar el principio. Si necesitas continuidad, exportás resumen y arrancás sesión nueva."
   },
   "temperature": {
     "title_es": "Temperature · Aleatoriedad",
@@ -76,23 +76,23 @@
     "title_en": "System Prompt",
     "body_es": "Instrucción persistente y privilegiada que define rol, restricciones, formato y comportamiento del LLM antes de que el usuario interactúe. Invisible al usuario final. Custom GPTs, Gems de Gemini, Claude Projects: todos usan system prompt. Es el 'ADN' de la conversación: si lo cambias, cambia toda la personalidad del asistente.",
     "body_en": "Persistent privileged instruction defining role, constraints, format and LLM behavior before the user interacts. Invisible to the end user. Custom GPTs, Gemini Gems, Claude Projects: all use system prompts. It's the 'DNA' of the conversation: change it and the entire assistant personality changes.",
-    "when": "Cuando vas a tener una conversación recurrente del mismo tipo. Diseñá system prompt una vez, ahorrá repetir contexto cada sesión.",
+    "when": "Cuando vas a tener una conversación recurrente del mismo tipo. Diseña system prompt una vez, ahorrá repetir contexto cada sesión.",
     "example": "System prompt 'Sos coach senior de ventas B2B. Nunca des consejo sin pedir contexto del deal. Respondé en estructura: diagnóstico → opciones → recomendación.' Toda interacción posterior cumple eso."
   },
   "few-shot": {
     "title_es": "Few-Shot vs Zero-Shot",
     "title_en": "Few-Shot vs Zero-Shot",
-    "body_es": "Zero-shot: solo describís la tarea. 'Resumí este texto'. Few-shot: das 2-5 ejemplos del input/output deseado. 'Acá hay 3 ejemplos de cómo quiero el resumen: [ejemplo1] → [resumen1], [ejemplo2] → [resumen2], [ejemplo3] → [resumen3]. Ahora resumí esto: [tu texto].' Few-shot mejora calidad ~30% para tareas con formato específico.",
+    "body_es": "Zero-shot: solo describís la tarea. 'Resume este texto'. Few-shot: das 2-5 ejemplos del input/output deseado. 'Acá hay 3 ejemplos de cómo quiero el resumen: [ejemplo1] → [resumen1], [ejemplo2] → [resumen2], [ejemplo3] → [resumen3]. Ahora resume esto: [tu texto].' Few-shot mejora calidad ~30% para tareas con formato específico.",
     "body_en": "Zero-shot: only describe the task. 'Summarize this text'. Few-shot: give 2-5 examples of desired input/output. 'Here are 3 examples of how I want the summary: [ex1] → [sum1], [ex2] → [sum2], [ex3] → [sum3]. Now summarize this: [your text].' Few-shot improves quality ~30% for tasks with specific format.",
-    "when": "Few-shot cuando: el formato es no-trivial, la tarea es ambigua sin ejemplo, querés calibrar tono/estilo. Zero-shot cuando: tarea estándar, el modelo ya 'sabe' el patrón.",
+    "when": "Few-shot cuando: el formato es no-trivial, la tarea es ambigua sin ejemplo, quieres calibrar tono/estilo. Zero-shot cuando: tarea estándar, el modelo ya 'sabe' el patrón.",
     "example": "Zero-shot: 'Clasificá este email'. Few-shot: 'Clasificá. Ejemplos: [Email A] → URGENTE, [Email B] → INFORMATIVO, [Email C] → ACCIONABLE. Ahora: [tu email].'"
   },
   "chain-of-thought": {
     "title_es": "Chain-of-Thought · CoT",
     "title_en": "Chain-of-Thought · CoT",
-    "body_es": "Técnica donde le pedís al LLM que muestre su razonamiento paso a paso ANTES de la respuesta final. Frase mágica: 'Pensá paso a paso antes de responder.' o 'Show your work.' Reduce errores en problemas complejos (matemáticos, lógicos, decisiones multi-criterio) en ~40%. Cuesta más tokens pero mejora drásticamente la calidad.",
+    "body_es": "Técnica donde le pedís al LLM que muestre su razonamiento paso a paso ANTES de la respuesta final. Frase mágica: 'Piensa paso a paso antes de responder.' o 'Show your work.' Reduce errores en problemas complejos (matemáticos, lógicos, decisiones multi-criterio) en ~40%. Cuesta más tokens pero mejora drásticamente la calidad.",
     "body_en": "Technique where you ask the LLM to show its reasoning step by step BEFORE the final answer. Magic phrase: 'Think step by step before answering.' Reduces errors on complex problems (math, logic, multi-criteria decisions) by ~40%. Costs more tokens but drastically improves quality.",
-    "when": "Activá CoT cuando: problema multi-paso, decisión con criterios, análisis con dependencias. NO lo necesitás para tareas simples (una pregunta directa, traducción).",
+    "when": "Activá CoT cuando: problema multi-paso, decisión con criterios, análisis con dependencias. NO lo necesitas para tareas simples (una pregunta directa, traducción).",
     "example": "Sin CoT: 'Si compré 12 mensajes a $3 y vendí 8 a $7, ¿gané?' → respuesta directa (puede equivocarse). Con CoT: razona costo total, ingreso, diferencia → respuesta verificable."
   },
   "alucinacion": {
@@ -101,14 +101,14 @@
     "body_es": "Output que suena correcto pero es factualmente falso. El LLM inventa una cita, un dato, una fecha, una persona. Síntoma de baja confianza no declarada: el modelo prefiere completar la frase 'plausible' que admitir 'no sé'. La cláusula NO_ALUCINACIÓN_EXPLÍCITA del SPEC v3.4 fuerza al modelo a marcar {VACIO_CRITICO} cuando le falta info.",
     "body_en": "Output that sounds correct but is factually false. The LLM invents a citation, fact, date, person. Symptom of undeclared low confidence: the model prefers completing the 'plausible' sentence to admitting 'I don't know'. SPEC v3.4's NO_HALLUCINATION_EXPLICIT clause forces the model to mark {CRITICAL_GAP} when info is missing.",
     "when": "Riesgo alto en: hechos verificables (citas, números, fechas, leyes, personas reales). Riesgo bajo en: opinión, redacción creativa, brainstorming.",
-    "example": "Pedís 'qué dijo Steve Jobs sobre X en 2003'. El LLM puede inventar una cita perfectamente verosímil. Solución: pedí citas con fuente verificable, o usá Perplexity (cita web)."
+    "example": "Pedís 'qué dijo Steve Jobs sobre X en 2003'. El LLM puede inventar una cita perfectamente verosímil. Solución: pide citas con fuente verificable, o usá Perplexity (cita web)."
   },
   "fine-tuning": {
     "title_es": "Fine-Tuning · Re-entrenamiento",
     "title_en": "Fine-Tuning · Re-training",
-    "body_es": "Re-entrenamiento del modelo con datos propios para especializarlo. Costoso (miles de USD), lento (días), requiere infraestructura ML. Casi siempre gana SPEC + few-shot. Solo justifica fine-tuning cuando: (a) tenés 10K+ ejemplos consistentes, (b) dominio muy específico (médico, legal, código de un sistema propio), (c) latencia crítica donde no podés permitirte un prompt largo.",
+    "body_es": "Re-entrenamiento del modelo con datos propios para especializarlo. Costoso (miles de USD), lento (días), requiere infraestructura ML. Casi siempre gana SPEC + few-shot. Solo justifica fine-tuning cuando: (a) tienes 10K+ ejemplos consistentes, (b) dominio muy específico (médico, legal, código de un sistema propio), (c) latencia crítica donde no puedes permitirte un prompt largo.",
     "body_en": "Re-training the model with custom data to specialize it. Expensive (thousands USD), slow (days), requires ML infrastructure. SPEC + few-shot almost always wins. Fine-tuning only justifies when: (a) 10K+ consistent examples, (b) very specific domain (medical, legal, custom system code), (c) critical latency where long prompts aren't viable.",
-    "when": "Casi nunca. Antes de fine-tuning, probá: SPEC riguroso + few-shot + RAG. Resuelve 95% de los casos.",
+    "when": "Casi nunca. Antes de fine-tuning, prueba: SPEC riguroso + few-shot + RAG. Resuelve 95% de los casos.",
     "example": "Una empresa con 50K tickets de soporte ya etiquetados puede fine-tunear un modelo para clasificar tickets. Pero antes debe probar few-shot con 10 ejemplos: a veces es suficiente."
   },
   "rag": {
@@ -116,7 +116,7 @@
     "title_en": "RAG · Retrieval-Augmented Generation",
     "body_es": "Patrón donde antes de responder, el sistema BUSCA en una base de conocimiento propia (vectorial, semántica) y le pasa al LLM la información relevante junto con la pregunta. Reduce alucinación a casi cero en su dominio. Es lo que hacen NotebookLM, Custom GPTs con knowledge base, Claude Projects con archivos.",
     "body_en": "Pattern where before responding, the system SEARCHES a custom knowledge base (vector, semantic) and feeds the LLM the relevant info together with the question. Reduces hallucination to near zero in its domain. It's what NotebookLM, Custom GPTs with knowledge base, Claude Projects with files do.",
-    "when": "Cuando tenés una base de conocimiento extensa (docs internos, papers, base de jurisprudencia) y necesitás que el LLM responda con esa info, no inventando.",
+    "when": "Cuando tienes una base de conocimiento extensa (docs internos, papers, base de jurisprudencia) y necesitas que el LLM responda con esa info, no inventando.",
     "example": "Subís 200 PDFs de docs de tu empresa a Claude Project. Preguntás 'cuál es nuestra política X'. El RAG busca en los PDFs, le pasa los párrafos relevantes a Claude, Claude responde citando."
   },
   "embedding": {
@@ -138,9 +138,9 @@
   "pilar-claridad": {
     "title_es": "Pilar 1 · Claridad",
     "title_en": "Pillar 1 · Clarity",
-    "body_es": "Verbo en imperativo. Una instrucción por frase. Sin ambigüedades. Si lo lees y no sabés qué pide, la IA tampoco. Reglas: 1) Empieza con verbo accionable (Diseñá, Analizá, Resumí, Convertí). 2) Una idea por oración. 3) Cero meta-comentarios ('si pudieras tal vez quizás...'). 4) Cero modismos sin definir.",
+    "body_es": "Verbo en imperativo. Una instrucción por frase. Sin ambigüedades. Si lo lees y no sabes qué pide, la IA tampoco. Reglas: 1) Empieza con verbo accionable (Diseña, Analizá, Resume, Convertí). 2) Una idea por oración. 3) Cero meta-comentarios ('si pudieras tal vez quizás...'). 4) Cero modismos sin definir.",
     "body_en": "Imperative verb. One instruction per sentence. No ambiguities. If you read it and don't know what it asks, neither does the AI. Rules: 1) Start with action verb (Design, Analyze, Summarize, Convert). 2) One idea per sentence. 3) Zero meta-comments ('if you could maybe perhaps...'). 4) Zero idioms without definition.",
-    "errors": "Mal: 'Si pudieras ayudarme con algo de marketing, sería genial'. Bien: 'Diseñá una estrategia de marketing en 3 fases para mi empresa SaaS B2B'.",
+    "errors": "Mal: 'Si pudieras ayudarme con algo de marketing, sería genial'. Bien: 'Diseña una estrategia de marketing en 3 fases para mi empresa SaaS B2B'.",
     "example": "Mal prompt: '¿Qué pensás del SEO?' (vago). Bien: 'Explicá los 5 factores de SEO on-page más importantes en 2026, ordenados por impacto medible.'"
   },
   "pilar-contexto": {
@@ -154,17 +154,17 @@
   "pilar-especificidad": {
     "title_es": "Pilar 3 · Especificidad",
     "title_en": "Pillar 3 · Specificity",
-    "body_es": "'Resumí' es vago. 'Resumí en 3 viñetas accionables para mi jefe el lunes' es específico. Incluye dimensiones: tamaño (palabras/bullets/tabla), audiencia (jefe técnico vs cliente), deadline implícito, formato (markdown/JSON), tono. Cada dimensión que dejás vaga, la IA la elige (mal, normalmente).",
+    "body_es": "'Resume' es vago. 'Resume en 3 viñetas accionables para mi jefe el lunes' es específico. Incluye dimensiones: tamaño (palabras/bullets/tabla), audiencia (jefe técnico vs cliente), deadline implícito, formato (markdown/JSON), tono. Cada dimensión que dejás vaga, la IA la elige (mal, normalmente).",
     "body_en": "'Summarize' is vague. 'Summarize in 3 actionable bullets for my boss Monday' is specific. Include dimensions: size (words/bullets/table), audience (technical boss vs client), implicit deadline, format (markdown/JSON), tone. Every vague dimension, the AI picks (badly, usually).",
     "errors": "Vago: 'Mejorá esta propuesta'. Específico: 'Mejorá esta propuesta para hacer 5 cambios concretos: 1) tono más directo, 2) cifras más prominentes, 3) eliminar jerga, 4) agregar CTA al final, 5) reducir 30%.'",
-    "example": "Pedís 'resumí' → recibís texto continuo de longitud aleatoria. Pedís 'resumí en 5 bullets de máximo 15 palabras cada uno, ordenados por importancia' → output predecible y útil."
+    "example": "Pedís 'resume' → recibes texto continuo de longitud aleatoria. Pedís 'resume en 5 bullets de máximo 15 palabras cada uno, ordenados por importancia' → output predecible y útil."
   },
   "pilar-formato": {
     "title_es": "Pilar 4 · Formato",
     "title_en": "Pillar 4 · Format",
-    "body_es": "Tabla con columnas X/Y/Z. Markdown. JSON. CSV. Bullet points. Texto continuo. Decir el formato evita un round-trip de 'ahora ponelo en tabla'. Si necesitás máquina-procesable: pedí JSON con schema. Si es para presentación: pedí markdown estructurado. Si es para análisis: pedí tabla con columnas específicas.",
+    "body_es": "Tabla con columnas X/Y/Z. Markdown. JSON. CSV. Bullet points. Texto continuo. Decir el formato evita un round-trip de 'ahora ponelo en tabla'. Si necesitas máquina-procesable: pide JSON con schema. Si es para presentación: pide markdown estructurado. Si es para análisis: pide tabla con columnas específicas.",
     "body_en": "Table with columns X/Y/Z. Markdown. JSON. CSV. Bullet points. Continuous text. Stating format avoids a 'now put it in a table' round-trip. If you need machine-processable: ask JSON with schema. If presentation: ask structured markdown. If analysis: ask table with specific columns.",
-    "errors": "Sin formato: 'Listá las 10 mejores empresas SaaS'. Con formato: 'Tabla con: Empresa | Mercado | ARR | Crecimiento YoY | Razón estratégica.'",
+    "errors": "Sin formato: 'Lista las 10 mejores empresas SaaS'. Con formato: 'Tabla con: Empresa | Mercado | ARR | Crecimiento YoY | Razón estratégica.'",
     "example": "Output sin formato: párrafo continuo difícil de escanear. Output con formato 'tabla 3 columnas + 5 filas' → escanéable, comparable, útil."
   },
   "pilar-ejemplos": {
@@ -172,8 +172,8 @@
     "title_en": "Pillar 5 · Examples · Few-shot",
     "body_es": "Few-shot: 2-3 ejemplos del output deseado dentro del prompt. Le ahorra a la IA inferir el patrón. Calidad sube ~30%. Patrón: 'Acá hay ejemplos del estilo que quiero: [Ej 1] [Ej 2]. Ahora hacé lo mismo con: [tu input].' Sirve especialmente cuando el formato es no-trivial o el tono es específico.",
     "body_en": "Few-shot: 2-3 examples of desired output inside the prompt. Saves the AI from inferring the pattern. Quality up ~30%. Pattern: 'Here are examples of the style I want: [Ex 1] [Ex 2]. Now do the same with: [your input].' Especially useful when format is non-trivial or tone is specific.",
-    "errors": "Sin ejemplo (zero-shot) para tarea ambigua: 'Escribí un tweet sobre productividad'. Con ejemplo (few-shot): pegás 3 tweets que te gustan + 'Ahora escribí 1 más en el mismo estilo sobre productividad'.",
-    "example": "Pedís reescritura de email formal a casual sin ejemplo: el resultado puede ser 'cool' o 'tipo amigo'. Con 2 ejemplos de tu estilo casual: la IA calibra exactamente al registro que querés."
+    "errors": "Sin ejemplo (zero-shot) para tarea ambigua: 'Escribe un tweet sobre productividad'. Con ejemplo (few-shot): pegás 3 tweets que te gustan + 'Ahora escribe 1 más en el mismo estilo sobre productividad'.",
+    "example": "Pedís reescritura de email formal a casual sin ejemplo: el resultado puede ser 'cool' o 'tipo amigo'. Con 2 ejemplos de tu estilo casual: la IA calibra exactamente al registro que quieres."
   },
   "anat-rol": {
     "title_es": "Rol",
@@ -194,12 +194,12 @@
     "title_en": "Task",
     "body_es": "Verbo en imperativo + objeto + propósito. 'Diseña una estrategia X para lograr Y, dirigida a Z'. La tarea concreta dirige la energía del LLM. Sin tarea clara, divaga. Con tarea concreta, ejecuta.",
     "body_en": "Imperative verb + object + purpose. 'Design strategy X to achieve Y, targeted at Z'. The concrete task directs the LLM's energy. Without clear task, it rambles. With concrete task, it executes.",
-    "example": "Vago: 'Pensá sobre marketing'. Concreto: 'Diseñá una campaña de email de 5 envíos para activar usuarios free tier en mi SaaS, con objetivo conversión a paid 8%.'"
+    "example": "Vago: 'Piensa sobre marketing'. Concreto: 'Diseña una campaña de email de 5 envíos para activar usuarios free tier en mi SaaS, con objetivo conversión a paid 8%.'"
   },
   "anat-formato": {
     "title_es": "Formato",
     "title_en": "Format",
-    "body_es": "Cómo querés el output. Tabla, JSON, párrafo, slide deck. Incluye: longitud (palabras/items), idioma, registro (formal/casual), elementos (con/sin emoji, con/sin links). Cuanto más específico el formato, menos round-trips.",
+    "body_es": "Cómo quieres el output. Tabla, JSON, párrafo, slide deck. Incluye: longitud (palabras/items), idioma, registro (formal/casual), elementos (con/sin emoji, con/sin links). Cuanto más específico el formato, menos round-trips.",
     "body_en": "How you want the output. Table, JSON, paragraph, slide deck. Include: length (words/items), language, register (formal/casual), elements (with/without emoji, links). The more specific, fewer round-trips.",
     "example": "Sin formato: 'Listame los riesgos'. Con formato: 'Tabla con columnas: Riesgo | Probabilidad (1-5) | Impacto (1-5) | Mitigación. Mín 5 filas, ordenadas por Probabilidad × Impacto desc.'"
   },
@@ -208,35 +208,35 @@
     "title_en": "Constraints",
     "body_es": "Lo que NO debe hacer. Cero jerga, no inventes datos, no más de 200 palabras, sin emoji, sin abreviaturas. Los negativos PROTEGEN tu output. Cada restricción que omitís, la IA puede violar (no sabe que era importante).",
     "body_en": "What it must NOT do. No jargon, don't invent data, no more than 200 words, no emoji, no abbreviations. Negatives PROTECT your output. Every constraint you omit, the AI may violate (didn't know it mattered).",
-    "example": "Sin restricciones: 'Resumí'. Con restricciones: 'Resumí en máx 100 palabras, sin emoji, sin jerga técnica, sin frases vacías como \"en última instancia\" o \"básicamente\".'"
+    "example": "Sin restricciones: 'Resume'. Con restricciones: 'Resume en máx 100 palabras, sin emoji, sin jerga técnica, sin frases vacías como \"en última instancia\" o \"básicamente\".'"
   },
   "anat-ejemplos": {
     "title_es": "Ejemplos",
     "title_en": "Examples",
     "body_es": "Few-shot opcional pero potente. 2-3 ejemplos del input/output deseado calibran al modelo a tu estándar. Especialmente útil si el formato es no-trivial o el tono es específico. Costo: tokens. Beneficio: calidad ~30% mejor.",
     "body_en": "Optional but powerful few-shot. 2-3 input/output examples calibrate the model to your standard. Especially useful if format is non-trivial or tone is specific. Cost: tokens. Benefit: ~30% better quality.",
-    "example": "Para reescribir emails formales a casuales: pegás 3 ejemplos de tus emails casuales. La IA calibra exactamente al registro que vos querés."
+    "example": "Para reescribir emails formales a casuales: pegás 3 ejemplos de tus emails casuales. La IA calibra exactamente al registro que vos quieres."
   },
   "tax-directa": {
     "title_es": "Instrucción Directa",
     "title_en": "Direct Instruction",
-    "body_es": "Tarea acotada con output predecible. 'Resumí este texto', 'Traducí al inglés', 'Convertí a JSON'. La IA sabe qué hacer; vos decís el formato.",
+    "body_es": "Tarea acotada con output predecible. 'Resume este texto', 'Traducí al inglés', 'Convertí a JSON'. La IA sabe qué hacer; vos decís el formato.",
     "body_en": "Bounded task with predictable output. 'Summarize this text', 'Translate to English', 'Convert to JSON'. The AI knows what to do; you say the format.",
-    "when": "Cuando la tarea es estándar y bien conocida. Mejor con few-shot si querés un formato exacto."
+    "when": "Cuando la tarea es estándar y bien conocida. Mejor con few-shot si quieres un formato exacto."
   },
   "tax-conversacional": {
     "title_es": "Conversacional",
     "title_en": "Conversational",
-    "body_es": "Diálogo iterativo. Pregunta → respuesta → refinamiento → nueva pregunta. Útil para explorar ideas, brainstorming guiado, sesiones de coaching. Cuidado: en sesiones largas se pierde hilo (resumí cada 30 min).",
+    "body_es": "Diálogo iterativo. Pregunta → respuesta → refinamiento → nueva pregunta. Útil para explorar ideas, brainstorming guiado, sesiones de coaching. Cuidado: en sesiones largas se pierde hilo (resume cada 30 min).",
     "body_en": "Iterative dialogue. Question → answer → refinement → new question. Useful for exploring ideas, guided brainstorming, coaching sessions. Beware: long sessions lose thread (summarize every 30 min).",
     "when": "Cuando explorás un problema sin saber 100% qué pedir. Iteración te ayuda a aclarar."
   },
   "tax-creativo": {
     "title_es": "Creativo",
     "title_en": "Creative",
-    "body_es": "Escritura, ideación, brainstorming, generación de variantes. Temperature alta, restricciones bajas. Pedile variantes (3-5) y elegí. La IA es buena 'productora'; tú elegís.",
+    "body_es": "Escritura, ideación, brainstorming, generación de variantes. Temperature alta, restricciones bajas. Pídele variantes (3-5) y elige. La IA es buena 'productora'; tú elegís.",
     "body_en": "Writing, ideation, brainstorming, variant generation. High temperature, low constraints. Ask for variants (3-5) and choose. AI is good 'producer'; you pick.",
-    "when": "Cuando necesitás cantidad antes que precisión. Brainstorming, naming, copy alternativos."
+    "when": "Cuando necesitas cantidad antes que precisión. Brainstorming, naming, copy alternativos."
   },
   "tax-analitico": {
     "title_es": "Analítico",
@@ -248,9 +248,9 @@
   "tax-extractivo": {
     "title_es": "Extractivo",
     "title_en": "Extractive",
-    "body_es": "Sacar info estructurada de texto desordenado. Pedí JSON/tabla con campos exactos. Cero invención: si un campo no aparece, debe quedar null o {VACIO_CRITICO}.",
+    "body_es": "Sacar info estructurada de texto desordenado. Pide JSON/tabla con campos exactos. Cero invención: si un campo no aparece, debe quedar null o {VACIO_CRITICO}.",
     "body_en": "Pull structured info from messy text. Ask for JSON/table with exact fields. Zero invention: if a field doesn't appear, leave it null or {CRITICAL_GAP}.",
-    "when": "Cuando recibís texto crudo (transcripts, emails, notas) y necesitás estructura para análisis posterior."
+    "when": "Cuando recibes texto crudo (transcripts, emails, notas) y necesitas estructura para análisis posterior."
   },
   "tax-transformacional": {
     "title_es": "Conversor",
@@ -278,7 +278,7 @@
     "title_en": "Gemini (Google)",
     "body_es": "Integración con ecosistema Google (Drive, Calendar, Sheets, Gmail). Context window 1M+ (más que cualquiera). Multimodal nativo. Gems (custom system prompts). Bueno para usuarios pesados de Google Workspace.",
     "body_en": "Google ecosystem integration (Drive, Calendar, Sheets, Gmail). 1M+ context window (more than anyone). Native multimodal. Gems (custom system prompts). Good for heavy Google Workspace users.",
-    "when": "Cuando trabajás dentro de Google Workspace. Análisis de documentos muy largos (1M tokens). Gratis o $20/mes Advanced."
+    "when": "Cuando trabajas dentro de Google Workspace. Análisis de documentos muy largos (1M tokens). Gratis o $20/mes Advanced."
   },
   "stack-perplexity": {
     "title_es": "Perplexity (IA)",
@@ -304,7 +304,7 @@
   "attr-sistematico": {
     "title_es": "Sistemático",
     "title_en": "Systematic",
-    "body_es": "Cada paso del prompt tiene precondición, entregable y validación. Nada al azar. La diferencia entre 'sale algo' y 'sale lo que pedí' es el método. Sistemático = auditable.",
+    "body_es": "Cada paso del prompt tiene precondición, entregable y validación. Nada al azar. La diferencia entre 'sale algo' y 'sale lo que pide' es el método. Sistemático = auditable.",
     "body_en": "Every prompt step has precondition, deliverable, validation. Nothing random. Difference between 'something comes out' and 'what I asked for came out' is method. Systematic = auditable.",
     "rubric": "¿Podés explicar paso a paso por qué tu prompt produjo ese output? Sí = sistemático."
   },
@@ -327,7 +327,7 @@
     "title_en": "Portable",
     "body_es": "Funciona standalone fuera del hilo original. Cero contexto invisible. Si copias el SPEC a otra sesión, sigue funcionando. Portabilidad = independencia del provider/sesión.",
     "body_en": "Works standalone outside the original thread. Zero invisible context. If you copy the SPEC to another session, it still works. Portability = independence from provider/session.",
-    "rubric": "¿Lo ejecutás en otra sesión (incluso otro modelo) y funciona? Sí = portable."
+    "rubric": "¿Lo ejecutas en otra sesión (incluso otro modelo) y funciona? Sí = portable."
   },
   "attr-metacognitivo": {
     "title_es": "Metacognitivo",
@@ -452,7 +452,7 @@
     "title_en": "NO_ALUCINACIÓN_EXPLÍCITA",
     "params": "prohibición=alta·declarar_brechas=obligatorio",
     "is_new": true,
-    "body_es": "Nunca afirmás acceso a memoria, historial, adjuntos o herramientas que no estén disponibles. Si tu afirmación requiere material no presente, declarás {VACIO_CRITICO}. Si tu inferencia tiene confianza < 0.85, separás con {INFERENCIA}.",
+    "body_es": "Nunca afirmás acceso a memoria, historial, adjuntos o herramientas que no estén disponibles. Si tu afirmación requiere material no presente, declaras {VACIO_CRITICO}. Si tu inferencia tiene confianza < 0.85, separás con {INFERENCIA}.",
     "body_en": "Never claim access to memory, history, attachments or tools not available. If your claim requires absent material, declare {CRITICAL_GAP}. If your inference has confidence < 0.85, separate with {INFERENCE}.",
     "override": "Override al vuelo: invocá con `NO_ALUCINACIÓN_EXPLÍCITA: parametro=valor` en tu prompt."
   },
@@ -498,7 +498,7 @@
     "title_en": "U · Use of inputs",
     "body_es": "Cada input declarado se usa en EJECUCIÓN o CRITERIO. Cero huérfanos (declarados pero ignorados). Threshold ≥100 (binario).",
     "body_en": "Every declared input used in EXECUTION or CRITERION. Zero orphans (declared but ignored). Threshold ≥100 (binary).",
-    "rubric": "¿Cada input que declarás aparece en EJECUCIÓN o CRITERIO? Sí = uso pass."
+    "rubric": "¿Cada input que declaras aparece en EJECUCIÓN o CRITERIO? Sí = uso pass."
   },
   "ent-s": {
     "title_es": "S · Structure",
@@ -526,7 +526,7 @@
     "title_en": "{SUPUESTO}",
     "body_es": "Hipótesis provisional sin evidencia suficiente. Marca lo que asumís sin poder verificar. Distinto de {INFERENCIA} (que sí tiene base en señales) o {VACIO_CRITICO} (que es bloqueante).",
     "body_en": "Provisional hypothesis without sufficient evidence. Marks what you assume without being able to verify. Different from {INFERENCE} (which has base in signals) or {CRITICAL_GAP} (which is blocking).",
-    "when": "Cuando hay un componente de tu output que asumiste pero no podés citar fuente. Mejor marcar que ocultar."
+    "when": "Cuando hay un componente de tu output que asumiste pero no puedes citar fuente. Mejor marcar que ocultar."
   },
   "tag-inferencia": {
     "title_es": "{INFERENCIA}",
@@ -582,21 +582,21 @@
     "title_en": "{POR_CONFIRMAR}",
     "body_es": "Dato usado provisionalmente que debe ser validado antes de cerrar una decisión relevante. Le pide al usuario verificar.",
     "body_en": "Provisional data that must be validated before closing a relevant decision. Asks user to verify.",
-    "when": "Cuando incluyes un dato (número, cita, nombre) cuya fuente no podés verificar 100%."
+    "when": "Cuando incluyes un dato (número, cita, nombre) cuya fuente no puedes verificar 100%."
   },
   "tag-vacio": {
     "title_es": "{VACIO_CRITICO}",
     "title_en": "{VACIO_CRITICO}",
     "body_es": "Información faltante que impide avanzar con confianza suficiente. Bloqueante. Distinto de {SUPUESTO}: este NO se puede defender, ese sí.",
     "body_en": "Missing information that prevents advancing with sufficient confidence. Blocking. Different from {ASSUMPTION}: this can't be defended.",
-    "when": "Cuando un dato es OBLIGATORIO para tu output y no lo tenés. Forzás al usuario a darlo o aceptás operar incompleto."
+    "when": "Cuando un dato es OBLIGATORIO para tu output y no lo tienes. Forzás al usuario a darlo o aceptás operar incompleto."
   },
   "dsv-d": {
     "title_es": "D · DECOMPOSE (DSVSR · paso 1)",
     "title_en": "D · DECOMPOSE (DSVSR · step 1)",
-    "body_es": "Divide el problema en sub-problemas atómicos, dependencias y orden lógico. Antes de resolver, listá los sub-pasos. La descomposición previene 'salto al resultado' que es donde más se equivoca el LLM.",
+    "body_es": "Divide el problema en sub-problemas atómicos, dependencias y orden lógico. Antes de resolver, lista los sub-pasos. La descomposición previene 'salto al resultado' que es donde más se equivoca el LLM.",
     "body_en": "Divide the problem into atomic sub-problems, dependencies and logical order. Before solving, list sub-steps. Decomposition prevents 'jump to result' where LLM most errs.",
-    "example": "Pregunta compuesta: 'Diseñá go-to-market'. Decompose: 1) Análisis ICP, 2) Pricing, 3) Canales, 4) Mensajes, 5) Métricas, 6) Cronograma."
+    "example": "Pregunta compuesta: 'Diseña go-to-market'. Decompose: 1) Análisis ICP, 2) Pricing, 3) Canales, 4) Mensajes, 5) Métricas, 6) Cronograma."
   },
   "dsv-s1": {
     "title_es": "S · SOLVE (DSVSR · paso 2)",
@@ -629,7 +629,7 @@
   "cot-basico": {
     "title_es": "CoT Básico",
     "title_en": "CoT Básico",
-    "body_es": "'Pensá paso a paso antes de responder'. Funciona en 90% de casos. Costo cero. La forma más simple de subir calidad de razonamiento. El modelo expone su trabajo intermedio antes del resultado final.",
+    "body_es": "'Piensa paso a paso antes de responder'. Funciona en 90% de casos. Costo cero. La forma más simple de subir calidad de razonamiento. El modelo expone su trabajo intermedio antes del resultado final.",
     "body_en": "'Think step by step before answering'. Works in 90% of cases. Zero cost. Simplest way to lift reasoning quality. Model exposes intermediate work before final result.",
     "when": "Activalo siempre en problemas de razonamiento, matemáticos, decisiones multi-criterio. Innecesario para tareas simples (traducir, formato)."
   },
@@ -638,14 +638,14 @@
     "title_en": "CoT con Ejemplos · Few-shot CoT",
     "body_es": "Few-shot CoT: 2-3 ejemplos de 'input → razonamiento → output'. Calibra el modelo a tu estilo de razonar. Más potente que CoT simple en problemas con patrón específico de razonamiento.",
     "body_en": "Few-shot CoT: 2-3 examples of 'input → reasoning → output'. Calibrates the model to your reasoning style. More powerful than simple CoT in problems with specific reasoning pattern.",
-    "when": "Cuando tu razonamiento sigue un patrón propio (auditoría, diagnóstico médico, debugging) y querés que lo reproduzca."
+    "when": "Cuando tu razonamiento sigue un patrón propio (auditoría, diagnóstico médico, debugging) y quieres que lo reproduzca."
   },
   "cot-tot": {
     "title_es": "Tree of Thought · ToT",
     "title_en": "Tree of Thought · ToT",
     "body_es": "Explora múltiples caminos en paralelo, evalúa cada uno, elige el mejor. El LLM genera 3-5 ramas, las puntúa, expande la mejor. Costoso pero potente para problemas combinatorios o creativos.",
     "body_en": "Explores multiple paths in parallel, evaluates each, picks best. LLM generates 3-5 branches, scores them, expands the best. Expensive but powerful for combinatorial or creative problems.",
-    "when": "Cuando hay múltiples caminos válidos y necesitás explorar antes de comprometerte (estrategias, diseño, problemas con muchos sub-óptimos locales)."
+    "when": "Cuando hay múltiples caminos válidos y necesitas explorar antes de comprometerte (estrategias, diseño, problemas con muchos sub-óptimos locales)."
   },
   "cot-self": {
     "title_es": "Self-Consistency",
@@ -657,7 +657,7 @@
   "cot-meta": {
     "title_es": "Reflexión metacognitiva",
     "title_en": "Reflexión metacognitiva",
-    "body_es": "'Antes de cerrar, audita lo que escribiste contra estos criterios y corregí'. Es el bucle de excelencia activo (cláusula BUCLE_DE_EXCELENCIA del SPEC v3.4). El modelo se autoevalúa antes de entregar.",
+    "body_es": "'Antes de cerrar, audita lo que escribiste contra estos criterios y corrige'. Es el bucle de excelencia activo (cláusula BUCLE_DE_EXCELENCIA del SPEC v3.4). El modelo se autoevalúa antes de entregar.",
     "body_en": "'Before closing, audit what you wrote against these criteria and correct'. It's the active excellence loop (BUCLE_DE_EXCELENCIA clause in SPEC v3.4). Model self-evaluates before delivering.",
     "when": "Activá esto cuando la calidad importa más que la velocidad. Iteración mejora el output ~25% en una sola vuelta interna."
   },
@@ -678,7 +678,7 @@
   "elite-2-voting": {
     "title_es": "Self-Consistency Voting",
     "title_en": "Self-Consistency Voting",
-    "body_es": "Misma pregunta, N respuestas independientes (temperatura alta o múltiples sesiones). Mayoría gana. Útil para problemas determinísticos donde hay UNA respuesta correcta y querés certeza estadística.",
+    "body_es": "Misma pregunta, N respuestas independientes (temperatura alta o múltiples sesiones). Mayoría gana. Útil para problemas determinísticos donde hay UNA respuesta correcta y quieres certeza estadística.",
     "body_en": "Same question, N independent answers (high temperature or multiple sessions). Majority wins. Useful for deterministic problems with ONE correct answer where you want statistical certainty.",
     "example": "Pregunta matemática compleja. Ejecutás 5 veces con temperature 0.7. 4 de 5 dan 186; 1 da 192. Confianza alta: respuesta es 186."
   },
@@ -699,9 +699,9 @@
   "elite-5-multimodal": {
     "title_es": "Multi-Modal Reasoning",
     "title_en": "Multi-Modal Reasoning",
-    "body_es": "Combinar texto + imagen + audio en el mismo prompt. 'Mirá esta gráfica y analizá la tendencia' o 'transcribí este audio + resumí en bullets'. Multiplica casos de uso. GPT-4o, Gemini, Claude 3.5+ son multimodales nativos.",
+    "body_es": "Combinar texto + imagen + audio en el mismo prompt. 'Mirá esta gráfica y analizá la tendencia' o 'transcribí este audio + resume en bullets'. Multiplica casos de uso. GPT-4o, Gemini, Claude 3.5+ son multimodales nativos.",
     "body_en": "Combine text + image + audio in same prompt. 'Look at this chart and analyze the trend' or 'transcribe this audio + summarize in bullets'. Multiplies use cases. GPT-4o, Gemini, Claude 3.5+ are native multimodal.",
-    "example": "Subís foto de un dashboard. 'Analizá las métricas, identificá las 3 anomalías más críticas y propone hipótesis de causa'. La IA lee la imagen, razona, responde."
+    "example": "Subís foto de un dashboard. 'Analizá las métricas, identifica las 3 anomalías más críticas y propone hipótesis de causa'. La IA lee la imagen, razona, responde."
   },
   "elite-6-orchestration": {
     "title_es": "Agent Orchestration",
@@ -722,7 +722,7 @@
     "title_en": "Restricciones",
     "body_es": "'Nunca recomiendes pricing sin evidencia de mercado. Si te preguntan por números específicos, exigí fuente.'. Las restricciones protegen al usuario y al asistente de salidas problemáticas. Cada restricción es un guardarraíl.",
     "body_en": "'Never recommend pricing without market evidence. If asked for specific numbers, require source.'. Constraints protect both user and assistant from problematic outputs. Each constraint is a guardrail.",
-    "example": "Restricciones útiles: '1) Nunca des consejo legal sin disclaimer. 2) Si te piden datos de competidores, marcá fuente. 3) No inventes citas.'"
+    "example": "Restricciones útiles: '1) Nunca des consejo legal sin disclaimer. 2) Si te piden datos de competidores, marca fuente. 3) No inventes citas.'"
   },
   "sys-formato": {
     "title_es": "Formato de Salida",
@@ -741,14 +741,14 @@
   "sys-guardrails": {
     "title_es": "Guardrails",
     "title_en": "Guardrails",
-    "body_es": "'Si te piden algo fuera de este alcance (legal, médico, financiero específico), declaralo y deriva a profesional humano'. Define límites éticos y operativos. Son la protección del último kilómetro.",
+    "body_es": "'Si te piden algo fuera de este alcance (legal, médico, financiero específico), decláralo y deriva a profesional humano'. Define límites éticos y operativos. Son la protección del último kilómetro.",
     "body_en": "'If asked something outside this scope (legal, medical, specific financial), declare it and refer to human professional'. Defines ethical and operational limits. Last-mile protection.",
     "example": "Guardrails típicos: 'No diagnostico médico. No consejo de inversión específico. No traducción de contratos legales sin disclaimer. Si dudo, derivo.'"
   },
   "meta-auto": {
     "title_es": "Auto-Generación",
     "title_en": "Auto-Generación",
-    "body_es": "'Diseñá un prompt para [caso]. Aplicá los 5 pilares + SPEC v3.4 + 12 cláusulas. Devolveme el prompt copiable.'. El LLM se auto-mejora. Útil cuando sabés QUÉ querés pero no cómo pedirlo.",
+    "body_es": "'Diseña un prompt para [caso]. Aplica los 5 pilares + SPEC v3.4 + 12 cláusulas. Devuélveme el prompt copiable.'. El LLM se auto-mejora. Útil cuando sabes QUÉ quieres pero no cómo pedirlo.",
     "body_en": "'Design a prompt for [case]. Apply 5 pillars + SPEC v3.4 + 12 clauses. Return the copyable prompt.'. The LLM self-improves. Useful when you know WHAT you want but not how to ask.",
     "example": "Le decís: 'Necesito analizar mi propuesta comercial. Diseñame el SPEC v3.4 con DoD + criterios + edge cases.' Te devuelve un SPEC listo."
   },
@@ -764,7 +764,7 @@
     "title_en": "Prompt Libraries",
     "body_es": "Catálogo de SPECs por categoría. La biblioteca-2026 es exactamente esto: 2026 prompts curados, listos para invocar con /id. La biblioteca + cartilla = método (cómo) + catálogo (qué).",
     "body_en": "SPEC catalog by category. Library-2026 is exactly this: 2026 curated prompts, ready to invoke with /id. Library + playbook = method (how) + catalog (what).",
-    "example": "Necesitás SWOT estratégico. En vez de escribir el prompt, abrís la biblioteca, buscás 'swot', invocás /v11_artefacto_matriz_swot_completa con tus inputs. Score 100/100 ENTRUSTED+ asegurado."
+    "example": "Necesitás SWOT estratégico. En vez de escribir el prompt, abrís la biblioteca, buscás 'swot', invocas /v11_artefacto_matriz_swot_completa con tus inputs. Score 100/100 ENTRUSTED+ asegurado."
   },
   "meta-eval": {
     "title_es": "Eval-Driven Prompts",
@@ -792,58 +792,58 @@
     "title_en": "Desinformación",
     "body_es": "El LLM alucina con confianza. Si no etiquetás {INFERENCIA} vs {ADJUNTO}, vas a soltar afirmaciones que parecen evidencia y no lo son. Tu reputación se la juega cada vez que publicas algo no validado.",
     "body_en": "The LLM hallucinates confidently. If you don't tag {INFERENCE} vs {ATTACHMENT}, you'll release claims that look like evidence but aren't. Your reputation is at stake every time you publish unvalidated content.",
-    "principle": "Antes de publicar un análisis con números: ¿esos números los citaste de fuente o los generó el LLM? Si segundo, validá o marcá {POR_CONFIRMAR}."
+    "principle": "Antes de publicar un análisis con números: ¿esos números los citaste de fuente o los generó el LLM? Si segundo, validá o marca {POR_CONFIRMAR}."
   },
   "etica-trans": {
     "title_es": "Transparencia",
     "title_en": "Transparencia",
-    "body_es": "Si publicás algo asistido por IA, declaralo. La cláusula EVIDENCIA_CITAS aplica también externamente: tu lector merece saber qué inferiste y qué citaste. Ocultar uso de IA es engañar.",
+    "body_es": "Si publicás algo asistido por IA, decláralo. La cláusula EVIDENCIA_CITAS aplica también externamente: tu lector merece saber qué inferiste y qué citaste. Ocultar uso de IA es engañar.",
     "body_en": "If you publish AI-assisted work, declare it. EVIDENCE_CITATIONS clause applies externally too: your reader deserves to know what you inferred and cited. Hiding AI use is deception.",
     "principle": "Patrón: footer del documento '[Asistido por IA: redacción inicial generada con Claude, revisada y curada por humano. Citas verificadas independientemente.]'."
   },
   "etica-impacto": {
     "title_es": "Impacto social",
     "title_en": "Impacto social",
-    "body_es": "¿Tu prompt automatiza algo que afecta a otros? (selección, evaluación, decisión que toca personas). Aplicá el principio: si fuera tu turno de ser evaluado por IA, ¿estarías cómodo con tu propio prompt?",
+    "body_es": "¿Tu prompt automatiza algo que afecta a otros? (selección, evaluación, decisión que toca personas). Aplica el principio: si fuera tu turno de ser evaluado por IA, ¿estarías cómodo con tu propio prompt?",
     "body_en": "Does your prompt automate something affecting others? (selection, evaluation, decisions touching people). Apply the principle: if it were your turn to be evaluated by AI, would you be comfortable with your own prompt?",
     "principle": "Auto-test: '¿Este prompt sería justo si yo fuera el evaluado? ¿Mi familia? ¿Alguien en posición vulnerable?' Si la respuesta es no, replanteá."
   },
   "etica-soberania": {
     "title_es": "Soberanía digital",
     "title_en": "Soberanía digital",
-    "body_es": "El método te da independencia: si una herramienta cambia, tu SPEC se porta a otra. Si un proveedor desaparece, tu plantilla v3.4 sigue funcionando. Soberanía: el método queda en vos. La cartilla es la transferencia.",
+    "body_es": "El método te da independencia: si una herramienta cambia, tu SPEC se porta a otra. Si un proveedor desaparece, tu plantilla v3.4 sigue funcionando. Soberanía: el método queda en ti. La cartilla es la transferencia.",
     "body_en": "The method gives you independence: if a tool changes, your SPEC ports to another. If a provider disappears, your v3.4 template still works. Sovereignty: the method stays with you. The playbook is the transfer.",
     "principle": "Hace 1 año tu prompt funcionaba en ChatGPT 3.5. Hoy en Claude Opus 4.7. En 1 año en otro modelo. SPEC v3.4 es portable. Tu workflow no depende del provider."
   },
   "prac-01": {
-    "title_es": "Calibrá tu próxima sesión",
-    "title_en": "Calibrá tu próxima sesión",
+    "title_es": "Calibra tu próxima sesión",
+    "title_en": "Calibra tu próxima sesión",
     "duration": "3 min",
-    "body_es": "Antes de pedirle algo a la IA, pegá /0 con tipo de sesión + adjuntos + sensibilidad. Lee el acuse de calibración. Si rol cuadra, sigue. Si no, corrige.",
+    "body_es": "Antes de pedirle algo a la IA, pega /0 con tipo de sesión + adjuntos + sensibilidad. Lee el acuse de calibración. Si rol cuadra, sigue. Si no, corrige.",
     "body_en": "Before asking AI anything, paste /0 with session type + attachments + sensitivity. Read the calibration acknowledgment. If role fits, continue. If not, correct.",
     "criterion": "Acuse declara rol específico, adjuntos inventariados, vacíos marcados. ✅ aprobado si los 3 puntos se cumplen."
   },
   "prac-02": {
-    "title_es": "Detectá un huérfano",
-    "title_en": "Detectá un huérfano",
+    "title_es": "Detecta un huérfano",
+    "title_en": "Detecta un huérfano",
     "duration": "3 min",
-    "body_es": "Tomá un prompt que uses repetido. Listá los inputs que declarás. ¿Cuáles aparecen en el body? Los que no aparecen son huérfanos: declarás pero no usás.",
+    "body_es": "Toma un prompt que uses repetido. Lista los inputs que declaras. ¿Cuáles aparecen en el body? Los que no aparecen son huérfanos: declaras pero no usas.",
     "body_en": "Take a prompt you use repeatedly. List the inputs you declare. Which appear in the body? Those that don't are orphans: declared but unused.",
     "criterion": "≥1 token huérfano detectado. Acción: eliminarlo del INPUTS o integrarlo a EJECUCIÓN."
   },
   "prac-03": {
-    "title_es": "Etiquetá un output",
-    "title_en": "Etiquetá un output",
+    "title_es": "Etiqueta un output",
+    "title_en": "Etiqueta un output",
     "duration": "3 min",
-    "body_es": "Tomá una respuesta IA reciente. Marcá inline cada afirmación con la etiqueta correspondiente: {ADJUNTO}, {INFERENCIA}, {SUPUESTO}, {VACIO_CRITICO}. Identifica los {SUPUESTO} no marcados.",
+    "body_es": "Toma una respuesta IA reciente. Marca inline cada afirmación con la etiqueta correspondiente: {ADJUNTO}, {INFERENCIA}, {SUPUESTO}, {VACIO_CRITICO}. Identifica los {SUPUESTO} no marcados.",
     "body_en": "Take a recent AI response. Mark inline each claim with the corresponding tag. Identify unmarked {ASSUMPTIONS}.",
     "criterion": "Cada bloque del output con etiqueta o marcado como {SUPUESTO}. Cero claims sin etiquetar."
   },
   "prac-04": {
-    "title_es": "Construí un SPEC v3.4 desde cero",
-    "title_en": "Construí un SPEC v3.4 desde cero",
+    "title_es": "Construye un SPEC v3.4 desde cero",
+    "title_en": "Construye un SPEC v3.4 desde cero",
     "duration": "30 min",
-    "body_es": "Elegí una tarea repetida tuya. Aplicá /1 → /2 secuencial. Generá SPEC con TÍTULO + INPUTS + ABSTRACT + EJECUCIÓN + CRITERIO + 12 cláusulas paramétricas.",
+    "body_es": "Elige una tarea repetida tuya. Aplica /1 → /2 secuencial. Genera SPEC con TÍTULO + INPUTS + ABSTRACT + EJECUCIÓN + CRITERIO + 12 cláusulas paramétricas.",
     "body_en": "Pick a repeated task. Apply /1 → /2 sequentially. Generate SPEC with TITLE + INPUTS + ABSTRACT + EXECUTION + CRITERION + 12 parametric clauses.",
     "criterion": "SPEC ejecutable por otro operador sin reabrir contexto original. Test: dale el SPEC a un colega + inputs → ¿llega al mismo output?"
   },
@@ -851,23 +851,23 @@
     "title_es": "Audita un output con ENTRUSTED+",
     "title_en": "Audita un output con ENTRUSTED+",
     "duration": "30 min",
-    "body_es": "Tomá un entregable IA reciente. Calificá los 9 ejes 0-100 (E·N·T·R·U·S·T·E). Identificá los 2 ejes más bajos y reescribí el prompt para subirlos.",
+    "body_es": "Toma un entregable IA reciente. Califica los 9 ejes 0-100 (E·N·T·R·U·S·T·E). Identifica los 2 ejes más bajos y reescribe el prompt para subirlos.",
     "body_en": "Take a recent AI deliverable. Score the 9 axes 0-100 (E·N·T·R·U·S·T·E). Identify the 2 lowest and rewrite the prompt to lift them.",
     "criterion": "Score promedio ≥92/100 tras la reescritura. Documentá qué cambió en el prompt para subir cada eje."
   },
   "prac-06": {
-    "title_es": "Aplicá DSVSR a un problema complejo",
-    "title_en": "Aplicá DSVSR a un problema complejo",
+    "title_es": "Aplica DSVSR a un problema complejo",
+    "title_en": "Aplica DSVSR a un problema complejo",
     "duration": "30 min",
-    "body_es": "Elegí una decisión que estás postergando. Pegá /1 con el caso. Marcá DSVSR explícito en el prompt. Lee REFLECT con confianza visible. ¿Qué descubriste?",
+    "body_es": "Elige una decisión que estás postergando. Pega /1 con el caso. Marca DSVSR explícito en el prompt. Lee REFLECT con confianza visible. ¿Qué descubriste?",
     "body_en": "Pick a postponed decision. Paste /1 with the case. Mark DSVSR explicitly in the prompt. Read REFLECT with visible confidence. What did you discover?",
     "criterion": "Confianza global ≥0.95 declarada o debilidad explícita con plan. Anota el INSIGHT que no habías visto."
   },
   "prac-07": {
-    "title_es": "Diseñá tu ritual matutino de prompting",
-    "title_en": "Diseñá tu ritual matutino de prompting",
+    "title_es": "Diseña tu ritual matutino de prompting",
+    "title_en": "Diseña tu ritual matutino de prompting",
     "duration": "60 min",
-    "body_es": "Identificá la decisión #1 de cada día. Diseñá un /0 + /1 + /2 personalizado. Probálo 5 días. Cristalízalo en /9 al día 6.",
+    "body_es": "Identifica la decisión #1 de cada día. Diseña un /0 + /1 + /2 personalizado. Pruébalo 5 días. Cristalízalo en /9 al día 6.",
     "body_en": "Identify decision #1 of each day. Design a personalized /0 + /1 + /2. Test it 5 days. Crystallize it in /9 on day 6.",
     "criterion": "Plantilla v9 funcional · ejecutable en <5 min cada mañana · usada 5/5 días."
   },
@@ -875,15 +875,15 @@
     "title_es": "Migrá un workflow a P.I.V.O.T.E.",
     "title_en": "Migrá un workflow a P.I.V.O.T.E.",
     "duration": "60 min",
-    "body_es": "Tomá un proceso de tu trabajo de 5+ pasos. Mapealo al pipeline. Ejecutá los 10 pasos secuenciales con tu caso real.",
+    "body_es": "Toma un proceso de tu trabajo de 5+ pasos. Mapéalo al pipeline. Ejecutá los 10 pasos secuenciales con tu caso real.",
     "body_en": "Take a 5+ step work process. Map it to the pipeline. Execute the 10 sequential steps with your real case.",
     "criterion": "Workflow completo con 10 outputs encadenados, cada uno usable como insumo del siguiente. Anota qué paso te ahorró más tiempo."
   },
   "prac-09": {
-    "title_es": "Construí tu propia categoría DoD",
-    "title_en": "Construí tu propia categoría DoD",
+    "title_es": "Construye tu propia categoría DoD",
+    "title_en": "Construye tu propia categoría DoD",
     "duration": "60 min",
-    "body_es": "Para una tarea recurrente sin DoD claro, definí: output esperado, criterios observables (5), edge cases (3). Aplicalos a 3 casos reales.",
+    "body_es": "Para una tarea recurrente sin DoD claro, define: output esperado, criterios observables (5), edge cases (3). Aplícalos a 3 casos reales.",
     "body_en": "For a recurring task without clear DoD, define: expected output, observable criteria (5), edge cases (3). Apply to 3 real cases.",
     "criterion": "DoD valida en 3/3 casos · criterios todos cumplidos · edge cases manejados sin abandonar el método."
   },
@@ -891,7 +891,7 @@
     "title_es": "Audita 10 prompts viejos",
     "title_en": "Audita 10 prompts viejos",
     "duration": "90 min",
-    "body_es": "Tomá 10 prompts que usás. Calificá ENTRUSTED+ promedio actual. Aplicá v3.4 a 3 con el playbook. Comparalos lado a lado.",
+    "body_es": "Toma 10 prompts que usas. Califica ENTRUSTED+ promedio actual. Aplica v3.4 a 3 con el playbook. Compáralos lado a lado.",
     "body_en": "Take 10 prompts you use. Score current ENTRUSTED+ average. Apply v3.4 to 3 with the playbook. Compare side by side.",
     "criterion": "Score promedio sube ≥15 puntos en los 3 reescritos. Output cualitativamente mejor en al menos 2 de los 3."
   },
@@ -899,15 +899,15 @@
     "title_es": "Cristalizá tu primera plantilla",
     "title_en": "Cristalizá tu primera plantilla",
     "duration": "Sesión",
-    "body_es": "Tomá un proceso que ejecutaste con éxito. Pegá /9 con el caso origen. Generá plantilla con parámetros variables tipados. Probala en 1 caso nuevo.",
+    "body_es": "Toma un proceso que ejecutaste con éxito. Pega /9 con el caso origen. Genera plantilla con parámetros variables tipados. Pruébala en 1 caso nuevo.",
     "body_en": "Take a process you executed successfully. Paste /9 with the origin case. Generate template with typed variable parameters. Test on 1 new case.",
     "criterion": "Plantilla reproduce 80%+ del output original con caso nuevo · sin reabrir contexto del original."
   },
   "prac-12": {
-    "title_es": "Escribí tu manifiesto de prompting",
-    "title_en": "Escribí tu manifiesto de prompting",
+    "title_es": "Escribe tu manifiesto de prompting",
+    "title_en": "Escribe tu manifiesto de prompting",
     "duration": "Sesión",
-    "body_es": "¿Qué jamás hace tu prompting? ¿Qué siempre hace? ¿Cuál es tu firma metodológica? Escribilo en 1 página y aplicalo a tus próximos 5 prompts.",
+    "body_es": "¿Qué jamás hace tu prompting? ¿Qué siempre hace? ¿Cuál es tu firma metodológica? Escríbelo en 1 página y aplícalo a tus próximos 5 prompts.",
     "body_en": "What does your prompting NEVER do? What does it ALWAYS do? What's your methodological signature? Write it in 1 page and apply to your next 5 prompts.",
     "criterion": "Manifiesto coherente · 5/5 prompts honran el manifiesto · Documentás 1 caso donde el manifiesto te previno de un mal output."
   },
@@ -917,7 +917,7 @@
     "duration": "15 min · diario",
     "body_es": "Antes de empezar el día, calibrar la sesión: /0 con la decisión #1. Cierra con foco operativo. La regularidad es el multiplicador: hacelo 30 días seguidos y se vuelve automatismo.",
     "body_en": "Before starting the day, calibrate the session: /0 with decision #1. Close with operational focus. Regularity is the multiplier: do 30 days straight and it becomes automatism.",
-    "dynamics": "Día 1-7: te cuesta. Día 8-14: empezás a ver patrones. Día 15-21: el ritual genera valor solo. Día 22-30: parte del set de habilidades."
+    "dynamics": "Día 1-7: te cuesta. Día 8-14: empiezas a ver patrones. Día 15-21: el ritual genera valor solo. Día 22-30: parte del set de habilidades."
   },
   "esp-semanal": {
     "title_es": "Práctica semanal",
@@ -933,25 +933,25 @@
     "duration": "3 h · mensual",
     "body_es": "Workshop sincrónico: aplicar el método sobre un caso real grande. Auditoría grupal con ENTRUSTED+. La diversidad de criterio del grupo eleva tu output más que solo iteración personal.",
     "body_en": "Synchronous workshop: apply method to a real big case. Group audit with ENTRUSTED+. Group's criterion diversity lifts your output more than solo iteration.",
-    "dynamics": "Mes 1: experimentás. Mes 3: el feedback grupal cambia tu manera de armar SPECs. Mes 6: empezás a facilitar workshops a otros."
+    "dynamics": "Mes 1: experimentás. Mes 3: el feedback grupal cambia tu manera de armar SPECs. Mes 6: empiezas a facilitar workshops a otros."
   },
   "prot-1": {
-    "title_es": "Calibrá el contexto · priming",
-    "title_en": "Calibrá el contexto · priming",
+    "title_es": "Calibra el contexto · priming",
+    "title_en": "Calibra el contexto · priming",
     "body_es": "Antes del primer pedido, declarate qué tipo de sesión es, qué adjuntos hay, qué sensibilidad PII. La IA infiere el resto. Si no lo hacés, llena los huecos a ciegas y arrastra supuestos por todo el hilo.",
     "body_en": "Before the first ask, declare what kind of session, what attachments, what PII sensitivity. The AI infers the rest. Skip this and it fills gaps blindly, dragging assumptions all session.",
-    "extra": "Pegá /0 si querés el SPEC formal con los 12 cláusulas activas. O al menos estas 3 líneas: 'Tipo: [análisis/generación/etc]. Adjuntos: [archivos]. PII: [alta/media/baja]'."
+    "extra": "Pega /0 si quieres el SPEC formal con los 12 cláusulas activas. O al menos estas 3 líneas: 'Tipo: [análisis/generación/etc]. Adjuntos: [archivos]. PII: [alta/media/baja]'."
   },
   "prot-2": {
-    "title_es": "Aplicá los 5 pilares",
-    "title_en": "Aplicá los 5 pilares",
+    "title_es": "Aplica los 5 pilares",
+    "title_en": "Aplica los 5 pilares",
     "body_es": "Lee tu prompt en voz alta antes de enviarlo. ¿Pasa los 5 pilares (Claridad · Contexto · Especificidad · Formato · Ejemplos)? Si fallás en cualquiera, el output será genérico.",
     "body_en": "Read your prompt aloud before sending. Does it pass the 5 pillars (Clarity · Context · Specificity · Format · Examples)? Fail any, output goes generic.",
     "extra": "Test mental: si yo le diera este prompt a otro experto del dominio, ¿podría ejecutar sin preguntar? Si necesita preguntar 3 cosas, te falta especificidad."
   },
   "prot-3": {
-    "title_es": "Anclá la anatomía",
-    "title_en": "Anclá la anatomía",
+    "title_es": "Ancla la anatomía",
+    "title_en": "Ancla la anatomía",
     "body_es": "Las 6 partes del § 5 (Rol · Contexto · Tarea · Formato · Restricciones · Ejemplos). Si tu prompt tiene las 6 partes explícitas, el output es 3-5x más útil. El SPEC v3.4 las incluye todas + cláusulas paramétricas.",
     "body_en": "The 6 parts from § 5 (Role · Context · Task · Format · Constraints · Examples). With all 6 explicit, output is 3-5x more useful. SPEC v3.4 includes all + parametric clauses.",
     "extra": "Checklist mental: ¿Rol específico? ¿Contexto suficiente? ¿Tarea con verbo+objeto+propósito? ¿Formato pedido? ¿Restricciones? ¿Few-shot si aplica?"
@@ -959,35 +959,35 @@
   "prot-4": {
     "title_es": "Ejecutá con etiquetas activas",
     "title_en": "Ejecutá con etiquetas activas",
-    "body_es": "Pedile que marque cada bloque del output con {ADJUNTO|INFERENCIA|CONOCIMIENTO|...}. Sin etiquetas, no podés auditar. La cláusula EVIDENCIA_CITAS lo hace por defecto en SPEC v3.4.",
+    "body_es": "Pídele que marque cada bloque del output con {ADJUNTO|INFERENCIA|CONOCIMIENTO|...}. Sin etiquetas, no puedes auditar. La cláusula EVIDENCIA_CITAS lo hace por defecto en SPEC v3.4.",
     "body_en": "Ask it to tag each output block with {ATTACHMENT|INFERENCE|KNOWLEDGE|...}. Without tags, you can't audit. EVIDENCIA_CITAS clause does this by default in SPEC v3.4.",
     "extra": "Si vas a usar el output para una decisión importante, las etiquetas no son opcionales. Cero claims sin trazabilidad. Cero alucinación pasable."
   },
   "prot-5": {
-    "title_es": "Auditá con ENTRUSTED+",
-    "title_en": "Auditá con ENTRUSTED+",
-    "body_es": "Antes de soltar el output, calificá los 9 ejes 0-100. Si un eje queda <85, reescribí ese aspecto del prompt y reejecutá. Threshold ≥92 = EXCELLENT.",
+    "title_es": "Audita con ENTRUSTED+",
+    "title_en": "Audita con ENTRUSTED+",
+    "body_es": "Antes de soltar el output, califica los 9 ejes 0-100. Si un eje queda <85, reescribe ese aspecto del prompt y reejecutá. Threshold ≥92 = EXCELLENT.",
     "body_en": "Before releasing the output, score the 9 axes 0-100. If one axis is <85, rewrite that aspect of the prompt and re-execute. Threshold ≥92 = EXCELLENT.",
-    "extra": "Si tu output va a un cliente, jefe o decisión: auditá. Si es exploratorio personal: skipeable. La auditoría es proporcional al riesgo."
+    "extra": "Si tu output va a un cliente, jefe o decisión: audita. Si es exploratorio personal: skipeable. La auditoría es proporcional al riesgo."
   },
   "prot-6": {
-    "title_es": "Capitalizá insights proactivos",
-    "title_en": "Capitalizá insights proactivos",
-    "body_es": "El bloque INSIGHTS_PROACTIVOS al cierre del output trae sugerencias, recomendaciones, riesgos y preguntas que NO pediste. Léelo. Capitalizá lo que aporta.",
+    "title_es": "Capitaliza insights proactivos",
+    "title_en": "Capitaliza insights proactivos",
+    "body_es": "El bloque INSIGHTS_PROACTIVOS al cierre del output trae sugerencias, recomendaciones, riesgos y preguntas que NO pediste. Léelo. Capitaliza lo que aporta.",
     "body_en": "The INSIGHTS_PROACTIVOS block at output close brings suggestions, recommendations, risks and questions you didn't ask. Read it. Capitalize what helps.",
     "extra": "Patrón común: el insight #2 o #3 es el que más vale. Es el ángulo que no estabas viendo. Por eso 'sin pedir' importa: te saca de tu sesgo."
   },
   "prot-7": {
     "title_es": "Cristalizá si el caso se repite",
     "title_en": "Cristalizá si el caso se repite",
-    "body_es": "Si ejecutaste algo que vas a repetir, pegá /9 CRISTALIZAR con la ejecución. Recibís plantilla portable con parámetros variables tipados. Eso es soberanía: el método queda en vos.",
+    "body_es": "Si ejecutaste algo que vas a repetir, pega /9 CRISTALIZAR con la ejecución. Recibes plantilla portable con parámetros variables tipados. Eso es soberanía: el método queda en ti.",
     "body_en": "If you ran something you'll repeat, paste /9 CRYSTALLIZE with the execution. Get a portable template with typed variable parameters. That's sovereignty: method stays with you.",
-    "extra": "Después de la 3ra ejecución de algo similar, cristalizá. Tu primer mes podés tener 5-10 plantillas. A los 6 meses, 30+. Es tu mini-catálogo personal."
+    "extra": "Después de la 3ra ejecución de algo similar, cristalizá. Tu primer mes puedes tener 5-10 plantillas. A los 6 meses, 30+. Es tu mini-catálogo personal."
   },
   "faq-1": {
     "title_es": "¿Tengo que ejecutar los 10 pasos del pipeline cada vez?",
     "title_en": "Do I have to run all 10 pipeline steps every time?",
-    "body_es": "No. Invocás el paso que necesitás. Para una pregunta simple, /0 puede ser suficiente. Para un análisis profundo, /1 → /2 → /4 → /7. El pipeline es mapa, no obligación.",
+    "body_es": "No. Invocás el paso que necesitas. Para una pregunta simple, /0 puede ser suficiente. Para un análisis profundo, /1 → /2 → /4 → /7. El pipeline es mapa, no obligación.",
     "body_en": "No. Invoke the step you need. Simple question: /0 may suffice. Deep analysis: /1 → /2 → /4 → /7. The pipeline is a map, not an obligation.",
     "is_faq": true
   },
@@ -1008,7 +1008,7 @@
   "faq-4": {
     "title_es": "¿Cuándo necesito fine-tuning?",
     "title_en": "When do I need fine-tuning?",
-    "body_es": "Casi nunca. SPEC + few-shot resuelve 95% de los casos. Fine-tuning solo cuando: (a) tenés 10K+ ejemplos consistentes; (b) dominio muy específico (médico, legal); (c) latencia crítica.",
+    "body_es": "Casi nunca. SPEC + few-shot resuelve 95% de los casos. Fine-tuning solo cuando: (a) tienes 10K+ ejemplos consistentes; (b) dominio muy específico (médico, legal); (c) latencia crítica.",
     "body_en": "Almost never. SPEC + few-shot solves 95% of cases. Fine-tuning only when: (a) 10K+ consistent examples; (b) very specific domain; (c) critical latency.",
     "is_faq": true
   },
@@ -1029,7 +1029,7 @@
   "st-d1": {
     "title_es": "El oráculo amable",
     "title_en": "The friendly oracle",
-    "body_es": "Pedís algo y recibís un texto que <em>suena</em> bien pero no defiende. La IA es complaciente: te da lo que parece que querés oír. Sin método, no detectás cuándo te está alucinando vs cuándo realmente sabe.",
+    "body_es": "Pedís algo y recibes un texto que <em>suena</em> bien pero no defiende. La IA es complaciente: te da lo que parece que quieres oír. Sin método, no detectás cuándo te está alucinando vs cuándo realmente sabe.",
     "body_en": "You ask and get text that <em>sounds</em> right but doesn't defend. AI is sycophantic: gives you what seems you want to hear. Without method, you can't detect when it's hallucinating vs really knowing.",
     "category": "Antes · dolores",
     "category_en": "Before · pains"
@@ -1037,7 +1037,7 @@
   "st-d2": {
     "title_es": "Adivinás el contexto",
     "title_en": "Guessing context",
-    "body_es": "El LLM infiere el contexto a ciegas. Asume rol, audiencia, formato, restricciones — y arrastra esos supuestos durante todo el hilo. Si no calibrás (priming), trabajás con un modelo que decidió por vos cosas que vos no aprobaste.",
+    "body_es": "El LLM infiere el contexto a ciegas. Asume rol, audiencia, formato, restricciones — y arrastra esos supuestos durante todo el hilo. Si no calibrás (priming), trabajas con un modelo que decidió por vos cosas que vos no aprobaste.",
     "body_en": "The LLM infers context blindly. Assumes role, audience, format, constraints — drags those assumptions all session. Without priming, you work with a model that decided things you didn't approve.",
     "category": "Antes · dolores",
     "category_en": "Before · pains"
@@ -1045,7 +1045,7 @@
   "st-d3": {
     "title_es": "Cada sesión empieza de cero",
     "title_en": "Every session starts over",
-    "body_es": "Sin método, no podés portar lo aprendido. La sesión #1 no acumula sobre la #0. Repetís contexto, repetís errores, repetís ajustes. Es como si cada lunes empezaras tu trabajo desde cero, perdiendo todo lo aprendido la semana anterior.",
+    "body_es": "Sin método, no puedes portar lo aprendido. La sesión #1 no acumula sobre la #0. Repetís contexto, repetís errores, repetís ajustes. Es como si cada lunes empezaras tu trabajo desde cero, perdiendo todo lo aprendido la semana anterior.",
     "body_en": "Without method, you can't port what you learned. Session #1 doesn't accumulate over #0. You repeat context, errors, adjustments. Like starting your job from scratch every Monday.",
     "category": "Antes · dolores",
     "category_en": "Before · pains"
@@ -1053,7 +1053,7 @@
   "st-d4": {
     "title_es": "Fricción operativa",
     "title_en": "Operational friction",
-    "body_es": "Le explicás todo cada vez. Quién sos, qué hacés, qué necesitás, qué tono querés, qué formato. Se siente como entrenar un asistente nuevo cada día. La fricción te desgasta y reduce la frecuencia de uso — terminás abandonando.",
+    "body_es": "Le explicás todo cada vez. Quién sos, qué hacés, qué necesitas, qué tono quieres, qué formato. Se siente como entrenar un asistente nuevo cada día. La fricción te desgasta y reduce la frecuencia de uso — terminás abandonando.",
     "body_en": "You explain everything every time. Who you are, what you do, what you need, what tone, what format. Feels like training a new assistant daily. Friction wears you out and reduces usage — you end up abandoning.",
     "category": "Antes · dolores",
     "category_en": "Before · pains"
@@ -1061,7 +1061,7 @@
   "st-d5": {
     "title_es": "Dependencia del proveedor",
     "title_en": "Provider dependency",
-    "body_es": "Si OpenAI cambia su modelo, tu workflow se rompe. Si Anthropic sube precio, no tenés alternativa. Si te bloquean (geoblock, censura), perdiste todo. Sin método portable, sos rehén de UN proveedor.",
+    "body_es": "Si OpenAI cambia su modelo, tu workflow se rompe. Si Anthropic sube precio, no tienes alternativa. Si te bloquean (geoblock, censura), perdiste todo. Sin método portable, sos rehén de UN proveedor.",
     "body_en": "If OpenAI changes their model, your workflow breaks. If Anthropic raises price, no alternative. If you're blocked (geoblock, censorship), all lost. Without portable method, you're hostage to ONE provider.",
     "category": "Antes · dolores",
     "category_en": "Before · pains"
@@ -1077,7 +1077,7 @@
   "st-m2": {
     "title_es": "Entregables defendibles",
     "title_en": "Defensible deliverables",
-    "body_es": "Citá lo que sabés con fuente. Marcá lo que inferís con etiqueta. Decí lo que asumís con confianza explícita. Cero claims sin sustento. Tu output sobrevive a auditoría externa.",
+    "body_es": "Citá lo que sabes con fuente. Marca lo que inferís con etiqueta. Decí lo que asumís con confianza explícita. Cero claims sin sustento. Tu output sobrevive a auditoría externa.",
     "body_en": "Cite what you know with source. Tag what you infer. Declare what you assume with explicit confidence. Zero unsupported claims. Your output survives external audit.",
     "category": "Hoy · motivadores",
     "category_en": "Today · motivators"
@@ -1117,7 +1117,7 @@
   "st-f2": {
     "title_es": "Auditor de outputs",
     "title_en": "Output auditor",
-    "body_es": "Aplicás rubricario ENTRUSTED+ en segundos. Mirás un output IA y sabés en qué eje falla, por qué, y cómo corregirlo en el prompt. Es el filtro de calidad que diferencia 'usar IA' de 'operar profesionalmente'.",
+    "body_es": "Aplicás rubricario ENTRUSTED+ en segundos. Mirás un output IA y sabes en qué eje falla, por qué, y cómo corregirlo en el prompt. Es el filtro de calidad que diferencia 'usar IA' de 'operar profesionalmente'.",
     "body_en": "Apply ENTRUSTED+ rubric in seconds. See an AI output and know which axis fails, why, how to fix in the prompt. Quality filter that separates 'using AI' from 'operating professionally'.",
     "category": "Mañana · soberanía",
     "category_en": "Tomorrow · sovereignty"
@@ -1167,7 +1167,7 @@
     "title_en": "V · Value (Phase A · Ground)",
     "body_es": "Impacto real medible. La tercera dimensión cierra la fase de Fundamentar. Distinguís qué actividades generan ROI medible y cuáles son ruido bien intencionado. Sin esta señal, amplificás indistintamente lo útil y lo irrelevante.",
     "body_en": "Real measurable impact. The third dimension closes the Ground phase. You distinguish which activities generate measurable ROI and which are well-intentioned noise. Without this signal, you amplify the useful and irrelevant alike.",
-    "when": "Antes de comprometer presupuesto en automatización. Cuando hay 50 iniciativas y tenés capacidad para 5. Cuando el equipo se siente ocupado pero el negocio no avanza.",
+    "when": "Antes de comprometer presupuesto en automatización. Cuando hay 50 iniciativas y tienes capacidad para 5. Cuando el equipo se siente ocupado pero el negocio no avanza.",
     "example": "De 12 reportes que el equipo genera, identificás que 3 mueven decisiones ejecutivas, 4 nadie lee, y 5 se duplican. Antes de automatizarlos todos, eliminás los 4 muertos y consolidás los 5 duplicados. Recién después amplificás los 3 que importan."
   },
   "piv-o": {
@@ -1183,7 +1183,7 @@
     "title_en": "T · Technology (Phase B · Amplify) · always second-to-last",
     "body_es": "Automatización e IA. La penúltima dimensión — y este orden no es accidente. Solo después de limpiar la señal (Fase A) y montar la organización (O) tiene sentido amplificar con tecnología. Empezar por acá es el error #1 en transformación digital.",
     "body_en": "Automation and AI. The second-to-last dimension — and this order is not accidental. Only after cleaning the signal (Phase A) and setting up organization (O) does it make sense to amplify with technology. Starting here is mistake #1 in digital transformation.",
-    "when": "Cuando todo lo anterior está mapeado y estable. Cuando podés explicar QUIÉN, CÓMO y POR QUÉ antes de definir CON QUÉ.",
+    "when": "Cuando todo lo anterior está mapeado y estable. Cuando puedes explicar QUIÉN, CÓMO y POR QUÉ antes de definir CON QUÉ.",
     "example": "Implementás Custom GPT para el reporte ejecutivo. Funciona porque las personas saben qué leer (P), el flujo desde data hasta insight está mapeado (I), el reporte tiene ROI claro (V), y la plantilla SPEC vive en el repo (O). La IA amplifica un sistema sano — no rescata uno roto."
   },
   "piv-e": {
@@ -1215,55 +1215,47 @@
     "title_en": "Prompt Chaining · sequential linking",
     "body_es": "Encadenar prompts es ejecutar varios SPECs en secuencia donde cada output alimenta el input del siguiente. El pipeline operativo /0-/9 (§ 9.5) es chaining canónico: PRIMING → ENTENDER → DEFINIR → ... cada paso aporta una transformación validable. Patrón clave cuando un solo prompt no alcanza: mantener trazabilidad y poder corregir un paso sin rehacer todo el cadena.",
     "body_en": "Chaining means running multiple SPECs sequentially where each output feeds the next input. The operational pipeline /0-/9 (§ 9.5) is canonical chaining: PRIMING → UNDERSTAND → DEFINE → ... each step adds a validatable transformation. Key pattern when one prompt isn't enough: keep traceability and be able to fix one step without redoing the whole chain.",
-    "when": "Cuando el problema requiere transformaciones múltiples con validación intermedia: análisis → diseño → ejecución → audit. También cuando los modelos tienen límite de contexto y necesitás dividir el caso.",
+    "when": "Cuando el problema requiere transformaciones múltiples con validación intermedia: análisis → diseño → ejecución → audit. También cuando los modelos tienen límite de contexto y necesitas dividir el caso.",
     "example": "/1 ENTENDER recibe un retro mal estructurado, devuelve necesidad concreta. /2 DEFINIR toma esa necesidad, devuelve SPEC. /4 EJECUTAR toma el SPEC, devuelve draft. /5 ROBUSTECER eleva confianza. Cada eslabón es portable y reutilizable."
-  },
-  "orch-tree-prompts": {
-    "title_es": "Tree of Prompts · árbol de invocaciones",
-    "title_en": "Tree of Prompts · invocation tree",
-    "body_es": "No confundir con Tree of Thought (que vive dentro de UN prompt). Tree of Prompts orquesta un árbol de PROMPTS independientes: ramas paralelas exploran soluciones desde distintos ángulos (uno por persona, hipótesis o escenario), y un prompt evaluador elige la mejor rama o sintetiza un resultado consensuado. Es el patrón típico de sistemas multi-agente y comités de expertos virtuales.",
-    "body_en": "Don't confuse with Tree of Thought (which lives inside ONE prompt). Tree of Prompts orchestrates a tree of independent PROMPTS: parallel branches explore solutions from different angles (one per persona, hypothesis or scenario), and an evaluator prompt picks the best branch or synthesizes a consensus result. Typical pattern in multi-agent systems and virtual expert committees.",
-    "when": "Decisiones de alto impacto donde varios ángulos compiten · cuando un solo punto de vista sesga · diseño de sistemas multi-rol como Pristino (committee in 1 chat).",
-    "example": "Decisión: ¿lanzamos en septiembre? Branch 1 (CFO): SPEC de análisis financiero. Branch 2 (CTO): SPEC de capacidad técnica. Branch 3 (CMO): SPEC de readiness de mercado. Branch 4 (Sintetizador): toma los 3 outputs, identifica conflictos, propone decisión con confianza."
   },
   "orch-stacking": {
     "title_es": "Prompt Stacking · capas simultáneas",
     "title_en": "Prompt Stacking · simultaneous layers",
     "body_es": "Stacking apila CAPAS de prompts que se aplican al mismo turno: capa 0 = system prompt (rol, restricciones permanentes · § 16), capa 1 = project rules / custom instructions (estándares de tu organización), capa 2 = per-message prompt (caso específico). Cada capa restringe y especializa la siguiente. Es la diferencia entre un GPT custom como Pristino y un chat genérico: las capas inferiores ya cargaron método antes de que escribas la primera letra.",
     "body_en": "Stacking layers prompts applied to the same turn: layer 0 = system prompt (permanent role, constraints · § 16), layer 1 = project rules / custom instructions (your org's standards), layer 2 = per-message prompt (specific case). Each layer constrains and specializes the next. It's the difference between a custom GPT like Pristino and a generic chat: lower layers loaded the method before you typed the first letter.",
-    "when": "Diseñando un Custom GPT, Gemini Gem, ChatGPT Project, Claude Project o Cursor rules. Cuando querés que cada caso parta de una base común sin repetir 30 líneas.",
-    "example": "Custom GPT 'Pristino': capa 0 declara 'sos comité de 7 expertos · DSVSR activo · ENTRUSTED+ obligatorio · 12 cláusulas v3.4 por default'. Capa 1 (project rules): 'usás biblioteca-2026 como contexto activo'. Capa 2 (vos): 'analizá esta decisión'. Capa 0+1 son invisibles pero hacen el 80% del trabajo."
+    "when": "Diseñando un Custom GPT, Gemini Gem, ChatGPT Project, Claude Project o Cursor rules. Cuando quieres que cada caso parta de una base común sin repetir 30 líneas.",
+    "example": "Custom GPT 'Pristino': capa 0 declara 'sos comité de 7 expertos · DSVSR activo · ENTRUSTED+ obligatorio · 12 cláusulas v3.4 por default'. Capa 1 (project rules): 'usas biblioteca-2026 como contexto activo'. Capa 2 (vos): 'analizá esta decisión'. Capa 0+1 son invisibles pero hacen el 80% del trabajo."
   },
   "exp-espanso": {
     "title_es": "Espanso · OSS multi-plataforma",
     "title_en": "Espanso · OSS multi-platform",
     "body_es": "Espanso es un text expander open source escrito en Rust. Funciona en macOS, Linux y Windows con cero dependencias gráficas. Los snippets viven como YAML en el filesystem, lo que permite versionarlos en Git con tu equipo. Soporta variables, formularios interactivos, scripts shell embebidos y triggers contextuales (solo en ciertas apps).",
     "body_en": "Espanso is an open-source text expander written in Rust. Runs on macOS, Linux and Windows with zero graphical dependencies. Snippets live as YAML on filesystem, version-controllable in Git with your team. Supports variables, interactive forms, embedded shell scripts and contextual triggers (only in certain apps).",
-    "when": "Cuando querés cero costo, cero telemetría, control total. Cuando tu equipo quiere versionar SPECs en Git. Cuando trabajás en Linux o cambiás de OS.",
-    "example": "Archivo `~/Library/Application Support/espanso/match/spec.yml`:\n```\nmatches:\n  - trigger: ';swot'\n    replace: |\n      TÍTULO: SWOT v3.4\n      ROL: ...\n      INPUTS: {[ORG]} {[OBJETIVO]}\n      ...\n```\nTipeás `;swot` en cualquier app y se expande. Total: <2 caracteres dispara 80 líneas de SPEC profesional."
+    "when": "Cuando quieres cero costo, cero telemetría, control total. Cuando tu equipo quiere versionar SPECs en Git. Cuando trabajas en Linux o cambias de OS.",
+    "example": "Archivo `~/Library/Application Support/espanso/match/spec.yml`:\n```\nmatches:\n  - trigger: ';swot'\n    replace: |\n      TÍTULO: SWOT v3.4\n      ROL: ...\n      INPUTS: {[ORG]} {[OBJETIVO]}\n      ...\n```\nTipeas `;swot` en cualquier app y se expande. Total: <2 caracteres dispara 80 líneas de SPEC profesional."
   },
   "exp-raycast": {
     "title_es": "Raycast · launcher + AI Commands",
     "title_en": "Raycast · launcher + AI Commands",
-    "body_es": "Raycast es un launcher para macOS que reemplaza Spotlight. Sus Snippets son text expanders nativos con search by keyword. Lo que lo distingue: AI Commands integrados — invocás un snippet con ⌥+Space, lo editás si querés, y Raycast AI lo ejecuta sin abrir ChatGPT. El ciclo intent → output baja a <5 segundos.",
+    "body_es": "Raycast es un launcher para macOS que reemplaza Spotlight. Sus Snippets son text expanders nativos con search by keyword. Lo que lo distingue: AI Commands integrados — invocas un snippet con ⌥+Space, lo editás si quieres, y Raycast AI lo ejecuta sin abrir ChatGPT. El ciclo intent → output baja a <5 segundos.",
     "body_en": "Raycast is a macOS launcher replacing Spotlight. Its Snippets are native text expanders with keyword search. What sets it apart: integrated AI Commands — fire a snippet with ⌥+Space, edit if needed, and Raycast AI runs it without opening ChatGPT. Intent → output cycle drops to <5 seconds.",
-    "when": "Trabajás en macOS · valorás velocidad de invocación · te frustra cambiar de app cada vez que querés ejecutar un SPEC.",
-    "example": "⌘+Space → tipeás 'swot' → Raycast muestra el snippet → ⏎ pega y ejecuta vía AI Command. Si pagás Pro ($8/mes), AI Commands corren GPT-4o, Claude o un local model sin salir de Raycast."
+    "when": "Trabajás en macOS · valoras velocidad de invocación · te frustra cambiar de app cada vez que quieres ejecutar un SPEC.",
+    "example": "⌘+Space → tipeas 'swot' → Raycast muestra el snippet → ⏎ pega y ejecuta vía AI Command. Si pagás Pro ($8/mes), AI Commands corren GPT-4o, Claude o un local model sin salir de Raycast."
   },
   "exp-textexpander": {
     "title_es": "TextExpander · veterano del segmento",
     "title_en": "TextExpander · segment veteran",
     "body_es": "TextExpander de Smile lleva 20 años en el espacio. Su valor diferencial: gestión de equipos. Sincronización entre macOS / Windows / iOS / iPadOS, formularios robustos con tipos de campo (texto, dropdown, fecha, checkbox), analytics de qué snippet usa cada miembro, biblioteca compartida con permisos. Plan personal $5/mes, equipos $10/mes/usuario.",
     "body_en": "TextExpander by Smile has been in the space 20 years. Differentiator: team management. Sync across macOS / Windows / iOS / iPadOS, robust forms with field types (text, dropdown, date, checkbox), analytics of who uses which snippet, shared library with permissions. Personal $5/mo, teams $10/mo/user.",
-    "when": "Equipos de 3+ personas que comparten SPECs · operás en múltiples dispositivos (Mac + iPad + iPhone) · necesitás formularios complejos con validación.",
+    "when": "Equipos de 3+ personas que comparten SPECs · operas en múltiples dispositivos (Mac + iPad + iPhone) · necesitas formularios complejos con validación.",
     "example": "Snippet 'xspec-cliente' abre un form: dropdown de cliente, fecha, dropdown de tipo de SPEC. El usuario rellena, TextExpander construye el SPEC final personalizado. Analytics muestran qué SPECs son más usados → cristalización guiada por datos."
   },
   "exp-keyboard-maestro": {
     "title_es": "Keyboard Maestro + Karabiner · macros completas",
     "title_en": "Keyboard Maestro + Karabiner · full macros",
-    "body_es": "Para cuando expander no alcanza: Keyboard Maestro permite macros completas (paste + abrir browser + clic en chat + paste + send). Karabiner-Elements remapea cualquier tecla a cualquier otra; el patrón Hyper Key (Caps Lock → ⇧+⌃+⌥+⌘) libera 26 atajos que no colisionan con nada. Curva alta. ROI altísimo si invocás SPECs 30+ veces al día.",
+    "body_es": "Para cuando expander no alcanza: Keyboard Maestro permite macros completas (paste + abrir browser + clic en chat + paste + send). Karabiner-Elements remapea cualquier tecla a cualquier otra; el patrón Hyper Key (Caps Lock → ⇧+⌃+⌥+⌘) libera 26 atajos que no colisionan con nada. Curva alta. ROI altísimo si invocas SPECs 30+ veces al día.",
     "body_en": "When expander isn't enough: Keyboard Maestro runs full macros (paste + open browser + click chat + paste + send). Karabiner-Elements remaps any key to any other; the Hyper Key pattern (Caps Lock → ⇧+⌃+⌥+⌘) unlocks 26 collision-free shortcuts. Steep curve. Very high ROI if you fire SPECs 30+ times daily.",
-    "when": "Power user en macOS · invocás los mismos 5-10 SPECs todo el día · querés zero-friction absoluto.",
+    "when": "Power user en macOS · invocas los mismos 5-10 SPECs todo el día · quieres zero-friction absoluto.",
     "example": "Hyper+S = macro: copia el contenido visible al clipboard → abre Pristino en browser → pega → presiona Enter. 1 tecla = 1 SPEC ejecutado. Karabiner libera teclas de función F13-F19 como triggers dedicados."
   },
   "exp-built-in": {
@@ -1271,15 +1263,15 @@
     "title_en": "System replacements · zero extra apps",
     "body_es": "macOS, iOS y Android traen reemplazos de texto integrados. macOS los sincroniza con iOS vía iCloud. Cero apps extra, cero costo. Limitación: en algunas plataformas no preservan saltos de línea, así que sirven para los 5-10 atajos cortos (alias de prompts) pero no para SPECs largos completos.",
     "body_en": "macOS, iOS and Android ship with built-in text replacements. macOS syncs with iOS via iCloud. Zero extra apps, zero cost. Limit: some platforms don't preserve line breaks, so it works for 5-10 short shortcuts (prompt aliases) but not for long full SPECs.",
-    "when": "Empezando · todavía no querés instalar nada · querés expandir 5-10 atajos cortos como `,p` → 'Por favor traduce al inglés'.",
+    "when": "Empezando · todavía no quieres instalar nada · quieres expandir 5-10 atajos cortos como `,p` → 'Por favor traduce al inglés'.",
     "example": "macOS: Ajustes → Teclado → Texto → +. Trigger: 'asap'. Replace: 'as soon as possible'. iOS sincroniza solo. Android: Ajustes → General → Teclado → Diccionario personal."
   },
   "exp-ide": {
     "title_es": "Snippets de IDE · VS Code · JetBrains · Vim",
     "title_en": "IDE snippets · VS Code · JetBrains · Vim",
-    "body_es": "Si vivís en un IDE, los snippets nativos son el camino: tab-stops para saltar entre slots variables, scope por lenguaje, sync vía Settings Sync. VS Code: Cmd+Shift+P → 'Configure User Snippets'. JetBrains: Live Templates. Vim: UltiSnips. Funciona en cualquier archivo (markdown, prompts.yaml, README) sin instalar nada extra.",
+    "body_es": "Si vives en un IDE, los snippets nativos son el camino: tab-stops para saltar entre slots variables, scope por lenguaje, sync vía Settings Sync. VS Code: Cmd+Shift+P → 'Configure User Snippets'. JetBrains: Live Templates. Vim: UltiSnips. Funciona en cualquier archivo (markdown, prompts.yaml, README) sin instalar nada extra.",
     "body_en": "If you live in an IDE, native snippets are the way: tab-stops to jump between variable slots, scope per language, sync via Settings Sync. VS Code: Cmd+Shift+P → 'Configure User Snippets'. JetBrains: Live Templates. Vim: UltiSnips. Works in any file (markdown, prompts.yaml, README) without installing anything extra.",
-    "when": "Tu vida pasa en un IDE · escribís prompts dentro de archivos versionados · querés tab-stops para llenar slots variables.",
-    "example": "VS Code snippet `swot` con tab-stops: tipeás `swot` → Tab → expande SPEC → cursor en `${1:ORG}`, Tab → cursor en `${2:OBJETIVO}`. Ideal para mantener tus SPECs en el repo del proyecto bajo `.vscode/prompts.code-snippets`."
+    "when": "Tu vida pasa en un IDE · escribís prompts dentro de archivos versionados · quieres tab-stops para llenar slots variables.",
+    "example": "VS Code snippet `swot` con tab-stops: tipeas `swot` → Tab → expande SPEC → cursor en `${1:ORG}`, Tab → cursor en `${2:OBJETIVO}`. Ideal para mantener tus SPECs en el repo del proyecto bajo `.vscode/prompts.code-snippets`."
   }
 }
