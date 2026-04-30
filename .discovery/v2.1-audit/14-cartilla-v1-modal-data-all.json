@@ -592,36 +592,36 @@
     "when": "Cuando un dato es OBLIGATORIO para tu output y no lo tenés. Forzás al usuario a darlo o aceptás operar incompleto."
   },
   "dsv-d": {
-    "title_es": "D · DECOMPOSE",
-    "title_en": "D · DECOMPOSE",
+    "title_es": "D · DECOMPOSE (DSVSR · paso 1)",
+    "title_en": "D · DECOMPOSE (DSVSR · step 1)",
     "body_es": "Divide el problema en sub-problemas atómicos, dependencias y orden lógico. Antes de resolver, listá los sub-pasos. La descomposición previene 'salto al resultado' que es donde más se equivoca el LLM.",
     "body_en": "Divide the problem into atomic sub-problems, dependencies and logical order. Before solving, list sub-steps. Decomposition prevents 'jump to result' where LLM most errs.",
     "example": "Pregunta compuesta: 'Diseñá go-to-market'. Decompose: 1) Análisis ICP, 2) Pricing, 3) Canales, 4) Mensajes, 5) Métricas, 6) Cronograma."
   },
   "dsv-s1": {
-    "title_es": "S · SOLVE",
-    "title_en": "S · SOLVE",
+    "title_es": "S · SOLVE (DSVSR · paso 2)",
+    "title_en": "S · SOLVE (DSVSR · step 2)",
     "body_es": "Resuelve cada sub-problema con confianza explícita 0.0-1.0 y justificación breve. La confianza visible distingue 'sé esto' de 'asumo esto'. Permite al usuario auditar.",
     "body_en": "Solve each sub-problem with explicit confidence 0.0-1.0 and brief justification. Visible confidence distinguishes 'I know' from 'I assume'. Lets user audit.",
     "example": "ICP: 'Mid-market SaaS, 50-500 empleados, US/EU' — confianza 0.85 (basado en patrones del sector pero no validado con tus datos)."
   },
   "dsv-v": {
-    "title_es": "V · VERIFY",
-    "title_en": "V · VERIFY",
+    "title_es": "V · VERIFY (DSVSR · paso 3)",
+    "title_en": "V · VERIFY (DSVSR · step 3)",
     "body_es": "Valida lógica, hechos, completitud y sesgos en cada solución parcial. La verificación detecta inconsistencias antes de la síntesis.",
     "body_en": "Validate logic, facts, completeness, biases in each partial solution. Verification catches inconsistencies before synthesis.",
     "example": "Verifico: ¿el ICP es coherente con el pricing propuesto? ¿el canal es viable para esta audiencia? ¿hay datos que sustenten cada claim?"
   },
   "dsv-s2": {
-    "title_es": "S · SYNTHESIZE",
-    "title_en": "S · SYNTHESIZE",
+    "title_es": "S · SYNTHESIZE (DSVSR · paso 4)",
+    "title_en": "S · SYNTHESIZE (DSVSR · step 4)",
     "body_es": "Combina hallazgos usando confianza ponderada; separa certeza vs hipótesis con etiquetas. La síntesis es donde el output toma forma final, ordenando por confianza.",
     "body_en": "Combine findings with weighted confidence; separate certainty vs hypothesis with tags. Synthesis is where output takes final form, ordered by confidence.",
     "example": "Output final: lista priorizada con etiquetas — los items con más confianza arriba, los hipotéticos abajo y marcados {INFERENCIA}."
   },
   "dsv-r": {
-    "title_es": "R · REFLECT",
-    "title_en": "R · REFLECT",
+    "title_es": "R · REFLECT (DSVSR · paso 5)",
+    "title_en": "R · REFLECT (DSVSR · step 5)",
     "body_es": "Si la confianza global queda por debajo del umbral (default 0.95), declara la debilidad principal, qué falta para subirla y qué alternativa seguir. La reflexión cierra el bucle.",
     "body_en": "If global confidence < threshold (default 0.95), declare main weakness, what's missing to raise it, and alternative path. Reflection closes the loop.",
     "example": "Confianza global 0.78 — debilidad: falta validar ICP con tus datos reales. Para subir a 0.95: ejecutá 5 entrevistas con clientes actuales."
@@ -1145,5 +1145,69 @@
     "body_en": "With the method, you craft new prompts when needed. Library v3.4 (2026 prompts) is reference, NOT a chain. If your case isn't there, you build it in 10 min. That's digital + AI sovereignty.",
     "category": "Mañana · soberanía",
     "category_en": "Tomorrow · sovereignty"
+  },
+  "piv-p": {
+    "title_es": "P · Personas (Fase A · Fundamentar)",
+    "title_en": "P · People (Phase A · Ground)",
+    "body_es": "Mindset, roles y capacidades. La primera dimensión del framework P.I.V.O.T.E. de MetodologIA. Antes de pensar en herramientas, identificás quién decide, quién ejecuta, quién aprende. Sin claridad de personas, ningún sistema escala — la tecnología amplifica la confusión.",
+    "body_en": "Mindset, roles and capabilities. The first dimension of MetodologIA's P.I.V.O.T.E. framework. Before thinking tools, you identify who decides, who executes, who learns. Without people clarity, no system scales — technology amplifies confusion.",
+    "when": "En cada inicio de proyecto, transformación o automatización. Antes de elegir herramienta. Cuando hay fricción persistente que la tecnología no resuelve.",
+    "example": "Antes de automatizar el reporte semanal, mapeás: quién lo necesita (ejecutivo), quién lo prepara (analista), quién valida (gerente). Identificás que el problema no es velocidad — es desalineamiento de criterio. La automatización sin esto solo escala el ruido."
+  },
+  "piv-i": {
+    "title_es": "I · Interacciones (Fase A · Fundamentar)",
+    "title_en": "I · Interactions (Phase A · Ground)",
+    "body_es": "Flujos, fricciones y dependencias. La segunda dimensión del framework. Mapeás dónde se pierde tiempo, energía y contexto entre personas, sistemas y procesos. Las interacciones rotas son el cuello de botella real — no la falta de herramientas.",
+    "body_en": "Flows, frictions and dependencies. The second dimension of the framework. You map where time, energy and context get lost between people, systems and processes. Broken interactions are the real bottleneck — not lack of tools.",
+    "when": "Cuando un proyecto no avanza pese a tener buenas personas y tecnología disponible. Cuando las reuniones se multiplican. Cuando el conocimiento no fluye.",
+    "example": "Detectás que el lead time de aprobación es 5 días no por capacidad sino porque cada paso requiere contexto que el anterior no documentó. La fricción es invisible hasta que la mapeás. Solución: SOPs vivos antes de automatización."
+  },
+  "piv-v": {
+    "title_es": "V · Valor (Fase A · Fundamentar)",
+    "title_en": "V · Value (Phase A · Ground)",
+    "body_es": "Impacto real medible. La tercera dimensión cierra la fase de Fundamentar. Distinguís qué actividades generan ROI medible y cuáles son ruido bien intencionado. Sin esta señal, amplificás indistintamente lo útil y lo irrelevante.",
+    "body_en": "Real measurable impact. The third dimension closes the Ground phase. You distinguish which activities generate measurable ROI and which are well-intentioned noise. Without this signal, you amplify the useful and irrelevant alike.",
+    "when": "Antes de comprometer presupuesto en automatización. Cuando hay 50 iniciativas y tenés capacidad para 5. Cuando el equipo se siente ocupado pero el negocio no avanza.",
+    "example": "De 12 reportes que el equipo genera, identificás que 3 mueven decisiones ejecutivas, 4 nadie lee, y 5 se duplican. Antes de automatizarlos todos, eliminás los 4 muertos y consolidás los 5 duplicados. Recién después amplificás los 3 que importan."
+  },
+  "piv-o": {
+    "title_es": "O · Organización (Fase B · Amplificar)",
+    "title_en": "O · Organization (Phase B · Amplify)",
+    "body_es": "Sistematización y estructura. La primera dimensión de la fase Amplificar. Una vez limpia la señal (P+I+V), construís el andamiaje: playbooks, SOPs y knowledge base viva. Sin organización, la tecnología siguiente solo añade complejidad.",
+    "body_en": "Systematization and structure. The first dimension of the Amplify phase. Once the signal is clean (P+I+V), you build the scaffolding: playbooks, SOPs and living knowledge base. Without organization, the next technology only adds complexity.",
+    "when": "Antes de comprar herramientas o entrenar al equipo en IA. Cuando el conocimiento se pierde con cada salida del equipo. Cuando el onboarding toma semanas.",
+    "example": "El equipo escribe SPECs ad-hoc cada uno con su estilo. Antes de automatizar, definís plantilla SPEC v3.4 universal + repo central + checklist ENTRUSTED+. Recién con eso documentado tiene sentido conectar IA: ahora la IA tiene un patrón al que adherirse."
+  },
+  "piv-t": {
+    "title_es": "T · Tecnología (Fase B · Amplificar) · siempre penúltima",
+    "title_en": "T · Technology (Phase B · Amplify) · always second-to-last",
+    "body_es": "Automatización e IA. La penúltima dimensión — y este orden no es accidente. Solo después de limpiar la señal (Fase A) y montar la organización (O) tiene sentido amplificar con tecnología. Empezar por acá es el error #1 en transformación digital.",
+    "body_en": "Automation and AI. The second-to-last dimension — and this order is not accidental. Only after cleaning the signal (Phase A) and setting up organization (O) does it make sense to amplify with technology. Starting here is mistake #1 in digital transformation.",
+    "when": "Cuando todo lo anterior está mapeado y estable. Cuando podés explicar QUIÉN, CÓMO y POR QUÉ antes de definir CON QUÉ.",
+    "example": "Implementás Custom GPT para el reporte ejecutivo. Funciona porque las personas saben qué leer (P), el flujo desde data hasta insight está mapeado (I), el reporte tiene ROI claro (V), y la plantilla SPEC vive en el repo (O). La IA amplifica un sistema sano — no rescata uno roto."
+  },
+  "piv-e": {
+    "title_es": "E · Evolución (Fase B · Amplificar)",
+    "title_en": "E · Evolution (Phase B · Amplify)",
+    "body_es": "Mejora continua. La sexta y última dimensión cierra el ciclo. Métricas, retrospectivas y pivoteo basado en datos. Sin Evolución, todo lo anterior se vuelve estático. Es la dimensión que convierte el framework en organismo vivo.",
+    "body_en": "Continuous improvement. The sixth and last dimension closes the loop. Metrics, retrospectives and data-driven pivots. Without Evolution, everything above becomes static. It's the dimension that turns the framework into a living organism.",
+    "when": "Continuamente, no como hito. Cada 2 semanas para iniciativas en marcha. Cada trimestre para revisar el portfolio. Cada anomalía detectada activa retro.",
+    "example": "Score ENTRUSTED+ promedio del equipo cae de 95 a 88. La retro detecta que el cambio de modelo (GPT→Claude) requirió ajuste de cláusulas que nadie documentó. Acción: actualizar SOP (vuelve a O), capacitar (vuelve a P). El framework gira."
+  },
+  "ent-d": {
+    "title_es": "D · Definition of Done",
+    "title_en": "D · Definition of Done",
+    "body_es": "El 9º eje del rubricario ENTRUSTED+ y la promoción central de v3.4. Cada prompt SPEC declara explícitamente qué cuenta como 'hecho': formato del entregable, criterios de aceptación observables, edge cases manejados. Sin DoD, el output queda sujeto a interpretación post-hoc — que es donde nace la fricción.",
+    "body_en": "The 9th axis of the ENTRUSTED+ rubric and v3.4's central promotion. Every SPEC prompt explicitly declares what counts as 'done': deliverable format, observable acceptance criteria, edge cases handled. Without DoD, output remains open to post-hoc interpretation — which is where friction begins.",
+    "rubric": "Antes de soltar el output: ¿el SPEC dice qué cuenta como 'hecho'? ¿El output cumple ese contrato literal? Sí = DoD honrado.",
+    "example": "DoD por categoría 'análisis': hallazgos numerados con confianza 0.0-1.0 + recomendación priorizada con criterio explícito + sección 'Lo que NO se sabe' con vacíos críticos. Si el output cumple los 3, PASA. Si solo cumple 2, FALLA — sin ambigüedad."
+  },
+  "ent-plus": {
+    "title_es": "+ · Capa meta · bucle de excelencia + insights proactivos",
+    "title_en": "+ · Meta layer · excellence loop + proactive insights",
+    "body_es": "El '+' de ENTRUSTED+ no es relleno: es la capa meta que opera SOBRE los 9 ejes. Activa dos comportamientos automáticos: (1) bucle de excelencia (la IA itera internamente hasta 10/10 antes de soltar), (2) insights proactivos (cierra con sugerencias + recomendaciones + riesgos no obvios + preguntas de profundización). Eleva PASA → EXCELLENT.",
+    "body_en": "The '+' in ENTRUSTED+ is not filler: it's the meta layer that operates ON the 9 axes. It activates two automatic behaviors: (1) excellence loop (AI iterates internally up to 10/10 before releasing), (2) proactive insights (closes with suggestions + recommendations + non-obvious risks + deepening questions). Lifts PASS → EXCELLENT.",
+    "rubric": "¿El output muestra evidencia de iteración interna (no es draft 1.0)? ¿Cierra con bloque de insights más allá del pedido? Si ambos sí, '+' activado.",
+    "example": "Pedís un análisis SWOT. Output normal: 4 cuadrantes. Output con '+': 4 cuadrantes + bloque INSIGHTS_PROACTIVOS al cierre con 'cruces TOWS no obvios' + 'supuestos del SWOT que cuestionarías' + 'qué dato decisor falta'. Misma pregunta — 3x el valor."
   }
 }
