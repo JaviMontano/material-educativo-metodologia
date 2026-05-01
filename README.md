@@ -1,54 +1,140 @@
-# Biblioteca Universal de Prompting 2026 · v1492
+# Material Educativo · MetodologIA 2026
 
-Repositorio público de distribución de la **Biblioteca Universal de Prompting 2026** de MetodologIA. La publicación actual consolida la biblioteca renovada en su corte **v1492**, con `1492` prompts canónicos exactos, `42` categorías públicas visibles y una doble superficie de uso: exploración directa en HTML auto contenido y operación diaria desde **Prompster**. [CÓDIGO]
+Repositorio público con el material educativo abierto de **MetodologIA**: bibliotecas, playbooks y skills operativas para apropiación práctica de IA por personas reales.
 
-La idea de este repo es simple: que puedas abrir la biblioteca sin instalar nada, pero también que puedas llevarla a un expansor de prompts real cuando quieras trabajar dentro de ChatGPT, Claude, Gemini, Grok u otros chats soportados. En esta versión el repo queda explícitamente preparado para usar la biblioteca **ahí**, dentro de Prompster, no solo para leerla como material editorial. [DOC][CÓDIGO][INFERENCIA]
+**Brand voice**: MetodologIA v3.0 · navy `#122562` · gold `#FFD700` · blue `#137DC5`
+**License**: CC BY-NC-SA 4.0
+**Diseñador**: Javier Montaño · Founder/CEO MetodologIA
 
-## Qué contiene este repo
+---
 
-| Archivo | Rol | Uso recomendado |
+## 📚 Material publicado
+
+### Bibliotecas (datos + UI)
+
+| Recurso | Tipo | Uso recomendado |
 |---|---|---|
-| `biblioteca-universal-prompting-2026.html` | Biblioteca integral auto contenida | Abrir en navegador y trabajar offline con buscador, modal y navegación editorial |
-| `prompts_universales_v1492.json` | JSON canónico de publicación | Integraciones, auditoría, trazabilidad y consumo programático |
-| `prompts_universales_v1492_prompster.json` | Bundle dedicado para Prompster | Subirlo en la extensión y operar por comando limpio |
-| `prompts_universales_v1492_prompster.js` | Variante JS del bundle Prompster | Embebido o inspección técnica |
-| `prompts_universales_v2026_prompster.json` | Alias de compatibilidad del bundle Prompster | Mantener continuidad con referencias previas del repo |
-| `prompts_universales_v2026_prompster.js` | Alias JS de compatibilidad | Mantener continuidad con referencias previas del repo |
-| `playbook-aprender-aprehender-revolucionar-2026.html` | Recurso complementario de aprendizaje | Profundizar en estudio, práctica y apropiación de la biblioteca |
+| [`biblioteca-universal-prompting-2026.html`](biblioteca-universal-prompting-2026.html) | HTML self-contained · 2026 prompts | Abrir offline · explorar por categorías · copiar prompts manualmente |
+| [`prompts_universales_v3000.json`](prompts_universales_v3000.json) | JSON canónico v3.0 · 10.46 MB | Integraciones · auditoría · consumo programático |
+| [`prompts_universales_v3000.min.json`](prompts_universales_v3000.min.json) | JSON minificado · 9.75 MB | Embebido en producción |
+| [`prompts_universales_v2026_prompster.json`](prompts_universales_v2026_prompster.json) | Bundle Prompster · 9 MB | Cargar en extensión Prompster · operar por slash command |
 
-## Estado de la publicación
+### Playbooks editoriales
 
-La biblioteca publicada en este repo corresponde al corte renovado con `1492` prompts canónicos exactos. El conteo no incluye aliases como piezas adicionales, no cambia las `42` categorías públicas y conserva la regla de biblioteca útil para vida, trabajo y aprendizaje. El bundle `Prompster` publicado aquí también expone `1492` claves únicas listas para carga como objeto JSON `clave -> prompt`, que es la estructura que la extensión usa internamente para su librería. Desde este corte, además, las `1492` piezas incorporan un `BUCLE DE EXCELENCIA` uniforme para obligar evaluación interna, refinamiento iterativo y entrega solo de la versión final. La publicación ahora también queda alineada sobre un segundo contrato transversal: cada prompt está corregido para ser **auto contenido y funcional por sí solo**, con insumos mínimos, salida esperada y tratamiento explícito de vacíos críticos, sin depender de contexto conversacional implícito. Ese contrato aplica por igual a la superficie HTML, al JSON canónico y al bundle Prompster. Dentro de las macros actuales, `ñ` queda reservada para traducción bilateral: de español hacia `inglés`, `francés`, `portugués`, `chino`, `japonés` o `hindi`, o desde uno de esos idiomas hacia español. Su default operativo queda en traducción contextual, no literal, con salida `simple`, `semi formal`, `cercana` y `neutra sin voseo` cuando el resultado está en español, con modos ajustables como `general`, `negocios`, `oficial`, `académico`, `técnico` y `marketing`. [CÓDIGO][INFERENCIA]
+| Recurso | Foco | Audiencia |
+|---|---|---|
+| [`playbook-aprender-aprehender-revolucionar-2026.html`](playbook-aprender-aprehender-revolucionar-2026.html) | Ciclo completo del conocimiento profesional con IA · 6 técnicas cognitivas · 10 escalas de maestría · 14 prompts | Profesionales de cualquier disciplina |
+| [`playbook-prompting-universal-2026.html`](playbook-prompting-universal-2026.html) | Manual completo de prompting · arquitecturas · superficies · evidencia | Practitioners avanzados |
+| [`playbook-prompting-universal-2026-essentials.html`](playbook-prompting-universal-2026-essentials.html) | Versión didáctica condensada | Iniciados |
 
-## Cómo usarla
+### Skills operativas (Claude Code)
 
-### Opción 1 · HTML offline
+| Skill | Función | Métricas |
+|---|---|---|
+| [`skills/aprender-aprehender-revolucionar/`](skills/aprender-aprehender-revolucionar/) | Companion personal de aprendizaje · activa los 14 prompts, 3 workflows, 4 rituales, 6 katas y 8 arquetipos NotebookLM del playbook · v1.0.0 | 70 archivos · 15,747 líneas |
 
-Abre `biblioteca-universal-prompting-2026.html` en cualquier navegador moderno. No requiere servidor, cuenta, extensión, npm ni conexión permanente. Esta es la mejor puerta si quieres explorar por categorías, leer contexto, enseñar la biblioteca, hacer demos o copiar prompts desde el modal de forma manual. [CÓDIGO]
+---
 
-### Opción 2 · Prompster
+## 🚀 Cómo usar este material
 
-Instala **Prompster** desde la [Chrome Web Store](https://chromewebstore.google.com/detail/prompster/fbagfekcjdidpmmookklbaeddgkjddml?hl=es) y, si quieres validar su proyecto oficial, revisa también el [repositorio de Prompster](https://github.com/LucasAschenbach/prompster). La razón de esta referencia es directa: la biblioteca publicada en este repo está preparada para trabajar ahí. La ficha oficial describe a Prompster como una extensión de slash commands para apps de chat con biblioteca integrada, prompts personalizados y variables; el código del proyecto confirma además una ruta explícita de `Settings > Import/Export Prompts > Upload Prompts` sobre un archivo JSON de prompts. [DOC][CÓDIGO]
+### Opción 1 · HTML offline (sin instalación)
 
-El flujo recomendado es este:
+Abre cualquier HTML en un navegador moderno. No requiere servidor, cuenta, extensión ni conexión permanente. Perfecto para explorar, enseñar, demos y copia manual de prompts.
 
-1. Instala Prompster.
-2. Abre el popup de la extensión.
-3. Entra a `Settings`.
-4. Ve a `Import/Export Prompts`.
-5. Usa `Upload Prompts`.
-6. Carga `prompts_universales_v1492_prompster.json`.
+```bash
+git clone https://github.com/JaviMontano/material-educativo-metodologia.git
+cd material-educativo-metodologia
+open biblioteca-universal-prompting-2026.html
+```
 
-Después de subir el archivo, opera la biblioteca con el carácter gatillo que configures en Prompster y las claves limpias del bundle. Ejemplos reales incluidos en esta publicación: `0`, `a`, `ñ`, `a-b-testing`, `finanzas-presupuesto-familiar`, `prompting-zero-shot-limpio`, `demo-05-genera-video`. En particular, `ñ` ya no es solo una traducción unidireccional: acepta dirección automática o explícita, ajuste de tono y registro, contexto de uso y modos como `negocios` u `oficial`. [CÓDIGO]
+### Opción 2 · Prompster (slash commands en chats)
 
-## Qué se verificó sobre Prompster
+Instala [Prompster](https://chromewebstore.google.com/detail/prompster/fbagfekcjdidpmmookklbaeddgkjddml?hl=es) (Chrome Web Store). Después:
 
-Prompster no se menciona aquí como una sugerencia genérica sino como una superficie verificada. La ficha pública de la tienda indica que la extensión inserta prompts por slash command dentro del chat, soporta biblioteca propia, variables y varios chats populares. El README oficial del proyecto confirma que Prompster parte de un archivo `static/default_prompts.json` y que la biblioteca puede personalizarse desde el popup. El código de `SettingsPage.tsx` muestra la carga y descarga de archivos JSON, y el código de `background/storage/prompts.ts` confirma que la estructura persistida es un objeto JSON de prompts ordenado alfabéticamente. Por eso este repo publica un bundle Prompster dedicado en JSON y no solo el HTML editorial. [DOC][CÓDIGO][INFERENCIA]
+1. Abre el popup → `Settings`
+2. `Import/Export Prompts` → `Upload Prompts`
+3. Carga `prompts_universales_v2026_prompster.json`
+4. Opera con tu carácter gatillo y las claves: `0`, `a`, `ñ`, `a-b-testing`, `prompting-zero-shot-limpio`, etc.
 
-## Trazabilidad mínima
+### Opción 3 · Skill en Claude Code
 
-La publicación renovada mantiene una separación útil entre superficie pública y fuente operativa. El HTML es el artefacto de consumo humano. `prompts_universales_v1492.json` es la superficie canónica de publicación. `prompts_universales_v1492_prompster.json` es la superficie de operación en expansores y, en particular, en Prompster. Los aliases `v2026_prompster` se dejan como continuidad para referencias anteriores del repo, pero la versión vigente recomendada para uso nuevo es `v1492`. En las tres superficies activas, el contenido ya está alineado bajo el mismo contrato de prompt auto contenido. [CÓDIGO][INFERENCIA]
+```bash
+# Copiar skill al directorio Claude
+cp -r skills/aprender-aprehender-revolucionar ~/.claude/skills/
 
-## MetodologIA
+# La skill se registra automáticamente
+# Invocarla con frases naturales:
+#   "ayúdame a aprender Rust desde cero"
+#   "voy a presentar QBR el viernes"
+#   "deep research sobre LLMs 2026, tengo 4h"
+#   "jQuery ya no me sirve, ¿qué hago?"
+```
 
-MetodologIA publica esta biblioteca como infraestructura práctica de apropiación de IA para personas reales. Si vienes por el HTML, úsalo como biblioteca editorial y operativa. Si vienes por Prompster, este repo ya quedó preparado para eso. [INFERENCIA]
+Documentación completa: [`skills/aprender-aprehender-revolucionar/SKILL.md`](skills/aprender-aprehender-revolucionar/SKILL.md).
+
+---
+
+## 🧭 Filosofía MetodologIA
+
+> *Método primero, IA después.*
+> *Cadencia > intensidad.*
+> *Intención antes que intensidad.*
+> *Lo que era vanguardia se vuelve legado.*
+
+**Pilares**: Ciencia Cognitiva · Pensamiento Crítico · Soberanía Profesional · Areté.
+
+**Voces canónicas**: Diseñador · (R)Evolución · Método.
+**Bloqueado**: ❌ Arquitecto · ❌ Transformación · ❌ Hacks.
+
+Este material existe para que **personas reales** se apropien de la IA con rigor, sin caer en consumo fluido superficial. La pregunta no es *"¿qué te dijo la IA?"* sino *"¿lo puedes defender sin notas, ante hostil, bajo presión?"*.
+
+---
+
+## 🗂️ Trazabilidad y versiones
+
+El [CHANGELOG](CHANGELOG.md) es el **index canónico** del material público vigente. Cada incorporación al repo queda documentada con métricas, atribución y verificaciones pasadas.
+
+Versión vigente recomendada para **uso nuevo**: ver tabla en [CHANGELOG.md](CHANGELOG.md) §Index del material público vigente.
+
+Aliases (`v2026_prompster`, etc.) se mantienen para compatibilidad con referencias previas.
+
+---
+
+## 📜 Licencia · CC BY-NC-SA 4.0
+
+[![CC BY-NC-SA 4.0](https://licensebuttons.net/l/by-nc-sa/4.0/88x31.png)](https://creativecommons.org/licenses/by-nc-sa/4.0/deed.es)
+
+Atribución · NoComercial · CompartirIgual.
+
+✅ **Permitido**: copiar, redistribuir, remezclar, adaptar para uso personal, educativo sin fines de lucro, e interno corporativo (con atribución).
+
+❌ **NO permitido sin licencia comercial**: vender, incluir en productos pagos, usar en consultoría que cobra al cliente, distribuir con publicidad monetizada.
+
+🔗 **Uso comercial**: contacta a Javier Montaño · MetodologIA.
+
+Si remezclas, **mantén CC BY-NC-SA 4.0** en tu obra derivada e indica los cambios significativos respecto al original.
+
+---
+
+## 🤝 Atribución mandatory
+
+Si compartes, modificas, redistribuyes o construyes sobre este material:
+
+```
+Basado en "Material Educativo MetodologIA 2026"
+Diseñado por Javier Montaño · Founder/CEO MetodologIA
+https://github.com/JaviMontano/material-educativo-metodologia
+Licencia: CC BY-NC-SA 4.0
+```
+
+---
+
+## 🌐 Más sobre MetodologIA
+
+- Sitio MAO: https://github.com/JaviMontano/mao-site
+- Founder: Javier Montaño
+
+---
+
+> *MetodologIA · 2026 · CC BY-NC-SA 4.0*
+> *Infraestructura práctica de apropiación de IA para personas reales.*

@@ -1,0 +1,34 @@
+# Material de auditoría interna · NO público
+.discovery/
+.claude/
+.private/
+
+# Entornos · paquetes
+__pycache__/
+*.pyc
+.venv/
+venv/
+node_modules/
+
+# Editor / OS
+.DS_Store
+.idea/
+.vscode/
+*.swp
+*.swo
+*~
+
+# Logs / temporales
+*.log
+*.tmp
+.tmp/
+
+# Prompster builds intermedios (mantener solo los publicados)
+*_log.md
+build_*.py
+boost_*.py
+certify_*.py
+apply_*.py
+generate_*.py
+integrate_*.py
+rename_*.py

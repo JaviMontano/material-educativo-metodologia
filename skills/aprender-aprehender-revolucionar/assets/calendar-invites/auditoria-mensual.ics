@@ -1,0 +1,25 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//MetodologIA//Aprender-Aprehender-Revolucionar//ES
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:auditoria-mensual-metodologia-2026@metodologia.info
+DTSTAMP:20260430T070000Z
+DTSTART;TZID=America/Bogota:20260501T160000
+DTEND;TZID=America/Bogota:20260501T170000
+RRULE:FREQ=MONTHLY;BYDAY=1FR
+SUMMARY:🔄 Auditoría Mensual de Relevancia · (R)Evolucionar
+DESCRIPTION:Ritual mensual de 60 min · primer viernes del mes.\n\n*Lo que era vanguardia se vuelve legado.*\n\nPROTOCOLO:\n1. (5 min) Identificar las 3 skills usadas más este mes\n2. (25 min) Ejecutar Prompt #5 en Perplexity · framework 4-D\n3. (15 min) Validación cruzada · LinkedIn, Glassdoor, conferencias\n4. (10 min) Documentar decisión [MANTENER/ACTUALIZAR/REEMPLAZAR/SOLTAR]\n5. (5 min) Actualizar narrativa profesional · LinkedIn, CV, pitch\n\nObjetivo: prevenir obsolescencia silenciosa.\n\nDocumentación: ~/.claude/skills/aprender-aprehender-revolucionar/rituals/ritual-auditoria-mensual.md\n\nComando: python ~/.claude/skills/aprender-aprehender-revolucionar/scripts/relevance_audit.py --skills "skill1,skill2,skill3"
+LOCATION:Deep work · Perplexity con búsqueda web
+CATEGORIES:Aprendizaje,MetodologIA,Ritual mensual,(R)Evolucionar
+PRIORITY:2
+STATUS:CONFIRMED
+TRANSP:OPAQUE
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:Auditoría Mensual · 30 min
+TRIGGER:-PT30M
+END:VALARM
+END:VEVENT
+END:VCALENDAR

@@ -1,0 +1,202 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "version": "1.0.0",
+  "license": "CC BY-NC-SA 4.0",
+  "author": "Javier Montaño · MetodologIA",
+  "source": "Playbook Aprender · Aprehender · (R)Evolucionar v2.0.0",
+  "description": "8 arquetipos canónicos para configurar NotebookLM Custom Goal. Cada uno ≤10,000 caracteres tras reemplazar variables.",
+  "arquetipos": [
+    {
+      "id": "coach",
+      "nombre": "Coach / Mentor / Teacher",
+      "uso_canonico": "Aprender tema nuevo · 24/7 tutor",
+      "fase": "Aprender + Aprehender",
+      "prompt_referencia": "prompts/02-coach-system-prompt.md",
+      "meta_prompt": "prompts/meta/M1-coach-generator.md",
+      "trigger_signals": [
+        "quiero aprender X",
+        "tengo un coach",
+        "necesito tutor 24/7"
+      ],
+      "variables": ["[TU TEMA]", "[NIVEL OBJETIVO]", "[CONTEXTO]"],
+      "tecnicas_activadas": [
+        "Retrieval Practice (cada 5 interacciones)",
+        "Feynman (cada 10 interacciones)",
+        "Spaced Repetition (programar revisiones)",
+        "Elaboration (preguntas socráticas)"
+      ],
+      "anti_patron_evitado": "Espejismo de Fluidez · NUNCA dar respuestas directas"
+    },
+    {
+      "id": "evaluador",
+      "nombre": "Technical Evaluator",
+      "uso_canonico": "Pre-certificación · 4 niveles progresivos",
+      "fase": "Aprehender",
+      "prompt_referencia": "prompts/08-evaluator-certification.md",
+      "meta_prompt": "prompts/meta/M2-evaluator-generator.md",
+      "trigger_signals": [
+        "voy a presentar certificación",
+        "examen técnico",
+        "validar mi nivel"
+      ],
+      "variables": ["[CERTIFICACIÓN]", "[NIVEL OBJETIVO]", "[BACKGROUND]"],
+      "niveles": [
+        "1 · FOUNDATIONS (Escala 1-2)",
+        "2 · INTERMEDIATE (Escala 2-3)",
+        "3 · ADVANCED (Escala 3-4)",
+        "4 · EXPERT (Escala 4+)"
+      ],
+      "regla_avance": "Solo avanza si 4/5 correctas",
+      "tecnicas_activadas": [
+        "Retrieval (preguntas sin pistas)",
+        "Interleaving (subtemas mixed)"
+      ],
+      "anti_patron_evitado": "Multiple-Choice Comfort · 80% open-ended obligatorio"
+    },
+    {
+      "id": "entrevistador",
+      "nombre": "Interviewer Hostil",
+      "uso_canonico": "Mock interview pre-FAANG / Big-N · 60 min",
+      "fase": "Aprehender",
+      "prompt_referencia": "prompts/09-interview-simulator.md",
+      "meta_prompt": "prompts/meta/M3-interviewer-generator.md",
+      "trigger_signals": [
+        "preparar entrevista",
+        "mock interview",
+        "system design pre-empresa"
+      ],
+      "variables": ["[ROL]", "[EMPRESA]", "[INDUSTRIA]", "[CV]", "[JD]"],
+      "estructura_60min": {
+        "0:00-0:05": "Warm-up",
+        "0:05-0:20": "Behavioral STAR (3-4 preguntas)",
+        "0:20-0:40": "Technical deep dive (CV claims)",
+        "0:40-0:55": "Case study / system design",
+        "0:55-0:60": "Tu turno + cierre"
+      },
+      "veredictos": [
+        "🟢 STRONG HIRE",
+        "🟡 LEAN HIRE",
+        "🟠 LEAN NO HIRE",
+        "🔴 STRONG NO HIRE"
+      ],
+      "anti_patron_evitado": "Endulzamiento · NUNCA validación preventiva"
+    },
+    {
+      "id": "qbr",
+      "nombre": "QBR / Presentation Coach",
+      "uso_canonico": "Preparación QBR · pitch · defensa pública",
+      "fase": "Aprehender",
+      "prompt_referencia": "prompts/10-presentation-coach.md",
+      "meta_prompt": "prompts/meta/M4-presentation-generator.md",
+      "trigger_signals": [
+        "presentación ejecutiva",
+        "QBR",
+        "pitch a inversionista",
+        "defensa académica"
+      ],
+      "variables": ["[TIPO PRESENTACIÓN]", "[AUDIENCIA]", "[OBJETIVO]", "[TIEMPO]"],
+      "metodologia": "Minto Pyramid + storytelling + defensa anti-objeciones",
+      "fases": [
+        "1 · Descomposición del objetivo (1 mensaje principal)",
+        "2 · Minto Pyramid invertida",
+        "3 · Estilo y storytelling",
+        "4 · Ensayos · amigable + hostil + cronometrado"
+      ],
+      "anti_patron_evitado": "Vaguedad protectora · números obligatorios"
+    },
+    {
+      "id": "auditor",
+      "nombre": "Notebook Auditor",
+      "uso_canonico": "Auditar sources · cada 5+ nuevos · pre-coach",
+      "fase": "Cross-fase · gestión de notebook",
+      "prompt_referencia": "prompts/07-notebook-audit.md",
+      "trigger_signals": [
+        "auditar mi notebook",
+        "cuáles fuentes mantener",
+        "limpiar mis sources"
+      ],
+      "variables": ["[TU TEMA]", "[LISTA DE SOURCES]"],
+      "clasificacion_sources": [
+        "1° PRIMARY · documento original",
+        "2° SECONDARY · autoridad reconocida",
+        "3° TERTIARY · derivado · candidato a eliminar"
+      ],
+      "veredictos_globales": [
+        "🟢 EXCELENTE (≥60% primary)",
+        "🟡 BUENO (40-60% primary)",
+        "🟠 REGULAR (20-40% primary)",
+        "🔴 POBRE (<20% primary)"
+      ]
+    },
+    {
+      "id": "relevance",
+      "nombre": "Professional Relevance Assessor",
+      "uso_canonico": "Auditoría mensual · framework 4-D",
+      "fase": "(R)Evolucionar",
+      "prompt_referencia": "prompts/05-relevance-audit.md",
+      "trigger_signals": [
+        "auditar mi relevancia",
+        "qué skills mantener",
+        "vale la pena seguir con X"
+      ],
+      "variables": ["[TU INDUSTRIA]", "[TU ROL]", "[3 SKILLS]"],
+      "framework_4d": {
+        "Vigencia": "🟢 ALTA · 🟡 MEDIA · 🔴 BAJA",
+        "ROI": "🟢 ALTO · 🟡 MEDIO · 🔴 BAJO",
+        "Obsolescencia": "🟢 BAJO · 🟡 MEDIO · 🔴 ALTO",
+        "Demanda": "🟢 ALTA · 🟡 MEDIA · 🔴 BAJA"
+      },
+      "decisiones": ["[MANTENER]", "[ACTUALIZAR]", "[REEMPLAZAR]", "[SOLTAR]"]
+    },
+    {
+      "id": "factcheck",
+      "nombre": "Fact-Checker",
+      "uso_canonico": "Cross-check post deep research · 4ª IA independiente",
+      "fase": "Cross-fase · auditoría",
+      "prompt_referencia": "prompts/04-cross-fact-check.md",
+      "trigger_signals": [
+        "verificar este research",
+        "fact-check",
+        "detectar alucinaciones"
+      ],
+      "variables": ["[CONTENIDO A AUDITAR]", "[DOMINIO]"],
+      "veredictos_por_claim": [
+        "[CONFIRMED] · verifico cierto",
+        "[DISCREPANT] · fuentes contradicen",
+        "[PARTIAL] · parcialmente cierto",
+        "[NO SOURCE] · plausible pero sin fuente",
+        "[HALLUCINATION] · falso confirmado"
+      ],
+      "anti_patron_evitado": "Saltar Primary Source Rule"
+    },
+    {
+      "id": "generator",
+      "nombre": "System Prompt Generator",
+      "uso_canonico": "Crear coaches custom para casos no cubiertos",
+      "fase": "Setup",
+      "prompt_referencia": "prompts/06-meta-prompt-generator.md",
+      "trigger_signals": [
+        "necesito un coach específico",
+        "configurar custom",
+        "crear prompt para X"
+      ],
+      "variables": ["[ROL]", "[OBJETIVO]", "[AUDIENCIA]", "[CONSTRAINTS]"],
+      "output": "System prompt completo ≤10,000 chars listo para NotebookLM",
+      "validacion_post_generacion": [
+        "Caracteres totales ≤10K",
+        "Mínimo 3 técnicas cognitivas activadas",
+        "5 errores que las reglas previenen",
+        "Test diagnóstico de mal funcionamiento"
+      ]
+    }
+  ],
+  "uso": {
+    "via_skill": "La skill aprender-aprehender-revolucionar invoca el arquetipo correcto según intent",
+    "via_script": "python scripts/notebook_config_generator.py --arquetipo <id> [--variables...]",
+    "via_copy_paste": "pbcopy < prompts/<archivo>.md · personalizar variables · pegar en NotebookLM Custom Goal"
+  },
+  "limites_notebooklm": {
+    "max_chars_system_prompt": 10000,
+    "ubicacion_config": "notebooklm.google.com → notebook → chat config → Custom Goal"
+  }
+}

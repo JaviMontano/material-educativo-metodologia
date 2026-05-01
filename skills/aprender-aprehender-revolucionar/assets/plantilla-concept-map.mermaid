@@ -1,0 +1,85 @@
+%%
+%% Plantilla Concept Map · MetodologIA · Aprender·Aprehender·(R)Evolucionar
+%% v1.0.0 · CC BY-NC-SA 4.0
+%%
+%% Reemplaza [TU TEMA], subtemas y conceptos con tu contenido.
+%% Renderizar en: https://mermaid.live, GitHub markdown, Obsidian, NotebookLM
+%%
+
+mindmap
+  root(([TU TEMA]))
+    Subtema_1
+      Concepto_1_1
+      Concepto_1_2
+      Concepto_1_3
+    Subtema_2
+      Concepto_2_1
+      Concepto_2_2
+        Sub_concepto_2_2_1
+        Sub_concepto_2_2_2
+    Subtema_3
+      Concepto_3_1
+      Concepto_3_2
+    Subtema_4
+      Concepto_4_1
+        Sub_concepto_4_1_1
+      Concepto_4_2
+    Subtema_5
+      Concepto_5_1
+
+%%
+%% VARIANTE · flowchart con relaciones (para Workflow 2+)
+%% Usar cuando ya identifiques flujos y dependencias entre conceptos
+%%
+
+%% flowchart TB
+%%     A[Concepto Central] --> B[Subtema 1]
+%%     A --> C[Subtema 2]
+%%     A --> D[Subtema 3]
+%%     B --> B1[Concepto 1.1]
+%%     B --> B2[Concepto 1.2]
+%%     C --> C1[Concepto 2.1]
+%%     C1 -.depende de.-> B1
+%%     D --> D1[Concepto 3.1]
+%%     D1 -.contradice.-> B2
+%%     style A fill:#FFD700,stroke:#122562,stroke-width:3px
+%%     style B fill:#137DC5,color:#fff
+%%     style C fill:#137DC5,color:#fff
+%%     style D fill:#137DC5,color:#fff
+
+%%
+%% PALETA RECOMENDADA · MetodologIA brand
+%%   navy   #122562  ·  títulos y bordes
+%%   gold   #FFD700  ·  highlights · concepto central
+%%   blue   #137DC5  ·  secundario · subtemas
+%%   dark   #1F2833  ·  texto
+%%
+
+%%
+%% EJEMPLO APLICADO · Sistemas Distribuidos (Workflow 1)
+%%
+%% mindmap
+%%   root((Sistemas Distribuidos))
+%%     Consenso
+%%       Paxos
+%%       Raft
+%%       PBFT
+%%     Replicación
+%%       Master_slave
+%%       Multi_master
+%%       Eventual
+%%     Particionamiento
+%%       Sharding
+%%       Consistent_hashing
+%%     Tolerancia_a_fallas
+%%       Failover
+%%       Retry
+%%       Circuit_breaker
+%%     Coordinación
+%%       Zookeeper
+%%       etcd
+%%     Comunicación
+%%       RPC
+%%       Message_queues
+%%       Event_sourcing
+%%

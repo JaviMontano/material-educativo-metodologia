@@ -1,0 +1,25 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//MetodologIA//Aprender-Aprehender-Revolucionar//ES
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:curiosidad-diaria-metodologia-2026@metodologia.info
+DTSTAMP:20260430T070000Z
+DTSTART;TZID=America/Bogota:20260504T073000
+DTEND;TZID=America/Bogota:20260504T074500
+RRULE:FREQ=WEEKLY;BYDAY=MO,TU,WE,TH,FR
+SUMMARY:🧠 Curiosidad Diaria · MetodologIA
+DESCRIPTION:Ritual diario de 15 min · primera ola del día.\n\nPROTOCOLO:\n1. Abrir Perplexity / Claude / ChatGPT\n2. Pregunta: "¿Qué avance relevante pasó ayer en [MI INDUSTRIA]? Cita fuente. 3 viñetas."\n3. Decidir por cada item: 🟢 PIEDRA ANGULAR · 🟡 INTERESANTE · ⚫ RUIDO\n4. Si PIEDRA ANGULAR: agendar Workflow 1\n5. Si INTERESANTE: bookmark · revisar viernes\n6. Si RUIDO: skip\n\nPrincipio: cadencia > intensidad. 15 min diarios > 3 horas el sábado.\n\nDocumentación: ~/.claude/skills/aprender-aprehender-revolucionar/rituals/ritual-curiosidad-diaria.md
+LOCATION:Deep work · sin notificaciones
+CATEGORIES:Aprendizaje,MetodologIA,Ritual diario
+PRIORITY:5
+STATUS:CONFIRMED
+TRANSP:OPAQUE
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:Curiosidad diaria · 5 min
+TRIGGER:-PT5M
+END:VALARM
+END:VEVENT
+END:VCALENDAR

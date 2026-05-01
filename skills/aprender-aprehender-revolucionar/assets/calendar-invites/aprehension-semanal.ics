@@ -1,0 +1,25 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//MetodologIA//Aprender-Aprehender-Revolucionar//ES
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:aprehension-semanal-metodologia-2026@metodologia.info
+DTSTAMP:20260430T070000Z
+DTSTART;TZID=America/Bogota:20260501T170000
+DTEND;TZID=America/Bogota:20260501T180000
+RRULE:FREQ=WEEKLY;BYDAY=FR
+SUMMARY:📚 Aprehensión Semanal · MetodologIA
+DESCRIPTION:Ritual semanal de 60 min · viernes preferido (cierre semanal).\n\nPROTOCOLO:\n1. (5 min) Setup · cerrar TODO (notas, libros, IAs)\n2. (20 min) Retrieval ciego · escribir de memoria 1 concepto clave\n3. (20 min) Evaluación · marcar [FUERTE/PARCIAL/DÉBIL]\n4. (10 min) Reparación · estudiar SOLO los DÉBILES · flashcards\n5. (5 min) Feynman test · explicar a niño 12 años\n\nObjetivo: convertir conocimiento de la semana en aprehensión defendible.\n\nDocumentación: ~/.claude/skills/aprender-aprehender-revolucionar/rituals/ritual-aprehension-semanal.md\n\nComando: python ~/.claude/skills/aprender-aprehender-revolucionar/scripts/retrieval_session.py --concepto "..." --tiempo 60
+LOCATION:Deep work · NotebookLM activo
+CATEGORIES:Aprendizaje,MetodologIA,Ritual semanal
+PRIORITY:3
+STATUS:CONFIRMED
+TRANSP:OPAQUE
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:Aprehensión Semanal · 10 min
+TRIGGER:-PT10M
+END:VALARM
+END:VEVENT
+END:VCALENDAR
