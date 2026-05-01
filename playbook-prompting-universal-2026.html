@@ -551,6 +551,7 @@ html[lang="en"] .es{display:none}
   <a href="#prompts"><span class="es">§ 21 · 30 prompts curados</span><span class="en">§ 21 · 30 curated prompts</span></a>
   <a href="#practica-agenda"><span class="es">§ 22 · Tres ritmos · cuándo se vuelve hábito</span><span class="en">§ 22 · Three rhythms · when it becomes habit</span></a>
   <a href="#asistentes-free"><span class="es">§ 23 · Asistentes gratuitos · sin costo</span><span class="en">§ 23 · Free assistants · no cost</span></a>
+  <a href="#pathways"><span class="es">§ 23.5 · Pathways · profundización</span><span class="en">§ 23.5 · Pathways · go deeper</span></a>
   <a href="#faq"><span class="es">§ 24 · FAQ</span><span class="en">§ 24 · FAQ</span></a>
 </aside>
 
@@ -702,6 +703,13 @@ html[lang="en"] .es{display:none}
     <div class="attr-card clickable" data-modal-id="pilar-formato"><div class="num">4</div><h3><span class="es">Formato</span><span class="en">Format</span></h3><p><span class="es">Tabla con columnas X/Y/Z. Markdown. JSON. CSV. Decir el formato evita un round-trip de "ahora ponelo en tabla".</span><span class="en">Table with columns X/Y/Z. Markdown. JSON. CSV. Stating format avoids a "now put it in a table" round-trip.</span></p></div>
     <div class="attr-card clickable" data-modal-id="pilar-ejemplos"><div class="num">5</div><h3><span class="es">Ejemplos</span><span class="en">Examples</span></h3><p><span class="es">Few-shot: 2-3 ejemplos del output deseado. Le ahorra a la IA inferir el patrón. Calidad sube ~30%.</span><span class="en">Few-shot: 2-3 examples of the desired output. Saves the AI from inferring the pattern. Quality up ~30%.</span></p></div>
   </div>
+
+  <div class="pivote-callout" style="margin-top:1.6rem">
+    <p><strong><span class="es">📚 Construye tu Biblioteca de Few-Shots <span class="pillar-tag">[P3]</span></span><span class="en">📚 Build your Few-Shot Library <span class="pillar-tag">[P3]</span></span></strong> · <span class="es">No bastan 2-3 ejemplos sueltos: arma una biblioteca viva. Método: <strong>(1)</strong> recoge pares input/output reales que funcionan, <strong>(2)</strong> documenta cada par con contexto, dominio y resultado, <strong>(3)</strong> organiza por categoría de uso, <strong>(4)</strong> versiona con criterio de éxito. Reduces varianza al máximo si pegas 2-5 ejemplos concretos antes del pedido real. <em>Indicador sugerido</em>: % de prompts críticos con ≥3 ejemplos curados (frecuencia: mensual · umbral: ≥70%).</span><span class="en">A handful of one-off examples won't cut it: build a living library. Method: <strong>(1)</strong> collect real input/output pairs that work, <strong>(2)</strong> document each pair with context, domain and outcome, <strong>(3)</strong> organize by use case category, <strong>(4)</strong> version with success criteria. You cut variance to a minimum when you paste 2-5 concrete examples before the real ask. <em>Suggested indicator</em>: % of critical prompts with ≥3 curated examples (frequency: monthly · threshold: ≥70%).</span></p>
+  </div>
+
+  <div style="display:none">
+  </div>
 </section>
 
 <!-- ═══ § 5 · ANATOMÍA DE UN PROMPT ═══ -->
@@ -717,6 +725,21 @@ html[lang="en"] .es{display:none}
     <div class="attr-card clickable" data-modal-id="anat-formato"><div class="num">4</div><h3><span class="es">Formato</span><span class="en">Format</span></h3><p><span class="es">Cómo quieres el output. Tabla, JSON, párrafo, slide deck. Incluye longitud, idioma, registro.</span><span class="en">How you want the output. Table, JSON, paragraph, slide deck. Include length, language, register.</span></p></div>
     <div class="attr-card clickable" data-modal-id="anat-restricciones"><div class="num">5</div><h3><span class="es">Restricciones</span><span class="en">Constraints</span></h3><p><span class="es">Lo que NO debe hacer. "Sin jerga", "no inventes datos", "no más de 200 palabras". Negativos protegen.</span><span class="en">What it must NOT do. "No jargon", "don't invent data", "no more than 200 words". Negatives protect.</span></p></div>
     <div class="attr-card clickable" data-modal-id="anat-ejemplos"><div class="num">6</div><h3><span class="es">Ejemplos</span><span class="en">Examples</span></h3><p><span class="es">Few-shot opcional pero potente. 2-3 ejemplos del input/output deseado. Calibra el modelo a tu estándar.</span><span class="en">Optional but powerful few-shot. 2-3 examples of desired input/output. Calibrates the model to your standard.</span></p></div>
+  </div>
+
+  <div class="pivote-callout" style="margin-top:1.6rem">
+    <p><strong><span class="es">📋 SPEC Template artifact (copia · pega · adapta) <span class="pillar-tag">[P3]</span></span><span class="en">📋 SPEC Template artifact (copy · paste · adapt) <span class="pillar-tag">[P3]</span></span></strong></p>
+    <pre style="background:rgba(18,37,98,.08); padding:1rem 1.2rem; border-radius:6px; overflow-x:auto; font-family:'Courier New',monospace; font-size:.85rem; line-height:1.6; margin:.8rem 0 .4rem"><code>ROL: [perfil específico · senior · con framing meta-cognitivo]
+CONTEXTO: [quién pregunta · sector · decisión que sigue]
+TAREA: [verbo imperativo + objeto + propósito]
+FORMATO: [tabla / JSON / markdown · longitud · idioma]
+RESTRICCIONES: [lo que NO debe hacer · sin jerga · sin invento]
+EJEMPLOS: [2-3 pares input → output del estándar deseado]
+CRITERIO: [cómo se sabe que salió bien · falsable]</code></pre>
+    <p style="margin:.6rem 0 0; font-size:.92rem"><span class="es">Este es tu prompt de ahora en adelante. Pégalo en cualquier IA, llena los corchetes con tu caso, recibe output del nivel SPEC v3.4 sin construir desde cero.</span><span class="en">This is your prompt from now on. Paste in any AI, fill brackets with your case, get SPEC v3.4-level output without building from scratch.</span></p>
+  </div>
+
+  <div style="display:none">
   </div>
 
   <div style="margin-top:2.5rem; padding:1.4rem 1.6rem; background:rgba(19,125,197,.08); border-left:4px solid var(--blue); border-radius:var(--radius-sm)">
@@ -1020,6 +1043,23 @@ html[lang="en"] .es{display:none}
   </div>
 
   <div class="pivote-callout" style="margin-top:1.6rem">
+    <p><strong><span class="es">📊 Rúbrica universal de 10 ítems · auto-evaluación rápida <span class="pillar-tag">[P1]</span></span><span class="en">📊 10-item universal rubric · quick self-assessment <span class="pillar-tag">[P1]</span></span></strong> · <span class="es">Cuando ENTRUSTED+ es demasiado pesado para una sesión rápida, esta rúbrica de 10 ítems (escala 1-5) sirve de versión liviana. Útil antes de lanzar, después de fallar, o para revisar lo que escribió un colega.</span><span class="en">When ENTRUSTED+ feels too heavy for a quick session, this 10-item rubric (scale 1-5) serves as the lightweight version. Useful before launching, after failing, or to review what a colleague wrote.</span></p>
+    <ol style="margin:.8rem 0 .4rem 1.4rem; padding:0; columns:2; column-gap:2rem; font-size:.92rem; line-height:1.7">
+      <li><span class="es"><strong>Claridad del Rol</strong> · ¿quién es la IA y qué expertise tiene?</span><span class="en"><strong>Role Clarity</strong> · who is the AI and what expertise?</span></li>
+      <li><span class="es"><strong>Contexto Suficiente</strong> · ¿tiene la info que necesita?</span><span class="en"><strong>Sufficient Context</strong> · does it have what it needs?</span></li>
+      <li><span class="es"><strong>Criterio de Éxito</strong> · ¿se sabe cómo saber si salió bien?</span><span class="en"><strong>Success Criterion</strong> · clear definition of done?</span></li>
+      <li><span class="es"><strong>Formato Explícito</strong> · ¿cómo debe verse el output?</span><span class="en"><strong>Explicit Format</strong> · how should the output look?</span></li>
+      <li><span class="es"><strong>Restricciones Claras</strong> · ¿qué NO debe hacer?</span><span class="en"><strong>Clear Constraints</strong> · what must it NOT do?</span></li>
+      <li><span class="es"><strong>Ejemplos Concretos</strong> · ¿hay pares input/output?</span><span class="en"><strong>Concrete Examples</strong> · input/output pairs?</span></li>
+      <li><span class="es"><strong>Anti-alucinación</strong> · ¿hay instrucciones contra inventar?</span><span class="en"><strong>Anti-hallucination</strong> · instructions against making up?</span></li>
+      <li><span class="es"><strong>Adversarial-ready</strong> · ¿se prevé manipulación o input malformado?</span><span class="en"><strong>Adversarial-ready</strong> · handles malformed inputs?</span></li>
+      <li><span class="es"><strong>Portabilidad</strong> · ¿podría otro usarlo sin tu ayuda?</span><span class="en"><strong>Portability</strong> · could someone else use it solo?</span></li>
+      <li><span class="es"><strong>Iteración prevista</strong> · ¿hay puntos de mejora marcados?</span><span class="en"><strong>Iteration planned</strong> · improvement points flagged?</span></li>
+    </ol>
+    <p style="margin:.6rem 0 0; font-size:.92rem"><strong><span class="es">CTA:</span><span class="en">CTA:</span></strong> <span class="es">califica los 10 ítems 1-5 sobre tu próximo prompt crítico. Threshold: ≥40/50. Si quieres profundidad forense, escala a ENTRUSTED+ 9 ejes.</span><span class="en">Score the 10 items 1-5 on your next critical prompt. Threshold: ≥40/50. If you need forensic depth, escalate to ENTRUSTED+ 9 axes.</span></p>
+  </div>
+
+  <div class="pivote-callout" style="margin-top:1.6rem">
     <p><strong><span class="es">CTA:</span><span class="en">CTA:</span></strong> <span class="es">toma <strong>1</strong> output IA reciente, califica los 9 ejes 0-100 y registra los 2 más bajos. Reescribe el prompt para subirlos esta semana. Mide tu score promedio antes/después.</span><span class="en">Take <strong>1</strong> recent AI output, score the 9 axes 0-100, and log the 2 lowest. Rewrite the prompt to lift them this week. Measure your average score before/after.</span></p>
   </div>
 </section>
@@ -1250,75 +1290,87 @@ html[lang="en"] .es{display:none}
 <section id="practicas" class="reveal">
   <span class="eyebrow"><span class="es">§ 20 · Prácticas escalonadas</span><span class="en">§ 20 · Scaffolded practice</span></span>
   <h2><span class="es"><strong>12 prácticas</strong> para que el método se grabe en músculo</span><span class="en"><strong>12 practices</strong> to wire the method into muscle</span></h2>
-  <p style="max-width:60ch"><span class="es">Cada ejercicio tiene criterio de éxito observable. No es "hacer algo": es validar que aprendiste.</span><span class="en">Each exercise has observable success criterion. It's not "do something": it's validate you learned.</span></p>
+  <p style="max-width:62ch"><span class="es">Cada ejercicio tiene criterio de éxito observable. No es "hacer algo": es validar que aprendiste.</span><span class="en">Each exercise has observable success criterion. It's not "do something": it's validate you learned.</span></p>
+
+  <div class="pivote-callout" style="margin:1.6rem 0">
+    <p><strong><span class="es">📈 Mapa de progresión · 5 niveles canónicos <span class="pillar-tag">[P1]</span></span><span class="en">📈 Progression map · 5 canonical levels <span class="pillar-tag">[P1]</span></span></strong> · <span class="es">Antes de saltar a los 12 ejercicios, esta es la curva de competencia. Empieza por Nivel 1 hoy. Sube cuando el anterior se sienta automático. Total: ~100 min de práctica deliberada distribuidos en 5 días.</span><span class="en">Before jumping into the 12 exercises, this is the competency curve. Start at Level 1 today. Move up when the previous feels automatic. Total: ~100 min of deliberate practice across 5 days.</span></p>
+    <ol style="margin:.8rem 0 .4rem 1.4rem; padding:0; font-size:.92rem; line-height:1.7">
+      <li><span class="es"><strong>Nivel 1 · Prompt Simple</strong> (10 min) — primer prompt, observa output crudo. <em>Empieza con</em> → <a href="#prac-01">prac-01 Calibra tu próxima sesión</a>.</span><span class="en"><strong>Level 1 · Simple Prompt</strong> (10 min) — first prompt, observe raw output. <em>Start with</em> → <a href="#prac-01">prac-01 Calibrate your next session</a>.</span></li>
+      <li><span class="es"><strong>Nivel 2 · Prompt con Contexto</strong> (15 min) — agrega rol, audiencia y objetivo. Compara antes/después. <em>Sube con</em> → <a href="#prac-02">prac-02 Detecta un huérfano</a>.</span><span class="en"><strong>Level 2 · Contexted Prompt</strong> (15 min) — add role, audience and goal. Compare before/after. <em>Level up with</em> → <a href="#prac-02">prac-02 Spot an orphan</a>.</span></li>
+      <li><span class="es"><strong>Nivel 3 · Prompt con Formato</strong> (20 min) — controla la estructura del output (tabla, JSON, bullets). <em>Sube con</em> → <a href="#prac-03">prac-03 Etiqueta un output</a>.</span><span class="en"><strong>Level 3 · Formatted Prompt</strong> (20 min) — control output structure (table, JSON, bullets). <em>Level up with</em> → <a href="#prac-03">prac-03 Tag an output</a>.</span></li>
+      <li><span class="es"><strong>Nivel 4 · Chain-of-Thought</strong> (30 min) — razonamiento explícito multi-paso. <em>Sube con</em> → <a href="#prac-06">prac-06 Aplica DSVSR</a>.</span><span class="en"><strong>Level 4 · Chain-of-Thought</strong> (30 min) — explicit multi-step reasoning. <em>Level up with</em> → <a href="#prac-06">prac-06 Apply DSVSR</a>.</span></li>
+      <li><span class="es"><strong>Nivel 5 · System Prompt</strong> (45 min) — diseña un agente personalizado con guardrails. <em>Sube con</em> → <a href="#prac-07">prac-07 Diseña tu ritual matutino</a>.</span><span class="en"><strong>Level 5 · System Prompt</strong> (45 min) — design a custom agent with guardrails. <em>Level up with</em> → <a href="#prac-07">prac-07 Design your morning ritual</a>.</span></li>
+    </ol>
+  </div>
+
   <div class="exercise-grid">
-    <div class="exercise-card clickable" data-modal-id="prac-01">
+    <div id="prac-01" class="exercise-card clickable" data-modal-id="prac-01">
       <span class="duration s">3 min</span>
       <h4><span class="es">Calibra tu próxima sesión <span class="pillar-tag">[P2]</span></span><span class="en">Calibrate your next session <span class="pillar-tag">[P2]</span></span></h4>
       <p style="margin:0"><span class="es">Antes de pedirle algo a la IA, pega /0 con tipo de sesión, adjuntos y sensibilidad. Lee el acuse de calibración. Si el rol cuadra, sigue. Si no, corrige.</span><span class="en">Before asking the AI anything, paste /0 with session type, attachments and sensitivity. Read the calibration acknowledgment. If the role fits, continue. If not, correct.</span></p>
       <div class="crit"><strong><span class="es">Criterio de éxito:</span><span class="en">Success criterion:</span></strong> <span class="es">Acuse declara rol específico, adjuntos inventariados, vacíos marcados.</span><span class="en">Acknowledgment declares specific role, attachments inventoried, gaps flagged.</span></div>
     </div>
-    <div class="exercise-card clickable" data-modal-id="prac-02">
+    <div id="prac-02" class="exercise-card clickable" data-modal-id="prac-02">
       <span class="duration s">3 min</span>
       <h4><span class="es">Detecta un huérfano <span class="pillar-tag">[P2]</span></span><span class="en">Spot an orphan <span class="pillar-tag">[P2]</span></span></h4>
       <p style="margin:0"><span class="es">Toma un prompt que uses repetido. Lista los inputs que declaras. ¿Cuáles aparecen en el body? Los que no aparecen son huérfanos.</span><span class="en">Take a prompt you reuse. List the inputs you declare. Which appear in the body? Those that don't are orphans.</span></p>
       <div class="crit"><strong><span class="es">Criterio de éxito:</span><span class="en">Success criterion:</span></strong> <span class="es">≥1 token huérfano detectado y eliminado o integrado en EJECUCIÓN.</span><span class="en">≥1 orphan token detected and removed or integrated into EXECUTION.</span></div>
     </div>
-    <div class="exercise-card clickable" data-modal-id="prac-03">
+    <div id="prac-03" class="exercise-card clickable" data-modal-id="prac-03">
       <span class="duration s">3 min</span>
       <h4><span class="es">Etiqueta un output <span class="pillar-tag">[P1]</span></span><span class="en">Tag an output <span class="pillar-tag">[P1]</span></span></h4>
       <p style="margin:0"><span class="es">Toma una respuesta IA reciente. Marca inline cada afirmación con su etiqueta. Identifica los <code>{SUPUESTO}</code> no marcados.</span><span class="en">Take a recent AI response. Tag each claim inline with its label. Spot the unmarked <code>{ASSUMPTION}</code> blocks.</span></p>
       <div class="crit"><strong><span class="es">Criterio de éxito:</span><span class="en">Success criterion:</span></strong> <span class="es">Cada bloque con etiqueta o marcado como <code>{SUPUESTO}</code> explícito.</span><span class="en">Every block tagged or marked as explicit <code>{ASSUMPTION}</code>.</span></div>
     </div>
-    <div class="exercise-card clickable" data-modal-id="prac-04">
+    <div id="prac-04" class="exercise-card clickable" data-modal-id="prac-04">
       <span class="duration l">30 min</span>
       <h4><span class="es">Construye un SPEC v3.4 desde cero <span class="pillar-tag">[P3]</span></span><span class="en">Build a SPEC v3.4 from scratch <span class="pillar-tag">[P3]</span></span></h4>
       <p style="margin:0"><span class="es">Elige una tarea repetida tuya. Aplica /1 → /2 secuencial. Genera SPEC con TÍTULO + INPUTS + ABSTRACT + EJECUCIÓN + CRITERIO + 12 cláusulas.</span><span class="en">Pick a recurring task of yours. Run /1 → /2 sequential. Generate a SPEC with TITLE + INPUTS + ABSTRACT + EXECUTION + CRITERION + 12 clauses.</span></p>
       <div class="crit"><strong><span class="es">Criterio de éxito:</span><span class="en">Success criterion:</span></strong> <span class="es">SPEC ejecutable por otro operador sin reabrir contexto.</span><span class="en">SPEC executable by another operator without reopening context.</span></div>
     </div>
-    <div class="exercise-card clickable" data-modal-id="prac-05">
+    <div id="prac-05" class="exercise-card clickable" data-modal-id="prac-05">
       <span class="duration l">30 min</span>
       <h4><span class="es">Audita un output con ENTRUSTED+ <span class="pillar-tag">[P1]</span></span><span class="en">Audit an output with ENTRUSTED+ <span class="pillar-tag">[P1]</span></span></h4>
       <p style="margin:0"><span class="es">Toma un entregable IA reciente. Califica los 9 ejes 0-100. Identifica los 2 más bajos y reescribe el prompt para subirlos.</span><span class="en">Take a recent AI deliverable. Score the 9 axes 0-100. Spot the 2 lowest and rewrite the prompt to lift them.</span></p>
       <div class="crit"><strong><span class="es">Criterio de éxito:</span><span class="en">Success criterion:</span></strong> <span class="es">Score promedio ≥92/100 tras la reescritura.</span><span class="en">Average score ≥92/100 after the rewrite.</span></div>
     </div>
-    <div class="exercise-card clickable" data-modal-id="prac-06">
+    <div id="prac-06" class="exercise-card clickable" data-modal-id="prac-06">
       <span class="duration l">30 min</span>
       <h4><span class="es">Aplica DSVSR a un problema complejo <span class="pillar-tag">[P1]</span></span><span class="en">Apply DSVSR to a complex problem <span class="pillar-tag">[P1]</span></span></h4>
       <p style="margin:0"><span class="es">Elige una decisión que estás postergando. Pega /1 con el caso. Marca DSVSR explícito en el output. Lee REFLECT con confianza visible.</span><span class="en">Pick a decision you've been putting off. Paste /1 with the case. Mark DSVSR explicit in the output. Read REFLECT with visible confidence.</span></p>
       <div class="crit"><strong><span class="es">Criterio de éxito:</span><span class="en">Success criterion:</span></strong> <span class="es">Confianza global ≥0.95 declarada o debilidad explícita con plan.</span><span class="en">Global confidence ≥0.95 declared or explicit weakness with plan.</span></div>
     </div>
-    <div class="exercise-card clickable" data-modal-id="prac-07">
+    <div id="prac-07" class="exercise-card clickable" data-modal-id="prac-07">
       <span class="duration xl">60 min</span>
       <h4><span class="es">Diseña tu ritual matutino de prompting <span class="pillar-tag">[P3]</span></span><span class="en">Design your morning prompting ritual <span class="pillar-tag">[P3]</span></span></h4>
       <p style="margin:0"><span class="es">Identifica la decisión #1 de cada día. Diseña un /0 + /1 + /2 personalizado. Pruébalo 5 días. Cristalízalo en /9 al día 6.</span><span class="en">Identify decision #1 of each day. Design a custom /0 + /1 + /2. Try it 5 days. Crystallize it on /9 at day 6.</span></p>
       <div class="crit"><strong><span class="es">Criterio de éxito:</span><span class="en">Success criterion:</span></strong> <span class="es">Plantilla /9 funcional · ejecutable en &lt;5 min cada mañana.</span><span class="en">Functional /9 template · runs in &lt;5 min every morning.</span></div>
     </div>
-    <div class="exercise-card clickable" data-modal-id="prac-08">
+    <div id="prac-08" class="exercise-card clickable" data-modal-id="prac-08">
       <span class="duration xl">60 min</span>
       <h4><span class="es">Migra un workflow al pipeline operativo /0-/9 <span class="pillar-tag">[P3]</span></span><span class="en">Migrate a workflow to the /0-/9 operational pipeline <span class="pillar-tag">[P3]</span></span></h4>
       <p style="margin:0"><span class="es">Toma un proceso de tu trabajo de 5+ pasos. Mapéalo al pipeline operativo (§ 9.5). Ejecutá la secuencia /0 → /9 con tu caso real, encadenando outputs entre pasos.</span><span class="en">Take a 5+ step work process. Map it to the operational pipeline (§ 9.5). Run the /0 → /9 sequence on your real case, chaining outputs between steps.</span></p>
       <div class="crit"><strong><span class="es">Criterio de éxito:</span><span class="en">Success criterion:</span></strong> <span class="es">Workflow completo con outputs encadenados de /0 a /9.</span><span class="en">Complete workflow with outputs chained from /0 to /9.</span></div>
     </div>
-    <div class="exercise-card clickable" data-modal-id="prac-09">
+    <div id="prac-09" class="exercise-card clickable" data-modal-id="prac-09">
       <span class="duration xl">60 min</span>
       <h4><span class="es">Construye tu propia categoría DoD <span class="pillar-tag">[P1]</span></span><span class="en">Build your own DoD category <span class="pillar-tag">[P1]</span></span></h4>
       <p style="margin:0"><span class="es">Para una tarea recurrente sin DoD claro, define: output esperado, criterios observables (5), edge cases (3). Aplícalos a 3 casos reales.</span><span class="en">For a recurring task without a clear DoD, define: expected output, observable criteria (5), edge cases (3). Apply them to 3 real cases.</span></p>
       <div class="crit"><strong><span class="es">Criterio de éxito:</span><span class="en">Success criterion:</span></strong> <span class="es">DoD valida en 3/3 casos · criterios todos cumplidos.</span><span class="en">DoD validates in 3/3 cases · all criteria met.</span></div>
     </div>
-    <div class="exercise-card clickable" data-modal-id="prac-10">
+    <div id="prac-10" class="exercise-card clickable" data-modal-id="prac-10">
       <span class="duration xl">90 min</span>
       <h4><span class="es">Audita 10 prompts viejos <span class="pillar-tag">[P1]</span></span><span class="en">Audit 10 old prompts <span class="pillar-tag">[P1]</span></span></h4>
       <p style="margin:0"><span class="es">Toma 10 prompts que usas. Califica su ENTRUSTED+ promedio actual. Aplica v3.4 a 3 con el playbook. Compáralos.</span><span class="en">Take 10 prompts you use. Score their current ENTRUSTED+ average. Apply v3.4 to 3 with the playbook. Compare them.</span></p>
       <div class="crit"><strong><span class="es">Criterio de éxito:</span><span class="en">Success criterion:</span></strong> <span class="es">Score promedio sube ≥15 puntos en los 3 reescritos.</span><span class="en">Average score climbs ≥15 points across the 3 rewrites.</span></div>
     </div>
-    <div class="exercise-card clickable" data-modal-id="prac-11">
+    <div id="prac-11" class="exercise-card clickable" data-modal-id="prac-11">
       <span class="duration xl">Sesión</span>
       <h4><span class="es">Cristaliza tu primera plantilla <span class="pillar-tag">[P3]</span></span><span class="en">Crystallize your first template <span class="pillar-tag">[P3]</span></span></h4>
       <p style="margin:0"><span class="es">Toma un proceso que ejecutaste con éxito. Pega /9 con el caso origen. Genera plantilla con parámetros variables tipados. Pruébala en 1 caso nuevo.</span><span class="en">Take a process you ran successfully. Paste /9 with the source case. Generate a template with typed variable parameters. Test it on 1 new case.</span></p>
       <div class="crit"><strong><span class="es">Criterio de éxito:</span><span class="en">Success criterion:</span></strong> <span class="es">Plantilla reproduce 80%+ del output original con caso nuevo.</span><span class="en">Template reproduces 80%+ of the original output with a new case.</span></div>
     </div>
-    <div class="exercise-card clickable" data-modal-id="prac-12">
+    <div id="prac-12" class="exercise-card clickable" data-modal-id="prac-12">
       <span class="duration xl">Sesión</span>
       <h4><span class="es">Escribe tu manifiesto de prompting <span class="pillar-tag">[P1]</span></span><span class="en">Write your prompting manifesto <span class="pillar-tag">[P1]</span></span></h4>
       <p style="margin:0"><span class="es">¿Qué jamás hace tu prompting? ¿Qué siempre hace? ¿Cuál es tu firma metodológica? Escríbelo en 1 página y aplícalo a tus próximos 5 prompts.</span><span class="en">What does your prompting never do? What does it always do? What's your methodological signature? Write it in 1 page and apply it to your next 5 prompts.</span></p>
@@ -1428,6 +1480,43 @@ html[lang="en"] .es{display:none}
   </div>
 
   <p class="anchor-vision"><span class="es">Estos asistentes son el brazo operativo de la <a href="https://metodologia.info/vision/" target="_blank" rel="noopener">visión MetodologIA</a>. <strong>Cocreamos entornos de abundancia promoviendo la soberanía digital y profesional.</strong></span><span class="en">These assistants are the operational arm of the <a href="https://metodologia.info/vision/" target="_blank" rel="noopener">MetodologIA vision</a>. <strong>We co-create environments of abundance, fostering digital and professional sovereignty.</strong></span></p>
+</section>
+
+<!-- ═══ § 23.5 · PATHWAYS DE PROFUNDIZACIÓN (v1.8 · Tríada) ═══ -->
+<section id="pathways" class="reveal">
+  <span class="eyebrow"><span class="es">§ 23.5 · Profundización</span><span class="en">§ 23.5 · Going deeper</span></span>
+  <h2><span class="es">Cuando la cartilla no es suficiente: <strong>3 pathways</strong> para profundizar</span><span class="en">When this playbook isn't enough: <strong>3 pathways</strong> to go deeper</span></h2>
+  <p style="max-width:65ch"><span class="es">El método queda en ti tras leer esta cartilla. Pero hay casos que requieren más: un coach 1:1, un proyecto real con entregables, o una certificación reconocida en el ecosistema MetodologIA.</span><span class="en">The method stays with you after reading this playbook. But some cases require more: a 1:1 coach, a real project with deliverables, or a recognized MetodologIA ecosystem certification.</span></p>
+
+  <div class="asistentes-grid">
+    <a class="asistente-card pristino clickable" href="https://metodologia.info/pathways/" target="_blank" rel="noopener">
+      <span class="badge">🎯 1:1</span>
+      <h3><span class="es">Mentoría con Officers <span class="pillar-tag">[P1]</span></span><span class="en">Mentoring with Officers <span class="pillar-tag">[P1]</span></span></h3>
+      <p class="tagline"><span class="es">4-6 sesiones × 60 min</span><span class="en">4-6 sessions × 60 min</span></p>
+      <p class="desc"><span class="es">Sesiones personalizadas con un Officer de MetodologIA. Llevas tus prompts reales y tu playbook. Revisamos, optimizamos, resolvemos bloqueos específicos. Ritmo: semanal o quincenal.</span><span class="en">Personalized sessions with a MetodologIA Officer. You bring your real prompts and your playbook. We review, optimize, unblock specific issues. Cadence: weekly or biweekly.</span></p>
+      <span class="cta"><span class="es">Conversación inicial 30 min →</span><span class="en">Initial 30-min conversation →</span></span>
+    </a>
+
+    <a class="asistente-card clickable" href="https://metodologia.info/pathways/" target="_blank" rel="noopener">
+      <span class="badge">🚀 <span class="es">Aplicado</span><span class="en">Applied</span></span>
+      <h3><span class="es">Proyecto real aplicado <span class="pillar-tag">[P3]</span></span><span class="en">Applied real project <span class="pillar-tag">[P3]</span></span></h3>
+      <p class="tagline"><span class="es">1 caso · 4-8 semanas</span><span class="en">1 case · 4-8 weeks</span></p>
+      <p class="desc"><span class="es">Toma un caso real de tu organización: un flujo de prompts que necesita documentación, una rúbrica para evaluadores, un stack de chaining. Lo hacemos juntos. Entregables listos para producción: templates, rúbricas, documentación.</span><span class="en">Take a real case from your organization: a prompt flow that needs documentation, a rubric for reviewers, a chaining stack. We do it together. Production-ready deliverables: templates, rubrics, documentation.</span></p>
+      <span class="cta"><span class="es">Conversación inicial 30 min →</span><span class="en">Initial 30-min conversation →</span></span>
+    </a>
+
+    <a class="asistente-card pristino-oss clickable" href="https://metodologia.info/pathways/" target="_blank" rel="noopener">
+      <span class="badge">🏅 <span class="es">Certificación</span><span class="en">Certification</span></span>
+      <h3><span class="es">Certificación MetodologIA <span class="pillar-tag">[P3]</span></span><span class="en">MetodologIA Certification <span class="pillar-tag">[P3]</span></span></h3>
+      <p class="tagline"><span class="es">12 semanas · async + sync</span><span class="en">12 weeks · async + sync</span></p>
+      <p class="desc"><span class="es">Recorre el currículum completo: cartilla + proyecto + evaluación. Al cierre, certificación de "Prompting Metodológico" reconocida en el ecosistema MetodologIA. Para ti y tu equipo.</span><span class="en">Walk the full curriculum: playbook + project + evaluation. At close, "Methodological Prompting" certification recognized in the MetodologIA ecosystem. For you and your team.</span></p>
+      <span class="cta"><span class="es">Ver curriculum →</span><span class="en">See curriculum →</span></span>
+    </a>
+  </div>
+
+  <div class="pivote-callout" style="margin-top:1.6rem">
+    <p><strong><span class="es">CTA:</span><span class="en">CTA:</span></strong> <span class="es">si llegaste hasta aquí leyendo, pulsa la pathway que encaje con tu momento. Cada una arranca con una conversación de 30 min sin compromiso. <em>Indicador sugerido</em>: % de fricciones que resuelves con cartilla sola vs. cuáles requieren acompañamiento (frecuencia: semanal · umbral: si &gt;30% requieren acompañamiento, considera la pathway).</span><span class="en">If you got this far reading, pick the pathway that fits your moment. Each one starts with a 30-min no-commitment conversation. <em>Suggested indicator</em>: % of frictions you solve with the playbook alone vs. which require accompaniment (frequency: weekly · threshold: if &gt;30% require accompaniment, consider the pathway).</span></p>
+  </div>
 </section>
 
 <!-- ═══ § 24 · FAQ ═══ -->
