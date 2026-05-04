@@ -10,24 +10,51 @@
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700;800&family=Montserrat:wght@400;500;600;700&display=swap">
 <style>
 :root{
-  --navy:#122562; --navy-deep:#0a1740;
-  --gold:#FFD700; --gold-dark:#D4A017;
-  --blue:#137DC5; --lilac:#BAA0CC;
-  --red:#dc2626; --green:#059669;
-  --text:#0F172A; --text-soft:#475569;
-  --bg:#FAF9F6; --bg-card:#FFFFFF;
+  /* Brand colors · canónicos biblioteca-2026 */
+  --navy:#122562; --navy-deep:#0a1740; --navy-dark:#1F2833;
+  --gold:#FFD700; --gold-dark:#B8860B;
+  --blue:#137DC5; --lilac:#BBA0CC;
+  --red:#dc2626; --green:#059669; --gray:#6B7280;
+
+  /* Backgrounds · light */
+  --bg:#F9FAFB; --bg-soft:#F0F0EC;
+  --bg-card:#FFFFFF;
+  --glass-bg:rgba(255,255,255,.82); --glass-blur:blur(12px);
+
+  /* Texto · WCAG AAA contrast */
+  --text:#0F172A; --text-sec:#334155; --text-muted:#475569;
+  --text-soft:var(--text-muted); /* alias compat v1.x */
+
+  /* Bordes y sombras */
   --border:rgba(18,37,98,.12);
-  --shadow:0 8px 22px rgba(15,23,42,.06);
-  --shadow-lg:0 16px 40px rgba(15,23,42,.10);
-  --radius:14px; --radius-sm:8px;
+  --shadow-glow:0 2px 20px rgba(18,37,98,.06);
+  --shadow-card:0 1px 3px rgba(0,0,0,.04), 0 6px 16px rgba(0,0,0,.06);
+  --shadow:var(--shadow-card); /* alias compat v1.x */
+  --shadow-lg:0 12px 32px rgba(18,37,98,.15);
+
+  /* Radius scale */
+  --radius-sm:6px; --radius-md:12px; --radius-lg:20px; --radius-xl:32px;
+  --radius:var(--radius-md); /* alias compat v1.x */
+
+  /* Easing tokens */
   --transition:0.4s cubic-bezier(0.4,0,0.2,1);
-  --max-content:1100px;
+  --ease-spring:cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  --ease-smooth:cubic-bezier(0.16, 1, 0.3, 1);
+
+  /* Layout */
+  --max-content:1100px; --max-w:1100px;
+  --sidebar-w:56px;
 }
 html.dark{
-  --text:#F0F4F8; --text-soft:#94A3B8;
-  --bg:#0A0F1F; --bg-card:rgba(18,37,98,.4);
+  --bg:#0B2545; --bg-soft:#071A33;
+  --bg-card:rgba(11,37,69,.6);
+  --glass-bg:rgba(11,37,69,.6);
+  --text:#F0F4F8; --text-sec:#CBD5E1; --text-muted:#94A3B8;
+  --text-soft:var(--text-muted);
   --border:rgba(255,215,0,.18);
-  --shadow:0 8px 22px rgba(0,0,0,.4);
+  --shadow-glow:0 2px 20px rgba(0,0,0,.4);
+  --shadow-card:0 1px 3px rgba(0,0,0,.3), 0 6px 16px rgba(0,0,0,.4);
+  --shadow:var(--shadow-card);
   --shadow-lg:0 16px 40px rgba(0,0,0,.5);
 }
 *,*::before,*::after{box-sizing:border-box}
@@ -511,6 +538,227 @@ html[lang="en"] .es{display:none}
 .tag-card.clickable::after{top:.5rem; right:.6rem; font-size:.9rem}
 .dsv-step.clickable::after{top:.5rem; right:.6rem}
 
+/* ═══════════════════════════════════════════════════════════════════
+   v2.0 · MIGRATION TO BIBLIOTECA-2026 LOOK-AND-FEEL
+   ═══════════════════════════════════════════════════════════════════ */
+
+/* === Spring/smooth easing globally on transitions === */
+.btn, .btn-primary, .attr-card, .clause-card, .pivote-card,
+.exercise-card, .asistente-card, .expander-card, .pipeline-step,
+.story-card, .tag-card, .dsv-step, .pm-letter, .pm-alphabet-letter,
+.cal-card{
+  transition:transform 0.35s var(--ease-spring), box-shadow 0.35s var(--ease-smooth), border-color 0.35s var(--ease-smooth), background 0.35s var(--ease-smooth);
+}
+
+.attr-card:hover, .clause-card:hover, .pivote-card:hover,
+.exercise-card:hover, .asistente-card:hover, .expander-card:hover{
+  transform:translateY(-4px); box-shadow:var(--shadow-lg);
+}
+
+/* === Buttons polish · biblioteca canónico === */
+.btn{
+  border-radius:999px; font-weight:700;
+  box-shadow:0 1px 3px rgba(0,0,0,.04);
+}
+.btn:hover{transform:translateY(-2px); box-shadow:0 8px 20px rgba(18,37,98,.12)}
+.btn-primary{
+  background:var(--navy); color:#FFF;
+  padding:.95em 2em; font-weight:700;
+  box-shadow:0 6px 18px rgba(18,37,98,.18);
+}
+.btn-primary:hover{
+  transform:translateY(-4px);
+  box-shadow:0 12px 32px rgba(18,37,98,.25);
+  background:var(--navy);
+}
+html.dark .btn-primary{background:var(--gold); color:var(--navy)}
+html.dark .btn-primary:hover{box-shadow:0 12px 32px rgba(255,215,0,.25)}
+
+/* === Glass-morphism topnav === */
+.topnav{
+  background:var(--glass-bg) !important;
+  backdrop-filter:var(--glass-blur);
+  -webkit-backdrop-filter:var(--glass-blur);
+  border-bottom:1px solid var(--border);
+  box-shadow:var(--shadow-glow);
+}
+
+/* === Glass-morphism modal === */
+#cardModal, .modal{
+  backdrop-filter:var(--glass-blur);
+  -webkit-backdrop-filter:var(--glass-blur);
+}
+.modal-content, #cardModal .modal-content{
+  background:var(--glass-bg);
+  backdrop-filter:var(--glass-blur);
+  border:1px solid var(--border);
+  box-shadow:var(--shadow-lg);
+}
+
+/* === Hero · pm-kinetic letras pop + scroll hint bounce === */
+.hero{
+  position:relative; overflow:hidden;
+}
+.hero::before{
+  content:""; position:absolute; top:-30%; right:-20%;
+  width:60vmin; height:60vmin; border-radius:50%;
+  background:radial-gradient(circle, rgba(255,215,0,.15), transparent 70%);
+  filter:blur(40px); pointer-events:none; z-index:0;
+}
+html.dark .hero::before{background:radial-gradient(circle, rgba(255,215,0,.08), transparent 70%)}
+.hero > *{position:relative; z-index:1}
+.hero h1{
+  animation:pmFadeUp 0.7s var(--ease-smooth);
+}
+.hero .promesa{animation:pmFadeUp 0.9s var(--ease-smooth) .15s both}
+.hero .ctas{animation:pmFadeUp 0.9s var(--ease-smooth) .3s both}
+.hero .eyebrow{
+  display:inline-block;
+  background:rgba(255,215,0,.12); color:var(--gold-dark);
+  padding:.4em 1em; border-radius:999px;
+  border:1px solid rgba(255,215,0,.25);
+  font-family:'Trebuchet MS',sans-serif; font-size:.72rem;
+  font-weight:700; letter-spacing:.18em; text-transform:uppercase;
+  position:relative;
+}
+.hero .eyebrow::before{
+  content:""; display:inline-block; width:8px; height:8px;
+  background:var(--gold); border-radius:50%; margin-right:.6em;
+  vertical-align:middle;
+  box-shadow:0 0 8px rgba(255,215,0,.6);
+  animation:pmDotGlow 2s var(--ease-smooth) infinite;
+}
+html.dark .hero .eyebrow{color:var(--gold); background:rgba(255,215,0,.08); border-color:rgba(255,215,0,.2)}
+
+/* Scroll hint bounce al cierre del hero */
+.hero-scroll-hint{
+  display:flex; align-items:center; justify-content:center;
+  margin:2.5rem auto 0; padding:.6rem 1.2rem;
+  font-family:'Trebuchet MS',sans-serif; font-size:.72rem;
+  font-weight:700; letter-spacing:.16em; text-transform:uppercase;
+  color:var(--text-muted); animation:pmBounce 2s var(--ease-smooth) infinite;
+  width:fit-content;
+}
+.hero-scroll-hint::after{
+  content:"↓"; margin-left:.6em; font-size:1.1em; color:var(--gold-dark);
+}
+
+@keyframes pmFadeUp{
+  from{opacity:0; transform:translateY(20px)}
+  to{opacity:1; transform:translateY(0)}
+}
+@keyframes pmDotGlow{
+  0%,100%{box-shadow:0 0 8px rgba(255,215,0,.6)}
+  50%{box-shadow:0 0 14px rgba(255,215,0,.9)}
+}
+@keyframes pmBounce{
+  0%,100%{transform:translateY(0)}
+  50%{transform:translateY(8px)}
+}
+
+/* === Callout variants · gold/navy/blue · biblioteca === */
+.pivote-callout{
+  background:linear-gradient(135deg, rgba(255,215,0,.06), rgba(255,215,0,.02));
+  border-left:4px solid var(--gold);
+  border-radius:var(--radius-md);
+  font-family:var(--font-note,'Trebuchet MS',sans-serif);
+}
+.pivote-callout.callout-navy{
+  background:linear-gradient(135deg, rgba(18,37,98,.06), rgba(18,37,98,.02));
+  border-left-color:var(--navy);
+}
+html.dark .pivote-callout.callout-navy{
+  background:linear-gradient(135deg, rgba(255,215,0,.06), rgba(255,215,0,.02));
+  border-left-color:var(--gold);
+}
+.pivote-callout.callout-blue{
+  background:linear-gradient(135deg, rgba(19,125,197,.08), rgba(19,125,197,.02));
+  border-left-color:var(--blue);
+}
+
+/* === Sticky H2 en móvil (paginated reading hint) === */
+@media (max-width:768px){
+  section > h2{
+    position:sticky; top:56px; z-index:5;
+    background:var(--glass-bg);
+    backdrop-filter:var(--glass-blur);
+    -webkit-backdrop-filter:var(--glass-blur);
+    padding:.75rem 0;
+    margin-left:-1.25rem; margin-right:-1.25rem;
+    padding-left:1.25rem; padding-right:1.25rem;
+  }
+}
+
+/* === Reading bar CSS-only con animation-timeline (progressive enhancement) === */
+@supports (animation-timeline:scroll()){
+  #reading-bar{
+    animation:rb-grow linear; animation-timeline:scroll();
+  }
+  @keyframes rb-grow{from{width:0}to{width:100%}}
+}
+
+/* === Footer dark navy con border-top gold (biblioteca canónico) === */
+.site-footer{
+  background:var(--navy-dark) !important;
+  color:#FFF;
+  border-top:6px solid var(--gold) !important;
+  padding-top:3rem !important; padding-bottom:2rem !important;
+}
+.site-footer h3{color:var(--gold) !important; font-family:'Poppins',sans-serif; font-weight:700}
+.site-footer p, .site-footer li{color:rgba(255,255,255,.85)}
+.site-footer a{color:#FFF; border-bottom-color:var(--gold)}
+.site-footer a:hover{color:var(--gold); border-bottom-color:var(--gold)}
+.site-footer .legal{
+  border-top:1px solid rgba(255,255,255,.1) !important;
+  font-family:'Trebuchet MS',sans-serif; font-size:.78rem;
+  color:rgba(255,255,255,.55) !important;
+  letter-spacing:.04em;
+}
+.site-footer .legal strong{color:var(--gold)}
+.site-footer .legal a{color:var(--gold) !important; border-bottom:none}
+.site-footer .legal a:hover{text-decoration:underline}
+
+/* === Reveal smoother con ease-smooth === */
+.reveal{
+  opacity:0; transform:translateY(30px);
+  transition:opacity 0.7s var(--ease-smooth), transform 0.7s var(--ease-smooth);
+}
+.reveal.in{opacity:1; transform:none}
+
+/* === Section anchors polish · Skip-link feel === */
+section[id]{scroll-margin-top:80px}
+
+/* === Card glow on hover · biblioteca pattern === */
+.attr-card{position:relative; overflow:hidden}
+.attr-card::after{
+  content:""; position:absolute; top:0; left:0; right:0; bottom:0;
+  background:radial-gradient(circle at top right, rgba(255,215,0,.08), transparent 60%);
+  opacity:0; transition:opacity 0.4s var(--ease-smooth);
+  pointer-events:none;
+}
+.attr-card:hover::after{opacity:1}
+
+/* === Pillar tags polish con biblioteca chip style === */
+.pillar-tag{
+  background:rgba(255,215,0,.12) !important;
+  color:var(--gold-dark) !important;
+  border:1px solid rgba(255,215,0,.25);
+}
+html.dark .pillar-tag{
+  background:rgba(255,215,0,.10) !important;
+  color:var(--gold) !important;
+  border-color:rgba(255,215,0,.2);
+}
+
+/* === Reduced motion (cubre animaciones v2.0) === */
+@media (prefers-reduced-motion: reduce){
+  .hero h1, .hero .promesa, .hero .ctas,
+  .hero .eyebrow::before, .hero-scroll-hint{animation:none !important}
+  .attr-card:hover, .clause-card:hover, .pivote-card:hover,
+  .exercise-card:hover, .asistente-card:hover, .expander-card:hover,
+  .btn:hover, .btn-primary:hover{transform:none !important}
+}
+
 </style>
 </head>
 <body>
@@ -579,6 +827,7 @@ html[lang="en"] .es{display:none}
     <a class="btn btn-primary" href="#storytelling"><span class="es">Empezar a leer</span><span class="en">Start reading</span></a>
     <a class="btn" href="#pipeline-pivote"><span class="es">Saltar al framework P.I.V.O.T.E.</span><span class="en">Jump to P.I.V.O.T.E. framework</span></a>
   </div>
+  <a class="hero-scroll-hint" href="#storytelling" aria-label="Scroll to content"><span class="es">Desliza para empezar</span><span class="en">Scroll to begin</span></a>
 </header>
 
 <!-- ═══ § 1 · STORYTELLING ═══ -->
