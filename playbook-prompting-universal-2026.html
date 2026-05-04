@@ -413,6 +413,45 @@ html.dark .dsv-step .num{color:var(--gold)}
 .dsv-step h4{font-size:.95rem; margin:0 0 .5em}
 .dsv-step p{margin:0; font-size:.78rem; color:var(--text-soft); line-height:1.5}
 
+/* ═══ DSVSR ACRONYM BANNER (v2.3) ═══ */
+.dsv-acronym-banner{
+  background:linear-gradient(90deg, rgba(18,37,98,.06), rgba(255,215,0,.10));
+  border-left:4px solid var(--gold); border-radius:var(--radius);
+  padding:1.1rem 1.4rem; margin:1.4rem 0 1.6rem;
+}
+html.dark .dsv-acronym-banner{background:linear-gradient(90deg, rgba(18,37,98,.4), rgba(255,215,0,.12))}
+.dsv-acronym-line{
+  font-family:'Poppins',sans-serif; font-size:1.15rem; font-weight:700;
+  color:var(--navy); margin:0 0 .4em; letter-spacing:.02em;
+}
+html.dark .dsv-acronym-line{color:var(--gold)}
+.dsv-acronym-line strong{color:var(--gold-dark); font-weight:800}
+html.dark .dsv-acronym-line strong{color:var(--gold)}
+.dsv-acronym-sub{margin:0; font-size:.92rem; color:var(--text-soft); line-height:1.55}
+
+/* DSVSR worked example list */
+.dsv-example{margin:.8rem 0 .4rem 1.2em; padding:0; font-size:.92rem; line-height:1.65}
+.dsv-example li{margin-bottom:.55em}
+.dsv-example li strong:first-child{
+  display:inline-block; min-width:1.4em; color:var(--gold-dark); font-weight:800;
+}
+html.dark .dsv-example li strong:first-child{color:var(--gold)}
+.dsv-example code{background:rgba(18,37,98,.08); padding:.05em .35em; border-radius:3px; font-size:.85em}
+html.dark .dsv-example code{background:rgba(255,215,0,.12)}
+
+/* ═══ PIPELINE PHASE BANNERS (v2.3) ═══ */
+.pipeline-phase-banner{
+  margin:1.6rem 0 .8rem; padding:.7rem 1.1rem;
+  background:rgba(19,125,197,.08); border-left:3px solid var(--blue); border-radius:6px;
+  font-family:'Trebuchet MS',sans-serif; font-size:.85rem; letter-spacing:.02em; color:var(--text);
+}
+html.dark .pipeline-phase-banner{background:rgba(19,125,197,.18); color:var(--text)}
+.pipeline-phase-banner strong{color:var(--navy); font-weight:700}
+html.dark .pipeline-phase-banner strong{color:var(--lilac)}
+.pipeline-phase-banner em{color:var(--text-soft); font-style:italic}
+.pipeline-phase-banner code{background:rgba(18,37,98,.1); padding:.05em .35em; border-radius:3px; font-size:.88em}
+html.dark .pipeline-phase-banner code{background:rgba(255,215,0,.14)}
+
 /* ═══ EXERCISES ═══ */
 .exercise-grid{display:grid; gap:1.2rem; margin-top:2rem}
 @media(min-width:680px){.exercise-grid{grid-template-columns:repeat(2,1fr)}}
@@ -1085,7 +1124,7 @@ SPEC:
 <section class="reveal level-marker level-2">
   <span class="eyebrow"><span class="es">Nivel 2 · Método</span><span class="en">Level 2 · Method</span></span>
   <h2><span class="es">Ahora sí: <strong>el método operativo</strong></span><span class="en">Now: <strong>the operational method</strong></span></h2>
-  <p style="max-width:62ch"><span class="es">Con los fundamentos en la mano, este nivel te entrega el método: <strong>framework</strong> (PIVOTE) → <strong>pipeline</strong> (/0-/9) → <strong>contratos</strong> (12 cláusulas) → <strong>estándar</strong> (100 Check · 4 dimensiones) → <strong>trazabilidad</strong> (10 etiquetas) → <strong>metacognición</strong> (DSVSR). Cada parte construye sobre la anterior.</span><span class="en">With the fundamentals in hand, this level hands you the method: <strong>framework</strong> (PIVOTE) → <strong>pipeline</strong> (/0-/9) → <strong>contracts</strong> (12 clauses) → <strong>standard</strong> (100 Check · 4 dimensions) → <strong>traceability</strong> (10 tags) → <strong>metacognition</strong> (DSVSR). Each part builds on the previous.</span></p>
+  <p style="max-width:64ch"><span class="es">Con los fundamentos en la mano, este nivel te entrega el método como una sola cadena que se construye paso a paso: <strong>PIVOTE</strong> define <em>qué resolver y por qué</em> (decisión humana). El <strong>pipeline /0-/9</strong> ejecuta <em>cómo resolverlo</em> (secuencia operativa). <strong>DSVSR</strong> es el <em>cerebro</em> que opera dentro de cada paso (metacognición). Las <strong>12 cláusulas</strong> son los <em>contratos invisibles</em> que llevan el output al estándar. El <strong>100 Check</strong> valida que el resultado salga al nivel esperado. Las <strong>10 etiquetas</strong> hacen cada claim trazable. Cada pieza sostiene a la siguiente — sin saltarse ninguna.</span><span class="en">With the fundamentals in hand, this level delivers the method as a single chain that builds step by step: <strong>PIVOTE</strong> defines <em>what to solve and why</em> (human decision). The <strong>/0-/9 pipeline</strong> executes <em>how to solve it</em> (operational sequence). <strong>DSVSR</strong> is the <em>brain</em> operating inside each step (metacognition). The <strong>12 clauses</strong> are the <em>invisible contracts</em> that lift output to the standard. The <strong>100 Check</strong> validates the result hits the expected level. The <strong>10 tags</strong> make every claim traceable. Each piece supports the next — none can be skipped.</span></p>
 </section>
 
 <!-- ═══ § 8 · LOS 8 ATRIBUTOS ═══ -->
@@ -1206,7 +1245,9 @@ SPEC:
 <section id="pipeline-operativo" class="reveal">
   <span class="eyebrow"><span class="es">§ 9.5 · Pipeline operativo</span><span class="en">§ 9.5 · Operational pipeline</span></span>
   <h2><span class="es">El pipeline operativo <code>/0</code>-<code>/9</code> · de pedido difuso a entregable defendible</span><span class="en">The <code>/0</code>-<code>/9</code> operational pipeline · from fuzzy ask to defensible deliverable</span></h2>
-  <p style="max-width:65ch"><span class="es">Llegas aquí con tu pensamiento ya estructurado por PIVOTE (§ 9) y la decisión cerrada de usar IA generativa (§ 9.25). El pipeline traduce esa decisión humana en un SPEC ejecutable. Cada paso es <strong>standalone</strong> (lo invocas solo con <code>/0</code>, <code>/1</code>…) y <strong>encadenable</strong> (alimenta al siguiente). No ejecutas los 10 cada vez: invocas los que necesitas. La secuencia te da el mapa completo.</span><span class="en">You arrive here with thinking already structured by PIVOTE (§ 9) and the closed decision to use generative AI (§ 9.25). The pipeline translates that human decision into an executable SPEC. Each step is <strong>standalone</strong> (fire it alone with <code>/0</code>, <code>/1</code>…) and <strong>chainable</strong> (feeds the next). You don't run all 10 every time: invoke what you need. The sequence gives you the full map.</span></p>
+  <p style="max-width:66ch"><span class="es">Llegas aquí con tu pensamiento ya estructurado por PIVOTE (§ 9) y la decisión cerrada de usar IA generativa (§ 9.25). El pipeline traduce esa decisión humana en un SPEC ejecutable, y luego en un entregable defendible. Cada paso es <strong>standalone</strong> (lo invocas solo con <code>/0</code>, <code>/1</code>…) y <strong>encadenable</strong> (alimenta al siguiente). No ejecutas los 10 cada vez: invocas los que necesitas. La secuencia te da el mapa completo, agrupado en 3 fases que reflejan la metacognición DSVSR (§ 13).</span><span class="en">You arrive here with thinking already structured by PIVOTE (§ 9) and the closed decision to use generative AI (§ 9.25). The pipeline translates that human decision into an executable SPEC, then into a defensible deliverable. Each step is <strong>standalone</strong> (fire it alone with <code>/0</code>, <code>/1</code>…) and <strong>chainable</strong> (feeds the next). You don't run all 10 every time: invoke what you need. The sequence gives you the full map, grouped in 3 phases that mirror DSVSR metacognition (§ 13).</span></p>
+
+  <div class="pipeline-phase-banner"><span class="es"><strong>Fase 1 · Encuadrar</strong> · <code>/0</code>-<code>/2</code> · <em>descomponer el pedido</em> (D de DSVSR)</span><span class="en"><strong>Phase 1 · Frame</strong> · <code>/0</code>-<code>/2</code> · <em>decompose the ask</em> (D in DSVSR)</span></div>
 
   <div class="pipeline-list">
     <details class="pipeline-step">
@@ -1230,6 +1271,11 @@ SPEC:
         <p><strong><span class="es">Cómo activarlo:</span><span class="en">How to activate:</span></strong> <span class="es">Pega <code>/2</code> con la necesidad de /1. Recibes SPEC autocontenido, portable a otro operador.</span><span class="en">Paste <code>/2</code> with the need from /1. Get a self-contained SPEC, portable to any operator.</span></p>
       </div>
     </details>
+  </div>
+
+  <div class="pipeline-phase-banner"><span class="es"><strong>Fase 2 · Construir</strong> · <code>/3</code>-<code>/6</code> · <em>resolver y sintetizar con confianza</em> (S+S de DSVSR)</span><span class="en"><strong>Phase 2 · Build</strong> · <code>/3</code>-<code>/6</code> · <em>solve and synthesize with confidence</em> (S+S in DSVSR)</span></div>
+
+  <div class="pipeline-list">
     <details class="pipeline-step">
       <summary><span class="num-pill">3</span><span class="step-title"><span class="es">PLANIFICAR — Bajá el SPEC a un plan accionable</span><span class="en">PLAN — Drop the SPEC into an actionable plan</span></span></summary>
       <div class="body">
@@ -1258,6 +1304,11 @@ SPEC:
         <p><strong><span class="es">Cómo activarlo:</span><span class="en">How to activate:</span></strong> <span class="es">Pega <code>/6</code> con el contenido y el objetivo de simplificación. Recibes versión compacta sin perder evidencia.</span><span class="en">Paste <code>/6</code> with the content and the simplification target. Get a compact version without losing evidence.</span></p>
       </div>
     </details>
+  </div>
+
+  <div class="pipeline-phase-banner"><span class="es"><strong>Fase 3 · Defender</strong> · <code>/7</code>-<code>/9</code> · <em>verificar, reflexionar y cristalizar</em> (V+R de DSVSR)</span><span class="en"><strong>Phase 3 · Defend</strong> · <code>/7</code>-<code>/9</code> · <em>verify, reflect and crystallize</em> (V+R in DSVSR)</span></div>
+
+  <div class="pipeline-list">
     <details class="pipeline-step">
       <summary><span class="num-pill">7</span><span class="step-title"><span class="es">VALIDAR — Audita contra criterio explícito</span><span class="en">VALIDATE — Audit against explicit criterion</span></span></summary>
       <div class="body">
@@ -1279,6 +1330,10 @@ SPEC:
         <p><strong><span class="es">Cómo activarlo:</span><span class="en">How to activate:</span></strong> <span class="es">Pega <code>/9</code> con la ejecución origen y los parámetros variables. Recibes plantilla portable a casos similares.</span><span class="en">Paste <code>/9</code> with the source run and the variable parameters. Get a template portable to similar cases.</span></p>
       </div>
     </details>
+  </div>
+
+  <div class="pivote-callout callout-blue" style="margin-top:1.6rem">
+    <p><strong><span class="es">Cómo leer este pipeline:</span><span class="en">How to read this pipeline:</span></strong> <span class="es">no es una fila de 10 prompts ejecutados a ciegas. Es una <strong>secuencia metacognitiva</strong>: cada paso descompone, resuelve con confianza declarada, verifica, sintetiza y reflexiona — exactamente la disciplina que la sección § 13 formaliza como <strong>DSVSR</strong>. La diferencia con un solo prompt largo: el pipeline hace explícito lo que la IA debería pensar dentro, y deja la trazabilidad afuera.</span><span class="en">it's not a row of 10 prompts fired blindly. It's a <strong>metacognitive sequence</strong>: each step decomposes, solves with declared confidence, verifies, synthesizes and reflects — exactly the discipline § 13 formalizes as <strong>DSVSR</strong>. The difference vs. one long prompt: the pipeline makes explicit what the AI should think inside, and leaves the audit trail outside.</span></p>
   </div>
 </section>
 
@@ -1408,18 +1463,42 @@ SPEC:
   </div>
 </section>
 
-<!-- ═══ § 13 · METACOGNICIÓN DSVSR (acrónimo íntegro) ═══ -->
+<!-- ═══ § 13 · METACOGNICIÓN DSVSR (acrónimo íntegro · ejemplo concreto · paper RLMs) ═══ -->
 <section id="dsv" class="reveal">
   <span class="eyebrow"><span class="es">§ 13 · Metacognición</span><span class="en">§ 13 · Metacognition</span></span>
   <h2><span class="es">Metacognición <strong>DSVSR</strong> · el cerebro detrás de los outputs defendibles</span><span class="en"><strong>DSVSR</strong> metacognition · the brain behind defensible outputs</span></h2>
-  <p style="max-width:65ch"><span class="es">Cuando un problema es no-trivial, la IA aplica <strong>DSVSR</strong>: <em>Decompose</em> · <em>Solve</em> · <em>Verify</em> · <em>Synthesize</em> · <em>Reflect</em>. Cinco letras, una disciplina: la diferencia entre "creo que" y "sé que".</span><span class="en">When a problem is non-trivial, AI applies <strong>DSVSR</strong>: <em>Decompose</em> · <em>Solve</em> · <em>Verify</em> · <em>Synthesize</em> · <em>Reflect</em>. Five letters, one discipline: the difference between "I think" and "I know".</span></p>
+
+  <div class="dsv-acronym-banner">
+    <p class="dsv-acronym-line"><strong>D · S · V · S · R</strong> = <strong>D</strong>ecompose · <strong>S</strong>olve · <strong>V</strong>erify · <strong>S</strong>ynthesize · <strong>R</strong>eflect</p>
+    <p class="dsv-acronym-sub"><span class="es">Cinco letras · cinco pasos · una disciplina. Memorízalo así: <em>descompongo, resuelvo con confianza, verifico, sintetizo y reflexiono antes de cerrar</em>.</span><span class="en">Five letters · five steps · one discipline. Memorize it like this: <em>I decompose, solve with confidence, verify, synthesize and reflect before closing</em>.</span></p>
+  </div>
+
+  <p style="max-width:65ch"><span class="es">Frente a un problema no-trivial, una IA bien operada <strong>no responde de un solo tirón</strong>. Aplica DSVSR internamente: parte el problema, resuelve cada pieza con confianza declarada, audita su propia respuesta, integra las piezas pesando confianza, y al cierre reflexiona si el resultado defiende contra escrutinio. La diferencia entre "creo que" y "sé que" vive en estos cinco pasos.</span><span class="en">Faced with a non-trivial problem, a well-operated AI <strong>doesn't answer in one shot</strong>. It applies DSVSR internally: breaks the problem apart, solves each piece with declared confidence, audits its own answer, integrates the pieces weighing confidence, and at close reflects on whether the result defends against scrutiny. The difference between "I think" and "I know" lives in these five steps.</span></p>
 
   <div class="dsv-steps">
-    <div class="dsv-step clickable" data-modal-id="dsv-d"><div class="num">D</div><h4>DECOMPOSE</h4><p><span class="es">Sub-problemas atómicos con dependencias.</span><span class="en">Atomic sub-problems with dependencies.</span></p></div>
-    <div class="dsv-step clickable" data-modal-id="dsv-s1"><div class="num">S</div><h4>SOLVE</h4><p><span class="es">Cada sub-problema resuelto con confianza 0.0-1.0.</span><span class="en">Each sub-problem solved with confidence 0.0-1.0.</span></p></div>
-    <div class="dsv-step clickable" data-modal-id="dsv-v"><div class="num">V</div><h4>VERIFY</h4><p><span class="es">Lógica + hechos + completitud + sesgos.</span><span class="en">Logic + facts + completeness + bias.</span></p></div>
-    <div class="dsv-step clickable" data-modal-id="dsv-s2"><div class="num">S</div><h4>SYNTHESIZE</h4><p><span class="es">Combinar con confianza ponderada · etiqueta cada parte.</span><span class="en">Combine with weighted confidence · tag each part.</span></p></div>
-    <div class="dsv-step clickable" data-modal-id="dsv-r"><div class="num">R</div><h4>REFLECT</h4><p><span class="es">Si confianza < 0.95: declarar debilidad y plan.</span><span class="en">If confidence < 0.95: declare weakness and plan.</span></p></div>
+    <div class="dsv-step clickable" data-modal-id="dsv-d"><div class="num">D</div><h4>DECOMPOSE</h4><p><span class="es">Parte el problema en sub-problemas atómicos con dependencias explícitas.</span><span class="en">Break the problem into atomic sub-problems with explicit dependencies.</span></p></div>
+    <div class="dsv-step clickable" data-modal-id="dsv-s1"><div class="num">S</div><h4>SOLVE</h4><p><span class="es">Resuelve cada sub-problema con confianza 0.0-1.0 declarada por separado.</span><span class="en">Solve each sub-problem with confidence 0.0-1.0 declared separately.</span></p></div>
+    <div class="dsv-step clickable" data-modal-id="dsv-v"><div class="num">V</div><h4>VERIFY</h4><p><span class="es">Audita lógica, hechos, completitud y sesgos antes de combinar.</span><span class="en">Audit logic, facts, completeness and bias before combining.</span></p></div>
+    <div class="dsv-step clickable" data-modal-id="dsv-s2"><div class="num">S</div><h4>SYNTHESIZE</h4><p><span class="es">Combina las piezas con confianza ponderada · etiqueta procedencia de cada bloque.</span><span class="en">Combine pieces with weighted confidence · tag provenance per block.</span></p></div>
+    <div class="dsv-step clickable" data-modal-id="dsv-r"><div class="num">R</div><h4>REFLECT</h4><p><span class="es">Si confianza global &lt; 0.95: declara debilidad, marca vacío crítico, propón plan.</span><span class="en">If global confidence &lt; 0.95: declare weakness, flag critical gap, propose plan.</span></p></div>
+  </div>
+
+  <div class="pivote-callout" style="margin-top:1.8rem">
+    <p><strong><span class="es">Ejemplo concreto · DSVSR en 90 segundos:</span><span class="en">Worked example · DSVSR in 90 seconds:</span></strong></p>
+    <p><span class="es"><strong>Pedido</strong>: "¿Vale la pena que mi equipo migre del CRM A al CRM B este trimestre?"</span><span class="en"><strong>Ask</strong>: "Is it worth migrating my team from CRM A to CRM B this quarter?"</span></p>
+    <ol class="dsv-example">
+      <li><strong>D</strong> · <span class="es">parto en 4 sub-preguntas: (1) ¿qué problema real resuelve B que A no? (2) ¿costo total de migración: licencias + datos + entrenamiento? (3) ¿costo de oportunidad este trimestre? (4) ¿qué pierdo si me quedo en A 6 meses más?</span><span class="en">break into 4 sub-questions: (1) what real problem does B solve that A doesn't? (2) full migration cost: licenses + data + training? (3) opportunity cost this quarter? (4) what do I lose staying on A 6 more months?</span></li>
+      <li><strong>S</strong> · <span class="es">resuelvo cada una con confianza explícita. (1) <code>0.9</code> con datos del equipo. (2) <code>0.6</code> · falta cotización formal. (3) <code>0.7</code> · roadmap competidor incierto. (4) <code>0.85</code> · datos de retention propios.</span><span class="en">solve each with explicit confidence. (1) <code>0.9</code> with team data. (2) <code>0.6</code> · missing formal quote. (3) <code>0.7</code> · competitor roadmap uncertain. (4) <code>0.85</code> · own retention data.</span></li>
+      <li><strong>V</strong> · <span class="es">verifico que (2) tiene un vacío crítico (cotización), y que (3) y (4) podrían contradecirse si la competencia acelera.</span><span class="en">verify that (2) has a critical gap (quote), and that (3) and (4) could contradict if competition accelerates.</span></li>
+      <li><strong>S</strong> · <span class="es">sintetizo: la decisión defendible esta semana es <em>"sí, pero no este trimestre — primero cerrar (2)"</em>, con confianza ponderada <code>0.78</code>. Etiqueto cada bloque con su procedencia.</span><span class="en">synthesize: the defensible decision this week is <em>"yes, but not this quarter — first close (2)"</em>, with weighted confidence <code>0.78</code>. Tag each block with its provenance.</span></li>
+      <li><strong>R</strong> · <span class="es">confianza &lt; 0.95: declaro la debilidad (<code>{VACIO_CRITICO}</code>: cotización CRM B), propongo plan (pedirla esta semana, re-evaluar en 7 días).</span><span class="en">confidence &lt; 0.95: declare the weakness (<code>{CRITICAL_GAP}</code>: CRM B quote), propose plan (request this week, re-evaluate in 7 days).</span></li>
+    </ol>
+    <p style="margin-top:.6rem"><span class="es">Resultado: una decisión <em>defendible y rastreable</em> en lugar de un "creo que sí" sin sustento. Esto es lo que cambia entre prompting de usuario y prompting de operador.</span><span class="en">Result: a <em>defensible and traceable</em> decision instead of a "I think yes" without backing. This is what shifts between user prompting and operator prompting.</span></p>
+  </div>
+
+  <div class="pivote-callout callout-navy" style="margin-top:1.4rem">
+    <p><strong><span class="es">Sustento académico:</span><span class="en">Academic backing:</span></strong> <span class="es">DSVSR no es invención de marca. Es la versión humana operacionalizada de lo que la literatura formaliza para sistemas. El paper <strong>Recursive Language Models</strong> (Zhang, Kraska &amp; Khattab · MIT CSAIL · diciembre 2025) propone tratar prompts largos "como parte de un environment externo" sobre el cual el modelo puede <em>"programáticamente examinar, descomponer y llamarse recursivamente sobre sub-tareas"</em>. Es exactamente DSVSR a nivel de inferencia: el LLM <strong>no responde de un tirón</strong> — descompone, resuelve sub-tareas, verifica, integra y reflexiona. Cuando vos pedís rigor metacognitivo, le estás pidiendo a la IA la disciplina que el paper formaliza para escalar dos órdenes de magnitud más allá del context window.</span><span class="en">DSVSR isn't a brand invention. It's the human-operationalized version of what literature formalizes for systems. The paper <strong>Recursive Language Models</strong> (Zhang, Kraska &amp; Khattab · MIT CSAIL · December 2025) proposes treating long prompts "as part of an external environment" over which the model can <em>"programmatically examine, decompose and recursively call itself over sub-tasks"</em>. That's precisely DSVSR at the inference level: the LLM <strong>doesn't answer in one shot</strong> — it decomposes, solves sub-tasks, verifies, integrates and reflects. When you ask for metacognitive rigor, you're asking the AI for the discipline the paper formalizes to scale two orders of magnitude beyond the context window.</span></p>
+    <p style="margin-top:.7rem;font-size:.85rem"><span class="es">Referencia · </span>Zhang, A. L., Kraska, T., &amp; Khattab, O. (2025). <em>Recursive Language Models</em>. arXiv:2512.24601 [cs.AI]. <a href="https://arxiv.org/abs/2512.24601" target="_blank" rel="noopener">arxiv.org/abs/2512.24601</a></p>
   </div>
 </section>
 
