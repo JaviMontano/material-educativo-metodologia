@@ -1,0 +1,275 @@
+<!--
+MetodologIA | Facilitator One-Pager · Workshop Discovery AI-Native — v2026.04.2
+2026 | Por Javier Montaño CEO
+Hoja única imprimible (A4 portrait) · ES/EN · Densidad máxima · Companion del playbook completo.
+Source of truth: playbook-workshop-discovery-ai-native-v2026.04.2.html
+-->
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>Facilitator One-Pager · Workshop Discovery AI-Native · MetodologIA 2026</title>
+<meta name="description" content="Hoja A4 imprimible para el conductor del workshop. 8 sesiones, 8 reglas, 5 etapas T+1..T+5, gates, anti-patrones, escalamiento. Bilingüe ES/EN.">
+<meta name="theme-color" content="#122562">
+<link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 36 36'%3E%3Crect width='36' height='36' rx='8' fill='%23122562'/%3E%3Ccircle cx='18' cy='12' r='3' fill='%23FFD700'/%3E%3Cpath d='M10 22h16M10 27h12' stroke='%23fff' stroke-width='2.5' stroke-linecap='round'/%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&family=Poppins:wght@600;700;800&display=swap" rel="stylesheet">
+<style>
+:root{
+  --navy:#122562;--gold:#FFD700;--blue:#137DC5;--dark:#1F2833;
+  --lilac:#BBA0CC;--gold-d:#B8860B;--crit:#DC2626;--warn:#D97706;
+  --bg:#F0F0EC;--white:#FFF;--g50:#FAF8F6;--g100:#F4F0EC;--g200:#E4DED7;
+  --g500:#6B6560;--g700:#333130;--g900:#111110;
+  --f:'Montserrat',system-ui,sans-serif;
+  --fd:'Poppins','Montserrat',sans-serif;
+  --fm:'Trebuchet MS','Lucida Sans Unicode',sans-serif;
+}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{-webkit-print-color-adjust:exact;print-color-adjust:exact}
+body{font-family:var(--f);background:#E5E7EB;color:var(--g900);font-size:13px;line-height:1.4;-webkit-font-smoothing:antialiased;padding:1.5rem}
+
+/* Bilingual toggle */
+.en{display:none}
+html[lang="en"] .es{display:none}
+html[lang="en"] .en{display:inline}
+
+/* PAGE A4 */
+.page{width:210mm;min-height:297mm;margin:0 auto;background:var(--white);padding:11mm 12mm 10mm;box-shadow:0 6px 24px rgba(0,0,0,.18);position:relative;overflow:hidden}
+.page::before{content:'';position:absolute;top:0;left:0;right:0;height:6px;background:linear-gradient(90deg,var(--navy) 0%,var(--gold) 100%)}
+
+/* TOOLBAR */
+.bar{max-width:210mm;margin:0 auto 1rem;display:flex;justify-content:space-between;align-items:center;gap:1rem}
+.bar-l{font-family:var(--fd);font-size:.85rem;color:var(--g700);font-weight:600}
+.bar-r{display:flex;gap:.5rem}
+.btn{font-family:var(--fd);font-size:.72rem;font-weight:700;letter-spacing:.08em;text-transform:uppercase;padding:.5rem .9rem;border-radius:6px;border:1px solid var(--navy);background:var(--white);color:var(--navy);cursor:pointer;transition:.18s}
+.btn:hover{background:var(--navy);color:var(--white)}
+.btn-p{background:var(--navy);color:var(--white)}
+.btn-p:hover{background:var(--gold);color:var(--navy);border-color:var(--gold)}
+@media print{.bar{display:none}body{background:#fff;padding:0}.page{box-shadow:none;width:auto;min-height:auto}.en{display:none !important}}
+@page{size:A4 portrait;margin:8mm}
+
+/* HEADER */
+.head{display:grid;grid-template-columns:1fr auto;gap:1rem;align-items:center;padding-bottom:.55rem;border-bottom:2px solid var(--navy);margin-bottom:.6rem}
+.head-l .wm{font-family:var(--fd);font-size:1rem;font-weight:800;color:var(--navy);letter-spacing:-.01em}
+.head-l .wm .ia{color:var(--gold)}
+.head-l .ti{font-family:var(--fd);font-size:1.32rem;font-weight:800;color:var(--navy);line-height:1.1;letter-spacing:-.02em;margin-top:.05rem}
+.head-l .ti em{color:var(--gold-d);font-style:normal;font-weight:700}
+.head-l .sub{font-family:var(--fm);font-size:.7rem;color:var(--g500);margin-top:.15rem;font-style:italic}
+.head-r{text-align:right}
+.head-r .ver{font-family:var(--fd);font-size:.65rem;font-weight:700;color:var(--gold-d);letter-spacing:.1em;text-transform:uppercase}
+.head-r .pp{display:flex;gap:.25rem;flex-wrap:wrap;justify-content:flex-end;margin-top:.2rem}
+.pp span{font-family:var(--fd);font-size:.55rem;font-weight:700;background:var(--navy);color:var(--white);padding:.1rem .35rem;border-radius:3px;letter-spacing:.04em;text-transform:uppercase}
+.pp span.g{background:var(--gold);color:var(--navy)}
+
+/* TRICHOTOMY STRIP */
+.tri{display:grid;grid-template-columns:repeat(3,1fr);gap:.4rem;margin-bottom:.6rem}
+.tri-c{background:linear-gradient(135deg,rgba(18,37,98,.06) 0%,rgba(255,215,0,.06) 100%);border:1px solid var(--g200);border-left:3px solid var(--navy);border-radius:4px;padding:.4rem .55rem}
+.tri-c .v{font-family:var(--fd);font-size:.7rem;font-weight:800;color:var(--navy);text-transform:uppercase;letter-spacing:.06em}
+.tri-c .v em{color:var(--gold-d);font-style:normal}
+.tri-c .h{font-family:var(--fd);font-size:.65rem;color:var(--g500);font-weight:700;margin-top:.05rem}
+.tri-c .d{font-size:.65rem;color:var(--g700);margin-top:.1rem;line-height:1.35}
+
+/* DAY BLOCK */
+.day-h{display:flex;align-items:baseline;gap:.5rem;margin:.55rem 0 .25rem}
+.day-n{font-family:var(--fd);font-size:.62rem;font-weight:800;color:var(--white);background:var(--navy);padding:.12rem .4rem;border-radius:3px;letter-spacing:.06em;text-transform:uppercase}
+.day-t{font-family:var(--fd);font-size:.78rem;font-weight:700;color:var(--navy)}
+.day-t em{color:var(--gold-d);font-style:normal}
+.day-x{font-family:var(--fm);font-size:.62rem;color:var(--g500);margin-left:auto;font-style:italic}
+
+/* SESSION GRID */
+.sess{display:grid;grid-template-columns:repeat(4,1fr);gap:.32rem;margin-bottom:.45rem}
+.s-c{background:var(--white);border:1px solid var(--g200);border-top:2px solid var(--navy);border-radius:4px;padding:.4rem .5rem;font-size:.62rem;line-height:1.35;position:relative}
+.s-c .n{font-family:var(--fd);font-size:.58rem;font-weight:800;color:var(--gold-d);letter-spacing:.06em;text-transform:uppercase}
+.s-c .t{font-family:var(--fd);font-size:.7rem;font-weight:700;color:var(--g900);line-height:1.2;margin:.1rem 0 .15rem}
+.s-c .o{font-size:.6rem;color:var(--g700);line-height:1.35}
+.s-c .o b{font-family:var(--fd);font-size:.55rem;font-weight:700;color:var(--navy);letter-spacing:.05em;text-transform:uppercase;display:block;margin-top:.18rem}
+
+/* SPLIT 2-COL */
+.split{display:grid;grid-template-columns:1.05fr .95fr;gap:.55rem;margin-bottom:.55rem}
+
+/* PIPE 5d */
+.pp-h{font-family:var(--fd);font-size:.7rem;font-weight:800;color:var(--navy);text-transform:uppercase;letter-spacing:.06em;margin-bottom:.25rem;display:flex;align-items:center;gap:.3rem}
+.pp-h::before{content:'';width:3px;height:11px;background:var(--gold);border-radius:1px}
+.pipe5{display:grid;grid-template-columns:repeat(5,1fr);gap:.25rem}
+.pp5{background:var(--white);border:1px solid var(--g200);border-radius:4px;padding:.35rem .4rem;font-size:.58rem;line-height:1.3}
+.pp5 .d{font-family:var(--fd);font-size:.62rem;font-weight:800;color:var(--white);background:var(--navy);padding:.05rem .25rem;border-radius:3px;display:inline-block;margin-bottom:.15rem;letter-spacing:.04em}
+.pp5 .e{font-family:var(--fd);font-size:.6rem;font-weight:700;color:var(--gold-d);text-transform:uppercase;letter-spacing:.04em}
+.pp5 .v{font-size:.58rem;color:var(--g700);margin-top:.1rem}
+
+/* BANDS */
+.bands{display:grid;grid-template-columns:repeat(3,1fr);gap:.3rem;margin-top:.25rem}
+.b-c{background:linear-gradient(135deg,rgba(255,215,0,.10) 0%,rgba(18,37,98,.04) 100%);border:1px solid rgba(255,215,0,.4);border-radius:4px;padding:.35rem .45rem;font-size:.6rem}
+.b-c .l{font-family:var(--fd);font-size:.66rem;font-weight:800;color:var(--navy);letter-spacing:.04em}
+.b-c .x{font-family:var(--fd);font-size:.7rem;font-weight:800;color:var(--gold-d);margin-top:.05rem}
+.b-c .v{color:var(--g700);margin-top:.1rem;line-height:1.3}
+
+/* RULES + ANTI grid */
+.col-h{font-family:var(--fd);font-size:.7rem;font-weight:800;color:var(--navy);text-transform:uppercase;letter-spacing:.06em;margin-bottom:.25rem;display:flex;align-items:center;gap:.3rem}
+.col-h::before{content:'';width:3px;height:11px;background:var(--gold);border-radius:1px}
+.rl{list-style:none;display:grid;grid-template-columns:1fr 1fr;gap:.18rem .55rem;font-size:.6rem;line-height:1.35}
+.rl li{padding-left:.85rem;position:relative;color:var(--g700)}
+.rl li::before{content:'';position:absolute;left:0;top:.42em;width:5px;height:5px;background:var(--gold);border-radius:1px}
+.rl li b{font-family:var(--fd);font-weight:700;color:var(--navy)}
+
+.anti-l{list-style:none;display:grid;grid-template-columns:1fr;gap:.18rem;font-size:.6rem;line-height:1.35}
+.anti-l li{padding:.22rem .4rem;border-left:2px solid var(--crit);background:rgba(220,38,38,.04);border-radius:0 3px 3px 0;color:var(--g700)}
+.anti-l li b{font-family:var(--fd);font-weight:700;color:var(--crit);font-size:.6rem}
+.anti-l li em{color:var(--gold-d);font-style:normal;font-weight:600}
+.anti-l li em::before{content:' → '}
+
+/* GATE + ESCALATION */
+.gate-strip{background:var(--dark);color:var(--white);padding:.4rem .65rem;border-radius:4px;border-left:3px solid var(--gold);margin-bottom:.5rem;display:flex;gap:.6rem;align-items:center;font-size:.62rem;line-height:1.35}
+.gate-strip b{font-family:var(--fd);font-size:.62rem;font-weight:800;color:var(--gold);letter-spacing:.06em;text-transform:uppercase;background:rgba(255,215,0,.15);padding:.1rem .35rem;border-radius:3px;flex-shrink:0}
+.gate-strip span{flex:1}
+.gate-strip strong{color:var(--gold)}
+
+.esc{display:grid;grid-template-columns:repeat(4,1fr);gap:.25rem;font-size:.58rem;line-height:1.3}
+.esc-l{background:var(--g100);border:1px solid var(--g200);border-radius:4px;padding:.3rem .4rem}
+.esc-l .lv{font-family:var(--fd);font-size:.58rem;font-weight:800;color:var(--navy);letter-spacing:.04em;text-transform:uppercase}
+.esc-l .v{color:var(--g700);margin-top:.1rem}
+
+/* FOOTER */
+.foot{margin-top:.55rem;padding-top:.4rem;border-top:1px solid var(--g200);display:grid;grid-template-columns:1fr auto;gap:.5rem;font-size:.55rem;color:var(--g500);font-family:var(--fm);font-style:italic;align-items:center}
+.foot a{color:var(--navy);text-decoration:none;font-weight:600}
+.foot .badges{display:flex;gap:.2rem;flex-wrap:wrap}
+.foot .badges span{font-family:var(--fd);font-size:.5rem;font-style:normal;font-weight:700;background:rgba(255,215,0,.18);color:var(--gold-d);padding:.1rem .3rem;border-radius:2px;letter-spacing:.04em}
+
+/* Print niceties */
+@media print{.page::before{height:4mm}}
+</style>
+</head>
+<body lang="es">
+
+<div class="bar">
+  <div class="bar-l"><span class="es">Hoja única imprimible · A4 portrait · MetodologIA</span><span class="en">Single printable page · A4 portrait · MetodologIA</span></div>
+  <div class="bar-r">
+    <button onclick="toggleLang()" class="btn" id="langBtn">EN</button>
+    <button onclick="window.print()" class="btn btn-p"><span class="es">Imprimir</span><span class="en">Print</span></button>
+  </div>
+</div>
+
+<div class="page">
+
+<header class="head">
+  <div class="head-l">
+    <div class="wm">Metodolog<span class="ia">IA</span></div>
+    <div class="ti"><span class="es">Workshop Discovery AI-Native · <em>One-Pager del Conductor</em></span><span class="en">AI-Native Discovery Workshop · <em>Conductor's One-Pager</em></span></div>
+    <div class="sub"><span class="es">Imprime · pega en la pared · revisa antes de cada sesión.</span><span class="en">Print · paste on wall · review before each session.</span></div>
+  </div>
+  <div class="head-r">
+    <div class="ver">v2026.04.2</div>
+    <div class="pp">
+      <span>2d · 8s · 1.5h</span>
+      <span class="g">HITL T+5</span>
+      <span>1m · 3m · 16s</span>
+    </div>
+  </div>
+</header>
+
+<div class="tri">
+  <div class="tri-c"><div class="v"><span class="es">01 · Entender</span><span class="en">01 · Understand</span></div><div class="h"><span class="es">Día 1 + adopción 1 mes</span><span class="en">Day 1 + 1-month adoption</span></div><div class="d"><span class="es">Acotar el qué, alinear, problem statement firmado.</span><span class="en">Scope the what, align, signed problem statement.</span></div></div>
+  <div class="tri-c"><div class="v">02 · <em>(R)<span class="es">Evolucionar</span><span class="en">Evolve</span></em></div><div class="h"><span class="es">Día 2 + 16 semanas</span><span class="en">Day 2 + 16 weeks</span></div><div class="d"><span class="es">Vibe coding, 3 lentes, sistema productivo.</span><span class="en">Vibe coding, 3 lenses, productive system.</span></div></div>
+  <div class="tri-c"><div class="v">03 · <em><span class="es">Ofrecer</span><span class="en">Offer</span></em></div><div class="h"><span class="es">5d HITL + 3 meses tracción</span><span class="en">5d HITL + 3-month traction</span></div><div class="d"><span class="es">Handover técnico · la historia que vende.</span><span class="en">Technical handover · the story that sells.</span></div></div>
+</div>
+
+<div class="day-h"><span class="day-n"><span class="es">Día 1</span><span class="en">Day 1</span></span><span class="day-t"><span class="es">Entender · Acotar el <em>qué</em></span><span class="en">Understand · Scope the <em>what</em></span></span><span class="day-x">09:00 → 16:45 · 4 × 90 min</span></div>
+<div class="sess">
+  <div class="s-c"><div class="n">S1 · 09:00</div><div class="t"><span class="es">Framing &amp; Expectativas</span><span class="en">Framing &amp; Expectations</span></div><div class="o"><span class="es">Alinear éxito + fuera-de-alcance.</span><span class="en">Align success + out-of-scope.</span><b>AC</b><span class="es">Problem statement v1 firmado · matriz expectativa/realidad.</span><span class="en">Signed problem statement v1 · expectation/reality matrix.</span></div></div>
+  <div class="s-c"><div class="n">S2 · 10:45</div><div class="t">Problem Space</div><div class="o"><span class="es">Síntoma vs. causa raíz.</span><span class="en">Symptom vs. root cause.</span><b>AC</b><span class="es">Journey con ≥ 3 pain points + 5 Whys top-3.</span><span class="en">Journey with ≥ 3 pain points + 5 Whys top-3.</span></div></div>
+  <div class="s-c"><div class="n">S3 · 13:30</div><div class="t">AI Opportunity Map</div><div class="o"><span class="es">Generar opciones con criterio.</span><span class="en">Generate options with criteria.</span><b>AC</b><span class="es">≥ 8 iniciativas con score 0–4 en 4 filtros.</span><span class="en">≥ 8 initiatives with 0–4 score on 4 filters.</span></div></div>
+  <div class="s-c"><div class="n">S4 · 15:15</div><div class="t"><span class="es">Priorización · Gate G1</span><span class="en">Prioritization · Gate G1</span></div><div class="o"><span class="es">Top-3 ganadoras firmadas.</span><span class="en">Signed top-3 winners.</span><b>AC</b><span class="es">2–3 hipótesis · devil's advocate · acta firmada.</span><span class="en">2–3 hypotheses · devil's advocate · signed minutes.</span></div></div>
+</div>
+
+<div class="day-h"><span class="day-n"><span class="es">Día 2</span><span class="en">Day 2</span></span><span class="day-t">(R)<span class="es">Evolucionar · Prototipo → Spec</span><span class="en">Evolve · Prototype → Spec</span></span><span class="day-x">09:00 → 16:45 · 4 × 90 min</span></div>
+<div class="sess">
+  <div class="s-c"><div class="n">S5 · 09:00</div><div class="t">Vibe Coding Kickoff</div><div class="o"><span class="es">Prototipos navegables en vivo.</span><span class="en">Live navigable prototypes.</span><b>AC</b><span class="es">1 flujo end-to-end por hipótesis · log de prompts.</span><span class="en">1 end-to-end flow per hypothesis · prompt log.</span></div></div>
+  <div class="s-c"><div class="n">S6 · 10:45</div><div class="t"><span class="es">Demos &amp; Iterar</span><span class="en">Demos &amp; Iterate</span></div><div class="o"><span class="es">El grupo ve el producto.</span><span class="en">Group sees the product.</span><b>AC</b><span class="es">≥ 5 observaciones · 1 cambio en vivo · prototipo v2.</span><span class="en">≥ 5 observations · 1 live change · prototype v2.</span></div></div>
+  <div class="s-c"><div class="n">S7 · 13:30</div><div class="t"><span class="es">3 Lentes · Es/Hace/F-NF</span><span class="en">3 Lenses · Is/Does/F-NF</span></div><div class="o"><span class="es">Spec se destila del prototipo.</span><span class="en">Spec distilled from prototype.</span><b>AC</b><span class="es">3 tablas con ≥ 4 filas verificables c/u.</span><span class="en">3 tables with ≥ 4 verifiable rows each.</span></div></div>
+  <div class="s-c"><div class="n">S8 · 15:15</div><div class="t"><span class="es">Validación · Compromisos</span><span class="en">Validation · Commitments</span></div><div class="o"><span class="es">RACI + banda + fechas.</span><span class="en">RACI + band + dates.</span><b>AC</b><span class="es">Cada spec con owner, banda y kickoff calendarizado.</span><span class="en">Each spec with owner, band and scheduled kickoff.</span></div></div>
+</div>
+
+<div class="gate-strip"><b>Gate G1</b><span><span class="es"><strong>Hard stop</strong> al cierre del Día 1. Sin acta firmada por sponsor (foto vale), el Día 2 <strong>no arranca</strong>. Si hay duda, conductor decide quién decide.</span><span class="en"><strong>Hard stop</strong> at Day 1 close. Without sponsor-signed minutes (photo counts), Day 2 <strong>does not start</strong>. If in doubt, conductor decides who decides.</span></span></div>
+
+<div>
+  <div class="pp-h"><span class="es">Consolidación HITL · 5 días hábiles · Ofrecer la historia que vende</span><span class="en">HITL Consolidation · 5 business days · Offer the story that sells</span></div>
+  <div class="pipe5">
+    <div class="pp5"><div class="d">T+1</div><div class="e"><span class="es">Síntesis</span><span class="en">Synthesis</span></div><div class="v"><span class="es">Ingesta · evidencia tagueada · gaps con dueño.</span><span class="en">Ingestion · tagged evidence · gaps with owner.</span></div></div>
+    <div class="pp5"><div class="d">T+2</div><div class="e"><span class="es">Modelado</span><span class="en">Modeling</span></div><div class="v"><span class="es">AS-IS / TO-BE · ADRs firmados · C4 nivel 2.</span><span class="en">AS-IS / TO-BE · signed ADRs · C4 level 2.</span></div></div>
+    <div class="pp5"><div class="d">T+3</div><div class="e"><span class="es">Dimensionar</span><span class="en">Sizing</span></div><div class="v"><span class="es">P50/P80/P95 · banda RAT/MVP/(R)Ev · supuestos.</span><span class="en">P50/P80/P95 · RAT/MVP/(R)Ev band · assumptions.</span></div></div>
+    <div class="pp5"><div class="d">T+4</div><div class="e"><span class="es">Ensamblar</span><span class="en">Assembly</span></div><div class="v"><span class="es">QA cruzado · render brand · risk controller firma.</span><span class="en">Cross QA · brand render · risk controller signs.</span></div></div>
+    <div class="pp5"><div class="d">T+5</div><div class="e">Handover</div><div class="v"><span class="es">Sesión 90 min · backend·frontend·QA·DevOps · aceptación.</span><span class="en">90 min session · backend·frontend·QA·DevOps · acceptance.</span></div></div>
+  </div>
+  <div class="bands">
+    <div class="b-c"><div class="l">S · RAT</div><div class="x">1 mes · 3–5 FTE-m</div><div class="v"><span class="es">Validar hipótesis crítica · KPI: ≥70% confirma · gate binario.</span><span class="en">Validate critical hypothesis · KPI: ≥70% confirms · binary gate.</span></div></div>
+    <div class="b-c"><div class="l">M · MVP</div><div class="x">3 meses · 10–18 FTE-m</div><div class="v"><span class="es">Tracción real · KPI: DAU/WAU ≥0.4 · NPS interno ≥+20.</span><span class="en">Real traction · KPI: DAU/WAU ≥0.4 · internal NPS ≥+20.</span></div></div>
+    <div class="b-c"><div class="l">L · (R)Ev</div><div class="x">16 semanas · 25–48 FTE-m</div><div class="v"><span class="es">Productivo · SLA ≥99.5% · eval ≥85% · red-team ≥95%.</span><span class="en">Productive · SLA ≥99.5% · eval ≥85% · red-team ≥95%.</span></div></div>
+  </div>
+</div>
+
+<div class="split" style="margin-top:.55rem">
+  <div>
+    <div class="col-h"><span class="es">Reglas del juego (no negociables)</span><span class="en">Rules of the game (non-negotiable)</span></div>
+    <ul class="rl">
+      <li><b><span class="es">1 decision-maker</span><span class="en">1 decision-maker</span></b> <span class="es">por decisión.</span><span class="en">per decision.</span></li>
+      <li><b>Timeboxing</b> <span class="es">+15 min máx.</span><span class="en">+15 min max.</span></li>
+      <li><b>Parking lot</b> <span class="es">visible, revisado al cierre.</span><span class="en">visible, reviewed at close.</span></li>
+      <li><b><span class="es">Sin laptops</span><span class="en">No laptops</span></b> <span class="es">salvo scribe / tech.</span><span class="en">except scribe / tech.</span></li>
+      <li><b><span class="es">Decisión &gt; consenso</span><span class="en">Decision &gt; consensus</span></b></li>
+      <li><b><span class="es">Specs en markdown</span><span class="en">Specs in markdown</span></b> <span class="es">o no existen.</span><span class="en">or they don't exist.</span></li>
+      <li><b><span class="es">Sin precios</span><span class="en">No prices</span></b> <span class="es">· FTE-meses + disclaimer.</span><span class="en">· FTE-months + disclaimer.</span></li>
+      <li><b>Plus/Delta</b> <span class="es">cierre obligatorio cada día.</span><span class="en">mandatory close each day.</span></li>
+    </ul>
+  </div>
+  <div>
+    <div class="col-h"><span class="es">Anti-patrones a cazar</span><span class="en">Anti-patterns to hunt</span></div>
+    <ul class="anti-l">
+      <li><b><span class="es">Solución antes que problema</span><span class="en">Solution before problem</span></b><em><span class="es">parking lot.</span><span class="en">parking lot.</span></em></li>
+      <li><b><span class="es">Specs en abstracto</span><span class="en">Abstract specs</span></b><em><span class="es">apuntar al prototipo.</span><span class="en">point at the prototype.</span></em></li>
+      <li><b><span class="es">Prototipo bonito sin E2E</span><span class="en">Pretty prototype without E2E</span></b><em><span class="es">timer 10 min o swap stack.</span><span class="en">10 min timer or stack swap.</span></em></li>
+      <li><b><span class="es">XL en un solo bloque</span><span class="en">XL as single block</span></b><em><span class="es">Política XL: cascada RAT→MVP→(R)Ev.</span><span class="en">XL Policy: RAT→MVP→(R)Ev cascade.</span></em></li>
+      <li><b><span class="es">Demo sin KPI</span><span class="en">Demo without KPI</span></b><em><span class="es">"¿qué número cambió?"</span><span class="en">"what number changed?"</span></em></li>
+      <li><b><span class="es">Sin acta firmada</span><span class="en">No signed minutes</span></b><em>Gate G1 <span class="es">bloquea Día 2.</span><span class="en">blocks Day 2.</span></em></li>
+    </ul>
+  </div>
+</div>
+
+<div>
+  <div class="col-h"><span class="es">Mapa de escalamiento (cuando algo se atora)</span><span class="en">Escalation map (when something blocks)</span></div>
+  <div class="esc">
+    <div class="esc-l"><div class="lv">N1 · ≤ 5 min</div><div class="v"><span class="es">Conductor resuelve en sala.</span><span class="en">Conductor resolves in-room.</span></div></div>
+    <div class="esc-l"><div class="lv">N2 · ≤ 15 min</div><div class="v"><span class="es">Sponsor decide en vivo.</span><span class="en">Sponsor decides live.</span></div></div>
+    <div class="esc-l"><div class="lv">N3 · break</div><div class="v"><span class="es">1:1 sponsor ↔ stakeholder.</span><span class="en">1:1 sponsor ↔ stakeholder.</span></div></div>
+    <div class="esc-l"><div class="lv">N4 · workshop</div><div class="v"><span class="es">Risk crítico · parking lot · Steering post.</span><span class="en">Critical risk · parking lot · post Steering.</span></div></div>
+  </div>
+</div>
+
+<div class="foot">
+  <div>
+    <span class="es">Companion completo: <a href="playbook-workshop-discovery-ai-native-v2026.04.2.html">playbook-workshop-discovery-ai-native-v2026.04.2.html</a> · <a href="https://metodologia.info">metodologia.info</a> · Por Javier Montaño</span>
+    <span class="en">Full companion: <a href="playbook-workshop-discovery-ai-native-v2026.04.2.html">playbook-workshop-discovery-ai-native-v2026.04.2.html</a> · <a href="https://metodologia.info">metodologia.info</a> · By Javier Montaño</span>
+  </div>
+  <div class="badges">
+    <span>Human First, AI-Next</span>
+    <span>v2026.04.2</span>
+    <span>CC BY-NC-SA 4.0</span>
+  </div>
+</div>
+
+</div>
+
+<script>
+function toggleLang(){
+  const html=document.documentElement;
+  const isEn=html.lang==='en';
+  html.lang=isEn?'es':'en';
+  const btn=document.getElementById('langBtn');
+  if(btn) btn.textContent=isEn?'EN':'ES';
+  try{localStorage.setItem('pb-lang',html.lang)}catch(e){}
+}
+(function(){try{const s=localStorage.getItem('pb-lang');if(s==='en'){document.documentElement.lang='en';const b=document.getElementById('langBtn');if(b)b.textContent='ES'}}catch(e){}})();
+</script>
+
+</body>
+</html>

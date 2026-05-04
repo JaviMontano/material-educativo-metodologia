@@ -1,6 +1,10 @@
-# Plantilla · Glosario · 30 términos
+# Plantilla · Glosario · 30 términos · v1.1.0
 
 > Tabla canónica · ontología del dominio. Mínimo 15 · target 30.
+
+`[FUENTE-PRIMARIA]` Playbook v2.0.0 §Glosario.
+`[CRITERIO-ACEPTACIÓN]` Cada término con tag de evidencia: `[DOC]`, `[INFERENCIA]` o `[SUPUESTO]`.
+`[LÍMITE]` Glosario es estructura · NO valida que las definiciones sean correctas (eso es Prompt #4 + kata-fuente-primaria).
 
 **Tema**: [TU TEMA]
 **Generado**: [fecha]

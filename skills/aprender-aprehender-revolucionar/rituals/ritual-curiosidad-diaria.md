@@ -1,82 +1,115 @@
 # Ritual · Curiosidad Diaria · 15 min
 
-> Primera ola del día. Cadencia sobre intensidad. *15 min diarios > 3 horas el sábado.*
+> Primera ola del día. Cadencia > intensidad. *15 min diarios > 3 h el sábado.* v1.1.0.
 
-**Cadencia**: cada mañana, antes de email
-**Tiempo**: 15 minutos
-**Calendar invite**: `assets/calendar-invites/curiosidad-diaria.ics`
+| Concepto | Valor |
+|---|---|
+| Cadencia | Cada mañana · antes de email |
+| Tiempo | 15 min · NUNCA más |
+| Frecuencia | L-V (descanso S-D) |
+| Output | 1 decisión por item: PIEDRA/INTERESANTE/RUIDO |
+| Calendar invite | `assets/calendar-invites/curiosidad-diaria.ics` |
 
----
+`[FUENTE-PRIMARIA]` Playbook v2.0.0 §Rituales + principio "Cadencia > intensidad".
+`[DOC]` Distributed practice supera massed practice (Cepeda et al. 2006, *Psychological Bulletin* 132).
 
-## Por qué este ritual
+## Contrato
 
-Tu industria avanza todos los días. Si solo te enteras los sábados, llegas tarde. La curiosidad diaria de 15 min mantiene tu radar activo sin saturar tu agenda.
+| Hace | No hace |
+|---|---|
+| Mantiene radar activo del campo · 15 min/día | Reemplaza Workflows · es escaneo, no estudio profundo |
+| Distingue señal de ruido vía decisión binaria | Genera dominio · solo identifica qué amerita estudio |
+| Agrega sources frescas a NotebookLM mensualmente | Funciona si lo haces 1×/sem (necesita diario para momentum) |
 
-**Principio MetodologIA**: *"Cadencia > intensidad."*
+`[LÍMITE]` 15 min NO son suficientes para procesar paper denso · solo headlines + 1 párrafo de contexto. Para profundizar: bookmark + Workflow 1 después.
+`[SUPUESTO]` Tienes acceso a Perplexity (o IA con web search) y agenda con bloque protegido.
 
----
+## Protocolo · 15 min
 
-## Protocolo · 15 minutos
+### 0:00-0:05 · Abrir IA con web search
 
-### 0:00-0:05 · Abrir asistente IA preferido
+| IA | Recomendación |
+|---|---|
+| Perplexity | ⭐ Default · web search nativa · noticias frescas |
+| ChatGPT con browsing | OK si Perplexity no disponible |
+| Gemini | OK si tema en ecosistema Google |
+| Claude | Solo si combinas con feed RSS manual (no tiene web search nativo) |
 
-Cualquiera funciona: ChatGPT, Claude, Gemini, Perplexity.
-
-Recomendación: **Perplexity** para Curiosidad Diaria (search web nativa = noticias frescas).
-
-### 0:05-0:10 · Pregunta del día
-
-Una de estas 3 (rotar):
+### 0:05-0:10 · Pregunta del día (rotar 3 plantillas)
 
 ```
-1. "¿Qué avance relevante pasó ayer en [MI INDUSTRIA / TEMA ACTIVO]?
+1. "¿Qué avance relevante pasó AYER en [MI INDUSTRIA / TEMA ACTIVO]?
     Cita fuente. Sé conciso (3 viñetas)."
 
-2. "¿Cuál es la noticia más relevante de los últimos 3 días en
+2. "¿Cuál es la noticia más relevante de los ÚLTIMOS 3 DÍAS en
     [MI CAMPO]? Por qué importa."
 
 3. "¿Qué herramienta nueva apareció ayer en [MI STACK]?
-    Solo si pasó algo significativo. Si nada relevante, dilo."
+    Solo si pasó algo significativo. Si nada, dilo."
 ```
 
-### 0:10-0:15 · Decisión: ¿amerita profundizar?
+`[CRITERIO-ACEPTACIÓN]` Si la IA responde con avances de 6+ meses atrás · pregunta fue muy general · refina con fechas explícitas.
 
-Para cada item de la respuesta:
+### 0:10-0:15 · Decisión binaria por item
+
+| Decisión | Frecuencia esperada | Acción |
+|---|---|---|
+| 🟢 PIEDRA ANGULAR | ~1 de 10 días | Añadir a NotebookLM como source · agendar Workflow 1 cuando puedas |
+| 🟡 INTERESANTE | ~5 de 10 días | Bookmark Pocket/Notion · revisar viernes |
+| ⚫ RUIDO | ~4 de 10 días | Skip · seguir con el día |
+
+`[CASO-BORDE]` Si todos los items quedan 🟢 piedra angular · sospecha · no estás filtrando · re-aplica criterio "¿cambia mi trabajo en próximos 3 meses?".
+
+## Reglas duras
+
+| Regla | Por qué |
+|---|---|
+| NUNCA exceder 15 min | Trampa: leer paper completo · pierde 1h cada día · 5h/sem perdidas |
+| NUNCA saltar 2 días seguidos | 2 días = pérdida de momentum · activa calendar reminder |
+| NUNCA mezclar con email/reuniones | Primero del día (o último de la noche) · NO intercalar |
+
+`[TRADE-OFF]` La regla "antes de email" cuesta 15 min de respuesta tardía a stakeholders · pero gana 1 punto/mes en radar profesional · trade favorable para roles donde el conocimiento del campo es crítico.
+
+## Anti-patrones top-3 graves
+
+| # | Anti-patrón | Detección | Antídoto |
+|---|---|---|---|
+| 1 | "Profundizar ahora" mid-ritual | Te pasaste 30 min · no documentaste | Bookmark + agenda Workflow · ritual = escaneo, no estudio |
+| 2 | Saltar días sin reactivar calendar | Pasaron 5 días sin ritual | Re-activar calendar invite · accountability con peer si hace falta |
+| 3 | Aceptar todo como PIEDRA | NotebookLM crece sin uso real | Filtro: "¿cambia mi trabajo en próximos 3 meses?" |
+
+## Variantes
+
+| Modo | Tiempo | Cuándo |
+|---|---|---|
+| **Express** | 5 min · 1 pregunta · decisión 30s | Días saturados · mejor 5 min imperfecto que 0 perfecto |
+| **Default** | 15 min · 1 pregunta · 3 items con decisión | Por defecto |
+| **Marathon viernes** | 30 min · revisión de bookmarks de la semana | 1×/sem · convierte 🟡 a 🟢/⚫ con perspectiva 5 días |
+
+### Marathon viernes · revisión semanal
 
 ```
-DECISIÓN: ¿esto es una piedra angular o ruido?
+Una vez/semana, dedica 15 min adicionales (total 30 min)
+a revisar tu Pocket / bookmarks de la semana:
 
-🟢 PIEDRA ANGULAR (raro · 1 de 10 días):
-   - Cambio significativo en mi industria
-   - Acción: añadir a NotebookLM como source · agendar Workflow 1
-     en cuanto pueda
-
-🟡 INTERESANTE (común · 5 de 10 días):
-   - Avance incremental que vale la pena monitorear
-   - Acción: bookmark en Pocket / Notion · revisar el viernes
-
-⚫ RUIDO (común · 4 de 10 días):
-   - Hype sin sustento
-   - Acción: ninguna · seguir con el día
+- ¿Qué bookmarks aún parecen relevantes 5 días después?
+- ¿Cuál merece convertirse en source de NotebookLM?
+- ¿Cuál fue ruido en retrospectiva (descarta sin culpa)?
 ```
 
----
+`[NUEVO-APORTE]` La revisión retrospectiva 5 días después es mejor filtro que la decisión inicial. El 30-40% de items 🟡 cae a ⚫ con perspectiva.
 
-## Reglas
+## Métricas de éxito (1 mes)
 
-### NUNCA exceder 15 min
+```
+[ ] Reconozco 80%+ de los nombres mencionados en mi industria
+[ ] 5-10 bookmarks/mes que valen la pena (no 50, no 0)
+[ ] Identifico hype vs señal real con confianza
+[ ] NotebookLM crece con sources frescas mensualmente
+[ ] 0 días saltados sin reactivación al día siguiente
+```
 
-Si te tienta profundizar (*"déjame leer este paper completo"*), STOP. Bookmark y agenda. La trampa es perder 1 hora cada día.
-
-### NUNCA saltar 2 días seguidos
-
-Si te lo perdiste un día, ok. Si 2 días → pierde el momentum. Activa el calendar reminder.
-
-### NUNCA mezclar con email/reuniones
-
-Este ritual debe ser **lo primero** del día (o lo último de la noche). NO lo intercales.
-
----
+`[CRITERIO-ACEPTACIÓN]` Si tras 4 sem · 0 items 🟢 · tema activo no es vivo · cambia foco. Si 100% 🟢 · falta filtro · re-aplica criterio de impacto.
 
 ## Ejemplos prácticos
 
@@ -87,85 +120,33 @@ TÚ: "¿Qué avance relevante pasó ayer en LLMs / agentic AI?
     Cita fuente. 3 viñetas."
 
 PERPLEXITY:
-- Anthropic publicó update de Claude Opus 4.7 con 1M context window
-  [link]
-- Paper "Constitutional AI for Agentic Workflows" en arxiv [link]
+- Anthropic publicó update Claude Opus 4.7 con 1M context [link]
+- Paper "Constitutional AI for Agentic Workflows" arxiv [link]
 - OpenAI cerró deal con Reuters para training data [link]
 
 DECISIÓN:
-- 1M context Claude → 🟢 PIEDRA ANGULAR · workflow 1 esta semana
-- Constitutional AI paper → 🟡 INTERESANTE · bookmark
+- 1M context Claude → 🟢 PIEDRA ANGULAR · Workflow 1 esta semana
+- Constitutional AI paper → 🟡 INTERESANTE · bookmark · viernes
 - OpenAI/Reuters → ⚫ RUIDO · skip
 ```
 
-### Viernes (revisión semanal)
-
-Una vez/semana, dedica 15 min adicionales (total 30 min) a revisar tu Pocket de la semana:
+## Calendar invite
 
 ```
-- ¿Qué bookmarks aún parecen relevantes?
-- ¿Cuál merece convertirse en source de NotebookLM?
-- ¿Cuál fue ruido en retrospectiva?
+Recurrencia: Lun-Vie 7:30 AM (ajustar a rutina)
+Reminder: 5 min antes
+Duración: 15 min
+Bloque "deep work" sin notificaciones
 ```
 
----
+Archivo: `assets/calendar-invites/curiosidad-diaria.ics`
 
-## Variantes
-
-### Versión Express · 5 min (días saturados)
-
-```
-Solo abre Perplexity, 1 pregunta, decide en 30s. No detalles.
-Mejor 5 min imperfecto que 0 min perfecto.
-```
-
-### Versión Marathon · 30 min (semanal)
-
-Reemplaza Curiosidad Diaria 1 día con sesión más profunda:
-- 30 min para lectura activa de 1 fuente bookmarked
-- Tu opinión documentada (1 párrafo)
-
----
-
-## Métricas de éxito
-
-Después de 1 mes con el ritual:
-
-```
-✅ Reconozco 80% de los nombres mencionados en mi industria
-✅ Tengo 5-10 bookmarks/mes que valen la pena
-✅ Identifico hype vs señal real con confianza
-✅ Mi NotebookLM crece con sources frescas mensualmente
-```
-
-Si NO se cumple:
-- Estás perdiéndote días → reinforce calendar
-- Estás procrastinando profundización → bloquear viernes 30 min review
-
----
-
-## Calendar Invite
-
-Archivo ICS pre-llenado:
-```
-~/.claude/skills/aprender-aprehender-revolucionar/assets/calendar-invites/curiosidad-diaria.ics
-```
-
-Importar en Google Calendar / Cal.com:
-- Recurrencia: Lun-Vie 7:30 AM (ajustar a tu rutina)
-- Reminder: 5 min antes
-- Duración: 15 min
-- Bloque "deep work" (sin notificaciones)
-
----
-
-## Referencias
+## Referencias cruzadas
 
 - `references/01-seis-tecnicas-cognitivas.md` §Spaced Repetition
 - `rituals/ritual-aprehension-semanal.md` (complemento semanal)
+- `rituals/ritual-auditoria-mensual.md` (filtro mensual de bookmarks)
 - `assets/calendar-invites/curiosidad-diaria.ics`
 - `knowledge-base/manifiesto-metodologia.md` (cadencia > intensidad)
 
----
-
-> **Ritual Curiosidad Diaria** del Playbook *Aprender · Aprehender · (R)Evolucionar* v2.0.0 · MetodologIA · CC BY-NC-SA 4.0
+> v1.1.0 · CC BY-NC-SA 4.0 · MetodologIA · `[FUENTE-PRIMARIA]` Playbook v2.0.0

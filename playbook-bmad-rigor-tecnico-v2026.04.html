@@ -1,0 +1,1121 @@
+<!--
+MetodologIA | Playbook BMAD · Rigor Técnico — v2026.04 (Vagaje II/II · Workshop AI-Native Production)
+2026 | Brand Voice v3.0 | Por Javier Montaño · CEO
+3 horas · sesión 2 del workshop "De la Idea a Producción con IA"
+Tesis: el agentic engineering corrige el vibe-hangover. Plan → Execute → Verify con agentes determinísticos, guidelines y guardrails E2E.
+Fundamento: BMAD Method (D7 NotebookLM · 112 fuentes) · Karpathy "agentic engineering" 2026 · MCP standard 2026 · Stripe Minions · Shopify UCP · Advolve.
+Estética: Neo-Swiss · Mobile-First · ES/EN
+Paleta: #122562 · #FFD700 · #137DC5 · #1F2833 · #BBA0CC · #808080
+Tipos: Poppins (titulares) · Montserrat (cuerpo) · Trebuchet MS (notas)
+Companion: playbook-vibe-coding-velocidad-visual-v2026.04.html (parte I del bundle)
+-->
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0,viewport-fit=cover,maximum-scale=5">
+<title>BMAD · Rigor Técnico · MetodologIA · Playbook 2026</title>
+<meta name="description" content="Playbook bilingüe del taller BMAD: Plan → Execute → Verify con agentes determinísticos, MCP, guidelines y guardrails E2E. 10 prácticas core, 5 roles agénticos, 5 anti-patrones. Casos Stripe, Shopify, Advolve. MetodologIA, 2026.">
+<meta property="og:title" content="BMAD · Rigor Técnico | MetodologIA 2026">
+<meta property="og:description" content="3 h · agentic engineering · de prototipo a producción con HITL · multi-agente · MCP · quality gates.">
+<meta property="og:type" content="website">
+<meta name="theme-color" content="#122562">
+<meta name="color-scheme" content="light">
+<link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 36 36'%3E%3Cdefs%3E%3ClinearGradient id='g' x1='0%25' y1='0%25' x2='100%25' y2='100%25'%3E%3Cstop offset='0%25' stop-color='%23122562'/%3E%3Cstop offset='100%25' stop-color='%231F2833'/%3E%3C/linearGradient%3E%3C/defs%3E%3Crect width='36' height='36' rx='10' fill='url(%23g)'/%3E%3Cpath d='M9 11h4l2 6 2-6h4v14h-3v-9l-2 6h-2l-2-6v9H9V11zm14 0h4l3 14h-3l-.6-3h-2.8L23 25h-3l3-14zm1.4 8.5h2.2L26 16l-.6 3.5z' fill='%23fff'/%3E%3Ccircle cx='18' cy='8' r='2' fill='%23FFD700'/%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&family=Poppins:wght@600;700;800&display=swap" rel="stylesheet">
+<style>
+:root{
+  /* MetodologIA Tokens — Neo-Swiss · navy primary · gold accent */
+  --o:#122562;--ol:#137DC5;--od:#0D1A47;--odm:rgba(18,37,98,.10);
+  --gold:#FFD700;--goldd:rgba(255,215,0,.14);--goldo:#B8860B;
+  --bk:#1F2833;--bk2:#0D1A47;--wh:#FFF;--bg:#F0F0EC;--cream:#F9FAFB;
+  --warn:#D97706;--warnd:rgba(217,119,6,.10);--crit:#DC2626;--critd:rgba(220,38,38,.08);
+  --info:#137DC5;--infod:rgba(19,125,197,.08);--lilac:#BBA0CC;--lilacd:rgba(187,160,204,.14);
+  --g50:#FAF8F6;--g100:#F4F0EC;--g200:#E4DED7;--g300:#CFC7BE;--g400:#9A9189;
+  --g500:#6B6560;--g600:#4A4643;--g700:#333130;--g800:#1F1D1C;--g900:#111110;
+  --r:14px;--rs:8px;--rl:20px;
+  --sh-s:0 1px 2px rgba(0,0,0,.04);
+  --sh:0 1px 3px rgba(0,0,0,.04),0 8px 24px rgba(0,0,0,.06);
+  --sh-l:0 4px 12px rgba(0,0,0,.08),0 20px 48px rgba(0,0,0,.10);
+  --f:'Montserrat',system-ui,-apple-system,Segoe UI,Roboto,sans-serif;
+  --fd:'Poppins','Montserrat',system-ui,sans-serif;
+  --fm:'Trebuchet MS','Lucida Sans Unicode','Lucida Grande',ui-monospace,monospace;
+  --fmono:'Menlo','Monaco','Courier New',ui-monospace,monospace;
+  --grad:linear-gradient(135deg,var(--o) 0%,var(--gold) 100%);
+  --grad-sub:linear-gradient(135deg,rgba(18,37,98,.08) 0%,rgba(255,215,0,.08) 100%);
+}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}*{animation:none!important;transition:none!important}}
+body{font-family:var(--f);font-size:16px;line-height:1.65;color:var(--g900);background:var(--bg);-webkit-font-smoothing:antialiased;text-rendering:optimizeLegibility}
+::selection{background:var(--o);color:var(--wh)}
+a{color:var(--od);text-decoration:none;transition:color .15s;font-weight:600}
+a:hover{color:var(--o)}
+.skip{position:absolute;top:-60px;left:0;background:var(--o);color:var(--wh);padding:10px 18px;z-index:1000;font-weight:600;border-radius:0 0 var(--rs) 0}.skip:focus{top:0}
+*:focus-visible{outline:2.5px solid var(--gold);outline-offset:3px;border-radius:3px}
+.en{display:none}
+html[lang="en"] .es{display:none}
+html[lang="en"] .en{display:inline}
+
+/* HERO */
+.hero{background:var(--bk);color:var(--wh);position:relative;overflow:hidden;border-bottom:6px solid var(--gold)}
+.hero::before{content:'';position:absolute;top:-30%;right:-10%;width:760px;height:760px;background:radial-gradient(circle,rgba(18,37,98,.45) 0%,rgba(19,125,197,.12) 40%,transparent 70%);pointer-events:none;filter:blur(20px)}
+.hero::after{content:'';position:absolute;bottom:-20%;left:-5%;width:480px;height:480px;background:radial-gradient(circle,rgba(255,215,0,.08) 0%,transparent 60%);pointer-events:none}
+.hi{max-width:1200px;margin:0 auto;padding:3rem 2rem 2.5rem;position:relative;z-index:2}
+.brand{display:flex;align-items:center;gap:.55rem;margin-bottom:2rem}
+.brand-wm{font-family:var(--fd);font-size:1.1rem;font-weight:800;color:var(--wh);letter-spacing:-.01em}
+.brand-wm .ia{color:var(--gold)}
+.brand-t{font-family:var(--fd);font-size:.72rem;font-weight:600;letter-spacing:.22em;color:rgba(255,255,255,.55);text-transform:uppercase;margin-left:.9rem;border-left:1px solid rgba(255,255,255,.18);padding-left:.9rem}
+.eyebrow{display:inline-flex;align-items:center;gap:.45rem;padding:.35rem .8rem;background:rgba(255,215,0,.16);border:1px solid rgba(255,215,0,.4);border-radius:100px;font-size:.68rem;font-weight:600;letter-spacing:.14em;text-transform:uppercase;color:var(--gold);margin-bottom:1.1rem}
+.eyebrow svg{width:12px;height:12px}
+.hero h1{font-family:var(--fd);font-size:clamp(1.8rem,4.8vw,3.4rem);font-weight:800;line-height:1.05;letter-spacing:-.02em;color:var(--wh);max-width:950px}
+.hero h1 .ac{background:linear-gradient(135deg,var(--gold) 0%,#FFA000 100%);-webkit-background-clip:text;background-clip:text;color:transparent;font-style:normal}
+.hero .ld{color:rgba(255,255,255,.78);font-size:clamp(.95rem,1.3vw,1.1rem);max-width:820px;margin-top:1rem;line-height:1.6}
+.hero .ld strong{color:var(--wh);font-weight:700}
+.hero .ld em{color:var(--gold);font-style:normal;font-weight:600}
+.kpis{display:grid;grid-template-columns:repeat(4,1fr);gap:.75rem;margin-top:2.2rem;max-width:880px}
+.kpi{background:linear-gradient(180deg,rgba(255,255,255,.05) 0%,rgba(255,255,255,.01) 100%);border:1px solid rgba(255,255,255,.10);padding:1.1rem;border-radius:var(--r);position:relative;overflow:hidden}
+.kpi::before{content:'';position:absolute;top:0;left:0;width:28px;height:2px;background:var(--gold)}
+.kpi-v{font-family:var(--fd);font-size:2.1rem;font-weight:800;color:var(--wh);line-height:1;letter-spacing:-.03em}
+.kpi-v small{font-size:.85rem;color:var(--gold);font-weight:700;margin-left:.15rem}
+.kpi-l{font-size:.62rem;font-weight:700;color:rgba(255,255,255,.55);text-transform:uppercase;letter-spacing:.1em;margin-top:.5rem}
+.kpi-s{font-size:.72rem;color:rgba(255,255,255,.7);margin-top:.2rem;font-family:var(--fm)}
+
+/* NAV */
+.nav{background:rgba(240,240,236,.92);backdrop-filter:saturate(180%) blur(14px);-webkit-backdrop-filter:saturate(180%) blur(14px);position:sticky;top:0;z-index:100;border-bottom:1px solid var(--g200)}
+.nav-inner{max-width:1200px;margin:0 auto;display:flex;align-items:center;padding:0 2rem}
+.nav ul{list-style:none;display:flex;flex:1;overflow-x:auto;scrollbar-width:none}
+.nav ul::-webkit-scrollbar{display:none}
+.nav a{display:inline-flex;align-items:center;gap:.35rem;padding:.85rem 1rem;font-size:.72rem;font-weight:700;color:var(--g600);text-transform:uppercase;letter-spacing:.08em;border-bottom:2px solid transparent;white-space:nowrap;transition:all .18s}
+.nav a:hover,.nav a:focus{color:var(--o);border-bottom-color:var(--o)}
+.nav .num{font-family:var(--fd);color:var(--g400);font-size:.68rem;font-weight:800}
+.nav a:hover .num,.nav a:focus .num{color:var(--o)}
+.lang-btn{background:transparent;border:1px solid var(--g300);color:var(--g700);padding:.4rem .85rem;border-radius:var(--rs);font-family:var(--fd);font-size:.68rem;font-weight:700;letter-spacing:.1em;cursor:pointer;transition:all .18s;flex-shrink:0;margin-left:.75rem;text-transform:uppercase}
+.lang-btn:hover{background:var(--o);color:var(--wh);border-color:var(--o)}
+
+/* LAYOUT */
+main{max-width:1200px;margin:0 auto;padding:0 2rem}
+.sec{padding:3.5rem 0 1rem;scroll-margin-top:60px}
+.sec+.sec{border-top:1px solid var(--g200)}
+.sh{display:flex;align-items:flex-start;gap:1rem;margin-bottom:1.75rem;padding-bottom:1.1rem;border-bottom:2px solid var(--g200);position:relative}
+.sh::after{content:'';position:absolute;bottom:-2px;left:0;width:72px;height:2px;background:var(--gold)}
+.sn{width:48px;height:48px;background:var(--bk);color:var(--gold);display:flex;align-items:center;justify-content:center;font-family:var(--fd);font-size:1.15rem;font-weight:800;border-radius:10px;flex-shrink:0}
+.st2{flex:1;min-width:0}
+.st2 h2{font-family:var(--fd);font-size:clamp(1.35rem,2.4vw,1.9rem);font-weight:800;letter-spacing:-.015em;line-height:1.15;color:var(--o)}
+.st2 .sub{font-size:.82rem;color:var(--g500);margin-top:.35rem;line-height:1.5;font-family:var(--fm)}
+
+/* TYPO */
+h3{font-family:var(--fd);font-size:1.1rem;font-weight:700;color:var(--o);margin:2rem 0 .9rem;letter-spacing:-.01em;display:flex;align-items:center;gap:.55rem;line-height:1.25}
+h3::before{content:'';width:4px;height:18px;background:var(--gold);border-radius:2px;flex-shrink:0}
+h4{font-family:var(--fd);font-size:.88rem;font-weight:700;color:var(--ol);margin:1.1rem 0 .5rem;text-transform:uppercase;letter-spacing:.08em}
+p{margin-bottom:.75rem;font-size:.92rem;line-height:1.65;color:var(--g800)}
+p strong{color:var(--g900);font-weight:700}
+p em{font-style:italic;color:var(--od)}
+ul,ol{margin:.5rem 0 1rem 1.1rem;font-size:.9rem;line-height:1.65;color:var(--g800)}
+ul li,ol li{margin-bottom:.3rem}
+ul li::marker{color:var(--gold)}
+code{font-family:var(--fmono);font-size:.82em;background:var(--g100);color:var(--od);padding:.1em .4em;border-radius:4px;font-weight:500;border:1px solid var(--g200)}
+
+/* TLDR */
+.tldr{background:var(--bk);color:var(--wh);border-radius:var(--rl);padding:2rem 2.2rem;margin:1.75rem 0;position:relative;overflow:hidden;box-shadow:var(--sh-l)}
+.tldr::before{content:'TL;DR';position:absolute;top:1.4rem;right:1.6rem;font-family:var(--fd);font-size:.68rem;font-weight:800;letter-spacing:.18em;color:rgba(255,215,0,.75)}
+.tldr::after{content:'';position:absolute;left:0;top:0;bottom:0;width:5px;background:var(--gold)}
+.tldr-q{font-family:var(--fd);font-size:1.15rem;font-weight:600;line-height:1.5;color:var(--wh);max-width:920px;letter-spacing:-.01em}
+.tldr-q em{color:var(--gold);font-style:normal;font-weight:700}
+.tldr ul{list-style:none;margin:1.2rem 0 0 0;padding:0;display:grid;gap:.55rem;font-size:.88rem;color:rgba(255,255,255,.82)}
+.tldr ul li{padding-left:1.3rem;position:relative}
+.tldr ul li::before{content:'';position:absolute;left:0;top:.7em;width:8px;height:2px;background:var(--gold);border-radius:1px}
+.tldr ul li strong{color:var(--gold);font-weight:700}
+
+/* TABLE */
+.tw{overflow-x:auto;margin:1rem 0 1.3rem;border-radius:var(--rs);border:1px solid var(--g200);box-shadow:var(--sh-s);background:var(--wh)}
+table{width:100%;border-collapse:collapse;font-size:.85rem}
+thead{background:var(--o)}
+th{color:var(--wh);padding:.7rem .9rem;text-align:left;font-family:var(--fd);font-weight:700;font-size:.68rem;text-transform:uppercase;letter-spacing:.09em;border-right:1px solid rgba(255,255,255,.12);white-space:nowrap}
+th:last-child{border-right:none}
+td{padding:.7rem .9rem;border-bottom:1px solid var(--g100);border-right:1px solid var(--g100);background:var(--wh);vertical-align:top;line-height:1.5;color:var(--g800)}
+td:last-child{border-right:none}
+tbody tr:last-child td{border-bottom:none}
+tbody tr:hover td{background:var(--odm)}
+tbody tr:nth-child(even) td{background:var(--g50)}
+tbody tr:nth-child(even):hover td{background:var(--odm)}
+td strong{color:var(--g900);font-weight:700}
+th:first-child,td:first-child{padding-left:1.1rem}
+
+/* SESSION */
+.session{background:var(--wh);border-radius:var(--rl);padding:1.6rem 1.7rem;margin:1.25rem 0;box-shadow:var(--sh);border:1px solid var(--g200);position:relative;overflow:hidden;transition:box-shadow .2s}
+.session::before{content:'';position:absolute;top:0;left:0;width:6px;height:100%;background:var(--grad)}
+.session:hover{box-shadow:var(--sh-l)}
+.session-h{display:flex;align-items:center;gap:1rem;margin-bottom:.85rem;flex-wrap:wrap}
+.session-n{font-family:var(--fd);font-size:.95rem;font-weight:800;color:var(--gold);background:var(--bk);width:44px;height:44px;border-radius:10px;display:flex;align-items:center;justify-content:center;flex-shrink:0;letter-spacing:-.01em}
+.session-meta{flex:1;min-width:0}
+.session-t{font-family:var(--fd);font-size:1.15rem;font-weight:700;color:var(--o);line-height:1.25;letter-spacing:-.01em}
+.session-tm{display:inline-flex;align-items:center;gap:.35rem;font-family:var(--fm);font-size:.72rem;font-weight:500;color:var(--g500);margin-top:.2rem}
+.session-tm svg{width:12px;height:12px;color:var(--ol)}
+.session-obj{background:var(--grad-sub);border-left:3px solid var(--o);padding:.7rem .95rem;border-radius:0 var(--rs) var(--rs) 0;margin:.85rem 0 1rem;font-size:.88rem;line-height:1.55;color:var(--g800)}
+.session-obj strong{color:var(--od);font-family:var(--fd);font-weight:700;text-transform:uppercase;font-size:.72rem;letter-spacing:.1em;display:block;margin-bottom:.15rem}
+
+/* CALLOUTS */
+.co{padding:.95rem 1.15rem;border-radius:var(--rs);margin:1rem 0;border-left:4px solid;font-size:.88rem;line-height:1.55;display:flex;gap:.8rem;align-items:flex-start}
+.co svg{width:18px;height:18px;flex-shrink:0;margin-top:.15rem}
+.co-i{background:var(--infod);border-color:var(--info);color:var(--g800)}.co-i svg{color:var(--info)}
+.co-w{background:var(--warnd);border-color:var(--warn);color:var(--g800)}.co-w svg{color:var(--warn)}
+.co-c{background:var(--critd);border-color:var(--crit);color:var(--g800)}.co-c svg{color:var(--crit)}
+.co-g{background:var(--goldd);border-color:var(--gold);color:var(--g800)}.co-g svg{color:var(--goldo)}
+.co-o{background:var(--odm);border-color:var(--o);color:var(--g800)}.co-o svg{color:var(--o)}
+.co-l{background:var(--lilacd);border-color:var(--lilac);color:var(--g800)}.co-l svg{color:var(--lilac)}
+.co b,.co strong{display:block;margin-bottom:.15rem;font-family:var(--fd);font-size:.78rem;font-weight:700;letter-spacing:.04em;text-transform:uppercase;color:var(--g900)}
+.co-body{flex:1;min-width:0}
+
+/* AC + EDGE */
+.ac-edge{display:grid;grid-template-columns:1fr 1fr;gap:.65rem;margin:.8rem 0 0}
+.ac-edge>div{background:var(--g50);border:1px solid var(--g200);border-radius:var(--rs);padding:.7rem .9rem;font-size:.8rem;line-height:1.5}
+.ac-edge .lab{font-family:var(--fd);font-size:.62rem;font-weight:700;color:var(--ol);text-transform:uppercase;letter-spacing:.1em;margin-bottom:.25rem;display:block}
+.ac-edge ul{margin:.2rem 0 0 1rem;padding:0;font-size:.78rem;color:var(--g700)}
+.ac-edge ul li{margin-bottom:.15rem;line-height:1.45}
+.ac-edge ul li::marker{color:var(--gold)}
+@media(max-width:768px){.ac-edge{grid-template-columns:1fr}}
+
+/* Glossary, FAQ, Trade-offs, KPIs */
+.gloss{display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:.7rem;margin:1rem 0 1.5rem}
+.gloss-i{background:var(--wh);border:1px solid var(--g200);border-left:3px solid var(--gold);border-radius:var(--rs);padding:.75rem 1rem;font-size:.82rem;line-height:1.5}
+.gloss-i b{font-family:var(--fd);color:var(--o);font-size:.82rem;display:block;margin-bottom:.15rem}
+.gloss-i span.d{color:var(--g700);font-size:.76rem}
+
+.faq{margin:1rem 0 1.5rem}
+.faq-i{background:var(--wh);border:1px solid var(--g200);border-radius:var(--r);padding:1rem 1.2rem;margin-bottom:.55rem;box-shadow:var(--sh-s)}
+.faq-q{font-family:var(--fd);font-size:.88rem;font-weight:700;color:var(--o);margin-bottom:.4rem;line-height:1.35;display:flex;align-items:flex-start;gap:.5rem}
+.faq-q::before{content:'P:';color:var(--gold);font-size:.78rem;flex-shrink:0;font-weight:800}
+html[lang="en"] .faq-q::before{content:'Q:'}
+.faq-a{font-size:.84rem;color:var(--g700);line-height:1.6;padding-left:1.4rem;position:relative}
+.faq-a::before{content:'R:';position:absolute;left:0;top:0;font-family:var(--fd);color:var(--ol);font-weight:800;font-size:.78rem}
+html[lang="en"] .faq-a::before{content:'A:'}
+
+.tradeoff{display:grid;grid-template-columns:repeat(auto-fill,minmax(320px,1fr));gap:.85rem;margin:1rem 0 1.5rem}
+.to-c{background:var(--wh);border:1px solid var(--g200);border-radius:var(--r);padding:1rem 1.2rem;box-shadow:var(--sh-s)}
+.to-d{font-family:var(--fd);font-size:.82rem;font-weight:700;color:var(--o);margin-bottom:.4rem;line-height:1.35}
+.to-r{font-size:.78rem;color:var(--g700);margin-bottom:.5rem;line-height:1.55}
+.to-pc{display:grid;grid-template-columns:1fr 1fr;gap:.4rem;font-size:.74rem}
+.to-pc>div{padding:.4rem .6rem;border-radius:6px;line-height:1.45}
+.to-pc .pro{background:rgba(255,215,0,.14);border:1px solid rgba(184,134,11,.25);color:var(--g800)}
+.to-pc .con{background:rgba(220,38,38,.06);border:1px solid rgba(220,38,38,.18);color:var(--g800)}
+.to-pc strong{font-family:var(--fd);font-size:.66rem;text-transform:uppercase;letter-spacing:.08em;display:block;margin-bottom:.15rem}
+.to-pc .pro strong{color:var(--goldo)}.to-pc .con strong{color:var(--crit)}
+
+.kpi-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(220px,1fr));gap:.7rem;margin:1rem 0 1.5rem}
+.kpi-c{background:var(--wh);border:1px solid var(--g200);border-radius:var(--r);padding:1rem 1.15rem;box-shadow:var(--sh-s);border-top:3px solid var(--o)}
+.kpi-c .v{font-family:var(--fd);font-size:1.5rem;font-weight:800;color:var(--o);line-height:1;letter-spacing:-.02em}
+.kpi-c .l{font-family:var(--fd);font-size:.74rem;font-weight:700;color:var(--g900);text-transform:uppercase;letter-spacing:.05em;margin-top:.4rem}
+.kpi-c .d{font-size:.72rem;color:var(--g600);margin-top:.2rem;line-height:1.45}
+
+/* RULES */
+.rules{display:grid;grid-template-columns:repeat(auto-fill,minmax(240px,1fr));gap:.85rem;margin:1rem 0 1.5rem}
+.rule{background:var(--wh);border:1px solid var(--g200);border-radius:var(--r);padding:1rem 1.15rem;display:flex;gap:.75rem;align-items:flex-start;transition:all .18s;box-shadow:var(--sh-s)}
+.rule:hover{border-color:var(--o);box-shadow:var(--sh);transform:translateY(-1px)}
+.rule-i{width:32px;height:32px;background:var(--odm);color:var(--o);border-radius:8px;display:flex;align-items:center;justify-content:center;flex-shrink:0}
+.rule-i svg{width:18px;height:18px}
+.rule-t{font-family:var(--fd);font-size:.82rem;font-weight:700;color:var(--g900);line-height:1.3;margin-bottom:.15rem}
+.rule-d{font-size:.76rem;color:var(--g600);line-height:1.5}
+
+/* ANTI */
+.anti{display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:.85rem;margin:1rem 0 1.5rem}
+.ap{background:var(--wh);border:1px solid var(--g200);border-left:3px solid var(--crit);border-radius:var(--rs);padding:.9rem 1rem;font-size:.82rem;line-height:1.5}
+.ap b{font-family:var(--fd);font-size:.78rem;font-weight:700;color:var(--crit);display:block;margin-bottom:.25rem;letter-spacing:-.005em}
+.ap span.s{color:var(--g500);font-size:.74rem;display:block;margin:.2rem 0;font-family:var(--fm);font-style:italic}
+.ap em{color:var(--od);font-style:normal;font-weight:600;font-size:.78rem}
+.ap em::before{content:'→ ';color:var(--o);font-weight:700}
+
+/* EVIDENCE TAGS */
+.t{display:inline-block;padding:.08rem .38rem;border-radius:4px;font-family:var(--fmono);font-size:.62rem;font-weight:700;letter-spacing:.02em;vertical-align:middle;margin:0 .1rem;border:1px solid}
+.ti{background:var(--warnd);color:var(--warn);border-color:rgba(217,119,6,.3)}
+.ts{background:var(--critd);color:var(--crit);border-color:rgba(220,38,38,.25)}
+.td{background:var(--infod);color:var(--info);border-color:rgba(19,125,197,.25)}
+.tc{background:var(--goldd);color:var(--goldo);border-color:rgba(184,134,11,.3)}
+
+/* CHECKLIST */
+.checklist{background:var(--wh);border:1px solid var(--g200);border-radius:var(--r);padding:1.25rem 1.4rem;box-shadow:var(--sh-s);margin:1rem 0}
+.checklist h4{margin-top:0;color:var(--o);border-bottom:1px solid var(--g200);padding-bottom:.5rem}
+.checklist ul{list-style:none;margin:0;padding:0}
+.checklist li{padding:.4rem 0 .4rem 1.75rem;position:relative;font-size:.85rem;color:var(--g800);line-height:1.5;border-bottom:1px dashed var(--g100)}
+.checklist li:last-child{border-bottom:none}
+.checklist li::before{content:'';position:absolute;left:0;top:.6em;width:16px;height:16px;border:2px solid var(--g300);border-radius:4px;background:var(--wh)}
+.checklist li:hover::before{border-color:var(--o)}
+
+/* GATE */
+.gate{display:flex;align-items:center;gap:.9rem;background:var(--bk);color:var(--wh);border-radius:var(--r);padding:1.1rem 1.3rem;margin:1.5rem 0;border-left:5px solid var(--gold);box-shadow:var(--sh-l);position:relative;overflow:hidden}
+.gate::before{content:'';position:absolute;top:0;right:0;width:180px;height:100%;background:radial-gradient(ellipse at right,rgba(255,215,0,.14) 0%,transparent 70%)}
+.gate-b{background:var(--gold);color:var(--bk);padding:.3rem .65rem;border-radius:20px;font-family:var(--fd);font-size:.72rem;font-weight:800;letter-spacing:.06em;flex-shrink:0;position:relative}
+.gate-t{font-family:var(--fd);font-size:.95rem;font-weight:600;color:var(--wh);position:relative;flex:1}
+.gate-t em{color:var(--gold);font-style:normal;font-weight:700}
+
+/* KATA */
+.kata-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:.85rem;margin:1rem 0 1.5rem}
+.kata-c{background:var(--wh);border:1px solid var(--g200);border-radius:var(--r);padding:1.15rem 1.3rem;box-shadow:var(--sh-s);position:relative;border-top:3px solid var(--gold)}
+.kata-c.shu{border-top-color:var(--info)}
+.kata-c.ha{border-top-color:var(--gold)}
+.kata-c.ri{border-top-color:var(--lilac)}
+.kata-num{font-family:var(--fd);font-size:.66rem;font-weight:700;color:var(--ol);text-transform:uppercase;letter-spacing:.14em;margin-bottom:.2rem}
+.kata-name{font-family:var(--fd);font-size:1rem;font-weight:700;color:var(--o);line-height:1.3;margin-bottom:.4rem;letter-spacing:-.005em}
+.kata-name em{color:var(--goldo);font-style:normal}
+.kata-obj{font-size:.8rem;color:var(--g700);line-height:1.55;margin-bottom:.45rem}
+.kata-step{font-size:.74rem;color:var(--g600);font-family:var(--fm);padding:.15rem 0;border-top:1px dashed var(--g200)}
+.kata-step:first-of-type{margin-top:.3rem}
+.kata-step strong{color:var(--od);font-family:var(--fd);font-weight:700}
+.kata-crit{margin-top:.55rem;padding:.4rem .6rem;background:var(--goldd);border-radius:4px;font-size:.74rem;color:var(--goldo);font-family:var(--fd);font-weight:600;line-height:1.4}
+.kata-crit::before{content:'✓ ';font-weight:800}
+
+/* PROMPT */
+.prompt-block{background:var(--g900);color:var(--g100);font-family:var(--fmono);font-size:.82rem;line-height:1.6;overflow-x:auto;border-radius:var(--r);padding:1.25rem 1.5rem;margin:1rem 0;border-left:4px solid var(--gold)}
+.prompt-block .hd{font-family:var(--fd);font-size:.66rem;color:var(--gold);text-transform:uppercase;letter-spacing:.14em;font-weight:700;margin-bottom:.6rem;border-bottom:1px solid rgba(255,215,0,.3);padding-bottom:.35rem;display:block}
+.prompt-block pre{margin:0;color:inherit;background:transparent;white-space:pre-wrap;font-family:inherit}
+.prompt-block code{background:rgba(255,215,0,.12);color:var(--gold);border:none;font-size:inherit}
+
+/* PEV-FLOW */
+.pev{display:grid;grid-template-columns:repeat(3,1fr);gap:.9rem;margin:1.2rem 0 1.5rem}
+.pev-c{background:var(--wh);border:1px solid var(--g200);border-radius:var(--r);padding:1.15rem 1.3rem;box-shadow:var(--sh-s);position:relative;border-left:4px solid var(--o)}
+.pev-c.exec{border-left-color:var(--gold)}
+.pev-c.verify{border-left-color:var(--info)}
+.pev-c .lab{font-family:var(--fd);font-size:.66rem;font-weight:800;color:var(--ol);letter-spacing:.18em;text-transform:uppercase;margin-bottom:.4rem}
+.pev-c.exec .lab{color:var(--goldo)}
+.pev-c.verify .lab{color:var(--info)}
+.pev-c h4{margin:0 0 .55rem;color:var(--o);font-size:1rem;text-transform:none;letter-spacing:-.005em}
+.pev-c ul{margin:.4rem 0 0 1rem;font-size:.8rem;color:var(--g700)}
+@media(max-width:768px){.pev{grid-template-columns:1fr}}
+
+/* ROLE-CARD */
+.roles{display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:.85rem;margin:1rem 0 1.5rem}
+.role-c{background:var(--wh);border:1px solid var(--g200);border-radius:var(--r);padding:1rem 1.2rem;box-shadow:var(--sh-s);border-top:3px solid var(--ol)}
+.role-c .nm{font-family:var(--fd);font-size:.95rem;font-weight:700;color:var(--o);margin-bottom:.25rem;letter-spacing:-.005em}
+.role-c .res{font-size:.78rem;color:var(--g700);line-height:1.55;margin-bottom:.4rem}
+.role-c .mod{font-family:var(--fm);font-size:.72rem;color:var(--g500);font-style:italic;padding-top:.4rem;border-top:1px dashed var(--g200)}
+.role-c .mod strong{color:var(--ol);font-family:var(--fd);font-style:normal;font-weight:700}
+
+/* FOOTER */
+.site-footer{background:#1F2833;color:rgba(255,255,255,.7);padding:2.5rem 2rem 2rem;margin-top:4rem;border-top:6px solid var(--gold);position:relative;overflow:hidden}
+.site-footer::before{content:'';position:absolute;top:-50%;left:-5%;width:400px;height:400px;background:radial-gradient(circle,rgba(18,37,98,.4) 0%,transparent 70%);pointer-events:none}
+.footer-inner{max-width:1200px;margin:0 auto;position:relative}
+.footer-row{display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:1rem}
+.footer-logo{font-family:var(--fd);font-size:1.3rem;font-weight:800;color:var(--wh)}
+.footer-logo .ia{color:var(--gold)}
+.footer-badges{display:flex;gap:.5rem;flex-wrap:wrap}
+.footer-badge{font-family:var(--fd);background:rgba(255,215,0,.14);color:var(--gold);padding:.3rem .75rem;border-radius:var(--rs);font-size:.7rem;font-weight:700;letter-spacing:.04em}
+.footer-bottom{font-family:var(--fm);margin-top:1.5rem;padding-top:1rem;border-top:1px solid rgba(255,255,255,.1);font-size:.78rem;color:rgba(255,255,255,.6);display:flex;gap:1.5rem;flex-wrap:wrap}
+.footer-bottom a{color:rgba(255,255,255,.65);text-decoration:none;font-weight:600}
+.footer-bottom a:hover{color:var(--gold)}
+
+/* RESPONSIVE */
+@media(max-width:1020px){
+  .session-h{flex-direction:column;align-items:flex-start}
+}
+@media(max-width:768px){
+  .hi{padding:2rem 1.25rem 1.8rem}
+  main{padding:0 1.25rem}
+  .kpis{grid-template-columns:repeat(2,1fr)}
+  .sec{padding:2.5rem 0 1rem}
+  .session{padding:1.2rem 1.25rem}
+  .session-n{width:38px;height:38px;font-size:.85rem}
+  .sn{width:40px;height:40px;font-size:1rem}
+  .tldr{padding:1.5rem 1.4rem}
+  .footer-row{flex-direction:column;align-items:flex-start}
+  .site-footer{padding:2rem 1.25rem}
+  th,td{padding:.55rem .65rem;font-size:.78rem}
+  .nav-inner{padding:0 1.25rem}
+}
+@media print{
+  .nav,.skip,.lang-btn{display:none}
+  body{background:#fff}
+  .session,.checklist{box-shadow:none;page-break-inside:avoid}
+  .sec{page-break-inside:avoid}
+  .hero{padding:1.5rem}
+  a{color:var(--g900)}
+  .en{display:none !important}
+}
+</style>
+</head>
+<body>
+<a href="#main" class="skip"><span class="es">Ir al contenido</span><span class="en">Skip to content</span></a>
+
+<header class="hero" role="banner">
+<div class="hi">
+  <div class="brand">
+    <span class="brand-wm">Metodolog<span class="ia">IA</span></span>
+    <span class="brand-t"><span class="es">Playbook · BMAD · Vagaje II/II</span><span class="en">Playbook · BMAD · Part II/II</span></span>
+  </div>
+  <div class="eyebrow">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+    <span class="es">Rigor Técnico · Plan → Execute → Verify</span><span class="en">Technical Rigor · Plan → Execute → Verify</span>
+  </div>
+  <h1>
+    <span class="es">BMAD <span class="ac">cuando el vibe ya no alcanza.</span><br>Del prototipo a producción con <em class="ac">guidelines, guardrails y agentes determinísticos</em>.</span>
+    <span class="en">BMAD <span class="ac">when vibes are not enough.</span><br>From prototype to production with <em class="ac">guidelines, guardrails and deterministic agents</em>.</span>
+  </h1>
+  <p class="ld">
+    <span class="es">Sesión <strong>2 de 2</strong> del workshop "De la Idea a Producción con IA". Si la <a href="playbook-vibe-coding-velocidad-visual-v2026.04.html" style="color:var(--gold)">parte I (Vibe Coding)</a> respondió <em>cómo prototipar al ritmo del pensamiento</em>, esta parte responde <em>cómo escalar sin caer en el vibe-hangover</em>. Karpathy lo bautizó <em>agentic engineering</em> a inicios de 2026: el 99% del código lo escribe la IA, pero el 1% de orquestación humana es lo que decide la calidad arquitectural y la mantenibilidad <span class="t td">DOC</span>. La tesis: <strong>Plan → Execute → Verify</strong> con agentes especializados, guidelines E2E y MCP como bus de contexto.</span>
+    <span class="en">Session <strong>2 of 2</strong> of the workshop "From Idea to Production with AI". If <a href="playbook-vibe-coding-velocidad-visual-v2026.04.html" style="color:var(--gold)">Part I (Vibe Coding)</a> answered <em>how to prototype at speed of thought</em>, this part answers <em>how to scale without falling into vibe-hangover</em>. Karpathy named it <em>agentic engineering</em> in early 2026: AI writes 99% of code, but the 1% of human orchestration decides architectural quality and maintainability <span class="t td">DOC</span>. The thesis: <strong>Plan → Execute → Verify</strong> with specialized agents, E2E guidelines, and MCP as context bus.</span>
+  </p>
+  <div class="kpis" role="list">
+    <div class="kpi" role="listitem"><div class="kpi-v">3<small>h</small></div><div class="kpi-l"><span class="es">Sesión</span><span class="en">Session</span></div><div class="kpi-s"><span class="es">PEV completo · 1 feature E2E</span><span class="en">Full PEV · 1 E2E feature</span></div></div>
+    <div class="kpi" role="listitem"><div class="kpi-v">10</div><div class="kpi-l"><span class="es">Prácticas BMAD</span><span class="en">BMAD practices</span></div><div class="kpi-s"><span class="es">Notebook D7 · 112 fuentes</span><span class="en">D7 notebook · 112 sources</span></div></div>
+    <div class="kpi" role="listitem"><div class="kpi-v">6</div><div class="kpi-l"><span class="es">Roles agénticos</span><span class="en">Agentic roles</span></div><div class="kpi-s"><span class="es">TL · QA · DevOps · Architect…</span><span class="en">TL · QA · DevOps · Architect…</span></div></div>
+    <div class="kpi" role="listitem"><div class="kpi-v">5</div><div class="kpi-l"><span class="es">Anti-patrones BMAD</span><span class="en">BMAD anti-patterns</span></div><div class="kpi-s"><span class="es">Detectar y mitigar</span><span class="en">Detect and mitigate</span></div></div>
+  </div>
+  <div class="kpis" role="list" style="margin-top:.6rem">
+    <div class="kpi" role="listitem"><div class="kpi-v">1.000<small>+</small></div><div class="kpi-l"><span class="es">PRs/semana Stripe</span><span class="en">Stripe PRs/week</span></div><div class="kpi-s"><span class="es">Sistema "Minions" <span class="t td">DOC</span></span><span class="en">"Minions" system <span class="t td">DOC</span></span></div></div>
+    <div class="kpi" role="listitem"><div class="kpi-v">99<small>%</small></div><div class="kpi-l"><span class="es">Código por IA</span><span class="en">Code by AI</span></div><div class="kpi-s"><span class="es">El 1% humano define calidad</span><span class="en">The 1% human defines quality</span></div></div>
+    <div class="kpi" role="listitem"><div class="kpi-v">MCP</div><div class="kpi-l"><span class="es">Bus de contexto</span><span class="en">Context bus</span></div><div class="kpi-s"><span class="es">"USB-C para IA" 2026</span><span class="en">"USB-C for AI" 2026</span></div></div>
+    <div class="kpi" role="listitem"><div class="kpi-v">HITL</div><div class="kpi-l"><span class="es">Acciones irreversibles</span><span class="en">Irreversible actions</span></div><div class="kpi-s"><span class="es">Aprobación humana obligatoria</span><span class="en">Mandatory human approval</span></div></div>
+  </div>
+</div>
+</header>
+
+<nav class="nav" aria-label="Secciones">
+<div class="nav-inner">
+<ul>
+  <li><a href="#tldr"><span class="num">00</span>TL;DR</a></li>
+  <li><a href="#porque"><span class="num">01</span><span class="es">Por qué BMAD</span><span class="en">Why BMAD</span></a></li>
+  <li><a href="#pev"><span class="num">02</span>PEV Framework</a></li>
+  <li><a href="#practicas"><span class="num">03</span><span class="es">10 Prácticas</span><span class="en">10 Practices</span></a></li>
+  <li><a href="#roles"><span class="num">04</span><span class="es">Roles agénticos</span><span class="en">Agentic roles</span></a></li>
+  <li><a href="#mcp"><span class="num">05</span>MCP</a></li>
+  <li><a href="#katas"><span class="num">06</span>5 Katas</a></li>
+  <li><a href="#antipatrones"><span class="num">07</span><span class="es">Anti-patrones</span><span class="en">Anti-patterns</span></a></li>
+  <li><a href="#casos"><span class="num">08</span><span class="es">Casos reales</span><span class="en">Real cases</span></a></li>
+  <li><a href="#gates"><span class="num">09</span>Quality Gates</a></li>
+  <li><a href="#checklist"><span class="num">10</span>Checklist</a></li>
+  <li><a href="#apendices"><span class="num">11</span><span class="es">Glosario · FAQ</span><span class="en">Glossary · FAQ</span></a></li>
+</ul>
+<button onclick="toggleLang()" class="lang-btn" aria-label="Cambiar idioma" id="langBtn">EN</button>
+</div>
+</nav>
+
+<main id="main">
+
+<section id="tldr" class="sec">
+<div class="sh">
+  <div class="sn">00</div>
+  <div class="st2">
+    <h2><span class="es">Resumen ejecutivo</span><span class="en">Executive summary</span></h2>
+    <div class="sub"><span class="es">La tesis del taller en 60 segundos.</span><span class="en">The workshop thesis in 60 seconds.</span></div>
+  </div>
+</div>
+<div class="tldr">
+  <p class="tldr-q"><span class="es">Tres horas, una pregunta: <em>¿cómo paso de un prototipo al ritmo del vibe a un sistema productivo sin perder calidad arquitectural?</em></span><span class="en">Three hours, one question: <em>how do I move from a vibe-pace prototype to a production-grade system without losing architectural quality?</em></span></p>
+  <ul>
+    <li><span class="es"><strong>Plan → Execute → Verify (PEV).</strong> El humano define objetivo + restricciones + quality gates; agentes especializados ejecutan; el humano valida. La IA es colaboradora, no oráculo. <span class="t td">DOC</span></span><span class="en"><strong>Plan → Execute → Verify (PEV).</strong> Human defines objective + constraints + quality gates; specialized agents execute; human validates. AI is collaborator, not oracle. <span class="t td">DOC</span></span></li>
+    <li><span class="es"><strong>10 prácticas BMAD core.</strong> SDD, multi-agent specialization, document sharding, workflow isolation, quality gates, agent-led TDD, scale-adaptive intelligence, agent-as-code, adversarial review, HITL orchestration. Cada una con su control compensatorio.</span><span class="en"><strong>10 BMAD core practices.</strong> SDD, multi-agent specialization, document sharding, workflow isolation, quality gates, agent-led TDD, scale-adaptive intelligence, agent-as-code, adversarial review, HITL orchestration. Each with its compensating control.</span></li>
+    <li><span class="es"><strong>6 roles agénticos especializados.</strong> El "vibe coder" generalista cede paso al Tech Lead, QA Engineer, DevOps, Architect, Domain Analyst y Database Designer agénticos. Cada uno dirige a la IA por una lente de dominio.</span><span class="en"><strong>6 specialized agentic roles.</strong> The generalist "vibe coder" gives way to agentic Tech Lead, QA Engineer, DevOps, Architect, Domain Analyst, and Database Designer. Each directs AI through a domain lens.</span></li>
+    <li><span class="es"><strong>MCP como bus de contexto.</strong> Notion (specs), Figma (DS), Git (codebase) en una sola interfaz. Red Hat OpenShift AI ya lo trata como infraestructura enterprise versionada. <span class="t td">DOC</span></span><span class="en"><strong>MCP as context bus.</strong> Notion (specs), Figma (DS), Git (codebase) under one interface. Red Hat OpenShift AI already treats it as versioned enterprise infrastructure. <span class="t td">DOC</span></span></li>
+    <li><span class="es"><strong>Casos reales 2026.</strong> Stripe Minions emite 1.000+ PRs/semana, Shopify levantó la Universal Commerce Protocol con MCP nativo, Advolve automatiza marketing E2E. Producción real, no demo. <span class="t td">DOC</span></span><span class="en"><strong>Real 2026 cases.</strong> Stripe Minions ships 1,000+ PRs/week, Shopify launched the Universal Commerce Protocol with native MCP, Advolve automates marketing E2E. Real production, not demo. <span class="t td">DOC</span></span></li>
+  </ul>
+</div>
+</section>
+
+<section id="porque" class="sec">
+<div class="sh">
+  <div class="sn">01</div>
+  <div class="st2">
+    <h2><span class="es">Por qué BMAD ahora</span><span class="en">Why BMAD now</span></h2>
+    <div class="sub"><span class="es">El vibe-hangover es real, medible y sistémico. La industria se está corrigiendo en 2026.</span><span class="en">The vibe-hangover is real, measurable, and systemic. Industry is correcting in 2026.</span></div>
+  </div>
+</div>
+
+<p><span class="es">A finales de 2025 la industria reportó el <em>"vibe-hangover"</em>: las ganancias iniciales de velocidad fueron compensadas por costos downstream — vulnerabilidades de seguridad (10% del código AI <span class="t td">DOC</span>), <em>knowledge ossification</em> (nadie entiende su propio codebase) y <em>hallucination ceiling</em> (el modelo inventa funciones que no existen). Karpathy mismo, autor del término <em>vibe coding</em>, anunció en 2026 la transición a <em>agentic engineering</em>: <strong>la IA escribe el 99% del código, pero el 1% humano de orquestación es el factor más crítico para la calidad arquitectural y la mantenibilidad a largo plazo</strong> <span class="t td">DOC</span>.</span><span class="en">By late 2025 industry reported the <em>"vibe-hangover"</em>: initial speed gains offset by downstream costs — security vulnerabilities (10% of AI code <span class="t td">DOC</span>), <em>knowledge ossification</em> (no one understands their own codebase), and <em>hallucination ceiling</em> (model invents non-existent functions). Karpathy himself, author of <em>vibe coding</em>, announced in 2026 the transition to <em>agentic engineering</em>: <strong>AI writes 99% of code, but the 1% of human orchestration is the most critical factor for architectural quality and long-term maintainability</strong> <span class="t td">DOC</span>.</span></p>
+
+<h3>BMAD <span class="es">en una frase</span><span class="en">in one sentence</span></h3>
+<div class="co co-g">
+  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+  <div class="co-body"><b><span class="es">Definición operativa</span><span class="en">Operative definition</span></b><span class="es">BMAD es la disciplina de <strong>delegar implementación a agentes especializados con guidelines explícitas, ejecutarlos en workflows aislados con quality gates, y verificar la salida con humanos en checkpoints irreversibles</strong>. Vibe coding optimiza tiempo idea→prototipo. BMAD optimiza tiempo prototipo→producción sin sacrificar mantenibilidad. <span class="t ti">INFERENCIA</span> sobre el agregado de fuentes.</span><span class="en">BMAD is the discipline of <strong>delegating implementation to specialized agents with explicit guidelines, running them in isolated workflows with quality gates, and verifying output with humans at irreversible checkpoints</strong>. Vibe coding optimizes idea→prototype time. BMAD optimizes prototype→production time without sacrificing maintainability. <span class="t ti">INFERENCE</span> over aggregate sources.</span></div>
+</div>
+
+<h3><span class="es">Vibe Coding vs. BMAD · transición complementaria</span><span class="en">Vibe Coding vs. BMAD · complementary transition</span></h3>
+<div class="tw"><table>
+<thead><tr><th><span class="es">Dimensión</span><span class="en">Dimension</span></th><th><span class="es">Vibe Coding (Día 1)</span><span class="en">Vibe Coding (Day 1)</span></th><th><span class="es">BMAD (Día 2)</span><span class="en">BMAD (Day 2)</span></th></tr></thead>
+<tbody>
+<tr><td><strong><span class="es">Modo de prompting</span><span class="en">Prompting mode</span></strong></td><td><span class="es">Conversacional, informal, "see-say-run"</span><span class="en">Conversational, informal, "see-say-run"</span></td><td><span class="es">Plan → Execute → Verify estructurado</span><span class="en">Structured Plan → Execute → Verify</span></td></tr>
+<tr><td><strong><span class="es">Naturaleza del agente</span><span class="en">Agent nature</span></strong></td><td><span class="es">Único, generalista</span><span class="en">Single, generalist</span></td><td><span class="es">Múltiples, especializados por dominio</span><span class="en">Multiple, domain-specialized</span></td></tr>
+<tr><td><strong><span class="es">Restricciones</span><span class="en">Constraints</span></strong></td><td><span class="es">Implícitas en el prompt</span><span class="en">Implicit in prompt</span></td><td><span class="es">Explícitas como código (.cursorrules, CLAUDE.md, agent specs)</span><span class="en">Explicit as code (.cursorrules, CLAUDE.md, agent specs)</span></td></tr>
+<tr><td><strong><span class="es">Loop de feedback</span><span class="en">Feedback loop</span></strong></td><td><span class="es">Ojo humano sobre demo</span><span class="en">Human eye on demo</span></td><td><span class="es">Tests E2E + static analysis + adversarial review + HITL</span><span class="en">E2E tests + static analysis + adversarial review + HITL</span></td></tr>
+<tr><td><strong><span class="es">Output esperado</span><span class="en">Expected output</span></strong></td><td><span class="es">Prototipo navegable</span><span class="en">Navigable prototype</span></td><td><span class="es">Sistema productivo con SLAs y observabilidad</span><span class="en">Production system with SLAs and observability</span></td></tr>
+<tr><td><strong><span class="es">Riesgo dominante</span><span class="en">Dominant risk</span></strong></td><td><span class="es">Knowledge ossification, vulns, hallucinations</span><span class="en">Knowledge ossification, vulns, hallucinations</span></td><td><span class="es">Spec paralysis, context overload, drift de specs</span><span class="en">Spec paralysis, context overload, spec drift</span></td></tr>
+<tr><td><strong><span class="es">Métrica de éxito</span><span class="en">Success metric</span></strong></td><td><span class="es">Time-to-prototype &lt; 30 min</span><span class="en">Time-to-prototype &lt; 30 min</span></td><td><span class="es">Cycle-time E2E predecible · &lt; 1 incidente / 7 d</span><span class="en">Predictable E2E cycle-time · &lt; 1 incident / 7 d</span></td></tr>
+</tbody>
+</table></div>
+
+<div class="co co-i">
+  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><circle cx="12" cy="12" r="10"/><line x1="12" y1="16" x2="12" y2="12"/><line x1="12" y1="8" x2="12.01" y2="8"/></svg>
+  <div class="co-body"><b><span class="es">Frase clave del workshop</span><span class="en">Key workshop phrase</span></b><span class="es">"Vibe coding sin BMAD = velocidad que se traduce en deuda técnica en 90 días. BMAD sin vibe coding = sistemas correctos pero lentos al pensamiento. Los dos juntos = velocidad sustentable." <span class="t tc">CONTEXTO</span> del workshop · <span class="t ti">INFERENCIA</span> integradora.</span><span class="en">"Vibe coding without BMAD = speed translated into technical debt in 90 days. BMAD without vibe coding = correct systems but slow to thought. Both together = sustainable speed." <span class="t tc">CONTEXT</span> of the workshop · integrative <span class="t ti">INFERENCE</span>.</span></div>
+</div>
+</section>
+
+<section id="pev" class="sec">
+<div class="sh">
+  <div class="sn">02</div>
+  <div class="st2">
+    <h2><span class="es">El framework <em style="font-style:normal;color:var(--gold)">PEV</em>: Plan → Execute → Verify</span><span class="en">The PEV framework: Plan → Execute → Verify</span></h2>
+    <div class="sub"><span class="es">El loop estructurado que reemplaza el prompting informal del vibe coding.</span><span class="en">The structured loop that replaces vibe coding's informal prompting.</span></div>
+  </div>
+</div>
+
+<div class="pev">
+  <div class="pev-c">
+    <div class="lab"><span class="es">Fase 1</span><span class="en">Phase 1</span></div>
+    <h4>Plan</h4>
+    <p style="font-size:.84rem;margin:.2rem 0 .5rem"><span class="es">Aquí la expertise de ingeniería es <strong>insustituible</strong>. Definir objetivo, descomponer en tareas agent-sized, fijar restricciones arquitecturales y especificar quality gates.</span><span class="en">Here engineering expertise is <strong>irreplaceable</strong>. Define objective, decompose into agent-sized tasks, set architectural constraints, specify quality gates.</span></p>
+    <ul>
+      <li><span class="es">Decomposición en tareas atómicas</span><span class="en">Decomposition into atomic tasks</span></li>
+      <li><span class="es">Stack rules + style guides</span><span class="en">Stack rules + style guides</span></li>
+      <li><span class="es">Tests requeridos como gates</span><span class="en">Required tests as gates</span></li>
+      <li><span class="es">Boundaries de riesgo</span><span class="en">Risk boundaries</span></li>
+    </ul>
+  </div>
+
+  <div class="pev-c exec">
+    <div class="lab"><span class="es">Fase 2</span><span class="en">Phase 2</span></div>
+    <h4>Execute</h4>
+    <p style="font-size:.84rem;margin:.2rem 0 .5rem"><span class="es">Agentes <strong>especializados</strong> trabajan dentro de las restricciones. Implementación, tests, security scan — cada uno por su agente, no uno solo "haciendo todo".</span><span class="en">Specialized agents work within constraints. Implementation, tests, security scan — each by its agent, not one "doing everything".</span></p>
+    <ul>
+      <li><span class="es">Implementación → agente Tech Lead</span><span class="en">Implementation → Tech Lead agent</span></li>
+      <li><span class="es">Test suites → agente QA</span><span class="en">Test suites → QA agent</span></li>
+      <li><span class="es">Security scan → agente SecOps</span><span class="en">Security scan → SecOps agent</span></li>
+      <li><span class="es">Workflows aislados</span><span class="en">Isolated workflows</span></li>
+    </ul>
+  </div>
+
+  <div class="pev-c verify">
+    <div class="lab"><span class="es">Fase 3</span><span class="en">Phase 3</span></div>
+    <h4>Verify</h4>
+    <p style="font-size:.84rem;margin:.2rem 0 .5rem"><span class="es">El humano <strong>valida</strong> contra el plan. Cambia "escribir código" por "leer y validar código": vulnerabilidades, consistencia arquitectural, cobertura significativa.</span><span class="en">Human <strong>validates</strong> against the plan. "Write code" shifts to "read and validate code": vulnerabilities, architectural consistency, meaningful coverage.</span></p>
+    <ul>
+      <li><span class="es">Diff completo leído</span><span class="en">Full diff read</span></li>
+      <li><span class="es">Tests significativos verificados</span><span class="en">Meaningful tests verified</span></li>
+      <li><span class="es">Security review humano</span><span class="en">Human security review</span></li>
+      <li><span class="es">Aprobación HITL antes de merge</span><span class="en">HITL approval before merge</span></li>
+    </ul>
+  </div>
+</div>
+
+<div class="co co-o">
+  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg>
+  <div class="co-body"><b><span class="es">Cambio de hábito del developer</span><span class="en">Developer habit shift</span></b><span class="es">El senior pasa de <em>escritor</em> a <em>lector validador</em>. Su tiempo ya no se invierte en sintaxis sino en: planning explícito, definición de constraints, code review riguroso, design judgment. <span class="t td">DOC</span></span><span class="en">The senior moves from <em>writer</em> to <em>validating reader</em>. Time is no longer spent on syntax but on: explicit planning, constraint definition, rigorous code review, design judgment. <span class="t td">DOC</span></span></div>
+</div>
+</section>
+
+<section id="practicas" class="sec">
+<div class="sh">
+  <div class="sn">03</div>
+  <div class="st2">
+    <h2><span class="es">Las <em style="font-style:normal;color:var(--gold)">10 prácticas</em> BMAD core</span><span class="en">The 10 core BMAD practices</span></h2>
+    <div class="sub"><span class="es">Extraídas y trianguladas con el notebook BMAD-D7 (112 fuentes en NotebookLM) <span class="t td">DOC</span>.</span><span class="en">Extracted and triangulated with the BMAD-D7 notebook (112 sources on NotebookLM) <span class="t td">DOC</span>.</span></div>
+  </div>
+</div>
+
+<article class="session">
+<div class="session-h">
+  <div class="session-n">B1</div>
+  <div class="session-meta">
+    <div class="session-t">SDD <span class="es">— Spec-Driven Development</span><span class="en">— Spec-Driven Development</span></div>
+    <div class="session-tm"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg><span class="es">Foundation</span><span class="en">Foundation</span></div>
+  </div>
+</div>
+<div class="session-obj"><strong><span class="es">Práctica</span><span class="en">Practice</span></strong><span class="es">La spec se escribe <em>antes</em> y se trata como código de primera clase. Los agentes la consumen, no improvisan. La spec evoluciona con el sistema en commits versionados.</span><span class="en">The spec is written <em>before</em> and treated as first-class code. Agents consume it, do not improvise. Spec evolves with the system in versioned commits.</span></div>
+<div class="ac-edge">
+  <div><span class="lab"><span class="es">Control compensatorio</span><span class="en">Compensating control</span></span><ul><li><span class="es">Spec en repo · diff observable · review obligatorio</span><span class="en">Spec in repo · observable diff · mandatory review</span></li></ul></div>
+  <div><span class="lab"><span class="es">Falla típica</span><span class="en">Typical failure</span></span><ul><li><span class="es">Spec paralysis: el equipo escribe specs perfectas pero nunca codea (ver §07)</span><span class="en">Spec paralysis: team writes perfect specs but never codes (see §07)</span></li></ul></div>
+</div>
+</article>
+
+<article class="session">
+<div class="session-h">
+  <div class="session-n">B2</div>
+  <div class="session-meta">
+    <div class="session-t"><span class="es">Multi-agent specialization</span><span class="en">Multi-agent specialization</span></div>
+    <div class="session-tm"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>Architecture</div>
+  </div>
+</div>
+<div class="session-obj"><strong><span class="es">Práctica</span><span class="en">Practice</span></strong><span class="es">No un agente hace todo: cada dominio tiene su agente. Tech Lead implementa, QA testea, DevOps deploya, Architect supervisa coherencia. Cada agente con su system prompt y tools.</span><span class="en">Not one agent doing everything: each domain has its own agent. Tech Lead implements, QA tests, DevOps deploys, Architect oversees coherence. Each agent with its system prompt and tools.</span></div>
+</article>
+
+<article class="session">
+<div class="session-h">
+  <div class="session-n">B3</div>
+  <div class="session-meta">
+    <div class="session-t"><span class="es">Document sharding</span><span class="en">Document sharding</span></div>
+    <div class="session-tm"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>Context</div>
+  </div>
+</div>
+<div class="session-obj"><strong><span class="es">Práctica</span><span class="en">Practice</span></strong><span class="es">La documentación se fragmenta intencionalmente: <em>nadie carga todo el contexto</em>. Cada agente recibe el shard mínimo que necesita. Reduce hallucinations + costos de tokens + ruido.</span><span class="en">Documentation is intentionally sharded: <em>no one loads all context</em>. Each agent receives the minimum shard it needs. Reduces hallucinations + token costs + noise.</span></div>
+</article>
+
+<article class="session">
+<div class="session-h">
+  <div class="session-n">B4</div>
+  <div class="session-meta">
+    <div class="session-t"><span class="es">Workflow isolation</span><span class="en">Workflow isolation</span></div>
+    <div class="session-tm"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>Safety</div>
+  </div>
+</div>
+<div class="session-obj"><strong><span class="es">Práctica</span><span class="en">Practice</span></strong><span class="es">Cada agente corre en sandbox aislado: sus errores no contaminan a otros. Branches separadas, containers separados, secretos segmentados. Si el agente DevOps se sale del huevo, el blast radius queda contenido.</span><span class="en">Each agent runs in isolated sandbox: errors do not contaminate others. Separate branches, separate containers, segmented secrets. If DevOps agent goes off the rails, blast radius is contained.</span></div>
+</article>
+
+<article class="session">
+<div class="session-h">
+  <div class="session-n">B5</div>
+  <div class="session-meta">
+    <div class="session-t"><span class="es">Quality gates explícitos</span><span class="en">Explicit quality gates</span></div>
+    <div class="session-tm"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>Verify</div>
+  </div>
+</div>
+<div class="session-obj"><strong><span class="es">Práctica</span><span class="en">Practice</span></strong><span class="es">Static analysis (TS strict, ESLint, Deptrac), tests E2E ≥ 90%, security scan, type coverage 100%. Si no pasa el gate, no merge — sin discusión, sin excepciones humanas.</span><span class="en">Static analysis (TS strict, ESLint, Deptrac), E2E tests ≥ 90%, security scan, 100% type coverage. If gate fails, no merge — no discussion, no human exceptions.</span></div>
+</article>
+
+<article class="session">
+<div class="session-h">
+  <div class="session-n">B6</div>
+  <div class="session-meta">
+    <div class="session-t"><span class="es">Agent-led TDD</span><span class="en">Agent-led TDD</span></div>
+    <div class="session-tm"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>Testing</div>
+  </div>
+</div>
+<div class="session-obj"><strong><span class="es">Práctica</span><span class="en">Practice</span></strong><span class="es">El agente QA escribe los tests <em>antes</em> que el agente Tech Lead implemente. Tests rojos guían la implementación. Coverage 90% AI-asistida vs. 40–60% manual <span class="t td">DOC</span>.</span><span class="en">QA agent writes tests <em>before</em> Tech Lead agent implements. Red tests guide implementation. AI-assisted coverage 90% vs. 40–60% manual <span class="t td">DOC</span>.</span></div>
+</article>
+
+<article class="session">
+<div class="session-h">
+  <div class="session-n">B7</div>
+  <div class="session-meta">
+    <div class="session-t"><span class="es">Scale-adaptive intelligence</span><span class="en">Scale-adaptive intelligence</span></div>
+    <div class="session-tm"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>Cost</div>
+  </div>
+</div>
+<div class="session-obj"><strong><span class="es">Práctica</span><span class="en">Practice</span></strong><span class="es">Modelos pequeños para tareas mecánicas (lint, format, test gen); modelos grandes para razonamiento (architecture, refactor profundo). No usar Opus para reformatear JSON.</span><span class="en">Small models for mechanical tasks (lint, format, test gen); large models for reasoning (architecture, deep refactor). Do not use Opus to reformat JSON.</span></div>
+</article>
+
+<article class="session">
+<div class="session-h">
+  <div class="session-n">B8</div>
+  <div class="session-meta">
+    <div class="session-t"><span class="es">Agent-as-Code</span><span class="en">Agent-as-Code</span></div>
+    <div class="session-tm"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>Versioning</div>
+  </div>
+</div>
+<div class="session-obj"><strong><span class="es">Práctica</span><span class="en">Practice</span></strong><span class="es">La configuración del agente (system prompt, tools, guardrails) vive en el repo, versionada. Cambiar el comportamiento del Tech Lead agent es un PR, no un setting de UI.</span><span class="en">Agent configuration (system prompt, tools, guardrails) lives in the repo, versioned. Changing the Tech Lead agent's behavior is a PR, not a UI setting.</span></div>
+</article>
+
+<article class="session">
+<div class="session-h">
+  <div class="session-n">B9</div>
+  <div class="session-meta">
+    <div class="session-t"><span class="es">Adversarial review</span><span class="en">Adversarial review</span></div>
+    <div class="session-tm"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>Defense</div>
+  </div>
+</div>
+<div class="session-obj"><strong><span class="es">Práctica</span><span class="en">Practice</span></strong><span class="es">Un agente <em>diferente</em> revisa lo que el primero produjo. Su prompt es escéptico: busca vulnerabilidades, dependencias frágiles, asunciones optimistas, edge cases ignorados. <span class="t td">DOC</span></span><span class="en">A <em>different</em> agent reviews what the first produced. Its prompt is skeptical: hunts for vulnerabilities, fragile dependencies, optimistic assumptions, ignored edge cases. <span class="t td">DOC</span></span></div>
+</article>
+
+<article class="session">
+<div class="session-h">
+  <div class="session-n">B10</div>
+  <div class="session-meta">
+    <div class="session-t"><span class="es">HITL orchestration</span><span class="en">HITL orchestration</span></div>
+    <div class="session-tm"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>Boundary</div>
+  </div>
+</div>
+<div class="session-obj"><strong><span class="es">Práctica</span><span class="en">Practice</span></strong><span class="es">Acciones <em>irreversibles</em> requieren aprobación humana explícita: merge a main, deploy a prod, transacción financiera, eliminación de datos. La IA propone; el humano firma. <span class="t td">DOC</span></span><span class="en">Irreversible actions require explicit human approval: merge to main, deploy to prod, financial transaction, data deletion. AI proposes; human signs. <span class="t td">DOC</span></span></div>
+</article>
+
+<div class="gate">
+  <span class="gate-b">Gate G2</span>
+  <div class="gate-t"><em><span class="es">"10/10 prácticas implementadas"</span><span class="en">"10/10 practices implemented"</span></em> — <span class="es">no se inicia un proyecto BMAD a producción sin las 10. Implementar 8 produce un sistema frágil que parece BMAD pero hereda los riesgos de vibe coding. <span class="t ti">INFERENCIA</span></span><span class="en">no BMAD project starts production without all 10. Implementing 8 yields a fragile system that looks BMAD but inherits vibe-coding risks. <span class="t ti">INFERENCE</span></span></div>
+</div>
+</section>
+
+<section id="roles" class="sec">
+<div class="sh">
+  <div class="sn">04</div>
+  <div class="st2">
+    <h2><span class="es">Roles agénticos · 6 lentes especializadas</span><span class="en">Agentic roles · 6 specialized lenses</span></h2>
+    <div class="sub"><span class="es">El "vibe coder" generalista cede paso a 6 roles agénticos especializados.</span><span class="en">The generalist "vibe coder" gives way to 6 specialized agentic roles.</span></div>
+  </div>
+</div>
+
+<div class="roles">
+  <div class="role-c">
+    <div class="nm"><span class="es">Agentic Domain Analyst</span><span class="en">Agentic Domain Analyst</span></div>
+    <div class="res"><span class="es">Valida modelos de dominio. Asegura que el agente Tech Lead no contamine domain con detalles de infraestructura.</span><span class="en">Validates domain models. Ensures Tech Lead agent does not contaminate domain with infrastructure details.</span></div>
+    <div class="mod"><strong><span class="es">Interacción IA</span><span class="en">AI interaction</span></strong> <span class="es">: dirige por lógica de negocio.</span><span class="en">: directs through business logic.</span></div>
+  </div>
+  <div class="role-c">
+    <div class="nm"><span class="es">Agentic Database Designer</span><span class="en">Agentic Database Designer</span></div>
+    <div class="res"><span class="es">Normalización, índices, RLS policies. Valida que el SQL/NoSQL generado por la IA respete invariantes y performance.</span><span class="en">Normalization, indexes, RLS policies. Validates AI-generated SQL/NoSQL respects invariants and performance.</span></div>
+    <div class="mod"><strong><span class="es">Interacción IA</span><span class="en">AI interaction</span></strong> <span class="es">: valida outputs SQL/NoSQL.</span><span class="en">: validates SQL/NoSQL outputs.</span></div>
+  </div>
+  <div class="role-c">
+    <div class="nm"><span class="es">Agentic Tech Lead</span><span class="en">Agentic Tech Lead</span></div>
+    <div class="res"><span class="es">Supervisa integración entre agentes. Aplica juicio arquitectural sobre los diseños AI-generados.</span><span class="en">Oversees integration between agents. Applies architectural judgment over AI-generated designs.</span></div>
+    <div class="mod"><strong><span class="es">Interacción IA</span><span class="en">AI interaction</span></strong> <span class="es">: orquestación multi-agente.</span><span class="en">: multi-agent orchestration.</span></div>
+  </div>
+  <div class="role-c">
+    <div class="nm"><span class="es">Agentic QA Engineer</span><span class="en">Agentic QA Engineer</span></div>
+    <div class="res"><span class="es">Diseña la estrategia de testing y los edge cases. Dirige a generadores AI de tests pero la cobertura "rebelde" la añade el humano.</span><span class="en">Designs testing strategy and edge cases. Directs AI test generators, but "rebel" coverage is added by human.</span></div>
+    <div class="mod"><strong><span class="es">Interacción IA</span><span class="en">AI interaction</span></strong> <span class="es">: dirige test generators.</span><span class="en">: directs test generators.</span></div>
+  </div>
+  <div class="role-c">
+    <div class="nm"><span class="es">Agentic DevOps Engineer</span><span class="en">Agentic DevOps Engineer</span></div>
+    <div class="res"><span class="es">Pipelines + IaC + observabilidad + security scan. Supervisa el código de infra que la IA genera.</span><span class="en">Pipelines + IaC + observability + security scan. Oversees AI-generated infra code.</span></div>
+    <div class="mod"><strong><span class="es">Interacción IA</span><span class="en">AI interaction</span></strong> <span class="es">: revisa IaC + canary plans.</span><span class="en">: reviews IaC + canary plans.</span></div>
+  </div>
+  <div class="role-c">
+    <div class="nm"><span class="es">Agentic Architect</span><span class="en">Agentic Architect</span></div>
+    <div class="res"><span class="es">Methodology encoding: traduce los standards y principios de la organización a configuraciones AI ejecutables (.cursorrules, CLAUDE.md, agent specs). <span class="t td">DOC</span></span><span class="en">Methodology encoding: translates org standards and principles into executable AI configs (.cursorrules, CLAUDE.md, agent specs). <span class="t td">DOC</span></span></div>
+    <div class="mod"><strong><span class="es">Interacción IA</span><span class="en">AI interaction</span></strong> <span class="es">: setea constraints globales.</span><span class="en">: sets global constraints.</span></div>
+  </div>
+</div>
+
+<div class="co co-l">
+  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg>
+  <div class="co-body"><b><span class="es">El rol nuevo: Agentic Architect</span><span class="en">The new role: Agentic Architect</span></b><span class="es">Es la diferencia entre un equipo BMAD maduro y uno improvisado. El Architect <strong>codifica la metodología</strong> de modo que cualquier nuevo desarrollador entra al codebase y la IA ya sabe los standards. Sin él, cada developer reinventa los prompts y la heterogeneidad mata la mantenibilidad. <span class="t td">DOC</span></span><span class="en">It is the difference between a mature BMAD team and an improvised one. The Architect <strong>codifies methodology</strong> so any new developer joins the codebase and the AI already knows the standards. Without it, each developer reinvents prompts and heterogeneity kills maintainability. <span class="t td">DOC</span></span></div>
+</div>
+</section>
+
+<section id="mcp" class="sec">
+<div class="sh">
+  <div class="sn">05</div>
+  <div class="st2">
+    <h2>MCP <span class="es">· el bus de contexto del 2026</span><span class="en">· the 2026 context bus</span></h2>
+    <div class="sub"><span class="es">Model Context Protocol — el "USB-C para IA" que hace posible BMAD a escala enterprise.</span><span class="en">Model Context Protocol — the "USB-C for AI" that makes BMAD enterprise-scale possible.</span></div>
+  </div>
+</div>
+
+<p><span class="es">Anthropic liberó MCP en noviembre 2024. Para 2026 es el estándar de facto adoptado por OpenAI, Google y Microsoft <span class="t td">DOC</span>. Permite conectar agentes a datos (archivos, DBs), tools (APIs) y workflows con una <em>interfaz única estandarizada</em>. Sin MCP, cada agente requiere integración custom para cada fuente. Con MCP, plug-and-play.</span><span class="en">Anthropic released MCP in November 2024. By 2026 it is the de-facto standard adopted by OpenAI, Google, and Microsoft <span class="t td">DOC</span>. Allows connecting agents to data (files, DBs), tools (APIs), and workflows with a <em>single standardized interface</em>. Without MCP, each agent needs custom integration per source. With MCP, plug-and-play.</span></p>
+
+<h3><span class="es">Tres componentes</span><span class="en">Three components</span></h3>
+<div class="rules">
+  <div class="rule"><div class="rule-i"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="3" width="20" height="14" rx="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg></div><div><div class="rule-t">MCP Hosts</div><div class="rule-d"><span class="es">Cursor, Claude Desktop, Windsurf. Reciben el request del usuario e inician conexiones a context. <span class="t td">DOC</span></span><span class="en">Cursor, Claude Desktop, Windsurf. Receive user requests and initiate context connections. <span class="t td">DOC</span></span></div></div></div>
+  <div class="rule"><div class="rule-i"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/></svg></div><div><div class="rule-t">MCP Clients</div><div class="rule-d"><span class="es">Componentes dentro del host que gestionan la conexión, convierten requests a JSON-RPC y parsean respuestas. <span class="t td">DOC</span></span><span class="en">Components inside the host that manage connection, convert requests to JSON-RPC, parse responses. <span class="t td">DOC</span></span></div></div></div>
+  <div class="rule"><div class="rule-i"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 16V8a2 2 0 00-1-1.73l-7-4a2 2 0 00-2 0l-7 4A2 2 0 003 8v8a2 2 0 001 1.73l7 4a2 2 0 002 0l7-4A2 2 0 0021 16z"/></svg></div><div><div class="rule-t">MCP Servers</div><div class="rule-d"><span class="es">Servicios externos que exponen <em>Resources</em> (datos), <em>Tools</em> (acciones) y <em>Prompts</em> (templates). <span class="t td">DOC</span></span><span class="en">External services exposing <em>Resources</em> (data), <em>Tools</em> (actions), <em>Prompts</em> (templates). <span class="t td">DOC</span></span></div></div></div>
+</div>
+
+<h3><span class="es">Casos de adopción enterprise</span><span class="en">Enterprise adoption cases</span></h3>
+<div class="tw"><table>
+<thead><tr><th><span class="es">Empresa</span><span class="en">Company</span></th><th>MCP <span class="es">para</span><span class="en">for</span></th><th><span class="es">Capacidad habilitada</span><span class="en">Enabled capability</span></th></tr></thead>
+<tbody>
+<tr><td><strong>Red Hat OpenShift AI</strong></td><td><span class="es">Integración platform</span><span class="en">Platform integration</span></td><td><span class="es">Lifecycle management de servidores MCP · scanning + versionado en staging seguro <span class="t td">DOC</span></span><span class="en">MCP server lifecycle management · scanning + versioning in safe staging <span class="t td">DOC</span></span></td></tr>
+<tr><td><strong>Shopify</strong></td><td>Universal Commerce Protocol (UCP)</td><td><span class="es">Agentes 3rd-party descubren productos, consultan inventario en tiempo real, ejecutan transacciones <span class="t td">DOC</span></span><span class="en">3rd-party agents discover products, query real-time inventory, execute transactions <span class="t td">DOC</span></span></td></tr>
+<tr><td><strong>Advolve</strong></td><td><span class="es">Marketing automation</span><span class="en">Marketing automation</span></td><td><span class="es">Monitoreo ROAS en tiempo real · generación automática de variantes de landing <span class="t td">DOC</span></span><span class="en">Real-time ROAS monitoring · automatic landing variant generation <span class="t td">DOC</span></span></td></tr>
+<tr><td><strong>Stripe</strong></td><td><span class="es">"Minions" internos</span><span class="en">Internal "Minions"</span></td><td><span class="es">Slack → agente AI escribe código → CI verde → PR · 1.000+ PRs/semana <span class="t td">DOC</span></span><span class="en">Slack → AI agent writes code → green CI → PR · 1,000+ PRs/week <span class="t td">DOC</span></span></td></tr>
+</tbody>
+</table></div>
+
+<div class="prompt-block">
+<span class="hd"><span class="es">MCP setup mínimo · 2026</span><span class="en">Minimum MCP setup · 2026</span></span>
+<pre>// .cursor/mcp.json — configuración estándar BMAD
+{
+  "mcpServers": {
+    "notion":  { "command": "npx", "args": ["@notion/mcp-server"] },
+    "figma":   { "command": "npx", "args": ["@figma/mcp-server"] },
+    "git":     { "command": "git-mcp-server", "args": ["--repo", "."] },
+    "postgres":{ "command": "npx", "args": ["@pg/mcp-server", "--readonly"] }
+  }
+}
+
+// El agente ahora "ve":
+//   <code>specs/ → Notion</code>  ·  <code>design tokens → Figma</code>
+//   <code>codebase → Git</code>   ·  <code>schema → Postgres</code>
+// Y deja de inventar funciones que no existen.</pre>
+</div>
+</section>
+
+<section id="katas" class="sec">
+<div class="sh">
+  <div class="sn">06</div>
+  <div class="st2">
+    <h2><span class="es">5 Katas BMAD · Shu-Ha-Ri agéntico</span><span class="en">5 BMAD Katas · Agentic Shu-Ha-Ri</span></h2>
+    <div class="sub"><span class="es">Practicar la disciplina hasta que sea músculo, no espectáculo.</span><span class="en">Practice the discipline until it is muscle, not spectacle.</span></div>
+  </div>
+</div>
+
+<div class="kata-grid">
+  <div class="kata-c shu">
+    <div class="kata-num">KB-1 · <span class="es">Shu · Codificar 1 guideline</span><span class="en">Shu · Encode 1 guideline</span></div>
+    <div class="kata-name"><span class="es">Escribir CLAUDE.md mínimo · 30 min</span><span class="en">Write minimal CLAUDE.md · 30 min</span></div>
+    <div class="kata-obj"><span class="es">Toma una convención que tu equipo aplica de palabra (ej. "no try/catch genérico", "todos los DTOs con Zod"). Codifícala en CLAUDE.md y mide cuántos errores la IA evita en 5 generaciones siguientes.</span><span class="en">Take a verbal team convention (e.g., "no generic try/catch", "all DTOs with Zod"). Encode it in CLAUDE.md and measure how many errors AI avoids in next 5 generations.</span></div>
+    <div class="kata-step"><strong>1.</strong> <span class="es">Listar 3 convenciones implícitas.</span><span class="en">List 3 implicit conventions.</span></div>
+    <div class="kata-step"><strong>2.</strong> <span class="es">Codificarlas en CLAUDE.md.</span><span class="en">Encode them in CLAUDE.md.</span></div>
+    <div class="kata-step"><strong>3.</strong> <span class="es">Medir compliance en 5 PRs siguientes.</span><span class="en">Measure compliance in next 5 PRs.</span></div>
+    <div class="kata-crit"><span class="es">Reducción ≥ 50% de comentarios "fix style" en review.</span><span class="en">≥ 50% reduction in "fix style" review comments.</span></div>
+  </div>
+
+  <div class="kata-c shu">
+    <div class="kata-num">KB-2 · <span class="es">Shu · Correr BMAD básico</span><span class="en">Shu · Run basic BMAD</span></div>
+    <div class="kata-name"><span class="es">Spec → Test → Code · 45 min</span><span class="en">Spec → Test → Code · 45 min</span></div>
+    <div class="kata-obj"><span class="es">Toma una historia de usuario. Escribe la spec primero (B1). Pide al agente QA que escriba los tests (B6). Solo entonces, pide al agente Tech Lead que implemente.</span><span class="en">Take a user story. Write the spec first (B1). Ask QA agent to write tests (B6). Only then, ask Tech Lead agent to implement.</span></div>
+    <div class="kata-step"><strong>1.</strong> <span class="es">Spec versionada en repo.</span><span class="en">Spec versioned in repo.</span></div>
+    <div class="kata-step"><strong>2.</strong> <span class="es">Tests rojos antes que código.</span><span class="en">Red tests before code.</span></div>
+    <div class="kata-step"><strong>3.</strong> <span class="es">Implementación → tests verdes.</span><span class="en">Implementation → green tests.</span></div>
+    <div class="kata-crit"><span class="es">Tests ≥ 90% coverage · spec=código=tests trazables.</span><span class="en">Tests ≥ 90% coverage · spec=code=tests traceable.</span></div>
+  </div>
+
+  <div class="kata-c ha">
+    <div class="kata-num">KB-3 · <span class="es">Ha · Componer guidelines + guardrails</span><span class="en">Ha · Compose guidelines + guardrails</span></div>
+    <div class="kata-name"><span class="es">Pipeline E2E con gates · 60 min</span><span class="en">E2E pipeline with gates · 60 min</span></div>
+    <div class="kata-obj"><span class="es">CI con 6 gates: TS strict, ESLint, Deptrac (boundaries), tests E2E ≥ 90%, security scan, no-secrets pre-commit. Si el equipo no los pasa, no hay merge.</span><span class="en">CI with 6 gates: TS strict, ESLint, Deptrac (boundaries), E2E tests ≥ 90%, security scan, no-secrets pre-commit. If the team does not pass, no merge.</span></div>
+    <div class="kata-step"><strong>1.</strong> <span class="es">.github/workflows con 6 gates.</span><span class="en">.github/workflows with 6 gates.</span></div>
+    <div class="kata-step"><strong>2.</strong> <span class="es">Branch protection rules en main.</span><span class="en">Branch protection rules on main.</span></div>
+    <div class="kata-step"><strong>3.</strong> <span class="es">Documentar cómo skipear (solo sponsor).</span><span class="en">Document how to skip (sponsor only).</span></div>
+    <div class="kata-crit"><span class="es">0 PRs mergeados con gate rojo en 30 días.</span><span class="en">0 PRs merged with red gate in 30 days.</span></div>
+  </div>
+
+  <div class="kata-c ha">
+    <div class="kata-num">KB-4 · <span class="es">Ha · Refactor agéntico controlado</span><span class="en">Ha · Controlled agentic refactor</span></div>
+    <div class="kata-name"><span class="es">Module legacy → hexagonal · 90 min</span><span class="en">Legacy module → hexagonal · 90 min</span></div>
+    <div class="kata-obj"><span class="es">Toma un módulo legacy. Tests E2E primero verdes. Pide al agente Tech Lead refactor a hexagonal con adversarial review (B9). Compara cyclomatic complexity antes/después.</span><span class="en">Take a legacy module. Green E2E tests first. Ask Tech Lead agent for hexagonal refactor with adversarial review (B9). Compare cyclomatic complexity before/after.</span></div>
+    <div class="kata-step"><strong>1.</strong> <span class="es">Tests E2E 100% verdes pre-refactor.</span><span class="en">100% green E2E tests pre-refactor.</span></div>
+    <div class="kata-step"><strong>2.</strong> <span class="es">Refactor con 2 agentes (proponente + adversarial).</span><span class="en">Refactor with 2 agents (proposer + adversarial).</span></div>
+    <div class="kata-step"><strong>3.</strong> <span class="es">Diff revisado por humano antes de merge.</span><span class="en">Diff human-reviewed before merge.</span></div>
+    <div class="kata-crit"><span class="es">Coverage no baja · cyclomatic complexity ↓ ≥ 30%.</span><span class="en">Coverage does not drop · cyclomatic complexity ↓ ≥ 30%.</span></div>
+  </div>
+
+  <div class="kata-c ri">
+    <div class="kata-num">KB-5 · <span class="es">Ri · Orquestar pipeline multi-agente E2E</span><span class="en">Ri · Orchestrate E2E multi-agent pipeline</span></div>
+    <div class="kata-name"><span class="es">6 agentes · feature en prod · 3 horas</span><span class="en">6 agents · feature in prod · 3 hours</span></div>
+    <div class="kata-obj"><span class="es">Brief de negocio → Domain Analyst (modelo) → DB Designer (schema) → Tech Lead (impl) → QA (tests) → DevOps (deploy) → Architect (review). Cada uno con MCP, en sandbox aislado.</span><span class="en">Business brief → Domain Analyst (model) → DB Designer (schema) → Tech Lead (impl) → QA (tests) → DevOps (deploy) → Architect (review). Each with MCP, in isolated sandbox.</span></div>
+    <div class="kata-step"><strong>1.</strong> <span class="es">Pipeline declarativo en YAML.</span><span class="en">Declarative pipeline in YAML.</span></div>
+    <div class="kata-step"><strong>2.</strong> <span class="es">HITL gate antes de prod (B10).</span><span class="en">HITL gate before prod (B10).</span></div>
+    <div class="kata-step"><strong>3.</strong> <span class="es">Canary 1→100% con auto-rollback.</span><span class="en">Canary 1→100% with auto-rollback.</span></div>
+    <div class="kata-crit"><span class="es">Feature en prod · 0 incidentes en 7 días · cycle-time medido.</span><span class="en">Feature in prod · 0 incidents in 7 days · measured cycle-time.</span></div>
+  </div>
+</div>
+
+<div class="co co-g">
+  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.65 1.65 0 00.33 1.82l.06.06a2 2 0 010 2.83 2 2 0 01-2.83 0l-.06-.06a1.65 1.65 0 00-1.82-.33 1.65 1.65 0 00-1 1.51V21a2 2 0 01-2 2 2 2 0 01-2-2v-.09A1.65 1.65 0 009 19.4a1.65 1.65 0 00-1.82.33l-.06.06a2 2 0 01-2.83 0 2 2 0 010-2.83l.06-.06a1.65 1.65 0 00.33-1.82 1.65 1.65 0 00-1.51-1H3a2 2 0 01-2-2 2 2 0 012-2h.09A1.65 1.65 0 004.6 9a1.65 1.65 0 00-.33-1.82l-.06-.06a2 2 0 010-2.83 2 2 0 012.83 0l.06.06a1.65 1.65 0 001.82.33H9a1.65 1.65 0 001-1.51V3a2 2 0 012-2 2 2 0 012 2v.09a1.65 1.65 0 001 1.51 1.65 1.65 0 001.82-.33l.06-.06a2 2 0 012.83 0 2 2 0 010 2.83l-.06.06a1.65 1.65 0 00-.33 1.82V9a1.65 1.65 0 001.51 1H21a2 2 0 012 2 2 2 0 01-2 2h-.09a1.65 1.65 0 00-1.51 1z"/></svg>
+  <div class="co-body"><b><span class="es">Regla de progresión BMAD</span><span class="en">BMAD progression rule</span></b><span class="es">No saltes katas. KB-5 sin KB-1 a KB-4 entrega un pipeline aparente pero con guidelines vagas, sin gates duros y sin sandbox real. Es vibe-coding disfrazado de BMAD. <span class="t ti">INFERENCIA</span></span><span class="en">Do not skip katas. KB-5 without KB-1 through KB-4 yields an apparent pipeline with vague guidelines, no hard gates, no real sandbox. It is vibe-coding disguised as BMAD. <span class="t ti">INFERENCE</span></span></div>
+</div>
+</section>
+
+<section id="antipatrones" class="sec">
+<div class="sh">
+  <div class="sn">07</div>
+  <div class="st2">
+    <h2><span class="es">Anti-patrones BMAD · 5 modos típicos de fallo</span><span class="en">BMAD anti-patterns · 5 typical failure modes</span></h2>
+    <div class="sub"><span class="es">Extraídos del notebook BMAD-D7 (NotebookLM · 112 fuentes) <span class="t td">DOC</span>.</span><span class="en">Extracted from the BMAD-D7 notebook (NotebookLM · 112 sources) <span class="t td">DOC</span>.</span></div>
+  </div>
+</div>
+
+<p style="font-size:.78rem;color:var(--g600);margin:.4rem 0 .8rem;font-family:var(--fm)"><strong><span class="es">Lectura:</span><span class="en">Reading:</span></strong> <span class="es">cada tarjeta = anti-patrón · señal temprana · intervención · dueño que firma la corrección.</span><span class="en">each card = anti-pattern · early signal · intervention · owner who signs the fix.</span></p>
+
+<div class="anti">
+  <div class="ap"><b><span class="es">1. Vibe coding disfrazado</span><span class="en">1. Disguised vibe coding</span></b><span class="s"><span class="es">Señal: el equipo dice "hacemos BMAD" pero mergea PRs sin gates ni revisión humana.</span><span class="en">Signal: team says "we do BMAD" but merges PRs without gates or human review.</span></span><em><span class="es">Auditoría: contar PRs últimos 30 días con gates rojos mergeados. Si &gt; 0, el equipo no hace BMAD · Owner: Architect.</span><span class="en">Audit: count last-30-day PRs merged with red gates. If &gt; 0, team is not doing BMAD · Owner: Architect.</span></em></div>
+  <div class="ap"><b><span class="es">2. Context overload</span><span class="en">2. Context overload</span></b><span class="s"><span class="es">Señal: prompt único de 5.000 tokens. El modelo se confunde, "olvida" lo central.</span><span class="en">Signal: single 5,000-token prompt. Model gets confused, "forgets" central instructions.</span></span><em><span class="es">Aplicar B3 (document sharding): cada agente recibe el shard mínimo · Owner: Architect.</span><span class="en">Apply B3 (document sharding): each agent gets minimum shard · Owner: Architect.</span></em></div>
+  <div class="ap"><b><span class="es">3. Role overstepping</span><span class="en">3. Role overstepping</span></b><span class="s"><span class="es">Señal: el agente Tech Lead empieza a escribir migraciones SQL "porque puede".</span><span class="en">Signal: Tech Lead agent starts writing SQL migrations "because it can".</span></span><em><span class="es">Tools whitelisting por agente: Tech Lead no tiene acceso a herramientas de DB Designer · Owner: Architect.</span><span class="en">Per-agent tools whitelisting: Tech Lead has no access to DB Designer tools · Owner: Architect.</span></em></div>
+  <div class="ap"><b><span class="es">4. Spec paralysis</span><span class="en">4. Spec paralysis</span></b><span class="s"><span class="es">Señal: 3 semanas escribiendo specs, 0 PRs mergeados. La spec se vuelve fin, no medio.</span><span class="en">Signal: 3 weeks writing specs, 0 PRs merged. Spec becomes the end, not the means.</span></span><em><span class="es">Timebox de 1 día por spec · si excede, pasar a vibe coding (parte I) y refactor después · Owner: Tech Lead.</span><span class="en">1-day timebox per spec · if exceeded, fall back to vibe coding (Part I) and refactor later · Owner: Tech Lead.</span></em></div>
+  <div class="ap"><b><span class="es">5. Drifting specifications</span><span class="en">5. Drifting specifications</span></b><span class="s"><span class="es">Señal: la spec en Notion dice X, el código hace Y, el test prueba Z.</span><span class="en">Signal: spec in Notion says X, code does Y, test proves Z.</span></span><em><span class="es">Spec en repo (no Notion); diff entre spec y código fail-fast en CI · Owner: Architect.</span><span class="en">Spec in repo (not Notion); diff between spec and code fail-fast in CI · Owner: Architect.</span></em></div>
+  <div class="ap"><b><span class="es">Bonus: model-class mismatch</span><span class="en">Bonus: model-class mismatch</span></b><span class="s"><span class="es">Señal: usar Opus para reformatear JSON · usar Haiku para arquitectura crítica.</span><span class="en">Signal: using Opus to reformat JSON · using Haiku for critical architecture.</span></span><em><span class="es">B7 scale-adaptive: matriz "tarea → modelo" en CLAUDE.md · auditar costos weekly · Owner: DevOps.</span><span class="en">B7 scale-adaptive: "task → model" matrix in CLAUDE.md · audit costs weekly · Owner: DevOps.</span></em></div>
+  <div class="ap"><b><span class="es">Bonus: HITL teatral</span><span class="en">Bonus: theatrical HITL</span></b><span class="s"><span class="es">Señal: el "human approval" es un click en 3 segundos sin leer el diff.</span><span class="en">Signal: "human approval" is a 3-second click without reading the diff.</span></span><em><span class="es">Aprobación requiere screenshot del diff anotado · sponsor audita random sample · Owner: Sponsor + Architect.</span><span class="en">Approval requires screenshot of annotated diff · sponsor audits random sample · Owner: Sponsor + Architect.</span></em></div>
+  <div class="ap"><b><span class="es">Bonus: agent sprawl</span><span class="en">Bonus: agent sprawl</span></b><span class="s"><span class="es">Señal: el equipo tiene 14 agentes, nadie sabe quién hace qué.</span><span class="en">Signal: team has 14 agents, no one knows who does what.</span></span><em><span class="es">Catálogo versionado de agentes (B8 agent-as-code) · 1 PR para añadir un agente nuevo · Owner: Architect.</span><span class="en">Versioned agent catalog (B8 agent-as-code) · 1 PR to add a new agent · Owner: Architect.</span></em></div>
+</div>
+
+<div class="co co-c">
+  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg>
+  <div class="co-body"><b><span class="es">El criterio del sponsor</span><span class="en">Sponsor criterion</span></b><span class="es">Si en una auditoría 30 días aparecen ≥ 2 anti-patrones, el equipo está haciendo "BMAD-washing": maquillaje de proceso sobre vibe coding. Solución: pausar nuevas features 1 semana, reentrenar al equipo en KB-1 a KB-3, reiniciar con Architect designado. <span class="t ti">INFERENCIA</span></span><span class="en">If a 30-day audit shows ≥ 2 anti-patterns, the team is doing "BMAD-washing": process makeup over vibe coding. Fix: pause new features for 1 week, retrain team on KB-1 to KB-3, restart with designated Architect. <span class="t ti">INFERENCE</span></span></div>
+</div>
+</section>
+
+<section id="casos" class="sec">
+<div class="sh">
+  <div class="sn">08</div>
+  <div class="st2">
+    <h2><span class="es">Casos reales de BMAD en producción · 2026</span><span class="en">Real BMAD-in-production cases · 2026</span></h2>
+    <div class="sub"><span class="es">No teoría, no demo: producción crítica con métricas medibles.</span><span class="en">Not theory, not demo: critical production with measurable metrics.</span></div>
+  </div>
+</div>
+
+<h3><span class="es">Stripe Minions · escalando a 1.000+ PRs/semana</span><span class="en">Stripe Minions · scaling to 1,000+ PRs/week</span></h3>
+<p><span class="es">Stripe construyó un sistema interno llamado "Minions" donde un developer escribe en Slack <code>@minion: agrega métrica X al dashboard Y</code> y un agente AI <strong>especializado escribe el código, pasa los tests CI, abre el PR</strong>. El developer humano hace la revisión final y mergea. El sistema combina B2 (multi-agent specialization) + B5 (quality gates) + B10 (HITL en merge). Resultado: throughput de desarrollo escaló sin aumento proporcional de headcount. <span class="t td">DOC</span></span><span class="en">Stripe built an internal system called "Minions" where a developer writes on Slack <code>@minion: add metric X to dashboard Y</code> and a specialized AI agent <strong>writes the code, passes CI tests, opens the PR</strong>. The human developer does the final review and merges. System combines B2 (multi-agent specialization) + B5 (quality gates) + B10 (HITL on merge). Result: development throughput scaled without proportional headcount growth. <span class="t td">DOC</span></span></p>
+
+<h3><span class="es">Shopify · Universal Commerce Protocol (UCP)</span><span class="en">Shopify · Universal Commerce Protocol (UCP)</span></h3>
+<p><span class="es">Shopify se posicionó como la infraestructura fundacional para "agentic commerce": vía integración profunda con MCP, permite a agentes 3rd-party <strong>descubrir productos, consultar inventario en tiempo real, ejecutar transacciones</strong> de forma autónoma. Internamente, su agente "Sidekick" deja a los merchants optimizar tiendas y analizar datos en lenguaje natural — transforma el commerce de modelo "browsing-led" a "AI-led delegation". <span class="t td">DOC</span></span><span class="en">Shopify positioned itself as foundational infrastructure for "agentic commerce": via deep MCP integration, it lets 3rd-party agents <strong>discover products, query real-time inventory, execute transactions</strong> autonomously. Internally, its "Sidekick" agent lets merchants optimize stores and analyze data in natural language — transforms commerce from "browsing-led" to "AI-led delegation" model. <span class="t td">DOC</span></span></p>
+
+<h3><span class="es">Advolve · agentic marketing automation</span><span class="en">Advolve · agentic marketing automation</span></h3>
+<p><span class="es">En el sector de performance marketing, la "máquina Advolve" combina Claude Code y Cursor para <strong>automatizar 100% creative ad y bid adjustments</strong>. Vía MCP, sus agentes monitorean ROAS en tiempo real y generan automáticamente nuevas variantes de landing basadas en hooks que están funcionando. Resultado: incrementaron significativamente conversion MQL→SQL al producir experiencias hyper-personalizadas que un equipo humano no podría producir a la misma escala. <span class="t td">DOC</span></span><span class="en">In performance marketing, the "Advolve machine" combines Claude Code and Cursor to <strong>fully automate ad creative and bid adjustments</strong>. Via MCP, its agents monitor ROAS in real time and automatically generate new landing variants based on trending hooks. Result: significantly increased MQL→SQL conversion by producing hyper-personalized experiences a human team could not produce at scale. <span class="t td">DOC</span></span></p>
+
+<h3><span class="es">TELUS Digital · 13.000 soluciones AI desplegadas</span><span class="en">TELUS Digital · 13,000 AI solutions deployed</span></h3>
+<p><span class="es">TELUS Digital trata cada agente como <em>infraestructura</em>, no como herramienta individual. Cada agente vive en MCP, está versionado con agent-as-code (B8), tiene métricas de adopción. Resultado: 30% más rápido shipping y 500.000 horas de labor manual ahorradas en un solo año. La diferencia con quien fracasa es exactamente el rigor metodológico: ningún agente "experimental" llega a producción sin pasar por la pipeline completa. <span class="t td">DOC</span></span><span class="en">TELUS Digital treats every agent as <em>infrastructure</em>, not individual tool. Each agent lives in MCP, is versioned with agent-as-code (B8), has adoption metrics. Result: 30% faster shipping and 500,000 manual labor hours saved in a single year. Difference with those who fail is exactly methodological rigor: no "experimental" agent reaches production without passing through the full pipeline. <span class="t td">DOC</span></span></p>
+
+<div class="co co-i">
+  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+  <div class="co-body"><b><span class="es">Patrón común a los 4 casos</span><span class="en">Common pattern across 4 cases</span></b><span class="es">Stripe, Shopify, Advolve y TELUS no consideran a los agentes como "asistentes". Los tratan como <strong>componentes de la infraestructura productiva</strong>: con SLAs, observabilidad, versionado, RBAC. Esa es la diferencia operativa entre BMAD y vibe coding. <span class="t ti">INFERENCIA</span> integradora.</span><span class="en">Stripe, Shopify, Advolve, and TELUS do not consider agents as "assistants". They treat them as <strong>production-infrastructure components</strong>: with SLAs, observability, versioning, RBAC. That is the operational difference between BMAD and vibe coding. Integrative <span class="t ti">INFERENCE</span>.</span></div>
+</div>
+</section>
+
+<section id="gates" class="sec">
+<div class="sh">
+  <div class="sn">09</div>
+  <div class="st2">
+    <h2><span class="es">Quality Gates · 6 capas de defensa</span><span class="en">Quality Gates · 6 defense layers</span></h2>
+    <div class="sub"><span class="es">El agente propone, el gate dispone, el humano firma.</span><span class="en">Agent proposes, gate disposes, human signs.</span></div>
+  </div>
+</div>
+
+<div class="tw"><table>
+<thead><tr><th><span class="es">Gate</span><span class="en">Gate</span></th><th><span class="es">Qué valida</span><span class="en">What it validates</span></th><th><span class="es">Bloqueante</span><span class="en">Blocking</span></th><th><span class="es">Owner</span><span class="en">Owner</span></th></tr></thead>
+<tbody>
+<tr><td><strong>G1 · TS strict + types</strong></td><td><span class="es">No <code>any</code> · 100% type coverage</span><span class="en">No <code>any</code> · 100% type coverage</span></td><td><span class="es">Sí</span><span class="en">Yes</span></td><td>Tech Lead</td></tr>
+<tr><td><strong>G2 · ESLint + Prettier</strong></td><td><span class="es">Style + reglas custom del equipo</span><span class="en">Style + team custom rules</span></td><td><span class="es">Sí</span><span class="en">Yes</span></td><td>Architect</td></tr>
+<tr><td><strong>G3 · Deptrac (boundaries)</strong></td><td><span class="es">Layer boundaries de hexagonal · sin imports prohibidos</span><span class="en">Hexagonal layer boundaries · no forbidden imports</span></td><td><span class="es">Sí</span><span class="en">Yes</span></td><td>Architect</td></tr>
+<tr><td><strong>G4 · Tests E2E ≥ 90%</strong></td><td><span class="es">Cobertura significativa, no líneas vacías</span><span class="en">Meaningful coverage, no empty lines</span></td><td><span class="es">Sí</span><span class="en">Yes</span></td><td>QA Engineer</td></tr>
+<tr><td><strong>G5 · Security scan</strong></td><td><span class="es">CVE conocidas · secrets · RLS · auth gates</span><span class="en">Known CVEs · secrets · RLS · auth gates</span></td><td><span class="es">Sí</span><span class="en">Yes</span></td><td>SecOps</td></tr>
+<tr><td><strong>G6 · Adversarial review</strong></td><td><span class="es">Agente "skeptical" busca asunciones optimistas</span><span class="en">"Skeptical" agent hunts for optimistic assumptions</span></td><td><span class="es">Sí · max 3 issues abiertos</span><span class="en">Yes · max 3 open issues</span></td><td>Architect</td></tr>
+<tr><td><strong>G7 · HITL approval</strong></td><td><span class="es">Diff leído por humano · screenshot anotado</span><span class="en">Human-read diff · annotated screenshot</span></td><td><span class="es">Sí · solo merge a main</span><span class="en">Yes · main merge only</span></td><td>Tech Lead</td></tr>
+<tr><td><strong>G8 · Canary 1→100%</strong></td><td><span class="es">Auto-rollback si métricas degradan</span><span class="en">Auto-rollback if metrics degrade</span></td><td><span class="es">Sí · solo prod</span><span class="en">Yes · prod only</span></td><td>DevOps</td></tr>
+</tbody>
+</table></div>
+
+<h3><span class="es">Trade-offs documentados (los seniors los conocen)</span><span class="en">Documented trade-offs (seniors know them)</span></h3>
+<div class="tradeoff">
+  <div class="to-c">
+    <div class="to-d"><span class="es">Velocidad vs. rigor</span><span class="en">Speed vs. rigor</span></div>
+    <div class="to-r"><span class="es">8 gates suenan a fricción. Bien implementados, son cycle-time predecible.</span><span class="en">8 gates sound like friction. Well-implemented, they yield predictable cycle-time.</span></div>
+    <div class="to-pc"><div class="pro"><strong>Pro</strong><span class="es">Cycle-time predecible · 0 PRs rotos a prod.</span><span class="en">Predictable cycle-time · 0 broken PRs to prod.</span></div><div class="con"><strong>Con</strong><span class="es">Setup inicial 2-3 semanas; equipo se siente más lento al principio.</span><span class="en">Initial setup 2-3 weeks; team feels slower at first.</span></div></div>
+  </div>
+  <div class="to-c">
+    <div class="to-d"><span class="es">Multi-agent vs. mono-agent</span><span class="en">Multi-agent vs. mono-agent</span></div>
+    <div class="to-r"><span class="es">6 agentes especializados son superiores a 1 generalista, pero requieren MCP + agent-as-code maduros.</span><span class="en">6 specialized agents beat 1 generalist, but require mature MCP + agent-as-code.</span></div>
+    <div class="to-pc"><div class="pro"><strong>Pro</strong><span class="es">Menos hallucinations · contexto más limpio · roles claros.</span><span class="en">Fewer hallucinations · cleaner context · clear roles.</span></div><div class="con"><strong>Con</strong><span class="es">Costos de tokens 2-3× · curva de aprendizaje del equipo.</span><span class="en">Token costs 2-3× · team learning curve.</span></div></div>
+  </div>
+  <div class="to-c">
+    <div class="to-d"><span class="es">Spec en repo vs. Notion</span><span class="en">Spec in repo vs. Notion</span></div>
+    <div class="to-r"><span class="es">Notion es cómodo para PMs; el repo es trazable para CI. La drift entre ambos es el anti-patrón #5.</span><span class="en">Notion is PM-friendly; repo is CI-traceable. Drift between them is anti-pattern #5.</span></div>
+    <div class="to-pc"><div class="pro"><strong>Pro</strong><span class="es">Repo: spec=código=tests trazables.</span><span class="en">Repo: spec=code=tests traceable.</span></div><div class="con"><strong>Con</strong><span class="es">PMs y sponsors no acostumbrados a leer markdown en repo.</span><span class="en">PMs and sponsors not used to reading repo markdown.</span></div></div>
+  </div>
+</div>
+
+<h3><span class="es">Métricas de éxito BMAD</span><span class="en">BMAD success metrics</span></h3>
+<div class="kpi-grid">
+  <div class="kpi-c"><div class="v">0</div><div class="l"><span class="es">PRs con gate rojo</span><span class="en">PRs with red gate</span></div><div class="d"><span class="es">en últimos 30 días</span><span class="en">in last 30 days</span></div></div>
+  <div class="kpi-c"><div class="v">≥ 90%</div><div class="l"><span class="es">Test coverage</span><span class="en">Test coverage</span></div><div class="d"><span class="es">significativa, no líneas vacías</span><span class="en">meaningful, not empty lines</span></div></div>
+  <div class="kpi-c"><div class="v">&lt; 1</div><div class="l"><span class="es">Incidente / 7 días</span><span class="en">Incident / 7 days</span></div><div class="d"><span class="es">post-deploy de feature</span><span class="en">post feature deploy</span></div></div>
+  <div class="kpi-c"><div class="v">100%</div><div class="l"><span class="es">Cobertura HITL</span><span class="en">HITL coverage</span></div><div class="d"><span class="es">acciones irreversibles aprobadas</span><span class="en">irreversible actions approved</span></div></div>
+  <div class="kpi-c"><div class="v">&lt; 5%</div><div class="l"><span class="es">Drift spec↔código</span><span class="en">Spec↔code drift</span></div><div class="d"><span class="es">medido por CI fail-fast</span><span class="en">measured via CI fail-fast</span></div></div>
+  <div class="kpi-c"><div class="v">≤ 3</div><div class="l"><span class="es">Issues adversariales</span><span class="en">Adversarial issues</span></div><div class="d"><span class="es">abiertos por PR</span><span class="en">open per PR</span></div></div>
+</div>
+</section>
+
+<section id="checklist" class="sec">
+<div class="sh">
+  <div class="sn">10</div>
+  <div class="st2">
+    <h2><span class="es">Checklist del equipo BMAD</span><span class="en">BMAD team checklist</span></h2>
+    <div class="sub"><span class="es">Imprimir. Pegar al monitor. Revisar antes de cada feature.</span><span class="en">Print. Stick on monitor. Review before every feature.</span></div>
+  </div>
+</div>
+
+<div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:1rem">
+<div class="checklist">
+<h4>Plan · <span class="es">antes de codear</span><span class="en">before coding</span></h4>
+<ul>
+<li><span class="es">Spec en repo · versionada</span><span class="en">Spec in repo · versioned</span></li>
+<li><span class="es">Decomposición en tareas atómicas</span><span class="en">Decomposition into atomic tasks</span></li>
+<li><span class="es">Quality gates definidos · 8 gates</span><span class="en">Quality gates defined · 8 gates</span></li>
+<li><span class="es">Roles agénticos asignados</span><span class="en">Agentic roles assigned</span></li>
+<li><span class="es">CLAUDE.md / .cursorrules cargado</span><span class="en">CLAUDE.md / .cursorrules loaded</span></li>
+<li><span class="es">MCP servers conectados</span><span class="en">MCP servers connected</span></li>
+</ul>
+</div>
+
+<div class="checklist">
+<h4>Execute · <span class="es">durante el sprint</span><span class="en">during sprint</span></h4>
+<ul>
+<li><span class="es">QA agent escribe tests primero</span><span class="en">QA agent writes tests first</span></li>
+<li><span class="es">Tech Lead implementa contra tests rojos</span><span class="en">Tech Lead implements against red tests</span></li>
+<li><span class="es">Workflows aislados por agente</span><span class="en">Per-agent isolated workflows</span></li>
+<li><span class="es">Document sharding aplicado</span><span class="en">Document sharding applied</span></li>
+<li><span class="es">Modelos correctos por tarea (B7)</span><span class="en">Right models per task (B7)</span></li>
+</ul>
+</div>
+
+<div class="checklist">
+<h4>Verify · <span class="es">antes de mergear</span><span class="en">before merge</span></h4>
+<ul>
+<li><span class="es">Gates G1–G6 verdes</span><span class="en">Gates G1–G6 green</span></li>
+<li><span class="es">Adversarial review pasada</span><span class="en">Adversarial review passed</span></li>
+<li><span class="es">Diff leído por humano · screenshot anotado</span><span class="en">Diff human-read · annotated screenshot</span></li>
+<li><span class="es">HITL approval registrado</span><span class="en">HITL approval logged</span></li>
+<li><span class="es">Plan de canary documentado</span><span class="en">Canary plan documented</span></li>
+</ul>
+</div>
+
+<div class="checklist">
+<h4>Operate · <span class="es">después del ship</span><span class="en">after ship</span></h4>
+<ul>
+<li><span class="es">Cycle-time medido (commit→merge→prod)</span><span class="en">Cycle-time measured (commit→merge→prod)</span></li>
+<li><span class="es">Incidentes en 7 días registrados</span><span class="en">7-day incidents logged</span></li>
+<li><span class="es">Drift spec↔código auditado</span><span class="en">Spec↔code drift audited</span></li>
+<li><span class="es">¿Anti-patrón apareció? Documentar</span><span class="en">Anti-pattern appeared? Document</span></li>
+<li><span class="es">Métricas BMAD actualizadas en dashboard</span><span class="en">BMAD metrics refreshed in dashboard</span></li>
+</ul>
+</div>
+</div>
+
+<h3><span class="es">Adaptaciones por contexto</span><span class="en">Context adaptations</span></h3>
+<div class="tw"><table>
+<thead><tr><th style="width:280px"><span class="es">Escenario</span><span class="en">Scenario</span></th><th><span class="es">Ajuste recomendado</span><span class="en">Recommended adjustment</span></th></tr></thead>
+<tbody>
+<tr><td><strong><span class="es">Sector regulado (banca · salud)</span><span class="en">Regulated sector (banking · health)</span></strong></td><td><span class="es">G5 + G7 obligatorios · audit trail por evento · revisión legal antes del canary 50%</span><span class="en">Mandatory G5 + G7 · audit trail per event · legal review before 50% canary</span></td></tr>
+<tr><td><strong><span class="es">Equipo &lt; 5 developers</span><span class="en">Team &lt; 5 developers</span></strong></td><td><span class="es">Empezar con 3 roles agénticos (TL, QA, DevOps); añadir el resto cuando MRR &gt; $50K</span><span class="en">Start with 3 agentic roles (TL, QA, DevOps); add rest when MRR &gt; $50K</span></td></tr>
+<tr><td><strong><span class="es">Migración desde vibe coding</span><span class="en">Migration from vibe coding</span></strong></td><td><span class="es">Mes 1: KB-1 + KB-2 a todos. Mes 2: KB-3 piloto. Mes 3: full pipeline</span><span class="en">Month 1: KB-1 + KB-2 for all. Month 2: KB-3 pilot. Month 3: full pipeline</span></td></tr>
+<tr><td><strong><span class="es">Cliente externo · contrato fixed-price</span><span class="en">External client · fixed-price contract</span></strong></td><td><span class="es">Spec firmada antes de Execute · drift es change-request · Architect del cliente firma G7</span><span class="en">Spec signed before Execute · drift is change-request · client Architect signs G7</span></td></tr>
+<tr><td><strong><span class="es">Sin Architect designado</span><span class="en">No designated Architect</span></strong></td><td><span class="es">No iniciar BMAD: contratar o asignar Architect part-time antes (≥ 20% FTE)</span><span class="en">Do not start BMAD: hire or assign part-time Architect first (≥ 20% FTE)</span></td></tr>
+<tr><td><strong><span class="es">Token budget limitado</span><span class="en">Limited token budget</span></strong></td><td><span class="es">B7 scale-adaptive estricto · Haiku/Sonnet para 80% de tareas · Opus solo en architecture</span><span class="en">Strict B7 scale-adaptive · Haiku/Sonnet for 80% of tasks · Opus only in architecture</span></td></tr>
+</tbody>
+</table></div>
+</section>
+
+<section id="apendices" class="sec">
+<div class="sh">
+  <div class="sn">11</div>
+  <div class="st2">
+    <h2><span class="es">Apéndices: glosario · FAQ · referencias</span><span class="en">Appendices: glossary · FAQ · references</span></h2>
+    <div class="sub"><span class="es">Para volver cuando un término te confunda o un sponsor te pregunte.</span><span class="en">Come back when a term confuses you or a sponsor asks.</span></div>
+  </div>
+</div>
+
+<h3><span class="es">Glosario · 18 términos esenciales</span><span class="en">Glossary · 18 essential terms</span></h3>
+<div class="gloss">
+  <div class="gloss-i"><b>BMAD</b><span class="d"><span class="es">Breakthrough Method for Agile AI-Driven Development. Disciplina de delegar implementación a agentes especializados con guidelines explícitas, ejecutar en workflows aislados con quality gates, y verificar con HITL.</span><span class="en">Breakthrough Method for Agile AI-Driven Development. Discipline of delegating implementation to specialized agents with explicit guidelines, running them in isolated workflows with quality gates, and verifying with HITL.</span></span></div>
+  <div class="gloss-i"><b>PEV (Plan-Execute-Verify)</b><span class="d"><span class="es">Loop estructurado de BMAD: humano planea, agentes ejecutan, humano verifica. Reemplaza prompting informal de vibe coding.</span><span class="en">BMAD's structured loop: human plans, agents execute, human verifies. Replaces vibe coding's informal prompting.</span></span></div>
+  <div class="gloss-i"><b>Agentic Engineering</b><span class="d"><span class="es">Término de Karpathy 2026 para la disciplina post-vibe-coding. 99% código por IA, 1% humano define calidad arquitectural.</span><span class="en">Karpathy's 2026 term for post-vibe-coding discipline. 99% AI-coded, 1% human defines architectural quality.</span></span></div>
+  <div class="gloss-i"><b>SDD (Spec-Driven Development)</b><span class="d"><span class="es">La spec se escribe antes y se trata como código de primera clase: versionada, testable, en repo.</span><span class="en">Spec written first and treated as first-class code: versioned, testable, in repo.</span></span></div>
+  <div class="gloss-i"><b>MCP (Model Context Protocol)</b><span class="d"><span class="es">Estándar Anthropic 2024, "USB-C para IA". Conecta agentes a Resources, Tools y Prompts vía JSON-RPC.</span><span class="en">Anthropic standard 2024, "USB-C for AI". Connects agents to Resources, Tools, Prompts via JSON-RPC.</span></span></div>
+  <div class="gloss-i"><b>HITL (Human-in-the-Loop)</b><span class="d"><span class="es">Diseño donde acciones irreversibles requieren aprobación humana explícita.</span><span class="en">Design where irreversible actions require explicit human approval.</span></span></div>
+  <div class="gloss-i"><b>Document Sharding</b><span class="d"><span class="es">Fragmentación intencional del contexto: cada agente recibe solo el shard que necesita.</span><span class="en">Intentional context fragmentation: each agent receives only the shard it needs.</span></span></div>
+  <div class="gloss-i"><b>Workflow Isolation</b><span class="d"><span class="es">Cada agente corre en sandbox aislado: errores no se propagan, blast radius contenido.</span><span class="en">Each agent runs in isolated sandbox: errors do not propagate, blast radius contained.</span></span></div>
+  <div class="gloss-i"><b>Adversarial Review</b><span class="d"><span class="es">Un agente "skeptical" revisa lo que otro agente produjo. Caza asunciones optimistas y vulnerabilidades.</span><span class="en">A "skeptical" agent reviews what another agent produced. Hunts optimistic assumptions and vulnerabilities.</span></span></div>
+  <div class="gloss-i"><b>Agent-as-Code</b><span class="d"><span class="es">La configuración del agente (prompt, tools, guardrails) vive en el repo, versionada como cualquier código.</span><span class="en">Agent config (prompt, tools, guardrails) lives in repo, versioned like any code.</span></span></div>
+  <div class="gloss-i"><b>Methodology Encoding</b><span class="d"><span class="es">Función central del Agentic Architect: traducir standards organizacionales a configuraciones AI ejecutables.</span><span class="en">Agentic Architect's core function: translate organizational standards into executable AI configurations.</span></span></div>
+  <div class="gloss-i"><b>Quality Gate</b><span class="d"><span class="es">Validador automático bloqueante en CI/CD. Si falla, no merge — sin excepciones humanas.</span><span class="en">Automatic blocking validator in CI/CD. If it fails, no merge — no human exceptions.</span></span></div>
+  <div class="gloss-i"><b>Spec Paralysis</b><span class="d"><span class="es">Anti-patrón: el equipo escribe specs perfectas pero nunca codea. La spec es fin, no medio.</span><span class="en">Anti-pattern: team writes perfect specs but never codes. Spec is end, not means.</span></span></div>
+  <div class="gloss-i"><b>Drifting Specifications</b><span class="d"><span class="es">Anti-patrón: la spec dice X, el código hace Y, el test prueba Z. Sin trazabilidad.</span><span class="en">Anti-pattern: spec says X, code does Y, test proves Z. No traceability.</span></span></div>
+  <div class="gloss-i"><b>Context Overload</b><span class="d"><span class="es">Anti-patrón: prompt único de 5K+ tokens. El modelo se confunde y "olvida" lo central.</span><span class="en">Anti-pattern: single 5K+ token prompt. Model gets confused and "forgets" central instructions.</span></span></div>
+  <div class="gloss-i"><b>Role Overstepping</b><span class="d"><span class="es">Anti-patrón: el agente Tech Lead empieza a hacer trabajo de DB Designer "porque puede".</span><span class="en">Anti-pattern: Tech Lead agent starts doing DB Designer work "because it can".</span></span></div>
+  <div class="gloss-i"><b>Scale-Adaptive Intelligence</b><span class="d"><span class="es">Modelos pequeños para tareas mecánicas; modelos grandes para razonamiento. No usar Opus para lint.</span><span class="en">Small models for mechanical tasks; large models for reasoning. Do not use Opus for lint.</span></span></div>
+  <div class="gloss-i"><b>BMAD-washing</b><span class="d"><span class="es">Maquillaje de proceso: el equipo dice "hace BMAD" pero mergea PRs sin gates ni revisión humana.</span><span class="en">Process makeup: team claims "we do BMAD" but merges PRs without gates or human review.</span></span></div>
+</div>
+
+<h3>FAQ <span class="es">del agentic engineer</span><span class="en">for agentic engineers</span></h3>
+<div class="faq">
+  <div class="faq-i">
+    <div class="faq-q"><span class="es">"¿BMAD reemplaza vibe coding?"</span><span class="en">"Does BMAD replace vibe coding?"</span></div>
+    <div class="faq-a"><span class="es">No. Vibe coding sigue siendo la mejor herramienta para <em>idea→prototipo &lt; 30 min</em>. BMAD optimiza <em>prototipo→producción</em>. El workshop completo es un combo: parte I para velocidad, parte II para escalar sin colapso. <span class="t tc">CONTEXTO</span></span><span class="en">No. Vibe coding remains the best tool for <em>idea→prototype &lt; 30 min</em>. BMAD optimizes <em>prototype→production</em>. The full workshop is a combo: Part I for speed, Part II to scale without collapse. <span class="t tc">CONTEXT</span></span></div>
+  </div>
+  <div class="faq-i">
+    <div class="faq-q"><span class="es">"¿Cuánto cuesta migrar de vibe coding a BMAD?"</span><span class="en">"How much does migrating from vibe coding to BMAD cost?"</span></div>
+    <div class="faq-a"><span class="es">2–3 semanas de setup inicial: definir 6 agentes, escribir CLAUDE.md, configurar 8 gates, conectar MCP servers, capacitar al equipo en KB-1 a KB-3. Después: cycle-time predecible, &lt; 1 incidente / 7 días. <span class="t ti">INFERENCIA</span> sobre patrones de adopción reportados.</span><span class="en">2–3 weeks of initial setup: define 6 agents, write CLAUDE.md, configure 8 gates, connect MCP servers, train team on KB-1 to KB-3. After: predictable cycle-time, &lt; 1 incident / 7 days. <span class="t ti">INFERENCE</span> over reported adoption patterns.</span></div>
+  </div>
+  <div class="faq-i">
+    <div class="faq-q"><span class="es">"¿Necesito 6 agentes desde el día 1?"</span><span class="en">"Do I need 6 agents from day 1?"</span></div>
+    <div class="faq-a"><span class="es">No. Empieza con 3: Tech Lead, QA, DevOps. Añade Architect cuando el equipo &gt; 5 developers, Domain Analyst cuando hay lógica de negocio densa, DB Designer cuando hay multi-tenant o multi-DB. <span class="t ti">INFERENCIA</span> de práctica progresiva.</span><span class="en">No. Start with 3: Tech Lead, QA, DevOps. Add Architect when team &gt; 5 developers, Domain Analyst when business logic is dense, DB Designer when multi-tenant or multi-DB. <span class="t ti">INFERENCE</span> from progressive practice.</span></div>
+  </div>
+  <div class="faq-i">
+    <div class="faq-q"><span class="es">"¿Qué hago si el cliente no tiene Architect?"</span><span class="en">"What if client has no Architect?"</span></div>
+    <div class="faq-a"><span class="es">No iniciar BMAD. El Architect es quien codifica la metodología; sin él cada developer reinventa los prompts y la heterogeneidad mata mantenibilidad. Solución: rol part-time (≥ 20% FTE) o el Tech Lead asume responsabilidad doble por 2 sprints mientras se contrata. <span class="t td">DOC</span></span><span class="en">Do not start BMAD. The Architect codifies methodology; without it each developer reinvents prompts and heterogeneity kills maintainability. Solution: part-time role (≥ 20% FTE) or Tech Lead takes dual responsibility for 2 sprints while hiring. <span class="t td">DOC</span></span></div>
+  </div>
+  <div class="faq-i">
+    <div class="faq-q"><span class="es">"¿Y si los gates ralentizan al equipo?"</span><span class="en">"What if gates slow the team?"</span></div>
+    <div class="faq-a"><span class="es">Las primeras 2-3 semanas: sí. Después: no. Stripe procesa 1.000+ PRs/semana <em>con</em> gates <span class="t td">DOC</span>. La fricción no es del gate — es del setup inicial. Quien quita gates "para ir más rápido" termina haciendo BMAD-washing.</span><span class="en">First 2-3 weeks: yes. Later: no. Stripe processes 1,000+ PRs/week <em>with</em> gates <span class="t td">DOC</span>. Friction is not the gate's — it is the initial setup's. Whoever removes gates "to go faster" ends up doing BMAD-washing.</span></div>
+  </div>
+  <div class="faq-i">
+    <div class="faq-q"><span class="es">"¿Cómo medir si BMAD está funcionando?"</span><span class="en">"How to measure if BMAD is working?"</span></div>
+    <div class="faq-a"><span class="es">6 KPIs: 0 PRs con gate rojo en 30 d, ≥ 90% test coverage significativa, &lt; 1 incidente / 7 d, 100% acciones irreversibles aprobadas HITL, &lt; 5% drift spec↔código, ≤ 3 issues adversariales por PR. Si los 6 verdes, BMAD funciona.</span><span class="en">6 KPIs: 0 PRs with red gate in 30 d, ≥ 90% meaningful test coverage, &lt; 1 incident / 7 d, 100% HITL-approved irreversible actions, &lt; 5% spec↔code drift, ≤ 3 adversarial issues per PR. If all 6 green, BMAD works.</span></div>
+  </div>
+  <div class="faq-i">
+    <div class="faq-q"><span class="es">"¿Cuál es la frontera con system design tradicional?"</span><span class="en">"Where is the frontier with traditional system design?"</span></div>
+    <div class="faq-a"><span class="es">BMAD <em>incorpora</em> system design tradicional (hexagonal, CQRS, DDD), no lo reemplaza. La diferencia es que esos patrones se enforce <em>via agente</em>, no via dolor humano de code review repetitivo. <span class="t ti">INFERENCIA</span></span><span class="en">BMAD <em>incorporates</em> traditional system design (hexagonal, CQRS, DDD), does not replace it. Difference: those patterns are enforced <em>via agent</em>, not via repetitive human code-review pain. <span class="t ti">INFERENCE</span></span></div>
+  </div>
+</div>
+
+<h3><span class="es">Etiquetas de evidencia (cómo leer este playbook)</span><span class="en">Evidence tags (how to read this playbook)</span></h3>
+<ul style="font-size:.85rem">
+  <li><span class="t td">DOC</span> <span class="es">— claim respaldado por la fuente citada (research deep · 67 fuentes web + cross-query del notebook BMAD-D7 con 112 fuentes).</span><span class="en">— claim backed by cited source (deep research · 67 web sources + cross-query of BMAD-D7 notebook with 112 sources).</span></li>
+  <li><span class="t ti">INFERENCIA</span> <span class="es">— inferencia razonada del autor a partir de las fuentes; no afirmación directa.</span><span class="en">— author's reasoned inference from sources; not direct claim.</span></li>
+  <li><span class="t ts">SUPUESTO</span> <span class="es">— asunción explícita pendiente de validación contextual.</span><span class="en">— explicit assumption pending contextual validation.</span></li>
+  <li><span class="t tc">CONTEXTO</span> <span class="es">— afirmación basada en el deck del workshop AI Native Production (PDF original del taller).</span><span class="en">— claim based on the AI Native Production workshop deck (original PDF).</span></li>
+</ul>
+
+<h3><span class="es">Fuentes principales (selección)</span><span class="en">Primary sources (selection)</span></h3>
+<div class="tw"><table>
+<thead><tr><th><span class="es">Fuente</span><span class="en">Source</span></th><th><span class="es">Aporte clave</span><span class="en">Key contribution</span></th></tr></thead>
+<tbody>
+<tr><td><strong>BMAD-D7 NotebookLM (112 fuentes)</strong></td><td><span class="es">10 prácticas core · 5 anti-patrones · 6 roles agénticos.</span><span class="en">10 core practices · 5 anti-patterns · 6 agentic roles.</span></td></tr>
+<tr><td><strong>Karpathy 2026 (entrevistas + Twitter)</strong></td><td><span class="es">Definición de "agentic engineering" · 99/1 ratio.</span><span class="en">"Agentic engineering" definition · 99/1 ratio.</span></td></tr>
+<tr><td><strong>nxcode 2026 — Agentic Engineering Guide</strong></td><td><span class="es">Framework PEV · roles · transición desde vibe coding.</span><span class="en">PEV framework · roles · transition from vibe coding.</span></td></tr>
+<tr><td><strong>TechRxiv — Vibe Programmers to Agentic Architects</strong></td><td><span class="es">Marco académico de los nuevos roles · methodology encoding.</span><span class="en">Academic framework for new roles · methodology encoding.</span></td></tr>
+<tr><td><strong>IBM — Agentic Engineering</strong></td><td><span class="es">Definición operativa · industrialización de agentes.</span><span class="en">Operative definition · agent industrialization.</span></td></tr>
+<tr><td><strong>Anthropic 2024 — MCP Spec</strong></td><td><span class="es">Estándar Model Context Protocol · 3 componentes.</span><span class="en">Model Context Protocol standard · 3 components.</span></td></tr>
+<tr><td><strong>Red Hat 2026 — MCP en OpenShift AI</strong></td><td><span class="es">Lifecycle management · scanning + versionado enterprise.</span><span class="en">Lifecycle management · enterprise scanning + versioning.</span></td></tr>
+<tr><td><strong>Stripe Engineering Blog — Minions</strong></td><td><span class="es">Caso 1.000+ PRs/semana · agentes especializados.</span><span class="en">1,000+ PRs/week case · specialized agents.</span></td></tr>
+<tr><td><strong>Shopify — Universal Commerce Protocol</strong></td><td><span class="es">MCP nativo · agentic commerce · Sidekick.</span><span class="en">Native MCP · agentic commerce · Sidekick.</span></td></tr>
+<tr><td><strong>47Billion 2026 — AI Agents in Production</strong></td><td><span class="es">Frameworks · protocolos · qué realmente funciona.</span><span class="en">Frameworks · protocols · what really works.</span></td></tr>
+<tr><td><strong>a16z — A Deep Dive Into MCP</strong></td><td><span class="es">Adopción cross-platform · futuro del tooling AI.</span><span class="en">Cross-platform adoption · future of AI tooling.</span></td></tr>
+<tr><td><strong>Workshop deck (PDF original)</strong></td><td><span class="es">Tesis del workshop · estructura 2 días · contexto comercial Colombia.</span><span class="en">Workshop thesis · 2-day structure · Colombia commercial context.</span></td></tr>
+</tbody>
+</table></div>
+
+<p style="font-size:.78rem;color:var(--g500);margin-top:1.5rem;font-family:var(--fm)"><span class="es">Investigación profunda completa: 67 fuentes web + cross-query con notebook BMAD-D7 (112 fuentes específicas de BMAD), PROD-NotebookLM y MET-Autoestudio-IA-Blueprint vía NotebookLM MCP. Reporte académico de 35.242 caracteres disponible bajo solicitud.</span><span class="en">Full deep research: 67 web sources + cross-query with BMAD-D7 notebook (112 BMAD-specific sources), PROD-NotebookLM, and MET-Autoestudio-IA-Blueprint via NotebookLM MCP. 35,242-character academic report available on request.</span></p>
+
+<h3><span class="es">Versionado · changelog del playbook</span><span class="en">Versioning · playbook changelog</span></h3>
+<ul style="font-size:.85rem">
+  <li><span class="es"><strong>v2026.04 · 25 abr 2026</strong> — primera versión. Generada como parte II del bundle "Workshop AI Native Production" en companion con <a href="playbook-vibe-coding-velocidad-visual-v2026.04.html" style="color:var(--o);font-weight:700">Vibe Coding · Velocidad Visual</a>. Investigación: 67 fuentes web vía NotebookLM Deep Research + cross-notebook BMAD-D7 (112 fuentes). Etiquetas <span class="t td">DOC</span> · <span class="t ti">INFERENCIA</span> · <span class="t ts">SUPUESTO</span> · <span class="t tc">CONTEXTO</span> aplicadas.</span><span class="en"><strong>v2026.04 · Apr 25 2026</strong> — first version. Generated as Part II of the "Workshop AI Native Production" bundle, companion with <a href="playbook-vibe-coding-velocidad-visual-v2026.04.html" style="color:var(--o);font-weight:700">Vibe Coding · Visual Speed</a>. Research: 67 web sources via NotebookLM Deep Research + BMAD-D7 cross-notebook (112 sources). <span class="t td">DOC</span> · <span class="t ti">INFERENCE</span> · <span class="t ts">ASSUMPTION</span> · <span class="t tc">CONTEXT</span> tags applied.</span></li>
+</ul>
+</section>
+
+</main>
+
+<footer class="site-footer">
+<div class="footer-inner">
+  <div class="footer-row">
+    <div class="footer-logo">Metodolog<span class="ia">IA</span></div>
+    <div class="footer-badges">
+      <span class="footer-badge">Human First, AI-Next</span>
+      <span class="footer-badge"><span class="es">Playbook · BMAD</span><span class="en">Playbook · BMAD</span></span>
+      <span class="footer-badge"><span class="es">Vagaje II/II</span><span class="en">Part II/II</span></span>
+      <span class="footer-badge">2026</span>
+      <span class="footer-badge">v2026.04</span>
+      <span class="footer-badge">CC BY-NC-SA 4.0</span>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <span>&copy; 2026 MetodologIA. <span class="es">Por Javier Montaño · CEO MetodologIA</span><span class="en">By Javier Montaño · CEO MetodologIA</span></span>
+    <a href="playbook-vibe-coding-velocidad-visual-v2026.04.html"><span class="es">← Parte I · Vibe Coding · Velocidad Visual</span><span class="en">← Part I · Vibe Coding · Visual Speed</span></a>
+    <a href="https://metodologia.info" target="_blank" rel="noopener noreferrer">metodologia.info</a>
+    <a href="https://metodologia.info/legal/terminos" target="_blank" rel="noopener noreferrer"><span class="es">Términos</span><span class="en">Terms</span></a>
+    <a href="https://metodologia.info/legal/privacidad" target="_blank" rel="noopener noreferrer"><span class="es">Privacidad</span><span class="en">Privacy</span></a>
+  </div>
+</div>
+</footer>
+
+<script>
+/* ── Language Toggle ── */
+function toggleLang() {
+  const html = document.documentElement;
+  const isEn = html.lang === 'en';
+  html.lang = isEn ? 'es' : 'en';
+  const btn = document.getElementById('langBtn');
+  if (btn) btn.textContent = isEn ? 'EN' : 'ES';
+  try { localStorage.setItem('pb-lang', html.lang); } catch(e) {}
+}
+(function initLang() {
+  try {
+    const saved = localStorage.getItem('pb-lang');
+    if (saved === 'en') {
+      document.documentElement.lang = 'en';
+      const btn = document.getElementById('langBtn');
+      if (btn) btn.textContent = 'ES';
+    }
+  } catch(e) {}
+})();
+</script>
+
+</body>
+</html>

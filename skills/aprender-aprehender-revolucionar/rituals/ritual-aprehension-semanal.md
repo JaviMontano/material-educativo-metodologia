@@ -1,151 +1,148 @@
-# Ritual · Aprehensión Semanal · 1 hora
+# Ritual · Aprehensión Semanal · 60 min
 
-> Convertir el conocimiento de la semana en aprehensión defendible. *Si no puedes explicar sin notas, no aprehendiste.*
+> Si no puedes explicar sin notas, no aprehendiste. v1.1.0.
 
-**Cadencia**: 1× / semana · viernes preferido (cierre semanal)
-**Tiempo**: 60 minutos
-**Calendar invite**: `assets/calendar-invites/aprehension-semanal.ics`
+| Concepto | Valor |
+|---|---|
+| Cadencia | 1× / sem · viernes preferido (cierre de ciclo) |
+| Tiempo | 60 min Default · 30 min Express · 120 min Marathon pre-evento |
+| Output | Bitácora `~/aprender-aprehender/bitacora/{YYYY-WW}.md` con ratio FUERTE/PARCIAL/DÉBIL |
+| Calendar invite | `assets/calendar-invites/aprehension-semanal.ics` |
 
----
+`[FUENTE-PRIMARIA]` Playbook v2.0.0 §Rituales + Workflow 3 §Semana de aprehensión.
+`[DOC]` Retrieval + spaced practice combinados producen 50%+ retención a 6 meses vs re-lectura (Karpicke & Roediger 2008, *Science* 319).
 
-## Por qué este ritual
+## Contrato
 
-Aprender ≠ aprehender. Sabes algo cuando puedes explicarlo sin notas, ante audiencia exigente, bajo presión. Una vez por semana, validas ese estándar contra lo que aprendiste.
+| Hace | No hace |
+|---|---|
+| Convierte conocimiento (Aprender) en aprehensión (defendible) | Crea conocimiento nuevo · solo consolida lo de la semana |
+| Detecta espejismo de fluidez antes del evento real | Garantiza pasar QBR/cert · es paso necesario, no suficiente |
+| Genera flashcards Anki + Spaced Repetition agendado | Reemplaza la práctica con humano real (necesaria pre-evento) |
 
-**Sin este ritual** → fluidez ilusoria · espejismo de comprensión.
-**Con este ritual** → defensa garantizada · confianza real.
+`[LÍMITE]` Si no aprendiste nada nuevo esta semana · ritual aplica a re-evaluar lo del trimestre · NO saltar (es la trampa).
+`[SUPUESTO]` Tienes NotebookLM con coach activo (Prompt #2) · sin esto, retrieval pierde 40% del valor.
 
----
-
-## Protocolo · 60 minutos
+## Protocolo · 60 min Default
 
 ### 0:00-0:05 · Setup
 
 ```
 1. Abrir NotebookLM con coach activo (Prompt #2)
-2. Cierrar todas las notas, libros, web (kata-recuperacion-ciega)
+2. Cerrar TODAS las notas, libros, web (kata-recuperacion-ciega)
 3. Hoja en blanco / documento nuevo
-4. Iniciar timer 20 min
+4. Timer 20 min visible
 ```
+
+`[CRITERIO-ACEPTACIÓN]` 1 tab del tema abierta = ritual fallido (igual que kata-recuperacion-ciega). Reset.
 
 ### 0:05-0:25 · RETRIEVAL (20 min)
 
 ```
-TAREA: recuperar ciego de los conceptos clave de esta semana.
+TAREA: recuperar ciego de los conceptos clave de la semana.
 
-1. Identificar el concepto más importante que aprendiste esta semana
-   (1 frase · sin mirar nada)
-
-2. Escribir TODO lo que recuerdes sobre ese concepto:
+1. Identificar el concepto más importante aprendido (1 frase ciega)
+2. Escribir TODO lo que recuerdes:
    - Qué es
    - Por qué importa
-   - Cómo se relaciona con conceptos previos
+   - Relaciones con conceptos previos
    - Ejemplos concretos
    - Trade-offs
-
-3. SIN volver a las notas, marca con [?] lo que dudas.
-
-4. Detener cuando agotaste tu memoria (no antes).
+3. Sin volver a notas · marca [?] lo que dudas
+4. Detener cuando agotaste tu memoria (no antes)
 ```
 
 ### 0:25-0:45 · EVALUACIÓN (20 min)
 
 ```
-TAREA: comparar lo recuperado vs la realidad.
+TAREA: comparar lo recuperado vs realidad.
 
-1. Abrir notas / NotebookLM / fuente original.
-
-2. Para cada elemento de tu retrieval, marca:
+1. Abrir notas / NotebookLM / fuente original
+2. Para cada elemento del retrieval, marca:
    ✅ FUERTE  · recuperaste correctamente sin pista
-   🟡 PARCIAL · idea correcta pero faltó profundidad o ejemplo
+   🟡 PARCIAL · idea OK · faltó profundidad o ejemplo
    ❌ DÉBIL   · falló · concepto erróneo o gap fundamental
-
-3. Para cada [DÉBIL], pregunta a NotebookLM con Coach activo:
-   "¿Cuál es la diferencia entre [mi versión incorrecta] y la
-    versión correcta? Hazme una pregunta socrática para que yo
-    descubra mi error."
-
-4. Documentar gaps específicos en
-   `~/aprender-aprehender/bitacora/{YYYY-WW}.md`
+3. Para cada DÉBIL, pregunta a coach:
+   "Diferencia entre [mi versión incorrecta] y la correcta.
+    Hazme pregunta socrática para descubrir mi error."
+4. Documentar gaps en `~/aprender-aprehender/bitacora/{YYYY-WW}.md`
 ```
+
+`[CASO-BORDE]` Si TODO retrieval queda DÉBIL · semana fue masiva o no estudiaste con método · re-Workflow 2 sobre el subtema más crítico.
 
 ### 0:45-0:55 · REPARACIÓN (10 min)
 
 ```
-TAREA: cerrar gaps · pero NO re-leer todo.
+TAREA: cerrar gaps · NO re-leer todo.
 
-Para cada [DÉBIL]:
+Para cada DÉBIL:
 1. Estudiar SOLO ese gap específico (no todo el concepto)
-2. Generar flashcard en NotebookLM:
+2. Generar flashcard:
    - Front: pregunta abierta sobre el gap
    - Back: respuesta correcta + por qué
 3. Programar Spaced Repetition:
-   - Revisión en 1 día
-   - Revisión en 3 días
-   - Revisión en 1 semana
-   - Revisión en 1 mes
+   - +1 día · +3 días · +1 sem · +1 mes
 ```
+
+`[TRADE-OFF]` La tentación de re-estudiar el concepto completo cuesta 30+ min · estudiar solo el gap específico cuesta 5 min con misma mejora · 6× más eficiente.
 
 ### 0:55-1:00 · FEYNMAN MICRO (5 min)
 
 ```
-TAREA: prueba final · explicar uno de los conceptos sin notas.
+TAREA: prueba final.
 
 1. Tomar 1 concepto que marcaste FUERTE
-2. Explicarlo en voz alta (o grabar audio)
-3. Audiencia: niño de 12 años · sin jerga
-4. 3 minutos máximo
-
-Si te trabas o usas jerga → no era tan FUERTE como creías · marcar
-para repaso.
-
-Si fluyes natural → confirmas Escala 3 en ese concepto.
+2. Explicar en voz alta o grabar audio · 3 min máx
+3. Audiencia: niño 12 años · sin jerga
+4. Veredicto:
+   - Fluye natural → confirmas Escala 3 en ese concepto
+   - Trabas o jerga → no era tan FUERTE como creías · marcar repaso
 ```
 
----
+## Reglas duras
 
-## Reglas de oro
+| Regla | Por qué |
+|---|---|
+| NUNCA saltarlo "porque tuve mucho trabajo" | La semana sin tiempo es exactamente cuando lo necesitas · 60 min protegidos = 5 días sin acumular gaps |
+| NUNCA retrieval con notas abiertas | Defeats el propósito · Recognition ≠ Recall |
+| NUNCA aceptar "creo que entendí" | Si todo PARCIAL, ritual funciona · si todo FUERTE pero falla Feynman = espejismo |
 
-### NUNCA saltarlo "porque tuve mucho trabajo"
+## Anti-patrones top-3 graves
 
-La semana donde "no tienes tiempo" es exactamente cuando lo necesitas. 60 min protegidos = 5 días de productividad sin acumular gaps.
-
-### NUNCA hacer retrieval con notas abiertas
-
-Defeats el propósito. Recognition ≠ Recall. Cierra TODO.
-
-### NUNCA aceptar "creo que entendí"
-
-Si después del retrieval marcas todo PARCIAL, no estás engañándote → está bien · el ritual funciona.
-
-Si marcas todo FUERTE en retrieval pero fallas el Feynman → estás en el espejismo de fluidez.
-
----
+| # | Anti-patrón | Detección | Antídoto |
+|---|---|---|---|
+| 1 | Saltar el ritual en semanas saturadas | 2-3 sem consecutivas sin bitácora | 60 min protegidos · es la inversión que evita 5 días de re-trabajo |
+| 2 | Marcar todo FUERTE sin probar Feynman | Auto-eval optimista · Feynman expone | El paso 0:55-1:00 es no-negociable · audio obligatorio |
+| 3 | Reparación sin Spaced Repetition agendado | Flashcards creadas · nunca repasadas | Agendar +1d/+3d/+1sem/+1mes EN CALENDARIO inmediato |
 
 ## Variantes
 
-### Express · 30 min (semanas saturadas)
+| Modo | Tiempo | Cuándo |
+|---|---|---|
+| **Express** | 30 min · 1 concepto · sin Marathon | Semanas saturadas · mejor 30 min/sem que 0 |
+| **Default** | 60 min · 2-3 conceptos | Por defecto · viernes |
+| **Marathon** | 120 min · semana clave pre-evento | Pre-QBR/cert · 5+ conceptos + Feynman audio × 3 |
+
+### Express · 30 min
 
 ```
-0:00-0:15 Retrieval (1 concepto)
-0:15-0:25 Evaluación + reparación
-0:25-0:30 Feynman micro
+0:00-0:15 · Retrieval (1 concepto)
+0:15-0:25 · Evaluación + reparación
+0:25-0:30 · Feynman micro
 ```
 
-Trade-off: cubres menos conceptos. Mejor 30 min/semana que 0.
+`[TRADE-OFF]` Cubre menos conceptos · prioriza el más crítico de la semana.
 
-### Marathon · 2 horas (semana clave pre-evento)
+### Marathon · 120 min pre-evento
 
 ```
-0:00-0:30 Retrieval múltiples conceptos
-0:30-1:00 Evaluación profunda
-1:00-1:30 Reparación + flashcards Anki
-1:30-2:00 Feynman a 3 conceptos · audio grabado
+0:00-0:30 · Retrieval múltiples conceptos (3-5)
+0:30-1:00 · Evaluación profunda · interrogatorio coach
+1:00-1:30 · Reparación + flashcards Anki
+1:30-2:00 · Feynman a 3 conceptos · audio grabado
 ```
 
----
-
-## Documentación · bitácora semanal
+## Bitácora semanal · template
 
 Archivo: `~/aprender-aprehender/bitacora/{YYYY-WW}.md`
 
@@ -153,51 +150,41 @@ Archivo: `~/aprender-aprehender/bitacora/{YYYY-WW}.md`
 # Aprehensión semana {YYYY-WW}
 
 ## Conceptos cubiertos esta semana
-
 - [Concepto 1] · status: FUERTE / PARCIAL / DÉBIL
 - [Concepto 2] · status: ...
 
 ## Retrieval ciego
-
 [lo que escribí sin mirar]
 
 ## Comparación con realidad
-
-[gaps detectados]
+[gaps detectados con [?]]
 
 ## Reparación ejecutada
-
-- Flashcards creadas: 3
-- Spaced Repetition agendado: días 1, 3, 7, 30
+- Flashcards creadas: N
+- Spaced Repetition agendado: días +1, +3, +7, +30
 
 ## Feynman test
-
 - Concepto elegido: [...]
 - Audio grabado: [link]
 - Veredicto: FLUYE / TRABA / JERGA
 
 ## Plan próxima semana
-
 - [...]
 ```
 
----
-
-## Métricas de éxito
-
-Después de 4 semanas con el ritual:
+## Métricas de éxito (4 sem)
 
 ```
-✅ Identifico mis [DÉBIL] sin negarlos
-✅ Ratio FUERTE / PARCIAL / DÉBIL mejora semana a semana
-✅ Tengo 12+ flashcards Anki creadas en spaced repetition
-✅ Mi último Feynman fluyó natural sin jerga
-✅ Self-confidence calibrada (no más Dunning-Kruger)
+[ ] Identifico mis DÉBIL sin negarlos
+[ ] Ratio FUERTE/PARCIAL/DÉBIL mejora semana a semana
+[ ] 12+ flashcards creadas en spaced repetition activo
+[ ] Último Feynman fluyó natural sin jerga
+[ ] Self-confidence calibrada (no más Dunning-Kruger)
 ```
 
----
+`[CRITERIO-ACEPTACIÓN]` Tras 4 semanas · si ratio FUERTE no sube · revisar dieta de estudio (probablemente recognition pasivo en exceso).
 
-## Calendar Invite
+## Calendar invite
 
 ```
 Día: viernes 17:00 (cierre de semana)
@@ -209,17 +196,12 @@ Bloque "deep work" sin notificaciones
 
 Archivo: `assets/calendar-invites/aprehension-semanal.ics`
 
----
+## Referencias cruzadas
 
-## Referencias
-
-- `references/01-seis-tecnicas-cognitivas.md` §Retrieval Practice
-- `katas/kata-recuperacion-ciega.md`
-- `katas/kata-feynman-novato.md`
-- `prompts/02-coach-system-prompt.md`
-- `prompts/08-evaluator-certification.md`
+- `references/01-seis-tecnicas-cognitivas.md` §Retrieval Practice §Spaced Repetition §Feynman
+- `katas/kata-recuperacion-ciega.md` · `kata-feynman-novato.md`
+- `prompts/02-coach-system-prompt.md` · `08-evaluator-certification.md`
 - `assets/calendar-invites/aprehension-semanal.ics`
+- `assets/plantilla-bitacora-aprehension.md`
 
----
-
-> **Ritual Aprehensión Semanal** del Playbook *Aprender · Aprehender · (R)Evolucionar* v2.0.0 · MetodologIA · CC BY-NC-SA 4.0
+> v1.1.0 · CC BY-NC-SA 4.0 · MetodologIA · `[FUENTE-PRIMARIA]` Playbook v2.0.0

@@ -1,424 +1,294 @@
-# 3 Modelos Fundacionales · Body of Knowledge · Capability · Maturity
+# 3 Modelos Fundacionales · BoK · Capability · Maturity
 
-> Los 3 modelos que estructuran cualquier dominio profesional. Son la **arquitectura mental** de cualquier disciplina que quieras dominar.
+> Arquitectura mental de cualquier dominio profesional. Sin los 3, navegas a ciegas. v1.1.0.
 
-**Fuente canónica**: Playbook *Aprender · Aprehender · (R)Evolucionar* v2.0.0 · §Modelos Fundacionales.
+`[FUENTE-PRIMARIA]` Playbook *Aprender · Aprehender · (R)Evolucionar* v2.0.0 §Modelos Fundacionales.
 
----
+## Por qué los 3 son complementarios
 
-## Por qué estos 3 modelos
+| Modelo | Pregunta | Metáfora | Sin él... |
+|---|---|---|---|
+| **Body of Knowledge (BoK)** | ¿QUÉ EXISTE? | Mapa del territorio | Estudias 3 temas y crees que es el campo |
+| **Capability Model** | ¿QUÉ DEBO SABER HACER? | Cinta de karate | Sabes mucho, ejecutas poco |
+| **Maturity Model** | ¿DÓNDE ESTOY? | GPS | Plan de viaje sin punto de partida |
 
-Cualquier dominio profesional puede mapearse en estas tres preguntas:
-
-| Modelo | Pregunta que responde | Metáfora |
-|---|---|---|
-| **Body of Knowledge (BoK)** | ¿QUÉ EXISTE en este campo? | Mapa del territorio |
-| **Capability Model** | ¿QUÉ NECESITO SABER HACER? | Cinta de karate (niveles) |
-| **Maturity Model** | ¿DÓNDE ESTOY HOY? | GPS / termómetro |
-
-Los 3 son complementarios. El BoK te dice qué hay (territorio). El Capability te dice qué necesitas (objetivo). El Maturity te dice dónde estás (posición). **Sin los 3, navegas a ciegas.**
+`[NUEVO-APORTE]` Los modelos NO son secuenciales rígidos. Si la urgencia es alta (3 días al evento), un Capability incompleto + Maturity diagnosticado supera a un BoK exhaustivo sin Capability. La asimetría es: **Capability + Maturity sin BoK** llega a ejecución; **BoK sin Capability** se queda en biblioteca.
 
 ---
 
 ## 1 · Body of Knowledge (BoK)
 
-### Definición
-**El mapa completo del dominio**: subtemas, conexiones interdisciplinarias, fuentes primarias, secundarias y terciarias, controversias abiertas, futuro del campo.
+**Definición**: mapa completo del dominio · subtemas · conexiones interdisciplinarias · fuentes 1°/2°/3° · controversias · futuro.
 
-### Por qué importa
-Sin BoK, no sabes qué desconoces. Te quedas estudiando los 3 temas que viste en redes sociales y crees que es todo el campo. **Las omisiones invisibles son el peor riesgo.**
+**Por qué importa**: las omisiones invisibles son el peor riesgo. No sabes qué desconoces.
 
-### Estructura canónica de un BoK
+### Estructura canónica
 
 ```
 [DOMINIO]
 ├── Definición precisa (1-3 frases)
-├── Historia / contexto (cómo llegamos aquí)
-├── Subtemas principales (ramas del campo)
-│   ├── Sub-rama A
-│   ├── Sub-rama B
-│   └── Sub-rama C
-├── Conexiones interdisciplinarias
-│   ├── Con [otro campo]
-│   └── Con [otra disciplina]
-├── Fuentes primarias (papers fundacionales, libros canónicos)
-├── Fuentes secundarias (autoridades del campo, conferencias)
-├── Fuentes terciarias (resúmenes, blogs, cursos derivados)
-├── Estado del arte actual
+├── Historia · contexto (cómo llegamos aquí)
+├── Subtemas principales (5-10 ramas)
+├── Conexiones interdisciplinarias (3+ campos)
+├── Fuentes primarias (papers fundacionales · libros canónicos)
+├── Fuentes secundarias (autoridades · conferencias)
+├── Fuentes terciarias (resúmenes · blogs · cursos derivados)
+├── Estado del arte (2024-2026)
 ├── Controversias / debates abiertos
 └── Direcciones futuras
 ```
 
-### Ejemplo · BoK de "Sistemas Distribuidos"
+### Ejemplo · Sistemas Distribuidos (subset)
 
 ```
-SISTEMAS DISTRIBUIDOS
-├── Definición: arquitecturas que coordinan múltiples nodos
-│   computacionales para servir una función unificada
-├── Historia:
-│   ├── 1970s: ARPANET, primeros protocolos
-│   ├── 1980s: NFS, RPC
-│   ├── 1990s: CORBA, web
-│   ├── 2000s: BigTable, MapReduce, Dynamo
-│   └── 2010s+: Kubernetes, microservicios, service mesh
-├── Subtemas:
-│   ├── Consenso (Paxos, Raft, PBFT)
-│   ├── Replicación (master-slave, multi-master, eventual)
-│   ├── Particionamiento (sharding, consistent hashing)
-│   ├── Tolerancia a fallas (failover, retry, circuit breaker)
-│   ├── Coordinación (Zookeeper, etcd)
-│   └── Comunicación (RPC, message queues, event sourcing)
-├── Conexiones:
-│   ├── Con Redes (TCP/IP, latencia, particiones)
-│   ├── Con Bases de Datos (CAP theorem, consistencia)
-│   └── Con Sistemas Operativos (concurrencia, locks)
-├── Fuentes primarias:
-│   ├── Lamport · Time, Clocks, and the Ordering of Events · 1978
-│   ├── Brewer · CAP Theorem · 2000
-│   ├── DeCandia et al. · Dynamo · 2007
-│   └── Ongaro & Ousterhout · Raft · 2014
-├── Autoridades: Lamport, Stonebraker, Dean, Helland, Kleppmann
-├── Controversias: ACID vs BASE, CAP vs PACELC, NewSQL
-└── Futuro: serverless distribuido, edge computing, CRDTs
+SUBTEMAS: Consenso (Paxos · Raft · PBFT) · Replicación · Particionamiento · Tolerancia a fallas · Coordinación · Comunicación
+CONEXIONES: Redes (TCP/IP · particiones) · Bases de Datos (CAP · consistencia) · OS (concurrencia · locks)
+FUENTES PRIMARIAS:
+  · Lamport · Time, Clocks · 1978 [FUENTE-PRIMARIA]
+  · Brewer · CAP Theorem · 2000 [FUENTE-PRIMARIA]
+  · DeCandia et al · Dynamo · 2007 [FUENTE-PRIMARIA]
+  · Ongaro & Ousterhout · Raft · 2014 [FUENTE-PRIMARIA]
+AUTORIDADES: Lamport · Stonebraker · Dean · Helland · Kleppmann
+CONTROVERSIAS: ACID vs BASE · CAP vs PACELC · NewSQL · serverless distribuido
 ```
 
-### Cómo generar un BoK con IA (Prompt #1)
+### Generación con IA · Prompt #1
 
-```
-Eres experto con 15+ años en [DOMINIO]. Genera el Body of Knowledge
-completo de [DOMINIO] estructurado así:
-1. Definición precisa (2-3 frases)
-2. Subtemas principales (5-10 ramas)
-3. Conexiones interdisciplinarias (3+ campos)
-4. Fuentes primarias (papers fundacionales o libros canónicos)
-5. Glosario mínimo (15-20 términos clave)
-6. Estado del arte actual
-7. Controversias abiertas
-8. Direcciones futuras
+→ `prompts/01-research-blueprint.md` instancia este modelo. **Triangulación 3+ IAs es mandatory** (Single-AI BoK es anti-patrón crítico §4-anti-patrones).
 
-Importante: cita autores y años para fuentes primarias.
-Sé exhaustivo, no superficial.
-```
+### Anti-patrón crítico · Single-AI BoK
 
-→ ver `prompts/01-research-blueprint.md`.
+| Coincidencia entre IAs | Veredicto |
+|---|---|
+| 3/3 | Verdad probable · alta confianza |
+| 2/3 | Verdad media · validar fuente primaria |
+| 1/3 | Sospechoso · investigar manual o descartar |
+| Contradicciones | **ORO** · ahí están las áreas de debate del campo |
 
-### Anti-patrón crítico: BoK de 1 sola IA
-
-> *"Las omisiones de una IA aparecen en otra. Triangular es mandatory."*
-> `[FUENTE-PRIMARIA: Playbook §Aprender · Triangulación Protocol]`
-
-Genera el BoK en **3 IAs distintas** (e.g., ChatGPT + Claude + Gemini), luego:
-
-```
-COINCIDENCIAS ENTRE LAS 3 → verdad probable, alta confianza
-COINCIDENCIAS ENTRE 2     → verdad media, validar con fuente primaria
-APARECE EN 1 SOLA         → sospechoso, investigar manual o descartar
-CONTRADICCIONES           → ORO · ahí están las áreas de debate
-```
-
-→ ver `katas/kata-triangulacion-3ias.md`, `prompts/04-cross-fact-check.md`.
+`[CASO-BORDE]` Si 3 IAs comparten misma omisión (entrenadas con corpus similar), la triangulación falla. Antídoto: agregar 1 fuente humana (paper recent en arXiv, libro canónico publicado >2 años atrás).
 
 ### Quality gate del BoK
 
-```
-[ ] Triangulado en ≥3 IAs
-[ ] ≥5 subtemas mapeados
-[ ] ≥3 fuentes primarias verificables (no terciarias)
-[ ] Glosario mínimo de 15 términos
-[ ] Conexiones interdisciplinarias mapeadas
-[ ] Concept map jerárquico generado (mermaid)
-```
+- [ ] Triangulado en ≥3 IAs distintas
+- [ ] ≥5 subtemas mapeados
+- [ ] ≥3 fuentes primarias verificables (no terciarias derivadas)
+- [ ] Glosario mín 15 términos con tag de evidencia
+- [ ] Conexiones interdisciplinarias mapeadas
+- [ ] Concept map jerárquico (mermaid) generado
+
+`[CRITERIO-ACEPTACIÓN]` 6/6 · sin esto el BoK es ilusión de completitud.
 
 ---
 
-## 2 · Capability Model (Modelo de Capacidades)
+## 2 · Capability Model
 
-### Definición
-**Lo que necesitas saber HACER, organizado en niveles de progresión**, tipo cintas de karate. Cada nivel tiene criterios de aceptación claros y demostraciones prácticas.
+**Definición**: lo que necesitas saber **HACER**, organizado en niveles con criterios testables.
 
-### Por qué importa
-El BoK te dice qué hay; el Capability te dice **qué subset DEBES manejar para tu rol/objetivo**. No todos necesitan todo el BoK. Un backend developer no necesita el subset completo de UI/UX.
+**Por qué importa**: el BoK te dice qué hay; el Capability te dice qué subset necesitas para tu rol/objetivo. Backend developer NO necesita Capability completo de UI/UX.
 
 ### Estructura canónica
 
 ```
 [ROL / OBJETIVO]
-├── NIVEL 1 · FUNDAMENTOS
-│   ├── Capability 1.1: [habilidad atómica]
-│   │   ├── Criterio aceptación: [test demostrable]
-│   │   └── Recurso: [referencia para aprender]
-│   ├── Capability 1.2: ...
+├── NIVEL 1 · FUNDAMENTOS (0-6 meses)
+│   ├── Capability 1.1 · habilidad atómica
+│   │   ├── Criterio aceptación: test demostrable
+│   │   └── Recurso para aprender
 │   └── ...
-├── NIVEL 2 · INTERMEDIO
-│   ├── Capability 2.1
-│   └── ...
-├── NIVEL 3 · AVANZADO
-│   ├── Capability 3.1
-│   └── ...
-└── NIVEL 4 · EXPERTO
-    └── ...
+├── NIVEL 2 · INTERMEDIO (6-18 m)
+├── NIVEL 3 · AVANZADO (18+ m)
+└── NIVEL 4 · EXPERTO (5+ años)
 ```
 
-### Ejemplo · Capability Model · "Backend Engineer Distribuido"
+### Ejemplo · Backend Engineer Distribuido (extracto)
 
-```
-NIVEL 1 · FUNDAMENTOS (0-6 meses)
-├── 1.1 Implementar REST API con CRUD completo
-│       Test: API funcional con auth + paginación + tests
-├── 1.2 Modelar relaciones en SQL con índices apropiados
-│       Test: schema normalizado + queries optimizadas
-├── 1.3 Manejar transacciones ACID
-│       Test: implementar transferencia bancaria sin race conditions
-└── 1.4 Configurar logging estructurado
-        Test: trazas de request end-to-end
+| Nivel | Capability | Criterio testable |
+|---|---|---|
+| 1 · Fund | REST API CRUD completo | API con auth + paginación + tests pasa |
+| 1 · Fund | Modelar SQL con índices | Schema normalizado · queries optimizadas con EXPLAIN |
+| 1 · Fund | Transacciones ACID | Implementar transferencia bancaria sin race conditions |
+| 2 · Inter | APIs idempotentes retry-safe | Idempotency-Key implementado y testeado |
+| 2 · Inter | Circuit breaker pattern | Falla graceful con timeout + half-open state |
+| 3 · Avan | Sistemas distribuidos con CAP | Diseño con trade-offs CP vs AP justificados |
+| 3 · Avan | Consensus básico (Raft/Paxos) | Implementar leader election en Go/Rust |
+| 4 · Exp | Arquitecturas 100M+ usuarios | Diseñar y validar con load test real |
+| 4 · Exp | Influencia industria (RFCs/OSS) | Contribución mergeada a proyecto referencia |
 
-NIVEL 2 · INTERMEDIO (6-18 meses)
-├── 2.1 Diseñar APIs idempotentes con retry-safe
-├── 2.2 Implementar circuit breaker pattern
-├── 2.3 Cachear con invalidación correcta
-├── 2.4 Diagnosticar performance con profiling
-└── 2.5 Diseñar para failure (chaos engineering básico)
+### Generación
 
-NIVEL 3 · AVANZADO (18+ meses)
-├── 3.1 Diseñar sistemas distribuidos con CAP en mente
-├── 3.2 Implementar consensus (Raft/Paxos básico)
-├── 3.3 Diseñar event sourcing + CQRS
-├── 3.4 Optimizar costos cloud (FinOps)
-└── 3.5 Mentorizar Nivel 1 sin micro-management
-
-NIVEL 4 · EXPERTO (5+ años)
-├── 4.1 Definir arquitecturas para 100M+ usuarios
-├── 4.2 Hacer trade-offs cross-cutting (security/perf/cost)
-├── 4.3 Influir en estándares de industria (RFCs, OSS)
-└── 4.4 Formar siguiente generación de Nivel 3
-```
-
-### Cómo generar un Capability Model
-
-**Manual (recomendado)**: pregunta a un experto del campo en quien confíes. Esto es **opinión validada**, no consenso de IAs.
+**Manual (recomendado)**: pregunta a un experto del campo. Es **opinión validada**, no consenso de IAs.
 
 **Con IA (validar después)**:
 ```
-Soy [TU ROL ACTUAL] objetivo: [TU ROL DESEADO].
-Genera un Capability Model con 4 niveles (Fundamentos / Intermedio /
-Avanzado / Experto). Para cada capability:
-1. Nombre atómico (1 frase)
-2. Criterio de aceptación testable
-3. Recurso para aprenderla
-Importante: cada capability debe ser DEMOSTRABLE, no teórica.
+Soy [TU ROL ACTUAL] objetivo [TU ROL DESEADO]. Genera Capability Model 4 niveles.
+Para cada capability: nombre atómico · criterio testable · recurso.
+Cada capability DEBE ser DEMOSTRABLE, no teórica.
 ```
 
-### Anti-patrón crítico
+### Anti-patrón crítico · IA sola para Capability
 
-**Confiar 100% en IA para Capability Model**: la IA puede inventar capabilities que suenan bien pero no son las que tu industria realmente espera. **Valida con un experto humano** antes de basar tu plan de carrera en él.
+> *"El Capability Model es la única parte de los 3 modelos donde el experto humano supera a la IA. La IA conoce la teoría, no la realidad de tu mercado."* `[FUENTE-PRIMARIA]` Playbook §Modelos.
 
-> *"El Capability Model es la única parte de los 3 modelos donde el experto humano supera a la IA. Las IAs pueden conocer la teoría, pero no la realidad de tu mercado."* `[FUENTE-PRIMARIA: Playbook §Modelos]`
+Las IAs inventan capabilities que suenan bien pero no son las que tu industria espera. **Validar con experto humano** antes de basar plan de carrera.
 
-### Tu Capability Personal vs el del Mercado
+### Capability Personal vs Capability Mercado
 
 ```
-CAPABILITY MERCADO    ← lo que se espera de tu rol en tu industria
-        ∩
-CAPABILITY PERSONAL   ← lo que TÚ necesitas según tu objetivo único
-        =
-GAP ANÁLISIS          ← qué te falta · qué te sobra · qué priorizar
+CAPABILITY MERCADO (lo que se espera de tu rol en tu industria)
+       ∩
+CAPABILITY PERSONAL (lo que TÚ necesitas según tu objetivo único)
+       =
+GAP ANÁLISIS · qué falta · qué sobra · qué priorizar
 ```
+
+`[CASO-BORDE]` Capability Mercado y Personal pueden divergir significativamente. Si tu objetivo es nicho (ej. "research scientist en cuántica industrial"), el Capability Mercado puede ser un superset que no necesitas. Documentar la divergencia explícita evita perder tiempo en lo irrelevante.
 
 ### Quality gate del Capability Model
 
-```
-[ ] 4 niveles definidos (Fundamentos → Experto)
-[ ] ≥3 capabilities por nivel
-[ ] Cada capability tiene criterio testable
-[ ] Validado con ≥1 experto humano del campo
-[ ] Tu nivel actual identificado
-[ ] Plan de progresión a siguiente nivel definido
-```
+- [ ] 4 niveles definidos (Fundamentos → Experto)
+- [ ] ≥3 capabilities por nivel
+- [ ] Cada capability con criterio testable (no "saber X")
+- [ ] Validado con ≥1 experto humano del campo
+- [ ] Tu nivel actual identificado por capability
+- [ ] Plan de progresión a siguiente nivel definido
 
 ---
 
-## 3 · Maturity Model (Modelo de Madurez)
+## 3 · Maturity Model
 
-### Definición
-**Escala que mide DÓNDE ESTÁS HOY** respecto al dominio. No es "cuánto sabes"; es "cuán consistentemente operas a tu nivel declarado".
+**Definición**: dónde estás HOY. No es "cuánto sabes" · es "cuán consistentemente operas a tu nivel declarado".
 
-### Metáfora · GPS
+### 5 niveles canónicos
 
-- **BoK** = el mapa
-- **Capability** = el destino al que quieres llegar
-- **Maturity** = tu ubicación actual GPS
-
-Sin Maturity, planeas un viaje sin saber el punto de partida → destino imposible de calcular.
-
-### Estructura canónica · 5 niveles de madurez
-
-```
-NIVEL 0 · INCONSCIENTE
-   No sabes que existe el dominio. No tienes opinión.
-
-NIVEL 1 · CONSCIENTE-INCOMPETENTE
-   Sabes que existe. Sabes que no sabes. Eres consciente de los gaps.
-   (Esta es la fase Aprender en el playbook)
-
-NIVEL 2 · CONSCIENTE-COMPETENTE
-   Sabes hacerlo, pero requiere esfuerzo, atención, recordar pasos.
-   (Iniciado · Escala 3 del playbook)
-
-NIVEL 3 · INCONSCIENTE-COMPETENTE
-   Lo haces sin pensar. Hábito. Te sale natural.
-   (Practicante · Escala 4-5)
-
-NIVEL 4 · MAESTRO
-   Operas en automático Y enseñas a otros a operar bien.
-   Ves patrones que los Nivel 3 no ven.
-   (Experto · Escala 6-7)
-```
-
-### Conexión con las 10 Escalas del playbook
-
-| Escala (playbook) | Maturity Level | Horas |
+| Nivel | Estado | Fase del playbook |
 |---|---|---|
-| 0 Ignorante | Nivel 0 Inconsciente | 0 |
-| 1 Curioso | Nivel 1 Consciente-incompetente | 1-4 |
-| 2 Explorador | Nivel 1 (refinado) | 4-20 |
-| 3 Iniciado | Nivel 2 Consciente-competente | 20-64 |
-| 4 Practicante | Nivel 3 Inconsciente-competente | 64-200 |
-| 5 Competente | Nivel 3 (refinado) | 200-500 |
-| 6 Versado | Nivel 4 Maestro (entrada) | 500-1,000 |
-| 7 Experto | Nivel 4 Maestro (consolidado) | 1,000-10,000 |
-| 8 Maestro | Nivel 4+ (cross-disciplina) | 10,000+ |
-| 9 Referente | Nivel 4++ (define el campo) | 10,000+ |
+| **0** Inconsciente | No sabes que existe el dominio | — |
+| **1** Consciente-incompetente | Sabes que existe · sabes que no sabes | Aprender · Escalas 1-2 |
+| **2** Consciente-competente | Sabes hacerlo con esfuerzo · recordando pasos | Aprehender · Escala 3 |
+| **3** Inconsciente-competente | Lo haces sin pensar · hábito · natural | Practicante · Escalas 4-5 |
+| **4** Maestro | Operas en automático Y enseñas · ves patrones que Nivel 3 no | Versado/Experto · Escalas 6-7 |
 
-→ detalle completo: `references/03-diez-escalas-maestria.md`.
+### Mapeo a las 10 Escalas del playbook
 
-### Cómo medir tu madurez (sin auto-engaño)
+| Escala | Nombre | Maturity | Horas |
+|---|---|---|---|
+| 0 | Ignorante | 0 Inconsciente | 0 |
+| 1 | Curioso | 1 Cons-Incomp | 1-4 |
+| 2 | Explorador | 1 (refinado) | 4-20 |
+| 3 | Iniciado | 2 Cons-Comp | 20-64 |
+| 4 | Practicante | 3 Incons-Comp | 64-200 |
+| 5 | Competente | 3 (refinado) | 200-500 |
+| 6 | Versado | 4 (entrada) | 500-1,000 |
+| 7 | Experto | 4 (consolidado) | 1,000-10,000 |
+| 8 | Maestro | 4+ (cross-disciplina) | 10,000+ |
+| 9 | Referente | 4++ (define el campo) | 10,000+ |
 
-**Auto-evaluación es peligrosa** por sesgo Dunning-Kruger:
-- Niveles bajos sobreestiman su nivel.
-- Niveles altos subestiman su nivel.
+→ detalle: `references/03-diez-escalas-maestria.md`.
 
-**Protocolo recomendado** (combinación auto + IA + humano):
+### Cómo medir madurez sin auto-engaño
 
-```
-PASO 1 · AUTO-DIAGNÓSTICO
-   Para cada capability del Capability Model:
-   - ¿Lo hago en automático (Nivel 3)?
-   - ¿Lo hago con esfuerzo (Nivel 2)?
-   - ¿Sé que existe pero no lo manejo (Nivel 1)?
-   - ¿No sabía que existía (Nivel 0)?
+Auto-evaluación pura es **peligrosa** por sesgo Dunning-Kruger `[DOC: Dunning & Kruger 1999]`:
+- Niveles bajos sobreestiman.
+- Niveles altos subestiman.
 
-PASO 2 · IA DIAGNÓSTICO
-   Pide a NotebookLM con Prompt #8:
-   *"Hazme un examen de [DOMINIO] con preguntas abiertas (NO multiple
-    choice). 5 preguntas por nivel (Fundamentos → Experto). Evalúa
-    mis respuestas y dame veredicto del nivel."*
+### Protocolo · auto + IA + humano
 
-PASO 3 · COMPARAR
-   Si auto-eval coincide con IA-eval ±1 nivel → confiable.
-   Si difiere ≥2 niveles → BIAS DETECTADO.
-   - Si auto-eval > IA-eval → estás sobreestimando.
-   - Si auto-eval < IA-eval → estás subestimando.
+| Paso | Fuente | Acción |
+|---|---|---|
+| 1 | Auto | Para cada capability: ¿Nivel 0/1/2/3/4? |
+| 2 | IA | Prompt #8 · 5 preguntas abiertas por nivel · veredicto del nivel |
+| 3 | Comparar | Auto vs IA · diferencia ≤1 nivel = confiable · ≥2 = bias |
+| 4 | Humano (mensual) | Colega senior: ¿en qué nivel me ves? |
 
-PASO 4 · VALIDACIÓN HUMANA (mensual)
-   Pide feedback a colega senior: ¿en qué nivel me ves?
-   Compara con auto-eval e IA-eval.
-```
+### Reglas de cierre del bias
 
-### Anti-patrón · Dunning-Kruger
+| Auto vs IA | Diagnóstico |
+|---|---|
+| Auto > IA por ≥2 | Sobreestimando · Mount Stupid |
+| Auto < IA por ≥2 | Subestimando · Valle de la Humildad |
+| Diferencia ≤1 | Calibrado · confiable |
 
-> *"Los que más saben dudan. Los que menos saben afirman."* `[DOC: Dunning & Kruger · 1999]`
+`[CASO-BORDE]` Auto-eval Escala 3 + IA-eval Escala 2 NO es Dunning-Kruger crítico (delta=1). Es zona de calibración aceptable. Reservar el flag para delta ≥2.
 
-Síntoma típico: alguien con 3 meses de experiencia se autoidentifica como "senior". Alguien con 10 años se autoidentifica como "intermedio". El primero está en la cima del Mount Stupid; el segundo en el Valle de la Humildad.
-
-**Antídoto**: pruebas abiertas (no multiple choice), feedback de pares senior, defensa pública del conocimiento.
-
-→ ver `references/04-anti-patrones-y-trampas.md`.
+`[CASO-BORDE]` Si auto < IA (subestimando), no celebrar: típicamente significa Imposter Syndrome, que paraliza tanto como Dunning-Kruger inflado. Ambos extremos requieren feedback humano.
 
 ### Quality gate del Maturity Model
 
-```
-[ ] Auto-evaluación completa (todos los capabilities clasificados)
-[ ] IA-evaluación completa (Prompt #8 ejecutado, resultado guardado)
-[ ] Diferencia auto vs IA ≤1 nivel para >80% de capabilities
-[ ] Validación humana al menos 1× (colega senior)
-[ ] Plan de progresión: qué hago para avanzar 1 nivel en X capabilities
-```
+- [ ] Auto-eval completa (todos capabilities clasificados 0-4)
+- [ ] IA-eval con Prompt #8 ejecutado · resultado guardado
+- [ ] Diferencia auto vs IA ≤1 nivel para >80% de capabilities
+- [ ] Validación humana ≥1× (colega senior)
+- [ ] Plan de progresión: cuáles 3 capabilities con mayor gap
 
 ---
 
-## Cómo se combinan los 3 modelos
+## Combinación de los 3 modelos · workflow 1 hora
 
 ```
-                     BODY OF KNOWLEDGE
-                     (Mapa del campo)
-                            │
-                            ▼
-                    CAPABILITY MODEL
-                  (Subset que tú necesitas)
-                            │
-                            ▼
-                    MATURITY MODEL
-                  (Tu ubicación actual)
-                            │
-                            ▼
-                    PLAN DE PROGRESIÓN
-              (Capability gap × tiempo invertido)
+0:00       Definir objetivo (rol · certificación · problema concreto)
+0:00-0:15  BoK · 3 IAs · triangular · validar fuentes 1°
+0:15-0:30  Capability · subset relevante · validar con experto · priorizar
+0:30-0:45  Maturity · auto + IA (Prompt #8)
+0:45-1:00  Plan · 3 capabilities con mayor gap · 4/20/64 h según gap · agendar
 ```
 
-### Workflow completo (1 hora)
-
 ```
-0:00 · Definir tu objetivo (rol, certificación, problema a resolver)
-
-0:00-0:15 · BoK
-    Genera con 3 IAs · triangula · valida fuentes primarias
-
-0:15-0:30 · Capability Model
-    Define el subset relevante · valida con experto · prioriza
-
-0:30-0:45 · Maturity Self-Assessment
-    Para cada capability priorizada: ¿en qué nivel estoy?
-    Auto + IA (Prompt #8)
-
-0:45-1:00 · Plan de progresión
-    Identifica los 3 capabilities con mayor gap
-    Asigna 4 / 20 / 64 horas según tamaño del gap
-    Agenda en calendario
+        ┌────────────────────────┐
+        │  BODY OF KNOWLEDGE     │  Mapa del campo
+        └───────────┬────────────┘
+                    ▼
+        ┌────────────────────────┐
+        │  CAPABILITY MODEL      │  Subset que TÚ necesitas
+        └───────────┬────────────┘
+                    ▼
+        ┌────────────────────────┐
+        │  MATURITY MODEL        │  Tu ubicación actual
+        └───────────┬────────────┘
+                    ▼
+        ┌────────────────────────┐
+        │  PLAN DE PROGRESIÓN    │  Capability gap × tiempo
+        └────────────────────────┘
 ```
 
-→ ver `workflows/workflow-1-curioso.md` (BoK) y `workflows/workflow-3-iniciado.md` (progresión completa).
+→ Workflow 1 enfoca BoK (`workflows/workflow-1-curioso.md`). Workflow 3 cierra ciclo completo (`workflows/workflow-3-iniciado.md`).
 
 ---
 
-## Errores comunes al aplicar los 3 modelos
+## Errores comunes (matriz)
 
 | Error | Síntoma | Corrección |
 |---|---|---|
-| BoK de 1 sola IA | Conoces solo lo que tu IA preferida menciona | Triangulación 3+ IAs |
+| BoK de 1 sola IA | Conoces solo blindspots de tu IA preferida | Triangulación 3+ IAs · validar fuente 1° |
 | Capability sin experto | Capabilities que la industria no valora | Validación con senior del campo |
-| Maturity sin diagnóstico | Auto-engaño Dunning-Kruger | Test abierto con IA + feedback humano |
-| BoK sin Capability | Saber mucho, hacer poco | Filtrar BoK por tu objetivo concreto |
+| Maturity sin diagnóstico abierto | Dunning-Kruger oculto | Test abierto con IA + feedback humano |
+| BoK sin Capability | Saber mucho, hacer poco | Filtrar BoK por objetivo concreto |
 | Capability sin Maturity | Plan irreal sin punto de partida | Diagnosticar nivel actual antes de planear |
 | Maturity sin BoK | "Soy experto en X" sin saber qué es X completo | Mapear el campo antes de medir madurez |
+| 3 modelos sin priorizar | Análisis-parálisis · 0 ejecución | Aplicar workflow 1 h · cerrar con plan |
 
 ---
 
-## Validación rápida (auto-test)
+## Validación rápida (auto-test) para tu tema activo
 
-Para tu tema activo:
+- [ ] BoK triangulado en ≥3 IAs
+- [ ] BoK incluye ≥3 fuentes primarias verificables
+- [ ] Capability Model con 4 niveles
+- [ ] Capability validado con humano del campo
+- [ ] Auto-diagnóstico de madurez por capability
+- [ ] IA-diagnóstico con Prompt #8 ejecutado
+- [ ] Auto y IA coinciden ±1 nivel
+- [ ] Plan de progresión con horas asignadas
 
-- [ ] ¿Tengo BoK triangulado en ≥3 IAs?
-- [ ] ¿El BoK incluye ≥3 fuentes primarias verificables?
-- [ ] ¿Tengo Capability Model con 4 niveles?
-- [ ] ¿Validé el Capability Model con un humano del campo?
-- [ ] ¿Hice auto-diagnóstico de madurez?
-- [ ] ¿Hice IA-diagnóstico (Prompt #8)?
-- [ ] ¿Auto y IA coinciden ±1 nivel?
-- [ ] ¿Tengo plan de progresión con horas asignadas?
-
-Si tienes <6 marcas → tu fundación está incompleta. Empieza por BoK.
+`[CRITERIO-ACEPTACIÓN]` <6/8 → fundación incompleta · empezar por BoK.
 
 ---
 
-> **Atribución**: Modelos extraídos del Playbook *Aprender · Aprehender · (R)Evolucionar* v2.0.0 §Modelos Fundacionales.
-> *MetodologIA · CC BY-NC-SA 4.0*
+## Referencias cruzadas
+
+- Sustento: `references/06-ciencia-cognitiva-fuentes.md` §Adult Learning + §Dunning-Kruger
+- Anti-patrones: `references/04-anti-patrones-y-trampas.md` §Single-AI BoK · §Dunning-Kruger
+- Escalas: `references/03-diez-escalas-maestria.md`
+- Prompts: `prompts/01-research-blueprint.md` · `prompts/04-cross-fact-check.md` · `prompts/08-evaluator-certification.md`
+- Workflows: `workflows/workflow-1-curioso.md` · `workflows/workflow-3-iniciado.md`
+
+> v1.1.0 · CC BY-NC-SA 4.0 · MetodologIA · `[FUENTE-PRIMARIA]` Playbook v2.0.0 §Modelos Fundacionales

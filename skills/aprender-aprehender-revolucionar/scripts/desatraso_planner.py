@@ -1,6 +1,5 @@
 #!/usr/bin/env python3
-"""
-desatraso_planner.py · MetodologIA · Aprender·Aprehender·(R)Evolucionar
+"""desatraso_planner.py · MetodologIA · Aprender·Aprehender·(R)Evolucionar · v1.1.0.
 
 Genera plan time-boxed de catch-up sobre conocimiento acumulado.
 Modos: Express 4h / Sprint 20h / Marathon 64h.
@@ -8,20 +7,31 @@ Modos: Express 4h / Sprint 20h / Marathon 64h.
 Usage:
     python desatraso_planner.py --tema "LLMs 2026" --tiempo 4h
     python desatraso_planner.py --tema "Kubernetes" --tiempo 20h --escala-actual 1
-    python desatraso_planner.py --tema "Rust" --tiempo 64h --escala-actual 0 --industria "Backend"
+    python desatraso_planner.py --tema "Rust" --tiempo 64h --escala-actual 0
+    python desatraso_planner.py --tema "Rust" --tiempo 4h --audit  # check coherencia
 
-Output: plan en stdout (markdown), guardado opcionalmente con --save
+[FUENTE-PRIMARIA] Playbook v2.0.0 §Workflows + §Modos por tiempo.
+[LÍMITE] Plan asume disponibilidad continua · si tu disponibilidad es errática
+         (viajes frecuentes, on-call), considera reducir el target en 30-40%.
+[SUPUESTO] Estimaciones de tiempo basadas en dominio promedio · dominios densos
+           (matemática avanzada, sistemas formales) requieren 1.5-2× más.
+[TRADE-OFF] Express 4h sacrifica triangulación profunda · solo Escala 0→1.
 
 License: CC BY-NC-SA 4.0 · Javier Montaño · MetodologIA
 """
+
+from __future__ import annotations
 
 import argparse
 import datetime
 import sys
 from pathlib import Path
-from typing import Literal
 
-VERSION = "1.0.0"
+VERSION = "1.1.0"
+
+
+class DesatrasoError(Exception):
+    """[NUEVO-APORTE] Errores de validación o coherencia del plan."""
 
 MODES = {
     "4h": {
@@ -256,12 +266,39 @@ def main():
         type=Path,
         help="Guardar plan en archivo (default: stdout solamente)",
     )
+    parser.add_argument(
+        "--audit",
+        action="store_true",
+        help="[NUEVO-APORTE v1.1] Solo audit de coherencia escala/tiempo · no genera plan",
+    )
 
     args = parser.parse_args()
 
     if args.escala_actual < 0 or args.escala_actual > 9:
         print("ERROR: --escala-actual debe estar entre 0 y 9", file=sys.stderr)
         return 1
+
+    # [NUEVO-APORTE v1.1] Audit de coherencia escala/tiempo
+    target_escala = MODES[args.tiempo]["objetivo_escala"]
+    if args.escala_actual >= target_escala:
+        print(
+            f"⚠️  Audit: escala_actual={args.escala_actual} ya ≥ "
+            f"target {target_escala} para modo {args.tiempo}. "
+            f"Considera modo más largo o un nuevo tema.",
+            file=sys.stderr,
+        )
+        if args.audit:
+            return 1
+    if args.tiempo == "4h" and args.escala_actual > 1:
+        print(
+            f"⚠️  Audit: Express 4h objetivo Escala 1 · ya estás en {args.escala_actual} · "
+            f"sugerido: modo 20h (Sprint) o 64h (Marathon).",
+            file=sys.stderr,
+        )
+
+    if args.audit:
+        print("✅ Audit OK · escala_actual coherente con modo elegido", file=sys.stderr)
+        return 0
 
     hoy = datetime.date.today()
 

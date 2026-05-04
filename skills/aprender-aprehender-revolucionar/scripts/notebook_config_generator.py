@@ -1,6 +1,5 @@
 #!/usr/bin/env python3
-"""
-notebook_config_generator.py · MetodologIA · Aprender·Aprehender·(R)Evolucionar
+"""notebook_config_generator.py · MetodologIA · v1.1.0.
 
 Genera system prompts ≤10,000 chars para configurar NotebookLM con uno de los
 8 arquetipos canónicos.
@@ -12,7 +11,10 @@ Usage:
 
 Arquetipos: coach · evaluador · entrevistador · qbr · auditor · relevance · factcheck · generator
 
-Output: system prompt en stdout, listo para copy-paste en NotebookLM Custom Goal.
+[FUENTE-PRIMARIA] Playbook v2.0.0 §14 Prompts + assets/notebooklm-archetypes.json.
+[LÍMITE] Cap NotebookLM Custom Goal: ~10,000 chars · script valida y trunca con warning.
+[SUPUESTO] Variables [TU TEMA], [ROL], etc. son reemplazadas · si no, output genérico.
+[TRADE-OFF] Templates pre-definidos · custom requiere meta-prompts (M1-M4).
 
 License: CC BY-NC-SA 4.0 · Javier Montaño · MetodologIA
 """
@@ -23,7 +25,7 @@ import sys
 from pathlib import Path
 from typing import Any
 
-VERSION = "1.0.0"
+VERSION = "1.1.0"
 SKILL_DIR = Path.home() / ".claude/skills/aprender-aprehender-revolucionar"
 ARCHETYPES_FILE = SKILL_DIR / "assets/notebooklm-archetypes.json"
 

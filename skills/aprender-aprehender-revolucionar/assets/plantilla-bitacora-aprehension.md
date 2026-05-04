@@ -1,6 +1,10 @@
-# Bitácora de Aprehensión Semanal · Semana {YYYY-WW}
+# Bitácora de Aprehensión Semanal · v1.1.0 · Semana {YYYY-WW}
 
 > Documenta el ritual semanal de aprehensión · qué cubriste, qué retuviste, qué falta.
+
+`[FUENTE-PRIMARIA]` Playbook v2.0.0 §rituals/ritual-aprehension-semanal.md.
+`[CRITERIO-ACEPTACIÓN]` Cierre semanal con bitácora · sin documentar = ritual no pasó.
+`[LÍMITE]` Plantilla genérica · personalizar por dominio si tu campo requiere métricas específicas.
 
 **Semana**: [YYYY-WW]
 **Fecha cierre**: [viernes]

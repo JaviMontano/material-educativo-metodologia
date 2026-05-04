@@ -1,59 +1,70 @@
 # Kata · Soltar Legacy · 30 min
 
-> Auditar 1 skill · decidir [MANTENER/RELEASE] · documentar.
+> Auditar 1 skill bajo duda · framework 4-D · decidir y documentar. v1.1.0.
 
-**Categoría**: (R)Evolucionar · auditoría puntual
-**Tiempo**: 30 min
-**Frecuencia**: ad-hoc cuando dudas si una skill aún sirve
+| Concepto | Valor |
+|---|---|
+| Categoría | (R)Evolucionar · auditoría puntual single-skill |
+| Tiempo | 30 min |
+| Frecuencia | Ad-hoc cuando dudas si una skill aún sirve |
+| Output | Score 4-D · decisión MANTENER/ACTUALIZAR/REEMPLAZAR/SOLTAR · plan reskill |
+| Distinto del | `ritual-auditoria-mensual.md` (este es single-skill, ad-hoc) |
 
----
+`[FUENTE-PRIMARIA]` Playbook v2.0.0 §Katas + Framework 4-D + Prompt #5.
 
-## Objetivo
+## Contrato
 
-Tomar una skill específica que **dudas si vale la pena seguir manteniendo** · evaluarla con framework 4-D · decidir y documentar.
+| Hace | No hace |
+|---|---|
+| Aplica framework 4-D con datos de mercado actuales | Decide por ti · te da evidencia · tú decides |
+| Detecta Identity Attachment / Sunk Cost en tiempo real | Audita skills cross-cutting (comunicación, liderazgo) · esas son atemporales |
+| Genera plan reskill obligatorio si SOLTAR | Reemplaza la conversación con mentor humano para decisiones high-stakes |
 
-Distinto del Ritual Auditoría Mensual: este kata es **single-skill, ad-hoc**.
-
----
+`[LÍMITE]` Skills aún en Escala 0-2 (en aprendizaje) NO se auditan con 4-D. Termina Workflow 1-3 antes de evaluar relevancia.
+`[LÍMITE]` Skills cross-cutting no se auditan con 4-D directo. Audita la *manifestación específica* (ej. "comunicación ejecutiva bilingüe en mi industria").
 
 ## Protocolo · 30 min
 
 ### 0:00-0:05 · Declarar la skill bajo duda
 
 ```
-SKILL: [nombre exacto]
-HORAS INVERTIDAS HISTÓRICAS: [estimado]
-ÚLTIMA VEZ QUE LA USÉ EN PROYECTO REAL: [fecha]
-RAZÓN DE LA DUDA: [por qué la cuestionas]
+SKILL: [nombre exacto · sin ambigüedad]
+HORAS HISTÓRICAS INVERTIDAS: ~X
+ÚLTIMA VEZ EN PROYECTO REAL: [fecha]
+RAZÓN DE LA DUDA: [por qué cuestionas · 1 frase]
+ESCALA ACTUAL: [3-9 · si <3, NO auditar]
 ```
+
+`[CRITERIO-ACEPTACIÓN]` Si Escala <3 · interrumpe kata · esta skill aún está en aprendizaje · audítala cuando llegues a Escala 3+.
 
 ### 0:05-0:20 · Framework 4-D (Prompt #5 condensado)
 
-```
-Pregunta a Perplexity (con datos de mercado actualizados):
+Pregunta a Perplexity (datos mercado actuales):
 
-"Evalúa la skill [SKILL] para mi industria [INDUSTRIA] en
-[PAÍS / REGIÓN]. Aplica framework 4-D:
+```
+Evalúa la skill [SKILL] para mi industria [INDUSTRIA] en
+[PAÍS/REGIÓN]. Aplica framework 4-D:
 
 1. Vigencia: ¿es current en job postings 2026?
 2. ROI: ¿retorno por hora invertida hoy vs hace 5 años?
 3. Obsolescencia: ¿tendencia 5 años? ¿hay sucesor obvio?
 4. Demanda: ¿salario, postings, velocidad de cierre?
 
-Cita fuentes. Cifras concretas. Sin endulzar."
+Cita fuentes. Cifras concretas. Sin endulzar.
 ```
+
+`[TRADE-OFF]` Perplexity da datos web actuales pero puede sobrerepresentar US/EU · si tu mercado es LatAm/APAC, complementa con LinkedIn jobs locales.
 
 ### 0:20-0:25 · Validación cruzada (5 min)
 
-```
-Cross-check manualmente:
-1. LinkedIn jobs · cuántos en últimos 30 días mencionan la skill?
-2. Stack Overflow Survey 2024-2026 (si tech) · trending?
-3. Conferencias del campo · sigue en agenda?
+| Cross-check | Fuente | Qué buscar |
+|---|---|---|
+| LinkedIn jobs · últimos 30 días | linkedin.com/jobs | ¿Cuántos postings mencionan la skill? |
+| Stack Overflow Survey 2024-2026 | survey.stackoverflow.co | Trending o declining? (si tech) |
+| Conferencias del campo · agenda | sitios oficiales | ¿Sigue en agenda? ¿Tracks dedicados? |
+| Tu industria · job boards locales | InfoJobs, Computrabajo, etc. | Confirmación local |
 
-Si cifras coinciden con Prompt #5 → confiable
-Si difieren mucho → re-validar manual
-```
+`[CASO-BORDE]` Si Perplexity dice "vigente" pero LinkedIn local muestra 0 postings 30 días · bandera amarilla · skill global pero NO en tu mercado · decide por mercado, no por global.
 
 ### 0:25-0:30 · Decisión + documentación
 
@@ -63,83 +74,65 @@ Score 4-D consolidado:
 - ROI:             🟢 / 🟡 / 🔴
 - Obsolescencia:   🟢 / 🟡 / 🔴
 - Demanda:         🟢 / 🟡 / 🔴
+```
 
-DECISIÓN (basada en regla):
-- 3-4 verde     → [MANTENER]
-- 2 verde + 2 amarillo → [ACTUALIZAR]
-- 1 verde + 3 rojo/amarillo → [REEMPLAZAR]
-- 3-4 rojo     → [SOLTAR]
+| Patrón | Decisión |
+|---|---|
+| 3-4 verde | **MANTENER** · profundizar X · tiempo Y |
+| 2 verde + 2 amarillo | **ACTUALIZAR** · estudiar versión moderna · 20h Sprint |
+| 1 verde + 3 rojo/amarillo | **REEMPLAZAR** · skill sucesora [...] · transición 6 meses |
+| 3-4 rojo | **SOLTAR** · stop invertir · plan reskill obligatorio |
 
-PLAN DE ACCIÓN:
-- Si MANTENER: profundizar X · tiempo Y
-- Si ACTUALIZAR: estudiar versión moderna · 20h Sprint
-- Si REEMPLAZAR: skill sucesora [...] · plan transición 6 meses
-- Si SOLTAR: stop invertir · plan reskill [Y]
-
+```
 DOCUMENTAR EN:
 - ~/aprender-aprehender/audits/kata-{skill}-{YYYY-MM-DD}.md
 - Actualizar `.aprender-state.json` si SOLTAR
-- Si público amerita: post LinkedIn como "lección de carrera"
+- Si público: post LinkedIn como "lección de carrera"
 ```
 
----
+## Reglas duras
 
-## Reglas
+| Regla | Por qué |
+|---|---|
+| Aceptar evidencia · no sentimiento | "Aún me gusta" no es decisión profesional |
+| Sin "depende" sin condiciones explícitas | "Mantengo X SI [A] · suelto si [B]" · sin condiciones, no decidiste |
+| Plan reskill obligatorio si SOLTAR | NO soltar sin sucesora definida |
+| MANTENER vence en 3 meses | Re-auditar trimestralmente · el mercado se mueve |
 
-### Aceptar evidencia · no sentimiento
+## Anti-patrones top-3 graves
 
-Si la data dice 4/4 rojo, decisión = [SOLTAR]. "Pero todavía me gusta" no es decisión profesional.
-
-### Sin "depende"
-
-Define las condiciones explícitas. *"Mantengo X SI [condición A] · suelto si [B]."* Sin condiciones, no decidiste.
-
-### Plan reskill obligatorio si [SOLTAR]
-
-No suelto sin reemplazo. Define skill sucesora · agenda Workflow 1.
-
-### Si decides MANTENER · revisar próximo trimestre
-
-Las decisiones MANTENER tienen vencimiento · 3 meses · re-auditar.
-
----
-
-## Anti-patrones
-
-| Error | Síntoma | Corrección |
-|---|---|---|
-| Identity Attachment | "X es parte de mí" | Tu identidad puede ser "el que sabe soltar" |
-| Sunk cost | "Pero invertí 1000h" | Ya están gastadas · pregunta: ¿próximas 1000h dónde? |
-| Defender por confort | "X es lo que mejor manejo" | Eso no es razón profesional |
-| [SOLTAR] sin sucesor | Vacío peligroso | Define sucesora antes de soltar |
-| Auditar opiniones | "¿Es buena la opinión Y?" | Solo skills medibles |
-
----
+| # | Anti-patrón | Detección | Antídoto |
+|---|---|---|---|
+| 1 | Identity Attachment | "X es parte de mí" / "soy [Skill] developer" | Tu identidad puede ser "el que sabe soltar" · Diseñador de carrera |
+| 2 | Sunk cost fallacy | "Pero invertí 1000h" | Esas horas ya están gastadas · pregunta: las próximas 1000h ¿dónde? |
+| 3 | SOLTAR sin sucesora | "Suelto X · ya veré qué hago" | Sucesora definida ANTES de soltar · si no, postpone decisión |
 
 ## Casos especiales
 
-### Skill aún Escala 0-2 (en aprendizaje)
-
-NO auditar todavía con 4-D. Está en fase Aprender. Termina Workflow 1-3 antes de evaluar relevancia.
-
-### Skill cross-cutting (comunicación, liderazgo)
-
-NO se evalúa con 4-D directo. Esas son atemporales. Lo que SÍ evalúas: la **manifestación específica** (ej. "comunicación ejecutiva bilingüe en mi industria").
-
-### Skill que solo usas en proyectos legacy
+### Skill solo usada en proyectos legacy
 
 ```
-Si tu única exposición es proyectos legacy:
-- Vigencia: 🔴 (mercado nuevo no la pide)
-- ROI: 🟡 (los proyectos legacy aún pagan)
-- Obsolescencia: 🔴 (en declive · proyectos legacy se contraen)
-- Demanda: 🔴 (mercado nuevo no la lista)
+Vigencia: 🔴 (mercado nuevo no la pide)
+ROI: 🟡 (proyectos legacy aún pagan)
+Obsolescencia: 🔴 (legacy se contrae)
+Demanda: 🔴 (mercado nuevo no la lista)
 
-Decisión típica: [SOLTAR] · pero si tu rol específico depende
-de proyectos legacy, [MANTENER mínimo viable] hasta transición.
+Decisión típica: SOLTAR · pero si tu rol específico depende de
+proyectos legacy, MANTENER MÍNIMO VIABLE hasta transición de rol.
 ```
 
----
+### Skill que combina partes vigentes con partes obsoletas
+
+```
+Ejemplo: SQL (vigente) + procedimientos almacenados de Oracle 9i (obsoleto)
+
+Audita por componentes:
+- Core SQL: MANTENER
+- Procedimientos Oracle 9i: SOLTAR
+- Plan: profundizar SQL moderno · soltar específicamente lo legacy
+```
+
+`[CASO-BORDE]` La skill se siente "vigente pero estancada" · síntoma de mercado saturado · ROI cae aunque vigencia se mantenga · revisa: ¿hay sucesora premium emergiendo?
 
 ## Output documentado · plantilla
 
@@ -150,6 +143,7 @@ de proyectos legacy, [MANTENER mínimo viable] hasta transición.
 **Nombre**: [...]
 **Horas históricas invertidas**: ~X
 **Última vez en proyecto real**: [fecha]
+**Escala actual**: [3-9]
 
 ## Score 4-D
 | Dimensión | Score | Evidencia |
@@ -163,10 +157,10 @@ de proyectos legacy, [MANTENER mínimo viable] hasta transición.
 [MANTENER / ACTUALIZAR / REEMPLAZAR / SOLTAR]
 
 ## Razón (1 frase)
-[síntesis]
+[síntesis · evidencia-driven]
 
 ## Plan de acción
-[específico · con fechas]
+[específico · con fechas · si REEMPLAZAR/SOLTAR: skill sucesora definida]
 
 ## Si SOLTAR · narrativa profesional
 - LinkedIn: "Decidí soltar [SKILL] cuando vi [evidencia] · ahora invierto en [Y]"
@@ -176,16 +170,22 @@ de proyectos legacy, [MANTENER mínimo viable] hasta transición.
 [+3 meses si MANTENER · N/A si SOLTAR]
 ```
 
----
+## Métricas de éxito
 
-## Referencias
+```
+[ ] Score 4-D con evidencia citada (no opinión)
+[ ] Decisión documentada con plan específico
+[ ] Si SOLTAR: skill sucesora definida + plan Workflow 1
+[ ] .aprender-state.json actualizado
+[ ] Re-auditar agendada (+3 meses si MANTENER)
+```
+
+## Referencias cruzadas
 
 - `prompts/05-relevance-audit.md`
 - `agents/coach-revolucionar.md`
 - `rituals/ritual-auditoria-mensual.md`
-- `references/04-anti-patrones-y-trampas.md` §Identity Attachment
+- `references/04-anti-patrones-y-trampas.md` §Identity Attachment · §Sunk Cost
 - `examples/ejemplo-revolucionar-jquery.md`
 
----
-
-> **Kata Soltar Legacy** del Playbook *Aprender · Aprehender · (R)Evolucionar* v2.0.0 · MetodologIA · CC BY-NC-SA 4.0
+> v1.1.0 · CC BY-NC-SA 4.0 · MetodologIA · `[FUENTE-PRIMARIA]` Playbook v2.0.0

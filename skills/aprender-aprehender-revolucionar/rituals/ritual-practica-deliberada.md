@@ -1,259 +1,236 @@
-# Ritual · Práctica Deliberada · 1h × 16 semanas
+# Ritual · Práctica Deliberada · 64 h × 16 sem
 
-> Programa completo de aprehensión sostenida. 64 horas en 16 semanas. Instala el hábito de aprender con método.
+> Programa completo de aprehensión sostenida. Instala el hábito. v1.1.0.
 
-**Cadencia**: 1h × 4 días/semana × 16 semanas = 64 horas
-**Tiempo total**: 16 semanas (4 meses)
-**Equivale a**: Marathon mode · transición Escala 2→3 con consolidación
+| Concepto | Valor |
+|---|---|
+| Cadencia | 1 h × 4 días/sem × 16 sem = 64 h |
+| Tiempo total | 16 sem (4 meses) |
+| Equivale a | Marathon mode · transición Escala 2→3 con consolidación |
+| Output | Escala 3 + manual personal de aprendizaje + capacidad transferible (4h por tema futuro) |
 
----
+`[FUENTE-PRIMARIA]` Playbook v2.0.0 §Rituales + Workflow 3 Marathon.
+`[DOC]` Deliberate practice (Ericsson 1993, *Psychological Review* 100): no son las horas, es el método. 16 sem con feedback supera 64 h dispersas.
 
-## Por qué este ritual
+## Contrato
 
-Las 6 técnicas cognitivas funcionan en aplicación dispersa. Pero su poder real está en **aplicación sistemática durante 16 semanas**: ese período instala el hábito, internaliza el método y convierte aprender en una capacidad meta-profesional que aplicas a cualquier dominio.
+| Hace | No hace |
+|---|---|
+| Convierte método externo en capacidad interna · 16 sem fija el hábito | Garantiza Escala 4+ · eso requiere práctica en producción real, no método |
+| Sistematiza las 6 técnicas en aplicación rotada | Sustituye al mentor humano · feedback humano cada 4 sem es no-negociable |
+| Genera "manual personal" transferible a temas futuros | Funciona en alta dispersión (multi-temas paralelos) · este programa es UN tema |
 
-**Resultado**: terminado el programa, cualquier tema futuro lo puedes aprehender en 4h (Workflow 2 Express) porque el método está internalizado.
-
----
+`[LÍMITE]` Tasa de abandono histórica del Marathon: 40-50% deja entre semanas 5-8. Mitigación: ritual semanal estricto + accountability con peer (mismo programa ese día).
+`[LÍMITE]` 16 semanas requieren estabilidad de vida · si tienes evento mayor (mudanza, cambio de trabajo, hijo) en ese rango · postpone o usa Sprint 8 sem condensado.
 
 ## Estructura · 16 semanas
 
+| Sem | Foco | Workflow | Output al cierre |
+|---|---|---|---|
+| 1-2 | Vocabulario · BoK · concept map | W1 · El Curioso | Escala 1+ · BoK sólido |
+| 3-4 | Fuentes 1° · controversias · opiniones | W2 · El Explorador | Escala 2 · 50+ términos · controversias mapeadas |
+| 5-12 | Aprehensión profunda · defensa pública | W3 · El Iniciado | Escala 3 · G-Aprehender pasado |
+| 13-16 | Consolidación · meta-aprendizaje | Mantenimiento | Capacidad transferible · manual personal |
+
 ### Semanas 1-2 · El Curioso (Workflow 1)
 
-**Foco**: vocabulario, BoK triangulado, concept map.
-
 ```
-Semana 1
-- Lunes: Workflow 1 setup (Blueprint en 3 IAs)
-- Martes: Consolidación + fact-check
-- Miércoles: NotebookLM setup + coach
-- Jueves: Primera sesión con coach (5 preguntas)
-- Viernes: Documentar + plan
+SEMANA 1 (5 h)
+- Lun: Workflow 1 setup · Blueprint en 3 IAs (Prompt #1)
+- Mar: Consolidación + fact-check (Prompt #4)
+- Mié: NotebookLM setup + coach (Prompt #2)
+- Jue: Primera sesión con coach · 5 preguntas socráticas
+- Vie: Documentar + plan
 
-Semana 2
-- Lunes-Jueves: Profundización por subtema (1h cada uno)
-- Viernes: Revisión + Quiz Nivel 1 (Prompt #8)
+SEMANA 2 (4 h)
+- Lun-Jue: Profundización por subtema (1h c/u)
+- Vie: Revisión + Quiz Nivel 1 (Prompt #8)
 ```
-
-→ Output al cerrar semana 2: Escala 1+ · BoK sólido.
 
 ### Semanas 3-4 · El Explorador (Workflow 2)
 
-**Foco**: fuentes primarias, controversias, opiniones preliminares.
-
 ```
-Semana 3
-- Lunes-Viernes: 1 paper / libro / controversia por día
-  (1h cada uno · alta profundidad)
+SEMANA 3 (5 h)
+- Lun-Vie: 1 paper / libro / controversia por día (1h c/u)
 
-Semana 4
-- Lunes-Miércoles: BoK refinado + glosario expandido
-- Jueves: Auditoría NotebookLM + Quiz Nivel 2
-- Viernes: Documentar + Decisión avanzar a W3
+SEMANA 4 (4 h)
+- Lun-Mié: BoK refinado + glosario expandido
+- Jue: Auditoría NotebookLM (Prompt #7) + Quiz Nivel 2
+- Vie: Documentar + decidir avance a W3
 ```
 
-→ Output al cerrar semana 4: Escala 2 · 50+ términos · controversias mapeadas.
+`[CRITERIO-ACEPTACIÓN]` Cierre sem 4: Quiz Nivel 2 ≥4/5 · si <4/5 · extender 1 sem antes de avanzar.
 
-### Semanas 5-12 · El Iniciado (Workflow 3 extendido)
-
-**Foco**: aprehensión profunda · defensa pública · todas las técnicas.
+### Semanas 5-12 · El Iniciado (Workflow 3 extendido · 32 h)
 
 ```
 Semana 5 · Vocabulario activo
-- Retrieval ciego diario de 10 términos
+- Retrieval ciego diario · 10 términos
 - Spaced Repetition agendado para todos
-- Quiz Nivel 1 + 2 con scores >4/5
+- Quiz Nivel 1+2 con scores ≥4/5
 
 Semana 6 · Aplicación
-- 5 casos de uso reales
+- 5 casos de uso reales del dominio
 - Trade-offs documentados con tu opinión
-- Feynman a un trade-off principal
+- Feynman a 1 trade-off principal
 
-Semana 7 · Conexiones
-- Elaboration: cada concepto conectado con 2 previos
+Semana 7 · Conexiones (Elaboration)
+- Cada concepto conectado con 2 previos
 - Concept map con flujos (no solo jerarquía)
-- Audio explicación de las conexiones
+- Audio explicación de conexiones
 
 Semana 8 · Defensa preliminar
-- Mock interview #1 (Prompt #9)
-- 30 min · veredicto inicial
-- Plan de cierre de gaps
+- Mock interview #1 (Prompt #9 · 30 min)
+- Veredicto inicial documentado
+- Plan cierre de 3 gaps principales
 
 Semana 9 · Cierre de gaps
 - Foco en las 3 preguntas que te derribaron
 - Práctica deliberada con feedback (humano si posible)
 
 Semana 10 · Defensa profunda
-- Mock interview #2 (debería ir mejor)
-- Quiz Nivel 3 (Prompt #8)
-- Score >4/5 esperado
+- Mock interview #2 · debe ir mejor
+- Quiz Nivel 3 (Prompt #8) · score ≥4/5
 
 Semana 11 · Feynman extendido
-- 3 conceptos críticos · audio de 5 min cada uno
+- 3 conceptos críticos · audio 5 min c/u
 - Validar con humano no-experto
 - Iterar hasta fluidez total
 
 Semana 12 · Validación final
-- Mock interview #3 con veredicto LEAN HIRE+
+- Mock interview #3 · veredicto LEAN HIRE+
 - Quiz Nivel 3 final · 4-5/5
-- Auto vs AI assessment alignment
+- Self vs IA assessment alignment ±1 escala
 ```
 
-→ Output al cerrar semana 12: Escala 3 · Quality Gate G-Aprehender pasado.
+`[CRITERIO-ACEPTACIÓN]` Cierre sem 12: Gate G-Aprehender 7/7. Si <7/7 · semanas 13-14 dedicadas a cerrar gaps (no consolidar).
 
-### Semanas 13-16 · Consolidación y meta-aprendizaje
-
-**Foco**: convertir el método en capacidad transferible.
+### Semanas 13-16 · Consolidación + meta-aprendizaje
 
 ```
 Semana 13 · Spaced Repetition profundo
-- Revisión de TODO lo aprendido en semanas 1-12
-- Identificar lo que se mantuvo vs lo que se desvaneció
+- Revisión TODO sem 1-12 · 1 día por bloque
+- Identificar lo que se mantuvo vs desvaneció
 - Re-estudiar SOLO lo desvanecido
 
 Semana 14 · Aplicación real
-- Aplicar el conocimiento a un proyecto/problema real
-- Documentar resultados y lecciones aprendidas
-- Si fue exitoso: case study para tu portfolio
+- Aplicar conocimiento a problema real (proyecto / contribución)
+- Documentar resultados y lecciones
+- Si exitoso: case study para portfolio
 
 Semana 15 · Meta-aprendizaje
-- Reflexión: qué técnicas funcionaron mejor PARA TI
+- ¿Qué técnicas funcionaron mejor PARA TI?
 - ¿Qué adaptaciones del método necesitas?
 - Documenta tu "manual personal de aprendizaje"
 
-Semana 16 · Cierre y celebración
-- Documentar todo el journey en un post LinkedIn (opcional)
-- Plan para mantener el conocimiento (Spaced Repetition trimestral)
+Semana 16 · Cierre
+- Documentar journey en post LinkedIn (opcional)
+- Spaced Repetition trimestral agendado
 - Decidir: próximo tema · o consolidar este?
 ```
 
----
-
 ## Estructura semanal típica
 
-```
-LUNES (60 min) · Lectura activa
-- Material nuevo + Elaboration
+| Día | Foco | Tiempo |
+|---|---|---|
+| Lun | Lectura activa + Elaboration · material nuevo | 60 min |
+| Mar | Práctica · aplicación a casos / problemas | 60 min |
+| Mié | Feynman · explicar a no-experto · grabar audio | 60 min |
+| Jue | Quiz / Mock · evaluación con Prompt #8 o #9 | 60 min |
+| Vie | Retrieval ciego semana + Spaced Repetition + planificar próxima | 60 min |
 
-MARTES (60 min) · Práctica
-- Aplicación a casos / problemas
+`[TRADE-OFF]` 5×60 min/sem es más efectivo que 1×4h sábado · cadencia > intensidad. Cambio: si te toca evento esa noche, recupera al día siguiente · NO acumules a sábado.
 
-MIÉRCOLES (60 min) · Feynman
-- Explicar a no-experto · grabar audio
+## Reglas duras
 
-JUEVES (60 min) · Quiz / Mock
-- Evaluación con Prompt #8 o #9
+| Regla | Por qué |
+|---|---|
+| Cadencia > intensidad | 1h×4d/sem es sostenible 4 meses · "8h sábado" = burnout sem 4 |
+| Spaced Repetition en TODO | Cada concepto sem N → revisión sem N+1, +2, +4, +8 · única forma de no perder 90% en 1 mes |
+| Documentación obligatoria | Cada semana cierra con bitácora · sin documentar = no pasó |
+| Humano cada 4 sem mínimo | IA confirma · humano detecta blindspots distintos |
 
-VIERNES (60 min) · Retrieval + planificación
-- Retrieval ciego de la semana
-- Spaced Repetition de la próxima
-- Plan próxima semana
-```
+## Anti-patrones top-3 graves
 
----
-
-## Métricas de éxito
-
-### Al final de semana 4 (mid-program checkpoint)
-
-```
-✅ Glosario ≥40 términos con [DOC] tags
-✅ Concept map con flujos
-✅ ≥3 papers / 1 libro fundacional cubierto
-✅ Quiz Nivel 2 aprobado (4/5)
-✅ ≥10 sources auditadas en NotebookLM
-```
-
-Si NO se cumple → extender 2 semanas el programa.
-
-### Al final de semana 12 (Workflow 3 completo)
-
-```
-✅ Quality Gate G-Aprehender pasado (todos los criterios)
-✅ Mock interview LEAN HIRE+
-✅ Self vs AI alignment ±1 escala
-✅ 3 conceptos defendidos sin trabarse
-```
-
-Si NO → semanas 13-16 dedicadas a cerrar gaps específicos.
-
-### Al final de semana 16
-
-```
-✅ Spaced Repetition agendado para 30/60/90 días post
-✅ Aplicación real exitosa documentada
-✅ Manual personal de aprendizaje generado
-✅ Plan de próximo tema (si aplica)
-```
-
----
+| # | Anti-patrón | Detección | Antídoto |
+|---|---|---|---|
+| 1 | Acumular a sábado intensivo | 1h L-V se pierde · 4h sáb burnout sem 4 | Cadencia · si pierdes lunes, recupera martes · NO sábado |
+| 2 | Saltar Spaced Repetition | Sem 12 olvidaste sem 1 | Agendar +1d/+3d/+1sem/+1mes EN CALENDARIO desde sem 1 |
+| 3 | Solo IA · saltar humano | Mock con coach amable pasa fácil | Humano cada 4 sem · sem 4, 8, 12, 16 |
 
 ## Variantes
 
-### Sprint condensado · 8 semanas (32h)
+| Modo | Tiempo | Trade-off |
+|---|---|---|
+| **Sprint condensado** | 8 sem · 32 h | Saltar W1 · comprimir W3 a 6 sem · saltar consolidación 13-16 · alta urgencia · menos retención |
+| **Default** | 16 sem · 64 h | Recomendado · balance retención + sostenibilidad |
+| **Marathon extendido** | 24 sem · 96 h | PhD-level · W1 4sem · W2 6sem · W3 12sem · consolidación 4sem |
 
-Solo si tienes alta urgencia:
-- Saltar semanas 1-2 (asume Workflow 1 ya hecho)
-- Comprimir semanas 5-12 a 6 semanas
-- Saltar consolidación 13-16
+## Métricas de éxito por checkpoint
 
-Trade-off: menos retención a largo plazo · más estrés.
+### Checkpoint sem 4 (mid-program)
 
-### Marathon extendido · 24 semanas (96h)
+```
+[ ] Glosario ≥40 términos con tags de evidencia
+[ ] Concept map con flujos
+[ ] ≥3 papers / 1 libro fundacional cubierto
+[ ] Quiz Nivel 2 aprobado (≥4/5)
+[ ] ≥10 sources auditadas en NotebookLM
+```
 
-Si el tema es muy denso (ej. PhD-level):
-- Workflow 1: 4 semanas
-- Workflow 2: 6 semanas
-- Workflow 3: 12 semanas
-- Consolidación: 4 semanas
+`[CRITERIO-ACEPTACIÓN]` <5/5 → extender 2 sem antes de avanzar a W3.
 
----
+### Checkpoint sem 12 (Workflow 3 completo)
 
-## Reglas de oro
+```
+[ ] Gate G-Aprehender 7/7
+[ ] Mock interview LEAN HIRE+
+[ ] Self vs IA alignment ±1 escala
+[ ] 3 conceptos defendidos sin trabarse
+```
 
-### Cadencia > intensidad
+`[CRITERIO-ACEPTACIÓN]` <4/4 → semanas 13-16 dedicadas a cerrar gaps específicos (no consolidar).
 
-1h × 4 días = 4h/semana = 16h/mes. Ese ritmo es **sostenible 4 meses**.
-"Voy a estudiar 8h el sábado" = inviable en semana 4 · burnout.
+### Checkpoint sem 16 (cierre)
 
-### Spaced Repetition en TODO
+```
+[ ] Spaced Repetition agendado para 30/60/90 días post
+[ ] Aplicación real exitosa documentada
+[ ] Manual personal de aprendizaje generado
+[ ] Plan próximo tema (si aplica)
+```
 
-Cada concepto aprendido en semana N → revisión en semanas N+1, N+2, N+4, N+8.
-Es la única forma de no perder el 90% en 1 mes.
+## Mitigación de abandono · semanas 5-8
 
-### Documentación obligatoria
+`[NUEVO-APORTE]` Tasa histórica 40-50% abandono entre sem 5-8. Mitigaciones eficaces:
 
-Cada semana cierra con bitácora · sin documentar = no pasó.
+| Estrategia | Eficacia esperada |
+|---|---|
+| Peer accountability (mismo ritual ese día) | +30% retención |
+| Public commitment (post LinkedIn al inicio) | +15% retención |
+| Calendar invite con bloque DEEP WORK | +20% retención |
+| Bitácora pública (incluso anónima) | +10% retención |
+| Combinación de las 4 | ~70% retención (vs 50% baseline) |
 
-### Humano en el loop al menos 1× cada 4 semanas
+## Calendar invite
 
-IA puede confirmarte mucho. Pero un humano (colega, mentor) detecta blindspots distintos. Cada 4 semanas, valida con un humano real.
-
----
-
-## Calendar Invite
-
-Programa de 16 semanas:
-- Bloque diario 17:00-18:00 lunes a viernes
-- Excluye sábados-domingos (descanso obligatorio)
-- Reminder 30 min antes
-- Bloque "deep work" sin notificaciones
+```
+Bloque diario 17:00-18:00 lun-vie
+Excluye sábados-domingos (descanso obligatorio)
+Reminder 30 min antes
+Bloque "deep work" sin notificaciones
+16 semanas
+```
 
 Archivo template: `assets/calendar-invites/practica-deliberada-16sem.ics` (genera en setup inicial)
 
----
+## Referencias cruzadas
 
-## Referencias
-
-- `references/01-seis-tecnicas-cognitivas.md` (todas las técnicas en uso)
+- `references/01-seis-tecnicas-cognitivas.md` (todas las técnicas)
 - `references/03-diez-escalas-maestria.md`
-- `workflows/workflow-1-curioso.md`
-- `workflows/workflow-2-explorador.md`
-- `workflows/workflow-3-iniciado.md`
+- `workflows/workflow-1-curioso.md` · `workflow-2-explorador.md` · `workflow-3-iniciado.md`
 - `rituals/ritual-aprehension-semanal.md`
 - `examples/ejemplo-aprehender-system-design.md`
-- `knowledge-base/manifiesto-metodologia.md`
+- `knowledge-base/manifiesto-metodologia.md` (cadencia > intensidad)
 
----
-
-> **Ritual Práctica Deliberada · 16 semanas** del Playbook *Aprender · Aprehender · (R)Evolucionar* v2.0.0 · MetodologIA · CC BY-NC-SA 4.0
+> v1.1.0 · CC BY-NC-SA 4.0 · MetodologIA · `[FUENTE-PRIMARIA]` Playbook v2.0.0

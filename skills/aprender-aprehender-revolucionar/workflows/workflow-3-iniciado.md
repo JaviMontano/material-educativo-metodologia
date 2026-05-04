@@ -1,233 +1,162 @@
-# Workflow 3 · El Iniciado · 20-64 horas
+# Workflow 3 · El Iniciado · 20-64 h
 
-> Transición Escala 2 (Explorador) → Escala 3 (Iniciado). Defender sin notas, ante hostil, bajo presión. Esta es la culminación.
+Transición Escala 2 (Explorador) → Escala 3 (Iniciado). Defender sin notas, ante hostil, bajo presión. Culminación. v1.1.0.
 
-**Agente**: `coach-aprehender`
-**Tiempo**: 20-64 horas (4-16 semanas)
-**Pre-requisito**: Workflow 2 completo · G-Explorador pasado
+| Concepto | Valor |
+|---|---|
+| Agente | `coach-aprehender` |
+| Tiempo nominal | Sprint 20 h (4 sem · 1 h × 5 días) · Marathon 64 h (16 sem) |
+| Pre-requisito | Workflow 2 completo · G-Explorador pasado |
+| Output mandatory | Feynman sin notas · Quiz nivel 3 4/5 · Mock LEAN HIRE+ · 3 conceptos hostiles defendidos · self+IA ±1 escala |
+| Gate al cierre | G-Aprehender (7 criterios binarios) |
 
----
+`[FUENTE-PRIMARIA]` Playbook v2.0.0 §Workflow 3 + §6 técnicas cognitivas.
 
-## Cuándo ejecutarlo
+## Contrato del workflow
 
-- Después de Workflow 2 (BoK profundo + fuentes primarias)
-- Vas a presentar QBR / certificación / entrevista en 4-16 semanas
-- Quieres genuinamente alcanzar Escala 3 (no solo "saber del tema")
-- Modo Sprint (20h) o Marathon (64h)
+| Hace | No hace |
+|---|---|
+| Convierte conocimiento (Aprender) en conocimiento defendible (Aprehender) | Lleva a Escala 4+ (eso requiere práctica en producción real, no método) |
+| Aplica las 6 técnicas cognitivas de manera secuenciada | Promete éxito en QBR/cert · genera capacidad, no garantiza resultado |
+| Detecta Dunning-Kruger via diff self vs IA | Reemplaza la validación humana real (mock con humano sigue siendo necesaria) |
+| Programa Spaced Repetition post-Workflow | Mantiene la escala automáticamente · requiere disciplina del usuario |
 
----
+`[LÍMITE]` Si tema requiere skills físicas o herramientas especializadas (ej. operar un MRI, soldar) la skill no aplica · son dominios kinestésicos.
+`[LÍMITE]` Si humano no está disponible para Feynman real (Semana 4) · sustituir con coach NotebookLM en modo audiencia hostil. No es 100% equivalente · el humano detecta mejor las inconsistencias narrativas.
 
-## Output esperado · Quality Gate G-Aprehender
-
-Al cerrar este workflow, debes tener:
-
-```
-✅ Explicación Feynman grabada · sin notas · 5 min · audiencia novato
-✅ Quiz Nivel 3 aprobado (Prompt #8 · 4/5 mínimo)
-✅ Mock interview pasa LEAN HIRE+ (Prompt #9)
-✅ 3 conceptos críticos defendidos ante hostil sin trabarse
-✅ Self-assessment + AI-assessment coinciden ±1 escala
-✅ NotebookLM con coach activo · 6 técnicas integradas
-✅ Spaced Repetition agendado para 30/60/90 días post-Workflow
-```
-
----
-
-## Estructura · Sprint 20h (4 semanas)
+## Sprint 20 h · 4 semanas
 
 ### Semana 1 · Vocabulario activo
 
-**Objetivo**: dominar el glosario completo en retrieval ciego.
+Objetivo: dominar glosario completo con retrieval ciego.
 
-```
-LUNES (60 min)
-- Coach NotebookLM aplica retrieval a los 50 términos
-- Marcar [FUERTE/PARCIAL/DÉBIL]
-- Plan: 5 [DÉBIL] focus esta semana
+| Día | Actividad (60 min) | Output |
+|---|---|---|
+| Lun | Retrieval ciego de los ~50 términos · marcar [FUERTE/PARCIAL/DÉBIL] | Lista de 5 [DÉBIL] focus |
+| Mar | Estudiar 5 [DÉBIL] con Elaboration · cerrar con retrieval ciego | Definiciones de memoria |
+| Mié | Concept map ciego · comparar con real · identificar gaps mentales | Lista de gaps mentales |
+| Jue | Feynman a 1 concepto · audio 3 min · iterar 1× | Audio + lista de jerga usada |
+| Vie | Quiz Nivel 1 (Prompt #8 Foundations) · score esperado 4/5 | Score documentado · Spaced agendado |
 
-MARTES (60 min)
-- Estudiar 5 [DÉBIL] con elaboration ("¿por qué?", "¿cómo se conecta?")
-- Cerrar con retrieval ciego (escribir definiciones de memoria)
+`[CRITERIO-ACEPTACIÓN]` Si <3 [FUERTE] de 5 [DÉBIL] al cierre Vie · Semana 2 sustituye Trade-offs por refuerzo de glosario.
 
-MIÉRCOLES (60 min)
-- Concept map ciego: dibujar de memoria
-- Comparar con tu mapa real · identificar gaps mentales
+### Semana 2 · Aplicación + trade-offs
 
-JUEVES (60 min)
-- Feynman a 1 concepto · grabar audio 3 min
-- Identificar dónde usaste jerga · iterar 1 vez
+Objetivo: aplicar conceptos a casos reales · entender trade-offs.
 
-VIERNES (60 min)
-- Mini-quiz Nivel 1 (Prompt #8 Foundations)
-- Score esperado: 4/5
-- Programar Spaced Repetition de los 5 [DÉBIL]
-```
+| Día | Actividad | Output |
+|---|---|---|
+| Lun | 5 casos de uso reales del dominio · ¿qué subtema aplica? ¿qué trade-off? | Tabla casos × subtemas |
+| Mar | Profundizar trade-off principal #1 · paper foundational + opinión propia · Feynman a ambos lados | Audio 5 min trade-off |
+| Mié | Trade-off principal #2 · mismo formato | Audio 5 min |
+| Jue | Quiz Nivel 2 (Prompt #8 Intermediate) · 4/5 esperado | Score |
+| Vie | Concept map con anotaciones de trade-off por nodo · audio síntesis 5 min | Concept map v2 + audio |
 
-### Semana 2 · Aplicación y trade-offs
-
-```
-LUNES · Casos de uso
-- 5 casos reales del dominio
-- ¿Qué subtema aplica? ¿Qué trade-off?
-
-MARTES · Trade-off principal #1
-- Profundizar (paper foundational + opinión)
-- Feynman: explicar ambos lados a no-experto
-
-MIÉRCOLES · Trade-off principal #2
-[mismo]
-
-JUEVES · Quiz Nivel 2
-- Prompt #8 Intermediate
-- Score esperado: 4/5
-
-VIERNES · Concept map con trade-offs
-- Tu concept map ahora tiene anotaciones de trade-off por nodo
-- Audio de 5 min: tu posición en cada trade-off
-```
+`[CASO-BORDE]` Si los trade-offs principales son ideológicos sin solución técnica (ej. monolito vs microservicios), no forzar consenso · documentar tu posición con condicionales: "elijo X cuando [condición]".
 
 ### Semana 3 · Defensa preliminar
 
-```
-LUNES · Mock interview hostil (Prompt #9)
-- 30 min mock
-- Identificar 3 preguntas que te derribaron
-- Documentar gaps específicos
+Objetivo: defender bajo presión simulada.
 
-MARTES · Cierre de gaps
-- Para cada una de las 3 preguntas, prepara respuesta robusta
-- Con números, ejemplos concretos, trade-offs explícitos
+| Día | Actividad | Output |
+|---|---|---|
+| Lun | Mock interview hostil 30 min (Prompt #9) | 3 preguntas que te derribaron · documentadas |
+| Mar | Cierre de gaps · respuestas robustas con números, ejemplos, trade-offs explícitos | 3 respuestas modelo |
+| Mié | Mock #2 · validar las 3 anteriores defendidas · identificar 3 nuevas debilidades | Lista nuevas debilidades |
+| Jue | Feynman a 3 conceptos críticos · audio 5 min cada uno | 3 audios |
+| Vie | Quiz Nivel 3 (Prompt #8 Advanced) · 4/5 = cerca de Escala 3 | Score |
 
-MIÉRCOLES · Mock #2
-- Validar que las 3 preguntas anteriores ya las defiendes
-- Identificar 3 nuevas debilidades
-
-JUEVES · Feynman a conceptos críticos
-- Los 3 conceptos más importantes para tu defensa
-- Audio de 5 min cada uno
-
-VIERNES · Quiz Nivel 3 (Prompt #8 Advanced)
-- Score esperado: 4/5
-- Si pasas: estás cerca de Escala 3
-```
+`[TRADE-OFF]` Mock con coach amable se siente cómodo pero no entrena para realidad. Prompt #9 es explícitamente hostil · si tu coach lo está endulzando, el rigor se pierde y entrarás a la realidad sin estrés probado.
 
 ### Semana 4 · Validación final
 
-```
-LUNES · Mock final completo (60 min · Prompt #9)
-- Veredicto STRONG HIRE / LEAN HIRE / etc.
-- Si LEAN HIRE+: estás listo
+Objetivo: validar Escala 3 alcanzada.
 
-MARTES · Si necesitas refuerzo
-- Workflow extra de 4h en gap principal
-- Si paseaste el lunes, sesión de Spaced Repetition
+| Día | Actividad | Output |
+|---|---|---|
+| Lun | Mock final 60 min (Prompt #9) · veredicto STRONG/LEAN HIRE | Veredicto |
+| Mar | Si LEAN HIRE+: Spaced Repetition · Si <LEAN HIRE: 4 h refuerzo en gap principal | Plan ajustado |
+| Mié | Feynman a humano real · 30 min · feedback honesto · identificar dónde no entendió | Feedback humano |
+| Jue | Quiz Nivel 4 opcional (solo target Escala 4+) · NO requerido para cerrar W3 | Score opcional |
+| Vie | Cierre formal · documentar · Spaced Repetition días 30/60/90 · actualizar `.aprender-state.json` | `cierre-w3.md` |
 
-MIÉRCOLES · Feynman a humano real
-- Pedir 30 min a colega no-experto
-- Explicar el tema · pedir feedback honesto
-- Identificar dónde no entendió
+`[CASO-BORDE]` Humano no disponible Mié · alternativas: (a) mock con NotebookLM en modo audiencia hostil, (b) grabar tu Feynman y revisarlo 24 h después con ojos frescos, (c) postergar Mié a próxima sem.
 
-JUEVES · Quiz Nivel 4 (opcional · solo si target Escala 4+)
-- Prompt #8 Expert level
-- No requerido para cerrar Workflow 3
+## Marathon 64 h · 16 semanas (resumen)
 
-VIERNES · Cierre y celebración
-- Documentar en `~/aprender-aprehender/temas/{slug}/cierre-w3.md`
-- Plan de Spaced Repetition: días 30, 60, 90
-- Actualizar `.aprender-state.json`
-- Si aplica: presentación / entrevista / certificación con confianza
-```
-
----
-
-## Marathon · 64 horas (16 semanas)
-
-Versión expandida con:
-- 4 sesiones de 1h por semana × 16 semanas = 64h
+Versión expandida:
+- 4 sesiones × 1 h × 16 sem = 64 h
 - Cada técnica cognitiva con 2-3 sesiones dedicadas
-- Práctica deliberada con feedback de humano experto
-- Dual coding más completo (genera podcast, video, infografía con NotebookLM)
-- Validación con 3 humanos distintos (no solo IA)
+- Práctica deliberada con feedback humano (3 humanos distintos · no solo IA)
+- Dual coding completo (NotebookLM genera podcast, video, infografía)
+- Detalle: `rituals/ritual-practica-deliberada.md`
 
-→ ver `rituals/ritual-practica-deliberada.md` para schedule completo.
+`[TRADE-OFF]` Marathon requiere 16 semanas de compromiso · alta tasa de abandono después de sem 5-6. Mitigación: ritual semanal estricto + accountability con un peer (mismo ritual ese día).
 
----
+## Mapeo · 6 técnicas × 4 semanas
 
-## Las 6 técnicas en este workflow
-
-| Semana | Retrieval | Spaced | Feynman | Interleaving | Elaboration | Dual Coding |
+| Sem | Retrieval | Spaced | Feynman | Interleaving | Elaboration | Dual Coding |
 |---|---|---|---|---|---|---|
-| 1 | ✅ glosario | ✅ DEBIL items | ✅ 1 concepto | ❌ | ✅ por qué | ✅ concept map |
+| 1 | ✅ glosario | ✅ DÉBIL items | ✅ 1 concepto | — | ✅ ¿por qué? | ✅ concept map |
 | 2 | ✅ casos | ✅ continúa | ✅ trade-offs | ✅ casos mixed | ✅ relaciones | ✅ audio |
 | 3 | ✅ preguntas hostiles | ✅ continúa | ✅ 3 conceptos | ✅ mock | ✅ contradicciones | ✅ explicaciones |
-| 4 | ✅ mock final | ✅ programado | ✅ a humano | ✅ quiz nivel 4 | ✅ síntesis | ✅ todo modos |
+| 4 | ✅ mock final | ✅ programado | ✅ a humano | ✅ quiz nivel 4 | ✅ síntesis | ✅ todos modos |
 
----
+## Quality gate G-Aprehender
 
-## Anti-patrones (tope-3 más graves en este workflow)
+```
+[ ] Feynman sin notas grabado · 5 min · audiencia novato comprende
+[ ] Quiz Nivel 3 aprobado: ≥4/5 (Prompt #8 Advanced)
+[ ] Mock interview pasa LEAN HIRE+ (Prompt #9)
+[ ] 3 conceptos críticos defendidos ante hostil sin trabarse
+[ ] Self-assessment + IA-assessment coinciden ±1 escala
+[ ] Plan Spaced Repetition activo (días 30, 60, 90 post-cierre)
+[ ] `.aprender-state.json` actualizado · escala_actual: 3
+```
 
-### 1 · Saltarse el Feynman
+`[CRITERIO-ACEPTACIÓN]` 7/7. Si falla 1 · Workflow 3 extra de 1-2 sem en gaps específicos · NO declarar Escala 3 prematuramente.
 
-Si Javier dice *"no necesito Feynman, ya lo entiendo"*, NO permitir.
-Feynman es el filtro real. Saltarlo = entrar al QBR sin saber qué no sabes.
+## Anti-patrones top-3 graves
 
-### 2 · Mock con coach amable
+| # | Anti-patrón | Detección | Antídoto |
+|---|---|---|---|
+| 1 | Saltar Feynman | "Ya lo entiendo, no necesito" | Forzar · Feynman es el filtro real · sin él entras a QBR sin saber qué no sabes |
+| 2 | Mock con coach amable | Mock pasa fácil sin presión | Re-instruir Prompt #9 · explícitamente hostil · sin halagos preventivos |
+| 3 | Pasar Quiz Nivel 3 con 3/5 y avanzar | Score 3/5 marcado como "OK" | Regla 4/5 mandatory · 3/5 = repaso obligatorio · avanzar con 3/5 = Escala 2.5 disfrazada de 3 |
 
-Si el mock interview es soft (no hostil), no entrenas para la realidad.
-Prompt #9 es explícitamente hostil. Si tu coach lo está endulzando, ajusta.
-
-### 3 · Pasar Quiz Nivel 3 con 3/5 y avanzar
-
-La regla es 4/5. 3/5 = repaso obligatorio. Si avanzas con 3/5, llegas Escala 2.5, no Escala 3.
-
----
-
-## Cierre
-
-Al pasar el Quality Gate G-Aprehender:
+## Cierre Workflow 3 · template
 
 ```markdown
 ## Workflow 3 · Cerrado · Escala 3 ALCANZADA
 
-**Tema**: [...]
-**Tiempo total invertido**: X horas (W1 + W2 + W3)
-**Fecha cierre**: [hoy]
+Tema: [...]
+Tiempo total invertido: X h (W1 + W2 + W3)
+Fecha cierre: [hoy]
 
-**Validaciones pasadas**:
-- ✅ Feynman grabado · sin notas · 5 min
-- ✅ Quiz Nivel 3 · 4-5/5
-- ✅ Mock interview · LEAN HIRE+
-- ✅ 3 conceptos defendidos ante hostil
-- ✅ Auto + AI alignment ±1 escala
-- ✅ Feedback humano positivo
+Validaciones pasadas:
+[x] Feynman grabado · sin notas · 5 min
+[x] Quiz Nivel 3 · 4-5/5
+[x] Mock interview · LEAN HIRE+
+[x] 3 conceptos defendidos ante hostil
+[x] Self+IA alignment ±1 escala
+[x] Feedback humano positivo
 
-**Próximos pasos**:
-- Spaced Repetition · revisión a 30 días: [fecha]
-- Spaced Repetition · revisión a 60 días: [fecha]
-- Spaced Repetition · revisión a 90 días: [fecha]
-- Si aplicó al evento original (QBR/cert/interview): resultado
+Próximos pasos:
+- Spaced Repetition día 30: [fecha]
+- Spaced Repetition día 60: [fecha]
+- Spaced Repetition día 90: [fecha]
+- Si aplicó al evento original (QBR/cert/interview): resultado documentado
 
-**Estado**: `.aprender-state.json` actualizado
-- escala_actual: 3
-- horas_invertidas: X
+Estado: `.aprender-state.json` actualizado · escala_actual=3 · horas_invertidas=X
 ```
 
----
-
-## Referencias
+## Referencias cruzadas
 
 - `agents/coach-aprehender.md`
 - `references/01-seis-tecnicas-cognitivas.md`
 - `references/03-diez-escalas-maestria.md` §Escala 3
-- `prompts/02-coach-system-prompt.md`
-- `prompts/08-evaluator-certification.md`
-- `prompts/09-interview-simulator.md`
-- `katas/kata-feynman-novato.md`
-- `katas/kata-defensa-hostil.md`
-- `katas/kata-recuperacion-ciega.md`
-- `rituals/ritual-aprehension-semanal.md`
-- `rituals/ritual-practica-deliberada.md`
+- `prompts/02 · 08 · 09 · 10`
+- `katas/kata-feynman-novato.md` · `kata-defensa-hostil.md` · `kata-recuperacion-ciega.md`
+- `rituals/ritual-aprehension-semanal.md` · `ritual-practica-deliberada.md`
 
----
-
-> **Workflow 3 · El Iniciado** del Playbook *Aprender · Aprehender · (R)Evolucionar* v2.0.0 · MetodologIA · CC BY-NC-SA 4.0
+> v1.1.0 · CC BY-NC-SA 4.0 · MetodologIA · `[FUENTE-PRIMARIA]` Playbook v2.0.0

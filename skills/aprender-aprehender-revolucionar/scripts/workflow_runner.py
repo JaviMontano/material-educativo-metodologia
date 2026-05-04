@@ -1,6 +1,5 @@
 #!/usr/bin/env python3
-"""
-workflow_runner.py · MetodologIA · Aprender·Aprehender·(R)Evolucionar
+"""workflow_runner.py · MetodologIA · v1.1.0.
 
 Ejecuta Workflow 1/2/3 de forma interactiva · imprime checkpoints · valida gates.
 
@@ -9,15 +8,22 @@ Usage:
     python workflow_runner.py --workflow 2 --tema "Sistemas Distribuidos"
     python workflow_runner.py --workflow 3 --tema "Kubernetes" --semanas 4
 
+[FUENTE-PRIMARIA] Playbook v2.0.0 §Workflows 1/2/3.
+[LÍMITE] Imprime checkpoints · NO ejecuta los workflows · es guía interactiva.
+[SUPUESTO] Usuario sigue checkpoints en buena fe · sin verificación automatizada.
+[TRADE-OFF] Modo interactivo agregaría valor pero requiere stdin · stdout solo es portable.
+
 License: CC BY-NC-SA 4.0 · Javier Montaño · MetodologIA
 """
+
+from __future__ import annotations
 
 import argparse
 import datetime
 import sys
 from pathlib import Path
 
-VERSION = "1.0.0"
+VERSION = "1.1.0"
 SKILL_DIR = Path.home() / ".claude/skills/aprender-aprehender-revolucionar"
 
 

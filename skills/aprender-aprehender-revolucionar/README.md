@@ -5,7 +5,7 @@
 
 [![License: CC BY-NC-SA 4.0](https://img.shields.io/badge/License-CC%20BY--NC--SA%204.0-lightgrey.svg)](LICENSE.md)
 [![Brand: MetodologIA](https://img.shields.io/badge/Brand-MetodologIA%20v3.0-122562)](https://metodologia.info)
-[![Version: 1.0.0](https://img.shields.io/badge/version-1.0.0-FFD700)](CHANGELOG.md)
+[![Version: 1.1.0](https://img.shields.io/badge/version-1.1.0-FFD700)](CHANGELOG.md)
 
 ---
 

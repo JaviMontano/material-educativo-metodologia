@@ -1,6 +1,5 @@
 #!/usr/bin/env python3
-"""
-triangulation.py · MetodologIA · Aprender·Aprehender·(R)Evolucionar
+"""triangulation.py · MetodologIA · v1.1.0.
 
 Genera tabla de triangulación para comparar respuestas de 3+ IAs.
 Soporta input desde archivos o stdin.
@@ -9,10 +8,15 @@ Usage:
     python triangulation.py --files chatgpt.md claude.md gemini.md
     python triangulation.py --files *.md --output triangulacion.md
 
-Output: tabla markdown con CONFIRMED / REVISAR / SOSPECHOSO / CONTRADICCIÓN.
+[FUENTE-PRIMARIA] Playbook v2.0.0 §katas/kata-triangulacion-3ias.md.
+[LÍMITE] 2 archivos = empate 1-1 sin desempate · mínimo 3 archivos requeridos.
+[SUPUESTO] Archivos contienen respuestas a la MISMA pregunta · si difieren, output sin valor.
+[TRADE-OFF] Heurística de matching por palabras claves · falsos positivos/negativos posibles.
 
 License: CC BY-NC-SA 4.0 · Javier Montaño · MetodologIA
 """
+
+from __future__ import annotations
 
 import argparse
 import datetime
@@ -20,7 +24,7 @@ import re
 import sys
 from pathlib import Path
 
-VERSION = "1.0.0"
+VERSION = "1.1.0"
 
 
 def extraer_items(texto: str) -> list[str]:

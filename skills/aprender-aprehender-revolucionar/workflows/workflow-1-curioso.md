@@ -1,261 +1,195 @@
-# Workflow 1 · El Curioso · 1-4 horas
+# Workflow 1 · El Curioso · 1-4 h
 
-> Transición Escala 0 (Ignorante) → Escala 1 (Curioso). El primer mapa del territorio.
+Transición Escala 0 (Ignorante) → Escala 1 (Curioso). Primer mapa del territorio. v1.1.0.
 
-**Agente**: `coach-aprender`
-**Tiempo**: 1-4 horas
-**Output**: BoK triangulado · glosario 30 términos · concept map · NotebookLM configurado
+| Concepto | Valor |
+|---|---|
+| Agente que lo ejecuta | `coach-aprender` |
+| Tiempo nominal | 4 h (Sprint) · 1 h (Express) · 4h primer slice de Marathon |
+| Output mandatory | BoK triangulado · glosario ≥15 (target 30) · concept map mermaid · ≥3 fuentes 1° verificadas · NotebookLM configurado |
+| Gate al final | G-Aprender (7 criterios binarios) |
 
----
+`[FUENTE-PRIMARIA]` Playbook v2.0.0 §Workflow 1.
 
-## Cuándo ejecutarlo
+## Contrato del workflow
 
-- Tema nuevo · no sabes nada o casi nada
-- Primera vez que escuchas el campo
-- Inicio de cualquier deep research
-- Modo Express del desatraso (4h)
+| Hace | No hace |
+|---|---|
+| Construye el mapa inicial del dominio | Lleva al usuario a Escala 2+ (eso es Workflow 2/3) |
+| Triangula 3+ IAs · detecta hallucinations vía Prompt #4 | Garantiza dominio operativo (es saber, no hacer) |
+| Configura NotebookLM como coach activo | Reemplaza la lectura de fuentes 1° (las identifica · no las lee por ti) |
+| Persiste outputs en `~/aprender-aprehender/temas/{slug}/` | Promete que en 4h estarás listo para QBR (eso requiere Aprehender) |
 
----
+`[LÍMITE]` 4 h reales no equivalen a Escala 1 si el dominio es muy denso (ej. matemáticas avanzadas requieren 10-20 h solo para Escala 1).
+`[SUPUESTO]` Usuario tiene acceso a 3+ IAs · si solo tiene 1 ChatGPT/Claude, valor cae 60% por pérdida de triangulación.
 
-## Pre-requisitos
+## Pre-requisitos `[CRITERIO-ACEPTACIÓN]`
 
-- [ ] Tema declarado (precisión, no "AI", sino "Agentic AI Systems for Production")
-- [ ] Objetivo claro (por qué lo aprendes)
-- [ ] Tiempo bloqueado en calendario (1-4h ininterrumpidas)
-- [ ] Cuenta NotebookLM activa
-- [ ] Acceso a 3 IAs (ChatGPT + Claude + Gemini ideal)
+```
+[ ] Tema declarado con precisión (ej. "Agentic AI Systems for Production" · NO "AI")
+[ ] Objetivo medible (¿para qué? · "pasar AWS SAA-C03 en 3 meses")
+[ ] 1-4 h bloqueadas en calendario · ININTERRUMPIDAS · sin notificaciones
+[ ] Cuenta NotebookLM activa
+[ ] Acceso simultáneo a 3 IAs (ChatGPT + Claude + Gemini ideal)
+[ ] Espacio en disco para `~/aprender-aprehender/temas/{slug}/`
+```
 
----
+Si alguno falla · NO arranques · resuelve primero.
 
-## Pasos · Cronograma 4h
+## Cronograma · Sprint 4 h
 
 ### 0:00-0:15 · Declaración de intención
 
+Crear `~/aprender-aprehender/temas/{slug}/00-declaracion.md`:
+
 ```markdown
 TEMA: [específico]
-POR QUÉ: [objetivo medible · ej. "Pasar AWS SAA-C03 en 3 meses"]
-ESCALA ACTUAL: [0 ignorante · 1 curioso]
-ESCALA OBJETIVO: [1 curioso · 2 explorador]
-TIEMPO TOTAL: 4 horas hoy
-HIPÓTESIS INICIAL: [lo que crees · será refinado al final]
+POR QUÉ: [objetivo medible]
+ESCALA ACTUAL: [0|1] · evidencia: ¿qué sabes ya?
+ESCALA OBJETIVO: [1|2]
+TIEMPO: 4 h hoy · 0 h compromiso post-hoy
+HIPÓTESIS INICIAL: [lo que crees · será refinada]
 ```
 
-Guarda en `~/aprender-aprehender/temas/{slug}/00-declaracion.md`.
+`[NUEVO-APORTE]` La declaración hace explícito qué sabes ya · evita el sesgo "soy 0 en todo" cuando ya tienes vocabulario adyacente.
 
 ### 0:15-1:00 · Triangulación del Blueprint (Prompt #1)
 
-```
-TAREA: Ejecutar Prompt #1 en 3 IAs en paralelo
+Ejecutar Prompt #1 en 3 IAs paralelas (45 min). Guardar:
+- `01-bp-chatgpt.md` · `02-bp-claude.md` · `03-bp-gemini.md` (o Perplexity)
 
-1. ChatGPT (15 min)
-   - Tomar `prompts/01-research-blueprint.md`
-   - Reemplazar variables
-   - Ejecutar
-   - Guardar respuesta como `01-bp-chatgpt.md`
+`[CASO-BORDE]` Si las 3 IAs dan respuestas casi idénticas (>90% overlap textual) · sospecha cross-training · probablemente todas vieron el mismo material entrenamiento. Mitigación: agregar Kimi o un modelo especializado del dominio.
 
-2. Claude (15 min)
-   - Mismo prompt idéntico
-   - Guardar como `02-bp-claude.md`
-
-3. Gemini / Perplexity (15 min)
-   - Mismo prompt idéntico
-   - Guardar como `03-bp-gemini.md`
-```
-
-### 1:00-2:00 · Consolidación
+### 1:00-2:00 · Consolidación (60 min)
 
 ```
-TAREA: Compilar las 3 respuestas en 1 documento maestro
+1. Tabla triangulación (asset: plantilla-triangulacion.md)
+   ✅ aparece en 3/3  → CORE · alta confianza
+   ⚠️ aparece en 2/3  → REVISAR · validar con fuente 1°
+   ❌ aparece en 1/3  → SOSPECHOSO · descartar o investigar manual
+   🔄 contradicción   → ORO · ahí están los debates del campo
 
-PASOS:
-1. Tabla de triangulación (asset: plantilla-triangulacion.md)
-   Para cada elemento del Blueprint, marcar:
-   - ✅ aparece en las 3
-   - ⚠️ aparece en 2
-   - ❌ aparece en 1 (sospechoso)
-   - 🔄 contradicción
+2. BoK consolidado: mantener ✅ · investigar ⚠️🔄 · eliminar ❌
 
-2. Generar BoK consolidado:
-   - Mantener: items ✅
-   - Investigar: items ⚠️ y 🔄
-   - Eliminar: items ❌ (sin verificación manual)
-
-3. Validar glosario:
-   - Mínimo 15 términos
-   - Target 30 términos
-   - Marcar [DOC] / [INFERENCIA] / [SUPUESTO]
+3. Glosario: ≥15 términos · target 30 · cada uno con [DOC]/[INFERENCIA]/[SUPUESTO]
 
 4. Concept map mermaid:
-   - Tema central
-   - 5-10 ramas
-   - 3-5 conceptos por rama
+   - Tema central · 5-10 ramas principales · 3-5 conceptos por rama
+   - Si IA no genera mermaid · usa plantilla `assets/plantilla-concept-map.mermaid`
 ```
 
 Output: `04-bok-consolidado.md`.
 
-### 2:00-2:30 · Fact-Check Cruzado (Prompt #4)
+### 2:00-2:30 · Fact-Check Cruzado (Prompt #4) · 30 min
 
-```
-TAREA: Auditar el BoK consolidado con una 4ª IA
+Ejecutar Prompt #4 en 4ª IA distinta (Perplexity con web search ideal). Procesar veredictos:
 
-1. Tomar `prompts/04-cross-fact-check.md`
-2. Usar IA distinta (Perplexity con búsqueda web ideal)
-3. Pegar BoK consolidado
-4. Procesar veredictos:
-   - ELIMINAR items HALLUCINATION
-   - VERIFICAR items NO SOURCE críticos
-   - MANTENER items CONFIRMED
-```
+| Veredicto | Acción |
+|---|---|
+| `[CONFIRMED]` | Mantener |
+| `[DISCREPANT]` | Investigar fuente 1° real |
+| `[PARTIAL]` | Mantener con caveat documentado |
+| `[NO SOURCE]` | Verificar manualmente · si no se confirma en 5 min, eliminar |
+| `[HALLUCINATION]` | Eliminar inmediato |
 
 Output: `05-bok-auditado.md`.
 
-### 2:30-3:00 · NotebookLM Setup
+`[CASO-BORDE]` Si las 4 IAs comparten una hallucination común (caso raro pero documentado), la triangulación falla. Mitigación: validar cualquier afirmación crítica para QBR/paper en Google Scholar manualmente · 10 min adicionales.
+
+### 2:30-3:00 · NotebookLM Setup · 30 min
 
 ```
-TAREA: Crear notebook con coach activo
-
-1. notebooklm.google.com → Crear notebook nuevo
-2. Importar como sources:
-   - 01-bp-chatgpt.md
-   - 02-bp-claude.md
-   - 03-bp-gemini.md
-   - 04-bok-consolidado.md
-   - 05-bok-auditado.md
-3. Auditoría rápida con Prompt #7 (Notebook Audit)
-4. Si recomienda eliminar/consolidar → ejecutar
-5. Configurar coach con Prompt #2:
-   - [TU TEMA] = [tu tema]
-   - [TU NIVEL OBJETIVO] = "Escala 2 Explorador"
-   - [TU CONTEXTO] = [...]
-6. Guardar
+1. notebooklm.google.com → nuevo notebook
+2. Importar 5 sources (los 5 .md del proceso)
+3. Auditoría rápida con Prompt #7 · si <40% primary, regresa al 1:00
+4. Configurar coach con Prompt #2 · pegar en Custom Goal (≤10K chars)
+5. Test: 3 preguntas socráticas · validar comportamiento
 ```
 
-### 3:00-3:30 · Primera sesión con coach
+`[TRADE-OFF]` Configurar NotebookLM toma 30 min hoy · ahorra 2-3 h en cada sesión futura porque ya no re-explicas el contexto.
+
+### 3:00-3:30 · Primera sesión retrieval ciego · 30 min
 
 ```
-TAREA: Validar coach + cubrir 2-3 conceptos clave
-
-1. Pregunta 1: "Coach, repasemos los 5 términos más importantes
-   del glosario. Hazme retrieval ciego de cada uno."
-2. Coach hace 5 preguntas abiertas
-3. Tú respondes sin mirar nada
-4. Coach evalúa [FUERTE/PARCIAL/DÉBIL]
-5. Identifica los 2-3 conceptos [DÉBIL] · plan para próxima sesión
+1. Coach: "Repasemos los 5 términos más importantes del glosario · retrieval ciego"
+2. Coach pregunta · tú respondes sin mirar nada
+3. Coach evalúa [FUERTE/PARCIAL/DÉBIL]
+4. Documentar 2-3 conceptos [DÉBIL] · plan próxima sesión
 ```
 
-### 3:30-4:00 · Cierre y planificación
+`[CRITERIO-ACEPTACIÓN]` Si <2 conceptos quedan FUERTES de los 5 → indicador de que el BoK fue muy denso y necesita 2ª pasada en próxima sesión.
 
-```
-GATE G-APRENDER (validar antes de cerrar):
-[ ] BoK triangulado en 3+ IAs · sí
-[ ] Glosario ≥15 términos · sí
-[ ] Concept map mermaid generado · sí
-[ ] ≥3 fuentes primarias verificadas · sí
-[ ] Auditor cruzado sin HALLUCINATION crítico · sí
-[ ] NotebookLM configurado con coach activo · sí
+### 3:30-4:00 · Cierre · 30 min
 
-DOCUMENTAR:
-- En `~/aprender-aprehender/temas/{slug}/06-cierre.md`:
-  - Logros
-  - Gaps detectados
-  - Próximo paso (Workflow 2 o pausa)
-  - Tiempo total invertido
-- Actualizar `.aprender-state.json`
-- Agendar próxima sesión
-
-DECIDIR:
-- ¿Continuar con Workflow 2 (Explorador)? agendar 4h
-- ¿Pausa? guardar estado, retomar cuando aplique
-- ¿Suficiente con Escala 1? cerrar el tema activo
-```
-
----
-
-## Variantes
-
-### Express · 1 hora (versión condensada)
-
-Solo si Javier tiene tiempo crítico (atraso urgente):
-
-```
-0:00-0:20 · Prompt #1 en 1 IA (Claude · más estructurado)
-0:20-0:30 · Glosario rápido · 15 términos clave
-0:30-0:40 · Concept map mermaid simple
-0:40-0:50 · NotebookLM con 1 source · coach básico
-0:50-1:00 · Documentar
-```
-
-Trade-off: pierdes triangulación · uso solo en emergencia.
-
-### Sprint · 4 horas (versión recomendada)
-
-Workflow descrito arriba.
-
-### Marathon (parte 1 de 64h)
-
-Este workflow es el primer fragmento de 4h del programa de 64h.
-
----
+Validar Gate G-Aprender (ver §Gate). Documentar `06-cierre.md` · actualizar `.aprender-state.json` · agendar próximo paso.
 
 ## Quality gate G-Aprender
 
-Para avanzar a Workflow 2:
-
 ```
-✅ BoK con ≥5 subtemas mapeados
-✅ Glosario ≥15 términos (target 30)
-✅ Concept map jerárquico (mermaid)
-✅ Triangulación documentada (3+ IAs)
-✅ Fact-check ejecutado (Prompt #4)
-✅ NotebookLM con sources cargados + coach activo
-✅ Primera sesión con coach exitosa (5 preguntas test)
+[ ] BoK triangulado en 3+ IAs · documentado en tabla
+[ ] Glosario ≥15 términos (target 30) · cada uno con tag de evidencia
+[ ] Concept map jerárquico mermaid generado y revisado
+[ ] ≥3 fuentes 1° verificadas (no terciarias derivadas)
+[ ] Prompt #4 ejecutado · 0 [HALLUCINATION] crítica activa
+[ ] NotebookLM con 5+ sources · coach activo · 3 preguntas test pasadas
+[ ] 06-cierre.md persistido · estado actualizado
 ```
 
-Si falla algún ✅ → repetir el paso correspondiente antes de avanzar.
+`[CRITERIO-ACEPTACIÓN]` 7/7 obligatorio. Si falla 1 · NO avanzar a Workflow 2 · repetir el paso correspondiente.
 
----
+## Variantes por tiempo
 
-## Anti-patrones
-
-| Error | Síntoma | Corrección |
+| Modo | Tiempo | Trade-off |
 |---|---|---|
-| Solo 1 IA | "Tengo el BoK · ChatGPT lo dio" | Triangular obligatorio |
-| Glosario corto | 5-10 términos | Mínimo 15 · si IA da menos, pídele más |
-| Sin concept map | Solo prosa | Generar mermaid · obligatorio |
-| Saltar fact-check | "Suena confiable" | Prompt #4 obligatorio |
-| Sin NotebookLM | Solo lectura | Configurar coach · es activo, no pasivo |
-| No documentar | "Lo recordaré" | Archivos persistentes en {slug}/ |
+| **Express 1h** | 1 h · 1 IA solo (Claude · estructurado) | Pierdes triangulación · uso emergencia · Escala 1 frágil |
+| **Sprint 4h** | 4 h · 3 IAs · auditoría completa | Recomendado por defecto |
+| **Marathon (slice)** | 4 h primer slice de 64h | Idéntico al Sprint · luego encadena Workflow 2 |
 
----
+## Casos borde · cuando el camino feliz falla
 
-## Output esperado · estructura de carpetas
+| Caso | Detección | Resolución |
+|---|---|---|
+| Tema tan nicho que las 3 IAs dicen "no tengo info" | <30% subtemas mapeados | Cambiar a fuente humana · entrevistar a 1 experto · 30 min |
+| Tema tiene controversia ideológica fuerte | Las 3 IAs dan respuestas radicalmente distintas | Marcar el debate como output explícito · NO consolidar artificialmente |
+| BoK triangulado pero NotebookLM no admite los archivos | Error de upload | Convertir .md a PDF · NotebookLM acepta PDF mejor |
+| Sin tiempo para fact-check (urgencia) | Solo 3h disponibles | Saltar fact-check pero marcar TODO el BoK como `[SUPUESTO]` hasta auditarlo |
+| 4ª IA en fact-check no encuentra ninguna fuente | Posible: dominio muy reciente (post training cutoff) | Búsqueda web manual · si <2 fuentes en 30 min, marcar BoK como [SUPUESTO] |
+
+## Anti-patrones detectables
+
+| Anti-patrón | Síntoma observable | Antídoto |
+|---|---|---|
+| Single-AI BoK | Solo 1 archivo en la carpeta · "ChatGPT me dio el mapa" | Triangulación obligatoria · sin excepción |
+| Glosario corto | 5-10 términos | "Coach, dame 10 términos clave más específicos del campo" |
+| Sin concept map | Solo prosa narrativa | Mermaid obligatorio · te obliga a estructurar |
+| Saltar fact-check | "Suena confiable" | Prompt #4 obligatorio · 30 min ahorran horas en QBR |
+| Sin NotebookLM | "Solo leo los .md" | Configurar coach · sin él, no hay aprendizaje activo |
+| No documentar | "Lo recordaré" | Archivos persistentes · sin esto pierdes continuidad sesión a sesión |
+| Aceptar `[NO SOURCE]` sin investigar | "Quizás existe la fuente" | NO SOURCE = HALLUCINATION potencial · resolver o eliminar |
+
+## Estructura de archivos esperada
 
 ```
 ~/aprender-aprehender/temas/{slug}/
-├── 00-declaracion.md         # Intención + objetivo
-├── 01-bp-chatgpt.md          # Respuesta IA #1
-├── 02-bp-claude.md           # Respuesta IA #2
-├── 03-bp-gemini.md           # Respuesta IA #3
-├── 04-bok-consolidado.md     # BoK triangulado
-├── 05-bok-auditado.md        # Post-fact-check
-├── 06-cierre.md              # Resumen + plan
-├── concept-map.mermaid       # Visual jerárquico
-└── glosario.md               # 15-30 términos con tags
+├── 00-declaracion.md         intención + objetivo
+├── 01-bp-chatgpt.md          IA #1
+├── 02-bp-claude.md           IA #2
+├── 03-bp-gemini.md           IA #3
+├── 04-bok-consolidado.md     triangulación + tabla
+├── 05-bok-auditado.md        post fact-check
+├── 06-cierre.md              resumen · gaps · plan
+├── concept-map.mermaid       visual jerárquico
+└── glosario.md               15-30 términos con tags
 ```
 
----
+## Referencias cruzadas
 
-## Referencias
+- `agents/coach-aprender.md` · ejecutor
+- `prompts/01-research-blueprint.md` · prompt principal
+- `prompts/04-cross-fact-check.md` · auditoría
+- `prompts/07-notebook-audit.md` · audit notebook
+- `references/02-tres-modelos-fundacionales.md` §BoK
+- `katas/kata-triangulacion-3ias.md` · práctica deliberada de triangulación
+- `examples/ejemplo-aprender-rust.md` · sesión real
 
-- `agents/coach-aprender.md`
-- `prompts/01-research-blueprint.md`
-- `prompts/02-coach-system-prompt.md`
-- `prompts/04-cross-fact-check.md`
-- `prompts/07-notebook-audit.md`
-- `references/02-tres-modelos-fundacionales.md` §Body of Knowledge
-- `katas/kata-triangulacion-3ias.md`
-- `examples/ejemplo-aprender-rust.md`
-
----
-
-> **Workflow 1 · El Curioso** del Playbook *Aprender · Aprehender · (R)Evolucionar* v2.0.0 · MetodologIA · CC BY-NC-SA 4.0
+> v1.1.0 · CC BY-NC-SA 4.0 · MetodologIA · `[FUENTE-PRIMARIA]` Playbook v2.0.0

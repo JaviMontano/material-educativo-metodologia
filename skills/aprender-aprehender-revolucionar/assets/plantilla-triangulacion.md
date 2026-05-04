@@ -1,6 +1,10 @@
-# Plantilla · Tabla de Triangulación
+# Plantilla · Tabla de Triangulación · v1.1.0
 
 > Output del kata-triangulacion-3ias · cruzar 3+ IAs sobre la misma pregunta.
+
+`[FUENTE-PRIMARIA]` Playbook v2.0.0 §Triangulation Protocol + kata-triangulacion-3ias.md.
+`[CRITERIO-ACEPTACIÓN]` Mínimo 3 columnas IA · pregunta IDÉNTICA · Prompt #4 obligatorio en 4ª IA.
+`[LÍMITE]` 3 IAs derivadas de misma familia (todas OpenAI) reduce valor 70% · usa proveedores distintos.
 
 **Tema**: [TU TEMA]
 **Pregunta**: [pregunta idéntica enviada a las 3 IAs]

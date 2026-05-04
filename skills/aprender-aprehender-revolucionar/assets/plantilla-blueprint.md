@@ -1,8 +1,12 @@
-# Plantilla · Research Blueprint
+# Plantilla · Research Blueprint · v1.1.0
 
 > Template del Workflow 1 · output del Prompt #1 · base del Body of Knowledge.
 
 **Reemplaza** los items entre `[corchetes]` con tu contenido. Borra esta nota cuando termines.
+
+`[FUENTE-PRIMARIA]` Playbook v2.0.0 §Workflow 1 + Prompt #1.
+`[LÍMITE]` Plantilla genérica · si tu dominio requiere campos específicos (ej. compliance regulatoria), agregar sección custom antes de la sección 4.
+`[CRITERIO-ACEPTACIÓN]` Output mínimo viable: 7 secciones llenas con datos reales · NO dejar `[corchetes]` literales.
 
 ---
 

@@ -1,6 +1,5 @@
 #!/usr/bin/env python3
-"""
-retrieval_session.py · MetodologIA · Aprender·Aprehender·(R)Evolucionar
+"""retrieval_session.py · MetodologIA · v1.1.0.
 
 Conduce una sesión de retrieval ciego siguiendo kata-recuperacion-ciega.
 
@@ -8,10 +7,15 @@ Usage:
     python retrieval_session.py --concepto "Eventual Consistency"
     python retrieval_session.py --concepto "Raft Algorithm" --tiempo 15
 
-Genera un protocolo guiado en stdout · luego espera input del usuario.
+[FUENTE-PRIMARIA] Playbook v2.0.0 §katas/kata-recuperacion-ciega.md.
+[LÍMITE] No detecta si el usuario hace trampa (mira notas) · disciplina personal.
+[SUPUESTO] El concepto está en glosario activo · no es concepto recién leído.
+[TRADE-OFF] Logging persistente solo si LOG_DIR existe · default: solo stdout.
 
 License: CC BY-NC-SA 4.0 · Javier Montaño · MetodologIA
 """
+
+from __future__ import annotations
 
 import argparse
 import datetime
@@ -19,7 +23,7 @@ import sys
 import time
 from pathlib import Path
 
-VERSION = "1.0.0"
+VERSION = "1.1.0"
 SKILL_DIR = Path.home() / ".claude/skills/aprender-aprehender-revolucionar"
 LOG_DIR = Path.home() / "aprender-aprehender/bitacora"
 

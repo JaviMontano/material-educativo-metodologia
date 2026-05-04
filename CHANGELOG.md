@@ -23,6 +23,42 @@
 
 ## 📋 Historial de cambios
 
+## [1.2.0] · 2026-05-04 · Skill Aprender·Aprehender·(R)Evolucionar v1.1.0 (Elevación 10×)
+
+**Tipo**: refactor sustantivo de la skill incorporada en v1.1.0 · sin cambios estructurales
+**Editor**: Javier Montaño · MetodologIA
+**License**: CC BY-NC-SA 4.0
+
+Elevación 10× aplicada uniformemente a las 10 carpetas: agents (5), references (6), prompts (14+4), workflows (3), katas (6), rituals (4), scripts (7+tests), assets (8), examples (4), knowledge-base (4).
+
+### Cambios cuantitativos
+
+| Métrica | v1.0.0 | v1.1.0 | Delta |
+|---|---:|---:|---:|
+| Archivos | 70 | ~78 | +8 (suite tests Python) |
+| Cobertura tags evidencia (críticos) | ~60% | 100% | mandatory |
+| Casos borde explícitos | ~20 | ~80+ | 4× |
+| Criterios aceptación binarios | ~30 | ~110+ | 3.7× |
+| Trade-offs documentados | ~10 | ~50+ | 5× |
+
+### Nuevas etiquetas de evidencia (v1.1)
+
+`[NUEVO-APORTE]` `[CASO-BORDE]` `[TRADE-OFF]` `[CRITERIO-ACEPTACIÓN]` `[LÍMITE]` `[DECISIÓN]` (adicionales a las 6 v1.0).
+
+### Scripts Python · best practices
+
+Type hints `from __future__ import annotations` · custom exception classes (DuplicateTemaError, InvalidEscalaError, RegressionWarning) · validación input · audit mode (`desatraso_planner.py --audit`) · detección regresión de escala · suite `tests/` con pytest (test_progress_tracker, test_desatraso_planner, conftest con isolated state).
+
+### Brand voice ajuste
+
+Retiradas referencias a "palabras bloqueadas" del material público. Reemplazadas con voces canónicas afirmativas: Diseñador · (R)Evolución · Método · Soberanía Profesional · Areté.
+
+### Detalles completos
+
+`skills/aprender-aprehender-revolucionar/CHANGELOG.md`
+
+---
+
 ## [1.1.0] · 2026-05-01 · Skill operativa Aprender·Aprehender·(R)Evolucionar
 
 **Tipo**: incorporación de material complementario operativo

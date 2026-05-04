@@ -1,377 +1,260 @@
-# 6 Técnicas Cognitivas · Ciencia del Aprendizaje
+# 6 Técnicas Cognitivas · Manual operativo
 
-> Las 6 técnicas con mayor evidencia académica para retención duradera, transferencia y dominio. Base de la fase **Aprehender**.
+> Las 6 técnicas con mayor evidencia académica para retención duradera, transferencia y dominio. Núcleo de la fase **Aprehender**. v1.1.0.
 
-**Fuente canónica**: Playbook *Aprender · Aprehender · (R)Evolucionar* v2.0.0 · §Aprehender.
-**Sustento académico**: ver `06-ciencia-cognitiva-fuentes.md`.
+`[FUENTE-PRIMARIA]` Playbook *Aprender · Aprehender · (R)Evolucionar* v2.0.0 §Aprehender · sustento académico en `06-ciencia-cognitiva-fuentes.md`.
 
----
+## Mapa rápido
 
-## Mapa de las 6 técnicas
+| # | Técnica | Fase | Evidencia | Tiempo | Combina mal con |
+|---|---|---|---|---|---|
+| 1 | Retrieval Practice | Aprehender | ⭐⭐⭐⭐⭐ Karpicke 2008 | 20–30 min | Sin Spacing → olvido en 48h |
+| 2 | Spaced Repetition | Aprehender | ⭐⭐⭐⭐⭐ Cepeda 2008 | 5–15 min/día | Sin Retrieval → recognition, no recall |
+| 3 | Feynman | Cross-fase | ⭐⭐⭐⭐⭐ Chi 1989 | 30 min | Audiencia experta neutraliza el reto |
+| 4 | Interleaving | Aprehender | ⭐⭐⭐⭐ Rohrer 2010 | 30–45 min | Aplicado prematuramente confunde |
+| 5 | Elaboration | Aprender + Aprehender | ⭐⭐⭐⭐ Pressley 1992 | 15 min | Acumulación pasiva sin red de relaciones |
+| 6 | Dual Coding | Cross-fase | ⭐⭐⭐⭐ Mayer 2014 | varía | Visual decorativo sin contenido |
 
-| # | Técnica | Fase principal | Ranking evidencia | Tiempo/sesión |
-|---|---|---|---|---|
-| 1 | Retrieval Practice | Aprehender | ⭐⭐⭐⭐⭐ | 20–30 min |
-| 2 | Spaced Repetition | Aprehender | ⭐⭐⭐⭐⭐ | 5–15 min/día |
-| 3 | Feynman Technique | Cross-fase | ⭐⭐⭐⭐⭐ | 30 min |
-| 4 | Interleaving | Aprehender | ⭐⭐⭐⭐ | 30–45 min |
-| 5 | Elaboration | Aprehender + Aprender | ⭐⭐⭐⭐ | 15 min |
-| 6 | Dual Coding | Aprender + Aprehender | ⭐⭐⭐⭐ | varía |
+> ⭐⭐⭐⭐⭐ = "high utility" en meta-análisis Dunlosky 2013 `[DOC]`. Las 4 estrellas son "moderate utility" con evidencia robusta pero menos consistente entre dominios.
 
-> Las 5 estrellas = "high utility" en el meta-análisis Dunlosky et al. 2013 `[DOC: Dunlosky · Improving Students' Learning · 2013]`.
-
----
-
-## 1 · Retrieval Practice (Recuperación activa)
-
-### Definición
-Recuperar información de la memoria **sin pistas externas** (notas, libros, slides). Fuerza el cerebro a reconstruir el conocimiento, lo cual fortalece las conexiones neuronales más que releer.
-
-### Por qué funciona `[DOC: Karpicke & Roediger · 2008 · Science]`
-- Releer da **fluidez ilusoria** (reconoces el material → crees que lo sabes).
-- Recuperar genera **desirable difficulty** (esfuerzo productivo) que codifica el conocimiento profundamente.
-- Los estudios muestran 50–80% más retención a 1 semana vs releer.
-
-### Protocolo (sesión de 20–30 min)
-
-```
-1. Cierra TODOS los materiales (notas, libros, slides, IA, navegador).
-2. Toma una hoja en blanco.
-3. Escribe TODO lo que recuerdes sobre [TEMA].
-4. Sin volver a las notas: marca con [?] lo que dudas.
-5. Ahora abre las fuentes y compara.
-6. Marca cada elemento como:
-   [FUERTE]   — recuperaste correctamente sin pista
-   [PARCIAL]  — recuperaste pero con errores
-   [DÉBIL]    — no recuperaste o estaba mal
-7. Estudia SOLO lo [DÉBIL] y [PARCIAL].
-8. Repite la sesión en 3 días (ver Spaced Repetition).
-```
-
-### Anti-patrón
-**Recognition vs Recall**: ver el listado y decir "sí, lo conozco". *Reconocer ≠ recuperar*. La prueba real es papel en blanco.
-
-### Con IA (NotebookLM)
-- Pide al notebook: *"Hazme 5 preguntas abiertas sobre [TEMA]. No me des las respuestas. Yo respondo, tú evalúas con [FUERTE/PARCIAL/DÉBIL]."*
-- Ver Prompt #2 (`prompts/02-coach-system-prompt.md`) y Prompt #8 (`prompts/08-evaluator-certification.md`).
-
-### Cuándo usar
-- ✅ Ritual semanal de aprehensión (`rituals/ritual-aprehension-semanal.md`).
-- ✅ Antes de presentación o certificación.
-- ✅ Después de cada bloque de estudio (al terminar el día).
-- ❌ NO usar en lugar del estudio inicial (necesitas haber estudiado primero).
-
-### Kata asociado
-`katas/kata-recuperacion-ciega.md` (15 min · ejercicio dirigido).
+`[NUEVO-APORTE]` Las 6 técnicas **no son aditivas**. Apilar las 6 en una sesión de 1 h satura cognitive load y produce diminishing returns `[DOC: Sweller 1988]`. Distribuir en la semana (§7) supera siempre a "hacerlas todas hoy".
 
 ---
 
-## 2 · Spaced Repetition (Repetición espaciada)
+## 1 · Retrieval Practice
 
-### Definición
-Revisar información en **intervalos crecientes**: mismo día → 3 días → 1 semana → 2 semanas → 1 mes → 3 meses → 6 meses.
+**Definición**: recuperar de memoria sin pistas externas (notas, libros, slides, IA, web).
 
-### Por qué funciona `[DOC: Cepeda et al. · 2008 · Psychological Science]`
-- La curva del olvido (Ebbinghaus 1885) muestra que olvidamos exponencialmente: 50% en 1 hora, 70% en 24h, 90% en 1 semana.
-- Cada revisión justo antes del olvido **resetea** la curva y la hace más plana.
-- 5 revisiones espaciadas > 50 revisiones consecutivas (cramming) en retención a 6 meses.
+**Por qué funciona** `[DOC: Karpicke & Roediger 2008 · Science]`: releer da fluidez ilusoria; recuperar genera *desirable difficulty* que codifica profundo. Estudios muestran +50–80% retención a 1 semana vs releer.
 
-### Protocolo (intervalos canónicos del playbook)
+### Protocolo · sesión 20–30 min
 
-```
-DÍA  0: aprendizaje inicial
-DÍA  0: primera revisión (al final del día) ─── retrieval session
-DÍA  3: segunda revisión             ────────── retrieval session
-DÍA  7: tercera revisión             ────────── retrieval session
-DÍA 14: cuarta revisión              ────────── retrieval session
-DÍA 30: quinta revisión              ────────── retrieval session
-DÍA 90: sexta revisión               ────────── retrieval session
-```
+1. Cerrar TODO (notas · libros · slides · IA · web)
+2. Hoja en blanco
+3. Escribir TODO lo que recuerdes sobre [tema] · sin parar
+4. Marcar `[?]` donde dudes · NO consultar
+5. Abrir fuentes · comparar · marcar cada elemento `[FUERTE/PARCIAL/DÉBIL]`
+6. Estudiar SOLO `[DÉBIL]` y `[PARCIAL]`
+7. Re-sesión en 3 días (Spaced)
 
-Si fallas en una revisión → vuelve al intervalo anterior. Si aciertas → avanza al siguiente intervalo.
+**Anti-patrón** · Recognition vs Recall: ver listado y decir "lo conozco". Reconocer ≠ recuperar. La prueba real es papel en blanco.
 
-### Anti-patrón
-**Cramming** (maratón intensivo el día antes): produce ilusión de dominio que se evapora en 48h. *No funciona para nada que necesites retener más de 1 semana.*
+`[CASO-BORDE]` Si en hoja blanca escribes >70% pero falla mock interview: el retrieval cubre vocabulario, no estructura argumental. Combinar con Feynman.
 
-### Con IA (NotebookLM Flashcards)
-- NotebookLM tiene **Studio Artifact: Flashcards** que aplica spacing automático.
-- Pídelo así: *"Genera 20 flashcards de [TEMA] con dificultad creciente. Front = pregunta, Back = respuesta + por qué."*
-- Plantilla: `assets/plantilla-fichas-anki.csv`.
+**Con IA**: pídele al notebook *"Hazme 5 preguntas abiertas sin respuestas. Yo respondo y tú evalúas con [FUERTE/PARCIAL/DÉBIL]."*
 
-### Cuándo usar
-- ✅ Vocabulario técnico (terminología, comandos, sintaxis).
-- ✅ Hechos atómicos (fechas, fórmulas, nombres).
-- ✅ Conceptos que necesitas recuperar bajo presión.
-- ❌ NO usar para conceptos que requieren razonamiento complejo (ahí va Feynman).
+**Cuándo usar** ✅ ritual semanal · pre-presentación · cierre diario.
+**Cuándo NO** ❌ en lugar del estudio inicial (necesitas haber estudiado primero).
 
-### Calendario sugerido
-Después de aprender un tema, agenda automáticamente las 6 revisiones en Google Calendar (15 min cada una). Plantilla ICS: `assets/calendar-invites/`.
+→ `katas/kata-recuperacion-ciega.md` · `scripts/retrieval_session.py`
 
 ---
 
-## 3 · Feynman Technique (Técnica Feynman)
+## 2 · Spaced Repetition
 
-### Definición
-**Explicar un concepto a alguien que no sabe del tema, usando lenguaje simple, sin jerga.** Donde uses jerga o te trabes, ahí están tus gaps de comprensión.
+**Definición**: revisar en intervalos crecientes, no consecutivos.
 
-Atribuida a Richard Feynman (Nobel Física 1965), aunque él nunca la formalizó así. La formalización la popularizó James Gleick en *Genius* (1992) y la operacionalizó la comunidad de aprendizaje moderna.
+**Por qué funciona** `[DOC: Cepeda et al. 2008]`: la curva del olvido `[DOC: Ebbinghaus 1885]` es exponencial (50% en 1h · 70% en 24h · 90% en 1 sem). Revisar justo antes del olvido aplana la curva. 5 revisiones espaciadas > 50 consecutivas en retención a 6 meses.
 
-### Por qué funciona `[DOC: Chi · Self-Explanations · 1989]`
-- **Auto-explicación** activa el procesamiento profundo (deep processing).
-- Detecta gaps que la fluidez de IA oculta.
-- Te obliga a reorganizar el conocimiento desde principios primeros, no desde memorización.
+### Intervalos canónicos
 
-### Protocolo (4 pasos clásicos)
+| Día | Acción |
+|---|---|
+| 0 | Aprendizaje inicial |
+| 0 (PM) | 1ª revisión (final del día) |
+| 3 | 2ª revisión |
+| 7 | 3ª revisión |
+| 14 | 4ª revisión |
+| 30 | 5ª revisión |
+| 90 | 6ª revisión (consolida ≥6 meses) |
 
-```
-PASO 1 · ELIGE EL CONCEPTO
-   Toma una hoja. Escribe el nombre del concepto en el tope.
-   Ejemplo: "Algoritmo de Consenso Raft"
+**Regla de ajuste**: si fallas → vuelve al intervalo anterior; si aciertas → avanza al siguiente.
 
-PASO 2 · EXPLICA COMO SI FUERA NIÑO DE 12 AÑOS
-   Sin jerga. Sin referencias a otros conceptos avanzados.
-   Si necesitas decir "log replication", reemplaza con
-   "una lista que se copia en muchas computadoras".
-   Si necesitas analogías, úsalas.
+**Anti-patrón** · Cramming: maratón intensivo el día antes. Produce dominio temporal que se evapora en 48–72h. Inútil para horizontes >1 semana.
 
-PASO 3 · IDENTIFICA GAPS
-   Donde te trabes, donde uses jerga, donde la explicación
-   suene complicada → ahí está el gap.
-   Marca cada uno con [?].
+`[CASO-BORDE]` Si saltaste un intervalo (ej. olvidaste día 7), reanudar en el intervalo más cercano que NO superaste, no "donde ibas". Forzar al intervalo siguiente sin haberlo ganado deja deuda invisible.
 
-PASO 4 · CIERRA GAPS Y SIMPLIFICA
-   Vuelve a la fuente original SOLO para los [?].
-   Reescribe la explicación 100% desde principios primeros.
-   Si todavía suena académica, simplifica más.
-```
+**Con IA**: NotebookLM Studio Flashcards aplica spacing automático. Plantilla: `assets/plantilla-fichas-anki.csv`.
 
-### Test final
-**Si no la puedes contar a tu mamá / abuela / hijo en 3 minutos, no la sabes lo suficiente.**
+**Cuándo usar** ✅ vocabulario técnico · hechos atómicos · datos para presión.
+**Cuándo NO** ❌ razonamiento complejo (ahí Feynman + Elaboration).
 
-### Anti-patrón
-**Refugio en jerga**: usar términos técnicos para sentir que sabes. Si tu explicación tiene >5 palabras técnicas, no entiendes (estás reciclando memoria).
-
-### Con IA
-- **IA como audiencia**: *"Voy a explicarte [TEMA] como si fueras un niño de 12 años. Después tú me dices: ¿hay algo que no entendiste? ¿Usé palabras complicadas? ¿Falta una analogía?"*
-- **IA como pareja**: *"Genera una explicación tipo Feynman de [TEMA] de 200 palabras. Yo voy a comparar con la mía y ver qué se me escapó."*
-- Ver Prompt #2 (`prompts/02-coach-system-prompt.md`).
-
-### Cuándo usar
-- ✅ Cualquier concepto que vayas a defender públicamente.
-- ✅ Antes de QBR / presentación / entrevista.
-- ✅ Después de leer un paper denso.
-- ✅ Como kata semanal (`katas/kata-feynman-novato.md`).
-- ❌ NO usar para hechos memorizables (eso es Spaced Repetition).
-
-### Kata asociado
-`katas/kata-feynman-novato.md` · 30 min · audiencia: niño de 12 años.
+→ ICS pre-llenados en `assets/calendar-invites/`
 
 ---
 
-## 4 · Interleaving (Intercalado)
+## 3 · Feynman Technique
 
-### Definición
-**Mezclar problemas o subtemas distintos en una misma sesión** en lugar de practicar un solo tipo bloqueado (blocked practice).
+**Definición**: explicar un concepto a alguien sin contexto (objetivo: niño de 12 años) sin jerga. Donde te trabes está el gap.
 
-### Por qué funciona `[DOC: Rohrer & Pashler · 2010 · Psychological Science]`
-- Bloqueado: 100% acertados durante práctica, pero olvidas en 1 semana.
-- Intercalado: 60–70% acertados durante práctica (sientes que estás peor), pero retienes 80% a 1 semana.
-- Te entrena a **identificar qué tipo de problema es**, no solo cómo resolver un tipo conocido.
+**Atribución correcta** `[DOC: Gleick · Genius · 1992]` y `[DOC: Oakley · A Mind for Numbers · 2014]`: Feynman nunca formalizó la técnica; Gleick y Oakley la operacionalizaron como protocolo de 4 pasos.
 
-### Protocolo
+**Por qué funciona** `[DOC: Chi · Self-Explanations · 1989]`: la auto-explicación activa procesamiento profundo, expone gaps que la fluidez de IA oculta, y obliga a reorganizar conocimiento desde principios primeros.
 
-```
-EN VEZ DE:
-Sesión: 50 problemas de derivadas seguidas.
-Resultado: dominas mecánica de derivadas, fallas en el examen mixto.
+### Protocolo · 4 pasos
 
-HAZ:
-Sesión: 5 derivadas, 5 integrales, 5 límites, 5 series, repetir.
-Resultado: peor durante práctica, mejor en examen y mundo real.
-```
+| Paso | Acción |
+|---|---|
+| 1 | Concepto en hoja en blanco · 1 línea ("Algoritmo Raft") |
+| 2 | Explicar como si la audiencia tuviera 12 años · sin jerga · usar analogías |
+| 3 | Marcar con `[?]` cada lugar donde te trabaste o usaste jerga · gap detectado |
+| 4 | Volver a la fuente SOLO para los `[?]` · re-escribir desde principios primeros |
 
-### Aplicado a aprendizaje técnico
+**Test final**: si no la cuentas a tu mamá/abuela/hijo en 3 min, no la sabes lo suficiente.
+
+**Anti-patrón** · Refugio en jerga: usar términos técnicos para sentirte que sabes. >5 palabras técnicas en 60 segundos = no entiendes, estás reciclando memoria.
+
+`[CASO-BORDE]` Audiencia experta neutraliza el reto: si "explico a un colega senior" usás abreviaturas que la abuela no entendería pero el colega sí. La audiencia DEBE ser no-experta para que la jerga produzca fricción detectable.
+
+**Con IA**:
+- Como audiencia: *"Te explico [TEMA] como si fueras niño de 12. Después dime: ¿qué no entendiste? ¿usé palabras complicadas? ¿falta analogía?"*
+- Como pareja: *"Genera un Feynman de [TEMA] · 200 palabras. Comparo con el mío y veo qué se me escapó."*
+
+**Cuándo usar** ✅ pre-defensa pública · post-paper denso · kata semanal.
+**Cuándo NO** ❌ hechos memorizables (ahí Spaced).
+
+→ `katas/kata-feynman-novato.md`
+
+---
+
+## 4 · Interleaving
+
+**Definición**: mezclar problemas/subtemas distintos en una sesión, no practicar uno bloqueado.
+
+**Por qué funciona** `[DOC: Rohrer & Pashler 2010]`: práctica bloqueada da 100% durante sesión y olvido en 1 sem; intercalada da 60–70% durante (te sientes peor) y 80% retención a 1 sem. Entrena identificar tipo de problema, no solo resolver tipo conocido.
+
+### Aplicación
 
 | Bloqueado (mal) | Intercalado (bien) |
 |---|---|
-| 1 hora de leer sobre Kubernetes pods | 20 min Kubernetes, 20 min Helm, 20 min Service Mesh |
-| 5 quiz seguidos sobre microservicios | Quiz mixto: microservicios + monolitos + serverless |
-| Solo casos de éxito de empresa X | Casos de X · Y · Z · contradictorios |
+| 1 h Kubernetes pods | 20 min Kubernetes + 20 min Helm + 20 min Service Mesh |
+| 5 quiz seguidos microservicios | Quiz mixto: micro + monolito + serverless |
+| Solo casos éxito empresa X | Casos X + Y + Z + contradictorios |
 
-### Anti-patrón
-**Bloqueo**: estudiar un solo subtema durante toda la sesión "para dominarlo". Crea **fluencia local** sin **transferencia**.
+**Anti-patrón** · Bloqueo: "voy a dominar este subtema antes del próximo". Produce *fluencia local* sin transferencia.
 
-### Con IA
-- *"Hazme un quiz de 15 preguntas sobre [TEMA] que mezcle conceptos de subtemas distintos. No me digas qué subtema es cada pregunta."*
-- *"Dame 5 casos de uso reales que combinen [SUBTEMA-A] y [SUBTEMA-B]."*
+`[CASO-BORDE]` Interleaving prematuro confunde si los subtemas no están dominados aislados. Regla: bloqueo hasta Escala 1 por subtema, intercalado de Escala 2 en adelante.
 
-### Cuándo usar
-- ✅ Práctica antes de examen o certificación con preguntas mixtas.
-- ✅ Cuando ya manejas cada subtema en aislamiento.
-- ❌ NO usar al inicio (primero domina cada subtema en bloqueo, después intercala).
+**Con IA**: *"Quiz 15 preguntas mixtas sobre [tema] · no me digas qué subtema es cada una."*
+
+→ `prompts/08-evaluator-certification.md` aplica interleaving en quizes Nivel 2-4
 
 ---
 
-## 5 · Elaboration (Elaboración)
+## 5 · Elaboration
 
-### Definición
-**Conectar lo que estás aprendiendo con lo que ya sabes**, preguntando *por qué*, *cómo*, *qué pasaría si*. Construir relaciones, no acumular hechos.
+**Definición**: conectar lo nuevo con lo conocido vía 4 preguntas elaborativas.
 
-### Por qué funciona `[DOC: Pressley et al. · 1992 · Educational Psychology Review]`
-- El cerebro recuerda redes, no listas.
-- Cada conexión es un punto de acceso adicional al conocimiento.
-- Más conexiones = más rutas para recuperar.
+**Por qué funciona** `[DOC: Pressley et al. 1992]`: el cerebro recuerda redes, no listas. Cada conexión = punto de acceso adicional. Más conexiones = más rutas para recuperar.
 
-### Protocolo (las 4 preguntas elaborativas)
-
-Después de aprender cualquier concepto, pregunta:
+### Las 4 preguntas
 
 ```
-1 · ¿POR QUÉ es así?
-    No "qué es" sino "por qué existe esta solución/concepto/regla".
-
-2 · ¿CÓMO se relaciona con [X que ya sé]?
-    Encuentra al menos 2 conexiones con conceptos previos.
-
-3 · ¿QUÉ PASARÍA SI cambiara [variable clave]?
-    Imagina escenarios contrafactuales. Esto revela el rango del concepto.
-
-4 · ¿DÓNDE NO aplica?
-    Los límites del concepto son tan importantes como el concepto.
+1 · ¿POR QUÉ es así? (no "qué es" · "por qué existe")
+2 · ¿CÓMO se relaciona con [X que ya sé]? (mín 2 conexiones)
+3 · ¿QUÉ PASARÍA SI cambiara [variable clave]? (contrafactuales)
+4 · ¿DÓNDE NO aplica? (límites del concepto)
 ```
 
-### Ejemplo aplicado · concepto: "Eventual Consistency"
+### Ejemplo · Eventual Consistency
 
-```
-1 · ¿Por qué? Porque CAP theorem nos obliga a elegir entre Consistency
-    y Availability cuando hay particiones de red.
+1. **Por qué**: CAP Theorem fuerza elegir entre Consistency y Availability bajo particiones.
+2. **Cómo se relaciona con ACID**: opuesto · ACID sacrifica disponibilidad por consistencia inmediata.
+3. **Si red nunca se particiona**: CAP no aplica · podrías tener CA. En práctica, particiones SÍ ocurren.
+4. **NO aplica**: sistemas financieros (balance bancario antes de retirar requiere consistencia inmediata).
 
-2 · ¿Cómo se relaciona con [ACID que conozco]? Es el opuesto: ACID
-    sacrifica disponibilidad por consistencia inmediata; Eventual
-    sacrifica consistencia inmediata por disponibilidad.
+**Anti-patrón** · Acumulación pasiva: subrayar y "saber" sin conectar. Conocimiento sin red es inerte.
 
-3 · ¿Qué pasaría si la red nunca se particiona? CAP no aplica;
-    podrías tener CA. Pero en práctica, las particiones SÍ ocurren.
+`[CASO-BORDE]` Si las 2 conexiones son superficiales ("se relaciona con X" sin explicar cómo), Elaboration está siendo reciclado como Recognition. Cada conexión debe sostener una explicación de 30+ palabras.
 
-4 · ¿Dónde NO aplica? En sistemas financieros donde necesitas
-    consistencia inmediata (e.g., balance bancario antes de retirar).
-```
-
-### Anti-patrón
-**Acumulación pasiva**: subrayar y "saber" sin conectar. El conocimiento sin red es inerte.
-
-### Con IA
-- *"Explica [CONCEPTO]. Luego conecta con 3 conceptos que probablemente ya conozco. Luego dime qué pasaría si [VARIABLE] cambiara. Luego dime dónde NO aplica."*
-
-### Cuándo usar
-- ✅ Después de cada concepto nuevo, antes de pasar al siguiente.
-- ✅ En el ritual semanal de aprehensión.
-- ❌ NO saltar este paso, aunque sientas que "ya entendiste".
+**Con IA**: *"Explica [CONCEPTO]. Conecta con 3 conceptos que probablemente conozco. Qué pasaría si [VARIABLE] cambiara. Dónde NO aplica."*
 
 ---
 
-## 6 · Dual Coding (Codificación dual)
+## 6 · Dual Coding
 
-### Definición
-**Combinar texto con imagen / diagrama / audio.** El cerebro tiene canales separados para verbal y visual. Usar ambos = doble codificación = mejor retención.
+**Definición**: combinar texto + visual + audio del mismo material.
 
-### Por qué funciona `[DOC: Paivio · Mental Representations · 1986]`
-- Modelo de codificación dual de Paivio (1971): información codificada en ambos canales tiene 2 rutas de recuperación.
-- Estudios muestran +30% retención cuando combinas texto + diagrama vs solo texto `[DOC: Mayer · Multimedia Learning · 2001]`.
-- Funciona especialmente bien para conceptos espaciales, procesos, jerarquías.
+**Por qué funciona** `[DOC: Paivio 1971]` `[DOC: Mayer · Multimedia Learning · 2014]`: el cerebro tiene canales separados verbal y visual. Codificar en ambos = 2 rutas de recuperación. +30% retención vs solo texto cuando se siguen los principios de Multimedia Learning (proximidad espacial, modalidad complementaria).
 
 ### Protocolo
 
-```
-PARA CADA CONCEPTO IMPORTANTE, GENERA 3 REPRESENTACIONES:
+Para cada concepto importante, generar **3 representaciones**:
+1. Texto escrito (definición + ejemplo)
+2. Diagrama / mapa conceptual (mermaid · dibujo · infografía)
+3. Audio (podcast del notebook · explicación grabada propia)
 
-1 · TEXTO ESCRITO (definición + ejemplo)
-2 · DIAGRAMA / MAPA CONCEPTUAL (mermaid, dibujo a mano, infografía)
-3 · AUDIO (escucha podcast / explicación en voz alta / tu propia explicación grabada)
+Rotar entre las 3 en sesiones distintas (no las 3 a la vez).
 
-REVISAS ROTANDO ENTRE LOS 3 EN SESIONES DISTINTAS.
-```
+### NotebookLM Studio · 5 artefactos visuales/auditivos
 
-### Con IA (NotebookLM Studio)
+| Artefacto | Uso |
+|---|---|
+| Audio Overview | Podcast 5–15 min para escuchar caminando |
+| Video Overview | Explainer · útil para conceptos espaciales |
+| Infografía | Resumen visual de jerarquías |
+| Mind Map | Estructura del campo · navegable |
+| Slide Deck | Práctica de presentación |
 
-NotebookLM produce 5 artefactos visuales/auditivos del mismo material:
-1. **Audio Overview** (podcast 5–15 min)
-2. **Video Overview** (explainer)
-3. **Infografía**
-4. **Mind Map** (jerarquía visual)
-5. **Slide Deck** (presentación)
+Plus textuales: Briefing Doc · Study Guide · Quiz · Flashcards · Data Table.
 
-Plus textuales: Briefing Doc, Study Guide, Quiz, Flashcards, Data Table.
+**Recomendación**: para cualquier tema a aprehender, generar **mín 2** representaciones distintas (1 texto + 1 visual o audio).
 
-> **Recomendación**: para cualquier tema que vas a aprehender, genera **al menos 2** representaciones distintas en NotebookLM y consume las dos.
+**Anti-patrón** · Visual decorativo: diagrama bonito sin contenido informativo. Test: ¿el diagrama explica algo que el texto no? Si no, decoración.
 
-### Anti-patrón
-- **Solo texto**: leer y releer libros sin diagramas → bajo retention.
-- **Solo visual**: ver infografías sin leer la fuente → conocimiento superficial.
-
-### Cuándo usar
-- ✅ Conceptos espaciales (arquitecturas, redes, topologías).
-- ✅ Procesos secuenciales (workflows, pipelines).
-- ✅ Jerarquías (taxonomías, herencia, dependencias).
-- ✅ Preparación para presentación (los slides + audio te entrenan a explicar).
+`[CASO-BORDE]` Conceptos puramente abstractos (lógica modal, teoría de la medida) resisten Dual Coding visual. En esos, el "visual" puede ser estructura sintáctica (árbol de fórmulas) en lugar de diagrama espacial.
 
 ---
 
-## Combinación canónica del playbook
-
-> *"Las 6 técnicas no se eligen una por una — se combinan en un loop semanal."* `[FUENTE-PRIMARIA: Playbook §Aprehender]`
-
-### Loop semanal recomendado (1h, lunes a viernes)
+## Combinación canónica · loop semanal (1 h × 5 días)
 
 ```
-LUNES   · 20 min Retrieval ciego del tema de la semana pasada
-        + 40 min material nuevo + Elaboration
-
-MARTES  · 60 min material nuevo + Dual Coding
-        (genera diagrama o mapa conceptual)
-
-MIÉRCOLES · 60 min Feynman: explica lo nuevo a un niño de 12 años
-          (graba en audio, transcribe, identifica gaps)
-
-JUEVES  · 60 min Interleaving: 4 quiz cortos mezclando subtemas
-        + flashcards en NotebookLM
-
-VIERNES · 60 min Retrieval + revisión de los gaps detectados
-        + planificar Spaced Repetition de la próxima semana
+LUNES   · 20 min Retrieval ciego (tema sem pasada) + 40 min material nuevo + Elaboration
+MARTES  · 60 min material nuevo + Dual Coding (diagrama o mapa)
+MIÉRC.  · 60 min Feynman: explicar a niño 12 años · audio · gaps
+JUEVES  · 60 min Interleaving: 4 quiz mixtos + flashcards NotebookLM
+VIERNES · 60 min Retrieval + cierre de gaps + planificar Spaced sem siguiente
 ```
 
-Cadencia diaria de revisiones espaciadas: 5–15 min adicionales.
+Cadencia diaria adicional: 5–15 min spacing por flashcard.
+
+`[FUENTE-PRIMARIA]` Playbook §Aprehender · "Las 6 técnicas no se eligen una por una — se combinan en un loop semanal."
 
 ---
 
-## Errores comunes al aplicar las 6 técnicas
+## Errores comunes (matriz)
 
-| Error | Por qué falla | Corrección |
+| Error | Falla | Corrección |
 |---|---|---|
-| Solo Retrieval, sin Spacing | Olvidas en 48h | Combina con intervalos crecientes |
-| Solo Spacing, sin Retrieval | Reconoces, no recuperas | Cada revisión debe ser ciega |
-| Feynman con jerga | Refugio en términos técnicos | Audiencia: niño de 12 años, sin excepciones |
-| Interleaving prematuro | Confusión, no transferencia | Domina cada subtema primero, intercala después |
-| Elaboration superficial | "Sí, se relaciona con X" sin profundizar | Mínimo 2 conexiones explicadas, no listadas |
-| Dual Coding decorativo | Diagrama bonito sin contenido | Diagrama debe explicar, no decorar |
+| Solo Retrieval, sin Spacing | Olvido en 48 h | Combinar con intervalos crecientes |
+| Solo Spacing, sin Retrieval | Recognition, no recall | Cada revisión debe ser ciega |
+| Feynman con jerga | Refugio en términos | Audiencia: niño de 12 años, sin excepción |
+| Interleaving prematuro | Confusión, no transferencia | Bloqueado hasta Escala 1, intercalar después |
+| Elaboration superficial | Conexiones sin profundidad | Mín 2 conexiones explicadas, no listadas |
+| Dual Coding decorativo | Diagrama bonito sin info | Test: explica algo que texto no |
+| 6 técnicas en 1 h | Cognitive overload | Distribuir en la semana |
 
 ---
 
-## Validación rápida (auto-test)
+## Validación rápida (auto-test mensual)
 
-¿Estás aplicando bien las 6 técnicas? Marca:
+- [ ] ≥1 retrieval ciego este mes
+- [ ] Revisiones espaciadas agendadas en calendario (no en memoria)
+- [ ] ≥1 Feynman a no-experto este mes
+- [ ] Última sesión de práctica fue mixta (no bloqueada)
+- [ ] Cada concepto nuevo conectado con ≥2 previos
+- [ ] ≥2 representaciones (texto + visual o audio) del tema activo
 
-- [ ] Has hecho **al menos 1 retrieval ciego** este mes
-- [ ] Tienes **revisiones espaciadas agendadas** (no las dejas a la memoria)
-- [ ] Has explicado **al menos 1 concepto a un no-experto** este mes
-- [ ] Tu **última sesión de práctica** mezcló subtemas (no fue blocked)
-- [ ] Para cada concepto nuevo, **conectaste con ≥2 conceptos previos**
-- [ ] Tienes **al menos 2 representaciones** (texto + visual o audio) del tema activo
-
-Si tienes <4 marcas → tu fase Aprehender es débil. Activa `coach-aprehender`.
+`[CRITERIO-ACEPTACIÓN]` <4/6 marcas → fase Aprehender débil · activar `coach-aprehender`.
 
 ---
 
-> **Atribución**: Técnicas extraídas y operacionalizadas del Playbook *Aprender · Aprehender · (R)Evolucionar* v2.0.0 §Aprehender.
-> Sustento académico completo: `06-ciencia-cognitiva-fuentes.md`.
-> *MetodologIA · CC BY-NC-SA 4.0*
+## Referencias cruzadas
+
+- Sustento académico: `references/06-ciencia-cognitiva-fuentes.md`
+- Anti-patrones extendidos: `references/04-anti-patrones-y-trampas.md` §Espejismo Fluidez · §Cramming · §Recognition
+- Coach que aplica las 6: `agents/coach-aprehender.md`
+- Katas: `katas/kata-recuperacion-ciega.md` · `katas/kata-feynman-novato.md`
+- Prompts: `prompts/02-coach-system-prompt.md` · `prompts/08-evaluator-certification.md`
+
+> v1.1.0 · CC BY-NC-SA 4.0 · MetodologIA

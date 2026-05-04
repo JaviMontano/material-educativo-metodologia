@@ -1,6 +1,5 @@
 #!/usr/bin/env python3
-"""
-relevance_audit.py · MetodologIA · Aprender·Aprehender·(R)Evolucionar
+"""relevance_audit.py · MetodologIA · v1.1.0.
 
 Genera el Prompt #5 personalizado para auditoría mensual de relevancia profesional.
 Framework 4-D: Vigencia · ROI · Obsolescencia · Demanda.
@@ -9,17 +8,22 @@ Usage:
     python relevance_audit.py --skills "jQuery,System Design,Python"
     python relevance_audit.py --skills "Rust,K8s" --industria "Backend SaaS" --pais "Colombia"
 
-Output: Prompt #5 listo para copy-paste en Perplexity (mejor con datos de mercado).
+[FUENTE-PRIMARIA] Playbook v2.0.0 §Framework 4-D + Prompt #5.
+[LÍMITE] Datos del mercado dependen de la IA · Perplexity recomendado por web search.
+[SUPUESTO] Skills auditadas están en Escala 3+ · si <3, no aplicar (kata-soltar-legacy).
+[TRADE-OFF] Auditar 3 skills es default · 5 (Marathon) más completo pero fatiga 2×.
 
 License: CC BY-NC-SA 4.0 · Javier Montaño · MetodologIA
 """
+
+from __future__ import annotations
 
 import argparse
 import datetime
 import sys
 from pathlib import Path
 
-VERSION = "1.0.0"
+VERSION = "1.1.0"
 
 
 def generar_prompt(skills: list[str], industria: str, pais: str, rol: str) -> str:

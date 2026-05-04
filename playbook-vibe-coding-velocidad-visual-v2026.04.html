@@ -1,0 +1,1037 @@
+<!--
+MetodologIA | Playbook Vibe Coding · Velocidad Visual — v2026.04 (Vagaje I/II · Workshop AI-Native Production)
+2026 | Brand Voice v3.0 | Por Javier Montaño · CEO
+3 horas · sesión 1 del workshop "De la Idea a Producción con IA"
+Tesis: 1–2 features/día E2E sin sacrificar calidad arquitectural — el desarrollador como orquestador, no como mecanógrafo.
+Fundamento: Karpathy 2025 · Y Combinator W25 (95% AI-gen) · Cursor $30B · v0/Bolt/Lovable/Claude Code · MCP standard 2026.
+Estética: Neo-Swiss · Mobile-First · ES/EN
+Paleta: #122562 · #FFD700 · #137DC5 · #1F2833 · #BBA0CC · #808080
+Tipos: Poppins (titulares) · Montserrat (cuerpo) · Trebuchet MS (notas)
+Companion: playbook-bmad-rigor-tecnico-v2026.04.html (parte II del bundle)
+-->
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0,viewport-fit=cover,maximum-scale=5">
+<title>Vibe Coding · Velocidad Visual · MetodologIA · Playbook 2026</title>
+<meta name="description" content="Playbook bilingüe del taller Vibe Coding: 1–2 features/día E2E con AI como copiloto. Stack v0/Cursor/Bolt/Lovable/Claude Code, métricas senior, anti-patrones del vibe-hangover y guardrails para no sacrificar arquitectura. MetodologIA, 2026.">
+<meta property="og:title" content="Vibe Coding · Velocidad Visual | MetodologIA 2026">
+<meta property="og:description" content="3 h · prototipo E2E · stack 2026 · métricas y guardrails para prototipar al ritmo del pensamiento sin perder rigor arquitectural.">
+<meta property="og:type" content="website">
+<meta name="theme-color" content="#122562">
+<meta name="color-scheme" content="light">
+<link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 36 36'%3E%3Cdefs%3E%3ClinearGradient id='g' x1='0%25' y1='0%25' x2='100%25' y2='100%25'%3E%3Cstop offset='0%25' stop-color='%23122562'/%3E%3Cstop offset='100%25' stop-color='%231F2833'/%3E%3C/linearGradient%3E%3C/defs%3E%3Crect width='36' height='36' rx='10' fill='url(%23g)'/%3E%3Cpath d='M10 12h3v12h-3V12zm6 0h3v8h-3v-8zm0 10h3v2h-3v-2zm6-10h3v6h-3v-6zm0 8h3v4h-3v-4z' fill='%23fff'/%3E%3Ccircle cx='18' cy='8' r='2' fill='%23FFD700'/%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&family=Poppins:wght@600;700;800&display=swap" rel="stylesheet">
+<style>
+:root{
+  /* MetodologIA Tokens — Neo-Swiss · navy primary · gold accent */
+  --o:#122562;--ol:#137DC5;--od:#0D1A47;--odm:rgba(18,37,98,.10);
+  --gold:#FFD700;--goldd:rgba(255,215,0,.14);--goldo:#B8860B;
+  --bk:#1F2833;--bk2:#0D1A47;--wh:#FFF;--bg:#F0F0EC;--cream:#F9FAFB;
+  --warn:#D97706;--warnd:rgba(217,119,6,.10);--crit:#DC2626;--critd:rgba(220,38,38,.08);
+  --info:#137DC5;--infod:rgba(19,125,197,.08);--lilac:#BBA0CC;--lilacd:rgba(187,160,204,.14);
+  --g50:#FAF8F6;--g100:#F4F0EC;--g200:#E4DED7;--g300:#CFC7BE;--g400:#9A9189;
+  --g500:#6B6560;--g600:#4A4643;--g700:#333130;--g800:#1F1D1C;--g900:#111110;
+  --r:14px;--rs:8px;--rl:20px;
+  --sh-s:0 1px 2px rgba(0,0,0,.04);
+  --sh:0 1px 3px rgba(0,0,0,.04),0 8px 24px rgba(0,0,0,.06);
+  --sh-l:0 4px 12px rgba(0,0,0,.08),0 20px 48px rgba(0,0,0,.10);
+  --f:'Montserrat',system-ui,-apple-system,Segoe UI,Roboto,sans-serif;
+  --fd:'Poppins','Montserrat',system-ui,sans-serif;
+  --fm:'Trebuchet MS','Lucida Sans Unicode','Lucida Grande',ui-monospace,monospace;
+  --fmono:'Menlo','Monaco','Courier New',ui-monospace,monospace;
+  --grad:linear-gradient(135deg,var(--o) 0%,var(--gold) 100%);
+  --grad-sub:linear-gradient(135deg,rgba(18,37,98,.08) 0%,rgba(255,215,0,.08) 100%);
+}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}*{animation:none!important;transition:none!important}}
+body{font-family:var(--f);font-size:16px;line-height:1.65;color:var(--g900);background:var(--bg);-webkit-font-smoothing:antialiased;text-rendering:optimizeLegibility}
+::selection{background:var(--o);color:var(--wh)}
+a{color:var(--od);text-decoration:none;transition:color .15s;font-weight:600}
+a:hover{color:var(--o)}
+.skip{position:absolute;top:-60px;left:0;background:var(--o);color:var(--wh);padding:10px 18px;z-index:1000;font-weight:600;border-radius:0 0 var(--rs) 0}.skip:focus{top:0}
+*:focus-visible{outline:2.5px solid var(--gold);outline-offset:3px;border-radius:3px}
+.en{display:none}
+html[lang="en"] .es{display:none}
+html[lang="en"] .en{display:inline}
+
+/* HERO */
+.hero{background:var(--bk);color:var(--wh);position:relative;overflow:hidden;border-bottom:6px solid var(--gold)}
+.hero::before{content:'';position:absolute;top:-30%;right:-10%;width:760px;height:760px;background:radial-gradient(circle,rgba(18,37,98,.45) 0%,rgba(19,125,197,.12) 40%,transparent 70%);pointer-events:none;filter:blur(20px)}
+.hero::after{content:'';position:absolute;bottom:-20%;left:-5%;width:480px;height:480px;background:radial-gradient(circle,rgba(255,215,0,.08) 0%,transparent 60%);pointer-events:none}
+.hi{max-width:1200px;margin:0 auto;padding:3rem 2rem 2.5rem;position:relative;z-index:2}
+.brand{display:flex;align-items:center;gap:.55rem;margin-bottom:2rem}
+.brand-wm{font-family:var(--fd);font-size:1.1rem;font-weight:800;color:var(--wh);letter-spacing:-.01em}
+.brand-wm .ia{color:var(--gold)}
+.brand-t{font-family:var(--fd);font-size:.72rem;font-weight:600;letter-spacing:.22em;color:rgba(255,255,255,.55);text-transform:uppercase;margin-left:.9rem;border-left:1px solid rgba(255,255,255,.18);padding-left:.9rem}
+.eyebrow{display:inline-flex;align-items:center;gap:.45rem;padding:.35rem .8rem;background:rgba(255,215,0,.16);border:1px solid rgba(255,215,0,.4);border-radius:100px;font-size:.68rem;font-weight:600;letter-spacing:.14em;text-transform:uppercase;color:var(--gold);margin-bottom:1.1rem}
+.eyebrow svg{width:12px;height:12px}
+.hero h1{font-family:var(--fd);font-size:clamp(1.8rem,4.8vw,3.4rem);font-weight:800;line-height:1.05;letter-spacing:-.02em;color:var(--wh);max-width:950px}
+.hero h1 .ac{background:linear-gradient(135deg,var(--gold) 0%,#FFA000 100%);-webkit-background-clip:text;background-clip:text;color:transparent;font-style:normal}
+.hero .ld{color:rgba(255,255,255,.78);font-size:clamp(.95rem,1.3vw,1.1rem);max-width:820px;margin-top:1rem;line-height:1.6}
+.hero .ld strong{color:var(--wh);font-weight:700}
+.hero .ld em{color:var(--gold);font-style:normal;font-weight:600}
+.kpis{display:grid;grid-template-columns:repeat(4,1fr);gap:.75rem;margin-top:2.2rem;max-width:880px}
+.kpi{background:linear-gradient(180deg,rgba(255,255,255,.05) 0%,rgba(255,255,255,.01) 100%);border:1px solid rgba(255,255,255,.10);padding:1.1rem;border-radius:var(--r);position:relative;overflow:hidden}
+.kpi::before{content:'';position:absolute;top:0;left:0;width:28px;height:2px;background:var(--gold)}
+.kpi-v{font-family:var(--fd);font-size:2.1rem;font-weight:800;color:var(--wh);line-height:1;letter-spacing:-.03em}
+.kpi-v small{font-size:.85rem;color:var(--gold);font-weight:700;margin-left:.15rem}
+.kpi-l{font-size:.62rem;font-weight:700;color:rgba(255,255,255,.55);text-transform:uppercase;letter-spacing:.1em;margin-top:.5rem}
+.kpi-s{font-size:.72rem;color:rgba(255,255,255,.7);margin-top:.2rem;font-family:var(--fm)}
+
+/* NAV */
+.nav{background:rgba(240,240,236,.92);backdrop-filter:saturate(180%) blur(14px);-webkit-backdrop-filter:saturate(180%) blur(14px);position:sticky;top:0;z-index:100;border-bottom:1px solid var(--g200)}
+.nav-inner{max-width:1200px;margin:0 auto;display:flex;align-items:center;padding:0 2rem}
+.nav ul{list-style:none;display:flex;flex:1;overflow-x:auto;scrollbar-width:none}
+.nav ul::-webkit-scrollbar{display:none}
+.nav a{display:inline-flex;align-items:center;gap:.35rem;padding:.85rem 1rem;font-size:.72rem;font-weight:700;color:var(--g600);text-transform:uppercase;letter-spacing:.08em;border-bottom:2px solid transparent;white-space:nowrap;transition:all .18s}
+.nav a:hover,.nav a:focus{color:var(--o);border-bottom-color:var(--o)}
+.nav .num{font-family:var(--fd);color:var(--g400);font-size:.68rem;font-weight:800}
+.nav a:hover .num,.nav a:focus .num{color:var(--o)}
+.lang-btn{background:transparent;border:1px solid var(--g300);color:var(--g700);padding:.4rem .85rem;border-radius:var(--rs);font-family:var(--fd);font-size:.68rem;font-weight:700;letter-spacing:.1em;cursor:pointer;transition:all .18s;flex-shrink:0;margin-left:.75rem;text-transform:uppercase}
+.lang-btn:hover{background:var(--o);color:var(--wh);border-color:var(--o)}
+
+/* LAYOUT */
+main{max-width:1200px;margin:0 auto;padding:0 2rem}
+.sec{padding:3.5rem 0 1rem;scroll-margin-top:60px}
+.sec+.sec{border-top:1px solid var(--g200)}
+.sh{display:flex;align-items:flex-start;gap:1rem;margin-bottom:1.75rem;padding-bottom:1.1rem;border-bottom:2px solid var(--g200);position:relative}
+.sh::after{content:'';position:absolute;bottom:-2px;left:0;width:72px;height:2px;background:var(--gold)}
+.sn{width:48px;height:48px;background:var(--bk);color:var(--gold);display:flex;align-items:center;justify-content:center;font-family:var(--fd);font-size:1.15rem;font-weight:800;border-radius:10px;flex-shrink:0}
+.st2{flex:1;min-width:0}
+.st2 h2{font-family:var(--fd);font-size:clamp(1.35rem,2.4vw,1.9rem);font-weight:800;letter-spacing:-.015em;line-height:1.15;color:var(--o)}
+.st2 .sub{font-size:.82rem;color:var(--g500);margin-top:.35rem;line-height:1.5;font-family:var(--fm)}
+
+/* TYPO */
+h3{font-family:var(--fd);font-size:1.1rem;font-weight:700;color:var(--o);margin:2rem 0 .9rem;letter-spacing:-.01em;display:flex;align-items:center;gap:.55rem;line-height:1.25}
+h3::before{content:'';width:4px;height:18px;background:var(--gold);border-radius:2px;flex-shrink:0}
+h4{font-family:var(--fd);font-size:.88rem;font-weight:700;color:var(--ol);margin:1.1rem 0 .5rem;text-transform:uppercase;letter-spacing:.08em}
+p{margin-bottom:.75rem;font-size:.92rem;line-height:1.65;color:var(--g800)}
+p strong{color:var(--g900);font-weight:700}
+p em{font-style:italic;color:var(--od)}
+ul,ol{margin:.5rem 0 1rem 1.1rem;font-size:.9rem;line-height:1.65;color:var(--g800)}
+ul li,ol li{margin-bottom:.3rem}
+ul li::marker{color:var(--gold)}
+code{font-family:var(--fmono);font-size:.82em;background:var(--g100);color:var(--od);padding:.1em .4em;border-radius:4px;font-weight:500;border:1px solid var(--g200)}
+
+/* TLDR */
+.tldr{background:var(--bk);color:var(--wh);border-radius:var(--rl);padding:2rem 2.2rem;margin:1.75rem 0;position:relative;overflow:hidden;box-shadow:var(--sh-l)}
+.tldr::before{content:'TL;DR';position:absolute;top:1.4rem;right:1.6rem;font-family:var(--fd);font-size:.68rem;font-weight:800;letter-spacing:.18em;color:rgba(255,215,0,.75)}
+.tldr::after{content:'';position:absolute;left:0;top:0;bottom:0;width:5px;background:var(--gold)}
+.tldr-q{font-family:var(--fd);font-size:1.15rem;font-weight:600;line-height:1.5;color:var(--wh);max-width:920px;letter-spacing:-.01em}
+.tldr-q em{color:var(--gold);font-style:normal;font-weight:700}
+.tldr ul{list-style:none;margin:1.2rem 0 0 0;padding:0;display:grid;gap:.55rem;font-size:.88rem;color:rgba(255,255,255,.82)}
+.tldr ul li{padding-left:1.3rem;position:relative}
+.tldr ul li::before{content:'';position:absolute;left:0;top:.7em;width:8px;height:2px;background:var(--gold);border-radius:1px}
+.tldr ul li strong{color:var(--gold);font-weight:700}
+
+/* TABLE */
+.tw{overflow-x:auto;margin:1rem 0 1.3rem;border-radius:var(--rs);border:1px solid var(--g200);box-shadow:var(--sh-s);background:var(--wh)}
+table{width:100%;border-collapse:collapse;font-size:.85rem}
+thead{background:var(--o)}
+th{color:var(--wh);padding:.7rem .9rem;text-align:left;font-family:var(--fd);font-weight:700;font-size:.68rem;text-transform:uppercase;letter-spacing:.09em;border-right:1px solid rgba(255,255,255,.12);white-space:nowrap}
+th:last-child{border-right:none}
+td{padding:.7rem .9rem;border-bottom:1px solid var(--g100);border-right:1px solid var(--g100);background:var(--wh);vertical-align:top;line-height:1.5;color:var(--g800)}
+td:last-child{border-right:none}
+tbody tr:last-child td{border-bottom:none}
+tbody tr:hover td{background:var(--odm)}
+tbody tr:nth-child(even) td{background:var(--g50)}
+tbody tr:nth-child(even):hover td{background:var(--odm)}
+td strong{color:var(--g900);font-weight:700}
+th:first-child,td:first-child{padding-left:1.1rem}
+
+/* SESSION */
+.session{background:var(--wh);border-radius:var(--rl);padding:1.6rem 1.7rem;margin:1.25rem 0;box-shadow:var(--sh);border:1px solid var(--g200);position:relative;overflow:hidden;transition:box-shadow .2s}
+.session::before{content:'';position:absolute;top:0;left:0;width:6px;height:100%;background:var(--grad)}
+.session:hover{box-shadow:var(--sh-l)}
+.session-h{display:flex;align-items:center;gap:1rem;margin-bottom:.85rem;flex-wrap:wrap}
+.session-n{font-family:var(--fd);font-size:.95rem;font-weight:800;color:var(--gold);background:var(--bk);width:44px;height:44px;border-radius:10px;display:flex;align-items:center;justify-content:center;flex-shrink:0;letter-spacing:-.01em}
+.session-meta{flex:1;min-width:0}
+.session-t{font-family:var(--fd);font-size:1.15rem;font-weight:700;color:var(--o);line-height:1.25;letter-spacing:-.01em}
+.session-tm{display:inline-flex;align-items:center;gap:.35rem;font-family:var(--fm);font-size:.72rem;font-weight:500;color:var(--g500);margin-top:.2rem}
+.session-tm svg{width:12px;height:12px;color:var(--ol)}
+.session-obj{background:var(--grad-sub);border-left:3px solid var(--o);padding:.7rem .95rem;border-radius:0 var(--rs) var(--rs) 0;margin:.85rem 0 1rem;font-size:.88rem;line-height:1.55;color:var(--g800)}
+.session-obj strong{color:var(--od);font-family:var(--fd);font-weight:700;text-transform:uppercase;font-size:.72rem;letter-spacing:.1em;display:block;margin-bottom:.15rem}
+
+/* CALLOUTS */
+.co{padding:.95rem 1.15rem;border-radius:var(--rs);margin:1rem 0;border-left:4px solid;font-size:.88rem;line-height:1.55;display:flex;gap:.8rem;align-items:flex-start}
+.co svg{width:18px;height:18px;flex-shrink:0;margin-top:.15rem}
+.co-i{background:var(--infod);border-color:var(--info);color:var(--g800)}.co-i svg{color:var(--info)}
+.co-w{background:var(--warnd);border-color:var(--warn);color:var(--g800)}.co-w svg{color:var(--warn)}
+.co-c{background:var(--critd);border-color:var(--crit);color:var(--g800)}.co-c svg{color:var(--crit)}
+.co-g{background:var(--goldd);border-color:var(--gold);color:var(--g800)}.co-g svg{color:var(--goldo)}
+.co-o{background:var(--odm);border-color:var(--o);color:var(--g800)}.co-o svg{color:var(--o)}
+.co-l{background:var(--lilacd);border-color:var(--lilac);color:var(--g800)}.co-l svg{color:var(--lilac)}
+.co b,.co strong{display:block;margin-bottom:.15rem;font-family:var(--fd);font-size:.78rem;font-weight:700;letter-spacing:.04em;text-transform:uppercase;color:var(--g900)}
+.co-body{flex:1;min-width:0}
+
+/* AC + EDGE */
+.ac-edge{display:grid;grid-template-columns:1fr 1fr;gap:.65rem;margin:.8rem 0 0}
+.ac-edge>div{background:var(--g50);border:1px solid var(--g200);border-radius:var(--rs);padding:.7rem .9rem;font-size:.8rem;line-height:1.5}
+.ac-edge .lab{font-family:var(--fd);font-size:.62rem;font-weight:700;color:var(--ol);text-transform:uppercase;letter-spacing:.1em;margin-bottom:.25rem;display:block}
+.ac-edge ul{margin:.2rem 0 0 1rem;padding:0;font-size:.78rem;color:var(--g700)}
+.ac-edge ul li{margin-bottom:.15rem;line-height:1.45}
+.ac-edge ul li::marker{color:var(--gold)}
+@media(max-width:768px){.ac-edge{grid-template-columns:1fr}}
+
+/* Glossary, FAQ, Trade-offs, KPIs */
+.gloss{display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:.7rem;margin:1rem 0 1.5rem}
+.gloss-i{background:var(--wh);border:1px solid var(--g200);border-left:3px solid var(--gold);border-radius:var(--rs);padding:.75rem 1rem;font-size:.82rem;line-height:1.5}
+.gloss-i b{font-family:var(--fd);color:var(--o);font-size:.82rem;display:block;margin-bottom:.15rem}
+.gloss-i span.d{color:var(--g700);font-size:.76rem}
+
+.faq{margin:1rem 0 1.5rem}
+.faq-i{background:var(--wh);border:1px solid var(--g200);border-radius:var(--r);padding:1rem 1.2rem;margin-bottom:.55rem;box-shadow:var(--sh-s)}
+.faq-q{font-family:var(--fd);font-size:.88rem;font-weight:700;color:var(--o);margin-bottom:.4rem;line-height:1.35;display:flex;align-items:flex-start;gap:.5rem}
+.faq-q::before{content:'P:';color:var(--gold);font-size:.78rem;flex-shrink:0;font-weight:800}
+html[lang="en"] .faq-q::before{content:'Q:'}
+.faq-a{font-size:.84rem;color:var(--g700);line-height:1.6;padding-left:1.4rem;position:relative}
+.faq-a::before{content:'R:';position:absolute;left:0;top:0;font-family:var(--fd);color:var(--ol);font-weight:800;font-size:.78rem}
+html[lang="en"] .faq-a::before{content:'A:'}
+
+.tradeoff{display:grid;grid-template-columns:repeat(auto-fill,minmax(320px,1fr));gap:.85rem;margin:1rem 0 1.5rem}
+.to-c{background:var(--wh);border:1px solid var(--g200);border-radius:var(--r);padding:1rem 1.2rem;box-shadow:var(--sh-s)}
+.to-d{font-family:var(--fd);font-size:.82rem;font-weight:700;color:var(--o);margin-bottom:.4rem;line-height:1.35}
+.to-r{font-size:.78rem;color:var(--g700);margin-bottom:.5rem;line-height:1.55}
+.to-pc{display:grid;grid-template-columns:1fr 1fr;gap:.4rem;font-size:.74rem}
+.to-pc>div{padding:.4rem .6rem;border-radius:6px;line-height:1.45}
+.to-pc .pro{background:rgba(255,215,0,.14);border:1px solid rgba(184,134,11,.25);color:var(--g800)}
+.to-pc .con{background:rgba(220,38,38,.06);border:1px solid rgba(220,38,38,.18);color:var(--g800)}
+.to-pc strong{font-family:var(--fd);font-size:.66rem;text-transform:uppercase;letter-spacing:.08em;display:block;margin-bottom:.15rem}
+.to-pc .pro strong{color:var(--goldo)}.to-pc .con strong{color:var(--crit)}
+
+.kpi-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(220px,1fr));gap:.7rem;margin:1rem 0 1.5rem}
+.kpi-c{background:var(--wh);border:1px solid var(--g200);border-radius:var(--r);padding:1rem 1.15rem;box-shadow:var(--sh-s);border-top:3px solid var(--o)}
+.kpi-c .v{font-family:var(--fd);font-size:1.5rem;font-weight:800;color:var(--o);line-height:1;letter-spacing:-.02em}
+.kpi-c .l{font-family:var(--fd);font-size:.74rem;font-weight:700;color:var(--g900);text-transform:uppercase;letter-spacing:.05em;margin-top:.4rem}
+.kpi-c .d{font-size:.72rem;color:var(--g600);margin-top:.2rem;line-height:1.45}
+
+/* RULES */
+.rules{display:grid;grid-template-columns:repeat(auto-fill,minmax(240px,1fr));gap:.85rem;margin:1rem 0 1.5rem}
+.rule{background:var(--wh);border:1px solid var(--g200);border-radius:var(--r);padding:1rem 1.15rem;display:flex;gap:.75rem;align-items:flex-start;transition:all .18s;box-shadow:var(--sh-s)}
+.rule:hover{border-color:var(--o);box-shadow:var(--sh);transform:translateY(-1px)}
+.rule-i{width:32px;height:32px;background:var(--odm);color:var(--o);border-radius:8px;display:flex;align-items:center;justify-content:center;flex-shrink:0}
+.rule-i svg{width:18px;height:18px}
+.rule-t{font-family:var(--fd);font-size:.82rem;font-weight:700;color:var(--g900);line-height:1.3;margin-bottom:.15rem}
+.rule-d{font-size:.76rem;color:var(--g600);line-height:1.5}
+
+/* ANTI */
+.anti{display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:.85rem;margin:1rem 0 1.5rem}
+.ap{background:var(--wh);border:1px solid var(--g200);border-left:3px solid var(--crit);border-radius:var(--rs);padding:.9rem 1rem;font-size:.82rem;line-height:1.5}
+.ap b{font-family:var(--fd);font-size:.78rem;font-weight:700;color:var(--crit);display:block;margin-bottom:.25rem;letter-spacing:-.005em}
+.ap span.s{color:var(--g500);font-size:.74rem;display:block;margin:.2rem 0;font-family:var(--fm);font-style:italic}
+.ap em{color:var(--od);font-style:normal;font-weight:600;font-size:.78rem}
+.ap em::before{content:'→ ';color:var(--o);font-weight:700}
+
+/* EVIDENCE TAGS */
+.t{display:inline-block;padding:.08rem .38rem;border-radius:4px;font-family:var(--fmono);font-size:.62rem;font-weight:700;letter-spacing:.02em;vertical-align:middle;margin:0 .1rem;border:1px solid}
+.ti{background:var(--warnd);color:var(--warn);border-color:rgba(217,119,6,.3)}
+.ts{background:var(--critd);color:var(--crit);border-color:rgba(220,38,38,.25)}
+.td{background:var(--infod);color:var(--info);border-color:rgba(19,125,197,.25)}
+.tc{background:var(--goldd);color:var(--goldo);border-color:rgba(184,134,11,.3)}
+
+/* CHECKLIST */
+.checklist{background:var(--wh);border:1px solid var(--g200);border-radius:var(--r);padding:1.25rem 1.4rem;box-shadow:var(--sh-s);margin:1rem 0}
+.checklist h4{margin-top:0;color:var(--o);border-bottom:1px solid var(--g200);padding-bottom:.5rem}
+.checklist ul{list-style:none;margin:0;padding:0}
+.checklist li{padding:.4rem 0 .4rem 1.75rem;position:relative;font-size:.85rem;color:var(--g800);line-height:1.5;border-bottom:1px dashed var(--g100)}
+.checklist li:last-child{border-bottom:none}
+.checklist li::before{content:'';position:absolute;left:0;top:.6em;width:16px;height:16px;border:2px solid var(--g300);border-radius:4px;background:var(--wh)}
+.checklist li:hover::before{border-color:var(--o)}
+
+/* GATE */
+.gate{display:flex;align-items:center;gap:.9rem;background:var(--bk);color:var(--wh);border-radius:var(--r);padding:1.1rem 1.3rem;margin:1.5rem 0;border-left:5px solid var(--gold);box-shadow:var(--sh-l);position:relative;overflow:hidden}
+.gate::before{content:'';position:absolute;top:0;right:0;width:180px;height:100%;background:radial-gradient(ellipse at right,rgba(255,215,0,.14) 0%,transparent 70%)}
+.gate-b{background:var(--gold);color:var(--bk);padding:.3rem .65rem;border-radius:20px;font-family:var(--fd);font-size:.72rem;font-weight:800;letter-spacing:.06em;flex-shrink:0;position:relative}
+.gate-t{font-family:var(--fd);font-size:.95rem;font-weight:600;color:var(--wh);position:relative;flex:1}
+.gate-t em{color:var(--gold);font-style:normal;font-weight:700}
+
+/* KATA */
+.kata-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:.85rem;margin:1rem 0 1.5rem}
+.kata-c{background:var(--wh);border:1px solid var(--g200);border-radius:var(--r);padding:1.15rem 1.3rem;box-shadow:var(--sh-s);position:relative;border-top:3px solid var(--gold)}
+.kata-c.shu{border-top-color:var(--info)}
+.kata-c.ha{border-top-color:var(--gold)}
+.kata-c.ri{border-top-color:var(--lilac)}
+.kata-num{font-family:var(--fd);font-size:.66rem;font-weight:700;color:var(--ol);text-transform:uppercase;letter-spacing:.14em;margin-bottom:.2rem}
+.kata-name{font-family:var(--fd);font-size:1rem;font-weight:700;color:var(--o);line-height:1.3;margin-bottom:.4rem;letter-spacing:-.005em}
+.kata-name em{color:var(--goldo);font-style:normal}
+.kata-obj{font-size:.8rem;color:var(--g700);line-height:1.55;margin-bottom:.45rem}
+.kata-step{font-size:.74rem;color:var(--g600);font-family:var(--fm);padding:.15rem 0;border-top:1px dashed var(--g200)}
+.kata-step:first-of-type{margin-top:.3rem}
+.kata-step strong{color:var(--od);font-family:var(--fd);font-weight:700}
+.kata-crit{margin-top:.55rem;padding:.4rem .6rem;background:var(--goldd);border-radius:4px;font-size:.74rem;color:var(--goldo);font-family:var(--fd);font-weight:600;line-height:1.4}
+.kata-crit::before{content:'✓ ';font-weight:800}
+
+/* PROMPT */
+.prompt-block{background:var(--g900);color:var(--g100);font-family:var(--fmono);font-size:.82rem;line-height:1.6;overflow-x:auto;border-radius:var(--r);padding:1.25rem 1.5rem;margin:1rem 0;border-left:4px solid var(--gold)}
+.prompt-block .hd{font-family:var(--fd);font-size:.66rem;color:var(--gold);text-transform:uppercase;letter-spacing:.14em;font-weight:700;margin-bottom:.6rem;border-bottom:1px solid rgba(255,215,0,.3);padding-bottom:.35rem;display:block}
+.prompt-block pre{margin:0;color:inherit;background:transparent;white-space:pre-wrap;font-family:inherit}
+.prompt-block code{background:rgba(255,215,0,.12);color:var(--gold);border:none;font-size:inherit}
+
+/* FOOTER */
+.site-footer{background:#1F2833;color:rgba(255,255,255,.7);padding:2.5rem 2rem 2rem;margin-top:4rem;border-top:6px solid var(--gold);position:relative;overflow:hidden}
+.site-footer::before{content:'';position:absolute;top:-50%;left:-5%;width:400px;height:400px;background:radial-gradient(circle,rgba(18,37,98,.4) 0%,transparent 70%);pointer-events:none}
+.footer-inner{max-width:1200px;margin:0 auto;position:relative}
+.footer-row{display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:1rem}
+.footer-logo{font-family:var(--fd);font-size:1.3rem;font-weight:800;color:var(--wh)}
+.footer-logo .ia{color:var(--gold)}
+.footer-badges{display:flex;gap:.5rem;flex-wrap:wrap}
+.footer-badge{font-family:var(--fd);background:rgba(255,215,0,.14);color:var(--gold);padding:.3rem .75rem;border-radius:var(--rs);font-size:.7rem;font-weight:700;letter-spacing:.04em}
+.footer-bottom{font-family:var(--fm);margin-top:1.5rem;padding-top:1rem;border-top:1px solid rgba(255,255,255,.1);font-size:.78rem;color:rgba(255,255,255,.6);display:flex;gap:1.5rem;flex-wrap:wrap}
+.footer-bottom a{color:rgba(255,255,255,.65);text-decoration:none;font-weight:600}
+.footer-bottom a:hover{color:var(--gold)}
+
+/* RESPONSIVE */
+@media(max-width:1020px){
+  .session-h{flex-direction:column;align-items:flex-start}
+}
+@media(max-width:768px){
+  .hi{padding:2rem 1.25rem 1.8rem}
+  main{padding:0 1.25rem}
+  .kpis{grid-template-columns:repeat(2,1fr)}
+  .sec{padding:2.5rem 0 1rem}
+  .session{padding:1.2rem 1.25rem}
+  .session-n{width:38px;height:38px;font-size:.85rem}
+  .sn{width:40px;height:40px;font-size:1rem}
+  .tldr{padding:1.5rem 1.4rem}
+  .footer-row{flex-direction:column;align-items:flex-start}
+  .site-footer{padding:2rem 1.25rem}
+  th,td{padding:.55rem .65rem;font-size:.78rem}
+  .nav-inner{padding:0 1.25rem}
+}
+@media print{
+  .nav,.skip,.lang-btn{display:none}
+  body{background:#fff}
+  .session,.checklist{box-shadow:none;page-break-inside:avoid}
+  .sec{page-break-inside:avoid}
+  .hero{padding:1.5rem}
+  a{color:var(--g900)}
+  .en{display:none !important}
+}
+</style>
+</head>
+<body>
+<a href="#main" class="skip"><span class="es">Ir al contenido</span><span class="en">Skip to content</span></a>
+
+<header class="hero" role="banner">
+<div class="hi">
+  <div class="brand">
+    <span class="brand-wm">Metodolog<span class="ia">IA</span></span>
+    <span class="brand-t"><span class="es">Playbook · Vibe Coding · Vagaje I/II</span><span class="en">Playbook · Vibe Coding · Part I/II</span></span>
+  </div>
+  <div class="eyebrow">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><path d="M13 2L3 14h7v8l10-12h-7V2z"/></svg>
+    <span class="es">Velocidad Visual · 1–2 features/día E2E</span><span class="en">Visual Speed · 1–2 features/day E2E</span>
+  </div>
+  <h1>
+    <span class="es">Vibe Coding <span class="ac">al ritmo del pensamiento.</span><br>De la idea al prototipo navegable en <em class="ac">menos de 30 minutos</em>.</span>
+    <span class="en">Vibe Coding <span class="ac">at the speed of thought.</span><br>From idea to navigable prototype in <em class="ac">under 30 minutes</em>.</span>
+  </h1>
+  <p class="ld">
+    <span class="es">Sesión <strong>1 de 2</strong> del workshop "De la Idea a Producción con IA". Aquí el desarrollador deja de ser mecanógrafo y se convierte en <em>orquestador de intención</em>. La tesis: <strong>se puede entregar 1–2 features end-to-end por día sin sacrificar calidad arquitectural</strong>, si y solo si se combina prototipado al ritmo del pensamiento (<em>see · say · run</em>) con guardrails de senior. Karpathy lo bautizó <em>vibe coding</em> en febrero 2025; las búsquedas crecieron 6.700 % en tres meses y Collins lo declaró palabra del año <span class="t td">DOC</span>. Su parte II — <a href="playbook-bmad-rigor-tecnico-v2026.04.html" style="color:var(--gold)">BMAD · Rigor Técnico</a> — cierra la brecha hacia producción.</span>
+    <span class="en">Session <strong>1 of 2</strong> of the workshop "From Idea to Production with AI". Here the developer stops being a typist and becomes an <em>intent orchestrator</em>. The thesis: <strong>it is possible to deliver 1–2 end-to-end features per day without sacrificing architectural quality</strong>, if and only if speed-of-thought prototyping (<em>see · say · run</em>) is combined with senior guardrails. Karpathy coined <em>vibe coding</em> in February 2025; searches grew 6,700% in three months and Collins named it word of the year <span class="t td">DOC</span>. Part II — <a href="playbook-bmad-rigor-tecnico-v2026.04.html" style="color:var(--gold)">BMAD · Technical Rigor</a> — closes the gap to production.</span>
+  </p>
+  <div class="kpis" role="list">
+    <div class="kpi" role="listitem"><div class="kpi-v">3<small>h</small></div><div class="kpi-l"><span class="es">Sesión</span><span class="en">Session</span></div><div class="kpi-s"><span class="es">Una hipótesis · 1 prototipo E2E</span><span class="en">One hypothesis · 1 E2E prototype</span></div></div>
+    <div class="kpi" role="listitem"><div class="kpi-v">1–2</div><div class="kpi-l"><span class="es">Features/día</span><span class="en">Features/day</span></div><div class="kpi-s"><span class="es">Benchmark senior 2026</span><span class="en">Senior benchmark 2026</span></div></div>
+    <div class="kpi" role="listitem"><div class="kpi-v">&lt;30<small>min</small></div><div class="kpi-l"><span class="es">Time-to-prototype</span><span class="en">Time-to-prototype</span></div><div class="kpi-s"><span class="es">Idea → demo navegable</span><span class="en">Idea → navigable demo</span></div></div>
+    <div class="kpi" role="listitem"><div class="kpi-v">5</div><div class="kpi-l"><span class="es">Katas Shu-Ha-Ri</span><span class="en">Shu-Ha-Ri katas</span></div><div class="kpi-s"><span class="es">Habilidad incremental</span><span class="en">Incremental skill</span></div></div>
+  </div>
+  <div class="kpis" role="list" style="margin-top:.6rem">
+    <div class="kpi" role="listitem"><div class="kpi-v">60–80<small>%</small></div><div class="kpi-l"><span class="es">Reducción cycle-time</span><span class="en">Cycle-time reduction</span></div><div class="kpi-s"><span class="es">vs. desarrollo tradicional</span><span class="en">vs. traditional dev</span></div></div>
+    <div class="kpi" role="listitem"><div class="kpi-v">41–60<small>%</small></div><div class="kpi-l"><span class="es">Código AI-generado</span><span class="en">AI-generated code</span></div><div class="kpi-s"><span class="es">en equipos AI-native 2026</span><span class="en">in AI-native teams 2026</span></div></div>
+    <div class="kpi" role="listitem"><div class="kpi-v">95<small>%</small></div><div class="kpi-l"><span class="es">YC W25 codebases</span><span class="en">YC W25 codebases</span></div><div class="kpi-s"><span class="es">AI-generated <span class="t td">DOC</span></span><span class="en">AI-generated <span class="t td">DOC</span></span></div></div>
+    <div class="kpi" role="listitem"><div class="kpi-v">10<small>%</small></div><div class="kpi-l"><span class="es">Vulns en código AI</span><span class="en">Vulns in AI code</span></div><div class="kpi-s"><span class="es">Sin guardrails · 2025</span><span class="en">Without guardrails · 2025</span></div></div>
+  </div>
+</div>
+</header>
+
+<nav class="nav" aria-label="Secciones">
+<div class="nav-inner">
+<ul>
+  <li><a href="#tldr"><span class="num">00</span>TL;DR</a></li>
+  <li><a href="#porque"><span class="num">01</span><span class="es">Por qué</span><span class="en">Why</span></a></li>
+  <li><a href="#stack"><span class="num">02</span>Stack 2026</a></li>
+  <li><a href="#workflow"><span class="num">03</span>Workflow E2E</a></li>
+  <li><a href="#metricas"><span class="num">04</span><span class="es">Métricas</span><span class="en">Metrics</span></a></li>
+  <li><a href="#patrones"><span class="num">05</span><span class="es">Patrones senior</span><span class="en">Senior patterns</span></a></li>
+  <li><a href="#katas"><span class="num">06</span>5 Katas</a></li>
+  <li><a href="#antipatrones"><span class="num">07</span><span class="es">Anti-patrones</span><span class="en">Anti-patterns</span></a></li>
+  <li><a href="#hardening"><span class="num">08</span>Hardening</a></li>
+  <li><a href="#casos"><span class="num">09</span><span class="es">Casos reales</span><span class="en">Real cases</span></a></li>
+  <li><a href="#checklist"><span class="num">10</span>Checklist</a></li>
+  <li><a href="#apendices"><span class="num">11</span><span class="es">Glosario · FAQ</span><span class="en">Glossary · FAQ</span></a></li>
+</ul>
+<button onclick="toggleLang()" class="lang-btn" aria-label="Cambiar idioma" id="langBtn">EN</button>
+</div>
+</nav>
+
+<main id="main">
+
+<section id="tldr" class="sec">
+<div class="sh">
+  <div class="sn">00</div>
+  <div class="st2">
+    <h2><span class="es">Resumen ejecutivo</span><span class="en">Executive summary</span></h2>
+    <div class="sub"><span class="es">La tesis del taller en 60 segundos.</span><span class="en">The workshop thesis in 60 seconds.</span></div>
+  </div>
+</div>
+<div class="tldr">
+  <p class="tldr-q"><span class="es">Tres horas, una pregunta: <em>¿cómo paso de la idea a un prototipo navegable end-to-end sin perder rigor arquitectural?</em></span><span class="en">Three hours, one question: <em>how do I go from idea to a navigable end-to-end prototype without losing architectural rigor?</em></span></p>
+  <ul>
+    <li><span class="es"><strong>Vibe coding ≠ caos.</strong> Es un workflow disciplinado: <em>see → say → run</em> con guardrails de senior y revisión humana en cada commit.</span><span class="en"><strong>Vibe coding ≠ chaos.</strong> It is a disciplined workflow: <em>see → say → run</em> with senior guardrails and human review on every commit.</span></li>
+    <li><span class="es"><strong>Stack 2026 maduro.</strong> v0 (UI), Cursor (producción), Bolt.new (POCs), Lovable (full-stack), Claude Code (refactor), Replit Agent (deploy). Cada uno con su zona de excelencia.</span><span class="en"><strong>Mature 2026 stack.</strong> v0 (UI), Cursor (production), Bolt.new (POCs), Lovable (full-stack), Claude Code (refactor), Replit Agent (deploy). Each with its zone of excellence.</span></li>
+    <li><span class="es"><strong>Métricas senior reales.</strong> 1–2 features/día, &lt;30 min idea→prototipo, 60–80% cycle-time reducido, 90% test coverage AI-asistida.</span><span class="en"><strong>Real senior metrics.</strong> 1–2 features/day, &lt;30 min idea→prototype, 60–80% cycle-time reduction, 90% AI-assisted test coverage.</span></li>
+    <li><span class="es"><strong>Vibe-hangover existe.</strong> 10% de código AI tiene vulnerabilidades, "knowledge ossification" cuando nadie entiende el codebase, hallucination ceiling. La parte II (BMAD) lo resuelve.</span><span class="en"><strong>Vibe-hangover is real.</strong> 10% of AI code has vulnerabilities, "knowledge ossification" when nobody understands the codebase, hallucination ceiling. Part II (BMAD) addresses it.</span></li>
+    <li><span class="es"><strong>5 katas Shu-Ha-Ri.</strong> Observar (Shu) → Imitar (Shu) → Adaptar (Ha) → Componer (Ha) → Crear (Ri). Sólo así el hábito se vuelve músculo, no espectáculo.</span><span class="en"><strong>5 Shu-Ha-Ri katas.</strong> Observe (Shu) → Imitate (Shu) → Adapt (Ha) → Compose (Ha) → Create (Ri). Only then habit becomes muscle, not spectacle.</span></li>
+  </ul>
+</div>
+</section>
+
+<section id="porque" class="sec">
+<div class="sh">
+  <div class="sn">01</div>
+  <div class="st2">
+    <h2><span class="es">Por qué Vibe Coding ahora</span><span class="en">Why Vibe Coding now</span></h2>
+    <div class="sub"><span class="es">El cambio de paradigma 2024→2026 y por qué el desarrollador senior necesita reconfigurar su rol.</span><span class="en">The 2024→2026 paradigm shift and why the senior developer must reconfigure their role.</span></div>
+  </div>
+</div>
+
+<p><span class="es">Andrej Karpathy acuñó el término en febrero 2025 para describir un workflow donde el programador <em>"se entrega al vibe y se olvida que el código existe"</em> <span class="t td">DOC</span>. Su tesis previa ("English is the hottest new programming language") cristalizó: los LLMs llegaron al umbral donde ya no se necesita dominar lenguajes formales para comandar máquinas. En tres meses las búsquedas crecieron 6.700%, Collins lo declaró palabra del año, y Y Combinator reportó que el 25% de su batch W25 tenía codebases 95% AI-generadas <span class="t td">DOC</span>.</span><span class="en">Andrej Karpathy coined the term in February 2025 to describe a workflow where the programmer <em>"fully gives in to the vibe and forgets that code even exists"</em> <span class="t td">DOC</span>. His previous thesis ("English is the hottest new programming language") crystallized: LLMs reached the threshold where mastering formal languages is no longer required to command machines. In three months searches grew 6,700%, Collins named it word of the year, and Y Combinator reported 25% of W25 batch had 95% AI-generated codebases <span class="t td">DOC</span>.</span></p>
+
+<h3><span class="es">Tradicional vs. Vibe Coding (la transición epistemológica)</span><span class="en">Traditional vs. Vibe Coding (the epistemological transition)</span></h3>
+<div class="tw"><table>
+<thead><tr><th><span class="es">Dimensión</span><span class="en">Dimension</span></th><th><span class="es">Programación tradicional</span><span class="en">Traditional programming</span></th><th><span class="es">Vibe Coding (AI-Native)</span><span class="en">Vibe Coding (AI-Native)</span></th></tr></thead>
+<tbody>
+<tr><td><strong><span class="es">Creación de código</span><span class="en">Code creation</span></strong></td><td><span class="es">Sintaxis manual línea a línea</span><span class="en">Manual line-by-line syntax</span></td><td><span class="es">Generación desde prompts en lenguaje natural</span><span class="en">Generation from natural-language prompts</span></td></tr>
+<tr><td><strong><span class="es">Input primario</span><span class="en">Primary input</span></strong></td><td><span class="es">Código preciso, determinista</span><span class="en">Precise, deterministic code</span></td><td><span class="es">Intención probabilística</span><span class="en">Probabilistic intent</span></td></tr>
+<tr><td><strong><span class="es">Rol del desarrollador</span><span class="en">Developer role</span></strong></td><td><span class="es">Arquitecto + implementador + debuggeador</span><span class="en">Architect + implementer + debugger</span></td><td><span class="es">Orquestador + refinador + control de calidad</span><span class="en">Orchestrator + refiner + quality controller</span></td></tr>
+<tr><td><strong><span class="es">Curva de aprendizaje</span><span class="en">Learning curve</span></strong></td><td><span class="es">Empinada · maestría de lenguaje</span><span class="en">Steep · language mastery</span></td><td><span class="es">Más baja · entendimiento funcional</span><span class="en">Lower · functional understanding</span></td></tr>
+<tr><td><strong><span class="es">Velocidad de iteración</span><span class="en">Iteration speed</span></strong></td><td><span class="es">Lenta, metódica, manual</span><span class="en">Slow, methodical, manual</span></td><td><span class="es">Rápida · feedback casi instantáneo</span><span class="en">Rapid · near-instant feedback</span></td></tr>
+<tr><td><strong><span class="es">Foco de complejidad</span><span class="en">Complexity focus</span></strong></td><td><span class="es">Lógica de bajo nivel + sintaxis</span><span class="en">Low-level logic + syntax</span></td><td><span class="es">Goals de sistema + restricciones</span><span class="en">System goals + constraints</span></td></tr>
+<tr><td><strong><span class="es">Valor del experto</span><span class="en">Expert value</span></strong></td><td><span class="es">Recall sintáctico + maestría técnica</span><span class="en">Syntax recall + technical mastery</span></td><td><span class="es">Framing del problema + supervisión arquitectural</span><span class="en">Problem framing + architectural oversight</span></td></tr>
+</tbody>
+</table></div>
+
+<div class="co co-g">
+  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+  <div class="co-body"><b><span class="es">La frase que cambió todo</span><span class="en">The phrase that changed everything</span></b><span class="es"><em>"See stuff, say stuff, run stuff"</em> — Karpathy 2025. El loop de tres verbos reemplaza el ciclo tradicional <em>especificar → implementar → testear → debuggear</em>. La velocidad surge de comprimir la distancia entre intención y artefacto, no de "saltar pasos". <span class="t td">DOC</span></span><span class="en"><em>"See stuff, say stuff, run stuff"</em> — Karpathy 2025. The three-verb loop replaces the traditional cycle <em>specify → implement → test → debug</em>. Speed comes from compressing the distance between intent and artifact, not "skipping steps". <span class="t td">DOC</span></span></div>
+</div>
+
+<h3><span class="es">Drivers de adopción 2025–2026</span><span class="en">Adoption drivers 2025–2026</span></h3>
+<div class="rules">
+  <div class="rule"><div class="rule-i"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="13 17 18 12 13 7"/><polyline points="6 17 11 12 6 7"/></svg></div><div><div class="rule-t"><span class="es">Compresión idea→artefacto</span><span class="en">Idea→artifact compression</span></div><div class="rule-d"><span class="es">Timelines de meses colapsan a horas. "Dopamine hit" instantáneo cada vez que un prototipo cobra vida en minutos. <span class="t td">DOC</span></span><span class="en">Timelines of months collapse into hours. Instant "dopamine hit" each time a prototype comes to life in minutes. <span class="t td">DOC</span></span></div></div></div>
+  <div class="rule"><div class="rule-i"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 00-3-3.87"/></svg></div><div><div class="rule-t"><span class="es">Democratización del software</span><span class="en">Software democratization</span></div><div class="rule-d"><span class="es">Analistas, PMs y founders no técnicos participan directamente en el workflow de desarrollo. <span class="t td">DOC</span></span><span class="en">Analysts, PMs, and non-technical founders directly participate in the development workflow. <span class="t td">DOC</span></span></div></div></div>
+  <div class="rule"><div class="rule-i"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2v20M2 12h20"/></svg></div><div><div class="rule-t"><span class="es">English como lenguaje de programación</span><span class="en">English as programming language</span></div><div class="rule-d"><span class="es">El experto ya no es quien recuerda sintaxis: es quien sabe nombrar la intención con precisión. <span class="t td">DOC</span></span><span class="en">The expert is no longer who remembers syntax: it is who can name intent precisely. <span class="t td">DOC</span></span></div></div></div>
+  <div class="rule"><div class="rule-i"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg></div><div><div class="rule-t"><span class="es">Boardroom-grade en 6 meses</span><span class="en">Boardroom-grade in 6 months</span></div><div class="rule-d"><span class="es">Para H2 2025 el término migró del meme de developers al vocabulario de C-suite. Ya no es opcional. <span class="t td">DOC</span></span><span class="en">By H2 2025 the term migrated from developer meme to C-suite vocabulary. It is no longer optional. <span class="t td">DOC</span></span></div></div></div>
+</div>
+</section>
+
+<section id="stack" class="sec">
+<div class="sh">
+  <div class="sn">02</div>
+  <div class="st2">
+    <h2><span class="es">Stack <em style="font-style:normal;color:var(--gold)">2026</em>: cuándo usar qué herramienta</span><span class="en">2026 stack: when to use which tool</span></h2>
+    <div class="sub"><span class="es">No hay una herramienta universal. Hay herramientas con zona de excelencia.</span><span class="en">There is no universal tool. There are tools with zones of excellence.</span></div>
+  </div>
+</div>
+
+<div class="tw"><table>
+<thead><tr><th><span class="es">Herramienta</span><span class="en">Tool</span></th><th><span class="es">Tecnología núcleo</span><span class="en">Core technology</span></th><th><span class="es">Fortaleza primaria</span><span class="en">Primary strength</span></th><th><span class="es">Mejor para</span><span class="en">Best for</span></th><th><span class="es">Señal 2026</span><span class="en">2026 signal</span></th></tr></thead>
+<tbody>
+<tr><td><strong>Cursor</strong></td><td><span class="es">VS Code fork + indexación multi-archivo</span><span class="en">VS Code fork + multi-file indexing</span></td><td><span class="es">Comprensión contextual profunda</span><span class="en">Deep contextual understanding</span></td><td><span class="es">Producción · features senior</span><span class="en">Production · senior features</span></td><td><span class="es">~$30B valuación · "elección del developer" <span class="t td">DOC</span></span><span class="en">~$30B valuation · "developer's choice" <span class="t td">DOC</span></span></td></tr>
+<tr><td><strong>v0 (Vercel)</strong></td><td><span class="es">Generación AI · shadcn/ui + Tailwind</span><span class="en">AI generation · shadcn/ui + Tailwind</span></td><td><span class="es">UI scaffolding alta-fidelidad</span><span class="en">High-fidelity UI scaffolding</span></td><td><span class="es">Prototipado UI/UX · React</span><span class="en">UI/UX prototyping · React</span></td><td><span class="es">6M+ developers · sandbox + Git panel <span class="t td">DOC</span></span><span class="en">6M+ developers · sandbox + Git panel <span class="t td">DOC</span></span></td></tr>
+<tr><td><strong>Bolt.new</strong></td><td><span class="es">WebContainers (Node.js en browser)</span><span class="en">WebContainers (browser Node.js)</span></td><td><span class="es">"Prompt-to-preview" más rápido</span><span class="en">Fastest "prompt-to-preview"</span></td><td><span class="es">PoCs · demos · pitch</span><span class="en">PoCs · demos · pitch</span></td><td><span class="es">Multi-framework: Next, Vue, Svelte <span class="t td">DOC</span></span><span class="en">Multi-framework: Next, Vue, Svelte <span class="t td">DOC</span></span></td></tr>
+<tr><td><strong>Lovable</strong></td><td><span class="es">React + Supabase nativo</span><span class="en">React + Supabase native</span></td><td><span class="es">Diseño-a-código autónomo</span><span class="en">Autonomous design-to-code</span></td><td><span class="es">Founders no técnicos · MVPs</span><span class="en">Non-technical founders · MVPs</span></td><td><span class="es">$10M ARR en 2 meses tras lanzamiento <span class="t td">DOC</span></span><span class="en">$10M ARR within 2 months of launch <span class="t td">DOC</span></span></td></tr>
+<tr><td><strong>Claude Code</strong></td><td><span class="es">CLI agéntico nativo de terminal</span><span class="en">Terminal-native agentic CLI</span></td><td><span class="es">Refactor complejo · debug profundo</span><span class="en">Complex refactor · deep debug</span></td><td><span class="es">Backend · DevOps · scripts</span><span class="en">Backend · DevOps · scripts</span></td><td><span class="es">Workflow agéntico end-to-end <span class="t td">DOC</span></span><span class="en">End-to-end agentic workflow <span class="t td">DOC</span></span></td></tr>
+<tr><td><strong>Replit Agent</strong></td><td><span class="es">Cloud IDE + hosting integrado</span><span class="en">Cloud IDE + integrated hosting</span></td><td><span class="es">Deploy end-to-end</span><span class="en">End-to-end deployment</span></td><td><span class="es">Beginners · solo MVPs</span><span class="en">Beginners · solo MVPs</span></td><td><span class="es">Idea → app online sin setup <span class="t td">DOC</span></span><span class="en">Idea → online app, zero setup <span class="t td">DOC</span></span></td></tr>
+</tbody>
+</table></div>
+
+<div class="co co-i">
+  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><circle cx="12" cy="12" r="10"/><line x1="12" y1="16" x2="12" y2="12"/><line x1="12" y1="8" x2="12.01" y2="8"/></svg>
+  <div class="co-body"><b><span class="es">Antipatrón clásico de stack</span><span class="en">Classic stack antipattern</span></b><span class="es">Querer hacer todo con una sola herramienta. v0 genera UI bonita pero requiere 40–60 h de wiring backend. Bolt es rapidísimo pero choca techo en multi-archivo. Cursor es producción pero pesado para PoCs de 30 min. <strong>Regla:</strong> escoge en función de la fase (POC vs. prod) y del eje (UI vs. lógica vs. ops). <span class="t ti">INFERENCIA</span> sobre datos del comparativo Till Freitag 2026 + DesignRevision <span class="t td">DOC</span>.</span><span class="en">Trying to do everything with a single tool. v0 generates pretty UI but needs 40–60 h of backend wiring. Bolt is fast but hits a multi-file ceiling. Cursor is production-grade but heavy for 30-min PoCs. <strong>Rule:</strong> pick based on phase (POC vs. prod) and axis (UI vs. logic vs. ops). <span class="t ti">INFERENCE</span> based on Till Freitag 2026 comparison + DesignRevision <span class="t td">DOC</span>.</span></div>
+</div>
+
+<h3><span class="es">El estándar 2026: Model Context Protocol (MCP)</span><span class="en">The 2026 standard: Model Context Protocol (MCP)</span></h3>
+<p><span class="es">Anthropic liberó <strong>MCP</strong> en noviembre 2024. Para 2026 es el estándar de facto adoptado por OpenAI, Google y Microsoft <span class="t td">DOC</span>. Funciona como <em>"USB-C para IA"</em>: una sola interfaz para conectar agentes a datos (archivos, DBs), tools (APIs) y workflows. Tres componentes:</span><span class="en">Anthropic released <strong>MCP</strong> in November 2024. By 2026 it is the de-facto standard adopted by OpenAI, Google, and Microsoft <span class="t td">DOC</span>. It works as <em>"USB-C for AI"</em>: a single interface to connect agents to data (files, DBs), tools (APIs), and workflows. Three components:</span></p>
+<ul>
+  <li><span class="es"><strong>Hosts</strong> — Cursor, Claude Desktop, Windsurf — reciben el request del usuario e inician conexiones.</span><span class="en"><strong>Hosts</strong> — Cursor, Claude Desktop, Windsurf — receive user requests and initiate connections.</span></li>
+  <li><span class="es"><strong>Clients</strong> — gestionan la conexión, convierten requests a JSON-RPC y parsean respuestas.</span><span class="en"><strong>Clients</strong> — manage the connection, convert requests to JSON-RPC, and parse responses.</span></li>
+  <li><span class="es"><strong>Servers</strong> — exponen <em>Resources</em> (datos), <em>Tools</em> (acciones), y <em>Prompts</em> (templates).</span><span class="en"><strong>Servers</strong> — expose <em>Resources</em> (data), <em>Tools</em> (actions), and <em>Prompts</em> (templates).</span></li>
+</ul>
+<div class="co co-o">
+  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M21 16V8a2 2 0 00-1-1.73l-7-4a2 2 0 00-2 0l-7 4A2 2 0 003 8v8a2 2 0 001 1.73l7 4a2 2 0 002 0l7-4A2 2 0 0021 16z"/></svg>
+  <div class="co-body"><b><span class="es">Por qué importa para vibe coding</span><span class="en">Why it matters for vibe coding</span></b><span class="es">Conecta tu Notion (docs), tu Figma (design system) y tu Git (codebase) al mismo agente: las sugerencias de código pasan de "genéricas" a "context-aware". Red Hat ya integra MCP en OpenShift AI con scanning + versionado por compliance enterprise <span class="t td">DOC</span>.</span><span class="en">Connect your Notion (docs), Figma (design system) and Git (codebase) to the same agent: code suggestions go from "generic" to "context-aware". Red Hat already integrates MCP into OpenShift AI with scanning + versioning for enterprise compliance <span class="t td">DOC</span>.</span></div>
+</div>
+</section>
+
+<section id="workflow" class="sec">
+<div class="sh">
+  <div class="sn">03</div>
+  <div class="st2">
+    <h2><span class="es">Workflow E2E · 7 pasos · 30 minutos</span><span class="en">E2E workflow · 7 steps · 30 minutes</span></h2>
+    <div class="sub"><span class="es">El loop "see · say · run" desglosado para senior developers.</span><span class="en">The "see · say · run" loop unpacked for senior developers.</span></div>
+  </div>
+</div>
+
+<article class="session">
+<div class="session-h">
+  <div class="session-n">P1</div>
+  <div class="session-meta">
+    <div class="session-t"><span class="es">Context priming</span><span class="en">Context priming</span></div>
+    <div class="session-tm"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg> 3 min</div>
+  </div>
+</div>
+<div class="session-obj"><strong><span class="es">Objetivo</span><span class="en">Goal</span></strong><span class="es">Cargar al modelo el problema, el stack, el target y los anti-patrones a evitar antes de pedir código.</span><span class="en">Load the model with the problem, stack, target, and anti-patterns to avoid before asking for code.</span></div>
+<div class="prompt-block">
+<span class="hd"><span class="es">Prompt template · Context priming</span><span class="en">Prompt template · Context priming</span></span>
+<pre>Soy senior fullstack. Voy a construir un <code>{feature}</code>.
+Stack: <code>{Next 15, TypeScript, Tailwind, shadcn/ui, Postgres}</code>.
+Target: <code>{10k req/s, ACID en checkout, sin secretos en cliente}</code>.
+NO uses: <code>{any, console.log en prod, fetch sin try/catch, fechas como string}</code>.
+Antes de codear, dime qué dudas tienes y cuáles asumirías por defecto.</pre>
+</div>
+
+<div class="ac-edge">
+  <div><span class="lab"><span class="es">Acceptance Criteria</span><span class="en">Acceptance Criteria</span></span><ul><li><span class="es">El modelo lista &lt; 5 dudas concretas o asumibles.</span><span class="en">Model lists &lt; 5 concrete or assumable doubts.</span></li><li><span class="es">No empieza a escribir código sin tu OK.</span><span class="en">Does not start writing code without your OK.</span></li></ul></div>
+  <div><span class="lab"><span class="es">Edge cases</span><span class="en">Edge cases</span></span><ul><li><span class="es">Si el modelo arranca a codear igual: corta y reformula con "antes de código, dime…".</span><span class="en">If model starts coding anyway: cut and rephrase with "before code, tell me…".</span></li></ul></div>
+</div>
+</article>
+
+<article class="session">
+<div class="session-h">
+  <div class="session-n">P2</div>
+  <div class="session-meta">
+    <div class="session-t"><span class="es">Skeleton generation</span><span class="en">Skeleton generation</span></div>
+    <div class="session-tm"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg> 5 min</div>
+  </div>
+</div>
+<div class="session-obj"><strong><span class="es">Objetivo</span><span class="en">Goal</span></strong><span class="es">Pedir solo modelos de datos + signatures de funciones. Nada de implementación todavía. Esto previene la cascada de errores. <span class="t td">DOC</span></span><span class="en">Ask only for data models + function signatures. No implementation yet. This prevents error cascade. <span class="t td">DOC</span></span></div>
+<div class="ac-edge">
+  <div><span class="lab"><span class="es">Acceptance Criteria</span><span class="en">Acceptance Criteria</span></span><ul><li><span class="es">Tipos estrictos · readonly · constructor property promotion.</span><span class="en">Strict types · readonly · constructor property promotion.</span></li><li><span class="es">Ningún <code>any</code>; ningún <code>TODO</code>.</span><span class="en">No <code>any</code>; no <code>TODO</code>.</span></li></ul></div>
+  <div><span class="lab"><span class="es">Edge cases</span><span class="en">Edge cases</span></span><ul><li><span class="es">Si el modelo "rellena" implementación: corta con "solo signatures, nada más".</span><span class="en">If model "fills" implementation: cut with "signatures only, nothing else".</span></li></ul></div>
+</div>
+</article>
+
+<article class="session">
+<div class="session-h">
+  <div class="session-n">P3</div>
+  <div class="session-meta">
+    <div class="session-t"><span class="es">Guard clauses</span><span class="en">Guard clauses</span></div>
+    <div class="session-tm"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg> 4 min</div>
+  </div>
+</div>
+<div class="session-obj"><strong><span class="es">Objetivo</span><span class="en">Goal</span></strong><span class="es">Agregar validación, branches de error y precondiciones <em>antes</em> del happy path. La IA tiende a olvidarlos por sesgo de "build, ship, fix later". <span class="t ti">INFERENCIA</span></span><span class="en">Add validation, error branches, and preconditions <em>before</em> the happy path. AI tends to forget these due to "build, ship, fix later" bias. <span class="t ti">INFERENCE</span></span></div>
+</article>
+
+<article class="session">
+<div class="session-h">
+  <div class="session-n">P4</div>
+  <div class="session-meta">
+    <div class="session-t"><span class="es">Happy path implementation</span><span class="en">Happy path implementation</span></div>
+    <div class="session-tm"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg> 8 min</div>
+  </div>
+</div>
+<div class="session-obj"><strong><span class="es">Objetivo</span><span class="en">Goal</span></strong><span class="es">Ahora sí: implementación principal. La IA escribe ~80% del código; tú validas signatures y flujos críticos.</span><span class="en">Now yes: main implementation. AI writes ~80% of code; you validate signatures and critical flows.</span></div>
+</article>
+
+<article class="session">
+<div class="session-h">
+  <div class="session-n">P5</div>
+  <div class="session-meta">
+    <div class="session-t"><span class="es">Test scaffolding (90% coverage AI-asistida)</span><span class="en">Test scaffolding (90% AI-assisted coverage)</span></div>
+    <div class="session-tm"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg> 5 min</div>
+  </div>
+</div>
+<div class="session-obj"><strong><span class="es">Objetivo</span><span class="en">Goal</span></strong><span class="es">Tests E2E de los 3 flujos más críticos + edge cases. AI cubre ~90%; el senior añade los <em>casos rebeldes</em> que el modelo no anticipa. <span class="t td">DOC</span></span><span class="en">E2E tests for the 3 most critical flows + edge cases. AI covers ~90%; the senior adds the <em>rebel cases</em> the model does not anticipate. <span class="t td">DOC</span></span></div>
+</article>
+
+<article class="session">
+<div class="session-h">
+  <div class="session-n">P6</div>
+  <div class="session-meta">
+    <div class="session-t"><span class="es">Static analysis + lint gate</span><span class="en">Static analysis + lint gate</span></div>
+    <div class="session-tm"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg> 3 min</div>
+  </div>
+</div>
+<div class="session-obj"><strong><span class="es">Objetivo</span><span class="en">Goal</span></strong><span class="es">Pasar el código por TypeScript strict, ESLint, Prettier, dependency analyzer (Deptrac equivalente). Si rompe, AI fix; si insiste rompiendo, tú entras. <span class="t td">DOC</span></span><span class="en">Run code through TypeScript strict, ESLint, Prettier, dependency analyzer (Deptrac equivalent). If it breaks, AI fixes; if it keeps breaking, you step in. <span class="t td">DOC</span></span></div>
+</article>
+
+<article class="session">
+<div class="session-h">
+  <div class="session-n">P7</div>
+  <div class="session-meta">
+    <div class="session-t"><span class="es">Demo + commit + ship</span><span class="en">Demo + commit + ship</span></div>
+    <div class="session-tm"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg> 2 min</div>
+  </div>
+</div>
+<div class="session-obj"><strong><span class="es">Objetivo</span><span class="en">Goal</span></strong><span class="es">Demo navegable funcional. Commit con mensaje generado por AI pero revisado por humano. Push a feature branch.</span><span class="en">Functional navigable demo. Commit with AI-generated but human-reviewed message. Push to feature branch.</span></div>
+</article>
+
+<div class="gate">
+  <span class="gate-b">Gate G1</span>
+  <div class="gate-t"><em><span class="es">"Demo or die"</span><span class="en">"Demo or die"</span></em> — <span class="es">en 30 minutos hay un prototipo navegable o el feature regresa a backlog. Sin excepciones. Forzar este timebox previene "knowledge ossification" desde el origen. <span class="t ti">INFERENCIA</span></span><span class="en">in 30 minutes there is a navigable prototype or the feature returns to backlog. No exceptions. Forcing this timebox prevents "knowledge ossification" from day one. <span class="t ti">INFERENCE</span></span></div>
+</div>
+</section>
+
+<section id="metricas" class="sec">
+<div class="sh">
+  <div class="sn">04</div>
+  <div class="st2">
+    <h2><span class="es">Métricas reales · benchmarks <em style="font-style:normal;color:var(--gold)">2026</em></span><span class="en">Real metrics · 2026 benchmarks</span></h2>
+    <div class="sub"><span class="es">Outcome-based, no actividad. Si no mueve número, no cuenta.</span><span class="en">Outcome-based, not activity-based. If it does not move a number, it does not count.</span></div>
+  </div>
+</div>
+
+<div class="kpi-grid">
+  <div class="kpi-c"><div class="v">1–2</div><div class="l"><span class="es">Features/día</span><span class="en">Features/day</span></div><div class="d"><span class="es">vs. 2–4 semanas tradicional. <span class="t td">DOC</span></span><span class="en">vs. 2–4 weeks traditional. <span class="t td">DOC</span></span></div></div>
+  <div class="kpi-c"><div class="v">41–60%</div><div class="l"><span class="es">Código AI-generado</span><span class="en">AI-generated code</span></div><div class="d"><span class="es">en equipos AI-native maduros. <span class="t td">DOC</span></span><span class="en">in mature AI-native teams. <span class="t td">DOC</span></span></div></div>
+  <div class="kpi-c"><div class="v">60–80%</div><div class="l"><span class="es">Cycle-time ↓</span><span class="en">Cycle-time ↓</span></div><div class="d"><span class="es">desde commit hasta merge en prod. <span class="t td">DOC</span></span><span class="en">from commit to merge in prod. <span class="t td">DOC</span></span></div></div>
+  <div class="kpi-c"><div class="v">&lt;30 min</div><div class="l"><span class="es">Time-to-prototype</span><span class="en">Time-to-prototype</span></div><div class="d"><span class="es">vs. 1+ semana tradicional. <span class="t td">DOC</span></span><span class="en">vs. 1+ week traditional. <span class="t td">DOC</span></span></div></div>
+  <div class="kpi-c"><div class="v">90%</div><div class="l"><span class="es">Test coverage</span><span class="en">Test coverage</span></div><div class="d"><span class="es">AI-asistida vs. 40–60% manual. <span class="t td">DOC</span></span><span class="en">AI-assisted vs. 40–60% manual. <span class="t td">DOC</span></span></div></div>
+  <div class="kpi-c"><div class="v">40–60</div><div class="l"><span class="es">Min/día recuperados</span><span class="en">Min/day recovered</span></div><div class="d"><span class="es">por developer en operativo. <span class="t td">DOC</span></span><span class="en">per developer on ops. <span class="t td">DOC</span></span></div></div>
+</div>
+
+<h3><span class="es">Casos cuantificados de adopción</span><span class="en">Quantified adoption cases</span></h3>
+<div class="tw"><table>
+<thead><tr><th><span class="es">Empresa / colectivo</span><span class="en">Company / collective</span></th><th><span class="es">Métrica</span><span class="en">Metric</span></th><th><span class="es">Valor reportado</span><span class="en">Reported value</span></th><th><span class="es">Fuente</span><span class="en">Source</span></th></tr></thead>
+<tbody>
+<tr><td><strong>Y Combinator W25</strong></td><td><span class="es">% codebases AI-generadas</span><span class="en">% AI-generated codebases</span></td><td><strong>95%</strong></td><td>YC report 2025 <span class="t td">DOC</span></td></tr>
+<tr><td><strong>TELUS Digital</strong></td><td><span class="es">Aceleración de shipping</span><span class="en">Shipping acceleration</span></td><td><span class="es">+30% más rápido · 13.000 soluciones AI</span><span class="en">+30% faster · 13,000 AI solutions</span></td><td>Case study 2026 <span class="t td">DOC</span></td></tr>
+<tr><td><strong>TELUS Digital</strong></td><td><span class="es">Horas de labor manual ahorradas</span><span class="en">Manual labor hours saved</span></td><td><strong>500.000 h</strong></td><td>Case study 2026 <span class="t td">DOC</span></td></tr>
+<tr><td><strong>Lovable</strong></td><td>ARR <span class="es">post-lanzamiento</span><span class="en">post-launch</span></td><td><span class="es">$10M en 2 meses</span><span class="en">$10M in 2 months</span></td><td>Lovable PR 2025 <span class="t td">DOC</span></td></tr>
+<tr><td><strong>Cursor (Anysphere)</strong></td><td><span class="es">Valuación</span><span class="en">Valuation</span></td><td><span class="es">~$30B (2026)</span><span class="en">~$30B (2026)</span></td><td>Tizbi report 2026 <span class="t td">DOC</span></td></tr>
+<tr><td><strong>Vercel v0</strong></td><td><span class="es">Developers activos</span><span class="en">Active developers</span></td><td><strong>6M+</strong></td><td>Vercel 2026 <span class="t td">DOC</span></td></tr>
+</tbody>
+</table></div>
+
+<div class="co co-l">
+  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><line x1="18" y1="20" x2="18" y2="10"/><line x1="12" y1="20" x2="12" y2="4"/><line x1="6" y1="20" x2="6" y2="14"/></svg>
+  <div class="co-body"><b><span class="es">El "one-person company"</span><span class="en">The "one-person company"</span></b><span class="es">2026 trajo un cambio económico: agentes pasaron a ser la unidad de escala, no employees. Founders solo manejan el 80–85% de la ejecución a una fracción del costo de un equipo. El foco de negocio se desplaza de headcount a <em>orquestación de sistemas inteligentes</em>. <span class="t td">DOC</span></span><span class="en">2026 brought an economic shift: agents became the scale unit, not employees. Solo founders handle 80–85% of execution at a fraction of a team's cost. Business focus shifts from headcount to <em>orchestration of intelligent systems</em>. <span class="t td">DOC</span></span></div>
+</div>
+</section>
+
+<section id="patrones" class="sec">
+<div class="sh">
+  <div class="sn">05</div>
+  <div class="st2">
+    <h2><span class="es">Patrones <em style="font-style:normal;color:var(--gold)">senior</em>: shipping rápido sin perder rigor</span><span class="en">Senior patterns: shipping fast without losing rigor</span></h2>
+    <div class="sub"><span class="es">Lo que distingue al developer senior del entusiasta de fin de semana.</span><span class="en">What distinguishes the senior developer from the weekend enthusiast.</span></div>
+  </div>
+</div>
+
+<h3><span class="es">1. AI-Native ADR + Red-Team Review</span><span class="en">1. AI-Native ADR + Red-Team Review</span></h3>
+<p><span class="es">Antes de generar código, el senior usa la IA para <strong>redactar y atacar</strong> la decisión arquitectural. Primer pase: la IA propone el ADR (Architecture Decision Record) con constraints duros ("10k req/s, ACID, sin secretos en cliente") y antipatrones explícitos a evitar. Segundo pase: una IA <em>diferente</em> actúa como reviewer escéptico — busca failure scenarios ocultos, asunciones optimistas, dependencias frágiles. <span class="t td">DOC</span></span><span class="en">Before generating code, the senior uses AI to <strong>draft and attack</strong> the architectural decision. First pass: AI proposes the ADR (Architecture Decision Record) with hard constraints ("10k req/s, ACID, no secrets in client") and explicit anti-patterns to avoid. Second pass: a <em>different</em> AI acts as skeptical reviewer — hunts for hidden failure scenarios, optimistic assumptions, fragile dependencies. <span class="t td">DOC</span></span></p>
+
+<h3><span class="es">2. Hexagonal Architecture (Ports &amp; Adapters)</span><span class="en">2. Hexagonal Architecture (Ports &amp; Adapters)</span></h3>
+<p><span class="es">La IA escribe mejor cuando el dominio está aislado de la infraestructura. La arquitectura hexagonal permite que el modelo genere <em>entidades de dominio puras</em> sin distraerse con dependencias externas (DB, APIs, queues). Resultado: menos alucinaciones, código más testeable, refactor barato. <span class="t td">DOC</span></span><span class="en">AI writes better when domain is isolated from infrastructure. Hexagonal architecture allows the model to generate <em>pure domain entities</em> without distraction from external dependencies (DB, APIs, queues). Result: fewer hallucinations, more testable code, cheap refactor. <span class="t td">DOC</span></span></p>
+
+<h3><span class="es">3. Type-Safe Scaffolding</span><span class="en">3. Type-Safe Scaffolding</span></h3>
+<p><span class="es">Aprovechar features modernas del lenguaje (TypeScript strict, PHP 8.4 readonly, Rust ownership) como <em>guardrails de generación</em>. Los tipos estrictos previenen errores lógicos durante la generación: la IA no puede escribir código que no compila. <span class="t td">DOC</span></span><span class="en">Leverage modern language features (TypeScript strict, PHP 8.4 readonly, Rust ownership) as <em>generation guardrails</em>. Strict types prevent logical errors during generation: AI cannot write code that does not compile. <span class="t td">DOC</span></span></p>
+
+<h3><span class="es">4. CLAUDE.md / .cursorrules — Context persistente</span><span class="en">4. CLAUDE.md / .cursorrules — Persistent context</span></h3>
+<p><span class="es">Los seniors mantienen un archivo de instrucciones <em>always-on</em> en la raíz del repo. Incluye: stack, conventions, anti-patrones del equipo, comandos de test, deploy, lint. Garantiza que cada generación nueva use el mismo contexto que el build anterior — sin recordatorios manuales. <span class="t td">DOC</span></span><span class="en">Seniors keep an <em>always-on</em> instruction file at the repo root. Includes: stack, conventions, team anti-patterns, test/deploy/lint commands. Ensures every new generation uses the same context as the previous build — no manual reminders. <span class="t td">DOC</span></span></p>
+
+<h3><span class="es">5. Tiered prompting (no "one-shot")</span><span class="en">5. Tiered prompting (no "one-shot")</span></h3>
+<p><span class="es">El senior no pide "construye el sistema entero". Usa una estrategia escalonada: <em>(1) skeleton</em> (modelos + signatures) → <em>(2) guard clauses</em> (validación + errores) → <em>(3) happy path</em> (lógica principal) → <em>(4) tests</em> → <em>(5) static analysis gate</em>. En cada nivel valida antes de avanzar. <span class="t td">DOC</span></span><span class="en">The senior does not ask "build the whole system". Uses a tiered strategy: <em>(1) skeleton</em> (models + signatures) → <em>(2) guard clauses</em> (validation + errors) → <em>(3) happy path</em> (main logic) → <em>(4) tests</em> → <em>(5) static analysis gate</em>. Validates at each level before moving on. <span class="t td">DOC</span></span></p>
+
+<h3><span class="es">6. Progressive rollout obligatorio</span><span class="en">6. Mandatory progressive rollout</span></h3>
+<p><span class="es">Ningún cambio AI-generado pasa a 100% de tráfico de una. Feature flags + canary (1% → 10% → 50% → 100%) con métricas de rollback automático. La IA acelera <em>desarrollo</em>, no <em>despliegue irreversible</em>. <span class="t ti">INFERENCIA</span> alineada con la práctica de progressive delivery <span class="t td">DOC</span>.</span><span class="en">No AI-generated change goes to 100% traffic at once. Feature flags + canary (1% → 10% → 50% → 100%) with auto-rollback metrics. AI accelerates <em>development</em>, not <em>irreversible deployment</em>. <span class="t ti">INFERENCE</span> aligned with progressive delivery practice <span class="t td">DOC</span>.</span></p>
+
+<div class="tw"><table>
+<thead><tr><th><span class="es">Mecanismo</span><span class="en">Mechanism</span></th><th><span class="es">Propósito</span><span class="en">Purpose</span></th><th><span class="es">Nivel de IA</span><span class="en">AI level</span></th></tr></thead>
+<tbody>
+<tr><td><strong>ADR Red-Teaming</strong></td><td><span class="es">Sacar a luz fallas de diseño</span><span class="en">Surface design flaws</span></td><td><span class="es">Pre-código · conversacional</span><span class="en">Pre-coding · conversational</span></td></tr>
+<tr><td><strong><span class="es">Arquitectura Hexagonal</span><span class="en">Hexagonal Architecture</span></strong></td><td><span class="es">Desacoplar lógica/infra</span><span class="en">Decouple logic/infra</span></td><td><span class="es">Constraint estructural</span><span class="en">Structural constraint</span></td></tr>
+<tr><td><strong>CLAUDE.md / .cursorrules</strong></td><td><span class="es">Contexto persistente del proyecto</span><span class="en">Persistent project context</span></td><td><span class="es">"Always-on" guidance</span><span class="en">"Always-on" guidance</span></td></tr>
+<tr><td><strong>Tiered Prompting</strong></td><td><span class="es">Manejo de complejidad</span><span class="en">Complexity management</span></td><td><span class="es">Refinamiento incremental</span><span class="en">Incremental refinement</span></td></tr>
+<tr><td><strong>Static Analysis automatizado</strong></td><td><span class="es">Enforce de type safety</span><span class="en">Type safety enforcement</span></td><td><span class="es">Post-código · determinista</span><span class="en">Post-coding · deterministic</span></td></tr>
+<tr><td><strong>Progressive Rollout</strong></td><td><span class="es">Mitigar riesgo en runtime</span><span class="en">Mitigate runtime risk</span></td><td><span class="es">Guardrail operacional</span><span class="en">Operational guardrail</span></td></tr>
+</tbody>
+</table></div>
+</section>
+
+<section id="katas" class="sec">
+<div class="sh">
+  <div class="sn">06</div>
+  <div class="st2">
+    <h2><span class="es">5 Katas Shu-Ha-Ri · construir el músculo</span><span class="en">5 Shu-Ha-Ri Katas · build the muscle</span></h2>
+    <div class="sub"><span class="es">Una kata es como ir al gimnasio: una vez no pasa nada, 21 veces se vuelve hábito.</span><span class="en">A kata is like the gym: once nothing happens, 21 times it becomes habit.</span></div>
+  </div>
+</div>
+
+<div class="kata-grid">
+  <div class="kata-c shu">
+    <div class="kata-num">KA-1 · <span class="es">Shu · Observar</span><span class="en">Shu · Observe</span></div>
+    <div class="kata-name"><span class="es">Clonar visible · 30 min</span><span class="en">Clone visible · 30 min</span></div>
+    <div class="kata-obj"><span class="es">Pega una pantalla pública (Linear, Notion, Vercel landing). Pide al modelo que la replique en v0/Bolt en 30 min sin ver código fuente.</span><span class="en">Paste a public screen (Linear, Notion, Vercel landing). Ask the model to replicate it in v0/Bolt within 30 min without viewing source.</span></div>
+    <div class="kata-step"><strong>1.</strong> <span class="es">Screenshot del target.</span><span class="en">Screenshot of target.</span></div>
+    <div class="kata-step"><strong>2.</strong> <span class="es">Prompt context priming + restricciones.</span><span class="en">Context priming prompt + constraints.</span></div>
+    <div class="kata-step"><strong>3.</strong> <span class="es">Generación + 3 iteraciones max.</span><span class="en">Generation + 3 iterations max.</span></div>
+    <div class="kata-crit"><span class="es">Pixel-perfect a 80% en menos de 30 min.</span><span class="en">Pixel-perfect at 80% in less than 30 min.</span></div>
+  </div>
+
+  <div class="kata-c shu">
+    <div class="kata-num">KA-2 · <span class="es">Shu · Imitar</span><span class="en">Shu · Imitate</span></div>
+    <div class="kata-name"><span class="es">Replicar diseño Figma · 25 min</span><span class="en">Replicate Figma design · 25 min</span></div>
+    <div class="kata-obj"><span class="es">Toma un Figma del equipo. Convierte a código React + Tailwind + shadcn/ui sin tocar manualmente más de 5 líneas.</span><span class="en">Take a team Figma. Convert to React + Tailwind + shadcn/ui without manually touching more than 5 lines.</span></div>
+    <div class="kata-step"><strong>1.</strong> <span class="es">Export Figma → JSON o screenshots.</span><span class="en">Export Figma → JSON or screenshots.</span></div>
+    <div class="kata-step"><strong>2.</strong> <span class="es">v0 / Lovable con instrucción de design system.</span><span class="en">v0 / Lovable with design system instruction.</span></div>
+    <div class="kata-step"><strong>3.</strong> <span class="es">Diff de manual edits ≤ 5 líneas.</span><span class="en">Manual edits diff ≤ 5 lines.</span></div>
+    <div class="kata-crit"><span class="es">UI viva navegable + tokens del DS aplicados.</span><span class="en">Navigable live UI + DS tokens applied.</span></div>
+  </div>
+
+  <div class="kata-c ha">
+    <div class="kata-num">KA-3 · <span class="es">Ha · Adaptar</span><span class="en">Ha · Adapt</span></div>
+    <div class="kata-name"><span class="es">Componer 2 patrones · 25 min</span><span class="en">Compose 2 patterns · 25 min</span></div>
+    <div class="kata-obj"><span class="es">Combina <em>arquitectura hexagonal</em> + <em>type-safe scaffolding</em> en una feature real (CRUD con validación). Mide tiempo y errores compilación.</span><span class="en">Combine <em>hexagonal architecture</em> + <em>type-safe scaffolding</em> in a real feature (CRUD with validation). Measure time and compile errors.</span></div>
+    <div class="kata-step"><strong>1.</strong> <span class="es">Cursor con CLAUDE.md preconfigurado.</span><span class="en">Cursor with preconfigured CLAUDE.md.</span></div>
+    <div class="kata-step"><strong>2.</strong> <span class="es">Tiered prompting de 5 niveles.</span><span class="en">5-level tiered prompting.</span></div>
+    <div class="kata-step"><strong>3.</strong> <span class="es">TS strict + ESLint + tests pasan al primer intento.</span><span class="en">TS strict + ESLint + tests pass first try.</span></div>
+    <div class="kata-crit"><span class="es">0 errores de tipo · 0 lint · ≥ 1 test E2E verde.</span><span class="en">0 type errors · 0 lint · ≥ 1 green E2E test.</span></div>
+  </div>
+
+  <div class="kata-c ha">
+    <div class="kata-num">KA-4 · <span class="es">Ha · Refactor agéntico</span><span class="en">Ha · Agentic refactor</span></div>
+    <div class="kata-name"><span class="es">Refactor con agente · 20 min</span><span class="en">Refactor with agent · 20 min</span></div>
+    <div class="kata-obj"><span class="es">Toma código legacy con &gt; 5 code smells. Usa Claude Code o Cursor Composer para refactorizar a hexagonal manteniendo tests verdes.</span><span class="en">Take legacy code with &gt; 5 code smells. Use Claude Code or Cursor Composer to refactor to hexagonal keeping tests green.</span></div>
+    <div class="kata-step"><strong>1.</strong> <span class="es">Tests existentes corriendo verde antes del refactor.</span><span class="en">Existing tests running green before refactor.</span></div>
+    <div class="kata-step"><strong>2.</strong> <span class="es">Prompt: "refactor a hexagonal sin romper tests".</span><span class="en">Prompt: "refactor to hexagonal without breaking tests".</span></div>
+    <div class="kata-step"><strong>3.</strong> <span class="es">Diff revisado · merge si tests + lint OK.</span><span class="en">Diff reviewed · merge if tests + lint OK.</span></div>
+    <div class="kata-crit"><span class="es">Cobertura no baja · cyclomatic complexity ↓.</span><span class="en">Coverage does not drop · cyclomatic complexity ↓.</span></div>
+  </div>
+
+  <div class="kata-c ri">
+    <div class="kata-num">KA-5 · <span class="es">Ri · Crear</span><span class="en">Ri · Create</span></div>
+    <div class="kata-name"><span class="es">Feature E2E orquestado · 90 min</span><span class="en">E2E orchestrated feature · 90 min</span></div>
+    <div class="kata-obj"><span class="es">De brief de negocio (sin specs) a feature en producción tras feature flag. Orquestas 3 agentes (UI · Backend · Tests) con MCP. Mide cycle-time real.</span><span class="en">From business brief (no specs) to feature in production behind feature flag. Orchestrate 3 agents (UI · Backend · Tests) with MCP. Measure real cycle-time.</span></div>
+    <div class="kata-step"><strong>1.</strong> <span class="es">v0 (UI) + Cursor (lógica) + Claude Code (tests/deploy).</span><span class="en">v0 (UI) + Cursor (logic) + Claude Code (tests/deploy).</span></div>
+    <div class="kata-step"><strong>2.</strong> <span class="es">MCP conecta Notion (specs) + Figma (DS) + Git.</span><span class="en">MCP connects Notion (specs) + Figma (DS) + Git.</span></div>
+    <div class="kata-step"><strong>3.</strong> <span class="es">Feature flag + canary 1% → 100% en 24h.</span><span class="en">Feature flag + canary 1% → 100% in 24h.</span></div>
+    <div class="kata-crit"><span class="es">Feature en prod, &lt; 1 incidente en 7 días.</span><span class="en">Feature in prod, &lt; 1 incident in 7 days.</span></div>
+  </div>
+</div>
+
+<div class="co co-g">
+  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.65 1.65 0 00.33 1.82l.06.06a2 2 0 010 2.83 2 2 0 01-2.83 0l-.06-.06a1.65 1.65 0 00-1.82-.33 1.65 1.65 0 00-1 1.51V21a2 2 0 01-2 2 2 2 0 01-2-2v-.09A1.65 1.65 0 009 19.4a1.65 1.65 0 00-1.82.33l-.06.06a2 2 0 01-2.83 0 2 2 0 010-2.83l.06-.06a1.65 1.65 0 00.33-1.82 1.65 1.65 0 00-1.51-1H3a2 2 0 01-2-2 2 2 0 012-2h.09A1.65 1.65 0 004.6 9a1.65 1.65 0 00-.33-1.82l-.06-.06a2 2 0 010-2.83 2 2 0 012.83 0l.06.06a1.65 1.65 0 001.82.33H9a1.65 1.65 0 001-1.51V3a2 2 0 012-2 2 2 0 012 2v.09a1.65 1.65 0 001 1.51 1.65 1.65 0 001.82-.33l.06-.06a2 2 0 012.83 0 2 2 0 010 2.83l-.06.06a1.65 1.65 0 00-.33 1.82V9a1.65 1.65 0 001.51 1H21a2 2 0 012 2 2 2 0 01-2 2h-.09a1.65 1.65 0 00-1.51 1z"/></svg>
+  <div class="co-body"><b><span class="es">Regla de progresión</span><span class="en">Progression rule</span></b><span class="es">No saltes niveles. KA-5 sin haber dominado KA-1 a KA-4 produce demos espectaculares pero código frágil — el clásico "vibe-hangover" descrito en §07. <span class="t ti">INFERENCIA</span></span><span class="en">Do not skip levels. KA-5 without mastering KA-1 to KA-4 produces spectacular demos but fragile code — the classic "vibe-hangover" described in §07. <span class="t ti">INFERENCE</span></span></div>
+</div>
+</section>
+
+<section id="antipatrones" class="sec">
+<div class="sh">
+  <div class="sn">07</div>
+  <div class="st2">
+    <h2><span class="es">Anti-patrones · el "vibe-hangover"</span><span class="en">Anti-patterns · the "vibe-hangover"</span></h2>
+    <div class="sub"><span class="es">A finales de 2025 la industria reportó la resaca: velocidad inicial compensada por costos downstream.</span><span class="en">By late 2025 industry reported the hangover: initial speed offset by downstream costs.</span></div>
+  </div>
+</div>
+
+<p style="font-size:.78rem;color:var(--g600);margin:.4rem 0 .8rem;font-family:var(--fm)"><strong><span class="es">Lectura:</span><span class="en">Reading:</span></strong> <span class="es">cada tarjeta = anti-patrón · señal temprana en código · intervención · dueño que firma la corrección.</span><span class="en">each card = anti-pattern · early code signal · intervention · owner who signs the fix.</span></p>
+
+<div class="anti">
+  <div class="ap"><b><span class="es">Vibe puro sin guardrails</span><span class="en">Pure vibes without guardrails</span></b><span class="s"><span class="es">Señal: prompt único de 200 palabras pidiendo "haz toda la app".</span><span class="en">Signal: single 200-word prompt asking "build the whole app".</span></span><em><span class="es">Cortar; reformular con tiered prompting de 5 niveles · Owner: Senior dev. <span class="t td">DOC</span></span><span class="en">Cut; rephrase with 5-level tiered prompting · Owner: Senior dev. <span class="t td">DOC</span></span></em></div>
+  <div class="ap"><b><span class="es">Skip de revisión humana</span><span class="en">Skipping human review</span></b><span class="s"><span class="es">Señal: PR con 800 líneas AI-generadas mergeado en &lt; 5 min.</span><span class="en">Signal: PR with 800 AI-generated lines merged in &lt; 5 min.</span></span><em><span class="es">Forzar gate de review humano + 1 lectura completa antes de merge · Owner: Tech Lead.</span><span class="en">Force human review gate + 1 full read before merge · Owner: Tech Lead.</span></em></div>
+  <div class="ap"><b><span class="es">Auth asumida que no existe</span><span class="en">Assumed auth that doesn't exist</span></b><span class="s"><span class="es">Señal: AI usa <code>req.user.id</code> sin verificar middleware. 10% del código AI tiene vulns. <span class="t td">DOC</span></span><span class="en">Signal: AI uses <code>req.user.id</code> without checking middleware. 10% of AI code has vulns. <span class="t td">DOC</span></span></span><em><span class="es">Lint rule + test E2E que valide auth en cada endpoint · Owner: Senior dev.</span><span class="en">Lint rule + E2E test validating auth on every endpoint · Owner: Senior dev.</span></em></div>
+  <div class="ap"><b><span class="es">Credentials hardcoded</span><span class="en">Hardcoded credentials</span></b><span class="s"><span class="es">Señal: API keys o conn strings en el código.</span><span class="en">Signal: API keys or conn strings in code.</span></span><em><span class="es">Pre-commit hook con detect-secrets · Owner: DevOps.</span><span class="en">Pre-commit hook with detect-secrets · Owner: DevOps.</span></em></div>
+  <div class="ap"><b><span class="es">Knowledge ossification</span><span class="en">Knowledge ossification</span></b><span class="s"><span class="es">Señal: nadie del equipo entiende un módulo &gt; 200 líneas. <span class="t td">DOC</span></span><span class="en">Signal: no one in the team understands a &gt; 200 line module. <span class="t td">DOC</span></span></span><em><span class="es">"Pair-rewrite" con AI desde cero usando docs · Owner: Author + 1 reviewer.</span><span class="en">"Pair-rewrite" with AI from scratch using docs · Owner: Author + 1 reviewer.</span></em></div>
+  <div class="ap"><b><span class="es">Hallucination ceiling ignorado</span><span class="en">Ignored hallucination ceiling</span></b><span class="s"><span class="es">Señal: AI inventa función o lib inexistente; equipo la busca en npm.</span><span class="en">Signal: AI invents non-existent function or lib; team searches npm for it.</span></span><em><span class="es">Whitelisting de imports + linter de imports inexistentes · Owner: Senior dev. <span class="t td">DOC</span></span><span class="en">Imports whitelisting + non-existent import linter · Owner: Senior dev. <span class="t td">DOC</span></span></em></div>
+  <div class="ap"><b><span class="es">Broken Row-Level Security</span><span class="en">Broken Row-Level Security</span></b><span class="s"><span class="es">Señal: queries Supabase sin RLS, AI no detecta. <span class="t td">DOC</span></span><span class="en">Signal: Supabase queries without RLS, AI does not detect. <span class="t td">DOC</span></span></span><em><span class="es">RLS policies como tests E2E obligatorios · Owner: Senior dev.</span><span class="en">RLS policies as mandatory E2E tests · Owner: Senior dev.</span></em></div>
+  <div class="ap"><b><span class="es">Missing audit trails (GDPR)</span><span class="en">Missing audit trails (GDPR)</span></b><span class="s"><span class="es">Señal: endpoints que tocan datos personales sin logging.</span><span class="en">Signal: endpoints touching personal data without logging.</span></span><em><span class="es">Decorator/middleware de audit + test de compliance · Owner: Tech Lead + Legal.</span><span class="en">Audit decorator/middleware + compliance test · Owner: Tech Lead + Legal.</span></em></div>
+  <div class="ap"><b><span class="es">Demo bonita sin función</span><span class="en">Pretty demo without function</span></b><span class="s"><span class="es">Señal: 30 min de UI lúcida + 0 lógica de negocio funcionando.</span><span class="en">Signal: 30 min of polished UI + 0 working business logic.</span></span><em><span class="es">Timer de 10 min para flow E2E o swap de stack · Owner: Conductor.</span><span class="en">10 min timer for E2E flow or stack swap · Owner: Conductor.</span></em></div>
+  <div class="ap"><b><span class="es">Output formatting roto</span><span class="en">Broken output formatting</span></b><span class="s"><span class="es">Señal: AI olvida JSON válido, o cierra mal markdown.</span><span class="en">Signal: AI forgets valid JSON, or breaks markdown.</span></span><em><span class="es">Schema validation post-generación + retry estructurado · Owner: Senior dev.</span><span class="en">Post-generation schema validation + structured retry · Owner: Senior dev.</span></em></div>
+  <div class="ap"><b><span class="es">Tiempo no medido</span><span class="en">Untracked time</span></b><span class="s"><span class="es">Señal: "esto debería tomar 30 min" sin timer real.</span><span class="en">Signal: "this should take 30 min" without real timer.</span></span><em><span class="es">Toggl/Timer en cada kata · auditar weekly · Owner: cada developer.</span><span class="en">Toggl/Timer on every kata · weekly audit · Owner: each developer.</span></em></div>
+  <div class="ap"><b><span class="es">Stack mezclado por moda</span><span class="en">Stack mixed by hype</span></b><span class="s"><span class="es">Señal: usar v0 + Cursor + Bolt + Replit en el mismo proyecto.</span><span class="en">Signal: using v0 + Cursor + Bolt + Replit in the same project.</span></span><em><span class="es">1 herramienta primaria por fase; las otras pasan a parking lot · Owner: Tech Lead.</span><span class="en">1 primary tool per phase; others go to parking lot · Owner: Tech Lead.</span></em></div>
+  <div class="ap"><b><span class="es">"Ship it" sin canary</span><span class="en">"Ship it" without canary</span></b><span class="s"><span class="es">Señal: feature AI-generada va a 100% tráfico al merge.</span><span class="en">Signal: AI-generated feature goes to 100% traffic on merge.</span></span><em><span class="es">Feature flag + canary 1→10→50→100 obligatorio · Owner: DevOps.</span><span class="en">Mandatory feature flag + canary 1→10→50→100 · Owner: DevOps.</span></em></div>
+</div>
+
+<div class="co co-c">
+  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg>
+  <div class="co-body"><b><span class="es">Por qué la parte II (BMAD) existe</span><span class="en">Why Part II (BMAD) exists</span></b><span class="es">Estos 13 anti-patrones <strong>no se resuelven con más vibe coding</strong>. Necesitan estructura agéntica determinística: agentes especializados, document sharding, quality gates, HITL en cada capa. Eso es exactamente lo que aborda <a href="playbook-bmad-rigor-tecnico-v2026.04.html" style="color:var(--o);font-weight:700">BMAD · Rigor Técnico</a>. Sin Día 2, el Día 1 colapsa en deuda técnica en 90 días. <span class="t ti">INFERENCIA</span></span><span class="en">These 13 anti-patterns <strong>are not solved with more vibe coding</strong>. They need deterministic agentic structure: specialized agents, document sharding, quality gates, HITL at every layer. That is exactly what <a href="playbook-bmad-rigor-tecnico-v2026.04.html" style="color:var(--o);font-weight:700">BMAD · Technical Rigor</a> addresses. Without Day 2, Day 1 collapses into tech debt within 90 days. <span class="t ti">INFERENCE</span></span></div>
+</div>
+</section>
+
+<section id="hardening" class="sec">
+<div class="sh">
+  <div class="sn">08</div>
+  <div class="st2">
+    <h2><span class="es">Hardening · embeber confianza en el stack</span><span class="en">Hardening · embed trust into the stack</span></h2>
+    <div class="sub"><span class="es">Cuatro líneas de defensa que organizaciones serias adoptaron en 2026.</span><span class="en">Four defense lines that serious orgs adopted in 2026.</span></div>
+  </div>
+</div>
+
+<div class="rules">
+  <div class="rule"><div class="rule-i"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg></div><div><div class="rule-t"><span class="es">Secure defaults</span><span class="en">Secure defaults</span></div><div class="rule-d"><span class="es">Templates y frameworks que enforzan auth + encryption por default — sin que el dev lo pida. <span class="t td">DOC</span></span><span class="en">Templates and frameworks that enforce auth + encryption by default — without dev request. <span class="t td">DOC</span></span></div></div></div>
+  <div class="rule"><div class="rule-i"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M2 12h20M12 2v20"/></svg></div><div><div class="rule-t"><span class="es">Continuous monitoring</span><span class="en">Continuous monitoring</span></div><div class="rule-d"><span class="es">Observability en runtime para detectar drift y errores agénticos en tiempo real. <span class="t td">DOC</span></span><span class="en">Runtime observability to detect drift and agentic errors in real time. <span class="t td">DOC</span></span></div></div></div>
+  <div class="rule"><div class="rule-i"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg></div><div><div class="rule-t"><span class="es">Strict whitelisting</span><span class="en">Strict whitelisting</span></div><div class="rule-d"><span class="es">Limita a qué APIs y tools puede llamar el agente. Previene "hace funciones que no existen". <span class="t td">DOC</span></span><span class="en">Limit which APIs and tools the agent can call. Prevents "calls non-existent functions". <span class="t td">DOC</span></span></div></div></div>
+  <div class="rule"><div class="rule-i"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg></div><div><div class="rule-t"><span class="es">HITL checkpoints</span><span class="en">HITL checkpoints</span></div><div class="rule-d"><span class="es">Aprobación humana antes de acciones irreversibles: merge a main, deploy a prod, transacción financiera. <span class="t td">DOC</span></span><span class="en">Human approval before irreversible actions: merge to main, deploy to prod, financial transaction. <span class="t td">DOC</span></span></div></div></div>
+</div>
+
+<h3><span class="es">Trade-offs documentados (los seniors los conocen)</span><span class="en">Documented trade-offs (seniors know them)</span></h3>
+<div class="tradeoff">
+  <div class="to-c">
+    <div class="to-d"><span class="es">Velocidad vs. comprensión</span><span class="en">Speed vs. comprehension</span></div>
+    <div class="to-r"><span class="es">Cuanto más rápido genera la IA, menos entiende el equipo el código.</span><span class="en">The faster AI generates, the less the team understands the code.</span></div>
+    <div class="to-pc"><div class="pro"><strong>Pro</strong><span class="es">Time-to-prototype 30 min · 1–2 features/día.</span><span class="en">Time-to-prototype 30 min · 1–2 features/day.</span></div><div class="con"><strong>Con</strong><span class="es">Knowledge ossification en 90 días.</span><span class="en">Knowledge ossification within 90 days.</span></div></div>
+  </div>
+  <div class="to-c">
+    <div class="to-d"><span class="es">Una herramienta vs. stack distribuido</span><span class="en">One tool vs. distributed stack</span></div>
+    <div class="to-r"><span class="es">Cursor solo cubre todo, pero v0+Bolt+Lovable son superiores en su nicho.</span><span class="en">Cursor alone covers everything, but v0+Bolt+Lovable are superior in their niche.</span></div>
+    <div class="to-pc"><div class="pro"><strong>Pro</strong><span class="es">Stack distribuido: best-of-breed por fase.</span><span class="en">Distributed stack: best-of-breed per phase.</span></div><div class="con"><strong>Con</strong><span class="es">N learning curves + N puntos de fricción.</span><span class="en">N learning curves + N friction points.</span></div></div>
+  </div>
+  <div class="to-c">
+    <div class="to-d"><span class="es">UI v0 vs. backend manual</span><span class="en">v0 UI vs. manual backend</span></div>
+    <div class="to-r"><span class="es">v0 genera UI en 5 min. Pero requiere 40–60h de wiring backend para producción. <span class="t td">DOC</span></span><span class="en">v0 generates UI in 5 min. But requires 40–60h of backend wiring for production. <span class="t td">DOC</span></span></div>
+    <div class="to-pc"><div class="pro"><strong>Pro</strong><span class="es">Demo a sponsor en 1 día.</span><span class="en">Sponsor demo in 1 day.</span></div><div class="con"><strong>Con</strong><span class="es">El "último 80%" del trabajo sigue siendo humano.</span><span class="en">The "last 80%" of work remains human.</span></div></div>
+  </div>
+</div>
+</section>
+
+<section id="casos" class="sec">
+<div class="sh">
+  <div class="sn">09</div>
+  <div class="st2">
+    <h2><span class="es">Casos reales · 2025–2026</span><span class="en">Real cases · 2025–2026</span></h2>
+    <div class="sub"><span class="es">Empresas que ya operan en este modelo. No teoría: operación.</span><span class="en">Companies already operating in this model. Not theory: operation.</span></div>
+  </div>
+</div>
+
+<h3><span class="es">Y Combinator W25 · 95% de codebases AI-generadas</span><span class="en">Y Combinator W25 · 95% AI-generated codebases</span></h3>
+<p><span class="es">El 25% del batch Winter 2025 reportó codebases con 95% de código AI-generado. Para H2 2025, este número se vuelve baseline en cohortes posteriores. La señal: <strong>vibe coding ya no es opcional para founders early-stage</strong>. Los inversores asumen que el equipo lo usa para validar PMF antes de pedir Seed. <span class="t td">DOC</span></span><span class="en">25% of Winter 2025 batch reported codebases with 95% AI-generated code. By H2 2025, this becomes baseline in subsequent cohorts. The signal: <strong>vibe coding is no longer optional for early-stage founders</strong>. Investors assume the team uses it to validate PMF before asking for Seed. <span class="t td">DOC</span></span></p>
+
+<h3><span class="es">TELUS Digital · 30% más rápido + 500.000 horas ahorradas</span><span class="en">TELUS Digital · 30% faster + 500,000 hours saved</span></h3>
+<p><span class="es">TELUS Digital desplegó 13.000 soluciones AI custom en operación, logrando 30% más rápido shipping y 500.000 horas de labor manual ahorradas en un solo año. La clave: tratan a los agentes como <em>infraestructura</em>, no como herramientas individuales. Cada agente vive en MCP, está versionado, y tiene métricas de adopción. <span class="t td">DOC</span></span><span class="en">TELUS Digital deployed 13,000 custom AI solutions into operation, achieving 30% faster shipping and 500,000 manual labor hours saved in a single year. The key: they treat agents as <em>infrastructure</em>, not individual tools. Each agent lives in MCP, is versioned, and has adoption metrics. <span class="t td">DOC</span></span></p>
+
+<h3><span class="es">Lovable · $10M ARR en 2 meses</span><span class="en">Lovable · $10M ARR in 2 months</span></h3>
+<p><span class="es">Lovable (antes GPT Engineer) llegó a $10M ARR dos meses después de lanzar. Demuestra que la demanda por <em>app-building autónomo</em> existe y es sustentable comercialmente. La lección: el valor no es solo para developers — es para operadores no técnicos que necesitan <strong>ofrecer software</strong> sin contratar equipos. <span class="t td">DOC</span></span><span class="en">Lovable (formerly GPT Engineer) reached $10M ARR two months after launch. Proves demand for <em>autonomous app-building</em> exists and is commercially sustainable. The lesson: value is not only for developers — it is for non-technical operators who need to <strong>offer software</strong> without hiring teams. <span class="t td">DOC</span></span></p>
+
+<h3><span class="es">Cursor · ~$30B valuación</span><span class="en">Cursor · ~$30B valuation</span></h3>
+<p><span class="es">Anysphere (parent de Cursor) alcanzó valuación cercana a $30B en 2026. Refleja que <strong>el mercado pagará premium por la herramienta del developer profesional</strong>, no por la del entusiasta de fin de semana. v0 y Lovable son entrada; Cursor es la economía sustentable. <span class="t td">DOC</span></span><span class="en">Anysphere (Cursor parent) reached ~$30B valuation in 2026. Reflects that <strong>the market will pay premium for the professional developer tool</strong>, not the weekend enthusiast's. v0 and Lovable are entry; Cursor is the sustainable economy. <span class="t td">DOC</span></span></p>
+
+<div class="co co-i">
+  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+  <div class="co-body"><b><span class="es">Patrón común a los 4 casos</span><span class="en">Common pattern across the 4 cases</span></b><span class="es">Ninguno trata el vibe coding como <em>fin</em>. Todos lo usan como <em>medio</em>: validación rápida (YC), automatización industrial (TELUS), monetización directa (Lovable) o infraestructura crítica (Cursor). El error del entusiasta es vibe coding por sí mismo; el éxito senior es vibe coding <strong>al servicio de un objetivo medible</strong>. <span class="t ti">INFERENCIA</span></span><span class="en">None treat vibe coding as <em>end</em>. All use it as <em>means</em>: fast validation (YC), industrial automation (TELUS), direct monetization (Lovable), or critical infrastructure (Cursor). The enthusiast's mistake is vibe coding for its own sake; the senior's success is vibe coding <strong>in service of a measurable goal</strong>. <span class="t ti">INFERENCE</span></span></div>
+</div>
+</section>
+
+<section id="checklist" class="sec">
+<div class="sh">
+  <div class="sn">10</div>
+  <div class="st2">
+    <h2><span class="es">Checklist del developer · Shu-Ha-Ri</span><span class="en">Developer checklist · Shu-Ha-Ri</span></h2>
+    <div class="sub"><span class="es">Imprimir. Pegar al monitor. Revisar antes de cada feature.</span><span class="en">Print. Stick on monitor. Review before every feature.</span></div>
+  </div>
+</div>
+
+<div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:1rem">
+<div class="checklist">
+<h4><span class="es">Antes de codear · context priming</span><span class="en">Before coding · context priming</span></h4>
+<ul>
+<li><span class="es">Stack y constraints listados explícitamente</span><span class="en">Stack and constraints listed explicitly</span></li>
+<li><span class="es">Anti-patrones a evitar nombrados</span><span class="en">Anti-patterns to avoid named</span></li>
+<li><span class="es">CLAUDE.md / .cursorrules cargado</span><span class="en">CLAUDE.md / .cursorrules loaded</span></li>
+<li><span class="es">Target medible (req/s, latencia, etc.)</span><span class="en">Measurable target (req/s, latency, etc.)</span></li>
+<li><span class="es">MCP servers (Notion · Figma · Git) conectados</span><span class="en">MCP servers (Notion · Figma · Git) connected</span></li>
+</ul>
+</div>
+
+<div class="checklist">
+<h4><span class="es">Durante el build · tiered prompting</span><span class="en">During build · tiered prompting</span></h4>
+<ul>
+<li><span class="es">P1 priming · sin código todavía</span><span class="en">P1 priming · no code yet</span></li>
+<li><span class="es">P2 skeleton · solo signatures</span><span class="en">P2 skeleton · signatures only</span></li>
+<li><span class="es">P3 guard clauses · validaciones primero</span><span class="en">P3 guard clauses · validations first</span></li>
+<li><span class="es">P4 happy path · implementación</span><span class="en">P4 happy path · implementation</span></li>
+<li><span class="es">P5 tests · ≥ 90% coverage</span><span class="en">P5 tests · ≥ 90% coverage</span></li>
+<li><span class="es">P6 static analysis verde</span><span class="en">P6 static analysis green</span></li>
+</ul>
+</div>
+
+<div class="checklist">
+<h4><span class="es">Antes de mergear · gate</span><span class="en">Before merge · gate</span></h4>
+<ul>
+<li><span class="es">Lectura humana completa del diff</span><span class="en">Full human read of diff</span></li>
+<li><span class="es">Tests E2E verdes en CI</span><span class="en">Green E2E tests in CI</span></li>
+<li><span class="es">Lint + types + dependency analyzer OK</span><span class="en">Lint + types + dependency analyzer OK</span></li>
+<li><span class="es">Sin secrets · sin auth asumida</span><span class="en">No secrets · no assumed auth</span></li>
+<li><span class="es">Audit trail si toca PII / GDPR</span><span class="en">Audit trail if PII / GDPR involved</span></li>
+<li><span class="es">Feature flag + plan canary documentado</span><span class="en">Feature flag + canary plan documented</span></li>
+</ul>
+</div>
+
+<div class="checklist">
+<h4><span class="es">Después del ship · learning loop</span><span class="en">After ship · learning loop</span></h4>
+<ul>
+<li><span class="es">Cycle-time medido (commit→merge)</span><span class="en">Cycle-time measured (commit→merge)</span></li>
+<li><span class="es">% código AI-generado anotado</span><span class="en">% AI-generated code logged</span></li>
+<li><span class="es">Incidentes en 7 días registrados</span><span class="en">Incidents in 7 days logged</span></li>
+<li><span class="es">¿Algún anti-patrón apareció? Documentar</span><span class="en">Did any anti-pattern appear? Document</span></li>
+<li><span class="es">Próxima kata calibrada (Shu→Ha→Ri)</span><span class="en">Next kata calibrated (Shu→Ha→Ri)</span></li>
+</ul>
+</div>
+</div>
+
+<h3><span class="es">Adaptaciones por contexto</span><span class="en">Context adaptations</span></h3>
+<div class="tw"><table>
+<thead><tr><th style="width:280px"><span class="es">Escenario</span><span class="en">Scenario</span></th><th><span class="es">Ajuste recomendado</span><span class="en">Recommended adjustment</span></th></tr></thead>
+<tbody>
+<tr><td><strong><span class="es">Sector regulado (banca · salud)</span><span class="en">Regulated sector (banking · health)</span></strong></td><td><span class="es">Audit trail obligatorio · RLS tests · revisión legal antes del canary 50%</span><span class="en">Mandatory audit trail · RLS tests · legal review before 50% canary</span></td></tr>
+<tr><td><strong><span class="es">Equipo distribuido remoto</span><span class="en">Remote distributed team</span></strong></td><td><span class="es">Pair-programming async via MCP shared context · CLAUDE.md por equipo</span><span class="en">Async pair-programming via MCP shared context · per-team CLAUDE.md</span></td></tr>
+<tr><td><strong><span class="es">Founder solo · MVP</span><span class="en">Solo founder · MVP</span></strong></td><td><span class="es">Lovable o Bolt para velocidad · refactor a Cursor cuando MRR &gt; $5K</span><span class="en">Lovable or Bolt for speed · refactor to Cursor when MRR &gt; $5K</span></td></tr>
+<tr><td><strong><span class="es">Refactor de legacy</span><span class="en">Legacy refactor</span></strong></td><td><span class="es">Tests E2E primero (verde 100%) · Claude Code para refactor agéntico</span><span class="en">E2E tests first (100% green) · Claude Code for agentic refactor</span></td></tr>
+<tr><td><strong><span class="es">Equipo nuevo a vibe coding</span><span class="en">Team new to vibe coding</span></strong></td><td><span class="es">Empezar en KA-1 todos · 2 semanas de katas antes de prod · daily de signals</span><span class="en">Start at KA-1 for all · 2 weeks of katas before prod · signals daily</span></td></tr>
+<tr><td><strong><span class="es">Team tier-3 sin senior</span><span class="en">Tier-3 team without senior</span></strong></td><td><span class="es">No: contratar al menos 1 senior antes · vibe sin senior = vibe-hangover en 90 días</span><span class="en">Do not: hire at least 1 senior first · vibe without senior = vibe-hangover in 90 days</span></td></tr>
+</tbody>
+</table></div>
+</section>
+
+<section id="apendices" class="sec">
+<div class="sh">
+  <div class="sn">11</div>
+  <div class="st2">
+    <h2><span class="es">Apéndices: glosario · FAQ · referencias</span><span class="en">Appendices: glossary · FAQ · references</span></h2>
+    <div class="sub"><span class="es">Para volver cuando un término te confunda o un sponsor te pregunte.</span><span class="en">Come back when a term confuses you or a sponsor asks.</span></div>
+  </div>
+</div>
+
+<h3><span class="es">Glosario · 18 términos esenciales</span><span class="en">Glossary · 18 essential terms</span></h3>
+<div class="gloss">
+  <div class="gloss-i"><b>Vibe Coding</b><span class="d"><span class="es">Workflow de desarrollo donde el programador guía a la IA conversacionalmente y "se entrega al vibe" del proceso. Acuñado por Karpathy 2025.</span><span class="en">Development workflow where the programmer guides AI conversationally and "gives in to the vibe". Coined by Karpathy 2025.</span></span></div>
+  <div class="gloss-i"><b>Agentic Engineering</b><span class="d"><span class="es">Evolución 2026 del vibe coding. Loop estructurado Plan→Execute→Verify con agentes especializados. Tema central de la parte II (BMAD).</span><span class="en">2026 evolution of vibe coding. Structured Plan→Execute→Verify loop with specialized agents. Core theme of Part II (BMAD).</span></span></div>
+  <div class="gloss-i"><b>MCP (Model Context Protocol)</b><span class="d"><span class="es">Estándar Anthropic 2024, "USB-C para IA". Conecta agentes a datos, tools y workflows externos.</span><span class="en">Anthropic standard 2024, "USB-C for AI". Connects agents to data, tools, and external workflows.</span></span></div>
+  <div class="gloss-i"><b>ADR (Architecture Decision Record)</b><span class="d"><span class="es">Documento que captura una decisión arquitectural con su contexto y consecuencias. Versionable, auditable.</span><span class="en">Document capturing an architectural decision with context and consequences. Versionable, auditable.</span></span></div>
+  <div class="gloss-i"><b>Hexagonal Architecture</b><span class="d"><span class="es">Patrón Ports &amp; Adapters: aísla la lógica de dominio de la infraestructura. Ideal para AI-generated code.</span><span class="en">Ports &amp; Adapters pattern: isolates domain logic from infrastructure. Ideal for AI-generated code.</span></span></div>
+  <div class="gloss-i"><b>Tiered Prompting</b><span class="d"><span class="es">Estrategia de prompting escalonada: skeleton → guards → happy path → tests → static analysis. No "one-shot".</span><span class="en">Tiered prompting strategy: skeleton → guards → happy path → tests → static analysis. No "one-shot".</span></span></div>
+  <div class="gloss-i"><b>Type-Safe Scaffolding</b><span class="d"><span class="es">Aprovechar tipos estrictos del lenguaje como guardrails contra alucinaciones de la IA.</span><span class="en">Leveraging strict language types as guardrails against AI hallucinations.</span></span></div>
+  <div class="gloss-i"><b>Vibe-Hangover</b><span class="d"><span class="es">Fenómeno late-2025: velocidad inicial compensada por costos downstream (deuda, vulns, ossification).</span><span class="en">Late-2025 phenomenon: initial speed offset by downstream costs (debt, vulns, ossification).</span></span></div>
+  <div class="gloss-i"><b>Knowledge Ossification</b><span class="d"><span class="es">Estado en que ningún humano del equipo entiende un módulo. Riesgo central del vibe coding sin guardrails.</span><span class="en">State where no human in team understands a module. Central vibe-coding-without-guardrails risk.</span></span></div>
+  <div class="gloss-i"><b>Hallucination Ceiling</b><span class="d"><span class="es">Punto donde el modelo empieza a inventar funciones, libs o APIs que no existen.</span><span class="en">Point where the model starts inventing non-existent functions, libs, or APIs.</span></span></div>
+  <div class="gloss-i"><b>HITL (Human-in-the-Loop)</b><span class="d"><span class="es">Diseño donde acciones irreversibles requieren aprobación humana explícita.</span><span class="en">Design where irreversible actions require explicit human approval.</span></span></div>
+  <div class="gloss-i"><b>Canary deployment</b><span class="d"><span class="es">Rollout progresivo: 1% → 10% → 50% → 100% del tráfico, con rollback automático si las métricas degradan.</span><span class="en">Progressive rollout: 1% → 10% → 50% → 100% traffic, with auto-rollback if metrics degrade.</span></span></div>
+  <div class="gloss-i"><b>Feature Flag</b><span class="d"><span class="es">Switch que permite encender/apagar una feature en runtime sin redeploy.</span><span class="en">Switch enabling on/off of a feature at runtime without redeploy.</span></span></div>
+  <div class="gloss-i"><b>Shu-Ha-Ri</b><span class="d"><span class="es">Filosofía japonesa de aprendizaje: <em>Shu</em> (seguir reglas), <em>Ha</em> (romperlas con criterio), <em>Ri</em> (trascenderlas).</span><span class="en">Japanese learning philosophy: <em>Shu</em> (follow rules), <em>Ha</em> (break with criterion), <em>Ri</em> (transcend).</span></span></div>
+  <div class="gloss-i"><b>Cycle-time</b><span class="d"><span class="es">Tiempo desde que un commit entra al sistema hasta que llega a producción.</span><span class="en">Time from commit entering the system until it reaches production.</span></span></div>
+  <div class="gloss-i"><b>Time-to-prototype</b><span class="d"><span class="es">Tiempo desde idea verbal a demo navegable funcional.</span><span class="en">Time from verbal idea to functional navigable demo.</span></span></div>
+  <div class="gloss-i"><b>Static Analysis</b><span class="d"><span class="es">Análisis del código sin ejecutarlo: tipos, lints, dependencias, smells.</span><span class="en">Code analysis without execution: types, lints, dependencies, smells.</span></span></div>
+  <div class="gloss-i"><b>RLS (Row-Level Security)</b><span class="d"><span class="es">Políticas de DB que filtran filas según el usuario autenticado. Vital en multi-tenant.</span><span class="en">DB policies filtering rows by authenticated user. Vital in multi-tenant.</span></span></div>
+</div>
+
+<h3>FAQ <span class="es">del developer</span><span class="en">for developers</span></h3>
+<div class="faq">
+  <div class="faq-i">
+    <div class="faq-q"><span class="es">"¿Vibe coding reemplaza a senior developers?"</span><span class="en">"Does vibe coding replace senior developers?"</span></div>
+    <div class="faq-a"><span class="es">No. Lo que reemplaza es la implementación mecánica. Lo que <em>queda</em> en el senior es: framing del problema, taste, juicio arquitectural, supervisión de calidad. El 1% humano sigue siendo el factor más crítico para mantenibilidad — Karpathy 2026 <span class="t td">DOC</span>.</span><span class="en">No. What it replaces is mechanical implementation. What <em>remains</em> in the senior is: problem framing, taste, architectural judgment, quality oversight. The 1% human remains the most critical factor for maintainability — Karpathy 2026 <span class="t td">DOC</span>.</span></div>
+  </div>
+  <div class="faq-i">
+    <div class="faq-q"><span class="es">"¿Cuánto tarda volverse productivo?"</span><span class="en">"How long until productive?"</span></div>
+    <div class="faq-a"><span class="es">Para senior con CLAUDE.md y tiered prompting: 1 semana a productividad parcial, 1 mes a 1–2 features/día. Para junior sin senior: no recomendado — vibe sin guardrails colapsa en 90 días. <span class="t ti">INFERENCIA</span></span><span class="en">For senior with CLAUDE.md and tiered prompting: 1 week to partial productivity, 1 month to 1–2 features/day. For junior without senior: not recommended — vibe without guardrails collapses in 90 days. <span class="t ti">INFERENCE</span></span></div>
+  </div>
+  <div class="faq-i">
+    <div class="faq-q"><span class="es">"¿Qué pasa con la security?"</span><span class="en">"What about security?"</span></div>
+    <div class="faq-a"><span class="es">Sin guardrails: 10% del código AI tiene vulnerabilidades (auth asumida, RLS roto, secrets hardcoded) <span class="t td">DOC</span>. Con guardrails (lint, pre-commit hooks, RLS tests, audit trails): comparable o mejor que código manual. La diferencia no es la IA — es el rigor del proceso.</span><span class="en">Without guardrails: 10% of AI code has vulnerabilities (assumed auth, broken RLS, hardcoded secrets) <span class="t td">DOC</span>. With guardrails (lint, pre-commit hooks, RLS tests, audit trails): comparable or better than manual code. Difference is not AI — it is process rigor.</span></div>
+  </div>
+  <div class="faq-i">
+    <div class="faq-q"><span class="es">"¿Es legal usar Cursor / v0 con código propietario del cliente?"</span><span class="en">"Is it legal to use Cursor / v0 with client proprietary code?"</span></div>
+    <div class="faq-a"><span class="es">Depende del contrato del cliente y el plan de la herramienta. Cursor Pro con "privacy mode" no envía código a entrenamiento. Pero el sponsor del cliente debe firmar — antes, no después. <span class="t ts">SUPUESTO</span> requiere validación legal por jurisdicción.</span><span class="en">Depends on client contract and tool plan. Cursor Pro with "privacy mode" does not send code to training. But the client sponsor must sign — before, not after. <span class="t ts">ASSUMPTION</span> requires legal validation per jurisdiction.</span></div>
+  </div>
+  <div class="faq-i">
+    <div class="faq-q"><span class="es">"¿Y si el modelo se equivoca y rompe producción?"</span><span class="en">"What if the model errs and breaks production?"</span></div>
+    <div class="faq-a"><span class="es">Por eso existen feature flags + canary 1% → 100%. Si el AI rompe el 1% inicial, el rollback es automático y el blast radius queda contenido. Esa es la diferencia entre <em>experimentación</em> y <em>despliegue irreversible</em>. <span class="t td">DOC</span></span><span class="en">That is why feature flags + canary 1% → 100% exist. If AI breaks the initial 1%, rollback is automatic and blast radius is contained. That is the difference between <em>experimentation</em> and <em>irreversible deployment</em>. <span class="t td">DOC</span></span></div>
+  </div>
+  <div class="faq-i">
+    <div class="faq-q"><span class="es">"¿Vale la pena para equipos &gt; 50 developers?"</span><span class="en">"Is it worth it for teams &gt; 50 developers?"</span></div>
+    <div class="faq-a"><span class="es">Sí, pero requiere infraestructura: agentes versionados, MCP en organización, CLAUDE.md compartido, code review obligatorio. Es exactamente el caso TELUS: 13.000 soluciones AI desplegadas como infraestructura, no como herramientas individuales. <span class="t td">DOC</span></span><span class="en">Yes, but requires infrastructure: versioned agents, org-wide MCP, shared CLAUDE.md, mandatory code review. That's exactly TELUS case: 13,000 AI solutions deployed as infrastructure, not individual tools. <span class="t td">DOC</span></span></div>
+  </div>
+  <div class="faq-i">
+    <div class="faq-q"><span class="es">"¿Cuál es el siguiente paso después de dominar vibe coding?"</span><span class="en">"What is the next step after mastering vibe coding?"</span></div>
+    <div class="faq-a"><span class="es">Agentic engineering (parte II · BMAD). Pasar de prototipos rápidos a sistemas multi-agente determinísticos con quality gates. Karpathy lo bautizó <em>"agentic engineering"</em> a inicios de 2026 <span class="t td">DOC</span>. Lo cubre el playbook companion.</span><span class="en">Agentic engineering (part II · BMAD). Move from fast prototypes to deterministic multi-agent systems with quality gates. Karpathy named it <em>"agentic engineering"</em> in early 2026 <span class="t td">DOC</span>. Covered in companion playbook.</span></div>
+  </div>
+</div>
+
+<h3><span class="es">Etiquetas de evidencia (cómo leer este playbook)</span><span class="en">Evidence tags (how to read this playbook)</span></h3>
+<ul style="font-size:.85rem">
+  <li><span class="t td">DOC</span> <span class="es">— claim respaldado por la fuente citada (research deep · 67 fuentes via NotebookLM).</span><span class="en">— claim backed by cited source (deep research · 67 sources via NotebookLM).</span></li>
+  <li><span class="t ti">INFERENCIA</span> <span class="es">— inferencia razonada del autor a partir de las fuentes; no afirmación directa.</span><span class="en">— author's reasoned inference from sources; not direct claim.</span></li>
+  <li><span class="t ts">SUPUESTO</span> <span class="es">— asunción explícita pendiente de validación contextual.</span><span class="en">— explicit assumption pending contextual validation.</span></li>
+  <li><span class="t tc">CONTEXTO</span> <span class="es">— afirmación basada en el deck del workshop AI Native Production (PDF original del taller).</span><span class="en">— claim based on the AI Native Production workshop deck (original PDF).</span></li>
+</ul>
+
+<h3><span class="es">Fuentes principales (selección)</span><span class="en">Primary sources (selection)</span></h3>
+<div class="tw"><table>
+<thead><tr><th><span class="es">Fuente</span><span class="en">Source</span></th><th><span class="es">Aporte clave</span><span class="en">Key contribution</span></th></tr></thead>
+<tbody>
+<tr><td><strong>Karpathy 2025 (Twitter / Wikipedia)</strong></td><td><span class="es">Definición original de vibe coding · "see/say/run".</span><span class="en">Original definition of vibe coding · "see/say/run".</span></td></tr>
+<tr><td><strong>Tizbi 2026 — Vibe Coding Business Guide</strong></td><td><span class="es">Métricas de productividad · stack senior · benchmarks.</span><span class="en">Productivity metrics · senior stack · benchmarks.</span></td></tr>
+<tr><td><strong>nxcode 2026 — Agentic Engineering Guide</strong></td><td><span class="es">Transición vibe → agentic · framework PEV.</span><span class="en">Vibe → agentic transition · PEV framework.</span></td></tr>
+<tr><td><strong>Roadmap.sh — Vibe Coding Best Practices</strong></td><td><span class="es">Tiered prompting · context management.</span><span class="en">Tiered prompting · context management.</span></td></tr>
+<tr><td><strong>Till-Freitag 2026 — Tools Comparison</strong></td><td><span class="es">Comparativa Cursor / v0 / Bolt / Lovable / Trae.</span><span class="en">Cursor / v0 / Bolt / Lovable / Trae comparison.</span></td></tr>
+<tr><td><strong>IEEE Xplore — Vibe Coding as Reconfiguration of Intent</strong></td><td><span class="es">Marco académico de la transición epistemológica.</span><span class="en">Academic frame for epistemological transition.</span></td></tr>
+<tr><td><strong>DEV.to — Complete AI-Native Workflow for Backend (PHP)</strong></td><td><span class="es">Patrones senior · ADR red-team · type-safe scaffolding.</span><span class="en">Senior patterns · ADR red-team · type-safe scaffolding.</span></td></tr>
+<tr><td><strong>Apiiro — Vibe Coding Security</strong></td><td><span class="es">Riesgos de security · vulns · hardening.</span><span class="en">Security risks · vulns · hardening.</span></td></tr>
+<tr><td><strong>Anthropic 2024 — MCP Spec</strong></td><td><span class="es">Estándar Model Context Protocol.</span><span class="en">Model Context Protocol standard.</span></td></tr>
+<tr><td><strong>Workshop deck (PDF original)</strong></td><td><span class="es">Tesis del workshop · estructura 2 días · contexto comercial Colombia.</span><span class="en">Workshop thesis · 2-day structure · Colombia commercial context.</span></td></tr>
+</tbody>
+</table></div>
+
+<p style="font-size:.78rem;color:var(--g500);margin-top:1.5rem;font-family:var(--fm)"><span class="es">Investigación profunda completa: 67 fuentes web + cross-query de notebooks NotebookLM (BMAD-D7, PROD-NotebookLM, MET-Autoestudio). Reporte académico de 35.242 caracteres disponible bajo solicitud.</span><span class="en">Full deep research: 67 web sources + NotebookLM notebook cross-query (BMAD-D7, PROD-NotebookLM, MET-Autoestudio). 35,242-character academic report available on request.</span></p>
+
+<h3><span class="es">Versionado · changelog del playbook</span><span class="en">Versioning · playbook changelog</span></h3>
+<ul style="font-size:.85rem">
+  <li><span class="es"><strong>v2026.04 · 25 abr 2026</strong> — primera versión. Generada como parte I del bundle "Workshop AI Native Production" en companion con <a href="playbook-bmad-rigor-tecnico-v2026.04.html" style="color:var(--o);font-weight:700">BMAD · Rigor Técnico</a>. Investigación: 67 fuentes web vía NotebookLM Deep Research + cross-notebook BMAD-D7. Etiquetas <span class="t td">DOC</span> · <span class="t ti">INFERENCIA</span> · <span class="t ts">SUPUESTO</span> · <span class="t tc">CONTEXTO</span> aplicadas.</span><span class="en"><strong>v2026.04 · Apr 25 2026</strong> — first version. Generated as Part I of the "Workshop AI Native Production" bundle, companion with <a href="playbook-bmad-rigor-tecnico-v2026.04.html" style="color:var(--o);font-weight:700">BMAD · Technical Rigor</a>. Research: 67 web sources via NotebookLM Deep Research + BMAD-D7 cross-notebook. <span class="t td">DOC</span> · <span class="t ti">INFERENCE</span> · <span class="t ts">ASSUMPTION</span> · <span class="t tc">CONTEXT</span> tags applied.</span></li>
+</ul>
+</section>
+
+</main>
+
+<footer class="site-footer">
+<div class="footer-inner">
+  <div class="footer-row">
+    <div class="footer-logo">Metodolog<span class="ia">IA</span></div>
+    <div class="footer-badges">
+      <span class="footer-badge">Human First, AI-Next</span>
+      <span class="footer-badge"><span class="es">Playbook · Vibe Coding</span><span class="en">Playbook · Vibe Coding</span></span>
+      <span class="footer-badge"><span class="es">Vagaje I/II</span><span class="en">Part I/II</span></span>
+      <span class="footer-badge">2026</span>
+      <span class="footer-badge">v2026.04</span>
+      <span class="footer-badge">CC BY-NC-SA 4.0</span>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <span>&copy; 2026 MetodologIA. <span class="es">Por Javier Montaño · CEO MetodologIA</span><span class="en">By Javier Montaño · CEO MetodologIA</span></span>
+    <a href="playbook-bmad-rigor-tecnico-v2026.04.html"><span class="es">→ Parte II · BMAD · Rigor Técnico</span><span class="en">→ Part II · BMAD · Technical Rigor</span></a>
+    <a href="https://metodologia.info" target="_blank" rel="noopener noreferrer">metodologia.info</a>
+    <a href="https://metodologia.info/legal/terminos" target="_blank" rel="noopener noreferrer"><span class="es">Términos</span><span class="en">Terms</span></a>
+    <a href="https://metodologia.info/legal/privacidad" target="_blank" rel="noopener noreferrer"><span class="es">Privacidad</span><span class="en">Privacy</span></a>
+  </div>
+</div>
+</footer>
+
+<script>
+/* ── Language Toggle ── */
+function toggleLang() {
+  const html = document.documentElement;
+  const isEn = html.lang === 'en';
+  html.lang = isEn ? 'es' : 'en';
+  const btn = document.getElementById('langBtn');
+  if (btn) btn.textContent = isEn ? 'EN' : 'ES';
+  try { localStorage.setItem('pb-lang', html.lang); } catch(e) {}
+}
+(function initLang() {
+  try {
+    const saved = localStorage.getItem('pb-lang');
+    if (saved === 'en') {
+      document.documentElement.lang = 'en';
+      const btn = document.getElementById('langBtn');
+      if (btn) btn.textContent = 'ES';
+    }
+  } catch(e) {}
+})();
+</script>
+
+</body>
+</html>

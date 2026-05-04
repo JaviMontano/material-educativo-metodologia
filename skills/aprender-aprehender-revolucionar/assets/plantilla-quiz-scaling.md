@@ -1,6 +1,11 @@
-# Plantilla · Quiz Progresivo · 4 Niveles
+# Plantilla · Quiz Progresivo · 4 Niveles · v1.1.0
 
 > Output del Prompt #8 · validación de Escala 1-4 con preguntas abiertas.
+
+`[FUENTE-PRIMARIA]` Playbook v2.0.0 §Prompt #8 Evaluator + Workflow 3 §Quizzes.
+`[CRITERIO-ACEPTACIÓN]` Quiz Nivel N pasado = ≥4/5 abiertas (NO recognition multiple-choice).
+`[LÍMITE]` Score 3/5 = NO pasa · 3/5 marcado como "OK" es Escala N-0.5 disfrazada.
+`[TRADE-OFF]` Quiz auto-administrado + IA evaluadora · sin humano se pierde 30% del rigor.
 
 **Tema**: [TU TEMA]
 **Certificación o objetivo**: [...]

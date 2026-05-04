@@ -1,459 +1,320 @@
 # Anti-Patrones y Trampas Cognitivas
 
-> Los modos comunes en que el aprendizaje con IA falla. Diagnóstico, síntomas, antídotos.
+> Los modos en que el aprendizaje con IA falla. Diagnóstico · síntomas · antídotos accionables. v1.1.0.
 
-**Fuente canónica**: Playbook *Aprender · Aprehender · (R)Evolucionar* v2.0.0 · §Anti-patrones.
+`[FUENTE-PRIMARIA]` Playbook *Aprender · Aprehender · (R)Evolucionar* v2.0.0 §Anti-patrones · ampliado con literatura cognitiva.
 
----
-
-## Mapa de anti-patrones
+## Mapa de los 14 anti-patrones
 
 | # | Anti-patrón | Categoría | Severidad |
 |---|---|---|---|
 | 1 | Espejismo de la fluidez | IA-induced | 🔴 CRÍTICA |
-| 2 | Inventa datos (hallucination) | IA-induced | 🔴 CRÍTICA |
-| 3 | Solo dice lo que quieres oír (sycophancy) | IA-induced | 🔴 CRÍTICA |
-| 4 | No dice lo que no sabe (silent uncertainty) | IA-induced | 🟠 ALTA |
+| 2 | Hallucinations (datos inventados) | IA-induced | 🔴 CRÍTICA |
+| 3 | Sycophancy (la IA está de acuerdo) | IA-induced | 🔴 CRÍTICA |
+| 4 | Silent uncertainty (no marca dudas) | IA-induced | 🟠 ALTA |
 | 5 | Single-AI BoK | Método | 🔴 CRÍTICA |
 | 6 | Dunning-Kruger | Cognitivo | 🟠 ALTA |
 | 7 | Cramming | Método | 🟠 ALTA |
 | 8 | Recognition vs Recall | Cognitivo | 🟠 ALTA |
-| 9 | Identity Attachment (no soltar) | (R)Evolucionar | 🟡 MEDIA |
+| 9 | Identity Attachment | (R)Evolucionar | 🟡 MEDIA |
 | 10 | Multiple-Choice Comfort | Método | 🟡 MEDIA |
 | 11 | Refugio en jerga | Comunicación | 🟡 MEDIA |
 | 12 | BoK sin Capability | Estrategia | 🟡 MEDIA |
 | 13 | Maturity sin diagnóstico | Estrategia | 🟡 MEDIA |
 | 14 | Calendario sin ritual | Hábito | 🟢 BAJA |
 
----
-
-## 1 · Espejismo de la Fluidez (Fluency Illusion)
-
-### Síntoma
-La respuesta IA es tan elocuente, bien estructurada y coherente que tu cerebro confunde *"suena lógico"* con *"yo entiendo"*.
-
-### Por qué pasa `[DOC: Bjork & Bjork · Desirable Difficulties · 2011]`
-- El cerebro evalúa fluidez de procesamiento como proxy de comprensión.
-- Texto bien escrito → procesamiento fluido → falsa sensación de dominio.
-- IA optimizada para fluidez (LLMs maximizan probabilidad lingüística).
-
-### Detector
-Cierra la respuesta. Toma una hoja en blanco. Escribe la idea con tus palabras, sin volver a la fuente.
-
-Si te trabas → no entendiste. Solo procesaste fluidamente.
-
-### Antídoto · Feynman + Retrieval
-
-```
-PASO 1 · cierra todas las fuentes
-PASO 2 · explica el concepto en voz alta como si fuera niño de 12 años
-PASO 3 · graba (o escribe sin parar) durante 3 minutos
-PASO 4 · escucha la grabación · marca:
-   [SUAVE]    — fluyó natural · ENTIENDES
-   [TRABA]    — te detuviste o usaste jerga · GAP
-   [INVENTÉ]  — improvisaste · NO ENTIENDES
-```
-
-### Riesgo si no lo combates
-Llegas a una entrevista o QBR convencido de que sabes, te hacen 1 pregunta y se cae todo. **Embarazo público + costo de oportunidad alto.**
-
-### Kata
-`katas/kata-feynman-novato.md`
+`[NUEVO-APORTE]` Los 4 críticos (1-3 y 5) son **inducidos por IA** o **amplificados por IA**. Antes de la era LLM existían pero a menor escala. Hoy son los modos de fallo dominantes en aprendizaje profesional con IA.
 
 ---
 
-## 2 · Inventa Datos (Hallucination)
+## 1 · Espejismo de la Fluidez 🔴
 
-### Síntoma
-La IA cita autores, fechas, estadísticas, ecuaciones que **no existen** o están mal atribuidos. Lo dice con tono autoritativo y formato académico.
+**Síntoma**: la respuesta IA es tan elocuente que confundes "suena lógico" con "yo entiendo".
 
-### Por qué pasa
-- LLMs son modelos de lenguaje, no bases de datos.
-- Maximizan probabilidad de "lo que sigue" no "lo que es verdad".
-- Tendencia a generar texto que *parece* académico aunque no lo sea.
+**Por qué pasa** `[DOC: Bjork & Bjork · Desirable Difficulties · 2011]`: el cerebro evalúa fluidez de procesamiento como proxy de comprensión. Texto bien escrito → procesamiento fluido → falsa sensación de dominio. LLMs maximizan probabilidad lingüística → fluidez por diseño.
+
+**Detector**: cierra la respuesta · hoja en blanco · escribe la idea con tus palabras · sin volver a la fuente. Si te trabas → no entendiste, solo procesaste fluidamente.
+
+**Antídoto**: Feynman + Retrieval
+
+```
+1. Cierra TODAS las fuentes
+2. Explica en voz alta como si fuera niño 12 años · 3 min sin parar
+3. Graba o escribe sin parar
+4. Marca cada bloque:
+   [SUAVE]    fluyó natural · entiendes
+   [TRABA]    te detuviste o usaste jerga · gap
+   [INVENTÉ]  improvisaste · no entiendes
+```
+
+**Riesgo si no lo combates**: llegas a entrevista o QBR convencido de que sabes · 1 pregunta del board derriba todo. Embarazo público + costo de oportunidad alto.
+
+`[CASO-BORDE]` Espejismo de fluidez puede coexistir con vocabulario sólido. Si retrieval ciego sale fuerte pero Feynman se traba con jerga → no es ignorancia, es incapacidad de **simplificar** = no entiendes a profundidad.
+
+→ kata `katas/kata-feynman-novato.md` · `katas/kata-recuperacion-ciega.md`
+
+---
+
+## 2 · Hallucinations · datos inventados 🔴
+
+**Síntoma**: la IA cita autores, fechas, estadísticas, ecuaciones que **no existen** o están mal atribuidos · con tono autoritativo + formato académico.
+
+**Por qué pasa**: LLMs son modelos de lenguaje, no bases de datos. Maximizan probabilidad de "lo que sigue", no "lo que es verdad". Generan texto que *parece* académico aunque no lo sea.
 
 ### Tipos comunes
-| Tipo | Ejemplo |
-|---|---|
-| **Cita inventada** | "Según Smith (2019), el 73% de las empresas..." (paper no existe) |
-| **Fecha imprecisa** | "Brewer publicó CAP en 1998" (real: 2000) |
-| **Ecuación incorrecta** | "La ley de Amdahl es S = 1/(p + (1-p)/n)" (signo invertido) |
-| **Atribución errónea** | "Lamport propuso CAP" (lo propuso Brewer) |
-| **Estadística fabricada** | "El 87.3% de los proyectos ágiles fallan" (cifra inventada) |
 
-### Detector · Primary Source Rule
+| Tipo | Ejemplo | Detección |
+|---|---|---|
+| Cita inventada | "Según Smith (2019), 73% de empresas..." (paper no existe) | Google Scholar |
+| Fecha imprecisa | "Brewer publicó CAP en 1998" (real: 2000) | Fuente original |
+| Ecuación incorrecta | "Amdahl: S = 1/(p + (1-p)/n)" (signo invertido) | Texto canónico |
+| Atribución errónea | "Lamport propuso CAP" (lo propuso Brewer) | Buscar autor real |
+| Estadística fabricada | "87.3% de proyectos ágiles fallan" | Reporte original |
+| Quote inventada | "Como dijo Einstein..." (no lo dijo) | Quote Investigator |
+
+**Detector · Primary Source Rule**
 
 ```
 Para cada cita o estadística:
 1. Pregunta a IA: "¿Cuál es la fuente PRIMARIA de este dato?"
-2. Busca el documento original (paper, reporte, dataset).
-3. Si NO existe → HALLUCINATION confirmada.
-4. Si existe pero no dice lo citado → HALLUCINATION confirmada.
-5. Si existe y coincide → DATO VÁLIDO.
+2. Busca el documento original (paper · reporte · dataset)
+3. Si NO existe → HALLUCINATION confirmada
+4. Si existe pero NO dice lo citado → HALLUCINATION confirmada
+5. Si existe y coincide → válido
 ```
 
-### Antídoto · Triangulación + Fact-Check Cruzado
+**Antídoto** · Triangulación + Fact-Check Cruzado:
+- Misma pregunta a 3 IAs distintas
+- Coincidencia 3/3 → probable verdad (validar fuente 1°)
+- Coincidencia 2/3 → revisar fuente
+- Aparece en 1 sola → sospechoso · investigar manual o descartar
+- Prompt #4 con 4ª IA independiente audita las respuestas
 
-```
-PASO 1 · misma pregunta a 3 IAs distintas (ChatGPT + Claude + Gemini)
-PASO 2 · compara respuestas:
-   COINCIDEN 3/3 → probable verdad (validar fuente primaria)
-   COINCIDEN 2/3 → revisar, validar fuente
-   APARECE 1/3   → sospechoso, alta probabilidad de hallucination
-PASO 3 · IA #4 independiente con Prompt #4 audita las respuestas
-```
+`[NUEVO-APORTE]` Las hallucinations 2025+ son sofisticadas: IAs citan con DOI plausibles o autores reales. Validación pasa de "¿existe?" a "¿el paper dice esto?". Audita el abstract, no solo el título.
 
-→ ver `prompts/04-cross-fact-check.md` y `katas/kata-fuente-primaria.md`.
+`[CASO-BORDE]` Si 3 IAs comparten misma hallucination (entrenamiento con corpus similar), triangulación falla. Antídoto: 1 fuente humana adicional (paper en arXiv reciente o libro canónico).
 
-### Severidad
-🔴 CRÍTICA. Citar datos inventados destruye credibilidad. Especialmente peligroso en QBR / certificación / paper.
+→ `prompts/04-cross-fact-check.md` · `katas/kata-fuente-primaria.md`
 
 ---
 
-## 3 · Solo Dice Lo Que Quieres Oír (Sycophancy)
+## 3 · Sycophancy · solo dice lo que quieres oír 🔴
 
-### Síntoma
-Le presentas tu hipótesis a la IA → la IA está de acuerdo. La defiendes con argumentos → la IA refuerza. Pides contraargumentos → la IA da contraargumentos débiles.
+**Síntoma**: presentas tu hipótesis · IA está de acuerdo · la defiendes con argumentos · IA refuerza · pides contraargumentos · IA da contraargumentos débiles.
 
-### Por qué pasa `[DOC: Anthropic · Sycophancy in Language Models · 2023]`
-- Los LLMs son entrenados con RLHF (Reinforcement Learning from Human Feedback).
-- Los humanos tienden a calificar mejor las respuestas que coinciden con su opinión.
-- → modelo aprende a coincidir con el usuario para maximizar reward.
+**Por qué pasa** `[DOC: Anthropic · Sycophancy in Language Models · 2023]`: LLMs entrenados con RLHF · humanos califican mejor respuestas que coinciden con su opinión · modelo aprende a coincidir para maximizar reward.
 
-### Detector
-Pídele a la IA argumentar **lo opuesto** de tu hipótesis. Si los argumentos son débiles o caricaturizados → sycophancy.
+**Detector**: pídele a la IA argumentar **lo opuesto** de tu hipótesis. Si los contraargumentos son débiles o caricaturizados → sycophancy confirmada.
 
-### Antídoto · Diablo's Advocate Protocol
+**Antídoto · Diablo's Advocate Protocol**:
 
 ```
-PROMPT 1: "Toma la posición OPUESTA a [TU HIPÓTESIS] y dame los 3
-mejores argumentos contra ella. Sé contundente. Asume que yo estoy
-equivocado."
+PROMPT 1: "Toma la posición OPUESTA a [HIPÓTESIS] · 3 mejores
+argumentos contra ella · sé contundente · asume que estoy equivocado."
 
-PROMPT 2: "Soy un escéptico hostil. Refuta [TU HIPÓTESIS] con la
-evidencia más fuerte que encuentres. No me protejas."
+PROMPT 2: "Soy escéptico hostil · refuta [HIPÓTESIS] con la evidencia
+más fuerte · NO me protejas."
 
-PROMPT 3: "¿Bajo qué condiciones [TU HIPÓTESIS] sería falsa?
+PROMPT 3: "¿Bajo qué condiciones [HIPÓTESIS] sería falsa?
 Lista 5 escenarios donde fallaría."
 ```
 
-### Riesgo si no lo combates
-Vas a una decisión importante con una hipótesis no estresada. La realidad es el primer escéptico hostil que conocerás, y será caro.
+**Riesgo si no lo combates**: vas a una decisión importante con hipótesis no estresada. La realidad es el primer escéptico hostil que conocerás · y será caro.
+
+`[CASO-BORDE]` Sycophancy es difícil de detectar cuando la hipótesis es **parcialmente correcta**. La IA refuerza la parte cierta y minimiza los matices. Test adicional: pídele que te dé los 3 contextos donde tu hipótesis NO aplica.
 
 ---
 
-## 4 · No Dice Lo Que No Sabe (Silent Uncertainty)
+## 4 · Silent Uncertainty 🟠
 
-### Síntoma
-La IA responde con confianza incluso cuando la información no existe en su training data o es ambigua.
+**Síntoma**: IA responde con confianza incluso cuando la información no existe en su training data o es ambigua.
 
-### Por qué pasa
-- LLMs no tienen mecanismo nativo de "no sé".
-- Genera texto basado en patrones probables, no en verdad verificable.
-- Los modelos modernos (Claude, GPT-4+) mejoran pero no eliminan el problema.
+**Por qué pasa**: LLMs no tienen mecanismo nativo de "no sé". Generan texto basado en patrones probables, no en verdad verificable. Modelos modernos (Claude, GPT-4+) mejoran pero no eliminan.
 
-### Detector
-Pregunta directamente: *"¿Cuál es tu nivel de confianza en esto del 1 al 10? ¿Qué evidencia te falta?"*
+**Detector**: pregunta directamente *"¿Cuál es tu confianza del 1 al 10? ¿Qué evidencia te falta?"*. Si responde "10/10" en algo específico reciente o de nicho → desconfía.
 
-Si responde "10/10" sobre cualquier cosa específica reciente o de nicho → desconfía.
-
-### Antídoto · Confidence Forcing
+**Antídoto · Confidence Forcing**:
 
 ```
-SIEMPRE TERMINA TUS PROMPTS CON:
+SIEMPRE termina prompts con:
 
 "Para cada afirmación factual:
-1. Marca tu nivel de confianza: [ALTA] [MEDIA] [BAJA]
-2. Cita la fuente primaria (paper, dataset, reporte oficial)
+1. Marca confianza: [ALTA/MEDIA/BAJA]
+2. Cita fuente primaria
 3. Si no tienes fuente verificable, marca [SUPUESTO]"
 ```
 
-Esto fuerza al modelo a separar lo que sabe de lo que infiere.
-
-### Modelo recomendado
-Claude (Anthropic) tiende a ser más calibrado en incertidumbre que ChatGPT. Pero ningún modelo es perfecto.
+**Modelo recomendado**: Claude tiende a ser más calibrado en incertidumbre que ChatGPT · ningún modelo es perfecto.
 
 ---
 
-## 5 · Single-AI BoK
+## 5 · Single-AI BoK 🔴
 
-### Síntoma
-Generas el Body of Knowledge con una sola IA. Crees que tienes el mapa completo. En realidad tienes **el mapa según ChatGPT** (o según Claude, o según Gemini).
+**Síntoma**: generas el BoK con 1 sola IA · crees que tienes el mapa completo · en realidad tienes el mapa según ChatGPT (o según Claude · o según Gemini).
 
-### Por qué falla
-Cada IA tiene blindspots distintos:
-- ChatGPT: a veces omite tendencias muy recientes (training cutoff).
+**Por qué falla**: cada IA tiene blindspots distintos.
+- ChatGPT: a veces omite tendencias muy recientes (cutoff).
 - Claude: tiende a sobre-cualificar y diluir.
 - Gemini: a veces fabrica fuentes.
+- Las omisiones de una aparecen en otra.
 
-Las omisiones de una aparecen en otra.
-
-### Detector
-Pídele lo mismo a 3 IAs. Compara. Si aparecen subtemas en 1 sola IA, no en las otras → uno de dos:
-- (a) ese subtema es real pero olvidado por las otras
-- (b) ese subtema es alucinación de la primera
-
-### Antídoto · Triangulation Protocol
+**Antídoto · Triangulation Protocol**:
 
 ```
-PROMPT IDÉNTICO en 3 IAs (e.g., ChatGPT + Claude + Gemini):
-"Genera el Body of Knowledge completo de [DOMINIO] estructurado en
-subtemas, conexiones, fuentes primarias, autoridades, controversias."
-
-CONSOLIDACIÓN:
-- COINCIDENCIAS 3/3 → core del campo, alta confianza
-- COINCIDENCIAS 2/3 → probable, validar fuente primaria
-- APARECE 1/3       → investigar manualmente o descartar
-- CONTRADICCIONES   → ORO: ahí están las áreas de debate del campo
+Mismo prompt en 3 IAs distintas
+COINCIDENCIAS 3/3 → core del campo · alta confianza
+COINCIDENCIAS 2/3 → probable · validar fuente primaria
+APARECE 1/3       → sospechoso · investigar o descartar
+CONTRADICCIONES   → ORO · áreas de debate del campo
 ```
 
-### Kata
-`katas/kata-triangulacion-3ias.md`.
+→ kata `katas/kata-triangulacion-3ias.md`
 
 ---
 
-## 6 · Dunning-Kruger
+## 6 · Dunning-Kruger 🟠
 
-### Síntoma
-Tu auto-evaluación (Escala 4 "Practicante") difiere ≥2 niveles de la evaluación de IA o de pares senior (te ven Escala 2 "Explorador").
+**Síntoma**: auto-evaluación (Escala 4 "Practicante") difiere ≥2 niveles de IA-eval o pares senior (te ven Escala 2 "Explorador").
 
-### Por qué pasa `[DOC: Dunning & Kruger · 1999 · J Personality Soc Psychology]`
-- Bajos niveles: ignoras lo que ignoras → sobreestimas.
-- Altos niveles: ves la complejidad real → subestimas.
-- Curva clásica: pico de "Mount Stupid" → valle "Valle de la Humildad" → meseta de "Plateau of Sustainability".
+**Por qué pasa** `[DOC: Dunning & Kruger 1999]`:
+- Niveles bajos: ignoran lo que ignoran → sobreestiman.
+- Niveles altos: ven complejidad real → subestiman.
+- Curva: pico Mount Stupid (Escala 1-2 con creencia 5) → Valle de la Humildad (Escala 3-4) → Plateau of Sustainability (Escala 5+).
 
-### Curva Dunning-Kruger
-```
-   Confianza
-       │
-   100%├─Mt Stupid (Escala 1-2 con creencia de Escala 5)
-       │  ▲
-   80% │ ╱ ╲
-       │╱   ╲
-   60% ┤     ╲
-       │      ╲▼ Valle de la Humildad (Escala 3-4)
-   40% ┤       ▼
-       │        ▼ ────► Plateau of Sustainability (Escala 5+)
-   20% ┤
-       └────────────────────────────► Tiempo / Práctica
-```
+**Detector**: self-eval = Escala 4 · IA-eval = Escala 2 · diferencia ≥2 → bias detectado.
 
-### Detector
-- Self-eval = Escala 4
-- IA-eval (Prompt #8) = Escala 2
-- Diferencia ≥ 2 → BIAS DETECTADO
+**Antídoto**:
+1. Test abierto, NO multiple choice (multiple choice activa recognition no recall)
+2. Prompt #8 con dificultad progresiva
+3. Feedback de pares senior · "¿En qué escala me ves del 0 al 9?"
+4. Defensa pública · si sobrevives ante Escala 5+ sin caer, eres ≥3
 
-### Antídoto
+**Riesgo si no lo combates**: pides aumento/promoción/responsabilidad de Escala 5 cuando estás en Escala 2 · fracaso público + daño a reputación duradero.
 
-```
-1. Test abierto, NO multiple choice
-   (multiple choice activa recognition, no recall)
+`[CASO-BORDE]` Diferencia ≤1 escala NO es Dunning-Kruger crítico · es zona de calibración. Reservar el flag para ≥2.
 
-2. Test diagnóstico con IA neutral
-   Prompt #8 con dificultad progresiva
-
-3. Feedback de pares senior
-   "En qué escala me ves del 0 al 9?"
-
-4. Defensa pública
-   Si puedes defender ante Escala 5+ sin caer, eres ≥3
-```
-
-### Riesgo si no lo combates
-Pides aumento / promoción / responsabilidad para Escala 5 cuando estás en Escala 2. Resultado: fracaso público y daño a tu reputación.
+`[CASO-BORDE]` Auto < IA (subestimando) NO es saludable · típicamente es Imposter Syndrome que paraliza. Ambos extremos requieren feedback humano.
 
 ---
 
-## 7 · Cramming
+## 7 · Cramming 🟠
 
-### Síntoma
-Maratón intensivo el día/semana antes del evento (examen, presentación, certificación). Sentido de dominio temporal. Olvidas en 48-72 horas.
+**Síntoma**: maratón intensivo el día/semana antes del evento · sentido de dominio temporal · olvidas en 48-72 h.
 
-### Por qué falla `[DOC: Cepeda et al. · 2008]`
-- Curva del olvido: 50% en 1h, 70% en 24h, 90% en 1 semana.
-- Cramming sobrecarga la memoria de trabajo, no consolida en LTM.
-- Sin spacing, no hay reconsolidación.
+**Por qué falla** `[DOC: Cepeda 2008]`: curva del olvido (50% en 1h · 70% en 24h · 90% en 1 sem) · cramming sobrecarga memoria de trabajo, no consolida en LTM · sin spacing no hay reconsolidación.
 
-### Detector
-"Estudié 8 horas el sábado". Vas a olvidar el 90% el lunes siguiente.
+**Detector**: "estudié 8 horas el sábado" → 90% olvidado el lunes.
 
-### Antídoto · Spaced Repetition
+**Antídoto · Spaced Repetition**:
 
-```
-EN VEZ DE: 8 horas el sábado
-HAZ:       1 hora × 8 días con intervalos crecientes
-           DÍA 0, 1, 3, 7, 14, 30
-```
+| En vez de | Hacer |
+|---|---|
+| 8 h sábado | 1 h × 8 días con intervalos crecientes |
+| Pre-evento maratón | Días 0, 1, 3, 7, 14, 30 |
 
-→ ver `references/01-seis-tecnicas-cognitivas.md` §Spaced Repetition.
-
-### Calendar invite
-`assets/calendar-invites/aprehension-semanal.ics`.
+→ `references/01-seis-tecnicas-cognitivas.md` §Spaced · `assets/calendar-invites/`
 
 ---
 
-## 8 · Recognition vs Recall
+## 8 · Recognition vs Recall 🟠
 
-### Síntoma
-"Sí, lo conozco cuando lo veo". Lees notas y dices "ajá, ajá". En examen abierto, pelas.
+**Síntoma**: "sí, lo conozco cuando lo veo" · lees notas y dices "ajá ajá" · examen abierto: pelas.
 
-### Por qué falla
-Reconocimiento es un proceso pasivo distinto de recuperación activa.
-- **Reconocer**: ¿esto es A? Sí/No (binario)
-- **Recuperar**: ¿qué era A? (generación)
+**Por qué falla**: reconocimiento es proceso pasivo distinto de recuperación activa.
+- **Reconocer**: ¿esto es A? Sí/No (binario · fácil)
+- **Recuperar**: ¿qué era A? (generación · exponencialmente más difícil)
 
-Recuperar es exponencialmente más difícil que reconocer.
+**Detector**: multiple choice → recognition (fácil) · pregunta abierta → recall (difícil). Si solo practicas multiple choice, fallas en abierto.
 
-### Detector
-- Multiple choice → reconocimiento (fácil)
-- Pregunta abierta → recuperación (difícil)
+**Antídoto**: retrieval ciego · cierra TODO · hoja en blanco · escribe TODO de memoria · marca [DUDA] · solo después abrir fuentes.
 
-Si solo practicas multiple choice y luego enfrentas examen abierto → fallas.
-
-### Antídoto · Retrieval ciega
-
-```
-1. Cierra TODO (notas, libros, slides, IA, web)
-2. Hoja en blanco
-3. Escribe TODO sobre [TEMA] de memoria
-4. SIN abrir nada: marca [DUDA] donde no estés seguro
-5. AHORA abre fuentes y compara
-```
-
-→ kata: `katas/kata-recuperacion-ciega.md`.
+→ `katas/kata-recuperacion-ciega.md`
 
 ---
 
-## 9 · Identity Attachment (No Soltar Legacy)
+## 9 · Identity Attachment · no soltar legacy 🟡
 
-### Síntoma
-*"jQuery / Backbone / SOAP / etc. no es obsoleto, todavía hay empresas usándolo."*
+**Síntoma**: *"jQuery / Backbone / SOAP no es obsoleto, todavía hay empresas usándolo"*. Defiendes una skill que el mercado dejó de demandar porque es parte de tu identidad.
 
-Defiendes una skill que el mercado dejó de demandar porque es parte de tu identidad profesional.
+**Por qué pasa**: 10 años de inversión emocional + cognitiva · cambiar = admitir que el tiempo invertido fue (parcialmente) desperdicio · ego protection.
 
-### Por qué pasa
-- 10 años de inversión emocional + cognitiva.
-- Cambiar = admitir que el tiempo invertido fue (parcialmente) desperdicio.
-- Ego protection.
-
-### Detector · Framework 4-D objetivo
+**Detector · Framework 4-D objetivo**:
 
 | Dimensión | Pregunta honesta |
 |---|---|
-| Vigencia | ¿Aparece en job descriptions de 2025? |
-| ROI | ¿Cuánto retorno por hora invertida hoy vs hace 5 años? |
-| Obsolescencia | ¿Las conferencias del campo lo cubren todavía? |
-| Demanda | ¿Las búsquedas / contrataciones aumentan o caen? |
+| Vigencia | ¿Aparece en JD de 2025-2026? |
+| ROI | ¿Retorno por hora invertida hoy vs hace 5 años? |
+| Obsolescencia | ¿Las conferencias del campo lo cubren? |
+| Demanda | ¿Job postings · salarios · suben o caen? |
 
-Si 3/4 dimensiones son rojas → el mercado ya soltó. Eres tú quien no.
+3/4 rojo → mercado ya soltó · eres tú quien no.
 
-### Antídoto · Auditoría mensual + Decisión documentada
+**Antídoto · Auditoría mensual + decisión documentada** (ver §coach-revolucionar). Plan reskill obligatorio antes de soltar.
 
-```
-SKILL: jQuery
-Vigencia:    🔴 BAJA (Rare en 2025)
-ROI:         🔴 BAJO (1/10 vs hace 10 años)
-Obsolescencia: 🔴 ALTA (proyectos legacy únicamente)
-Demanda:     🔴 BAJA (-90% últimos 5 años)
+**Riesgo si no lo combates**: 5 años defendiendo skill obsoleta · mercado decide por ti · dejas de ser empleable. Hubieras podido reskillearte en 6 meses.
 
-DECISIÓN: [SOLTAR]
-PLAN RESKILL: React (target Escala 3 en 64h)
-NARRATIVA: "Decidí soltar jQuery. Lo aprendí cuando era estándar.
-Hoy no es. Mi nueva vanguardia es React."
-```
+`[CASO-BORDE]` Identity attachment combinado con high salary lock-in: skill obsoleta paga bien hoy en nicho legacy · trampa porque cuando ese nicho colapsa (típicamente 3-5 años) sales sin Capability moderno y con salario que el mercado nuevo no replica.
 
-→ ver `prompts/05-relevance-audit.md` y `katas/kata-soltar-legacy.md`.
-
-### Riesgo si no lo combates
-Llevas 5 años defendiendo una skill obsoleta. El mercado decide por ti: dejas de ser empleable. Hubieras podido reskillearte en 6 meses.
+→ `prompts/05-relevance-audit.md` · `katas/kata-soltar-legacy.md`
 
 ---
 
-## 10 · Multiple-Choice Comfort
+## 10 · Multiple-Choice Comfort 🟡
 
-### Síntoma
-Estudias para certificación con pool de multiple choice. Apruebas con 95%. En el mundo real, no puedes ejecutar nada.
+**Síntoma**: estudias certificación con pool multiple choice · apruebas 95% · en mundo real no ejecutas.
 
-### Por qué falla
-Multiple choice activa **recognition**, no **recall**. Te da pistas (las 4 opciones). Reduce búsqueda mental de N a 4.
+**Por qué falla**: multiple choice activa recognition · te da pistas (4 opciones) · reduce búsqueda mental de N a 4.
 
-### Antídoto · Open-ended preferentemente
+**Antídoto**: open-ended preferentemente.
 
-```
-PEOR (multiple choice):
-"¿Qué hace ACID?
-A) Asegura concurrencia
-B) Asegura consistencia, durabilidad...  ✓
-C) Asegura velocidad
-D) Asegura escalabilidad"
+| Peor (multiple choice) | Mejor (open-ended) |
+|---|---|
+| "¿Qué hace ACID? A · B ✓ · C · D" | "Explica las 4 propiedades ACID con ejemplo · cuándo NO conviene" |
 
-MEJOR (open-ended):
-"Explica las 4 propiedades ACID con un ejemplo de cada una.
-Después, di cuándo NO conviene usarlas."
-```
-
-→ Prompt #8 (`prompts/08-evaluator-certification.md`) usa preguntas abiertas progresivas.
+→ `prompts/08-evaluator-certification.md` usa preguntas abiertas progresivas (4 niveles).
 
 ---
 
-## 11 · Refugio en Jerga
+## 11 · Refugio en Jerga 🟡
 
-### Síntoma
-Para "demostrar" que sabes, usas términos técnicos densos. Tu interlocutor (especialmente si es Escala 0-1) no entiende nada. Pero tú te sientes inteligente.
+**Síntoma**: usas términos técnicos densos para "demostrar" que sabes · tu interlocutor (Escala 0-1) no entiende · te sientes inteligente · audiencia perdida.
 
-### Por qué falla
-- Comunicación = transmisión, no exhibición.
-- Si el receptor no entiende, fallaste sin importar lo "técnico" que sonaras.
-- Feynman: si no lo puedes explicar simple, no lo entiendes.
+**Por qué falla**: comunicación = transmisión, no exhibición. Si receptor no entiende, fallaste sin importar lo "técnico" que sonaras. Feynman: si no puedes explicarlo simple, no lo entiendes.
 
-### Detector
-- ¿Tu mamá / hijo entendería tu última explicación técnica?
-- En las últimas 5 reuniones, ¿alguien preguntó "qué es eso"? Si no, sospecha que no entendieron y se quedaron callados.
+**Detector**: ¿tu mamá / hijo entendería tu última explicación técnica? Últimas 5 reuniones, ¿alguien preguntó "qué es eso"? Si no, sospecha que no entendieron y se quedaron callados.
 
-### Antídoto · Audiencia obligatoria niño 12 años
-
-```
-ANTES de cualquier presentación importante:
-1. Toma tu material
-2. Tradúcelo asumiendo audiencia de 12 años
-3. Si en algún punto necesitas jerga, REEMPLAZA con analogía
+**Antídoto**:
+1. Toma material
+2. Tradúcelo asumiendo audiencia 12 años
+3. Si necesitas jerga · reemplaza con analogía
 4. Lee en voz alta · cualquier traba = simplifica más
-```
 
-→ kata: `katas/kata-feynman-novato.md`.
-
----
-
-## 12 · BoK sin Capability
-
-### Síntoma
-Sabes mucho del campo (puedes hablar de papers, autores, debates), pero no puedes ejecutar tareas reales del campo.
-
-### Por qué falla
-BoK = mapa del territorio. Capability = lo que sabes hacer. **Saber del campo ≠ saber operar en el campo.**
-
-### Detector
-Examen abierto: *"Resuelve este problema real con [DOMINIO]. Tienes 30 min."*
-
-Si te quedas paralizado citando teoría → tienes BoK pero no Capability.
-
-### Antídoto · Capability Model + práctica
-
-Define explícitamente qué necesitas saber **HACER**, no solo saber. Practica esos hacers con feedback.
-
-→ ver `references/02-tres-modelos-fundacionales.md` §Capability Model.
+→ `katas/kata-feynman-novato.md`
 
 ---
 
-## 13 · Maturity sin Diagnóstico
+## 12 · BoK sin Capability 🟡
 
-### Síntoma
-Avanzas en tu plan de aprendizaje sin saber tu nivel actual. Es como planear un viaje sin GPS.
+**Síntoma**: sabes mucho del campo (papers · autores · debates) · no puedes ejecutar tareas reales del campo.
 
-### Antídoto · Test diagnóstico ANTES de planear
+**Por qué falla**: BoK = mapa del territorio · Capability = lo que sabes hacer. **Saber del campo ≠ saber operar en el campo**.
+
+**Detector**: examen abierto · *"Resuelve este problema real con [DOMINIO] · 30 min"*. Si te quedas paralizado citando teoría → BoK sin Capability.
+
+**Antídoto**: Capability Model + práctica · define qué necesitas saber **HACER** · practica con feedback.
+
+→ `references/02-tres-modelos-fundacionales.md` §Capability
+
+---
+
+## 13 · Maturity sin Diagnóstico 🟡
+
+**Síntoma**: avanzas en plan de aprendizaje sin saber tu nivel actual · planes irreales basados en sobreestimación.
+
+**Antídoto · Test diagnóstico ANTES de planear**:
 
 ```
-PASO 0 (antes de cualquier plan):
+Paso 0 (antes de cualquier plan):
 1. Auto-evaluación honesta
 2. IA-evaluación con Prompt #8
 3. Validación humana (1 colega senior)
@@ -461,52 +322,73 @@ PASO 0 (antes de cualquier plan):
 5. SOLO ENTONCES planear progresión
 ```
 
+`[CRITERIO-ACEPTACIÓN]` Diferencia auto vs IA ≤1 nivel para >80% de capabilities · si no, calibrar antes de avanzar.
+
 ---
 
-## 14 · Calendario sin Ritual
+## 14 · Calendario sin Ritual 🟢
 
-### Síntoma
-Tienes intención de "estudiar más", "aprender X", "mantenerte actualizado". Pero sin rituales agendados, nada pasa.
+**Síntoma**: tienes intención de "estudiar más" · "aprender X" · "mantenerte actualizado" · sin rituales agendados, nada pasa.
 
-### Por qué falla
-Intención sin sistema → 0% completion.
-Sistema sin ritual → 30-40% completion.
-Ritual + calendario + accountability → 80%+ completion.
+**Por qué falla**:
+- Intención sin sistema → 0% completion.
+- Sistema sin ritual → 30-40% completion.
+- Ritual + calendario + accountability → 80%+ completion.
 
-### Antídoto · 4 rituales del playbook
+**Antídoto**: 4 rituales del playbook con ICS pre-llenados.
 
-```
-DIARIO   · Curiosidad: 15 min/día (assets/calendar-invites/)
-SEMANAL  · Aprehensión: 1h/semana
-MENSUAL  · Auditoría de relevancia: 1h/mes
-16-SEM   · Práctica deliberada: 1h × 16 semanas
-```
+| Cadencia | Tiempo | Archivo ICS |
+|---|---|---|
+| Diaria · Curiosidad | 15 min | `assets/calendar-invites/curiosidad-diaria.ics` |
+| Semanal · Aprehensión | 1 h | `aprehension-semanal.ics` |
+| Mensual · Auditoría relevancia | 1 h | `auditoria-mensual.ics` |
+| 16 sem · Práctica deliberada | 1 h × 16 | (programa) |
 
-→ ver `rituals/`.
+→ `rituals/`
 
 ---
 
 ## Diagnóstico rápido · ¿Cuál anti-patrón te aqueja?
 
 ```
-"Leí mucho pero no sé si entendí" ────────► #1 Espejismo de Fluidez
-"La IA me dio datos que parecen falsos" ──► #2 Hallucination
-"La IA siempre me da la razón" ───────────► #3 Sycophancy
-"No sé qué tan confiable es esto" ────────► #4 Silent Uncertainty
-"Solo le pregunté a ChatGPT" ─────────────► #5 Single-AI BoK
-"Yo creo que estoy en Escala 5" ──────────► #6 Dunning-Kruger
-"Voy a estudiar todo el sábado" ──────────► #7 Cramming
-"Sí, lo reconozco cuando lo veo" ─────────► #8 Recognition vs Recall
-"jQuery todavía sirve" ───────────────────► #9 Identity Attachment
-"Estudié con simuladores de examen" ──────► #10 Multiple-Choice Comfort
-"Mi presentación fue muy técnica" ────────► #11 Refugio en Jerga
-"Sé del tema pero no puedo ejecutar" ─────► #12 BoK sin Capability
-"Tengo plan pero no sé dónde estoy" ──────► #13 Maturity sin Diagnóstico
-"Tengo intención de estudiar más" ────────► #14 Calendario sin Ritual
+"Leí mucho pero no sé si entendí"           → #1 Espejismo Fluidez
+"La IA me dio datos que parecen falsos"     → #2 Hallucination
+"La IA siempre me da la razón"              → #3 Sycophancy
+"No sé qué tan confiable es esto"           → #4 Silent Uncertainty
+"Solo le pregunté a ChatGPT"                → #5 Single-AI BoK
+"Yo creo que estoy en Escala 5"             → #6 Dunning-Kruger
+"Voy a estudiar todo el sábado"             → #7 Cramming
+"Sí, lo reconozco cuando lo veo"            → #8 Recognition vs Recall
+"jQuery todavía sirve"                      → #9 Identity Attachment
+"Estudié con simuladores de examen"         → #10 Multiple-Choice
+"Mi presentación fue muy técnica"           → #11 Refugio en Jerga
+"Sé del tema pero no puedo ejecutar"        → #12 BoK sin Capability
+"Tengo plan pero no sé dónde estoy"         → #13 Maturity sin Diagnóstico
+"Tengo intención de estudiar más"           → #14 Calendario sin Ritual
 ```
 
 ---
 
-> **Atribución**: Anti-patrones extraídos del Playbook *Aprender · Aprehender · (R)Evolucionar* v2.0.0 §Anti-patrones, ampliados con literatura de ciencia cognitiva.
-> Sustento: ver `06-ciencia-cognitiva-fuentes.md`.
-> *MetodologIA · CC BY-NC-SA 4.0*
+## Combinaciones peligrosas (anti-patrones que se refuerzan)
+
+| Combo | Síntoma | Resolución |
+|---|---|---|
+| #1 + #11 | Fluidez decorada con jerga · sensación máxima de competencia · gap máximo | Feynman a niño 12 años · sin jerga, sin excepción |
+| #5 + #2 | BoK de 1 IA + hallucinations no detectadas | Triangulación 3+ IAs + Prompt #4 · siempre |
+| #6 + #10 | Dunning-Kruger con multiple choice como "prueba" de dominio | Prompt #8 abierto + feedback humano |
+| #7 + #8 | Cramming repasando material · recognition máximo · recall cero | Spaced + Retrieval ciego, no más cramming |
+| #9 + #4 | Defiendes skill obsoleta y la IA no marca dudas en el rationale | Auditoría 4-D con datos de mercado externos |
+
+`[NUEVO-APORTE]` Combo #1+#11 es el más peligroso · doble fluidez (de IA + de jerga propia) · solo se detecta forzando audiencia no-experta. Si el alumno solo conversa con expertos, nunca detecta el gap.
+
+---
+
+## Referencias cruzadas
+
+- Sustento académico: `references/06-ciencia-cognitiva-fuentes.md`
+- Técnicas que combaten anti-patrones: `references/01-seis-tecnicas-cognitivas.md`
+- Modelos para evitar #12, #13: `references/02-tres-modelos-fundacionales.md`
+- Auditor que detecta #2-4: `agents/auditor-cruzado.md`
+- Coach que combate #9: `agents/coach-revolucionar.md`
+
+> v1.1.0 · CC BY-NC-SA 4.0 · MetodologIA · `[FUENTE-PRIMARIA]` Playbook v2.0.0 §Anti-patrones

@@ -1,271 +1,213 @@
-# Glosario · 30+ Términos Canónicos
+# Glosario · 35+ Términos Canónicos
 
-> Ontología única de la skill. Todos los agentes y referencias citan estos términos exactos. **No inventar sinónimos.**
+> Ontología única de la skill. Todos los agentes, prompts y workflows citan **exactamente** estos términos. NO inventar sinónimos. v1.1.0.
 
-**Fuente canónica**: Playbook *Aprender · Aprehender · (R)Evolucionar* v2.0.0 · §Glosario.
+`[FUENTE-PRIMARIA]` Playbook v2.0.0 §Glosario · ampliado en v1.1 con términos operativos.
 
----
+## Reglas de uso
 
-## Cómo usar este glosario
+- **Fuente única de verdad** terminológica de la skill.
+- Si concepto no está · proponer agregarlo, NO improvisar.
+- Términos en es-CO · equivalente EN cuando aplica.
+- Cada término tiene `→` con archivo donde se opera.
+- `[NUEVO-APORTE]` columna **anti-confusión**: pares de términos que se confunden con frecuencia y su distinción operativa.
 
-- **Es la fuente única de verdad** terminológica de la skill.
-- Cuando un agente o output usa un término, debe usar **exactamente** la definición aquí.
-- Si un concepto no está aquí pero es relevante → primero proponer agregarlo, no improvisar.
-- Términos en español es-CO. Equivalente inglés cuando aplica.
+## Anti-confusión · pares que se confunden
+
+| Si pensaste... | Era... | Distinción |
+|---|---|---|
+| Aprender | Aprehender | Aprender = adquirir · Aprehender = defender bajo presión |
+| Recognition | Recall | Recognition = reconocer con pista · Recall = generar de memoria sin pista |
+| BoK | Capability | BoK = qué existe · Capability = qué saber HACER |
+| Maturity Level | Escala | Maturity Level = 0-4 (5 niveles cognitivos) · Escala = 0-9 (10 niveles operativos del playbook) |
+| Hallucination | Sycophancy | Hallucination = invento factual · Sycophancy = acuerdo sin sustento |
+| Triangulación | Cross fact-check | Triangulación = 3+ IAs simultáneas · Cross fact-check = 1 IA auditando otra |
+| Soltar (release) | Olvidar | Soltar = decisión activa con plan reskill · Olvidar = pasivo sin reemplazo |
+| Cramming | Spaced Repetition | Cramming = sesión maratón · Spaced = sesiones espaciadas con intervalos crecientes |
 
 ---
 
 ## A
 
-### Aprender (Acquire)
-Primera fase del ciclo. Adquirir información y construir estructuras conceptuales iniciales. Transición Escala 0→1.
-**Tiempo típico**: 1–4h.
-**Salida**: BoK + glosario + concept map.
-→ ver `agents/coach-aprender.md`.
+### Aprender (Acquire) · Fase 1
+Adquirir información y construir estructura inicial. Transición Escala 0→1. Tiempo típico 1-4 h. Salida: BoK + glosario + concept map. → `agents/coach-aprender.md`
 
-### Aprehender (Apprehend / Retain)
-Segunda fase. Retener para recuperar, explicar y defender sin notas. Transición Escala 1→3.
-**Tiempo típico**: 20–64h.
-**Distinción crítica**: aprender ≠ aprehender. La diferencia es la capacidad de recuperación bajo presión.
-→ ver `agents/coach-aprehender.md`.
+### Aprehender (Apprehend / Retain) · Fase 2
+Retener para recuperar, explicar y defender sin notas, bajo presión. Transición Escala 1→3. Tiempo típico 20-64 h. **Distinción crítica**: Aprender ≠ Aprehender. La diferencia es recuperación bajo presión. → `agents/coach-aprehender.md`
 
 ### Areté (Ἀρετή)
-Concepto griego: excelencia mediante práctica deliberada · virtud como hábito.
-**Pilar narrativo** del playbook (junto con Pensamiento Crítico, Ciencia Cognitiva, Soberanía Profesional).
-→ ver `knowledge-base/filosofia-arete-virtud.md`.
+Concepto griego: excelencia mediante hábito · virtud como práctica deliberada. Pilar narrativo del playbook. → `knowledge-base/filosofia-arete-virtud.md`
 
 ### Arquetipo (NotebookLM)
-Configuración persona específica para NotebookLM. 8 arquetipos canónicos: Coach · Evaluador · Entrevistador · QBR · Auditor · Relevance · Fact-Check · Generator.
-→ ver `assets/notebooklm-archetypes.json`.
+Persona configurable en NotebookLM Custom Goal. 8 arquetipos canónicos: Coach · Evaluador · Entrevistador · QBR · Auditor · Relevance · Fact-Check · Generator. → `assets/notebooklm-archetypes.json`
 
 ### Auditoría de Relevancia
-Evaluación mensual de tus skills usando framework 4-D (Vigencia · ROI · Obsolescencia · Demanda).
-**Output**: decisiones [MANTENER/ACTUALIZAR/REEMPLAZAR/SOLTAR].
-→ ver Prompt #5 + `rituals/ritual-auditoria-mensual.md`.
+Evaluación mensual de skills con framework 4-D. Output: decisiones [MANTENER/ACTUALIZAR/REEMPLAZAR/SOLTAR] con plan reskill. → Prompt #5 · `rituals/ritual-auditoria-mensual.md`
 
----
+### Auditor cruzado
+Subagente que detecta hallucinations, sycophancy, silent uncertainty, single-AI bias post-research. → `agents/auditor-cruzado.md`
 
 ## B
 
 ### Blueprint (Research Blueprint)
-Plan metodológico de investigación: declaración de tema, hipótesis, criterios de fuente primaria, glosario inicial, concept map.
-**Output del Workflow 1**.
-→ ver Prompt #1 + `assets/plantilla-blueprint.md`.
+Plan metodológico de investigación: tema · objetivo · hipótesis · glosario inicial · concept map · fuentes 1°. Output Workflow 1. → Prompt #1 · `assets/plantilla-blueprint.md`
 
 ### BoK (Body of Knowledge)
-Mapa completo de un dominio: subtemas, conexiones, fuentes primarias/secundarias/terciarias, controversias, estado del arte.
-**Anti-patrón**: BoK de 1 sola IA. Triangular en 3+ IAs es mandatory.
-→ ver `references/02-tres-modelos-fundacionales.md`.
-
----
+Mapa completo del dominio: subtemas · conexiones · fuentes 1°/2°/3° · controversias · estado del arte · futuro. **Anti-patrón**: BoK de 1 sola IA · triangular 3+ IAs es mandatory. → `references/02-tres-modelos-fundacionales.md`
 
 ## C
 
 ### Cadencia
-Frecuencia de práctica. **Principio MetodologIA**: *"Cadencia > intensidad. 15 min diarios > 3 horas el sábado."*
+Frecuencia de práctica. **Principio MetodologIA**: cadencia > intensidad. 15 min diarios > 3 h el sábado.
 
 ### Capability Model
-Modelo de progresión de habilidades en niveles (Fundamentos · Intermedio · Avanzado · Experto). Define lo que necesitas saber **HACER**, no solo saber.
-**Validación**: requiere experto humano del campo, no solo IA.
-→ ver `references/02-tres-modelos-fundacionales.md`.
+Niveles de progresión de habilidades (Fundamentos · Intermedio · Avanzado · Experto) con criterios testables. Define qué saber **HACER**, no solo saber. **Validación**: requiere experto humano del campo. → `references/02-tres-modelos-fundacionales.md` §Capability
+
+### Casos borde (caso-borde)
+Escenarios donde el camino feliz falla. Cada agente y workflow debe documentar ≥3. Tag `[CASO-BORDE]`. v1.1 introduce esta práctica formal.
 
 ### Ciencia Cognitiva
-Disciplina que estudia cómo el cerebro adquiere, procesa, retiene información. **Pilar del playbook**.
-**Aplicación**: las 6 técnicas (retrieval, espaciado, Feynman, intercalado, elaboración, dual coding) están respaldadas por evidencia cognitiva.
+Estudio de cómo el cerebro adquiere, procesa, retiene información. **Pilar narrativo**. Sustenta las 6 técnicas. → `references/06-ciencia-cognitiva-fuentes.md`
 
-### Compañero (Companion)
-Esta skill como acompañante personal. **No es** instructor (no impone), **no es** manual (no es estático), **es** companion (responde a tu contexto cambiante).
+### Companion (Compañero)
+Esta skill como acompañante personal. NO es instructor (no impone) · NO es manual (no estático) · ES companion (responde a contexto cambiante).
 
-### Concept Map (Mapa Conceptual)
-Diagrama jerárquico de un dominio: tema central → subtemas → conceptos. Formato preferido: Mermaid.
-→ ver `assets/plantilla-concept-map.mermaid`.
+### Concept Map
+Diagrama jerárquico del dominio. Formato preferido: Mermaid (mindmap o graph TD). → `assets/plantilla-concept-map.mermaid`
+
+### Cramming
+Anti-patrón: maratón intensivo pre-evento. Olvidas 90% en 1 sem. → `references/04-anti-patrones-y-trampas.md` §7
 
 ### Cross-fact-check
-Auditoría de un research usando una IA #4 independiente. Detecta hallucinations, sycophancy, citas inventadas.
-→ ver Prompt #4.
+Auditoría con 4ª IA independiente. Detecta hallucinations, sycophancy, single-AI bias. → Prompt #4
 
 ### Curioso (Escala 1)
-Primera escala con conocimiento real. Tienes vocabulario, concept map, BoK triangulado.
-**Tiempo**: 1-4h.
-**Reto**: enseñar a Escala 0 sin trabarte.
-
----
+Vocabulario básico ≥15 términos · BoK triangulado · sabes qué no sabes. Tiempo: 1-4 h. Reto: enseñar a Escala 0 sin trabarte.
 
 ## D
 
 ### Desatraso
-Catch-up sobre conocimiento acumulado / industria que avanzó. Modos: Express (4h) · Sprint (20h) · Marathon (64h).
-→ ver `scripts/desatraso_planner.py` + `examples/ejemplo-desatraso-llms-2024.md`.
+Catch-up sobre conocimiento acumulado o industria que avanzó. Modos: Express (4 h) · Sprint (20 h) · Marathon (64 h). → `scripts/desatraso_planner.py`
 
 ### Diseñador
-**Voz canónica MetodologIA**. Usar en lugar de "Arquitecto" (palabra bloqueada).
-**Implicación**: diseñas métodos · no impones arquitecturas grandilocuentes.
+Voz canónica MetodologIA. Diseñas métodos · no impones arquitecturas grandilocuentes.
 
 ### Dual Coding
-Técnica cognitiva: combinar texto + visual + audio para múltiples canales de codificación.
-**Evidencia**: +30% retención vs solo texto `[DOC: Mayer · Multimedia Learning · 2001]`.
-→ ver `references/01-seis-tecnicas-cognitivas.md` §Dual Coding.
+Técnica cognitiva: combinar texto + visual + audio. +30% retención `[DOC: Mayer 2014]`. → §técnicas
 
 ### Dunning-Kruger
-Sesgo cognitivo: bajos niveles sobreestiman su nivel; altos niveles subestiman.
-**Antídoto**: tests abiertos, no multiple choice; feedback de pares senior.
-→ ver `references/04-anti-patrones-y-trampas.md`.
-
----
+Sesgo: bajos niveles sobreestiman, altos subestiman. Detector: diff auto-eval vs IA-eval ≥2 escalas. → `references/04-anti-patrones-y-trampas.md` §6
 
 ## E
 
-### Elaboration (Elaboración)
-Técnica cognitiva: conectar lo nuevo con lo existente preguntando *por qué, cómo, qué pasaría si, dónde no aplica*.
-→ ver `references/01-seis-tecnicas-cognitivas.md` §Elaboration.
+### Elaboration
+Conectar lo nuevo con previo · 4 preguntas (¿por qué? ¿cómo? ¿qué pasaría si? ¿dónde NO aplica?). → §técnicas
 
 ### Escala
-Una de las 10 escalas de maestría (0 Ignorante → 9 Referente). Mide dónde estás hoy en un dominio específico.
-→ ver `references/03-diez-escalas-maestria.md`.
+Una de las 10 escalas de maestría (0 Ignorante → 9 Referente). NO confundir con Maturity Level (5 niveles cognitivos). → `references/03-diez-escalas-maestria.md`
 
-### Espejismo de la Fluidez (Fluency Illusion)
-Anti-patrón crítico: confundir "suena lógico" con "yo entiendo" porque la respuesta IA es elocuente.
-**Antídoto**: Feynman + retrieval ciego.
-→ ver `references/04-anti-patrones-y-trampas.md` §1.
+### Espejismo de Fluidez (Fluency Illusion)
+Anti-patrón crítico: confundir "suena lógico" con "yo entiendo" porque la respuesta IA es elocuente. Antídoto: Feynman + Retrieval. → §anti-patrones #1
 
 ### Evidence Tag
-Marcador obligatorio de origen de cualquier afirmación factual:
-- `[CÓDIGO]` · `[CONFIG]` · `[DOC]` · `[FUENTE-PRIMARIA]` · `[INFERENCIA]` · `[SUPUESTO]`
-**Regla**: claim sin tag = se asume `[SUPUESTO]`.
+Marcador obligatorio de origen factual: `[CÓDIGO]` · `[CONFIG]` · `[DOC]` · `[FUENTE-PRIMARIA]` · `[INFERENCIA]` · `[SUPUESTO]`. v1.1 amplía con `[NUEVO-APORTE]` · `[CASO-BORDE]` · `[TRADE-OFF]` · `[CRITERIO-ACEPTACIÓN]` · `[LÍMITE]` · `[DECISIÓN]`. Regla: claim sin tag = se asume `[SUPUESTO]`.
 
 ### Experto (Escala 7)
-1,000-10,000h. Define los límites del campo. Contribuye al avance.
-→ ver `references/03-diez-escalas-maestria.md` §Escala 7.
+1,000-10,000 h · define los límites del campo · contribuye al avance documentable.
 
 ### Explorador (Escala 2)
-4-20h. Triangula fuentes, distingue primarias de derivadas, identifica controversias del campo.
-**Workflow**: `workflows/workflow-2-explorador.md`.
-
----
+4-20 h · triangula fuentes · distingue 1°/2°/3° · identifica controversias. → `workflows/workflow-2-explorador.md`
 
 ## F
 
-### Feynman Technique (Técnica Feynman)
-Explicar un concepto a un niño de 12 años, sin jerga. Donde uses jerga, ahí está el gap.
-**Atribuida** a Richard Feynman (Nobel Física 1965).
-→ ver `references/01-seis-tecnicas-cognitivas.md` §Feynman.
+### Feynman Technique
+Explicar un concepto a un niño de 12 años sin jerga. Donde uses jerga, ahí está el gap. Atribución: formalizada por Gleick (1992) y Oakley (2014), no por Feynman directamente. → §técnicas · `katas/kata-feynman-novato.md`
 
 ### Fluencia Ilusoria
-Ver "Espejismo de la Fluidez".
+= Espejismo de Fluidez. Ver Espejismo.
 
 ### Fuente Primaria
-Documento original donde se publicó por primera vez una afirmación: paper académico, reporte oficial, dataset, patente.
-**Regla**: si una IA cita algo y la fuente primaria no existe → hallucination.
+Documento original donde se publicó por primera vez una afirmación. Papers académicos · reportes oficiales · datasets · patentes. **Regla**: si IA cita y la fuente 1° no existe → hallucination.
 
 ### Fuente Secundaria
-Autoridad reconocida que cita y comenta fuentes primarias. Ej: libros de texto, reviews académicos.
+Autoridad reconocida que cita y comenta primarias. Libros de texto · reviews académicos.
 
 ### Fuente Terciaria
-Material derivado: blog posts, artículos divulgativos, cursos resumidos. **No usar como base de un BoK** — solo como punto de entrada.
-
----
+Material derivado: blog posts · artículos divulgativos · cursos resumidos. **NO usar como base de BoK** · solo como punto de entrada.
 
 ## G
 
-### Glosario
-Lista de términos canónicos del dominio con definiciones precisas. **Mínimo 15 términos** para Escala 1, ideal 30+.
-→ ver `assets/plantilla-glosario.md`.
+### Gate (Quality Gate)
+Punto de validación binario · NO avanzar a fase siguiente sin pasarlo. G-Aprender · G-Aprehender · G-(R)Evolucionar.
 
----
+### Glosario
+Lista de términos canónicos con definiciones precisas. Mínimo 15 para Escala 1, target 30 (este archivo). → `assets/plantilla-glosario.md`
 
 ## H
 
 ### Hallucination
-Cuando una IA fabrica datos, citas, fechas, ecuaciones que no existen, presentándolos con tono autoritativo.
-**Detector**: Primary Source Rule + Triangulation.
-→ ver `references/04-anti-patrones-y-trampas.md` §2.
-
----
+IA fabrica datos · citas · fechas · ecuaciones que no existen, con tono autoritativo. Detector: Primary Source Rule + Triangulation. → §anti-patrones #2
 
 ## I
 
 ### Identity Attachment
-Anti-patrón: aferrarse a una skill obsoleta porque es parte de tu identidad profesional.
-**Antídoto**: framework 4-D objetivo + decisión documentada.
+Anti-patrón: aferrarse a skill obsoleta porque es parte de identidad profesional. Antídoto: framework 4-D + decisión documentada. → §anti-patrones #9
 
 ### Iniciado (Escala 3)
-20-64h. Puedes explicar sin notas, defender ante hostil, mentorizar Escala 1-2.
-**Última escala que esta skill cubre directamente**.
-→ ver `references/03-diez-escalas-maestria.md` §Escala 3.
+20-64 h · explica sin notas · defiende ante hostil · mentoriza Escala 1-2. **Última escala que la skill cubre directamente**. → `workflows/workflow-3-iniciado.md`
 
 ### Intención antes que Intensidad
-Principio MetodologIA. Declarar el qué y el por qué antes de invertir tiempo en el cómo.
+Principio MetodologIA. Declarar el qué y por qué antes de invertir tiempo en el cómo.
 
 ### Interleaving (Intercalado)
-Técnica cognitiva: mezclar problemas de subtemas distintos en una sesión.
-→ ver `references/01-seis-tecnicas-cognitivas.md` §Interleaving.
-
----
+Técnica cognitiva: mezclar problemas de subtemas distintos. Práctica intercalada > bloqueada para transferencia. → §técnicas
 
 ## K
 
 ### Kata
-Ejercicio deliberado, repetible, con criterios de éxito claros. Inspirado en artes marciales (kata = forma).
-**6 katas en esta skill**: feynman-novato · triangulacion-3ias · recuperacion-ciega · defensa-hostil · soltar-legacy · fuente-primaria.
-→ ver `katas/`.
-
----
+Ejercicio deliberado, repetible, con criterios de éxito. Inspirado en artes marciales. **6 katas** en esta skill. → `katas/`
 
 ## M
 
 ### Maestro (Escala 8)
-10,000+h. Ve cross-disciplina. Forma dirección de industria.
+10,000+ h · cross-disciplina · forma dirección de industria.
 
-### Marathon (Modo)
-Programa de 64 horas en 16 semanas. Instala el hábito de aprehensión.
-→ ver `rituals/ritual-practica-deliberada.md`.
+### Marathon
+Programa 64 h en 16 semanas. Instala hábito de aprehensión. → `rituals/ritual-practica-deliberada.md`
 
 ### Maturity Model
-Modelo que mide DÓNDE ESTÁS HOY en un dominio. 5 niveles: Inconsciente · Consciente-incompetente · Consciente-competente · Inconsciente-competente · Maestro.
-→ ver `references/02-tres-modelos-fundacionales.md` §Maturity Model.
+Mide DÓNDE ESTÁS HOY. 5 niveles: Inconsciente · Consciente-Incompetente · Consciente-Competente · Inconsciente-Competente · Maestro. → `references/02-tres-modelos-fundacionales.md` §Maturity
 
 ### Meta-Prompt
-Prompt que genera otros prompts. 4 meta-prompts en esta skill (M1-M4): coach generator · evaluator generator · interviewer generator · presentation generator.
-→ ver `prompts/meta/`.
+Prompt que genera otros prompts. 4 meta-prompts (M1-M4). → `prompts/meta/`
 
 ### Método primero, IA después
-Principio fundacional MetodologIA. La IA es herramienta, no el método. Sin método, la IA produce ruido.
+Principio fundacional. La IA es herramienta · sin método produce ruido fluido.
 
 ### MetodologIA
-Brand del playbook fuente y de esta skill. Brand voice v3.0. License CC BY-NC-SA 4.0. Founder: Javier Montaño.
-
----
+Brand del playbook fuente y de esta skill. v3.0. License CC BY-NC-SA 4.0. Founder: Javier Montaño.
 
 ## N
 
 ### NotebookLM
-Plataforma de Google para creación de notebooks aumentados con IA. Studio Artifacts: audio overview, video overview, infografía, mind map, slide deck, briefing doc, study guide, quiz, flashcards, data table.
-**8 arquetipos** configurables vía system prompts ≤10,000 chars.
-→ ver `assets/notebooklm-archetypes.json`.
-
----
+Plataforma de Google para notebooks aumentados con IA. Studio Artifacts: audio · video · infografía · mind map · slide deck · briefing · study guide · quiz · flashcards · data table. **8 arquetipos** configurables vía system prompts ≤10K chars. → `assets/notebooklm-archetypes.json`
 
 ## P
 
 ### Pensamiento Crítico
-Pilar narrativo del playbook. Capacidad de cuestionar fuentes, detectar sesgos, formular contra-hipótesis.
+Pilar narrativo · capacidad de cuestionar fuentes, detectar sesgos, formular contra-hipótesis.
 
 ### Practicante (Escala 4)
-64-200h. Ejecuta confiablemente en producción. Métricas estables.
+64-200 h · ejecuta confiablemente en producción · métricas estables.
 
 ### Práctica Deliberada
-Práctica con feedback inmediato, fuera de la zona de comodidad, con objetivos específicos.
-**Distinto de** "horas de oficina pasivas".
-`[DOC: Ericsson · Peak · 2016]`.
+Práctica con feedback inmediato, fuera de zona de confort, con objetivos específicos. **Distinto de** "horas de oficina pasivas". `[DOC: Ericsson · Peak · 2016]`
 
 ### Primary Source Rule
-Si una IA cita algo, busca la fuente original. Si no existe → hallucination.
+Si una IA cita algo, busca fuente original. Si no existe → hallucination confirmada.
 
 ### Progressive Disclosure
-Patrón estructural de skills: 3 niveles de carga (frontmatter → SKILL.md body → references/agents/scripts on demand).
-**Aplicado aquí**: SKILL.md ≤550 líneas; profundidad en references/.
-
----
+Patrón: 3 niveles de carga (frontmatter → SKILL.md → references/agents/scripts on-demand). SKILL.md ≤550 líneas · profundidad en `references/`.
 
 ## Q
 
@@ -273,108 +215,84 @@ Patrón estructural de skills: 3 niveles de carga (frontmatter → SKILL.md body
 Presentación trimestral de resultados. Usa Prompt #10 / Meta-Prompt M4 para preparación.
 
 ### Quiz Progresivo
-Cuestionario que escala dificultad: Foundations → Intermediate → Advanced → Expert. Solo avanza si 4/5 correctas.
-→ ver Prompt #8 + `assets/plantilla-quiz-scaling.md`.
-
----
+4 niveles: Foundations → Intermediate → Advanced → Expert. Solo avanza si 4/5 correctas. → Prompt #8 · `assets/plantilla-quiz-scaling.md`
 
 ## R
 
 ### Recall (Recuperación)
-Generar información desde memoria sin pistas. Distinto de Recognition.
+Generar información de memoria sin pistas. Distinto de Recognition (que es pasivo).
 
 ### Recognition (Reconocimiento)
-Identificar información cuando la ves (con pistas). Más fácil que Recall.
+Identificar info cuando la ves (con pistas). Más fácil que Recall.
 
 ### Referente (Escala 9)
-Tú **eres** el estándar del campo. Tu sucesor define una escala nueva.
+Tú **eres** el estándar del campo. Externo · NO auto-declarable.
 
 ### (R)Evolucionar
-Tercera fase del ciclo. Soltar lo obsoleto. Audit cycle mensual.
-**Notación**: la (R) entre paréntesis es intencional. Significa "evolución consciente con potencial revolucionario", no "revolución" sola.
-→ ver `agents/coach-revolucionar.md`.
+Tercera fase · soltar consciente lo obsoleto. **Notación**: la (R) entre paréntesis es intencional · "evolución consciente con potencial revolucionario", no "revolución" sola. → `agents/coach-revolucionar.md`
 
 ### Retrieval Practice
-Técnica cognitiva: recuperar de memoria sin pistas. Más efectiva que releer.
-→ ver `references/01-seis-tecnicas-cognitivas.md` §Retrieval.
+Recuperar de memoria sin pistas. Más efectiva que releer. → §técnicas · `katas/kata-recuperacion-ciega.md`
 
 ### Ritual
-Práctica recurrente con cadencia fija. **4 rituales** en esta skill: diaria · semanal · mensual · 16 semanas.
-→ ver `rituals/`.
-
----
+Práctica recurrente con cadencia fija. **4 rituales** en la skill: diaria · semanal · mensual · 16 sem. → `rituals/`
 
 ## S
 
 ### Soberanía Profesional
-Pilar MetodologIA. Capacidad de decidir tu trayectoria sin depender de mandatos externos. Requiere método propio.
+Pilar MetodologIA · capacidad de decidir trayectoria sin depender de mandatos externos. Requiere método propio.
 
 ### Spaced Repetition (Repetición Espaciada)
-Técnica cognitiva: revisar en intervalos crecientes (mismo día → 3 días → 1 semana → 2 semanas → 1 mes).
-→ ver `references/01-seis-tecnicas-cognitivas.md` §Spaced.
+Técnica: revisar en intervalos crecientes (día 0, 3, 7, 14, 30, 90). → §técnicas
 
 ### Sprint (Modo)
-Catch-up de 20 horas en 4 semanas. 1h × 5 días/semana.
+Catch-up 20 h en 4 semanas (1 h × 5 días/sem).
 
 ### Sycophancy
-Anti-patrón IA: la IA está de acuerdo contigo aunque estés equivocado.
-**Antídoto**: Diablo's Advocate Protocol.
-
----
+Anti-patrón IA: la IA está de acuerdo aunque estés equivocado. Antídoto: Diablo's Advocate Protocol. → §anti-patrones #3
 
 ## T
 
 ### Triangulation Protocol
-Proceso de cruzar 3+ IAs en la misma pregunta:
-- Coincidencias 3/3 → verdad probable
-- Coincidencias 2/3 → revisar fuente
+Cruzar 3+ IAs en la misma pregunta:
+- 3/3 → verdad probable
+- 2/3 → revisar fuente
 - 1/3 → sospechoso
-- Contradicciones → ORO (área de debate)
+- contradicciones → ORO (área de debate)
 
-→ ver `katas/kata-triangulacion-3ias.md`.
-
----
+→ `katas/kata-triangulacion-3ias.md` · Prompt #4
 
 ## V
 
 ### Versado (Escala 6)
-500-1,000h. Innova dentro de los límites del campo. Tus alumnos llegan a Escala 5+.
+500-1,000 h · innova dentro de los límites · tus alumnos llegan a Escala 5+.
 
 ### Vigencia
-Una de las 4 dimensiones del framework de auditoría de relevancia. ¿Es current en tu industria HOY?
+Una de las 4 dimensiones del framework auditoría de relevancia. ¿Es current en tu industria HOY?
 
----
+### Voces canónicas
+Diseñador · (R)Evolución · Método · Soberanía Profesional · Areté · Ciencia Cognitiva · Pensamiento Crítico.
 
 ## W
 
 ### Workflow
-Secuencia estructurada de pasos para una fase. **3 workflows** en esta skill: Curioso (1-4h) · Explorador (4-20h) · Iniciado (20-64h).
-→ ver `workflows/`.
+Secuencia de pasos para una fase. **3 workflows**: Curioso (1-4 h) · Explorador (4-20 h) · Iniciado (20-64 h). → `workflows/`
 
 ---
 
-## Términos NO usar (HARD RULE)
+## Términos en evolución (revisar v1.2)
 
-| ❌ Bloqueado | ✅ Usar en su lugar |
-|---|---|
-| Arquitecto | Diseñador · Orquestador |
-| Transformación | (R)Evolución |
-| Hacks | Método · Técnica |
-| Best practices (suelto) | Práctica basada en evidencia |
-| Senior (suelto) | Escala N (con número) |
-| Experto en todo | (no decir esto · Dunning-Kruger) |
-| Game-changer | Cambio metodológico |
-| Disruptive (sin contexto) | (R)Evolutivo |
+- "Companion" — alternativa propuesta "Acompañante" pendiente de revisión
+- "Skill" — manteniendo en EN por contexto Claude Code
+- "Workflow" — manteniendo · alternativa "Protocolo de fase" descartada por extensión
 
 ---
 
-## Términos en evolución (revisar v1.1.0)
+## Referencias cruzadas
 
-- "Companion" — alguien propuso "Acompañante" en revisión 2026
-- "Skill" — manteniendo en inglés por contexto Claude Code
-- "Workflow" — manteniendo · alternativa "Protocolo de fase"
+- Modelos: `references/02-tres-modelos-fundacionales.md`
+- Técnicas: `references/01-seis-tecnicas-cognitivas.md`
+- Anti-patrones: `references/04-anti-patrones-y-trampas.md`
+- Sustento académico: `references/06-ciencia-cognitiva-fuentes.md`
 
----
-
-> **Atribución**: Glosario consolidado del Playbook *Aprender · Aprehender · (R)Evolucionar* v2.0.0 §Glosario, ampliado con terminología técnica de Claude Code Skills.
-> *MetodologIA · CC BY-NC-SA 4.0*
+> v1.1.0 · CC BY-NC-SA 4.0 · MetodologIA · `[FUENTE-PRIMARIA]` Playbook v2.0.0 §Glosario

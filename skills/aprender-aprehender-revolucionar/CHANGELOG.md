@@ -6,6 +6,61 @@ Formato: [Keep a Changelog](https://keepachangelog.com/es-ES/1.1.0/) · Versiona
 
 ---
 
+## [1.1.0] · 2026-05-04 · Elevación 10× · robustez + trazabilidad
+
+**Tipo**: refactor sustantivo · sin cambios estructurales · profundidad > extensión.
+**Filosofía**: cada frase justificada · 0 redundancia · evidencia mandatoria.
+
+### Cambios cuantitativos
+
+| Métrica | v1.0.0 | v1.1.0 | Delta |
+|---|---:|---:|---:|
+| Archivos totales | 70 | ~78 | +8 (suite tests Python) |
+| Líneas (.md+.py+.json) | 15,747 | ~14,752 | densificación · 0.94× |
+| Cobertura tags evidencia | ~60% | 100% archivos críticos | mandatory |
+| Casos borde explícitos | ~20 | ~80+ | 4× |
+| Criterios aceptación binarios | ~30 | ~110+ | 3.7× |
+| Trade-offs documentados | ~10 | ~50+ | 5× |
+| Anti-patrones top-3 por archivo crítico | ~5 | 16 | 3.2× |
+
+### Cambios cualitativos por carpeta
+
+- **SKILL.md + raíz**: contrato Hace/No-hace · matriz detección · gates con criterios binarios
+- **agents/ (5)**: frontmatter best practices Anthropic (tools CSV, model: inherit, "Use proactively") · contrato · schema JSON v1.1 · casos borde · gates pre-handoff
+- **references/ (6)**: cada técnica con `[DOC]` cita autor+año · tabla anti-confusión en glosario · bibliografía única central
+- **prompts/ (14 + 4 meta)**: README con tabla maestra (trigger × severidad × tiempo × IA × fase) · combos canónicos · 5 reglas de oro
+- **workflows/ (3)**: contrato · pre-requisitos `[CRITERIO-ACEPTACIÓN]` · cronograma con casos borde · gate G-* binario · variantes Express/Sprint/Marathon
+- **katas/ (6)**: contrato · `[LÍMITE]` · 3 anti-patrones top-graves con detección/antídoto · veredictos · métricas de éxito binarias
+- **rituals/ (4)**: cadencia > intensidad explícita · regla "NUNCA saltar 2 días seguidos" · accountability con peer (mitigación 70% retención)
+- **scripts/ (8 + tests)**: type hints `from __future__ import annotations` · custom exception classes · validación input · audit mode (desatraso_planner) · detección regresión de escala · suite `tests/` con pytest
+- **assets/ (8)**: plantillas con header v1.1 · ejemplos pre-llenados parciales
+- **examples/ (4) + knowledge-base/ (4)**: contenido base mantenido · headers actualizados
+
+### Nuevas etiquetas de evidencia (v1.1)
+
+Adiciones a las 6 de v1.0 (`[CÓDIGO]` `[CONFIG]` `[DOC]` `[INFERENCIA]` `[SUPUESTO]` `[FUENTE-PRIMARIA]`):
+
+- `[NUEVO-APORTE]` · insight no presente en v1.0
+- `[CASO-BORDE]` · escenario donde el camino feliz falla
+- `[TRADE-OFF]` · decisión con costo explícito
+- `[CRITERIO-ACEPTACIÓN]` · test binario y verificable
+- `[LÍMITE]` · qué NO hace la skill / archivo
+- `[DECISIÓN]` · por qué se eligió X y no Y
+
+### Lo que NO cambió
+
+- Estructura de carpetas (compatibilidad con v1.0)
+- Nombres de archivos (compatibilidad)
+- Licencia (CC BY-NC-SA 4.0)
+- Playbook fuente (v2.0.0 sigue siendo canónico)
+- Sin dependencias Python externas (solo stdlib + pytest opcional)
+
+### Brand voice ajuste
+
+Retiradas referencias a "palabras bloqueadas" del material público. Reemplazadas con voces canónicas afirmativas (Diseñador · (R)Evolución · Método · Soberanía Profesional · Areté).
+
+---
+
 ## [1.0.0] · 2026-04-30 · Inaugural
 
 ### Added (Diseñado)
