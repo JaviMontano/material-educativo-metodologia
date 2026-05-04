@@ -133,7 +133,7 @@ def main():
     )
     parser.add_argument(
         "--rol",
-        default="PreSales Architect Sofka + Founder MetodologIA",
+        default="[TU ROL · ej. Arquitecto Sr, Líder técnico, PM]",
         help="Tu rol",
     )
     parser.add_argument(

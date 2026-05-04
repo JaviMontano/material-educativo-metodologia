@@ -1,4 +1,7 @@
-"""pytest config · isolated state file."""
+"""pytest config · isolated state file.
+
+License: CC BY-NC-SA 4.0 · Javier Montaño · MetodologIA · 2026
+"""
 
 from __future__ import annotations
 

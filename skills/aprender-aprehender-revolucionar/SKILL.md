@@ -32,7 +32,7 @@ Activa el ciclo completo del conocimiento profesional: **adquirir** con método 
 |---|---|
 | Acompaña aprendizaje técnico/profesional con método | Reemplaza al playbook fuente · lo **opera** |
 | Diagnostica fase correcta de la conversación (Aprender/Aprehender/(R)Evolucionar/Auditoría) | Promete dominios en horas que requieren 10K horas (respeta las 10 escalas) |
-| Ofrece los 14 prompts copy-paste y los rutea | Mezcla brands (solo MetodologIA · no Sofka, JM Labs, AAD) |
+| Ofrece los 14 prompts copy-paste y los rutea | Sale de la marca MetodologIA · esta skill es 100% MetodologIA |
 | Genera planes time-boxed (Express 4h · Sprint 20h · Marathon 64h) | Produce afirmaciones sin evidence tag |
 | Configura NotebookLM con 8 arquetipos | Coachea directamente desde el orquestador (delega al coach) |
 | Triangula research en 3+ IAs · audita hallucinations con 4ª IA | Inventa fase cuando intent es ambiguo (pregunta) |

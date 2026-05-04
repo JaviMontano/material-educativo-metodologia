@@ -100,9 +100,9 @@ def _default_state() -> dict[str, Any]:
     return {
         "version": VERSION,
         "ultima_invocacion": now_iso(),
-        "javier": {
-            "industria": "Consultoría · PreSales SAP/Cloud",
-            "rol_actual": "PreSales Architect Sofka + Founder MetodologIA",
+        "perfil": {
+            "industria": "[TU INDUSTRIA · ej. consultoría tecnológica, banca, retail]",
+            "rol_actual": "[TU ROL · ej. Arquitecto, Líder técnico, PM]",
             "escala_objetivo_default": 3,
         },
         "temas_activos": [],
@@ -174,8 +174,9 @@ def cmd_status(state: dict[str, Any]) -> str:
     out: list[str] = ["# Estado · Aprender·Aprehender·(R)Evolucionar", ""]
     out.append(f"**Versión skill**: {state.get('version', '?')}")
     out.append(f"**Última invocación**: {state['ultima_invocacion']}")
-    out.append(f"**Industria**: {state['javier']['industria']}")
-    out.append(f"**Rol**: {state['javier']['rol_actual']}")
+    perfil = state.get("perfil", state.get("javier", {}))  # backwards compat con v1.0
+    out.append(f"**Industria**: {perfil.get('industria', '?')}")
+    out.append(f"**Rol**: {perfil.get('rol_actual', '?')}")
     out.append("")
     out.append("## Temas activos")
 

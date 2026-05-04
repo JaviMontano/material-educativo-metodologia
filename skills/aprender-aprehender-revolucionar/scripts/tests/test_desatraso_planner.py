@@ -1,6 +1,8 @@
 """Tests · desatraso_planner.py · v1.1.0.
 
 Smoke tests para validar generación de planes y audit de coherencia.
+
+License: CC BY-NC-SA 4.0 · Javier Montaño · MetodologIA · 2026
 """
 
 from __future__ import annotations

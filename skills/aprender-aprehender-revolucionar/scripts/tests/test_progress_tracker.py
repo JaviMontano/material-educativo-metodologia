@@ -3,6 +3,8 @@
 Smoke tests para validaciones críticas del tracker.
 
 Run: python -m pytest scripts/tests/test_progress_tracker.py -v
+
+License: CC BY-NC-SA 4.0 · Javier Montaño · MetodologIA · 2026
 """
 
 from __future__ import annotations
