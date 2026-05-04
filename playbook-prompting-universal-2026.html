@@ -459,6 +459,36 @@ html.dark .dsv-example li strong:first-child{color:var(--gold)}
 .dsv-example code{background:rgba(18,37,98,.08); padding:.05em .35em; border-radius:3px; font-size:.85em}
 html.dark .dsv-example code{background:rgba(255,215,0,.12)}
 
+/* ═══ MODOS DE TRABAJO POR INTENSIDAD (v2.7 · § 9.25) ═══ */
+.modos-block{margin-top:2rem; padding-top:1.4rem; border-top:1px dashed var(--border)}
+.modos-title{font-family:'Poppins',sans-serif; font-size:1.1rem; font-weight:700; margin:0 0 .4rem; color:var(--navy)}
+html.dark .modos-title{color:var(--text)}
+.modos-lead{margin:0 0 1rem; font-size:.92rem; color:var(--text-soft); line-height:1.6}
+.modos-grid{display:grid; gap:1rem}
+@media(min-width:780px){.modos-grid{grid-template-columns:1fr 1fr}}
+.modo-card{
+  background:var(--bg-card); border:1px solid var(--border); border-left:4px solid var(--blue);
+  border-radius:var(--radius); padding:1.1rem 1.2rem; transition:all var(--transition);
+}
+.modo-card:hover{transform:translateY(-2px); border-left-color:var(--gold); box-shadow:var(--shadow-lg)}
+.modo-card.modo-1{border-left-color:#94A3B8}
+.modo-card.modo-2{border-left-color:#137DC5}
+.modo-card.modo-3{border-left-color:#8430CE}
+.modo-card.modo-4{border-left-color:#EA4335}
+.modo-card.modo-5{border-left-color:var(--gold-dark)}
+html.dark .modo-card.modo-5{border-left-color:var(--gold)}
+.modo-card .modo-num{
+  display:inline-flex; align-items:center; justify-content:center;
+  width:1.6rem; height:1.6rem; border-radius:50%;
+  background:rgba(18,37,98,.06); color:var(--text); font-family:'Poppins'; font-weight:800; font-size:.78rem;
+  margin-bottom:.5em;
+}
+html.dark .modo-card .modo-num{background:rgba(255,215,0,.14); color:var(--gold)}
+.modo-card h4{margin:0 0 .4em; font-size:.98rem; font-weight:700; color:var(--text)}
+.modo-card p{margin:0; font-size:.86rem; color:var(--text-soft); line-height:1.55}
+.modo-card code{background:rgba(18,37,98,.08); padding:.05em .35em; border-radius:3px; font-size:.85em}
+html.dark .modo-card code{background:rgba(255,215,0,.12)}
+
 /* ═══ PIPELINE PHASE BANNERS (v2.3) ═══ */
 .pipeline-phase-banner{
   margin:1.6rem 0 .8rem; padding:.7rem 1.1rem;
@@ -1255,13 +1285,51 @@ SPEC:
     <div class="attr-card clickable" data-modal-id="think-3">
       <div class="num">3</div>
       <h3><span class="es">Prompt next <span class="pillar-tag">[P3]</span></span><span class="en">Prompt next <span class="pillar-tag">[P3]</span></span></h3>
-      <p><span class="es">Ahora sí: el pipeline operativo <code>/0</code>-<code>/9</code> (§ 9.5) toma tu pensamiento ya estructurado y lo convierte en un SPEC ejecutable. El prompt nace defendible porque la decisión humana ya está cerrada.</span><span class="en">Now: the operational pipeline <code>/0</code>-<code>/9</code> (§ 9.5) takes your already-structured thinking and turns it into an executable SPEC. The prompt is born defensible because the human decision is already closed.</span></p>
+      <p><span class="es">En MetodologIA creemos que <strong>el mejor prompt es el SPEC</strong> (§ 5). Pero antes de cómo escribirlo, decide la <em>forma de trabajo</em> que te conviene según la tarea: dictar, conversar por voz, subir material, activar video en tiempo real, o co-crear con artifacts y proyectos compartidos.</span><span class="en">At MetodologIA we believe <strong>the best prompt is the SPEC</strong> (§ 5). But before how to write it, decide the <em>mode of work</em> that fits the task: dictate, converse by voice, upload material, switch on live video, or co-create with artifacts and shared projects.</span></p>
+    </div>
+  </div>
+
+  <!-- ═══ Modos de trabajo según la tarea (v2.7) ═══ -->
+  <div class="modos-block">
+    <h3 class="modos-title"><span class="es">Modos de trabajo según la tarea · de menor a mayor intensidad</span><span class="en">Modes of work by task · low to high intensity</span></h3>
+    <p class="modos-lead"><span class="es">Cada IA expone hoy múltiples superficies. Elige la mínima que resuelve. <strong>El SPEC es el mismo</strong> en todas — cambia el canal, no la disciplina.</span><span class="en">Each AI exposes multiple surfaces today. Pick the lightest that solves. <strong>The SPEC stays the same</strong> across all — only the channel changes, not the discipline.</span></p>
+
+    <div class="modos-grid">
+      <div class="modo-card modo-1">
+        <div class="modo-num">1</div>
+        <h4><span class="es">Dicta · pedido simple</span><span class="en">Dictate · simple ask</span></h4>
+        <p><span class="es">Tarea concreta, una sola pasada, output en texto. Conciso y directo. <em>Ejemplo</em>: "Resume este email en 3 bullets · tono profesional · &lt;120 palabras". Funciona en cualquier IA por chat.</span><span class="en">Concrete task, single pass, text output. Concise and direct. <em>Example</em>: "Summarize this email in 3 bullets · professional tone · &lt;120 words". Works in any chat AI.</span></p>
+      </div>
+      <div class="modo-card modo-2">
+        <div class="modo-num">2</div>
+        <h4><span class="es">Conversa · pensar en voz alta</span><span class="en">Converse · think out loud</span></h4>
+        <p><span class="es">La tarea requiere ida y vuelta para destilar. Activa <strong>modo voz</strong> mientras caminas o conduces. <em>Disponible en</em>: ChatGPT Advanced Voice, Gemini Live, Claude Voice (mobile). Para sesiones largas: Pristino o un Custom GPT.</span><span class="en">Task needs back-and-forth to distill. Switch on <strong>voice mode</strong> while you walk or drive. <em>Available in</em>: ChatGPT Advanced Voice, Gemini Live, Claude Voice (mobile). For long sessions: Pristino or a Custom GPT.</span></p>
+      </div>
+      <div class="modo-card modo-3">
+        <div class="modo-num">3</div>
+        <h4><span class="es">Sube material · trabajo con tus fuentes</span><span class="en">Upload material · work with your sources</span></h4>
+        <p><span class="es">Hay PDFs, hojas, capturas, audio. Cárgalos y pide trabajar dentro de ese corpus. <em>Mejor para</em>: NotebookLM (anclado, cita inline · hasta 300 fuentes), Claude Projects (memoria persistente), Gemini con Drive, Kimi K2.5 (256K-2M tokens, ideal para libros enteros o transcripciones largas).</span><span class="en">There are PDFs, sheets, screenshots, audio. Upload them and ask to work within that corpus. <em>Best in</em>: NotebookLM (grounded, inline citations · up to 300 sources), Claude Projects (persistent memory), Gemini with Drive, Kimi K2.5 (256K-2M tokens, ideal for entire books or long transcripts).</span></p>
+      </div>
+      <div class="modo-card modo-4">
+        <div class="modo-num">4</div>
+        <h4><span class="es">Video en tiempo real · mostrar lo que tienes delante</span><span class="en">Live video · show what's in front of you</span></h4>
+        <p><span class="es">Apunta la cámara a una pizarra, una hoja con notas, un objeto físico, una pantalla. La IA <em>ve</em> en vivo y responde. <em>Disponible en</em>: Gemini Live (video nativo · 5 modalidades), ChatGPT Advanced Voice + Video. Útil para tutoría in situ, debugging visual, captura de tableros físicos a SPEC ejecutable.</span><span class="en">Point the camera at a whiteboard, a sheet of notes, a physical object, a screen. The AI <em>sees</em> live and responds. <em>Available in</em>: Gemini Live (native video · 5 modalities), ChatGPT Advanced Voice + Video. Useful for on-site tutoring, visual debugging, capturing physical boards into executable SPECs.</span></p>
+      </div>
+      <div class="modo-card modo-5">
+        <div class="modo-num">5</div>
+        <h4><span class="es">Co-crea · artifacts, proyectos y conversaciones compartidas</span><span class="en">Co-create · artifacts, projects and shared chats</span></h4>
+        <p><span class="es">Tarea compleja con varios entregables o iteraciones largas. Activa <strong>artifacts</strong> (Claude · HTML/código/docs editables al lado del chat), <strong>Canvas</strong> (ChatGPT · co-edición), <strong>Gems</strong> (Gemini · agentes especializados con Workspace). Para colaboración humana: <em>conversaciones compartidas</em> (ChatGPT · link público o de equipo) y <em>proyectos compartidos</em> (Claude Projects, NotebookLM compartido, Gemini en Workspace).</span><span class="en">Complex task with multiple deliverables or long iterations. Switch on <strong>artifacts</strong> (Claude · HTML/code/docs editable next to chat), <strong>Canvas</strong> (ChatGPT · co-editing), <strong>Gems</strong> (Gemini · specialized agents with Workspace). For human collaboration: <em>shared chats</em> (ChatGPT · public or team link) and <em>shared projects</em> (Claude Projects, shared NotebookLM, Gemini in Workspace).</span></p>
+      </div>
+    </div>
+
+    <div class="pivote-callout callout-blue" style="margin-top:1.4rem">
+      <p><strong><span class="es">Regla de oro:</span><span class="en">Rule of thumb:</span></strong> <span class="es">elige el modo más liviano que resuelve. No actives video en tiempo real para resumir un email; no dictes texto plano cuando tienes 50 PDFs que cargar. La forma de trabajo se ajusta a la <em>intensidad</em> de la tarea — el SPEC se ajusta a la <em>disciplina</em> de la tarea. Las dos cosas son distintas y las dos importan.</span><span class="en">pick the lightest mode that solves. Don't switch on live video to summarize an email; don't dictate plain text when you have 50 PDFs to upload. The mode of work adjusts to task <em>intensity</em> — the SPEC adjusts to task <em>discipline</em>. Two different things, both matter.</span></p>
     </div>
   </div>
 
   <div class="pivote-callout callout-blue" style="margin-top:1.6rem">
     <p><strong><span class="es">Anti-patrón a evitar:</span><span class="en">Anti-pattern to avoid:</span></strong> <span class="es">abrir IA → escribir lo que se te ocurre → iterar a ciegas. Eso es <em>Prompt First, Think Maybe</em>. Resultado: outputs que suenan bien y no defienden, fricción permanente, dependencia del oráculo.</span><span class="en">open AI → type whatever comes to mind → iterate blindly. That's <em>Prompt First, Think Maybe</em>. Result: outputs that sound right and don't defend, permanent friction, oracle dependency.</span></p>
-    <p style="margin-top:.8rem"><strong><span class="es">El patrón correcto:</span><span class="en">The correct pattern:</span></strong> <span class="es">PIVOTE (reflexión) → Decisión humana cerrada → Pipeline /0-/9 (SPEC ejecutable) → Output defendible. <em>Indicador sugerido</em>: minutos de pensamiento previo al primer prompt (frecuencia: por caso · umbral: ≥2 min en problemas no triviales).</span><span class="en">PIVOTE (reflection) → Closed human decision → Pipeline /0-/9 (executable SPEC) → Defensible output. <em>Suggested indicator</em>: minutes of thought before first prompt (frequency: per case · threshold: ≥2 min on non-trivial problems).</span></p>
+    <p style="margin-top:.8rem"><strong><span class="es">El patrón correcto:</span><span class="en">The correct pattern:</span></strong> <span class="es">PIVOTE (reflexión) → Decisión humana cerrada → Modo de trabajo elegido → SPEC (§ 5) → Output defendible. <em>Indicador sugerido</em>: minutos de pensamiento previo al primer prompt (frecuencia: por caso · umbral: ≥2 min en problemas no triviales).</span><span class="en">PIVOTE (reflection) → Closed human decision → Mode of work chosen → SPEC (§ 5) → Defensible output. <em>Suggested indicator</em>: minutes of thought before first prompt (frequency: per case · threshold: ≥2 min on non-trivial problems).</span></p>
   </div>
 </section>
 
