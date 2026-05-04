@@ -1,0 +1,95 @@
+{
+  "_meta": {
+    "brand": "MetodologIA",
+    "version": "1.0.0",
+    "license": "CC BY-NC-SA 4.0",
+    "author": "Javier Montaño",
+    "year": 2026,
+    "source": "Brand Voice v4.0 + Aesthetic Neo-Swiss Clean and Soft Explainer v1.0",
+    "note": "Single source of truth. All scripts and templates pull from here. NEVER hardcode hex elsewhere."
+  },
+  "primary": {
+    "navy":  { "hex": "#122562", "rgb": [18, 37, 98],   "name": "MetodologIA.Navy",  "use": "Headings · CTAs primary · brand signal" },
+    "gold":  { "hex": "#FFD700", "rgb": [255, 215, 0],  "name": "MetodologIA.Gold",  "use": "Highlight · KPI big-numbers · accent · gradients with navy" },
+    "blue":  { "hex": "#137DC5", "rgb": [19, 125, 197], "name": "MetodologIA.Blue",  "use": "Links · CTAs secondary · data charts · hover states" },
+    "dark":  { "hex": "#1F2833", "rgb": [31, 40, 51],   "name": "MetodologIA.Dark",  "use": "Body text · captions · footer · iconos sólidos" },
+    "lilac": { "hex": "#BBA0CC", "rgb": [187, 160, 204], "name": "MetodologIA.Lilac", "use": "Accent humano · soft sections · personas · tags categoría" },
+    "gray":  { "hex": "#808080", "rgb": [128, 128, 128], "name": "MetodologIA.Gray",  "use": "Tertiary text · hints · disabled · skeleton loaders · borders sutiles" }
+  },
+  "neutrals_light": {
+    "bg":          { "hex": "#F9FAFB", "name": "Canvas claro principal" },
+    "bg_soft":     { "hex": "#F0F0EC", "name": "Canvas suave (off-white cálido)" },
+    "bg_card":     { "hex": "rgba(255,255,255,0.88)", "name": "Card sobre canvas claro" },
+    "text":        { "hex": "#1F2833", "name": "Body text (= dark)" },
+    "text_sec":    { "hex": "#4A5568", "name": "Secondary body text" },
+    "text_muted":  { "hex": "#808080", "name": "Hints · captions (= gray)" },
+    "border":      { "hex": "rgba(18,37,98,0.08)", "name": "Divisores sutiles" },
+    "shadow_card": { "value": "0 1px 3px rgba(0,0,0,0.04), 0 6px 16px rgba(0,0,0,0.06)", "name": "Sombra suave estándar" }
+  },
+  "neutrals_dark": {
+    "bg":          { "hex": "#0B2545", "name": "Canvas dark (navy profundo)" },
+    "bg_soft":     { "hex": "#071A33", "name": "Canvas dark alterno" },
+    "bg_card":     { "hex": "rgba(11,37,69,0.6)", "name": "Card dark" },
+    "text":        { "hex": "#F0F4F8", "name": "Body dark" },
+    "text_sec":    { "hex": "#CBD5E1", "name": "Secondary dark" },
+    "text_muted":  { "hex": "#94A3B8", "name": "Hints dark" },
+    "border":      { "hex": "rgba(255,255,255,0.08)", "name": "Divisores dark" }
+  },
+  "typography": {
+    "head":  { "family": "Poppins",      "fallback": "Inter, system-ui, sans-serif",         "weights": [600, 700], "use": "h1, h2, h3, large CTAs" },
+    "body":  { "family": "Montserrat",   "fallback": "Inter, system-ui, sans-serif",         "weights": [400, 500, 600], "use": "body text, subheaders, UI" },
+    "notes": { "family": "Trebuchet MS", "fallback": "Lucida Sans Unicode, sans-serif",     "weights": [400], "use": "footnotes, callouts, popups, captions" }
+  },
+  "type_scale": {
+    "fs_hero":  { "desktop": "48px", "mobile": "32px", "use": "Hero h1 only" },
+    "fs_h1":    { "desktop": "36px", "mobile": "28px", "use": "Section titles" },
+    "fs_h2":    { "desktop": "24px", "mobile": "22px", "use": "Subsections" },
+    "fs_body":  { "desktop": "16px", "mobile": "16px", "use": "Body default" },
+    "fs_note":  { "desktop": "14px", "mobile": "14px", "use": "Captions, footnotes" }
+  },
+  "spacing": {
+    "_note": "Múltiplos de 8px",
+    "values": [4, 8, 16, 24, 32, 48, 64, 96, 128]
+  },
+  "radius": {
+    "sm": "6px",
+    "md": "12px",
+    "lg": "20px",
+    "xl": "32px",
+    "full": "999px"
+  },
+  "motion": {
+    "transition_default": "0.4s cubic-bezier(0.4,0,0.2,1)",
+    "transition_micro":   "0.15s cubic-bezier(0.4,0,0.2,1)",
+    "modal_slide":        "0.25s cubic-bezier(0.4,0,0.2,1)",
+    "page_transition":    "0.4s cubic-bezier(0.4,0,0.2,1)"
+  },
+  "validation": {
+    "wcag_min": "AA",
+    "wcag_preferred": "AAA",
+    "contrast_body": "4.5:1",
+    "contrast_large": "3:1",
+    "contrast_body_aaa": "7:1"
+  },
+  "voice_redlist": {
+    "_note": "Lista roja v4.0 · 0 tolerancia en piezas finales",
+    "hype": ["hack", "truco", "secreto", "resultados instantáneos", "milagroso"],
+    "free_replacements_forbidden": ["gratis", "gratuito", "gratuita", "regalo", "free", "freemium"],
+    "free_replacements_preferred": ["sin fricción", "sin inversión económica inicial", "sin costo"],
+    "brand_off": ["arquitecto", "arquitectura", "transformación"],
+    "brand_replacements": {
+      "arquitecto": "Diseñador",
+      "arquitectura": "Diseño",
+      "transformación": "(R)Evolución"
+    },
+    "hollow": ["sinergia", "leverage", "holístico", "bandwidth", "circle back"]
+  },
+  "voice_greenlist": {
+    "identity": ["Diseñador", "Diseño", "Diseñadores", "Método"],
+    "change": ["(R)Evolución", "evolución", "cadencia"],
+    "systems": ["sistemas", "gobernanza", "capacidades", "operación"],
+    "honesty": ["dato requerido", "indicador sugerido", "señal a medir"],
+    "premium": ["Soberanía Profesional", "Areté", "método", "legado"],
+    "access": ["sin fricción", "sin inversión económica inicial", "sin costo"]
+  }
+}

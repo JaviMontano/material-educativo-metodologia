@@ -1,0 +1,468 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>MetodologIA · Brand Voice v4.0</title>
+<meta name="description" content="Brand Voice v4.0 de MetodologIA · Minto-First + lista roja con prohibición de 'gratis' · Javier Montaño · CC BY-NC-SA 4.0" />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@600;700&family=Montserrat:wght@400;500;600&display=swap" rel="stylesheet" />
+<style>
+:root {
+  --navy: #122562;
+  --gold: #FFD700;
+  --blue: #137DC5;
+  --dark: #1F2833;
+  --lilac: #BBA0CC;
+  --gray: #808080;
+  --bg: #F9FAFB;
+  --bg-soft: #F0F0EC;
+  --bg-card: rgba(255, 255, 255, 0.92);
+  --text: #1F2833;
+  --text-sec: #4A5568;
+  --text-muted: #808080;
+  --border: rgba(18, 37, 98, 0.08);
+  --shadow-card: 0 1px 3px rgba(0,0,0,.04), 0 6px 16px rgba(0,0,0,.06);
+  --radius-sm: 6px;
+  --radius-md: 12px;
+  --radius-lg: 20px;
+  --max-w: 1100px;
+  --transition: 0.2s cubic-bezier(0.4,0,0.2,1);
+  --font-head: 'Poppins', 'Inter', system-ui, sans-serif;
+  --font-body: 'Montserrat', 'Inter', system-ui, sans-serif;
+  --font-note: 'Trebuchet MS', 'Lucida Sans Unicode', sans-serif;
+}
+* { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; }
+body {
+  font-family: var(--font-body);
+  font-size: 16px;
+  line-height: 1.6;
+  color: var(--text);
+  background: var(--bg);
+  -webkit-font-smoothing: antialiased;
+}
+a { color: var(--blue); text-decoration: none; transition: color var(--transition); }
+a:hover { color: var(--navy); }
+nav.top {
+  position: sticky; top: 0; z-index: 50;
+  background: var(--bg-card); backdrop-filter: blur(12px);
+  border-bottom: 1px solid var(--border);
+}
+.nav-inner {
+  max-width: var(--max-w); margin: 0 auto;
+  display: flex; justify-content: space-between; align-items: center;
+  padding: 16px 32px; height: 64px;
+}
+.brand {
+  font-family: var(--font-head); font-weight: 700; font-size: 18px; color: var(--navy);
+  display: flex; align-items: center; gap: 8px;
+}
+.brand-dot {
+  width: 8px; height: 8px; background: var(--gold); border-radius: 50%;
+}
+.nav-links { display: flex; gap: 24px; font-size: 13px; font-weight: 500; }
+.nav-links a {
+  color: var(--text-sec); text-transform: uppercase; letter-spacing: 0.06em;
+}
+main { max-width: var(--max-w); margin: 0 auto; padding: 64px 32px; }
+.hero { padding: 48px 0 64px; }
+.eyebrow {
+  display: inline-flex; align-items: center; gap: 6px;
+  padding: 6px 14px; border-radius: 999px;
+  background: var(--lilac); color: var(--navy);
+  font-family: var(--font-body); font-weight: 500; font-size: 12px;
+  text-transform: uppercase; letter-spacing: 0.08em;
+  margin-bottom: 24px;
+}
+h1 {
+  font-family: var(--font-head); font-weight: 700; font-size: 48px; line-height: 1.1;
+  color: var(--navy); margin-bottom: 16px; letter-spacing: -0.02em;
+}
+.lead {
+  font-size: 18px; color: var(--text-sec); max-width: 65ch; margin-bottom: 32px;
+}
+.cta-row { display: flex; gap: 16px; flex-wrap: wrap; }
+.btn {
+  padding: 12px 24px; border-radius: var(--radius-md);
+  font-family: var(--font-body); font-weight: 600; font-size: 14px;
+  cursor: pointer; transition: all var(--transition); border: 1px solid transparent;
+  display: inline-flex; align-items: center; gap: 8px;
+}
+.btn-primary { background: var(--navy); color: white; }
+.btn-primary:hover { background: var(--blue); transform: translateY(-1px); box-shadow: var(--shadow-card); }
+.btn-secondary { background: white; color: var(--navy); border-color: var(--navy); }
+.btn-secondary:hover { background: var(--navy); color: white; }
+.statbar {
+  display: grid; grid-template-columns: repeat(4, 1fr); gap: 24px;
+  background: var(--bg-soft); border-radius: var(--radius-lg);
+  padding: 32px; margin: 48px 0; border: 1px solid var(--border);
+}
+.stat-num {
+  font-family: var(--font-head); font-weight: 700; font-size: 36px;
+  color: var(--gold); line-height: 1;
+}
+.stat-num small { color: var(--navy); font-size: 16px; vertical-align: super; }
+.stat-label { font-size: 13px; color: var(--text-muted); margin-top: 6px; }
+section { margin: 64px 0; }
+h2 {
+  font-family: var(--font-head); font-weight: 700; font-size: 32px;
+  color: var(--navy); margin-bottom: 24px; letter-spacing: -0.01em;
+}
+h3 {
+  font-family: var(--font-head); font-weight: 600; font-size: 22px;
+  color: var(--dark); margin: 32px 0 12px;
+}
+.section-badge {
+  display: inline-block; padding: 4px 12px; background: var(--gold);
+  color: var(--navy); font-size: 11px; font-weight: 600;
+  text-transform: uppercase; letter-spacing: 0.1em;
+  border-radius: var(--radius-sm); margin-bottom: 12px;
+}
+.card {
+  background: var(--bg-card); border: 1px solid var(--border);
+  border-radius: var(--radius-md); padding: 24px; box-shadow: var(--shadow-card);
+}
+.grid-2 { display: grid; grid-template-columns: repeat(2, 1fr); gap: 24px; }
+.grid-3 { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; }
+table {
+  width: 100%; border-collapse: collapse; margin: 16px 0;
+  font-size: 14px; background: var(--bg-card); border-radius: var(--radius-md); overflow: hidden;
+}
+th, td { padding: 12px 16px; text-align: left; border-bottom: 1px solid var(--border); }
+th {
+  background: var(--navy); color: white;
+  font-family: var(--font-head); font-weight: 600; font-size: 13px;
+  text-transform: uppercase; letter-spacing: 0.06em;
+}
+tbody tr:nth-child(even) { background: var(--bg-soft); }
+tbody tr:last-child td { border-bottom: none; }
+code, .mono {
+  font-family: 'JetBrains Mono', ui-monospace, SFMono-Regular, monospace;
+  font-size: 13px; background: var(--bg-soft); padding: 2px 6px;
+  border-radius: var(--radius-sm); color: var(--navy);
+}
+pre {
+  background: var(--dark); color: #E8E8EA; padding: 20px;
+  border-radius: var(--radius-md); overflow-x: auto;
+  font-family: 'JetBrains Mono', monospace; font-size: 13px;
+  border-left: 4px solid var(--gold);
+  margin: 16px 0;
+}
+pre code { background: transparent; color: inherit; padding: 0; }
+.checklist { list-style: none; }
+.checklist li {
+  padding: 6px 0 6px 28px; position: relative;
+}
+.checklist li::before {
+  content: "✓"; position: absolute; left: 0; top: 6px;
+  color: var(--gold); font-weight: 700; font-size: 18px;
+}
+.redlist li::before { content: "✗"; color: #DC2626; }
+blockquote {
+  border-left: 4px solid var(--gold);
+  padding: 16px 24px; margin: 24px 0;
+  background: var(--bg-soft); border-radius: 0 var(--radius-md) var(--radius-md) 0;
+  font-style: italic; color: var(--text-sec);
+}
+blockquote::before { content: "❝ "; color: var(--gold); font-size: 28px; font-weight: 700; }
+.callout {
+  background: linear-gradient(135deg, var(--navy) 0%, var(--blue) 100%);
+  color: white; padding: 32px; border-radius: var(--radius-lg);
+  margin: 32px 0;
+}
+.callout h3 { color: var(--gold); margin-top: 0; }
+.callout p { color: rgba(255, 255, 255, 0.92); }
+.note {
+  font-family: var(--font-note); font-size: 13px; color: var(--text-muted);
+  font-style: italic; margin-top: 8px;
+}
+footer {
+  background: var(--dark); color: rgba(255, 255, 255, 0.85);
+  padding: 48px 32px; margin-top: 96px;
+}
+.footer-inner {
+  max-width: var(--max-w); margin: 0 auto;
+  display: grid; grid-template-columns: 2fr 1fr 1fr; gap: 32px;
+}
+.footer-brand h4 {
+  font-family: var(--font-head); color: var(--gold); font-size: 20px;
+  margin-bottom: 8px;
+}
+.footer-brand p { font-size: 14px; line-height: 1.6; }
+.footer-links h5 {
+  font-size: 12px; text-transform: uppercase; letter-spacing: 0.08em;
+  color: var(--gold); margin-bottom: 12px;
+}
+.footer-links ul { list-style: none; font-size: 14px; }
+.footer-links a { color: rgba(255, 255, 255, 0.7); }
+.footer-links a:hover { color: var(--gold); }
+.footer-meta {
+  max-width: var(--max-w); margin: 32px auto 0;
+  padding-top: 24px; border-top: 1px solid rgba(255, 255, 255, 0.1);
+  font-size: 12px; color: rgba(255, 255, 255, 0.5);
+  display: flex; justify-content: space-between; flex-wrap: wrap; gap: 12px;
+}
+@media (max-width: 768px) {
+  .nav-inner { padding: 12px 20px; }
+  .nav-links { display: none; }
+  main { padding: 32px 20px; }
+  h1 { font-size: 32px; }
+  h2 { font-size: 24px; }
+  .statbar { grid-template-columns: repeat(2, 1fr); }
+  .grid-2, .grid-3 { grid-template-columns: 1fr; }
+  .footer-inner { grid-template-columns: 1fr; }
+}
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after { animation: none !important; transition: none !important; }
+}
+</style>
+</head>
+<body>
+
+<nav class="top">
+  <div class="nav-inner">
+    <div class="brand">MetodologIA<span class="brand-dot"></span></div>
+    <div class="nav-links">
+      <a href="#tldr">TL;DR</a>
+      <a href="#pilares">Pilares</a>
+      <a href="#listas">Listas</a>
+      <a href="#minto">Minto</a>
+      <a href="#ruubrica">Rúbrica</a>
+    </div>
+  </div>
+</nav>
+
+<main>
+  <section class="hero">
+    <span class="eyebrow">Brand Voice · v4.0</span>
+    <h1>Voz MetodologIA: Minto-First, evidencia honesta, sin "gratis".</h1>
+    <p class="lead">Sistema de voz canónico para crear contenido consistente, accionable y medible. Decide primero, sostén con evidencia, llama a una acción de un paso. Sin promesas infladas. Sin "gratis": "sin fricción" comunica el valor sin devaluarlo.</p>
+    <div class="cta-row">
+      <a href="#tldr" class="btn btn-primary">Leer TL;DR · 30 segundos</a>
+      <a href="#minto" class="btn btn-secondary">Plantillas Minto</a>
+    </div>
+  </section>
+
+  <div class="statbar">
+    <div>
+      <div class="stat-num">3 <small>P</small></div>
+      <div class="stat-label">Pilares conceptuales (P1/P2/P3)</div>
+    </div>
+    <div>
+      <div class="stat-num">20<small>/20</small></div>
+      <div class="stat-label">Rúbrica de calidad por pieza</div>
+    </div>
+    <div>
+      <div class="stat-num">0</div>
+      <div class="stat-label">Tolerancia a "gratis" en piezas finales</div>
+    </div>
+    <div>
+      <div class="stat-num">3</div>
+      <div class="stat-label">Modos de operación (Producción · Auditoría · Chat)</div>
+    </div>
+  </div>
+
+  <section id="tldr">
+    <span class="section-badge">Resumen ejecutivo</span>
+    <h2>TL;DR · 30 segundos</h2>
+    <div class="callout">
+      <h3>Voz MetodologIA = Minto + evidencia honesta + CTA ejecutable + lenguaje de diseño y sistemas.</h3>
+      <p><strong>Decide primero.</strong> Conclusión arriba, soporte después.</p>
+      <p><strong>Evidencia o nada.</strong> Sin datos, declara "dato requerido" e instrumenta. Nunca inventes.</p>
+      <p><strong>Acción de un paso.</strong> CTA con verbo + objeto + contexto.</p>
+      <p><strong>Sin promesas infladas.</strong> Sin hacks · sin "gratis" · sin "transformación".</p>
+    </div>
+    <blockquote>Si una frase no ayuda a decidir, comprender o actuar, sobra.</blockquote>
+  </section>
+
+  <section id="pilares">
+    <span class="section-badge">Motor conceptual</span>
+    <h2>3 Pilares · P1 / P2 / P3</h2>
+    <div class="grid-3">
+      <div class="card">
+        <h3 style="color:var(--navy)">P1 · (R)Evolución</h3>
+        <p>Brecha estado actual → estado deseado se cierra con método.</p>
+        <p class="note">Ancla típica: <em>"Lo que era vanguardia se vuelve legado."</em></p>
+      </div>
+      <div class="card">
+        <h3 style="color:var(--navy)">P2 · Intención antes que intensidad</h3>
+        <p>Diseño antes que fuerza. Foco · trade-offs explícitos · cadencia sostenible.</p>
+        <p class="note">Ancla típica: <em>"Cadencia &gt; intensidad."</em></p>
+      </div>
+      <div class="card">
+        <h3 style="color:var(--navy)">P3 · Tecnología como aliada</h3>
+        <p>Automatiza lo repetible · potencia lo importante. Plantillas, instrumentación, medición.</p>
+        <p class="note">Ancla típica: <em>"Método primero, IA después."</em></p>
+      </div>
+    </div>
+    <p class="note">Regla: si un soporte no ancla a un pilar, no es soporte: es decoración. Eliminar.</p>
+  </section>
+
+  <section id="listas">
+    <span class="section-badge">Cambio crítico v4.0</span>
+    <h2>Lista roja · 0 tolerancia</h2>
+    <div class="grid-2">
+      <div class="card">
+        <h3 style="color:#DC2626">No usar</h3>
+        <ul class="checklist redlist">
+          <li><strong>gratis · gratuito · gratuita · regalo · free · freemium</strong></li>
+          <li>hack · truco · secreto · resultados instantáneos · milagroso</li>
+          <li>arquitecto · arquitectura</li>
+          <li>transformación</li>
+          <li>sinergia · leverage · holístico · bandwidth · circle back</li>
+          <li>parce · chévere · pibe (regionalismos)</li>
+          <li>mejorar · alinear · optimizar (sin contexto)</li>
+        </ul>
+      </div>
+      <div class="card">
+        <h3 style="color:var(--navy)">Sí usar</h3>
+        <ul class="checklist">
+          <li>Diseñador · Diseño · Diseñadores · Método</li>
+          <li>(R)Evolución · evolución · cadencia</li>
+          <li>sistemas · gobernanza · capacidades</li>
+          <li>dato requerido · indicador sugerido · señal a medir</li>
+          <li>Soberanía Profesional · Areté · método · legado</li>
+          <li>sin fricción · sin inversión económica inicial · sin costo</li>
+          <li>Success as a Service (B2B)</li>
+        </ul>
+      </div>
+    </div>
+
+    <h3 style="margin-top:32px">Jerarquía "sin barrera de entrada" (NUEVA v4)</h3>
+    <p>Cuando algo no requiere pago, usar <strong>en este orden</strong>:</p>
+    <table>
+      <thead>
+        <tr><th>#</th><th>Frase</th><th>Cuándo</th><th>Ejemplo</th></tr>
+      </thead>
+      <tbody>
+        <tr><td>1</td><td><strong>sin fricción</strong></td><td>Default · cuando aplique</td><td>"Acceso sin fricción al primer módulo"</td></tr>
+        <tr><td>2</td><td><strong>sin inversión económica inicial</strong></td><td>Cuando "sin fricción" no encaja</td><td>"Activación sin inversión económica inicial"</td></tr>
+        <tr><td>3</td><td><strong>sin costo</strong></td><td>Solo si la pieza necesita literalidad</td><td>"Diagnóstico sin costo · 30 minutos"</td></tr>
+        <tr><td>❌</td><td style="text-decoration:line-through;color:#DC2626">gratis · gratuito</td><td>Nunca</td><td>—</td></tr>
+      </tbody>
+    </table>
+    <p class="note"><strong>Por qué importa:</strong> "Gratis" baja el valor percibido del método. La jerarquía respeta la honestidad (no es regalado · es de bajo bloqueo de entrada) y mantiene el premium.</p>
+  </section>
+
+  <section id="minto">
+    <span class="section-badge">Estructura</span>
+    <h2>Minto-First · 3 modos</h2>
+    <div class="grid-3">
+      <div class="card">
+        <h3>Completo (default)</h3>
+        <p><strong>Conclusión + 3 soportes MECE + evidencia + CTA</strong></p>
+        <p class="note">Cuándo: trade-offs · impacto alto · varias personas · riesgo</p>
+      </div>
+      <div class="card">
+        <h3>Micro (canal corto)</h3>
+        <p><strong>Conclusión + 2 soportes MECE + evidencia + CTA</strong></p>
+        <p class="note">Cuándo: chat · poco tiempo · atención limitada</p>
+      </div>
+      <div class="card">
+        <h3>Ultracorto</h3>
+        <p><strong>Titular = conclusión + cuerpo Micro</strong></p>
+        <p class="note">Cuándo: asunto email · push · banner</p>
+      </div>
+    </div>
+
+    <h3>Plantilla Minto Completo</h3>
+    <pre><code>**Conclusión**: [recomendación 1-2 frases]
+
+**Soportes (3, MECE)**:
+1) [soporte 1] **[P1]**
+2) [soporte 2] **[P2]**
+3) [soporte 3] **[P3]**
+
+**Evidencia**:
+- S1: [DATO/INDICADOR-SUGERIDO/SEÑAL-A-MEDIR/DATO-REQUERIDO]
+- S2: [...]
+- S3: [...]
+
+**CTA**: [verbo + objeto + contexto · ej. "Agenda kata-feynman semanal · viernes 17:00 · 60 min"]</code></pre>
+
+    <h3>Tipos de evidencia · 4 categorías</h3>
+    <table>
+      <thead>
+        <tr><th>Tipo</th><th>Definición</th><th>Ejemplo</th></tr>
+      </thead>
+      <tbody>
+        <tr><td><code>[DATO]</code></td><td>Real · ya en contexto</td><td>"12 sesiones, 8 con score ≥4/5"</td></tr>
+        <tr><td><code>[INDICADOR-SUGERIDO]</code></td><td>Métrica + frecuencia + dueño + umbral</td><td>"Retrabajo por pieza · semanal · QA · ≤2 revisiones"</td></tr>
+        <tr><td><code>[SEÑAL-A-MEDIR]</code></td><td>Proxy observable</td><td>"Continuidad: semanas con ejecución ininterrumpida"</td></tr>
+        <tr><td><code>[DATO-REQUERIDO]</code></td><td>Input mínimo pendiente</td><td>"Score baseline de la audiencia objetivo"</td></tr>
+      </tbody>
+    </table>
+  </section>
+
+  <section id="ruubrica">
+    <span class="section-badge">Auditoría</span>
+    <h2>Rúbrica /20 · 10 criterios × 2 puntos</h2>
+    <p>Escala: <strong>0 falla · 1 parcial · 2 cumple</strong>. Aprobación: 20/20 o corregir.</p>
+    <table>
+      <thead>
+        <tr><th>#</th><th>Criterio</th><th>Test</th></tr>
+      </thead>
+      <tbody>
+        <tr><td>1</td><td>Fundamento</td><td>Causalidad clara conclusión↔soportes</td></tr>
+        <tr><td>2</td><td>Veracidad</td><td>Toda afirmación con evidencia válida</td></tr>
+        <tr><td>3</td><td>Calidad</td><td>Sin contradicciones · términos claros</td></tr>
+        <tr><td>4</td><td>Densidad útil</td><td>Cada frase aporta decisión/comprensión/acción</td></tr>
+        <tr><td>5</td><td>Simplicidad</td><td>Mínimo necesario sin perder precisión</td></tr>
+        <tr><td>6</td><td>Claridad</td><td>Términos definidos cuando importan</td></tr>
+        <tr><td>7</td><td>Precisión</td><td>Condiciones y límites explícitos</td></tr>
+        <tr><td>8</td><td>Profundidad</td><td>Causas + trade-offs declarados</td></tr>
+        <tr><td>9</td><td>Coherencia</td><td>Minto consistente · voz consistente</td></tr>
+        <tr><td>10</td><td>Valor</td><td>Accionable hoy · medible esta semana</td></tr>
+      </tbody>
+    </table>
+
+    <h3>Criterios de aceptación · pieza final</h3>
+    <ul class="checklist">
+      <li>Usa Minto (Micro/Completo/Ultracorto) según modo declarado</li>
+      <li>Soportes MECE · cada uno con [P?] anclado</li>
+      <li>Evidencia honesta por soporte · 0 huérfanas</li>
+      <li>Lista roja en cero (validate_voice.py PASS)</li>
+      <li><strong>"gratis"/"gratuito" en cero (NUEVO v4)</strong></li>
+      <li>CTA ejecutable en una acción · verbo + objeto + contexto</li>
+      <li>Español latino neutro · trato tú</li>
+      <li>Si modo Auditoría: rúbrica 20/20</li>
+    </ul>
+  </section>
+</main>
+
+<footer>
+  <div class="footer-inner">
+    <div class="footer-brand">
+      <h4>MetodologIA<span style="color:var(--gold)"> ·</span></h4>
+      <p>Diseñador · (R)Evolución · Método · Soberanía Profesional · Areté.</p>
+      <p style="margin-top:8px;font-size:13px;color:rgba(255,255,255,.6)">Sistema de voz para contenido consistente, accionable y medible.</p>
+    </div>
+    <div class="footer-links">
+      <h5>Documentos</h5>
+      <ul>
+        <li><a href="metodologia-aesthetic-neo-swiss-v1.html">Aesthetic v1.0</a></li>
+        <li><a href="../references/01-brand-voice-v4.md">Brand Voice MD</a></li>
+        <li><a href="../references/03-nudge-phrases.md">Nudge Phrases</a></li>
+        <li><a href="../references/04-prompt-templates.md">Prompt Templates</a></li>
+      </ul>
+    </div>
+    <div class="footer-links">
+      <h5>Atribución</h5>
+      <ul>
+        <li>Autor: Javier Montaño</li>
+        <li>Versión: 4.0.0</li>
+        <li>Año: 2026</li>
+        <li>License: CC BY-NC-SA 4.0</li>
+      </ul>
+    </div>
+  </div>
+  <div class="footer-meta">
+    <span>© 2026 Javier Montaño · MetodologIA · Todos los derechos reservados según licencia CC BY-NC-SA 4.0</span>
+    <span>Generado por <code style="color:var(--gold);background:transparent">metodologia-content-forge</code> v1.0.0</span>
+  </div>
+</footer>
+
+</body>
+</html>

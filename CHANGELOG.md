@@ -23,6 +23,50 @@
 
 ## 📋 Historial de cambios
 
+## [1.3.0] · 2026-05-04 · Skill metodologia-content-forge v1.0.0 (forja de contenido brand-compliant)
+
+**Tipo**: skill nueva · forja de contenido brand-compliant MetodologIA
+**Editor**: Javier Montaño · MetodologIA
+**License**: CC BY-NC-SA 4.0
+
+Skill análoga a `sofka-ui-pro-max` pero **MetodologIA-only**, para resolver "me cuesta generar contenido consistente". Combina Brand Voice v4.0 (Minto-First) + Aesthetic Neo-Swiss Clean and Soft Explainer v1.0.
+
+### Cambio crítico v3.0 → v4.0 de la voz
+
+- **Lista roja: agregar** `gratis`, `gratuito`, `gratuita`, `regalo`, `free`, `freemium` (mencionar "gratis" devalúa el método)
+- **Lista verde: agregar** `sin fricción`, `sin inversión económica inicial`, `sin costo`
+- **Regla nueva**: jerarquía de "free" — (1) sin fricción → (2) sin inversión económica inicial → (3) sin costo → nunca "gratis"
+
+### Estructura entregada
+
+| Archivo | Función |
+|---|---|
+| `references/01-brand-voice-v4.md` | Voz canónica · Minto-First + lista roja v4 |
+| `references/02-aesthetic-neo-swiss-v1.md` | Estética canónica · paleta 6 colores + tipografía + 10 componentes M1-M10 |
+| `references/03-nudge-phrases.md` | 8 nudges canónicos (N1-N8) + combos |
+| `references/04-prompt-templates.md` | 8 templates copy-paste (T1-T8) |
+| `assets/color-tokens.json` | Single source of truth · paleta + tipografía + redlist |
+| `scripts/validate_voice.py` | Validador automático voz |
+| `outputs/metodologia-brand-voice-v4.html` | HTML brand-ready · documenta voz con estética aplicada |
+| `outputs/metodologia-aesthetic-neo-swiss-v1.html` | HTML brand-ready · documenta estética con paleta + componentes |
+| `SKILL.md` · `README.md` · `CHANGELOG.md` · `LICENSE.md` | Metadatos skill |
+
+### Paleta canónica MetodologIA (vs Sofka)
+
+- `--navy` #122562 · `--gold` #FFD700 · `--blue` #137DC5
+- `--dark` #1F2833 · `--lilac` #BBA0CC · `--gray` #808080
+- Tipografía: Poppins (head) + Montserrat (body) + Trebuchet MS (notes)
+
+### Bundle
+
+`~/Downloads/metodologia-content-forge-v1.0.0.skill` · ~48 KB
+
+### Detalles completos
+
+`skills/metodologia-content-forge/CHANGELOG.md`
+
+---
+
 ## [1.2.0] · 2026-05-04 · Skill Aprender·Aprehender·(R)Evolucionar v1.1.0 (Elevación 10×)
 
 **Tipo**: refactor sustantivo de la skill incorporada en v1.1.0 · sin cambios estructurales

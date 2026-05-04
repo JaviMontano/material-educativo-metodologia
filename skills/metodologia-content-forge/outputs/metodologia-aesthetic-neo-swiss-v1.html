@@ -1,0 +1,478 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>MetodologIA · Aesthetic v1.0 · Neo-Swiss Clean and Soft Explainer</title>
+<meta name="description" content="Sistema visual MetodologIA · Neo-Swiss Clean and Soft Explainer · paleta exclusiva navy/gold/blue/dark/lilac/gray · Poppins + Montserrat + Trebuchet · Javier Montaño · CC BY-NC-SA 4.0" />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@600;700&family=Montserrat:wght@400;500;600&display=swap" rel="stylesheet" />
+<style>
+:root {
+  --navy: #122562;
+  --gold: #FFD700;
+  --blue: #137DC5;
+  --dark: #1F2833;
+  --lilac: #BBA0CC;
+  --gray: #808080;
+  --bg: #F9FAFB;
+  --bg-soft: #F0F0EC;
+  --bg-card: rgba(255, 255, 255, 0.92);
+  --text: #1F2833;
+  --text-sec: #4A5568;
+  --text-muted: #808080;
+  --border: rgba(18, 37, 98, 0.08);
+  --shadow-card: 0 1px 3px rgba(0,0,0,.04), 0 6px 16px rgba(0,0,0,.06);
+  --radius-sm: 6px;
+  --radius-md: 12px;
+  --radius-lg: 20px;
+  --max-w: 1100px;
+  --transition: 0.2s cubic-bezier(0.4,0,0.2,1);
+  --font-head: 'Poppins', 'Inter', system-ui, sans-serif;
+  --font-body: 'Montserrat', 'Inter', system-ui, sans-serif;
+  --font-note: 'Trebuchet MS', 'Lucida Sans Unicode', sans-serif;
+}
+* { box-sizing: border-box; margin: 0; padding: 0; }
+body {
+  font-family: var(--font-body); font-size: 16px; line-height: 1.6;
+  color: var(--text); background: var(--bg); -webkit-font-smoothing: antialiased;
+}
+a { color: var(--blue); text-decoration: none; }
+a:hover { color: var(--navy); }
+nav.top {
+  position: sticky; top: 0; z-index: 50;
+  background: var(--bg-card); backdrop-filter: blur(12px);
+  border-bottom: 1px solid var(--border);
+}
+.nav-inner {
+  max-width: var(--max-w); margin: 0 auto;
+  display: flex; justify-content: space-between; align-items: center;
+  padding: 16px 32px; height: 64px;
+}
+.brand {
+  font-family: var(--font-head); font-weight: 700; font-size: 18px; color: var(--navy);
+  display: flex; align-items: center; gap: 8px;
+}
+.brand-dot { width: 8px; height: 8px; background: var(--gold); border-radius: 50%; }
+.nav-links { display: flex; gap: 24px; font-size: 13px; font-weight: 500; }
+.nav-links a { color: var(--text-sec); text-transform: uppercase; letter-spacing: 0.06em; }
+main { max-width: var(--max-w); margin: 0 auto; padding: 64px 32px; }
+.hero { padding: 48px 0 64px; }
+.eyebrow {
+  display: inline-flex; padding: 6px 14px; border-radius: 999px;
+  background: var(--lilac); color: var(--navy);
+  font-weight: 500; font-size: 12px; text-transform: uppercase;
+  letter-spacing: 0.08em; margin-bottom: 24px;
+}
+h1 {
+  font-family: var(--font-head); font-weight: 700; font-size: 48px;
+  line-height: 1.1; color: var(--navy); margin-bottom: 16px; letter-spacing: -0.02em;
+}
+.lead { font-size: 18px; color: var(--text-sec); max-width: 65ch; margin-bottom: 32px; }
+section { margin: 64px 0; }
+h2 {
+  font-family: var(--font-head); font-weight: 700; font-size: 32px;
+  color: var(--navy); margin-bottom: 24px; letter-spacing: -0.01em;
+}
+h3 {
+  font-family: var(--font-head); font-weight: 600; font-size: 22px;
+  color: var(--dark); margin: 32px 0 12px;
+}
+.section-badge {
+  display: inline-block; padding: 4px 12px; background: var(--gold);
+  color: var(--navy); font-size: 11px; font-weight: 600;
+  text-transform: uppercase; letter-spacing: 0.1em;
+  border-radius: var(--radius-sm); margin-bottom: 12px;
+}
+.card {
+  background: var(--bg-card); border: 1px solid var(--border);
+  border-radius: var(--radius-md); padding: 24px; box-shadow: var(--shadow-card);
+}
+.grid-2 { display: grid; grid-template-columns: repeat(2, 1fr); gap: 24px; }
+.grid-3 { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; }
+.grid-6 { display: grid; grid-template-columns: repeat(6, 1fr); gap: 16px; }
+.swatch {
+  border-radius: var(--radius-md); overflow: hidden;
+  border: 1px solid var(--border); box-shadow: var(--shadow-card);
+}
+.swatch-color { height: 120px; }
+.swatch-meta { padding: 16px; background: white; }
+.swatch-name { font-family: var(--font-head); font-weight: 600; font-size: 14px; color: var(--navy); }
+.swatch-hex {
+  font-family: 'JetBrains Mono', ui-monospace, monospace; font-size: 12px;
+  color: var(--text-sec); margin-top: 4px;
+}
+table {
+  width: 100%; border-collapse: collapse; margin: 16px 0;
+  font-size: 14px; background: var(--bg-card);
+  border-radius: var(--radius-md); overflow: hidden;
+}
+th, td { padding: 12px 16px; text-align: left; border-bottom: 1px solid var(--border); }
+th {
+  background: var(--navy); color: white;
+  font-family: var(--font-head); font-weight: 600; font-size: 13px;
+  text-transform: uppercase; letter-spacing: 0.06em;
+}
+tbody tr:nth-child(even) { background: var(--bg-soft); }
+tbody tr:last-child td { border-bottom: none; }
+code {
+  font-family: 'JetBrains Mono', monospace; font-size: 13px;
+  background: var(--bg-soft); padding: 2px 6px;
+  border-radius: var(--radius-sm); color: var(--navy);
+}
+pre {
+  background: var(--dark); color: #E8E8EA; padding: 20px;
+  border-radius: var(--radius-md); overflow-x: auto;
+  font-family: 'JetBrains Mono', monospace; font-size: 13px;
+  border-left: 4px solid var(--gold); margin: 16px 0;
+}
+.type-spec {
+  display: grid; grid-template-columns: 200px 1fr; gap: 24px;
+  align-items: center; padding: 24px; background: var(--bg-card);
+  border-radius: var(--radius-md); border: 1px solid var(--border);
+  margin-bottom: 16px;
+}
+.type-spec-meta { font-size: 13px; color: var(--text-sec); }
+.type-spec-meta strong { color: var(--navy); display: block; margin-bottom: 4px; }
+.t-poppins { font-family: var(--font-head); font-weight: 700; font-size: 36px; color: var(--navy); }
+.t-montserrat { font-family: var(--font-body); font-weight: 400; font-size: 18px; color: var(--text); }
+.t-trebuchet { font-family: var(--font-note); font-style: italic; font-size: 14px; color: var(--text-muted); }
+.note {
+  font-family: var(--font-note); font-size: 13px; color: var(--text-muted);
+  font-style: italic; margin-top: 8px;
+}
+.checklist { list-style: none; }
+.checklist li { padding: 6px 0 6px 28px; position: relative; }
+.checklist li::before { content: "✓"; position: absolute; left: 0; top: 6px; color: var(--gold); font-weight: 700; font-size: 18px; }
+.redlist li::before { content: "✗"; color: #DC2626; }
+.kpi-row {
+  display: grid; grid-template-columns: repeat(4, 1fr); gap: 24px;
+  background: var(--bg-soft); border-radius: var(--radius-lg);
+  padding: 32px; margin: 48px 0; border: 1px solid var(--border);
+}
+.kpi-num {
+  font-family: var(--font-head); font-weight: 700; font-size: 36px;
+  color: var(--gold); line-height: 1;
+}
+.kpi-label { font-size: 13px; color: var(--text-muted); margin-top: 6px; }
+.example-component {
+  background: white; border: 1px solid var(--border); border-radius: var(--radius-md);
+  padding: 24px; margin: 16px 0;
+}
+.demo-button {
+  padding: 12px 24px; border-radius: var(--radius-md);
+  font-family: var(--font-body); font-weight: 600; font-size: 14px;
+  cursor: pointer; border: 1px solid transparent;
+  display: inline-flex; align-items: center; gap: 8px;
+}
+.demo-btn-primary { background: var(--navy); color: white; }
+.demo-btn-secondary { background: white; color: var(--navy); border-color: var(--navy); }
+.demo-chip {
+  display: inline-flex; padding: 6px 14px; border-radius: 999px;
+  background: var(--lilac); color: var(--navy);
+  font-weight: 500; font-size: 12px; text-transform: uppercase; letter-spacing: 0.08em;
+}
+footer {
+  background: var(--dark); color: rgba(255, 255, 255, 0.85);
+  padding: 48px 32px; margin-top: 96px;
+}
+.footer-inner { max-width: var(--max-w); margin: 0 auto; display: grid; grid-template-columns: 2fr 1fr 1fr; gap: 32px; }
+.footer-brand h4 { font-family: var(--font-head); color: var(--gold); font-size: 20px; margin-bottom: 8px; }
+.footer-links h5 { font-size: 12px; text-transform: uppercase; letter-spacing: 0.08em; color: var(--gold); margin-bottom: 12px; }
+.footer-links ul { list-style: none; font-size: 14px; }
+.footer-links a { color: rgba(255, 255, 255, 0.7); }
+.footer-links a:hover { color: var(--gold); }
+.footer-meta {
+  max-width: var(--max-w); margin: 32px auto 0;
+  padding-top: 24px; border-top: 1px solid rgba(255, 255, 255, 0.1);
+  font-size: 12px; color: rgba(255, 255, 255, 0.5);
+  display: flex; justify-content: space-between; flex-wrap: wrap; gap: 12px;
+}
+@media (max-width: 768px) {
+  .nav-inner { padding: 12px 20px; }
+  .nav-links { display: none; }
+  main { padding: 32px 20px; }
+  h1 { font-size: 32px; }
+  h2 { font-size: 24px; }
+  .grid-2, .grid-3, .grid-6, .kpi-row { grid-template-columns: 1fr 1fr; }
+  .footer-inner { grid-template-columns: 1fr; }
+  .type-spec { grid-template-columns: 1fr; }
+}
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after { animation: none !important; transition: none !important; }
+}
+</style>
+</head>
+<body>
+
+<nav class="top">
+  <div class="nav-inner">
+    <div class="brand">MetodologIA<span class="brand-dot"></span></div>
+    <div class="nav-links">
+      <a href="#palette">Paleta</a>
+      <a href="#typography">Tipografía</a>
+      <a href="#components">Componentes</a>
+      <a href="#redlist">Anti-patrones</a>
+    </div>
+  </div>
+</nav>
+
+<main>
+  <section class="hero">
+    <span class="eyebrow">Aesthetic · v1.0 · Neo-Swiss Clean and Soft Explainer</span>
+    <h1>Sistema visual: orden, calma, claridad. Sin ruido.</h1>
+    <p class="lead">Editorial corporate-explainer con grid suizo, ilustración vectorial flat y mucho espacio en blanco. Paleta exclusiva de 6 colores. Tipografía con jerarquía clara. Composición que respeta el silencio del espacio en blanco.</p>
+  </section>
+
+  <div class="kpi-row">
+    <div><div class="kpi-num">6</div><div class="kpi-label">Colores canónicos</div></div>
+    <div><div class="kpi-num">3</div><div class="kpi-label">Familias tipográficas</div></div>
+    <div><div class="kpi-num">10</div><div class="kpi-label">Componentes M1-M10</div></div>
+    <div><div class="kpi-num">AA<small>+</small></div><div class="kpi-label">WCAG mínimo (AAA preferido)</div></div>
+  </div>
+
+  <section id="palette">
+    <span class="section-badge">Paleta canónica</span>
+    <h2>6 colores · single source of truth</h2>
+    <p>Fuente única: <code>assets/color-tokens.json</code>. Nunca hardcodear hex en otro lado.</p>
+
+    <div class="grid-3" style="margin-top: 24px">
+      <div class="swatch">
+        <div class="swatch-color" style="background:#122562"></div>
+        <div class="swatch-meta">
+          <div class="swatch-name">Navy</div>
+          <div class="swatch-hex">#122562 · rgb(18,37,98)</div>
+          <p class="note">Headings · CTAs primary · brand signal</p>
+        </div>
+      </div>
+      <div class="swatch">
+        <div class="swatch-color" style="background:#FFD700"></div>
+        <div class="swatch-meta">
+          <div class="swatch-name">Gold</div>
+          <div class="swatch-hex">#FFD700 · rgb(255,215,0)</div>
+          <p class="note">Highlight · KPI big-numbers · accent</p>
+        </div>
+      </div>
+      <div class="swatch">
+        <div class="swatch-color" style="background:#137DC5"></div>
+        <div class="swatch-meta">
+          <div class="swatch-name">Blue</div>
+          <div class="swatch-hex">#137DC5 · rgb(19,125,197)</div>
+          <p class="note">Links · CTAs secondary · gradients</p>
+        </div>
+      </div>
+      <div class="swatch">
+        <div class="swatch-color" style="background:#1F2833"></div>
+        <div class="swatch-meta">
+          <div class="swatch-name">Dark</div>
+          <div class="swatch-hex">#1F2833 · rgb(31,40,51)</div>
+          <p class="note">Body text · footer · separadores</p>
+        </div>
+      </div>
+      <div class="swatch">
+        <div class="swatch-color" style="background:#BBA0CC"></div>
+        <div class="swatch-meta">
+          <div class="swatch-name">Lilac</div>
+          <div class="swatch-hex">#BBA0CC · rgb(187,160,204)</div>
+          <p class="note">Accent humano · soft sections</p>
+        </div>
+      </div>
+      <div class="swatch">
+        <div class="swatch-color" style="background:#808080"></div>
+        <div class="swatch-meta">
+          <div class="swatch-name">Gray</div>
+          <div class="swatch-hex">#808080 · rgb(128,128,128)</div>
+          <p class="note">Tertiary · hints · disabled</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="typography">
+    <span class="section-badge">Tipografía</span>
+    <h2>3 familias canónicas</h2>
+
+    <div class="type-spec">
+      <div class="t-poppins">Poppins 700</div>
+      <div class="type-spec-meta">
+        <strong>Titulares (h1-h3) · CTAs grandes</strong>
+        Pesos: 600 / 700. Sentence case. Flush left. Max 3 sizes por layout.
+      </div>
+    </div>
+    <div class="type-spec">
+      <div class="t-montserrat">Montserrat 400 / 500 / 600</div>
+      <div class="type-spec-meta">
+        <strong>Cuerpo · subheaders · UI</strong>
+        Line-height ≥1.5. Max-width 65ch para lectura óptima.
+      </div>
+    </div>
+    <div class="type-spec">
+      <div class="t-trebuchet">Trebuchet MS 400 italic — notas y captions</div>
+      <div class="type-spec-meta">
+        <strong>Notas · footnotes · callouts · popups</strong>
+        Solo elementos secundarios. Jamás body principal.
+      </div>
+    </div>
+
+    <h3>Escala tipográfica · 5 sizes (max usados por pieza: 3)</h3>
+    <table>
+      <thead><tr><th>Token</th><th>Desktop</th><th>Mobile</th><th>Uso</th></tr></thead>
+      <tbody>
+        <tr><td><code>--fs-hero</code></td><td>48px</td><td>32px</td><td>Hero h1 only</td></tr>
+        <tr><td><code>--fs-h1</code></td><td>36px</td><td>28px</td><td>Section titles</td></tr>
+        <tr><td><code>--fs-h2</code></td><td>24px</td><td>22px</td><td>Subsections</td></tr>
+        <tr><td><code>--fs-body</code></td><td>16px</td><td>16px</td><td>Body default</td></tr>
+        <tr><td><code>--fs-note</code></td><td>14px</td><td>14px</td><td>Captions · footnotes</td></tr>
+      </tbody>
+    </table>
+  </section>
+
+  <section id="components">
+    <span class="section-badge">Componentes</span>
+    <h2>M1-M10 · catálogo canónico</h2>
+    <p>Análogos a C1-C10 de Sofka, adaptados a estética MetodologIA.</p>
+
+    <div class="grid-2" style="margin-top:24px">
+      <div class="card">
+        <h3>M1 · Sticky nav minimal</h3>
+        <p class="note">Bg: --bg-card con backdrop-blur · border-bottom 1px · logo + sections derecha · 64px desktop</p>
+      </div>
+      <div class="card">
+        <h3>M2 · Hero + KPI row</h3>
+        <p class="note">Eyebrow chip lilac · h1 Poppins 48 navy · lead Montserrat · CTA primary + secondary · KPI gold</p>
+      </div>
+      <div class="card">
+        <h3>M3 · Section badge</h3>
+        <p class="note">Chip gold + chapter title navy · lead Montserrat 16</p>
+      </div>
+      <div class="card">
+        <h3>M4 · 2-col text + visual</h3>
+        <p class="note">6/6 desktop · stack mobile · texto + ilustración o invertido</p>
+      </div>
+      <div class="card">
+        <h3>M5 · Statbar 4-col</h3>
+        <p class="note">4 KPIs · Poppins 36 gold · Montserrat 14 gray</p>
+      </div>
+      <div class="card">
+        <h3>M6 · Process diagram</h3>
+        <p class="note">Core + 4 satélites · líneas suaves conectoras · stack mobile</p>
+      </div>
+      <div class="card">
+        <h3>M7 · Mermaid card</h3>
+        <p class="note">Mermaid wrapped en card con theme MetodologIA · primary navy · secondary gold</p>
+      </div>
+      <div class="card">
+        <h3>M8 · Modal explainer</h3>
+        <p class="note">Overlay navy 0.6 · card centrada max 640px radius 20 · focus-trap · ESC close</p>
+      </div>
+      <div class="card">
+        <h3>M9 · Quote pull</h3>
+        <p class="note">Border-left 4px gold · mark "❝" gold 48 · italic Poppins 24 navy</p>
+      </div>
+      <div class="card">
+        <h3>M10 · Footer 3-col</h3>
+        <p class="note">Brand + tagline gold · links · meta · bg dark</p>
+      </div>
+    </div>
+
+    <h3 style="margin-top:48px">Demo · elementos UI básicos</h3>
+    <div class="example-component">
+      <p style="margin-bottom: 16px;">Botones (primary + secondary):</p>
+      <div style="display:flex;gap:16px;flex-wrap:wrap;margin-bottom:24px">
+        <button class="demo-button demo-btn-primary">Primary CTA</button>
+        <button class="demo-button demo-btn-secondary">Secondary CTA</button>
+      </div>
+      <p style="margin-bottom: 16px;">Chips (lilac + gold):</p>
+      <div style="display:flex;gap:12px;flex-wrap:wrap">
+        <span class="demo-chip">Categoría humana</span>
+        <span class="demo-chip" style="background:var(--gold)">Brand signal</span>
+        <span class="demo-chip" style="background:transparent;color:var(--blue);border:1px solid var(--blue)">Outline</span>
+      </div>
+    </div>
+  </section>
+
+  <section id="redlist">
+    <span class="section-badge">Anti-patrones · top-5</span>
+    <h2>Lista roja visual · 0 tolerancia</h2>
+    <div class="grid-2">
+      <div class="card">
+        <h3 style="color:#DC2626">No hacer</h3>
+        <ul class="checklist redlist">
+          <li>Fotos stock realistas</li>
+          <li>Texturas raster (papel arrugado, grunge)</li>
+          <li>Colores fuera de paleta canónica</li>
+          <li>Sombras profundas (drop-shadow ≥10px)</li>
+          <li>Mezcla de estilos icono (line + solid + 3D)</li>
+          <li>Texto sobre fondo ruidoso</li>
+          <li>Verde dominante (#42D36F, #00FF00)</li>
+          <li>Más de 3 sizes tipográficos por pieza</li>
+        </ul>
+      </div>
+      <div class="card">
+        <h3 style="color:var(--navy)">Sí hacer</h3>
+        <ul class="checklist">
+          <li>Ilustración vectorial flat</li>
+          <li>Geometría limpia · radius suaves</li>
+          <li>Solo 6 colores canónicos + neutrales</li>
+          <li>Micro-shadow suave (≤6px blur)</li>
+          <li>Un solo estilo de icono por pieza</li>
+          <li>Texto sobre canvas plano + alto contraste</li>
+          <li>Lilac para temas humanos</li>
+          <li>Max 3 sizes tipográficos por pieza</li>
+        </ul>
+      </div>
+    </div>
+
+    <h3 style="margin-top:48px">Validación brand visual · checklist</h3>
+    <ul class="checklist">
+      <li>Solo 6 colores canónicos + neutrales/derivados oficiales</li>
+      <li>Tipografías: Poppins (head) + Montserrat (body) + Trebuchet (notes)</li>
+      <li>Max 3 sizes tipográficos por pieza</li>
+      <li>WCAG AA mínimo (AAA preferido): 4.5:1 / 7:1</li>
+      <li>Spacing en múltiplos de 8px</li>
+      <li>Cards con shadow suave (≤6px blur)</li>
+      <li>Iconos consistentes (un solo estilo por pieza)</li>
+      <li>0 imágenes raster realistas en hero</li>
+      <li>0 colores fuera de paleta</li>
+      <li>0 verde dominante</li>
+      <li>Footer presente con MetodologIA · year · license</li>
+      <li>Footer NO usa "gratis" ni derivados (consistente con voz v4)</li>
+    </ul>
+  </section>
+</main>
+
+<footer>
+  <div class="footer-inner">
+    <div class="footer-brand">
+      <h4>MetodologIA<span style="color:var(--gold)"> ·</span></h4>
+      <p>Estética Neo-Swiss Clean and Soft Explainer · Corporate Clean and Premium.</p>
+      <p style="margin-top:8px;font-size:13px;color:rgba(255,255,255,.6)">Sistema visual replicable: paleta + tipografía + componentes M1-M10.</p>
+    </div>
+    <div class="footer-links">
+      <h5>Documentos</h5>
+      <ul>
+        <li><a href="metodologia-brand-voice-v4.html">Brand Voice v4.0</a></li>
+        <li><a href="../references/02-aesthetic-neo-swiss-v1.md">Aesthetic MD</a></li>
+        <li><a href="../references/03-nudge-phrases.md">Nudge Phrases</a></li>
+        <li><a href="../assets/color-tokens.json">Color Tokens JSON</a></li>
+      </ul>
+    </div>
+    <div class="footer-links">
+      <h5>Atribución</h5>
+      <ul>
+        <li>Autor: Javier Montaño</li>
+        <li>Versión: 1.0.0</li>
+        <li>Año: 2026</li>
+        <li>License: CC BY-NC-SA 4.0</li>
+      </ul>
+    </div>
+  </div>
+  <div class="footer-meta">
+    <span>© 2026 Javier Montaño · MetodologIA · Todos los derechos reservados según licencia CC BY-NC-SA 4.0</span>
+    <span>Generado por <code style="color:var(--gold);background:transparent">metodologia-content-forge</code> v1.0.0</span>
+  </div>
+</footer>
+
+</body>
+</html>
