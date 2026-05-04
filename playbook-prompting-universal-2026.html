@@ -979,36 +979,70 @@ html.dark .pillar-tag{
 <!-- ═══ § 5 · ANATOMÍA DE UN PROMPT ═══ -->
 <section id="anatomia" class="reveal">
   <span class="eyebrow"><span class="es">§ 5 · Fundamentos · Estructura</span><span class="en">§ 5 · Fundamentals · Structure</span></span>
-  <h2><span class="es"><strong>Anatomía</strong> de un prompt efectivo</span><span class="en"><strong>Anatomy</strong> of an effective prompt</span></h2>
-  <p style="max-width:62ch"><span class="es">Los 5 pilares, ordenados en 6 partes replicables. Cualquier prompt completo tiene esta estructura. Es la base; el SPEC v3.4 con sus 12 cláusulas (§ 9.5 + § 10) la lleva al estándar profesional.</span><span class="en">The 5 pillars, ordered into 6 replicable parts. Every complete prompt has this structure. It's the base; SPEC v3.4 with its 12 clauses (§ 9.5 + § 10) lifts it to the professional standard.</span></p>
+  <h2><span class="es"><strong>Anatomía</strong> de un prompt efectivo · estructura SPEC</span><span class="en"><strong>Anatomy</strong> of an effective prompt · SPEC structure</span></h2>
+  <p style="max-width:65ch"><span class="es"><strong>SPEC</strong> es el acrónimo del cuerpo de cualquier prompt profesional: <strong>S</strong>ituación · <strong>P</strong>edido · <strong>E</strong>jecución · <strong>C</strong>riterios. Antes del SPEC va el encabezado: <strong>Nombre</strong>, <strong>Inputs</strong> con notación <code>{[INPUT]}</code>, <strong>Resumen</strong>. Esa estructura completa es la que sostiene los 2026 prompts de la biblioteca.</span><span class="en"><strong>SPEC</strong> is the acronym for the body of any professional prompt: <strong>S</strong>ituation · <strong>P</strong>etition · <strong>E</strong>xecution · <strong>C</strong>riteria. Before the SPEC comes the header: <strong>Name</strong>, <strong>Inputs</strong> with <code>{[INPUT]}</code> notation, <strong>Summary</strong>. That complete structure is what sustains the 2026 prompts in the library.</span></p>
 
+  <h3 class="cadenas-group"><span class="group-tag">A</span> <span class="es">Encabezado · qué prompt es y qué necesita</span><span class="en">Header · what prompt this is and what it needs</span></h3>
   <div class="attr-grid">
-    <div class="attr-card clickable" data-modal-id="anat-rol"><div class="num">1</div><h3><span class="es">Rol</span><span class="en">Role</span></h3><p><span class="es">"Actúa como [perfil específico]". No "experto general": "Coach senior en ventas B2B con 10 años en SaaS".</span><span class="en">"Act as [specific profile]". Not "general expert": "Senior B2B sales coach with 10 years in SaaS".</span></p></div>
-    <div class="attr-card clickable" data-modal-id="anat-contexto"><div class="num">2</div><h3><span class="es">Contexto</span><span class="en">Context</span></h3><p><span class="es">Información de fondo necesaria. Cliente, sector, restricciones, decisiones previas. Sin contexto = output genérico.</span><span class="en">Necessary background. Client, sector, restrictions, prior decisions. No context = generic output.</span></p></div>
-    <div class="attr-card clickable" data-modal-id="anat-tarea"><div class="num">3</div><h3><span class="es">Tarea</span><span class="en">Task</span></h3><p><span class="es">Verbo en imperativo + objeto + propósito. "Diseña una estrategia X para lograr Y, dirigida a Z".</span><span class="en">Imperative verb + object + purpose. "Design strategy X to achieve Y, targeted at Z".</span></p></div>
-    <div class="attr-card clickable" data-modal-id="anat-formato"><div class="num">4</div><h3><span class="es">Formato</span><span class="en">Format</span></h3><p><span class="es">Cómo quieres el output. Tabla, JSON, párrafo, slide deck. Incluye longitud, idioma, registro.</span><span class="en">How you want the output. Table, JSON, paragraph, slide deck. Include length, language, register.</span></p></div>
-    <div class="attr-card clickable" data-modal-id="anat-restricciones"><div class="num">5</div><h3><span class="es">Restricciones</span><span class="en">Constraints</span></h3><p><span class="es">Lo que NO debe hacer. "Sin jerga", "no inventes datos", "no más de 200 palabras". Negativos protegen.</span><span class="en">What it must NOT do. "No jargon", "don't invent data", "no more than 200 words". Negatives protect.</span></p></div>
-    <div class="attr-card clickable" data-modal-id="anat-ejemplos"><div class="num">6</div><h3><span class="es">Ejemplos</span><span class="en">Examples</span></h3><p><span class="es">Few-shot opcional pero potente. 2-3 ejemplos del input/output deseado. Calibra el modelo a tu estándar.</span><span class="en">Optional but powerful few-shot. 2-3 examples of desired input/output. Calibrates the model to your standard.</span></p></div>
+    <div class="attr-card clickable" data-modal-id="anat-nombre"><div class="num">1</div><h3><span class="es">Nombre <span class="pillar-tag">[P3]</span></span><span class="en">Name <span class="pillar-tag">[P3]</span></span></h3><p><span class="es">Título corto y específico que identifica el prompt. Debe permitir invocarlo después: <code>SWOT v3.4</code>, <code>Plan de comunicación interna</code>, <code>Análisis competitivo Porter</code>. Sin nombre, no se puede catalogar ni reusar.</span><span class="en">Short specific title that identifies the prompt. Must allow invoking it later: <code>SWOT v3.4</code>, <code>Internal comm plan</code>, <code>Porter competitive analysis</code>. Without a name, it can't be catalogued or reused.</span></p></div>
+    <div class="attr-card clickable" data-modal-id="anat-inputs"><div class="num">2</div><h3><span class="es">Inputs <span class="pillar-tag">[P2]</span></span><span class="en">Inputs <span class="pillar-tag">[P2]</span></span></h3><p><span class="es">Variables que el usuario rellena al invocar. Notación canónica: <code>{[NOMBRE_INPUT]}</code> — llave + corchete, mayúsculas, snake_case. Ej: <code>{[ORGANIZACION]}</code>, <code>{[OBJETIVO_NEGOCIO]}</code>, <code>{[HORIZONTE_TIEMPO]}</code>. Cada input declarado debe usarse en EJECUCIÓN o CRITERIOS.</span><span class="en">Variables the user fills when invoking. Canonical notation: <code>{[INPUT_NAME]}</code> — brace + bracket, uppercase, snake_case. E.g.: <code>{[ORGANIZATION]}</code>, <code>{[BUSINESS_GOAL]}</code>, <code>{[TIME_HORIZON]}</code>. Every declared input must appear in EXECUTION or CRITERIA.</span></p></div>
+    <div class="attr-card clickable" data-modal-id="anat-resumen"><div class="num">3</div><h3><span class="es">Resumen <span class="pillar-tag">[P1]</span></span><span class="en">Summary <span class="pillar-tag">[P1]</span></span></h3><p><span class="es">1-2 frases que dicen qué hace el prompt y qué outcome entrega. Útil para que el usuario decida si invocarlo sin leer el SPEC completo. Es el "elevator pitch" del prompt.</span><span class="en">1-2 sentences saying what the prompt does and what outcome it delivers. Lets the user decide whether to invoke without reading the full SPEC. The prompt's "elevator pitch".</span></p></div>
+  </div>
+
+  <h3 class="cadenas-group"><span class="group-tag">B</span> <span class="es">Cuerpo SPEC · Situación · Pedido · Ejecución · Criterios</span><span class="en">SPEC body · Situation · Petition · Execution · Criteria</span></h3>
+  <div class="attr-grid">
+    <div class="attr-card clickable" data-modal-id="anat-situacion"><div class="num">S</div><h3><span class="es">Situación <span class="pillar-tag">[P2]</span></span><span class="en">Situation <span class="pillar-tag">[P2]</span></span></h3><p><span class="es">Contexto de uso del prompt. Quién es el usuario, qué problema resuelve, qué decisiones se desprenden del output. Aquí entra también el ROL específico que asume la IA. Sin situación, output genérico.</span><span class="en">Context where the prompt is used. Who the user is, what problem it solves, what decisions follow from the output. The specific ROLE the AI takes lives here too. Without situation, generic output.</span></p></div>
+    <div class="attr-card clickable" data-modal-id="anat-pedido"><div class="num">P</div><h3><span class="es">Pedido <span class="pillar-tag">[P2]</span></span><span class="en">Petition <span class="pillar-tag">[P2]</span></span></h3><p><span class="es">Verbo en imperativo + objeto + propósito + audiencia. "Diseña X para lograr Y, dirigido a Z". Es el corazón del prompt — todo lo demás existe para que el pedido se ejecute con calidad.</span><span class="en">Imperative verb + object + purpose + audience. "Design X to achieve Y, targeted at Z". The heart of the prompt — everything else exists so the petition executes with quality.</span></p></div>
+    <div class="attr-card clickable" data-modal-id="anat-ejecucion"><div class="num">E</div><h3><span class="es">Ejecución <span class="pillar-tag">[P3]</span></span><span class="en">Execution <span class="pillar-tag">[P3]</span></span></h3><p><span class="es">Pasos numerados que la IA debe seguir para producir el output. Detalla el método, no solo el resultado. Aquí cada <code>{[INPUT]}</code> declarado en el encabezado se usa explícitamente. Sin pasos, la IA improvisa.</span><span class="en">Numbered steps the AI must follow to produce the output. Describes the method, not just the result. Each <code>{[INPUT]}</code> declared in the header is used explicitly here. Without steps, the AI improvises.</span></p></div>
+    <div class="attr-card clickable" data-modal-id="anat-criterios"><div class="num">C</div><h3><span class="es">Criterios <span class="pillar-tag">[P1]</span></span><span class="en">Criteria <span class="pillar-tag">[P1]</span></span></h3><p><span class="es">Cómo se sabe que el output salió bien. Se descompone en 3 sub-bloques: <strong>Criterios de Aceptación</strong> · <strong>Casos Borde</strong> · <strong>Comprobaciones</strong>. La IA usa los Criterios para auto-evaluarse antes de entregar.</span><span class="en">How you know the output came out right. Decomposes into 3 sub-blocks: <strong>Acceptance Criteria</strong> · <strong>Edge Cases</strong> · <strong>Checks</strong>. The AI uses Criteria to self-evaluate before delivering.</span></p></div>
+  </div>
+
+  <div class="pivote-callout callout-blue" style="margin-top:1.6rem">
+    <p><strong><span class="es">🎯 Sub-descomposición de Criterios <span class="pillar-tag">[P1]</span></span><span class="en">🎯 Criteria sub-decomposition <span class="pillar-tag">[P1]</span></span></strong> · <span class="es">Esto es lo que diferencia un prompt amateur de uno profesional: <strong>Criterios de Aceptación</strong> (lo que debe cumplir el output sí o sí) · <strong>Casos Borde</strong> (escenarios límite donde el output puede fallar y cómo manejarlos) · <strong>Comprobaciones</strong> (lista de chequeo que la IA aplica antes de entregar — auto-evaluación). Si los tres sub-bloques están explícitos, la IA <em>no entrega</em> hasta que los pasa todos. Eso es el 100 Check (§ 11) por construcción.</span><span class="en">This is what separates an amateur prompt from a professional one: <strong>Acceptance Criteria</strong> (what the output must meet, no exceptions) · <strong>Edge Cases</strong> (boundary scenarios where output may fail and how to handle them) · <strong>Checks</strong> (checklist the AI applies before delivering — self-evaluation). If all three sub-blocks are explicit, the AI <em>does not deliver</em> until it passes all of them. That's the 100 Check (§ 11) by construction.</span></p>
   </div>
 
   <div class="pivote-callout" style="margin-top:1.6rem">
     <p><strong><span class="es">📋 SPEC Template artifact (copia · pega · adapta) <span class="pillar-tag">[P3]</span></span><span class="en">📋 SPEC Template artifact (copy · paste · adapt) <span class="pillar-tag">[P3]</span></span></strong></p>
-    <pre style="background:rgba(18,37,98,.08); padding:1rem 1.2rem; border-radius:6px; overflow-x:auto; font-family:'Courier New',monospace; font-size:.85rem; line-height:1.6; margin:.8rem 0 .4rem"><code>ROL: [perfil específico · senior · con framing meta-cognitivo]
-CONTEXTO: [quién pregunta · sector · decisión que sigue]
-TAREA: [verbo imperativo + objeto + propósito]
-FORMATO: [tabla / JSON / markdown · longitud · idioma]
-RESTRICCIONES: [lo que NO debe hacer · sin jerga · sin invento]
-EJEMPLOS: [2-3 pares input → output del estándar deseado]
-CRITERIO: [cómo se sabe que salió bien · falsable]</code></pre>
-    <p style="margin:.6rem 0 0; font-size:.92rem"><span class="es">Este es tu prompt de ahora en adelante. Pégalo en cualquier IA, llena los corchetes con tu caso, recibe output del nivel SPEC v3.4 sin construir desde cero.</span><span class="en">This is your prompt from now on. Paste in any AI, fill brackets with your case, get SPEC v3.4-level output without building from scratch.</span></p>
-  </div>
+    <pre style="background:rgba(18,37,98,.08); padding:1rem 1.2rem; border-radius:6px; overflow-x:auto; font-family:'Courier New',monospace; font-size:.85rem; line-height:1.6; margin:.8rem 0 .4rem"><code>NOMBRE: [título corto y específico del prompt]
 
-  <div style="display:none">
+INPUTS:
+- {[NOMBRE_INPUT_1]}: [qué espera · tipo · ejemplo]
+- {[NOMBRE_INPUT_2]}: [qué espera · tipo · ejemplo]
+- {[NOMBRE_INPUT_3]}: [qué espera · tipo · ejemplo]
+
+RESUMEN: [1-2 frases · qué hace el prompt · qué outcome entrega]
+
+SPEC:
+
+  SITUACIÓN:
+  [contexto de uso · quién pregunta · qué problema resuelve · ROL específico de la IA]
+
+  PEDIDO:
+  [verbo imperativo + objeto + propósito + audiencia]
+
+  EJECUCIÓN:
+  1. [paso 1 · usa {[INPUT]} declarado]
+  2. [paso 2 · usa {[INPUT]} declarado]
+  3. [paso 3 · cierra con output requerido]
+
+  CRITERIOS:
+    Criterios de Aceptación:
+    - [qué debe cumplir el output sí o sí]
+    - [qué debe cumplir el output sí o sí]
+
+    Casos Borde:
+    - [escenario límite + cómo manejarlo]
+    - [escenario límite + cómo manejarlo]
+
+    Comprobaciones:
+    - [check que la IA aplica antes de entregar]
+    - [check que la IA aplica antes de entregar]</code></pre>
+    <p style="margin:.6rem 0 0; font-size:.92rem"><span class="es">Este es el formato canónico que sostiene los 2026 prompts de la biblioteca. Cópialo, llena los corchetes, recibe output del nivel SPEC v3.4 sin construir desde cero.</span><span class="en">This is the canonical format sustaining the 2026 library prompts. Copy it, fill the brackets, get SPEC v3.4-level output without building from scratch.</span></p>
   </div>
 
   <div style="margin-top:2.5rem; padding:1.4rem 1.6rem; background:rgba(19,125,197,.08); border-left:4px solid var(--blue); border-radius:var(--radius-sm)">
-    <h4 style="margin:0 0 .6em"><span class="es">SPEC visual · los 4 cuadrantes mentales</span><span class="en">SPEC visual · the 4 mental quadrants</span></h4>
-    <p style="margin:0; font-size:.92rem"><span class="es"><strong>QUIÉN</strong> (Rol) · <strong>QUÉ</strong> (Tarea) · <strong>CÓMO</strong> (Formato + Restricciones) · <strong>POR QUÉ</strong> (Contexto + Propósito). Si tu prompt tiene los 4, está completo.</span><span class="en"><strong>WHO</strong> (Role) · <strong>WHAT</strong> (Task) · <strong>HOW</strong> (Format + Constraints) · <strong>WHY</strong> (Context + Purpose). If your prompt has all 4, it's complete.</span></p>
+    <h4 style="margin:0 0 .6em"><span class="es">Memo mental · cómo leer SPEC en 1 segundo</span><span class="en">Mental memo · how to read SPEC in 1 second</span></h4>
+    <p style="margin:0; font-size:.92rem"><span class="es"><strong>S</strong>ituación = QUIÉN + DÓNDE · <strong>P</strong>edido = QUÉ · <strong>E</strong>jecución = CÓMO · <strong>C</strong>riterios = CUÁNDO ESTÁ HECHO. Si tu prompt tiene los 4 bloques con sus contenidos completos, está listo. Si falta alguno, la IA llenará el hueco con lo más probable estadísticamente — y eso casi siempre es genérico.</span><span class="en"><strong>S</strong>ituation = WHO + WHERE · <strong>P</strong>etition = WHAT · <strong>E</strong>xecution = HOW · <strong>C</strong>riteria = WHEN IT'S DONE. If your prompt has all 4 blocks with full content, it's ready. If any is missing, the AI fills the gap with the statistically likeliest — and that's almost always generic.</span></p>
   </div>
 </section>
 
