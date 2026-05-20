@@ -1,0 +1,566 @@
+<!DOCTYPE html>
+<html lang="es" data-theme="light">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Workbook de clase para iniciar la configuracion de Jarvis OS en Claude: CV personal, perfil de cargo y preparacion de 1:1 con jefe.">
+<meta name="author" content="Javier Montaño · MetodologIA">
+<title>Workbook · Jarvis OS en Claude</title>
+<meta name="metodologia:brand-resources" content="00_Recursos/referencias/catalogo-recursos-marca.md">
+<meta name="metodologia:brand-lessons" content="00_Recursos/referencias/lecciones-aprendidas-marca-y-entregables.md">
+<link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 36 36'%3E%3Cdefs%3E%3ClinearGradient id='g' x1='0%25' y1='0%25' x2='100%25' y2='100%25'%3E%3Cstop offset='0%25' stop-color='%23122562'/%3E%3Cstop offset='100%25' stop-color='%231F2833'/%3E%3C/linearGradient%3E%3C/defs%3E%3Crect width='36' height='36' rx='10' fill='url(%23g)'/%3E%3Cpath d='M10 12h3v12h-3V12zm6 0h3v8h-3v-8zm0 10h3v2h-3v-2zm6-10h3v6h-3v-6zm0 8h3v4h-3v-4z' fill='%23fff'/%3E%3Ccircle cx='18' cy='8' r='2' fill='%23FFD700'/%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&family=Poppins:wght@600;700;800&family=JetBrains+Mono:wght@400;600&display=swap">
+<script src="https://unpkg.com/lucide@0.469.0/dist/umd/lucide.js" defer></script>
+<style>
+:root{--navy:#122562;--gold:#FFD700;--gold-dark:#8a6500;--blue:#137DC5;--paper:#F9FAFB;--ink:#1F2833;--muted:#5B6677;--line:rgba(18,37,98,.14);--soft:#FFF8D6;--ok:#15803d;--font-head:'Poppins',system-ui,sans-serif;--font-body:'Montserrat',system-ui,sans-serif;--font-mono:'JetBrains Mono',ui-monospace,monospace}
+*{box-sizing:border-box}body{margin:0;background:var(--paper);color:var(--ink);font-family:var(--font-body);line-height:1.65}h1,h2,h3{font-family:var(--font-head);line-height:1.15;color:var(--navy);margin:0}h1{font-size:clamp(2rem,5vw,4rem)}h2{font-size:clamp(1.45rem,3vw,2.1rem)}h3{font-size:1.08rem}p{margin:.65rem 0 0}.cover{background:linear-gradient(135deg,#fff 0%,#f3f6fb 58%,#fff8d6 100%);border-bottom:1px solid var(--line)}.cover-inner{max-width:1040px;margin:auto;padding:4.5rem 1rem 3rem}.badge{display:inline-flex;padding:.35rem .7rem;border-radius:999px;background:rgba(255,215,0,.18);border:1px solid rgba(255,215,0,.45);font-size:.72rem;text-transform:uppercase;letter-spacing:.1em;font-weight:800;color:var(--gold-dark);margin-bottom:1rem}.lead{font-size:1.05rem;color:var(--muted);max-width:74ch}.wrap{max-width:1040px;margin:auto;padding:2.5rem 1rem}.grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:1rem}.grid-3{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:1rem}.card{background:#fff;border:1px solid var(--line);border-radius:12px;padding:1.15rem;box-shadow:0 10px 28px rgba(18,37,98,.07)}.card p,.card li{color:var(--muted);font-size:.94rem}.step{display:grid;grid-template-columns:64px minmax(0,1fr);gap:1rem;background:#fff;border:1px solid var(--line);border-radius:12px;padding:1rem;margin:1rem 0}.num{width:48px;height:48px;border-radius:10px;background:var(--navy);color:var(--gold);display:flex;align-items:center;justify-content:center;font-family:var(--font-head);font-weight:800}.fields{display:grid;gap:.8rem;margin-top:1rem}label{font-weight:700;color:var(--navy);font-size:.86rem}textarea,input{width:100%;border:1px solid var(--line);border-radius:10px;padding:.75rem;font:inherit;background:#fff;color:var(--ink)}textarea{min-height:96px;resize:vertical}.hint{font-size:.82rem;color:var(--muted);margin-top:.25rem}.prompt{background:#0A122A;color:#E8EEF8;border-radius:12px;overflow:hidden;border:1px solid #24324f;margin-top:.8rem}.prompt-head{display:flex;justify-content:space-between;align-items:center;gap:1rem;background:#142044;padding:.65rem .8rem}.prompt-head span{font-family:var(--font-mono);font-size:.76rem;color:var(--gold)}button.copy{border:1px solid #53617c;background:transparent;color:#dbe5f6;border-radius:7px;padding:.35rem .6rem;cursor:pointer;font-weight:700}button.copy:hover,button.copy.ok{background:var(--gold);color:#122562;border-color:var(--gold)}pre{margin:0;padding:1rem;white-space:pre-wrap;overflow:auto;font-family:var(--font-mono);font-size:.82rem;line-height:1.55}.checklist{display:grid;gap:.55rem;margin-top:1rem}.check{display:flex;align-items:flex-start;gap:.55rem;background:#fff;border:1px solid var(--line);border-radius:10px;padding:.8rem}.check input{width:auto;margin-top:.3rem}.callout{background:var(--soft);border-left:5px solid var(--gold);border-radius:10px;padding:1rem 1.15rem}.table{overflow:auto;border:1px solid var(--line);border-radius:12px;background:#fff}.table table{width:100%;border-collapse:collapse;min-width:720px}.table th{background:var(--navy);color:var(--gold);text-align:left}.table th,.table td{padding:.75rem;border-bottom:1px solid var(--line);vertical-align:top}.table td{color:var(--muted);font-size:.92rem}.footer{background:#0A122A;color:rgba(255,255,255,.72);padding:2rem 1rem}.footer div{max-width:1040px;margin:auto}.footer strong{color:var(--gold)}@media(max-width:780px){.grid,.grid-3,.step{grid-template-columns:1fr}.cover-inner{padding-top:3rem}.num{width:42px;height:42px}}@media print{button.copy{display:none}.cover,.footer{background:#fff;color:#000}.card,.step{box-shadow:none}textarea{min-height:72px}}
+
+/* MetodologIA official shell · sidebar + standard header */
+.brand-has-shell{padding-left:56px;transition:background .25s,color .25s}
+.hdr{position:fixed;top:0;left:56px;right:0;height:52px;z-index:920;background:rgba(249,250,251,.9);backdrop-filter:blur(16px);-webkit-backdrop-filter:blur(16px);border-bottom:1px solid var(--line)}
+.hdr-inner{height:100%;display:flex;align-items:center;justify-content:space-between;gap:.8rem;padding:0 1rem;max-width:1200px;margin:0 auto}
+.hdr-left,.hdr-right{display:flex;align-items:center;gap:.55rem}.hdr-title{font-family:var(--font-head);font-weight:800;color:var(--navy);font-size:.9rem;letter-spacing:0}.hdr-title span{color:var(--gold-dark)}
+.hdr-btn{width:36px;height:36px;border-radius:9px;border:1px solid rgba(18,37,98,.16);background:#fff;color:var(--navy);display:inline-flex;align-items:center;justify-content:center;cursor:pointer;transition:background .2s,color .2s,border-color .2s,transform .2s}.hdr-btn:hover{background:var(--gold);color:#0A122A;border-color:var(--gold);transform:translateY(-1px)}.hdr-btn svg{width:18px;height:18px}
+.sidebar-nav{position:fixed;top:0;left:0;bottom:0;width:56px;z-index:1000;display:flex;flex-direction:column;align-items:center;padding:1.1rem 0 .85rem;gap:2px;background:rgba(255,251,240,.94);backdrop-filter:blur(16px);-webkit-backdrop-filter:blur(16px);border-right:1px solid rgba(18,37,98,.10);overflow:visible}
+.sidebar-logo{width:36px;height:36px;margin-bottom:.45rem;flex:0 0 auto}.sidebar-logo svg{width:100%;height:100%;display:block}.sidebar-links{display:flex;flex-direction:column;align-items:center;gap:2px;flex:1;justify-content:center}.sidebar-nav a{position:relative;display:flex;align-items:center;justify-content:center;width:40px;height:40px;border-radius:10px;color:#6B5300;text-decoration:none;border:none!important;transition:color .25s,background .25s,transform .2s}.sidebar-nav a:hover{color:#0A122A;background:rgba(255,215,0,.18);transform:scale(1.08)}.sidebar-nav a.active{color:#0A122A;background:rgba(255,215,0,.12)}.sidebar-nav a.active::before{content:'';position:absolute;left:0;top:50%;transform:translateY(-50%);width:3px;height:20px;border-radius:0 2px 2px 0;background:#FFD700}.sidebar-nav a svg{width:20px;height:20px;color:inherit;flex-shrink:0;stroke-width:2}.sidebar-nav a::after{content:attr(data-label);position:absolute;left:calc(100% + 10px);top:50%;transform:translateY(-50%) translateX(-4px);background:#0A122A;color:#fff;font-family:var(--font-head);font-size:.7rem;font-weight:600;padding:.32rem .65rem;border-radius:6px;white-space:nowrap;opacity:0;pointer-events:none;transition:opacity .2s,transform .2s;box-shadow:0 4px 12px rgba(0,0,0,.18)}.sidebar-nav a:hover::after,.sidebar-nav a:focus-visible::after{opacity:1;transform:translateY(-50%) translateX(0)}
+.sidebar-bottom{display:flex;align-items:center;justify-content:center;gap:.35rem;flex:0 0 auto}.sidebar-pristino{background:#fff!important;border:1px solid rgba(18,37,98,.14)!important}.sidebar-pristino img{width:24px;height:24px;object-fit:contain;display:block}.brand-has-shell .hero,.brand-has-shell .cover{scroll-margin-top:72px}
+html[data-theme="dark"]{--paper:#0A122A;--ink:#E8EEF8;--muted:#CBD5E1;--line:rgba(255,215,0,.22)}html[data-theme="dark"] .hdr{background:rgba(10,18,42,.92);border-bottom-color:rgba(255,215,0,.18)}html[data-theme="dark"] .hdr-title{color:#fff}html[data-theme="dark"] .hdr-title span{color:var(--gold)}html[data-theme="dark"] .hdr-btn{background:#101b3d;color:#FFD700;border-color:rgba(255,215,0,.22)}html[data-theme="dark"] .sidebar-nav{background:rgba(31,40,51,.94);border-right-color:rgba(255,215,0,.14)}html[data-theme="dark"] .sidebar-nav a{color:#FFD700}html[data-theme="dark"] .sidebar-nav a:hover,html[data-theme="dark"] .sidebar-nav a.active{color:#FFD700;background:rgba(255,215,0,.14)}html[data-theme="dark"] .card,html[data-theme="dark"] .hero-card,html[data-theme="dark"] .metric,html[data-theme="dark"] .source-list a,html[data-theme="dark"] .step,html[data-theme="dark"] .table,html[data-theme="dark"] .check,html[data-theme="dark"] textarea,html[data-theme="dark"] input{background:#fff;color:#1F2833}html[data-theme="dark"] .card h3,html[data-theme="dark"] .hero-card h3,html[data-theme="dark"] .metric strong,html[data-theme="dark"] label,html[data-theme="dark"] h1,html[data-theme="dark"] h2,html[data-theme="dark"] h3{color:#122562}html[data-theme="dark"] .card p,html[data-theme="dark"] .card li,html[data-theme="dark"] .table td,html[data-theme="dark"] .hint,html[data-theme="dark"] .lead{color:#5B6677}
+@media(max-width:860px){.brand-has-shell{padding-left:0;padding-bottom:60px}.hdr{left:0}.hdr-title{max-width:56vw;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}.sidebar-nav{top:auto!important;bottom:0;left:0;right:0;width:100%;height:56px;flex-direction:row;padding:0 .35rem;border-right:none;border-top:1px solid rgba(18,37,98,.10);padding-bottom:env(safe-area-inset-bottom,0px)}.sidebar-logo,.sidebar-bottom{display:none}.sidebar-links{flex-direction:row;gap:0;justify-content:space-around;width:100%}.sidebar-nav a{width:38px;height:38px;min-width:44px;min-height:44px}.sidebar-nav a svg{width:18px;height:18px}.sidebar-nav a::after{display:none}.sidebar-nav a.active::before{left:50%;top:auto;bottom:0;transform:translateX(-50%);width:20px;height:3px;border-radius:3px 3px 0 0}}
+@media print{.hdr,.sidebar-nav{display:none!important}.brand-has-shell{padding-left:0!important;padding-bottom:0!important}}
+
+
+/* Aceleradores official shell override · MetodologIA base playbook */
+:root{
+  --shell-glass-bg: var(--glass-bg, rgba(255,251,240,.92));
+  --shell-border: var(--border, rgba(18,37,98,.12));
+  --shell-text-muted: var(--text-muted, var(--muted, #5B6677));
+  --shell-navy: var(--navy, #122562);
+  --shell-gold: var(--gold, #FFD700);
+  --shell-gold-dark: var(--gold-dark, #8a6500);
+  --shell-radius-sm: var(--radius-sm, 8px);
+  --shell-font-head: var(--font-head, 'Poppins', system-ui, sans-serif);
+}
+.hdr{display:none!important}
+.en{display:none!important}html[lang="en"] .es{display:none!important}html[lang="en"] .en{display:inline!important}html:not([lang="en"]) .en{display:none!important}
+body,body.brand-has-shell{padding-left:0!important;padding-bottom:calc(56px + env(safe-area-inset-bottom,0px))!important}
+.sidebar-nav{position:fixed!important;top:auto!important;bottom:0!important;left:0!important;right:0!important;width:100%!important;max-width:none!important;min-width:0!important;height:56px!important;z-index:1000!important;display:flex!important;flex-direction:row!important;align-items:center!important;padding:0 .5rem!important;gap:2px!important;background:var(--shell-glass-bg)!important;backdrop-filter:blur(16px)!important;-webkit-backdrop-filter:blur(16px)!important;border-right:none!important;border-top:1px solid var(--shell-border)!important;border-bottom:none!important;overflow:visible!important}
+.sidebar-logo{display:none!important}.sidebar-logo svg{width:32px!important;height:32px!important;border-radius:6px!important}.sidebar-links{display:flex!important;flex-direction:row!important;align-items:center!important;gap:0!important;flex:1 1 auto!important;justify-content:space-around!important;width:100%!important;min-width:0!important}.sidebar-nav a{position:relative!important;display:flex!important;align-items:center!important;justify-content:center!important;width:36px!important;height:36px!important;min-width:44px!important;min-height:44px!important;border-radius:10px!important;color:var(--shell-text-muted)!important;text-decoration:none!important;border:none!important;background:transparent!important;transition:color .25s,background .25s,transform .2s!important}.sidebar-nav a:hover{color:var(--shell-gold-dark)!important;background:rgba(184,134,11,.08)!important;transform:scale(1.1)!important;text-decoration:none!important}html.dark .sidebar-nav a:hover{color:var(--shell-gold)!important;background:rgba(255,215,0,.1)!important}.sidebar-nav a.active{color:var(--shell-gold-dark)!important}html.dark .sidebar-nav a.active{color:var(--shell-gold)!important}.sidebar-nav a.active::before{content:''!important;position:absolute!important;left:50%!important;top:auto!important;bottom:0!important;transform:translateX(-50%)!important;width:20px!important;height:3px!important;border-radius:3px 3px 0 0!important;background:var(--shell-gold)!important}.sidebar-nav a svg{width:18px!important;height:18px!important;color:var(--shell-gold-dark)!important;flex-shrink:0!important;stroke-width:2!important}html.dark .sidebar-nav a svg{color:var(--shell-gold)!important}.sidebar-nav a::after{display:none!important}
+.sidebar-bottom{position:fixed!important;right:.55rem!important;bottom:calc(62px + env(safe-area-inset-bottom,0px))!important;display:flex!important;flex-direction:row!important;align-items:center!important;gap:5px!important;margin-top:0!important;padding:.28rem!important;border:1px solid var(--shell-border)!important;border-radius:12px!important;background:var(--shell-glass-bg)!important;backdrop-filter:blur(16px)!important;-webkit-backdrop-filter:blur(16px)!important;box-shadow:0 8px 24px rgba(18,37,98,.12)!important}.sidebar-bottom a{width:34px!important;height:34px!important;min-width:34px!important;min-height:34px!important;border-radius:8px!important;margin:0!important}.sidebar-bottom a img{width:24px!important;height:24px!important;border-radius:6px!important;object-fit:contain!important}.sidebar-bottom button{width:34px!important;height:34px!important;border-radius:8px!important;border:1px solid var(--shell-border)!important;background:transparent!important;color:var(--shell-text-muted)!important;cursor:pointer!important;font-family:var(--shell-font-head)!important;font-size:.65rem!important;font-weight:700!important;display:flex!important;align-items:center!important;justify-content:center!important;transition:all .2s!important}.sidebar-bottom button:hover:not(:disabled){background:var(--shell-gold)!important;color:var(--shell-navy)!important;border-color:var(--shell-gold)!important}.sidebar-bottom button:disabled{opacity:.55!important;cursor:default!important}.sidebar-bottom button svg{width:16px!important;height:16px!important}
+html.dark .sidebar-nav,html.dark .sidebar-bottom{background:rgba(31,40,51,.92)!important;border-color:rgba(255,215,0,.15)!important}html.dark .sidebar-bottom button{color:var(--shell-gold)!important;border-color:rgba(255,215,0,.18)!important}
+@media(min-width:769px){body,body.brand-has-shell{padding-left:56px!important;padding-bottom:0!important}.sidebar-nav{top:0!important;bottom:0!important;left:0!important;right:auto!important;width:56px!important;height:auto!important;flex-direction:column!important;padding:1.25rem 0 1rem!important;border-right:1px solid var(--shell-border)!important;border-top:none!important}.sidebar-logo{display:flex!important;align-items:center!important;justify-content:center!important;margin-bottom:1rem!important;padding-bottom:.75rem!important;border-bottom:1px solid var(--shell-border)!important}.sidebar-links{flex-direction:column!important;gap:2px!important;width:auto!important;justify-content:center!important}.sidebar-nav a{width:40px!important;height:40px!important;min-width:auto!important;min-height:auto!important}.sidebar-nav a svg{width:20px!important;height:20px!important}.sidebar-nav a::after{content:attr(data-label)!important;display:block!important;position:absolute!important;left:calc(100% + 10px)!important;top:50%!important;transform:translateY(-50%) translateX(-4px)!important;background:var(--shell-navy)!important;color:#fff!important;font-family:var(--shell-font-head)!important;font-size:.7rem!important;font-weight:600!important;padding:.35rem .7rem!important;border-radius:var(--shell-radius-sm)!important;white-space:nowrap!important;opacity:0!important;pointer-events:none!important;transition:opacity .2s,transform .2s!important;box-shadow:0 2px 8px rgba(0,0,0,.15)!important}.sidebar-nav a:hover::after,.sidebar-nav a:focus-visible::after{opacity:1!important;transform:translateY(-50%) translateX(0)!important}html.dark .sidebar-nav a::after{background:#1F2833!important;border:1px solid rgba(255,215,0,.15)!important}.sidebar-nav a.active::before{left:0!important;top:50%!important;bottom:auto!important;transform:translateY(-50%)!important;width:3px!important;height:20px!important;border-radius:0 2px 2px 0!important}.sidebar-bottom{position:static!important;display:flex!important;flex-direction:column!important;align-items:center!important;gap:6px!important;margin-top:auto!important;padding:.75rem 0 0!important;border-top:1px solid var(--shell-border)!important;border-left:none!important;border-right:none!important;border-bottom:none!important;border-radius:0!important;background:transparent!important;box-shadow:none!important;backdrop-filter:none!important;-webkit-backdrop-filter:none!important}.sidebar-bottom a{width:38px!important;height:38px!important;min-width:auto!important;min-height:auto!important;margin-bottom:.5rem!important}}
+@media(print){.sidebar-nav{display:none!important}body,body.brand-has-shell{padding-left:0!important;padding-bottom:0!important}}
+
+</style>
+<style id="bilingual-self-contained-style">
+.localized-en{display:none!important}
+body.lang-en > :not(nav):not(script):not(style):not(.localized-en){display:none!important}
+body.lang-en > .localized-en{display:block!important}
+.en-document{background:var(--paper,#F9FAFB);color:var(--ink,#1F2833);min-height:100vh}.en-section{max-width:1040px;margin:auto;padding:2.5rem 1rem}.en-hero{background:linear-gradient(135deg,#fff 0%,#f3f6fb 58%,#fff8d6 100%);border-bottom:1px solid var(--line,rgba(18,37,98,.14));padding:4.5rem 1rem 3rem}.en-kicker{display:inline-flex;padding:.35rem .7rem;border-radius:999px;background:rgba(255,215,0,.18);border:1px solid rgba(255,215,0,.45);font-size:.72rem;text-transform:uppercase;letter-spacing:.1em;font-weight:800;color:var(--gold-dark,#8a6500);margin-bottom:1rem}.en-document h1,.en-document h2,.en-document h3{font-family:var(--font-head,'Poppins',system-ui,sans-serif);color:var(--navy,#122562)}.en-document h1{font-size:clamp(2rem,5vw,4rem);line-height:1.1;margin:0}.en-document h2{font-size:clamp(1.45rem,3vw,2.1rem);margin:0 0 1rem}.en-lead{font-size:1.05rem;color:var(--muted,#5B6677);max-width:74ch;line-height:1.7}.en-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:1rem}.en-grid-2{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:1rem}.en-card{background:#fff;border:1px solid var(--line,rgba(18,37,98,.14));border-radius:12px;padding:1.15rem;box-shadow:0 10px 28px rgba(18,37,98,.07)}.en-card p,.en-card li{color:var(--muted,#5B6677);font-size:.94rem}.en-checklist{display:grid;gap:.55rem}.en-check{background:#fff;border:1px solid var(--line,rgba(18,37,98,.14));border-radius:10px;padding:.8rem}.en-prompt{background:#0A122A;color:#E8EEF8;border-radius:12px;border:1px solid #24324f;padding:1rem;font-family:var(--font-mono,'JetBrains Mono',monospace);white-space:pre-wrap;overflow:auto;font-size:.84rem;line-height:1.55}.en-table{overflow:auto;border:1px solid var(--line,rgba(18,37,98,.14));border-radius:12px;background:#fff}.en-table table{width:100%;border-collapse:collapse;min-width:720px}.en-table th{background:var(--navy,#122562);color:var(--gold,#FFD700);text-align:left}.en-table th,.en-table td{padding:.75rem;border-bottom:1px solid var(--line,rgba(18,37,98,.14));vertical-align:top}.en-table td{color:var(--muted,#5B6677);font-size:.92rem}
+html.dark .en-document,html[data-theme="dark"] .en-document{background:#071A33;color:#EAF1FF}html.dark .en-hero,html[data-theme="dark"] .en-hero{background:#071A33;border-color:rgba(255,215,0,.18)}html.dark .en-document h1,html.dark .en-document h2,html.dark .en-document h3,html[data-theme="dark"] .en-document h1,html[data-theme="dark"] .en-document h2,html[data-theme="dark"] .en-document h3{color:#FFF8D6}html.dark .en-lead,html.dark .en-card p,html.dark .en-card li,html.dark .en-table td,html[data-theme="dark"] .en-lead,html[data-theme="dark"] .en-card p,html[data-theme="dark"] .en-card li,html[data-theme="dark"] .en-table td{color:#D7E0EF}html.dark .en-card,html.dark .en-check,html.dark .en-table,html[data-theme="dark"] .en-card,html[data-theme="dark"] .en-check,html[data-theme="dark"] .en-table{background:#10264A;border-color:rgba(255,215,0,.24);box-shadow:none}
+@media(max-width:780px){.en-grid,.en-grid-2{grid-template-columns:1fr}.en-table table{min-width:650px}}
+</style>
+</head>
+<body class="brand-has-shell">
+<nav class="sidebar-nav" aria-label="Navegación del workbook">
+  <div class="sidebar-logo">
+    <svg viewBox="0 0 36 36" xmlns="http://www.w3.org/2000/svg"><defs><linearGradient id="sg" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" stop-color="#122562"/><stop offset="100%" stop-color="#1F2833"/></linearGradient></defs><rect width="36" height="36" rx="10" fill="url(#sg)"/><path d="M10 12h3v12h-3V12zm6 0h3v8h-3v-8zm0 10h3v2h-3v-2zm6-10h3v6h-3v-6zm0 8h3v4h-3v-4z" fill="#fff"/><circle cx="18" cy="8" r="2" fill="#FFD700"/></svg>
+  </div>
+  <div class="sidebar-links">
+    <a href="#cover" data-label="Inicio" aria-label="Inicio"><i data-lucide="home"></i></a>
+    <a href="#preparacion" data-label="Trae" aria-label="Trae"><i data-lucide="briefcase"></i></a>
+    <a href="#ficha" data-label="Ficha" aria-label="Ficha"><i data-lucide="id-card"></i></a>
+    <a href="#carpeta" data-label="Carpeta" aria-label="Carpeta"><i data-lucide="folder-tree"></i></a>
+    <a href="#ejercicios" data-label="Ejercicios" aria-label="Ejercicios"><i data-lucide="list-checks"></i></a>
+    <a href="#artefactos" data-label="Artefactos" aria-label="Artefactos"><i data-lucide="file-check-2"></i></a>
+    <a href="#cierre" data-label="Cierre" aria-label="Cierre"><i data-lucide="check-circle-2"></i></a>
+  </div>
+  <div class="sidebar-bottom">
+    <a href="#cierre" data-label="Tu paso" title="Tu siguiente paso"><img src="https://raw.githubusercontent.com/ejemplo-deo-repo/mao-brand-assets/main/pristino_logo_primary.png" alt="Siguiente paso"></a>
+    <button type="button" onclick="toggleDark()" aria-label="Cambiar modo oscuro/claro" id="darkBtn"><i data-lucide="moon" style="width:16px;height:16px"></i></button>
+    <button type="button" onclick="toggleLang()" aria-label="Cambiar idioma" id="langBtn" title="Cambiar idioma">ES</button>
+  </div>
+</nav>
+<script>
+window.__bilingualNav={
+  es:[['#cover','Inicio'],['#preparacion','Trae'],['#ficha','Ficha'],['#carpeta','Carpeta'],['#ejercicios','Ejercicios'],['#artefactos','Artefactos'],['#cierre','Cierre']],
+  en:[['#en-cover','Start'],['#en-bring','Bring'],['#en-sheet','Sheet'],['#en-folder','Folder'],['#en-exercises','Exercises'],['#en-artifacts','Artifacts'],['#en-close','Close']]
+};
+</script>
+<main class="localized-en en-document" id="en-cover">
+  <section class="en-hero"><div class="en-section" style="padding-top:0;padding-bottom:0"><span class="en-kicker">Class workbook · live use</span><h1>Configure your Jarvis OS in Claude</h1><p class="en-lead">This workbook supports the masterclass. Its goal is to leave three initial artifacts: a personal CV source, a role profile and a preparation note for a 1:1 conversation with your manager. Method First, (Gen)AI Next.</p></div></section>
+  <section class="en-section" id="en-bring"><span class="en-kicker">Bring to class</span><div class="en-grid"><article class="en-card"><h3>Bring annexes</h3><p>CV or LinkedIn, role description or real functions, one upcoming 1:1 and useful annexes: feedback, goals, achievements, doubts or examples of work.</p></article><article class="en-card"><h3>Protect sensitive data</h3><p>Use placeholders for phone, ID, salary, address, health or any personal data that should not remain in a group exercise.</p></article><article class="en-card"><h3>Human decision</h3><p>The AI helps you ask and organize. You validate what is true, what is missing and what can be used with your manager.</p></article></div></section>
+  <section class="en-section" id="en-sheet"><span class="en-kicker">Personal preparation</span><h2>Quick sheet before opening Claude Cowork</h2><p class="en-lead">Answer these 5 questions before running the prompts. Cowork should analyze them, request missing parameters and suggest which annexes to attach before proposing files.</p><div class="en-grid-2"><article class="en-card"><h3>1. Who am I professionally today?</h3><p>Name, current role, area and team.</p></article><article class="en-card"><h3>2. What result do I want in 30-90 days?</h3><p>Performance, visibility, focus, workload, learning, growth or transition.</p></article><article class="en-card"><h3>3. What formal role do I have and what work am I really doing?</h3><p>Separate title, responsibilities, friction, stakeholders and unclear expectations.</p></article><article class="en-card"><h3>4. What conversation with my manager do I need to prepare?</h3><p>Priorities, feedback, workload, expectations, growth, visibility, blockers or pending agreements.</p></article><article class="en-card"><h3>5. What evidence or annexes can I use?</h3><p>CV, LinkedIn, role description, feedback, metrics, projects, emails, goals, deliverables or meeting notes.</p></article></div><h3 style="margin-top:1.4rem">Checklist before pasting the prompt</h3><div class="en-checklist"><div class="en-check">I have a 30-90 day goal in one sentence.</div><div class="en-check">I have at least one profile annex: CV, LinkedIn or professional summary.</div><div class="en-check">I have at least one role annex: job description, real functions, goals or responsibilities.</div><div class="en-check">I know which 1:1 conversation I want to prepare.</div><div class="en-check">I replaced sensitive data with placeholders.</div></div></section>
+  <section class="en-section" id="en-folder"><span class="en-kicker">Folder structure</span><h2>Minimum folder for the exercise</h2><pre class="en-prompt">jarvis-os-clase/
+├── 00_contexto/
+│   ├── cv-personal.md
+│   └── memoria-profesional.md
+├── 01_rol/
+│   ├── perfil-de-cargo.md
+│   └── mapa-responsabilidades.md
+├── 02_1a1/
+│   ├── preparacion-1a1-jefe.md
+│   └── preguntas-jefe.md
+└── CLAUDE.md</pre></section>
+  <section class="en-section" id="en-exercises"><span class="en-kicker">Guided exercises</span><h2>Four steps to build the context</h2><div class="en-grid"><article class="en-card"><h3>1. Safety rules</h3><p>Create <code>CLAUDE.md</code> with rules for confirmation, truthfulness, placeholders and no external sending.</p></article><article class="en-card"><h3>2. CV source</h3><p>Build <code>00_contexto/cv-personal.md</code> as the single source for profile, evidence and gaps.</p></article><article class="en-card"><h3>3. Real role profile</h3><p>Build <code>01_rol/perfil-de-cargo.md</code> separating formal role from real work.</p></article><article class="en-card"><h3>4. 1:1 preparation</h3><p>Build <code>02_1a1/preparacion-1a1-jefe.md</code> with objective, evidence, questions, agreements and minutes.</p></article></div></section>
+  <section class="en-section" id="en-artifacts"><span class="en-kicker">Expected artifacts</span><h2>What should remain at the end</h2><div class="en-table"><table><thead><tr><th>File</th><th>Contains</th><th>Done when</th></tr></thead><tbody><tr><td><code>CLAUDE.md</code></td><td>Safety, truthfulness and confirmation rules.</td><td>It includes explicit limits and marks assumptions.</td></tr><tr><td><code>cv-personal.md</code></td><td>Professional profile, achievements, evidence and gaps.</td><td>It can feed CV, LinkedIn or introductions.</td></tr><tr><td><code>perfil-de-cargo.md</code></td><td>Responsibilities, stakeholders, performance and ambiguity.</td><td>It separates formal title from real work.</td></tr><tr><td><code>preparacion-1a1-jefe.md</code></td><td>Objective, facts, questions, agreements and minutes.</td><td>It lets you enter the 1:1 with agenda and evidence.</td></tr></tbody></table></div></section>
+  <section class="en-section" id="en-close"><span class="en-kicker">Close</span><h2>Class close</h2><p class="en-lead">Jarvis OS starts when your context becomes organized and reusable. The AI does not replace the conversation with your manager; it helps you arrive with more clarity, evidence and judgment.</p></section>
+</main>
+<header class="cover" id="cover">
+  <div class="cover-inner">
+    <span class="badge">Workbook de clase · uso en vivo</span>
+    <h1>Configura tu Jarvis OS en Claude</h1>
+    <p class="lead">Este workbook acompaña la masterclass. Su objetivo es dejar tres artefactos iniciales: CV personal fuente, perfil de cargo y preparación de una conversación 1:1 con tu jefe. No busca automatizar tu carrera; busca darte un sistema para pensarla, documentarla y conversarla mejor. Metodo primero, (Gen)AI Después.</p>
+  </div>
+</header>
+
+<main>
+  <section class="wrap" id="preparacion">
+    <div class="grid-3">
+      <article class="card"><h3>Trae a clase</h3><p>CV o LinkedIn, descripción de cargo o funciones reales, una reunión 1:1 próxima y anexos útiles: feedback, objetivos, logros, dudas o ejemplos de trabajo.</p></article>
+      <article class="card"><h3>No pegues datos sensibles</h3><p>Usa placeholders para teléfono, documento, salario, direcciones, salud o cualquier dato personal que no deba quedar en un ejercicio grupal.</p></article>
+      <article class="card"><h3>Decisión humana</h3><p>La IA puede ayudarte a preguntar y ordenar. Tú validas qué es verdadero, qué falta y qué se puede usar frente a tu jefe.</p></article>
+    </div>
+  </section>
+
+  <section class="wrap" id="ficha">
+    <span class="badge">Preparación personal</span>
+    <h2>Ficha rápida antes de abrir Claude Cowork</h2>
+    <p class="lead">Responde estas 5 preguntas antes de ejecutar los prompts. Cowork debe analizarlas, pedir los parámetros faltantes y decir qué anexos conviene adjuntar antes de proponer archivos o cambios.</p>
+    <div class="fields">
+      <div><label>1. ¿Quién soy profesionalmente hoy?</label><input placeholder="Ej. Nombre Apellido · rol actual · área o equipo"></div>
+      <div><label>2. ¿Qué resultado quiero lograr en los próximos 30-90 días?</label><textarea placeholder="Describe el cambio concreto: desempeño, visibilidad, foco, carga, aprendizaje, crecimiento o transición."></textarea></div>
+      <div><label>3. ¿Qué rol formal tengo y qué trabajo real estoy haciendo?</label><textarea placeholder="Distingue cargo, responsabilidades reales, fricciones, stakeholders y expectativas que no estén claras."></textarea></div>
+      <div><label>4. ¿Qué conversación necesito preparar con mi jefe?</label><textarea placeholder="Ej. prioridades, feedback, carga, expectativas, crecimiento, visibilidad, bloqueo o acuerdos pendientes."></textarea></div>
+      <div><label>5. ¿Qué evidencia o anexos puedo usar?</label><textarea placeholder="Ej. CV, LinkedIn, descripción de cargo, feedback, métricas, proyectos, correos, objetivos, entregables o notas de reuniones."></textarea></div>
+    </div>
+    <h3 style="margin-top:1.4rem">Checklist antes de pegar el prompt</h3>
+    <div class="checklist">
+      <label class="check"><input type="checkbox"> Tengo mi objetivo de 30-90 días escrito en una frase.</label>
+      <label class="check"><input type="checkbox"> Tengo al menos un anexo de perfil: CV, LinkedIn o resumen profesional.</label>
+      <label class="check"><input type="checkbox"> Tengo al menos un anexo de rol: cargo, funciones reales, objetivos o responsabilidades.</label>
+      <label class="check"><input type="checkbox"> Tengo claro qué conversación 1:1 quiero preparar y qué decisión busco habilitar.</label>
+      <label class="check"><input type="checkbox"> Reemplacé datos sensibles por placeholders antes de pegarlos o adjuntarlos.</label>
+    </div>
+  </section>
+
+  <section class="wrap" id="carpeta">
+    <span class="badge">Estructura de carpeta</span>
+    <h2>La carpeta mínima del ejercicio</h2>
+    <p class="lead">Crea una carpeta local llamada <strong>jarvis-os-clase</strong>. Si usas Claude Code, abre la terminal dentro de esa carpeta. Si usas Cowork, conecta esa carpeta como workspace. Si usas Chat, crea los archivos manualmente al terminar.</p>
+    <div class="prompt">
+      <div class="prompt-head"><span>Árbol de trabajo</span><button class="copy" data-copy>Copiar</button></div>
+      <div class="repo-tree" aria-label="Árbol de trabajo jarvis-os-clase">
+        <div class="repo-root"><i data-lucide="folder-open"></i><span>jarvis-os-clase/</span></div>
+        <div class="repo-grid">
+          <section class="repo-folder">
+            <div class="repo-path"><i data-lucide="folder"></i><span>00_contexto/</span></div>
+            <div class="repo-children">
+              <div class="repo-file"><i data-lucide="file-text"></i><span>cv-personal.md</span></div>
+              <div class="repo-file"><i data-lucide="file-text"></i><span>memoria-profesional.md</span></div>
+            </div>
+          </section>
+          <section class="repo-folder">
+            <div class="repo-path"><i data-lucide="folder"></i><span>01_rol/</span></div>
+            <div class="repo-children">
+              <div class="repo-file"><i data-lucide="file-text"></i><span>perfil-de-cargo.md</span></div>
+              <div class="repo-file"><i data-lucide="file-text"></i><span>mapa-responsabilidades.md</span></div>
+            </div>
+          </section>
+          <section class="repo-folder">
+            <div class="repo-path"><i data-lucide="folder"></i><span>02_1a1/</span></div>
+            <div class="repo-children">
+              <div class="repo-file"><i data-lucide="file-text"></i><span>preparacion-1a1-jefe.md</span></div>
+              <div class="repo-file"><i data-lucide="file-text"></i><span>preguntas-jefe.md</span></div>
+            </div>
+          </section>
+        </div>
+        <div class="repo-root-file"><i data-lucide="file-code-2"></i><span>CLAUDE.md</span></div>
+      </div>
+      <pre class="copy-source" data-copy-source hidden>jarvis-os-clase/
+├── 00_contexto/
+│   ├── cv-personal.md
+│   └── memoria-profesional.md
+├── 01_rol/
+│   ├── perfil-de-cargo.md
+│   └── mapa-responsabilidades.md
+├── 02_1a1/
+│   ├── preparacion-1a1-jefe.md
+│   └── preguntas-jefe.md
+└── CLAUDE.md</pre>
+    </div>
+  </section>
+
+  <section class="wrap" id="ejercicios">
+    <span class="badge">Ejercicios guiados</span>
+    <h2>Cuatro pasos para montar el contexto</h2>
+
+    <article class="step">
+      <div class="num">1</div>
+      <div>
+        <h3>Crear reglas de seguridad y alcance</h3>
+        <p>Primero defines cómo quieres que la IA se comporte con tus datos y tus archivos.</p>
+        <div class="prompt">
+          <div class="prompt-head"><span>Prompt 1 · CLAUDE.md de clase</span><button class="copy" data-copy>Copiar</button></div>
+          <pre>Crea o actualiza un archivo CLAUDE.md para esta carpeta de clase.
+
+Reglas:
+1. Antes de editar un archivo, explica qué cambiarás y pide confirmación.
+2. No inventes datos sobre mi carrera, mi cargo ni mi jefe.
+3. Marca [SUPUESTO] cuando algo no esté confirmado.
+4. No envíes correos, mensajes ni invitaciones.
+5. Los datos sensibles se escriben como placeholders.
+6. Todo output debe terminar con próximos pasos verificables.</pre>
+        </div>
+      </div>
+    </article>
+
+    <article class="step">
+      <div class="num">2</div>
+      <div>
+        <h3>Montar CV personal fuente</h3>
+        <p>El CV fuente no es el CV bonito. Es el archivo canónico desde donde luego podrás crear versiones para LinkedIn, hoja de vida, bio o entrevista.</p>
+        <div class="prompt">
+          <div class="prompt-head"><span>Prompt 2 · cv-personal.md</span><button class="copy" data-copy>Copiar</button></div>
+          <pre>Ayúdame a construir 00_contexto/cv-personal.md como fuente única de mi perfil profesional.
+
+Primero hazme hasta 7 preguntas sobre:
+- rol actual,
+- experiencia relevante,
+- logros verificables,
+- herramientas que manejo,
+- fortalezas,
+- proyectos representativos,
+- evidencia pendiente.
+
+Después redacta el archivo en secciones: resumen profesional, experiencia, logros, habilidades, evidencias, huecos por confirmar y versiones posibles del perfil. Marca todo supuesto con [SUPUESTO].</pre>
+        </div>
+      </div>
+    </article>
+
+    <article class="step">
+      <div class="num">3</div>
+      <div>
+        <h3>Montar perfil de cargo real</h3>
+        <p>El perfil de cargo no siempre coincide con lo que haces. La IA debe ayudarte a separar cargo formal, responsabilidades reales, expectativas y tensiones.</p>
+        <div class="prompt">
+          <div class="prompt-head"><span>Prompt 3 · perfil-de-cargo.md</span><button class="copy" data-copy>Copiar</button></div>
+          <pre>Construyamos 01_rol/perfil-de-cargo.md.
+
+Te voy a pegar o describir mi perfil de cargo. Si falta información, pregúntame.
+
+Quiero que lo organices en:
+1. Propósito del rol.
+2. Responsabilidades formales.
+3. Responsabilidades reales que ejecuto.
+4. Indicadores o señales de buen desempeño.
+5. Stakeholders principales.
+6. Fricciones o ambigüedades.
+7. Riesgos de expectativa.
+8. Preguntas que debería aclarar con mi jefe.
+
+No cambies mi perfil; ordénalo y marca huecos.</pre>
+        </div>
+      </div>
+    </article>
+
+    <article class="step">
+      <div class="num">4</div>
+      <div>
+        <h3>Preparar 1:1 con jefe</h3>
+        <p>El objetivo es salir con una conversación más clara: agenda, evidencia, preguntas y acuerdos esperados.</p>
+        <div class="prompt">
+          <div class="prompt-head"><span>Prompt 4 · preparacion-1a1-jefe.md</span><button class="copy" data-copy>Copiar</button></div>
+          <pre>Usa 00_contexto/cv-personal.md y 01_rol/perfil-de-cargo.md para preparar 02_1a1/preparacion-1a1-jefe.md.
+
+La conversación con mi jefe busca: [escribe objetivo].
+
+Quiero que produzcas:
+1. Objetivo de la reunión en una frase.
+2. Tres hechos verificables que debo llevar.
+3. Tres preguntas potentes para mi jefe.
+4. Temas que debo evitar o tratar con cuidado.
+5. Propuesta de acuerdos concretos.
+6. Minuta lista para llenar durante la reunión.
+7. Mensaje breve para pedir o confirmar la reunión.
+
+Antes de escribir, hazme las preguntas que falten. No inventes feedback de mi jefe.</pre>
+        </div>
+      </div>
+    </article>
+  </section>
+
+  <section class="wrap" id="artefactos">
+    <span class="badge">Artefactos esperados</span>
+    <h2>Qué debe quedar al cierre</h2>
+    <div class="table">
+      <table>
+        <thead><tr><th>Archivo</th><th>Qué contiene</th><th>Criterio de terminado</th></tr></thead>
+        <tbody>
+          <tr><td><code>CLAUDE.md</code></td><td>Reglas de seguridad, veracidad y confirmación.</td><td>Incluye límites explícitos y obliga a marcar supuestos.</td></tr>
+          <tr><td><code>cv-personal.md</code></td><td>Perfil profesional fuente, logros, evidencias y huecos.</td><td>Puede alimentar CV, LinkedIn o presentación sin recontar todo.</td></tr>
+          <tr><td><code>perfil-de-cargo.md</code></td><td>Responsabilidades, stakeholders, desempeño y ambigüedades.</td><td>Distingue cargo formal de trabajo real.</td></tr>
+          <tr><td><code>preparacion-1a1-jefe.md</code></td><td>Objetivo, hechos, preguntas, acuerdos y minuta.</td><td>Permite entrar al 1:1 con agenda y evidencia.</td></tr>
+          <tr><td><code>preguntas-jefe.md</code></td><td>Banco de preguntas para aclarar expectativas.</td><td>Prioriza preguntas de alto impacto y bajo riesgo.</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </section>
+
+  <section class="wrap" id="cierre">
+    <div class="callout"><strong>Cierre de clase:</strong> un Jarvis OS empieza cuando tu contexto queda organizado y reutilizable. La IA no reemplaza la conversación con tu jefe; te ayuda a llegar con más claridad, evidencia y criterio.</div>
+    <div class="checklist">
+      <label class="check"><input type="checkbox"> Ya tengo carpeta de trabajo creada.</label>
+      <label class="check"><input type="checkbox"> Ya tengo reglas de seguridad en CLAUDE.md.</label>
+      <label class="check"><input type="checkbox"> Ya tengo CV fuente con huecos marcados.</label>
+      <label class="check"><input type="checkbox"> Ya tengo perfil de cargo ordenado.</label>
+      <label class="check"><input type="checkbox"> Ya tengo agenda de 1:1 lista para revisar.</label>
+    </div>
+  </section>
+</main>
+
+<footer class="footer">
+  <div><strong>MetodologIA · Workbook Jarvis OS en Claude</strong><br>Metodo primero, (Gen)AI Después. Uso en clase. Privacidad por defecto. Confirmación humana antes de registrar, enviar o modificar información crítica.</div>
+</footer>
+
+<script>
+document.addEventListener('DOMContentLoaded',function(){
+  if(window.lucide){window.lucide.createIcons();}
+  document.querySelectorAll('[data-copy]').forEach(function(btn){
+    btn.addEventListener('click',function(){
+      var prompt=btn.closest('.prompt');
+      var source=prompt.querySelector('[data-copy-source]') || prompt.querySelector('pre');
+      var text=source ? source.textContent.replace(/\s+$/,'') : '';
+      navigator.clipboard.writeText(text).then(function(){
+        var old=btn.textContent; btn.textContent='Copiado'; btn.classList.add('ok');
+        setTimeout(function(){btn.textContent=old;btn.classList.remove('ok');},1400);
+      });
+    });
+  });
+});
+</script>
+
+
+<style id="workbook-repo-tree">
+.repo-tree{padding:1rem;background:#0A122A;color:#E8EEF8;border-top:1px solid rgba(255,215,0,.16);font-family:var(--font-mono);font-size:.82rem;line-height:1.45}
+.repo-root,.repo-root-file,.repo-path,.repo-file{display:flex;align-items:center;gap:.48rem;min-width:0}
+.repo-root{padding:.8rem .9rem;border:1px solid rgba(255,215,0,.28);border-radius:10px;background:rgba(255,215,0,.11);color:#FFE55C;font-weight:700}
+.repo-root svg,.repo-root-file svg,.repo-path svg,.repo-file svg{width:16px;height:16px;flex:0 0 16px;stroke-width:2;color:#FFD700}
+.repo-root span,.repo-root-file span,.repo-path span,.repo-file span{min-width:0;overflow-wrap:anywhere}
+.repo-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:.75rem;margin-top:.85rem}
+.repo-folder{min-width:0;padding:.85rem;border:1px solid rgba(255,255,255,.12);border-radius:10px;background:rgba(255,255,255,.045)}
+.repo-path{color:#FFF8D6;font-weight:700;margin-bottom:.65rem}
+.repo-children{display:grid;gap:.45rem}
+.repo-file{padding:.48rem .55rem;border:1px solid rgba(255,255,255,.1);border-radius:8px;background:rgba(255,255,255,.055);color:#D7E0EF}
+.repo-file svg{color:#B8C6D9}
+.repo-root-file{margin-top:.85rem;padding:.72rem .85rem;border:1px dashed rgba(255,215,0,.38);border-radius:10px;background:rgba(255,215,0,.08);color:#FFF8D6;font-weight:700}
+pre.copy-source[hidden]{display:none!important}
+html.dark .repo-tree,html[data-theme="dark"] .repo-tree{background:#071426!important;color:#EAF1FF!important;border-color:rgba(255,215,0,.2)!important}
+html.dark .repo-folder,html[data-theme="dark"] .repo-folder,html.dark .repo-file,html[data-theme="dark"] .repo-file{background:rgba(255,255,255,.055)!important;border-color:rgba(255,215,0,.18)!important;color:#D7E0EF!important}
+html.dark .repo-root,html[data-theme="dark"] .repo-root,html.dark .repo-root-file,html[data-theme="dark"] .repo-root-file{background:rgba(255,215,0,.1)!important;border-color:rgba(255,215,0,.34)!important;color:#FFE55C!important}
+@media(max-width:780px){.repo-tree{padding:.85rem;font-size:.78rem}.repo-grid{grid-template-columns:1fr;gap:.6rem}.repo-folder{padding:.75rem}.repo-file{padding:.5rem}.repo-root,.repo-root-file{padding:.7rem .75rem}}
+</style>
+
+
+
+
+<style id="aceleradores-shell-final">
+/* Final cascade lock · MetodologIA/Aceleradores official sidebar + readable toggles */
+.hdr{display:none!important}
+body.lang-en .es,html[lang="en"] .es{display:none!important}
+body.lang-en .en,html[lang="en"] .en{display:inline!important}
+body.lang-es .en,html:not([lang="en"]) .en{display:none!important}
+body.lang-es .es,html:not([lang="en"]) .es{display:inline!important}
+:root{
+  --shell-glass-bg:var(--glass-bg,rgba(255,251,240,.92));
+  --shell-border:var(--border,rgba(18,37,98,.12));
+  --shell-text-muted:var(--text-muted,var(--muted,#5B6677));
+  --shell-navy:var(--navy,#122562);
+  --shell-gold:var(--gold,#FFD700);
+  --shell-gold-dark:var(--gold-dark,#8a6500);
+  --shell-radius-sm:var(--radius-sm,8px);
+  --shell-font-head:var(--font-head,var(--font-display,'Poppins',system-ui,sans-serif));
+}
+body,body.brand-has-shell{padding-left:0!important;padding-bottom:calc(56px + env(safe-area-inset-bottom,0px))!important}
+nav.sidebar-nav,.sidebar-nav{position:fixed!important;top:auto!important;bottom:0!important;left:0!important;right:0!important;width:100%!important;max-width:none!important;min-width:0!important;height:56px!important;z-index:100!important;display:flex!important;flex-direction:row!important;align-items:center!important;padding:0 .5rem!important;gap:2px!important;background:var(--shell-glass-bg)!important;backdrop-filter:blur(16px)!important;-webkit-backdrop-filter:blur(16px)!important;border-right:none!important;border-left:none!important;border-bottom:none!important;border-top:1px solid var(--shell-border)!important;overflow:visible!important;margin:0!important;border-radius:0!important;box-shadow:none!important}
+nav.sidebar-nav .sidebar-logo,.sidebar-nav .sidebar-logo{display:none!important}
+nav.sidebar-nav .sidebar-logo svg,.sidebar-nav .sidebar-logo svg{width:32px!important;height:32px!important;border-radius:6px!important;display:block!important}
+nav.sidebar-nav .sidebar-links,.sidebar-nav .sidebar-links{display:flex!important;flex-direction:row!important;align-items:center!important;gap:0!important;flex:1 1 auto!important;justify-content:space-around!important;width:100%!important;min-width:0!important;overflow:visible!important}
+nav.sidebar-nav a,.sidebar-nav a{position:relative!important;display:flex!important;align-items:center!important;justify-content:center!important;width:36px!important;height:36px!important;min-width:44px!important;min-height:44px!important;border-radius:10px!important;color:var(--shell-text-muted)!important;text-decoration:none!important;border:none!important;background:transparent!important;transition:color .25s,background .25s,transform .2s!important;margin:0!important;padding:0!important;max-width:none!important;box-shadow:none!important}
+nav.sidebar-nav a:hover,.sidebar-nav a:hover{color:var(--shell-gold-dark)!important;background:rgba(184,134,11,.08)!important;transform:scale(1.1)!important;text-decoration:none!important;border-bottom-color:transparent!important}
+nav.sidebar-nav a.active,.sidebar-nav a.active{color:var(--shell-gold-dark)!important;background:transparent!important}
+nav.sidebar-nav a.active::before,.sidebar-nav a.active::before{content:''!important;position:absolute!important;left:50%!important;top:auto!important;bottom:0!important;transform:translateX(-50%)!important;width:20px!important;height:3px!important;border-radius:3px 3px 0 0!important;background:var(--shell-gold)!important}
+nav.sidebar-nav a svg,.sidebar-nav a svg,nav.sidebar-nav a i,.sidebar-nav a i{width:18px!important;height:18px!important;color:var(--shell-gold-dark)!important;stroke-width:2!important;flex-shrink:0!important}
+nav.sidebar-nav a::after,.sidebar-nav a::after{display:none!important}
+.sidebar-bottom{position:fixed!important;right:.55rem!important;bottom:calc(62px + env(safe-area-inset-bottom,0px))!important;display:flex!important;flex-direction:row!important;align-items:center!important;gap:5px!important;margin:0!important;padding:.28rem!important;border:1px solid var(--shell-border)!important;border-radius:12px!important;background:var(--shell-glass-bg)!important;backdrop-filter:blur(16px)!important;-webkit-backdrop-filter:blur(16px)!important;box-shadow:0 8px 24px rgba(18,37,98,.12)!important}
+.sidebar-bottom a{width:34px!important;height:34px!important;min-width:34px!important;min-height:34px!important;border-radius:8px!important;margin:0!important;background:transparent!important;border:none!important;display:flex!important;align-items:center!important;justify-content:center!important}
+.sidebar-bottom a img{width:24px!important;height:24px!important;border-radius:6px!important;object-fit:contain!important;display:block!important}
+.sidebar-bottom button{width:34px!important;height:34px!important;border-radius:8px!important;border:1px solid var(--shell-border)!important;background:transparent!important;color:var(--shell-text-muted)!important;cursor:pointer!important;font-family:var(--shell-font-head)!important;font-size:.65rem!important;font-weight:700!important;display:flex!important;align-items:center!important;justify-content:center!important;transition:background .2s,color .2s,border-color .2s,transform .2s!important;line-height:1!important}
+.sidebar-bottom button:hover:not(:disabled){background:var(--shell-gold)!important;color:var(--shell-navy)!important;border-color:var(--shell-gold)!important;transform:translateY(-1px)!important}
+.sidebar-bottom button:disabled{opacity:.55!important;cursor:default!important;transform:none!important}
+.sidebar-bottom button svg{width:16px!important;height:16px!important}
+@media(min-width:769px){
+  body,body.brand-has-shell{padding-left:56px!important;padding-bottom:0!important}
+  nav.sidebar-nav,.sidebar-nav{top:0!important;bottom:0!important;left:0!important;right:auto!important;width:56px!important;height:auto!important;max-width:56px!important;min-width:56px!important;flex-direction:column!important;padding:1.25rem 0 1rem!important;border-right:1px solid var(--shell-border)!important;border-top:none!important}
+  nav.sidebar-nav .sidebar-logo,.sidebar-nav .sidebar-logo{display:flex!important;align-items:center!important;justify-content:center!important;margin-bottom:1rem!important;padding-bottom:.75rem!important;border-bottom:1px solid var(--shell-border)!important;width:auto!important;height:auto!important}
+  nav.sidebar-nav .sidebar-links,.sidebar-nav .sidebar-links{flex-direction:column!important;gap:2px!important;width:auto!important;justify-content:center!important}
+  nav.sidebar-nav a,.sidebar-nav a{width:40px!important;height:40px!important;min-width:auto!important;min-height:auto!important}
+  nav.sidebar-nav a svg,.sidebar-nav a svg,nav.sidebar-nav a i,.sidebar-nav a i{width:20px!important;height:20px!important}
+  nav.sidebar-nav a::after,.sidebar-nav a::after{content:attr(data-label)!important;display:block!important;position:absolute!important;left:calc(100% + 10px)!important;top:50%!important;transform:translateY(-50%) translateX(-4px)!important;background:var(--shell-navy)!important;color:#fff!important;font-family:var(--shell-font-head)!important;font-size:.7rem!important;font-weight:600!important;padding:.35rem .7rem!important;border-radius:var(--shell-radius-sm)!important;white-space:nowrap!important;opacity:0!important;pointer-events:none!important;transition:opacity .2s,transform .2s!important;box-shadow:0 2px 8px rgba(0,0,0,.15)!important;z-index:200!important}
+  nav.sidebar-nav a:hover::after,.sidebar-nav a:hover::after,nav.sidebar-nav a:focus-visible::after,.sidebar-nav a:focus-visible::after{opacity:1!important;transform:translateY(-50%) translateX(0)!important}
+  nav.sidebar-nav a.active::before,.sidebar-nav a.active::before{left:0!important;top:50%!important;bottom:auto!important;transform:translateY(-50%)!important;width:3px!important;height:20px!important;border-radius:0 2px 2px 0!important}
+  .sidebar-bottom{position:static!important;display:flex!important;flex-direction:column!important;align-items:center!important;gap:6px!important;margin-top:auto!important;padding:.75rem 0 0!important;border-top:1px solid var(--shell-border)!important;border-left:none!important;border-right:none!important;border-bottom:none!important;border-radius:0!important;background:transparent!important;box-shadow:none!important;backdrop-filter:none!important;-webkit-backdrop-filter:none!important}
+  .sidebar-bottom a{width:38px!important;height:38px!important;min-width:auto!important;min-height:auto!important;margin-bottom:.5rem!important}
+}
+html.dark,html[data-theme="dark"]{color-scheme:dark;--cream:#071A33;--cream-2:#0D1F3C;--paper:#071A33;--soft:#13294A;--ink:#EAF1FF;--ink-2:#D7E0EF;--ink-3:#B8C6D9;--muted:#CBD5E1;--text-muted:#B8C6D9;--line:rgba(255,215,0,.24);--border:rgba(255,215,0,.18);--glass-bg:rgba(31,40,51,.94);--shell-glass-bg:rgba(31,40,51,.94);--shell-border:rgba(255,215,0,.16);--shell-text-muted:#D7E0EF;--shell-gold-dark:#FFD700}
+html.dark body,html[data-theme="dark"] body{background:#071A33!important;color:#EAF1FF!important}
+html.dark main,html[data-theme="dark"] main{background:transparent!important;color:#EAF1FF!important}
+html.dark .sidebar-nav,html[data-theme="dark"] .sidebar-nav,html.dark .sidebar-bottom,html[data-theme="dark"] .sidebar-bottom{background:rgba(31,40,51,.94)!important;border-color:rgba(255,215,0,.16)!important}
+html.dark .sidebar-nav a,html[data-theme="dark"] .sidebar-nav a,html.dark .sidebar-nav a svg,html[data-theme="dark"] .sidebar-nav a svg,html.dark .sidebar-bottom button,html[data-theme="dark"] .sidebar-bottom button{color:#FFD700!important}
+html.dark .sidebar-nav a:hover,html[data-theme="dark"] .sidebar-nav a:hover,html.dark .sidebar-nav a.active,html[data-theme="dark"] .sidebar-nav a.active{color:#FFD700!important;background:rgba(255,215,0,.1)!important}
+html.dark .sidebar-nav a::after,html[data-theme="dark"] .sidebar-nav a::after{background:#1F2833!important;color:#fff!important;border:1px solid rgba(255,215,0,.15)!important}
+html.dark h1,html[data-theme="dark"] h1,html.dark h2,html[data-theme="dark"] h2,html.dark h3,html[data-theme="dark"] h3,html.dark h4,html[data-theme="dark"] h4,html.dark h5,html[data-theme="dark"] h5,html.dark .section-title,html[data-theme="dark"] .section-title,html.dark .section-title h2,html[data-theme="dark"] .section-title h2{color:#FFF8D6!important}
+html.dark p,html[data-theme="dark"] p,html.dark li,html[data-theme="dark"] li,html.dark dd,html[data-theme="dark"] dd,html.dark td,html[data-theme="dark"] td,html.dark label,html[data-theme="dark"] label,html.dark .lead,html[data-theme="dark"] .lead,html.dark .hint,html[data-theme="dark"] .hint,html.dark .section-eyebrow,html[data-theme="dark"] .section-eyebrow,html.dark .muted,html[data-theme="dark"] .muted{color:#D7E0EF!important}
+html.dark strong,html[data-theme="dark"] strong{color:#FFF8D6!important}
+html.dark a,html[data-theme="dark"] a{color:#FFE55C!important}
+html.dark :is(.card,.hero-card,.metric,.source-list a,.step,.step-card,.howto-card,.callout,.option,.reader-letter,.table,.check,.ally-card,.cap-card,.capability-card,.settings-card,.setting-card,.layer-card,.timeline-content,.prompt-card,.artifact-card,.exercise-card,.work-card,.principle-card,.matrix-card,.team-card,.partner-card,.modal,.modal-content,textarea,input,select,table,tbody,tr,td),
+html[data-theme="dark"] :is(.card,.hero-card,.metric,.source-list a,.step,.step-card,.howto-card,.callout,.option,.reader-letter,.table,.check,.ally-card,.cap-card,.capability-card,.settings-card,.setting-card,.layer-card,.timeline-content,.prompt-card,.artifact-card,.exercise-card,.work-card,.principle-card,.matrix-card,.team-card,.partner-card,.modal,.modal-content,textarea,input,select,table,tbody,tr,td){background:#10264A!important;color:#EAF1FF!important;border-color:rgba(255,215,0,.24)!important;box-shadow:none!important}
+html.dark :is(.card,.hero-card,.metric,.source-list a,.step,.step-card,.howto-card,.callout,.option,.reader-letter,.table,.check,.ally-card,.cap-card,.capability-card,.settings-card,.setting-card,.layer-card,.timeline-content,.prompt-card,.artifact-card,.exercise-card,.work-card,.principle-card,.matrix-card,.team-card,.partner-card,.modal,.modal-content) :is(h1,h2,h3,h4,h5,strong,label),
+html[data-theme="dark"] :is(.card,.hero-card,.metric,.source-list a,.step,.step-card,.howto-card,.callout,.option,.reader-letter,.table,.check,.ally-card,.cap-card,.capability-card,.settings-card,.setting-card,.layer-card,.timeline-content,.prompt-card,.artifact-card,.exercise-card,.work-card,.principle-card,.matrix-card,.team-card,.partner-card,.modal,.modal-content) :is(h1,h2,h3,h4,h5,strong,label){color:#FFF8D6!important}
+html.dark :is(.card,.hero-card,.metric,.source-list a,.step,.step-card,.howto-card,.callout,.option,.reader-letter,.table,.check,.ally-card,.cap-card,.capability-card,.settings-card,.setting-card,.layer-card,.timeline-content,.prompt-card,.artifact-card,.exercise-card,.work-card,.principle-card,.matrix-card,.team-card,.partner-card,.modal,.modal-content) :is(p,li,span,td,small),
+html[data-theme="dark"] :is(.card,.hero-card,.metric,.source-list a,.step,.step-card,.howto-card,.callout,.option,.reader-letter,.table,.check,.ally-card,.cap-card,.capability-card,.settings-card,.setting-card,.layer-card,.timeline-content,.prompt-card,.artifact-card,.exercise-card,.work-card,.principle-card,.matrix-card,.team-card,.partner-card,.modal,.modal-content) :is(p,li,span,td,small){color:#D7E0EF!important}
+html.dark th,html[data-theme="dark"] th,html.dark thead th,html[data-theme="dark"] thead th{background:#122562!important;color:#FFD700!important;border-color:rgba(255,215,0,.24)!important}
+html.dark .callout.warn,html[data-theme="dark"] .callout.warn,html.dark .warn,html[data-theme="dark"] .warn{background:#3A2A0A!important;color:#FFF3C4!important;border-color:#FFD700!important}
+html.dark .callout.warn *,html[data-theme="dark"] .callout.warn *,html.dark .warn *,html[data-theme="dark"] .warn *{color:#FFF3C4!important}
+html.dark .badge,html[data-theme="dark"] .badge,html.dark .pill,html[data-theme="dark"] .pill,html.dark .tag,html[data-theme="dark"] .tag{background:rgba(255,215,0,.16)!important;color:#FFE55C!important;border-color:rgba(255,215,0,.38)!important}
+html.dark code,html[data-theme="dark"] code{background:rgba(255,255,255,.08)!important;color:#FFE55C!important;border-color:rgba(255,215,0,.24)!important}
+html.dark pre,html[data-theme="dark"] pre,html.dark .prompt,html[data-theme="dark"] .prompt,html.dark .prompt-block,html[data-theme="dark"] .prompt-block{background:#071426!important;color:#EAF1FF!important;border-color:rgba(255,215,0,.2)!important}
+
+
+/* Dark mode also owns legacy inline color/background fragments */
+html.dark :is([style*="background:#fff"],[style*="background: #fff"],[style*="background:#fff8db"],[style*="background: #fff8db"],[style*="background:linear-gradient(180deg,#fffbf0"],[style*="background: linear-gradient(180deg,#fffbf0"]),
+html[data-theme="dark"] :is([style*="background:#fff"],[style*="background: #fff"],[style*="background:#fff8db"],[style*="background: #fff8db"],[style*="background:linear-gradient(180deg,#fffbf0"],[style*="background: linear-gradient(180deg,#fffbf0"]){background:#10264A!important;color:#EAF1FF!important;border-color:rgba(255,215,0,.24)!important;box-shadow:none!important}
+html.dark :is([style*="color:#0A122A"],[style*="color: #0A122A"],[style*="color:#1a1f2e"],[style*="color: #1a1f2e"],[style*="color:#666"],[style*="color: #666"],[style*="color:#6B5300"],[style*="color: #6B5300"]),
+html[data-theme="dark"] :is([style*="color:#0A122A"],[style*="color: #0A122A"],[style*="color:#1a1f2e"],[style*="color: #1a1f2e"],[style*="color:#666"],[style*="color: #666"],[style*="color:#6B5300"],[style*="color: #6B5300"]){color:#D7E0EF!important}
+html.dark :is(h1,h2,h3,h4,h5,strong,label)[style*="color:#0A122A"],html.dark :is(h1,h2,h3,h4,h5,strong,label)[style*="color: #0A122A"],
+html[data-theme="dark"] :is(h1,h2,h3,h4,h5,strong,label)[style*="color:#0A122A"],html[data-theme="dark"] :is(h1,h2,h3,h4,h5,strong,label)[style*="color: #0A122A"]{color:#FFF8D6!important}
+/* Dark contrast closure for real document surfaces */
+html.dark :is(.band,section.band,.kpi,.checkpoint-card,.status-card,.modal-card,.callout-mini,.table-wrap,.table-wrap-scroll,.agenda article,.agenda-card,.codebox,.codebox-head,.section-head),
+html[data-theme="dark"] :is(.band,section.band,.kpi,.checkpoint-card,.status-card,.modal-card,.callout-mini,.table-wrap,.table-wrap-scroll,.agenda article,.agenda-card,.codebox,.codebox-head,.section-head){background:#10264A!important;color:#EAF1FF!important;border-color:rgba(255,215,0,.24)!important;box-shadow:none!important}
+html.dark :is(.band,section.band,.kpi,.checkpoint-card,.status-card,.modal-card,.callout-mini,.table-wrap,.table-wrap-scroll,.agenda article,.agenda-card,.codebox,.codebox-head,.section-head) :is(h1,h2,h3,h4,h5,strong,label,.kpi-v),
+html[data-theme="dark"] :is(.band,section.band,.kpi,.checkpoint-card,.status-card,.modal-card,.callout-mini,.table-wrap,.table-wrap-scroll,.agenda article,.agenda-card,.codebox,.codebox-head,.section-head) :is(h1,h2,h3,h4,h5,strong,label,.kpi-v){color:#FFF8D6!important}
+html.dark :is(.band,section.band,.kpi,.checkpoint-card,.status-card,.modal-card,.callout-mini,.table-wrap,.table-wrap-scroll,.agenda article,.agenda-card,.codebox,.codebox-head,.section-head) :is(p,li,span,td,small,.kpi-l),
+html[data-theme="dark"] :is(.band,section.band,.kpi,.checkpoint-card,.status-card,.modal-card,.callout-mini,.table-wrap,.table-wrap-scroll,.agenda article,.agenda-card,.codebox,.codebox-head,.section-head) :is(p,li,span,td,small,.kpi-l){color:#D7E0EF!important}
+html.dark .icon,html[data-theme="dark"] .icon,html.dark .ico,html[data-theme="dark"] .ico{background:#122562!important;color:#FFD700!important;border-color:rgba(255,215,0,.24)!important}
+/* Dark contrast closure for annexes, FAQ and modal-like legacy light bands */
+html.dark :is([style*="#FAF6E8"],[style*="#faf6e8"],[style*="#F9FAFB"],[style*="#f9fafb"],[style*="#FFF8D6"],[style*="#fff8d6"],[style*="#F3F6FB"],[style*="#f3f6fb"],[style*="#FFFBF0"],[style*="#fffbf0"]),
+html[data-theme="dark"] :is([style*="#FAF6E8"],[style*="#faf6e8"],[style*="#F9FAFB"],[style*="#f9fafb"],[style*="#FFF8D6"],[style*="#fff8d6"],[style*="#F3F6FB"],[style*="#f3f6fb"],[style*="#FFFBF0"],[style*="#fffbf0"]){background:#10264A!important;color:#EAF1FF!important;border-color:rgba(255,215,0,.24)!important;box-shadow:none!important}
+html.dark :is([style*="color:#475569"],[style*="color: #475569"],[style*="color:#5C4400"],[style*="color: #5C4400"],[style*="color:#122562"],[style*="color: #122562"],[style*="color:#1F2833"],[style*="color: #1F2833"]),
+html[data-theme="dark"] :is([style*="color:#475569"],[style*="color: #475569"],[style*="color:#5C4400"],[style*="color: #5C4400"],[style*="color:#122562"],[style*="color: #122562"],[style*="color:#1F2833"],[style*="color: #1F2833"]){color:#D7E0EF!important}
+html.dark :is(h1,h2,h3,h4,h5,strong,summary,label)[style*="color:#122562"],html.dark :is(h1,h2,h3,h4,h5,strong,summary,label)[style*="color: #122562"],
+html[data-theme="dark"] :is(h1,h2,h3,h4,h5,strong,summary,label)[style*="color:#122562"],html[data-theme="dark"] :is(h1,h2,h3,h4,h5,strong,summary,label)[style*="color: #122562"]{color:#FFF8D6!important}
+@media(print){.sidebar-nav{display:none!important}body,body.brand-has-shell{padding-left:0!important;padding-bottom:0!important}}
+</style>
+
+<script>
+/* MetodologIA official shell controls · language + theme */
+(function(){
+  var THEME_KEY='jarvis-aceleradores-shell-theme';
+  var LANG_KEY='jarvis-aceleradores-shell-lang';
+  var THEME_KEYS=[THEME_KEY,'cartilla-theme','mt-theme','jarvis-shell-theme'];
+  var LANG_KEYS=[LANG_KEY,'cartilla-lang','mt-lang','jarvis-shell-lang'];
+  function body(){return document.body;}
+  function hasBilingualContent(){return !!(document.querySelector('.localized-en') || (document.querySelector('.es') && document.querySelector('.en')));}
+  function readStored(keys, allowed){
+    try{for(var i=0;i<keys.length;i++){var v=localStorage.getItem(keys[i]);if(allowed.indexOf(v)>-1)return v;}}catch(e){}
+    return null;
+  }
+  function writeStored(keys, value){
+    try{keys.forEach(function(k){localStorage.setItem(k,value);});}catch(e){}
+  }
+  function updateLocalizedNav(lang){
+    var map=window.__bilingualNav&&window.__bilingualNav[lang];
+    if(!map)return;
+    var links=[].slice.call(document.querySelectorAll('.sidebar-links a[href^="#"]'));
+    links.forEach(function(a,i){
+      if(!map[i])return;
+      a.setAttribute('href',map[i][0]);
+      a.setAttribute('data-label',map[i][1]);
+      a.setAttribute('aria-label',map[i][1]);
+    });
+  }
+  function applyTheme(theme, persist){
+    var html=document.documentElement;
+    var isDark=theme==='dark';
+    html.classList.toggle('dark',isDark);
+    html.setAttribute('data-theme',isDark?'dark':'light');
+    if(body())body().classList.toggle('dark',isDark);
+    if(persist)writeStored(THEME_KEYS,isDark?'dark':'light');
+    syncShellButtons();
+  }
+  function applyLang(lang, persist){
+    var html=document.documentElement;
+    var canToggle=hasBilingualContent();
+    var next=(canToggle && lang==='en')?'en':'es';
+    html.setAttribute('lang',next);
+    html.lang=next;
+    if(body()){
+      body().classList.remove('lang-es','lang-en');
+      body().classList.add(next==='en'?'lang-en':'lang-es');
+    }
+    updateLocalizedNav(next);
+    if(persist)writeStored(LANG_KEYS,next);
+    syncShellButtons();
+  }
+  function syncShellButtons(){
+    var darkBtn=document.getElementById('darkBtn');
+    var langBtn=document.getElementById('langBtn');
+    var html=document.documentElement;
+    if(darkBtn){
+      var icon=html.classList.contains('dark')?'sun':'moon';
+      darkBtn.innerHTML='<i data-lucide="'+icon+'" style="width:16px;height:16px"></i>';
+      darkBtn.setAttribute('aria-pressed',html.classList.contains('dark')?'true':'false');
+    }
+    if(langBtn){
+      var canToggle=hasBilingualContent();
+      var lang=(html.lang||'es').toLowerCase()==='en'?'EN':'ES';
+      langBtn.textContent=lang;
+      langBtn.disabled=!canToggle;
+      langBtn.setAttribute('aria-disabled',canToggle?'false':'true');
+      langBtn.setAttribute('aria-pressed',lang==='EN'?'true':'false');
+      langBtn.title=canToggle?'Cambiar idioma':'Cambiar idioma';
+    }
+    if(window.lucide){window.lucide.createIcons();}
+  }
+  window.toggleDark=function(){
+    var html=document.documentElement;
+    applyTheme(html.classList.contains('dark')?'light':'dark',true);
+  };
+  window.toggleLang=function(){
+    if(!hasBilingualContent()){applyLang('es',true);return;}
+    var cur=(document.documentElement.lang||'es').toLowerCase()==='en'?'en':'es';
+    applyLang(cur==='en'?'es':'en',true);
+  };
+  function setActive(){
+    var links=[].slice.call(document.querySelectorAll('.sidebar-links a[href^="#"]'));
+    var sections=links.map(function(a){return document.querySelector(a.getAttribute('href'));}).filter(Boolean);
+    if(!links.length||!sections.length)return;
+    var current=sections[0];
+    sections.forEach(function(sec){if(sec.getBoundingClientRect().top<140)current=sec;});
+    links.forEach(function(a){a.classList.toggle('active',current&&a.getAttribute('href')==='#'+current.id);});
+  }
+  function boot(){
+    var storedTheme=readStored(THEME_KEYS,['dark','light'])||document.documentElement.getAttribute('data-theme')||'light';
+    var storedLang=readStored(LANG_KEYS,['es','en'])||(document.documentElement.lang||'es').toLowerCase();
+    applyTheme(storedTheme==='dark'?'dark':'light',false);
+    applyLang(storedLang==='en'?'en':'es',false);
+    setActive();
+    window.addEventListener('scroll',setActive,{passive:true});
+  }
+  if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',boot);else boot();
+})();
+</script>
+
+</body>
+</html>

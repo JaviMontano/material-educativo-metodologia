@@ -23,6 +23,32 @@
 
 ## 📋 Historial de cambios
 
+## [1.4.0] · 2026-05-20 · Publicación canónica de material educativo
+
+**Tipo:** consolidación pública · navegación por familias · aliases raíz preservados
+**Editor:** Javier Montaño · MetodologIA
+**License:** CC BY-NC-SA 4.0
+
+### Qué se agregó
+
+| Familia | Carpeta | Estado |
+|---|---|---|
+| Biblioteca Universal | `biblioteca/` | README + landing; datos canónicos preservados en raíz. |
+| Prompting Universal | `prompting-universal/` | Playbook consolidado y alias raíz actualizado. |
+| Programa de Empoderamiento | `programa-empoderamiento/` | Cartilla canónica con tres talleres de onboarding cada dos meses y cupo de 25 inscritos por cohorte. |
+| Jarvis OS en Claude | `claude-jarvis/` | Playbook, Runbook, Masterclass y Workbook publicados. |
+| Cartillas IA | `cartillas-ia/` | ChatGPT, Gemini, Kimi, NotebookLM y Comparativa v3. |
+| Ciencia del aprendizaje | `estudio/` | Cartilla Técnicas de Estudio v3. |
+
+### Trazabilidad
+
+Inventario completo: `docs/inventario-publicacion-canon-2026-05-20.md`.
+
+### Nota GitHub
+
+Esta publicación se prepara en rama nueva y PR separado. Las PRs históricas #1 y #2 quedan intactas para revisión posterior.
+
+
 ## [1.3.0] · 2026-05-04 · Skill metodologia-content-forge v1.0.0 (forja de contenido brand-compliant)
 
 **Tipo**: skill nueva · forja de contenido brand-compliant MetodologIA

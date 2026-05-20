@@ -700,6 +700,173 @@ html.dark .scale-step.scale-featured .scale-virtue { color: var(--gold); }
 
 /* ── CONTENT VISIBILITY ── */
 .ebook-page:not(:first-child) { content-visibility: auto; contain-intrinsic-size: auto 100vh; }
+
+/* Founder cards · MetodologIA high-contrast presentation */
+
+.self-contained-note {
+  margin: 2rem 0 0;
+  padding: 1.25rem 1.35rem;
+  border-radius: var(--radius-lg);
+  background: linear-gradient(135deg, rgba(255,215,0,.13), rgba(19,125,197,.07));
+  border: 1px solid rgba(18,37,98,.12);
+  border-left: 5px solid var(--gold);
+  box-shadow: var(--shadow-card);
+}
+.self-contained-note h3 {
+  margin: 0 0 .65rem 0;
+  color: var(--navy);
+  font-size: clamp(1.1rem, 2vw, 1.35rem);
+}
+.self-contained-note p {
+  margin: 0;
+  color: var(--text-sec);
+  line-height: 1.75;
+}
+.self-contained-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: .8rem;
+  margin-top: 1rem;
+}
+.self-contained-grid article {
+  background: rgba(255,255,255,.82);
+  border: 1px solid rgba(18,37,98,.10);
+  border-radius: var(--radius-md);
+  padding: .9rem 1rem;
+}
+.self-contained-grid strong {
+  display: block;
+  color: var(--navy);
+  margin-bottom: .35rem;
+}
+.self-contained-grid span {
+  color: var(--text-sec);
+  line-height: 1.6;
+  font-size: .92rem;
+}
+body.dark .self-contained-note { background: linear-gradient(135deg, rgba(255,215,0,.18), rgba(19,125,197,.10)); }
+body.dark .self-contained-grid article { background: rgba(255,255,255,.94); }
+body.dark .self-contained-grid span { color: #334155; }
+@media (max-width: 720px) {
+  .self-contained-grid { grid-template-columns: 1fr; }
+  .self-contained-note { padding: 1rem; }
+}
+
+.founders-team-panel {
+  margin-top: 3rem;
+  padding-top: 2rem;
+  border-top: 1px solid var(--border);
+}
+.founders-team-eyebrow {
+  text-align: center;
+  font-size: .72rem;
+  font-weight: 800;
+  letter-spacing: .14em;
+  text-transform: uppercase;
+  color: var(--gold-dark);
+  margin: 0 0 .6rem 0;
+  font-family: var(--font-note);
+}
+html.dark .founders-team-eyebrow { color: var(--gold); }
+.founders-team-subtitle,
+.founders-team-note {
+  text-align: center;
+  font-size: .9rem;
+  color: var(--text-sec);
+  font-style: italic;
+  margin: 0 auto 2rem auto;
+  max-width: 68ch;
+  line-height: 1.65;
+}
+.founders-team-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1rem;
+  max-width: 940px;
+  margin: 0 auto;
+}
+@media (min-width: 760px) {
+  .founders-team-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+}
+.founder-card {
+  display: grid;
+  grid-template-columns: 92px 1fr;
+  gap: 1rem;
+  align-items: start;
+  background: #fffdf4;
+  color: #122562;
+  border: 1px solid rgba(18,37,98,.14);
+  border-left: 5px solid var(--gold);
+  border-radius: 16px;
+  padding: 1.1rem;
+  box-shadow: 0 12px 30px rgba(18,37,98,.10);
+}
+html.dark .founder-card {
+  background: #fffdf4;
+  color: #122562;
+  border-color: rgba(255,215,0,.34);
+}
+.founder-photo {
+  width: 92px;
+  height: 92px;
+  border-radius: 50%;
+  overflow: hidden;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #fff8d6;
+  border: 3px solid rgba(255,215,0,.78);
+  box-shadow: 0 8px 18px rgba(18,37,98,.14);
+  font-family: var(--font-head);
+  font-weight: 800;
+  font-size: 1.55rem;
+  color: #122562;
+}
+.founder-photo img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  z-index: 2;
+}
+.founder-photo span { position: relative; z-index: 1; }
+.founder-tag {
+  display: block;
+  font-family: var(--font-note);
+  font-size: .63rem;
+  font-weight: 800;
+  letter-spacing: .12em;
+  text-transform: uppercase;
+  color: #8a6500;
+  margin-bottom: .4rem;
+}
+.founder-card h4 {
+  margin: 0 0 .25rem 0;
+  color: #122562;
+  font-size: 1.12rem;
+  line-height: 1.25;
+}
+.founder-role {
+  margin: 0 0 .65rem 0;
+  color: #334155;
+  font-weight: 700;
+  font-size: .86rem;
+}
+.founder-bio {
+  margin: 0;
+  color: #1F2833;
+  font-size: .9rem;
+  line-height: 1.7;
+  font-style: italic;
+  font-family: var(--font-note);
+}
+@media (max-width: 560px) {
+  .founder-card { grid-template-columns: 74px 1fr; padding: .95rem; }
+  .founder-photo { width: 74px; height: 74px; font-size: 1.28rem; }
+}
+
 </style>
 </head>
 <body>
@@ -782,6 +949,16 @@ html.dark .scale-step.scale-featured .scale-virtue { color: var(--gold); }
     <p><span class="es"><strong>Qu&eacute; NO es:</strong> No es un curso. No es teor&iacute;a. No es una lista de herramientas. Todo el m&eacute;todo puede ejecutarse con herramientas sin costo. <strong>Supuestos:</strong> tienes cuenta de Google, acceso a internet, y disposici&oacute;n para invertir entre 1 y 20 horas seg&uacute;n el modo que elijas.</span><span class="en"><strong>What it's NOT:</strong> Not a course. Not theory. Not a tool list. The entire method runs on no-cost tools. <strong>Assumptions:</strong> you have a Google account, internet access, and willingness to invest between 1 and 20 hours depending on the mode you choose.</span></p>
   </div>
 
+  <div class="self-contained-note reveal" aria-label="Documento autocontenido">
+    <h3><span class="es">Este playbook es autocontenido</span><span class="en">This playbook stands on its own</span></h3>
+    <p><span class="es">Puedes leerlo y aplicarlo sin otro documento abierto. Si existe un runbook operativo del mismo m&eacute;todo, la redundancia es intencional: aqu&iacute; encuentras el fundamento, el modelo mental y la versi&oacute;n suficiente para actuar; en el runbook encontrar&aacute;s el procedimiento m&aacute;s detallado, las listas de verificaci&oacute;n y las plantillas paso a paso.</span><span class="en">You can read and apply it without opening another document. If an operational runbook exists for the same method, the overlap is intentional: here you get the foundation, mental model, and enough guidance to act; the runbook carries the deeper procedure, checklists, and step-by-step templates.</span></p>
+    <div class="self-contained-grid">
+      <article><strong><span class="es">Playbook</span><span class="en">Playbook</span></strong><span class="es">Responde qu&eacute; es, por qu&eacute; importa, para qu&eacute; sirve y con qu&eacute; criterio decidir.</span><span class="en">Answers what it is, why it matters, what it is for, and how to decide with judgment.</span></article>
+      <article><strong><span class="es">Runbook</span><span class="en">Runbook</span></strong><span class="es">Responde c&oacute;mo ejecutarlo, en qu&eacute; orden, con qu&eacute; prompts, qu&eacute; validar y qu&eacute; registro dejar.</span><span class="en">Answers how to execute it, in what order, with which prompts, what to validate, and what record to leave.</span></article>
+    </div>
+  </div>
+
+
   <!-- CARTA DE LOS FUNDADORES -->
   <div style="margin-top:3rem;padding-top:2.5rem;border-top:1px solid var(--border);">
     <span class="chip"><span class="es">Palabra de los Fundadores</span><span class="en">Word from the Founders</span></span>
@@ -796,42 +973,50 @@ html.dark .scale-step.scale-featured .scale-virtue { color: var(--gold); }
     </div>
 
     <!-- EQUIPO DE OFFICERS · 4 socios fundadores -->
-    <div class="reveal" style="margin-top:3rem;padding-top:2rem;border-top:1px solid var(--border);">
-      <p style="text-align:center;font-size:.72rem;font-weight:800;letter-spacing:.14em;text-transform:uppercase;color:var(--gold-dark);margin:0 0 .6rem 0;"><span class="es">— El equipo de Officers &middot; MetodologIA</span><span class="en">— The Officers team &middot; MetodologIA</span></p>
-      <p style="text-align:center;font-size:.9rem;color:var(--text-muted);font-style:italic;margin:0 0 2rem 0;"><span class="es">4 socios fundadores &middot; cocreadores del sistema</span><span class="en">4 founding partners &middot; co-creators of the system</span></p>
+    <div class="founders-team-panel reveal">
+      <p class="founders-team-eyebrow"><span class="es">El equipo de Officers &middot; MetodologIA</span><span class="en">The Officers team &middot; MetodologIA</span></p>
+      <p class="founders-team-subtitle"><span class="es">4 socios fundadores &middot; cocreadores del sistema</span><span class="en">4 founding partners &middot; co-creators of the system</span></p>
 
-      <div style="display:grid;grid-template-columns:repeat(auto-fit, minmax(150px, 1fr));gap:1.5rem 1.25rem;max-width:860px;margin:0 auto;">
-        <figure style="margin:0;text-align:center;">
-          <img src="https://github.com/ejemplo-deo-repo/mao-brand-assets/blob/main/team_javier-montano.webp?raw=true" alt="Javier Monta&ntilde;o" loading="lazy" style="width:100%;max-width:140px;aspect-ratio:1/1;object-fit:cover;border-radius:14px;box-shadow:0 6px 18px rgba(18,37,98,.18);display:block;margin:0 auto .75rem auto;border:2px solid rgba(255,215,0,.25);">
-          <figcaption>
-            <div style="font-weight:700;font-size:.95rem;color:var(--text);margin-bottom:.15rem;">Javier Monta&ntilde;o</div>
-            <div style="font-size:.72rem;color:var(--text-muted);font-style:italic;line-height:1.4;">Chief Empowerment Officer</div>
-          </figcaption>
-        </figure>
-        <figure style="margin:0;text-align:center;">
-          <img src="https://github.com/ejemplo-deo-repo/mao-brand-assets/blob/main/team_daniel-zuluaga.jpg?raw=true" alt="Daniel Zuluaga" loading="lazy" style="width:100%;max-width:140px;aspect-ratio:1/1;object-fit:cover;border-radius:14px;box-shadow:0 6px 18px rgba(18,37,98,.18);display:block;margin:0 auto .75rem auto;border:2px solid rgba(255,215,0,.25);">
-          <figcaption>
-            <div style="font-weight:700;font-size:.95rem;color:var(--text);margin-bottom:.15rem;">Daniel Zuluaga</div>
-            <div style="font-size:.72rem;color:var(--text-muted);font-style:italic;line-height:1.4;">Chief Efficiency Officer</div>
-          </figcaption>
-        </figure>
-        <figure style="margin:0;text-align:center;">
-          <img src="https://github.com/ejemplo-deo-repo/mao-brand-assets/blob/main/team_german-sepulveda.png?raw=true" alt="Germ&aacute;n El&iacute;&eacute;cer Sep&uacute;lveda" loading="lazy" style="width:100%;max-width:140px;aspect-ratio:1/1;object-fit:cover;border-radius:14px;box-shadow:0 6px 18px rgba(18,37,98,.18);display:block;margin:0 auto .75rem auto;border:2px solid rgba(255,215,0,.25);">
-          <figcaption>
-            <div style="font-weight:700;font-size:.95rem;color:var(--text);margin-bottom:.15rem;">Germ&aacute;n Sep&uacute;lveda</div>
-            <div style="font-size:.72rem;color:var(--text-muted);font-style:italic;line-height:1.4;">Chief Ecosystem Officer</div>
-          </figcaption>
-        </figure>
-        <figure style="margin:0;text-align:center;">
-          <img src="https://github.com/ejemplo-deo-repo/mao-brand-assets/blob/main/team_kathe-oquendo.png?raw=true" alt="Katherine Oquendo" loading="lazy" style="width:100%;max-width:140px;aspect-ratio:1/1;object-fit:cover;border-radius:14px;box-shadow:0 6px 18px rgba(18,37,98,.18);display:block;margin:0 auto .75rem auto;border:2px solid rgba(255,215,0,.25);">
-          <figcaption>
-            <div style="font-weight:700;font-size:.95rem;color:var(--text);margin-bottom:.15rem;">Katherine Oquendo</div>
-            <div style="font-size:.72rem;color:var(--text-muted);font-style:italic;line-height:1.4;">Chief Enablement Officer</div>
-          </figcaption>
-        </figure>
+      <div class="founders-team-grid">
+        <article class="founder-card founder-card--empower">
+          <div class="founder-photo"><img src="https://raw.githubusercontent.com/ejemplo-deo-repo/mao-brand-assets/main/team_javier-montano.webp" alt="Javier Monta&ntilde;o" loading="lazy" onerror="this.style.display='none'"><span>JM</span></div>
+          <div class="founder-copy">
+            <span class="founder-tag"><span class="es">Empowerment &middot; (R)Evoluci&oacute;n Estrat&eacute;gica</span><span class="en">Empowerment &middot; Strategic (R)Evolution</span></span>
+            <h4>Javier Monta&ntilde;o</h4>
+            <p class="founder-role">Chief Empowerment Officer &middot; Founder</p>
+            <p class="founder-bio"><span class="es">Dise&ntilde;ador de sistemas y metodolog&iacute;as que convierten potencial en resultados. Especialista en integraci&oacute;n estrat&eacute;gica de IA y soberan&iacute;a digital.</span><span class="en">Designer of systems and methodologies that turn potential into results. Specialist in strategic AI integration and digital sovereignty.</span></p>
+          </div>
+        </article>
+        <article class="founder-card founder-card--efficiency">
+          <div class="founder-photo"><img src="https://raw.githubusercontent.com/ejemplo-deo-repo/mao-brand-assets/main/team_daniel-zuluaga.jpg" alt="Daniel Zuluaga" loading="lazy" onerror="this.style.display='none'"><span>DZ</span></div>
+          <div class="founder-copy">
+            <span class="founder-tag"><span class="es">Efficiency &middot; Optimizaci&oacute;n Operativa</span><span class="en">Efficiency &middot; Operational Optimization</span></span>
+            <h4>Daniel Zuluaga</h4>
+            <p class="founder-role">Chief Efficiency Officer</p>
+            <p class="founder-bio"><span class="es">Optimizador de procesos que transforma complejidad en eficiencia. Identifica el 20% de acciones que generan el 80% de resultados y dise&ntilde;a sistemas que las multiplican.</span><span class="en">Process optimizer who turns complexity into efficiency. Identifies the 20% of actions that generate 80% of results and designs systems that multiply them.</span></p>
+          </div>
+        </article>
+        <article class="founder-card founder-card--ecosystem">
+          <div class="founder-photo"><img src="https://raw.githubusercontent.com/ejemplo-deo-repo/mao-brand-assets/main/team_german-sepulveda.png" alt="Germ&aacute;n Eli&eacute;cer Sep&uacute;lveda" loading="lazy" onerror="this.style.display='none'"><span>GS</span></div>
+          <div class="founder-copy">
+            <span class="founder-tag"><span class="es">Ecosystem &middot; Alianzas y QA de Agentes</span><span class="en">Ecosystem &middot; Partnerships and Agent QA</span></span>
+            <h4>Germ&aacute;n Eli&eacute;cer Sep&uacute;lveda</h4>
+            <p class="founder-role">Chief Ecosystem Officer</p>
+            <p class="founder-bio"><span class="es">Constructor de ecosistemas que conectan talento, visi&oacute;n y prop&oacute;sito. Lidera comunidades estrat&eacute;gicas y opera el soporte t&eacute;cnico y QA de los agentes del ecosistema.</span><span class="en">Builder of ecosystems that connect talent, vision and purpose. Leads strategic communities and operates technical support and QA for ecosystem agents.</span></p>
+          </div>
+        </article>
+        <article class="founder-card founder-card--enablement">
+          <div class="founder-photo"><img src="https://raw.githubusercontent.com/ejemplo-deo-repo/mao-brand-assets/main/team_kathe-oquendo.png" alt="Katherine Oquendo" loading="lazy" onerror="this.style.display='none'"><span>KO</span></div>
+          <div class="founder-copy">
+            <span class="founder-tag"><span class="es">Enablement &middot; Entornos Habilitadores</span><span class="en">Enablement &middot; Enabling Environments</span></span>
+            <h4>Katherine Oquendo</h4>
+            <p class="founder-role">Chief Enablement Officer</p>
+            <p class="founder-bio"><span class="es">Especialista en crear entornos sin fricciones donde las personas hacen su mejor trabajo. Combina metodolog&iacute;as probadas con empat&iacute;a aut&eacute;ntica para sostener cultura y calidad.</span><span class="en">Specialist in creating frictionless environments where people do their best work. Combines proven methodologies with authentic empathy to sustain culture and quality.</span></p>
+          </div>
+        </article>
       </div>
 
-      <p style="text-align:center;font-size:.82rem;color:var(--text-muted);margin:2rem auto 0 auto;max-width:62ch;font-style:italic;"><span class="es">Cuatro miradas, un m&eacute;todo. Cada Officer aporta un eje del sistema — empoderamiento, eficiencia, ecosistema y habilitaci&oacute;n — y juntos aseguran que la MetodologIA viaje, escale y no pierda criterio en el camino.</span><span class="en">Four perspectives, one method. Each Officer owns one axis of the system — empowerment, efficiency, ecosystem and enablement — and together they ensure that MetodologIA travels, scales and never loses its judgment along the way.</span></p>
+      <p class="founders-team-note" style="margin-top:2rem;"><span class="es">Cuatro miradas, un m&eacute;todo. Cada Officer aporta un eje del sistema — empoderamiento, eficiencia, ecosistema y habilitaci&oacute;n — y juntos aseguran que la MetodologIA viaje, escale y no pierda criterio en el camino.</span><span class="en">Four perspectives, one method. Each Officer owns one axis of the system — empowerment, efficiency, ecosystem and enablement — and together they ensure that MetodologIA travels, scales and never loses its judgment along the way.</span></p>
     </div>
   </div>
 </div>
@@ -2012,49 +2197,49 @@ html.dark .scale-step.scale-featured .scale-virtue { color: var(--gold); }
           <td>Fast + Deep</td>
           <td><span class="es">Sin costo (capa generosa)</span><span class="en">No cost (generous tier)</span></td>
           <td><span class="es">Ilimitado</span><span class="en">Unlimited</span></td>
-          <td>Google One AI $20/mes</td>
+          <td>Google One AI consultar plan vigente</td>
         </tr>
         <tr class="row-featured">
           <td><strong>Kimi</strong></td>
           <td>Agent + Deep think</td>
           <td><span class="es">Sin costo (capa usable)</span><span class="en">No cost (usable tier)</span></td>
           <td><span class="es">Limitado/d&iacute;a</span><span class="en">Limited/day</span></td>
-          <td>$8-19/mes</td>
+          <td>consultar plan vigente</td>
         </tr>
         <tr>
           <td><strong>Perplexity</strong></td>
           <td>Deep Research</td>
           <td><span class="es">5 queries/d&iacute;a sin costo</span><span class="en">5 free queries/day</span></td>
           <td>5</td>
-          <td>Pro $17/mes</td>
+          <td>Pro consultar plan vigente</td>
         </tr>
         <tr>
           <td><strong>ChatGPT</strong></td>
           <td>Deep Research (Plus)</td>
           <td><span class="es">B&aacute;sico sin costo</span><span class="en">Basic no cost</span></td>
           <td>N/A</td>
-          <td>Plus $20/mes</td>
+          <td>Plus consultar plan vigente</td>
         </tr>
         <tr>
           <td><strong>Gemini</strong></td>
           <td>Deep Research (Adv.)</td>
           <td><span class="es">B&aacute;sico sin costo</span><span class="en">Basic no cost</span></td>
           <td>N/A</td>
-          <td>Advanced $20/mes</td>
+          <td>Advanced consultar plan vigente</td>
         </tr>
         <tr>
           <td><strong>Claude</strong></td>
           <td>Deep Research + Pages</td>
           <td><span class="es">B&aacute;sico sin costo</span><span class="en">Basic no cost</span></td>
           <td><span class="es">Limitado</span><span class="en">Limited</span></td>
-          <td>Pro $20/mes</td>
+          <td>Pro consultar plan vigente</td>
         </tr>
         <tr>
           <td><strong>Grok</strong></td>
           <td>Deep Research (X)</td>
           <td><span class="es">No sin costo</span><span class="en">Not free</span></td>
           <td>N/A</td>
-          <td>X Premium $16/mes</td>
+          <td>X Premium consultar plan vigente</td>
         </tr>
       </tbody>
     </table>
