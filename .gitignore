@@ -2,6 +2,7 @@
 .discovery/
 .claude/
 .private/
+.validation/
 
 # Entornos · paquetes
 __pycache__/

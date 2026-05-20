@@ -412,8 +412,7 @@ Revisa los 5 puntos del checklist, registra decisiones y pendientes, identifica 
         const target = document.getElementById(button.dataset.copy);
         const original = button.textContent;
         try {
-          await navigator.clipboard.writeText(target ? target.innerText.trim() + '
-' : '');
+          await navigator.clipboard.writeText(target ? target.innerText.trim() + '\n' : '');
           button.textContent = 'Copiado';
           setTimeout(() => button.textContent = original, 1400);
         } catch (error) {
