@@ -1,0 +1,1418 @@
+<!--
+MetodologIA | Cartilla Comparativa — Version Definitiva v3
+Programa de Empoderamiento en Power Skills | 2026
+Estetica: Neo-Swiss Clean · Paleta Exclusiva MetodologIA
+Tipos: Poppins (titulares) · Montserrat (cuerpo) · Trebuchet MS (notas)
+Default: Light · Espanol · Bilingual ES/EN
+-->
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover, maximum-scale=5">
+<title>Benchmark IA 2026 — Cartilla Comparativa MetodologIA</title>
+<meta name="description" content="Cartilla comparativa: 5 productos de IA bajo la lupa. ChatGPT, Claude, Gemini, Kimi y NotebookLM. MetodologIA 2026.">
+<meta property="og:title" content="Benchmark IA 2026 — Cartilla Comparativa MetodologIA">
+<meta property="og:description" content="5 productos de IA bajo la lupa: ChatGPT, Claude, Gemini, Kimi y NotebookLM.">
+<meta property="og:type" content="website">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Benchmark IA 2026 — Cartilla Comparativa MetodologIA">
+<meta name="twitter:description" content="5 productos de IA bajo la lupa.">
+<meta name="robots" content="index, follow">
+<meta name="theme-color" content="#122562">
+<meta name="color-scheme" content="light dark">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="default">
+<link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 36 36'%3E%3Cdefs%3E%3ClinearGradient id='g' x1='0%25' y1='0%25' x2='100%25' y2='100%25'%3E%3Cstop offset='0%25' stop-color='%23122562'/%3E%3Cstop offset='100%25' stop-color='%231F2833'/%3E%3C/linearGradient%3E%3C/defs%3E%3Crect width='36' height='36' rx='10' fill='url(%23g)'/%3E%3Cpath d='M10 12h3v12h-3V12zm6 0h3v8h-3v-8zm0 10h3v2h-3v-2zm6-10h3v6h-3v-6zm0 8h3v4h-3v-4z' fill='%23fff'/%3E%3Ccircle cx='18' cy='8' r='2' fill='%23FFD700'/%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&family=Poppins:wght@700;800&display=swap" onload="this.onload=null;this.rel='stylesheet'">
+<noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&family=Poppins:wght@700;800&display=swap"></noscript>
+<style>
+/* ═══ TOKENS LIGHT (default) ═══ */
+:root {
+  --navy:#122562;--gold:#FFD700;--gold-dark:#B8860B;--blue:#137DC5;--dark:#1F2833;--lilac:#BBA0CC;--gray:#808080;--white:#FFFFFF;
+  --bg:#F9FAFB;--bg-soft:#F0F0EC;--bg-card:rgba(255,255,255,.88);--text:#1F2833;--text-sec:#4A5568;--text-muted:#808080;
+  --border:rgba(18,37,98,.08);--glass-bg:rgba(255,255,255,.82);--glass-border:rgba(18,37,98,.06);
+  --shadow-card:0 1px 3px rgba(0,0,0,.04),0 6px 16px rgba(0,0,0,.06);
+  --radius-sm:6px;--radius-md:12px;--radius-lg:20px;--radius-xl:32px;--max-w:900px;
+  --transition:0.4s cubic-bezier(0.4,0,0.2,1);
+  --font-head:'Poppins',sans-serif;--font-body:'Montserrat',sans-serif;--font-note:'Trebuchet MS','Lucida Sans Unicode',sans-serif;
+}
+html.dark {
+  --bg:#0B2545;--bg-soft:#071A33;--bg-card:rgba(11,37,69,.6);--text:#F0F4F8;--text-sec:#CBD5E1;--text-muted:#94A3B8;
+  --border:rgba(255,255,255,.08);--glass-bg:rgba(11,37,69,.55);--glass-border:rgba(255,255,255,.06);
+  --gold:#FFD700;--gold-dark:#FFD700;--blue:#94A3B8;--lilac:#94A3B8;--shadow-card:0 1px 3px rgba(0,0,0,.2),0 6px 16px rgba(0,0,0,.3);
+}
+html.dark .gold-text{background:linear-gradient(135deg,#FFD700,#FFA000);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;}
+
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
+html{scroll-behavior:smooth;-webkit-font-smoothing:antialiased;}
+body{font-family:var(--font-body);background:var(--bg);color:var(--text);line-height:1.8;font-size:17px;overflow-x:hidden;transition:background var(--transition),color var(--transition);padding-left:56px;}
+h1,h2,h3,h4{font-family:var(--font-head);font-weight:800;line-height:1.15;color:var(--navy);}
+html.dark h1,html.dark h2,html.dark h3,html.dark h4{color:var(--text);}
+h1{font-size:clamp(2rem,5vw,3rem);letter-spacing:-.02em;}
+h2{font-size:clamp(1.5rem,3.5vw,2.2rem);border-left:8px solid var(--gold);padding-left:1.5rem;margin-bottom:1.5rem;}
+h3{font-size:1.2rem;margin-bottom:.75rem;}
+a{color:var(--blue);text-decoration:none;font-weight:600;}
+a:hover{text-decoration:underline;}
+:focus-visible{outline:2px solid var(--gold);outline-offset:2px;}
+.en{display:none!important;}
+html[lang="en"] .es{display:none!important;}
+html[lang="en"] .en{display:inline!important;}
+.note{font-family:var(--font-note);font-size:.88rem;color:var(--text-muted);line-height:1.5;}
+.chip{font-family:var(--font-note);font-weight:700;font-size:.72rem;text-transform:uppercase;letter-spacing:.12em;color:var(--blue);background:rgba(19,125,197,.08);padding:.5rem 1.2rem;border-radius:100px;display:inline-block;margin-bottom:1rem;}
+
+/* ═══ SCROLL PROGRESS ═══ */
+#scroll-progress{position:fixed;top:0;left:0;height:3px;background:linear-gradient(90deg,var(--gold),var(--blue));z-index:200;width:0%;transition:width .1s;}
+
+/* ═══ SIDEBAR ═══ */
+.sidebar-nav{position:fixed;top:0;left:0;bottom:0;width:56px;z-index:100;display:flex;flex-direction:column;align-items:center;padding:1.25rem 0 1rem;gap:2px;background:var(--glass-bg);backdrop-filter:blur(16px);-webkit-backdrop-filter:blur(16px);border-right:1px solid var(--border);}
+.sidebar-logo{display:flex;align-items:center;justify-content:center;margin-bottom:1rem;padding-bottom:.75rem;border-bottom:1px solid var(--border);}
+.sidebar-logo svg{width:32px;height:32px;border-radius:6px;}
+.sidebar-links{display:flex;flex-direction:column;align-items:center;gap:2px;flex:1;justify-content:center;}
+.sidebar-nav a{position:relative;display:flex;align-items:center;justify-content:center;width:40px;height:40px;border-radius:10px;color:var(--text-muted);text-decoration:none;transition:color .25s,background .25s,transform .2s;}
+.sidebar-nav a:hover{color:var(--gold-dark);background:rgba(184,134,11,.08);transform:scale(1.1);text-decoration:none;}
+html.dark .sidebar-nav a:hover{color:var(--gold);background:rgba(255,215,0,.1);}
+.sidebar-nav a.active{color:var(--gold-dark);}
+html.dark .sidebar-nav a.active{color:var(--gold);}
+.sidebar-nav a.active::before{content:'';position:absolute;left:0;top:50%;transform:translateY(-50%);width:3px;height:20px;border-radius:0 2px 2px 0;background:var(--gold);}
+.sidebar-nav a svg{width:20px;height:20px;color:var(--gold-dark);}
+html.dark .sidebar-nav a svg{color:var(--gold);}
+.sidebar-nav a::after{content:attr(data-label);position:absolute;left:calc(100% + 10px);top:50%;transform:translateY(-50%) translateX(-4px);background:var(--navy);color:#fff;font-family:var(--font-head);font-size:.7rem;font-weight:600;padding:.35rem .7rem;border-radius:var(--radius-sm);white-space:nowrap;opacity:0;pointer-events:none;transition:opacity .2s,transform .2s;box-shadow:0 2px 8px rgba(0,0,0,.15);}
+html.dark .sidebar-nav a::after{background:#1F2833;border:1px solid rgba(255,215,0,.15);}
+.sidebar-nav a:hover::after{opacity:1;transform:translateY(-50%) translateX(0);}
+.sidebar-bottom{display:flex;flex-direction:column;align-items:center;gap:6px;margin-top:auto;padding-top:.75rem;border-top:1px solid var(--border);}
+.sidebar-bottom button{width:34px;height:34px;border-radius:8px;border:1px solid var(--border);background:transparent;color:var(--text-muted);cursor:pointer;font-family:var(--font-head);font-size:.65rem;font-weight:700;display:flex;align-items:center;justify-content:center;transition:all .2s;}
+.sidebar-bottom button:hover{background:var(--gold);color:var(--navy);border-color:var(--gold);}
+
+/* ═══ LAYOUT ═══ */
+.container{max-width:var(--max-w);margin:0 auto;padding:5rem 2rem;}
+.section-bg{background:var(--bg-soft);}
+.section-header{margin-bottom:2.5rem;}
+.section-header p{color:var(--text-sec);font-size:1rem;line-height:1.8;max-width:700px;}
+.divider{border:none;height:1px;background:var(--border);margin:0;}
+
+/* ═══ BUTTONS ═══ */
+.btn{font-family:var(--font-head);font-weight:700;padding:1rem 2rem;border-radius:100px;text-decoration:none;transition:all .3s cubic-bezier(.175,.885,.32,1.275);font-size:.92rem;display:inline-flex;align-items:center;gap:.75rem;border:none;cursor:pointer;}
+.btn-primary{background:var(--navy);color:var(--white);}
+html.dark .btn-primary{background:var(--gold);color:var(--navy);}
+.btn-secondary{background:var(--gold);color:var(--navy);}
+.btn:hover{transform:translateY(-3px);box-shadow:0 12px 30px rgba(18,37,98,.12);text-decoration:none;}
+
+/* ═══ CARDS ═══ */
+.card-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:1.5rem;margin-top:1.5rem;}
+.card{background:var(--white);padding:2rem;border-radius:var(--radius-lg);border:1px solid var(--border);transition:var(--transition);}
+html.dark .card{background:var(--bg-card);}
+.card:hover{transform:translateY(-4px);box-shadow:0 16px 32px rgba(18,37,98,.08);}
+
+/* ═══ STEP CARDS ═══ */
+.step-grid{display:grid;gap:1.5rem;margin-top:1.5rem;}
+.step-card{background:var(--white);border:1px solid var(--border);border-radius:var(--radius-lg);padding:2rem;position:relative;padding-left:4rem;}
+html.dark .step-card{background:var(--bg-card);}
+.step-num{position:absolute;left:1.5rem;top:2rem;width:28px;height:28px;border-radius:50%;background:var(--gold);color:var(--navy);font-family:var(--font-head);font-size:.8rem;font-weight:800;display:flex;align-items:center;justify-content:center;}
+.step-action{font-family:var(--font-note);font-size:.82rem;color:var(--blue);font-weight:600;margin-top:.75rem;display:block;}
+
+/* ═══ COMPARE ═══ */
+.compare-grid{display:grid;grid-template-columns:1fr 1fr;gap:1.5rem;margin-top:1.5rem;}
+.compare-col{border-radius:var(--radius-lg);padding:1.75rem;}
+.compare-col.before{background:rgba(220,38,38,.05);border:1px solid rgba(220,38,38,.15);}
+.compare-col.after{background:rgba(184,134,11,.04);border:1px solid rgba(184,134,11,.15);}
+.compare-col h3{font-size:1rem;margin-bottom:1rem;}
+.compare-col.before h3{color:#DC2626;}
+.compare-col.after h3{color:var(--gold-dark);}
+.compare-col ul{list-style:none;padding:0;}
+.compare-col li{padding:.4rem 0 .4rem 1.5rem;position:relative;font-size:.9rem;color:var(--text-sec);border-bottom:1px solid rgba(0,0,0,.04);}
+.compare-col.before li::before{content:"\2717";position:absolute;left:0;color:#DC2626;font-weight:700;}
+.compare-col.after li::before{content:"\2713";position:absolute;left:0;color:var(--gold-dark);font-weight:700;}
+
+/* ═══ PERMISSIONS TABLE ═══ */
+.perm-table{width:100%;border-collapse:collapse;margin-top:1.5rem;font-size:.9rem;}
+.perm-table th{background:var(--bg-soft);padding:.75rem 1rem;text-align:left;font-family:var(--font-head);font-size:.75rem;font-weight:700;text-transform:uppercase;letter-spacing:.5px;border-bottom:3px solid var(--gold);color:var(--navy);}
+html.dark .perm-table th{background:var(--bg-card);color:var(--text);}
+.perm-table td{padding:.75rem 1rem;border-bottom:1px solid var(--border);color:var(--text-sec);vertical-align:top;}
+.perm-table tr:hover td{background:rgba(19,125,197,.04);}
+.perm-table td.winner{background:rgba(255,215,0,.08);font-weight:600;position:relative;}
+.perm-table td.winner::after{content:'';position:absolute;left:0;top:0;width:3px;height:100%;background:var(--gold);}
+.tbl-yes{color:#16a34a;font-weight:700;}
+.tbl-no{color:#DC2626;font-weight:700;}
+.tbl-partial{color:var(--gold-dark);font-weight:600;}
+
+/* ═══ VERDICT CARDS ═══ */
+.verdict-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:1.25rem;margin-top:1.5rem;}
+.verdict-card{background:var(--white);border:1px solid var(--border);border-radius:var(--radius-lg);padding:1.5rem;display:flex;gap:1rem;align-items:flex-start;transition:var(--transition);}
+html.dark .verdict-card{background:var(--bg-card);}
+.verdict-card:hover{transform:translateY(-3px);box-shadow:var(--shadow-card);}
+.v-icon{width:44px;height:44px;border-radius:50%;display:flex;align-items:center;justify-content:center;flex-shrink:0;font-size:1.1rem;font-weight:800;}
+.v-icon.chatgpt{background:rgba(116,184,117,.12);color:#74B875;}
+.v-icon.claude{background:rgba(204,120,76,.12);color:#CC784C;}
+.v-icon.gemini{background:rgba(66,133,244,.12);color:#4285F4;}
+.v-icon.kimi{background:rgba(98,54,255,.12);color:#6236FF;}
+.v-icon.nlm{background:rgba(234,67,53,.12);color:#EA4335;}
+
+/* ═══ DOS/DONTS ═══ */
+.dos-grid{display:grid;grid-template-columns:1fr 1fr 1fr;gap:1.25rem;margin-top:1.5rem;}
+.dos-col{border-radius:var(--radius-lg);padding:1.5rem;}
+.dos-col.green{background:rgba(22,163,74,.04);border:1px solid rgba(22,163,74,.15);}
+.dos-col.yellow{background:rgba(217,119,6,.04);border:1px solid rgba(217,119,6,.15);}
+.dos-col.red{background:rgba(220,38,38,.04);border:1px solid rgba(220,38,38,.15);}
+.dos-col h4{font-size:.9rem;margin-bottom:.75rem;}
+.dos-col.green h4{color:#16a34a;}
+.dos-col.yellow h4{color:#D97706;}
+.dos-col.red h4{color:#DC2626;}
+.dos-col ul{list-style:none;padding:0;}
+.dos-col li{font-size:.85rem;color:var(--text-sec);padding:.3rem 0;border-bottom:1px solid rgba(0,0,0,.03);}
+
+/* ═══ CALLOUT ═══ */
+.callout{font-family:var(--font-note);padding:1.5rem 2rem;border-radius:var(--radius-md);margin:2rem 0;border-left:4px solid;font-size:.9rem;color:var(--text-sec);line-height:1.6;}
+.callout-gold{background:rgba(184,134,11,.04);border-color:var(--gold-dark);}
+html.dark .callout-gold{background:rgba(255,215,0,.06);border-color:var(--gold);}
+.callout-blue{background:rgba(19,125,197,.04);border-color:var(--blue);}
+.callout-red{background:rgba(220,38,38,.04);border-color:#DC2626;}
+.callout>strong:first-child{display:block;margin-bottom:.4rem;font-size:.92rem;color:var(--text);}
+
+/* ═══ FAQ ═══ */
+.faq-item{background:var(--white);border:1px solid var(--border);border-radius:var(--radius-md);margin-bottom:.75rem;overflow:hidden;}
+html.dark .faq-item{background:var(--bg-card);}
+.faq-q{font-family:var(--font-body);padding:1.25rem 1.5rem;cursor:pointer;display:flex;justify-content:space-between;align-items:center;font-weight:600;font-size:.92rem;transition:.2s;}
+.faq-q:hover{color:var(--gold-dark);}
+.faq-q .arr{transition:transform .3s;color:var(--gold-dark);font-size:1.1rem;}
+.faq-item.open .faq-q .arr{transform:rotate(180deg);}
+.faq-a{max-height:0;overflow:hidden;transition:max-height .35s ease;}
+.faq-a-inner{font-family:var(--font-note);padding:0 1.5rem 1.25rem;color:var(--text-sec);font-size:.9rem;line-height:1.7;}
+.faq-item.open .faq-a{max-height:400px;}
+
+/* ═══ FOOTER ═══ */
+.site-footer{background:#1F2833;border-top:6px solid var(--gold);color:rgba(255,255,255,.6);padding:2.5rem 2rem;}
+.footer-inner{max-width:var(--max-w);margin:0 auto;}
+.footer-logo{font-family:var(--font-head);font-size:1.2rem;font-weight:700;}
+.footer-bottom{font-family:var(--font-note);margin-top:1rem;padding-top:.75rem;border-top:1px solid rgba(255,255,255,.08);font-size:.72rem;color:rgba(255,255,255,.55);}
+
+/* ═══ REVEAL ═══ */
+.reveal{opacity:0;transform:translateY(30px);transition:opacity .7s ease,transform .7s ease;}
+.reveal.visible{opacity:1;transform:translateY(0);}
+
+/* ═══ RESPONSIVE ═══ */
+@media(max-width:968px){
+  .card-grid[style*="1fr 1fr 1fr"]{grid-template-columns:1fr !important;}
+  .dos-grid{grid-template-columns:1fr !important;}
+  .container{padding:4rem 1.5rem;}
+}
+@media(max-width:768px){
+  .sidebar-nav{top:auto;bottom:0;left:0;right:0;width:100%;height:56px;flex-direction:row;padding:0 .5rem;border-right:none;border-top:1px solid var(--border);}
+  .sidebar-logo{display:none;}
+  .sidebar-links{flex-direction:row;gap:0;justify-content:space-around;width:100%;}
+  .sidebar-nav a{width:34px;height:34px;}
+  .sidebar-nav a::after{display:none;}
+  .sidebar-bottom{flex-direction:row;margin-top:0;padding-top:0;border-top:none;}
+  body{padding-left:0;padding-bottom:56px;}
+  .compare-grid,.dos-grid{grid-template-columns:1fr;}
+  .container{padding:3.5rem 1.5rem;}
+  .step-grid,.card-grid{grid-template-columns:1fr !important;}
+  .card-grid[style*="1fr 1fr 1fr"]{grid-template-columns:1fr !important;}
+  .perm-table{font-size:.82rem;}
+  #hero [style*="repeat(3"]{grid-template-columns:repeat(2,1fr) !important;gap:1rem !important;}
+  .sidebar-nav a{width:36px;height:36px;min-height:44px;min-width:44px;}
+  body{padding-bottom:calc(56px + env(safe-area-inset-bottom,0px));}
+  .sidebar-nav{padding-bottom:env(safe-area-inset-bottom,0px);}
+}
+@supports(-webkit-backdrop-filter:blur(1px)){
+  .sidebar-nav{-webkit-backdrop-filter:blur(16px);}
+}
+@media print{
+  .sidebar-nav,#scroll-progress{display:none!important;}
+  body{padding-left:0!important;}
+  .reveal{opacity:1!important;transform:none!important;}
+}
+</style>
+</head>
+<body>
+
+<div id="scroll-progress"></div>
+
+<!-- ═══ SIDEBAR (12 items) ═══ -->
+<nav class="sidebar-nav" id="sidebarNav" aria-label="Navegacion">
+  <div class="sidebar-logo"><svg width="32" height="32" viewBox="0 0 36 36" fill="none"><defs><linearGradient id="sLG" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" stop-color="#0A122A"/><stop offset="100%" stop-color="#1e293b"/></linearGradient></defs><rect width="36" height="36" rx="10" fill="url(#sLG)"/><path d="M10 12h3v12h-3V12zm6 0h3v8h-3v-8zm0 10h3v2h-3v-2zm6-10h3v6h-3v-6zm0 8h3v4h-3v-4z" fill="white"/><circle cx="18" cy="8" r="2" fill="#FFD700"/></svg></div>
+  <div class="sidebar-links">
+    <a href="#hero" data-label="Inicio"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M15 21v-8a1 1 0 0 0-1-1h-4a1 1 0 0 0-1 1v8"/><path d="M3 10a2 2 0 0 1 .709-1.528l7-5.999a2 2 0 0 1 2.582 0l7 5.999A2 2 0 0 1 21 10v9a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/></svg></a>
+    <a href="#howto" data-label="Como Leer"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/></svg></a>
+    <a href="#metodologia" data-label="Metodologia"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M10 2v7.527a2 2 0 0 1-.211.896L4.72 20.55a1 1 0 0 0 .9 1.45h12.76a1 1 0 0 0 .9-1.45l-5.069-10.127A2 2 0 0 1 14 9.527V2"/><path d="M8.5 2h7"/></svg></a>
+    <a href="#pricing" data-label="Pricing"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="5" width="20" height="14" rx="2"/><line x1="2" x2="22" y1="10" y2="10"/></svg></a>
+    <a href="#modelos" data-label="Modelos"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="m12 2 4 4-4 4-4-4z"/><path d="m2 12 4 4-4 4"/><path d="m12 12 4 4-4 4"/><path d="m22 12-4 4 4 4"/></svg></a>
+    <a href="#tooluse" data-label="Tool Use"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"/></svg></a>
+    <a href="#mcp" data-label="MCP"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22c5.523 0 10-4.477 10-10S17.523 2 12 2 2 6.477 2 12s4.477 10 10 10z"/><path d="m9 12 2 2 4-4"/></svg></a>
+    <a href="#research" data-label="Deep Research"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><line x1="21" x2="16.65" y1="21" y2="16.65"/></svg></a>
+    <a href="#superficies" data-label="Superficies"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="3" width="20" height="14" rx="2"/><line x1="8" x2="16" y1="21" y2="21"/><line x1="12" x2="12" y1="17" y2="21"/></svg></a>
+    <a href="#aprendizaje" data-label="Aprendizaje"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M22 10v6M2 10l10-5 10 5-10 5z"/><path d="M6 12v5c0 1.1 2.7 2 6 2s6-.9 6-2v-5"/></svg></a>
+    <a href="#veredicto" data-label="Veredicto"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="8" r="6"/><path d="M15.477 12.89 17 22l-5-3-5 3 1.523-9.11"/></svg></a>
+    <a href="#vacios" data-label="Vacios"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="m21.73 18-8-14a2 2 0 0 0-3.48 0l-8 14A2 2 0 0 0 4 21h16a2 2 0 0 0 1.73-3Z"/><line x1="12" x2="12" y1="9" y2="13"/><line x1="12" x2="12.01" y1="17" y2="17"/></svg></a>
+    <a href="#glosario" data-label="Glosario"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 19.5v-15A2.5 2.5 0 0 1 6.5 2H20v20H6.5a2.5 2.5 0 0 1 0-5H20"/></svg></a>
+    <a href="#cta" data-label="Siguiente Paso"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 16 16 12 12 8"/><line x1="8" x2="16" y1="12" y2="12"/></svg></a>
+  </div>
+  <div class="sidebar-bottom">
+    <a href="#practica" data-label="Practica" title="Practica" style="display:flex;align-items:center;justify-content:center;width:38px;height:38px;border-radius:10px;margin-bottom:.5rem;transition:transform .2s;"><img src="https://raw.githubusercontent.com/ejemplo-deo-repo/mao-brand-assets/main/pristino_logo_primary.png" alt="Pristino" style="width:24px;height:24px;border-radius:6px;"></a>
+    <button onclick="toggleLang()" title="ES / EN">ES</button>
+    <button onclick="toggleTheme()" id="themeBtn" title="Tema">&#9790;</button>
+  </div>
+</nav>
+
+<!-- ═══ 1. HERO ═══ -->
+<section id="hero" style="min-height:60vh;display:flex;align-items:center;background:linear-gradient(135deg,#1F2833,#122562 55%,#1a3580);border-bottom:6px solid var(--gold);position:relative;overflow:hidden;">
+  <div style="position:absolute;border-radius:50%;filter:blur(80px);opacity:.07;pointer-events:none;width:400px;height:400px;background:#FFD700;top:-150px;right:-80px;"></div>
+  <div class="container" style="width:100%;position:relative;z-index:2;">
+    <div style="display:flex;gap:.5rem;flex-wrap:wrap;margin-bottom:1.25rem;">
+      <span class="chip" style="background:rgba(255,255,255,.1);color:rgba(255,255,255,.85);border:1px solid rgba(255,255,255,.15);">MetodologIA v8 &mdash; Comparative Booklet</span>
+      <span class="chip" style="background:rgba(255,255,255,.1);color:rgba(255,255,255,.85);border:1px solid rgba(255,255,255,.15);"><span class="es">Nivel: Intermedio-Avanzado</span><span class="en">Level: Intermediate-Advanced</span></span>
+    </div>
+    <h1 style="color:#fff;margin-bottom:1rem;">Benchmark IA 2026</h1>
+    <p style="font-size:1.05rem;color:rgba(255,255,255,.7);max-width:650px;line-height:1.8;">
+      <span class="es">5 productos de inteligencia artificial bajo la lupa: ChatGPT, Claude, Gemini, Kimi y NotebookLM. Analisis comparativo de 6 capas con evidencia trazable. La cartilla de sintesis mas densa del benchmark.</span>
+      <span class="en">5 AI products under the microscope: ChatGPT, Claude, Gemini, Kimi &amp; NotebookLM. 6-layer comparative analysis with traceable evidence. The densest synthesis booklet in the benchmark.</span>
+    </p>
+    <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:1.25rem;max-width:400px;margin-top:2rem;">
+      <div style="text-align:center;"><div style="font-family:var(--font-head);font-size:1.8rem;font-weight:800;color:var(--gold);">5</div><div class="note" style="color:rgba(255,255,255,.5);"><span class="es">Productos</span><span class="en">Products</span></div></div>
+      <div style="text-align:center;"><div style="font-family:var(--font-head);font-size:1.8rem;font-weight:800;color:var(--gold);">6</div><div class="note" style="color:rgba(255,255,255,.5);"><span class="es">Capas</span><span class="en">Layers</span></div></div>
+      <div style="text-align:center;"><div style="font-family:var(--font-head);font-size:1.8rem;font-weight:800;color:var(--gold);">300+</div><div class="note" style="color:rgba(255,255,255,.5);"><span class="es">Fuentes</span><span class="en">Sources</span></div></div>
+    </div>
+    <div style="display:flex;gap:.5rem;flex-wrap:wrap;margin-top:1.5rem;">
+      <span class="chip" style="background:rgba(116,184,117,.12);color:#74B875;border:1px solid rgba(116,184,117,.25);">ChatGPT</span>
+      <span class="chip" style="background:rgba(204,120,76,.12);color:#CC784C;border:1px solid rgba(204,120,76,.25);">Claude</span>
+      <span class="chip" style="background:rgba(66,133,244,.12);color:#4285F4;border:1px solid rgba(66,133,244,.25);">Gemini</span>
+      <span class="chip" style="background:rgba(98,54,255,.12);color:#6236FF;border:1px solid rgba(98,54,255,.25);">Kimi</span>
+      <span class="chip" style="background:rgba(234,67,53,.12);color:#EA4335;border:1px solid rgba(234,67,53,.25);">NotebookLM</span>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ 2. HOW TO READ THIS BENCHMARK ═══ -->
+<section id="howto" class="container reveal">
+  <div class="section-header">
+    <span class="chip"><span class="es">Guia de Lectura</span><span class="en">Reading Guide</span></span>
+    <h2><span class="es">Como Leer Este Benchmark</span><span class="en">How to Read This Benchmark</span></h2>
+    <p><span class="es">Antes de sumergirte en los datos, entiende las convenciones que usamos para que cada tabla tenga sentido inmediato.</span><span class="en">Before diving into the data, understand the conventions we use so every table makes immediate sense.</span></p>
+  </div>
+
+  <div class="card-grid" style="grid-template-columns:1fr 1fr;">
+    <div class="card">
+      <h3><span class="es">Resaltado visual</span><span class="en">Visual highlighting</span></h3>
+      <ul style="list-style:none;padding:0;font-size:.9rem;color:var(--text-sec);">
+        <li style="padding:.4rem 0;border-bottom:1px solid var(--border);"><span style="display:inline-block;width:14px;height:14px;background:rgba(255,215,0,.2);border-left:3px solid var(--gold);border-radius:2px;vertical-align:middle;margin-right:.5rem;"></span> <span class="es">= ganador de esa fila</span><span class="en">= winner of that row</span></li>
+        <li style="padding:.4rem 0;border-bottom:1px solid var(--border);"><span class="tbl-yes" style="font-size:.85rem;">&#10003;</span> = <span class="es">si, disponible</span><span class="en">yes, available</span></li>
+        <li style="padding:.4rem 0;border-bottom:1px solid var(--border);"><span class="tbl-partial" style="font-size:.85rem;">Parcial</span> = <span class="es">implementacion incompleta o limitada</span><span class="en">incomplete or limited implementation</span></li>
+        <li style="padding:.4rem 0;"><span class="tbl-no" style="font-size:.85rem;">&#10007;</span> = <span class="es">no disponible</span><span class="en">not available</span></li>
+      </ul>
+    </div>
+    <div class="card">
+      <h3><span class="es">Tags de Evidencia</span><span class="en">Evidence Tags</span></h3>
+      <ul style="list-style:none;padding:0;font-size:.9rem;color:var(--text-sec);">
+        <li style="padding:.4rem 0;border-bottom:1px solid var(--border);"><span class="chip" style="font-size:.65rem;padding:.25rem .6rem;margin:0;">[DOC]</span> <span class="es">Fuente oficial verificable</span><span class="en">Verifiable official source</span></li>
+        <li style="padding:.4rem 0;border-bottom:1px solid var(--border);"><span class="chip" style="font-size:.65rem;padding:.25rem .6rem;margin:0;">[INFERENCIA]</span> <span class="es">Derivada de evidencia indirecta</span><span class="en">Derived from indirect evidence</span></li>
+        <li style="padding:.4rem 0;border-bottom:1px solid var(--border);"><span class="chip" style="font-size:.65rem;padding:.25rem .6rem;margin:0;">[HIPOTESIS]</span> <span class="es">Afirmacion por validar</span><span class="en">Claim to validate</span></li>
+        <li style="padding:.4rem 0;border-bottom:1px solid var(--border);"><span class="chip" style="font-size:.65rem;padding:.25rem .6rem;margin:0;">[VACIO]</span> <span class="es">Dato no disponible</span><span class="en">Data not available</span></li>
+        <li style="padding:.4rem 0;"><span class="chip" style="font-size:.65rem;padding:.25rem .6rem;margin:0;">[CONTRADICCION]</span> <span class="es">Fuentes que se contradicen</span><span class="en">Contradicting sources</span></li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="callout callout-gold">
+    <strong><span class="es">Principio fundamental [DOC]</span><span class="en">Fundamental principle [DOC]</span></strong>
+    <p><span class="es">No declaramos un ganador absoluto &mdash; cada producto gana en dimensiones diferentes. Las fechas importan: datos a abril 2026. Cada afirmacion lleva su tag de evidencia. Los datos se cruzan con al menos 2 fuentes independientes cuando es posible.</span><span class="en">We do not declare an overall winner &mdash; each product wins in different dimensions. Dates matter: data as of April 2026. Every claim carries its evidence tag. Data is cross-referenced with at least 2 independent sources when possible.</span></p>
+  </div>
+
+  <div class="callout callout-blue">
+    <strong><span class="es">Que cuenta como evidencia valida [DOC]</span><span class="en">What counts as valid evidence [DOC]</span></strong>
+    <p><span class="es"><strong>Valido:</strong> documentacion oficial del proveedor, changelogs fechados, pricing pages verificables, benchmarks publicos con metodologia transparente, resultados reproducibles de uso directo.<br><strong>No valido:</strong> opiniones de influencers sin datos, benchmarks cherry-picked, comparaciones sin fecha, capturas sin contexto, afirmaciones de marketing sin soporte tecnico.</span><span class="en"><strong>Valid:</strong> official vendor documentation, dated changelogs, verifiable pricing pages, public benchmarks with transparent methodology, reproducible results from direct use.<br><strong>Not valid:</strong> influencer opinions without data, cherry-picked benchmarks, undated comparisons, screenshots without context, marketing claims without technical support.</span></p>
+  </div>
+
+  <!-- Confidence levels -->
+  <div class="dos-grid" style="margin-top:1.5rem;">
+    <div class="dos-col green">
+      <h4><span class="es">Alta confianza [DOC]</span><span class="en">High confidence [DOC]</span></h4>
+      <ul>
+        <li><span class="es">Pricing verificado en paginas oficiales</span><span class="en">Pricing verified on official pages</span></li>
+        <li><span class="es">Features confirmados en changelogs</span><span class="en">Features confirmed in changelogs</span></li>
+        <li><span class="es">Modelos y fechas de retiro</span><span class="en">Models and retirement dates</span></li>
+        <li><span class="es">MCP support status</span><span class="en">MCP support status</span></li>
+      </ul>
+    </div>
+    <div class="dos-col yellow">
+      <h4><span class="es">Confianza media [INFERENCIA]</span><span class="en">Medium confidence [INFERENCE]</span></h4>
+      <ul>
+        <li><span class="es">Calidad comparativa de outputs</span><span class="en">Comparative output quality</span></li>
+        <li><span class="es">Rankings de "mejor para X"</span><span class="en">"Best for X" rankings</span></li>
+        <li><span class="es">Precision de citas en DR</span><span class="en">Citation accuracy in DR</span></li>
+        <li><span class="es">Rendimiento real vs teorico</span><span class="en">Actual vs theoretical performance</span></li>
+      </ul>
+    </div>
+    <div class="dos-col red">
+      <h4><span class="es">Baja confianza [VACIO/HIPOTESIS]</span><span class="en">Low confidence [GAP/HYPOTHESIS]</span></h4>
+      <ul>
+        <li><span class="es">Contexto efectivo real (context rot)</span><span class="en">Real effective context (context rot)</span></li>
+        <li><span class="es">Agent Mode success rates</span><span class="en">Agent Mode success rates</span></li>
+        <li><span class="es">Features de Kimi no documentados en EN/ES</span><span class="en">Kimi features not documented in EN/ES</span></li>
+        <li><span class="es">Precios futuros</span><span class="en">Future pricing</span></li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<hr class="divider">
+
+<!-- ═══ 3. METODOLOGIA ═══ -->
+<div class="section-bg">
+<section id="metodologia" class="container reveal">
+  <div class="section-header">
+    <span class="chip"><span class="es">Metodologia</span><span class="en">Methodology</span></span>
+    <h2><span class="es">Metodologia del Benchmark</span><span class="en">Benchmark Methodology</span></h2>
+    <p><span class="es">6 capas de analisis, evidencia trazable, sin opiniones sin respaldo. Cada capa mide una dimension diferente del producto.</span><span class="en">6 layers of analysis, traceable evidence, no unsupported opinions. Each layer measures a different product dimension.</span></p>
+  </div>
+
+  <div class="card-grid" style="grid-template-columns:repeat(auto-fit,minmax(240px,1fr));">
+    <div class="card"><h3>1. <span class="es">Producto</span><span class="en">Product</span></h3><p style="color:var(--text-sec);font-size:.88rem;"><span class="es"><strong>Mide:</strong> UX, workflows, herramientas integradas, superficies disponibles (web, mobile, desktop, CLI, API). Responde: &iquest;que puedo hacer con esta herramienta hoy?</span><span class="en"><strong>Measures:</strong> UX, workflows, integrated tools, available surfaces (web, mobile, desktop, CLI, API). Answers: what can I do with this tool today?</span></p></div>
+    <div class="card"><h3>2. <span class="es">Servicio</span><span class="en">Service</span></h3><p style="color:var(--text-sec);font-size:.88rem;"><span class="es"><strong>Mide:</strong> Confiabilidad, uptime, soporte, seguridad, compliance, SLAs. Responde: &iquest;puedo confiar en esto para trabajo serio?</span><span class="en"><strong>Measures:</strong> Reliability, uptime, support, security, compliance, SLAs. Answers: can I trust this for serious work?</span></p></div>
+    <div class="card"><h3>3. <span class="es">Modelo/Motor</span><span class="en">Model/Engine</span></h3><p style="color:var(--text-sec);font-size:.88rem;"><span class="es"><strong>Mide:</strong> Contexto efectivo, razonamiento, multimodalidad, velocidad de inferencia. Responde: &iquest;que tan inteligente y capaz es el motor?</span><span class="en"><strong>Measures:</strong> Effective context, reasoning, multimodality, inference speed. Answers: how smart and capable is the engine?</span></p></div>
+    <div class="card"><h3>4. Tool Use</h3><p style="color:var(--text-sec);font-size:.88rem;"><span class="es"><strong>Mide:</strong> Navegacion web, ejecucion de codigo, MCP, computer use, agentes. Responde: &iquest;puede actuar en el mundo real?</span><span class="en"><strong>Measures:</strong> Web browsing, code execution, MCP, computer use, agents. Answers: can it act in the real world?</span></p></div>
+    <div class="card"><h3>5. <span class="es">Investigacion</span><span class="en">Research</span></h3><p style="color:var(--text-sec);font-size:.88rem;"><span class="es"><strong>Mide:</strong> Deep Research, fuentes, trazabilidad de citas, calidad de sintesis. Responde: &iquest;puede investigar por mi de forma confiable?</span><span class="en"><strong>Measures:</strong> Deep Research, sources, citation traceability, synthesis quality. Answers: can it research reliably on my behalf?</span></p></div>
+    <div class="card"><h3>6. <span class="es">Aprendizaje</span><span class="en">Learning</span></h3><p style="color:var(--text-sec);font-size:.88rem;"><span class="es"><strong>Mide:</strong> Valor pedagogico, tutoring, artefactos de estudio, sistematicidad. Responde: &iquest;me ayuda a aprender de verdad?</span><span class="en"><strong>Measures:</strong> Pedagogical value, tutoring, study artifacts, systematicity. Answers: does it genuinely help me learn?</span></p></div>
+  </div>
+
+  <!-- Decision Framework -->
+  <div class="callout callout-gold" style="margin-top:2rem;">
+    <strong><span class="es">Framework de Decision: Modelo ≠ Producto ≠ Plan ≠ App [DOC]</span><span class="en">Decision Framework: Model ≠ Product ≠ Plan ≠ App [DOC]</span></strong>
+    <p><span class="es">La confusion #1 al comparar herramientas de IA es mezclar estos 4 niveles:<br><strong>Modelo:</strong> el motor de IA (GPT-5.4, Opus 4.6, Gemini 3.1 Pro). No lo usas directamente.<br><strong>Producto:</strong> la interfaz que empaqueta el modelo (ChatGPT, Claude, Gemini app). Lo que realmente usas.<br><strong>Plan:</strong> lo que pagas determina que modelo y que funciones obtienes (Free vs Pro vs Max).<br><strong>App:</strong> la superficie especifica (web, mobile, CLI, IDE). El mismo producto puede comportarse diferente en cada app.<br>Cuando alguien dice "GPT-5 es mejor que Claude" esta mezclando modelo con producto. Las comparaciones utiles especifican: que modelo, en que producto, en que plan, en que superficie.</span><span class="en">The #1 confusion when comparing AI tools is mixing these 4 levels:<br><strong>Model:</strong> the AI engine (GPT-5.4, Opus 4.6, Gemini 3.1 Pro). You don't use it directly.<br><strong>Product:</strong> the interface that packages the model (ChatGPT, Claude, Gemini app). What you actually use.<br><strong>Plan:</strong> what you pay determines which model and features you get (Free vs Pro vs Max).<br><strong>App:</strong> the specific surface (web, mobile, CLI, IDE). The same product can behave differently on each app.<br>When someone says "GPT-5 is better than Claude" they are mixing model with product. Useful comparisons specify: which model, in which product, on which plan, on which surface.</span></p>
+  </div>
+
+  <!-- Ejemplos del framework -->
+  <div class="compare-grid" style="margin-top:1.5rem;">
+    <div class="compare-col before">
+      <h3><span class="es">Comparaciones inutiles</span><span class="en">Useless comparisons</span></h3>
+      <ul>
+        <li><span class="es">"GPT-5 es mejor que Claude"</span><span class="en">"GPT-5 is better than Claude"</span></li>
+        <li><span class="es">"Gemini es gratis y Claude cobra"</span><span class="en">"Gemini is free and Claude charges"</span></li>
+        <li><span class="es">"Kimi es mas barato"</span><span class="en">"Kimi is cheaper"</span></li>
+        <li><span class="es">"NLM no puede chatear"</span><span class="en">"NLM can't chat"</span></li>
+      </ul>
+    </div>
+    <div class="compare-col after">
+      <h3><span class="es">Comparaciones utiles</span><span class="en">Useful comparisons</span></h3>
+      <ul>
+        <li><span class="es">"GPT-5.4 via API a consultar plan vigente/M vs Opus 4.6 a consultar plan vigente/M para resumen de 100K tokens"</span><span class="en">"GPT-5.4 via API at consultar plan vigente/M vs Opus 4.6 at consultar plan vigente/M for 100K token summary"</span></li>
+        <li><span class="es">"Gemini Plus consultar plan vigente vs Claude Pro consultar plan vigente para usuario no-tecnico"</span><span class="en">"Gemini Plus consultar plan vigente vs Claude Pro consultar plan vigente for non-technical user"</span></li>
+        <li><span class="es">"K2.5 API a consultar plan vigente/M vs Gemini Flash a consultar plan vigente/M para batch processing"</span><span class="en">"K2.5 API at consultar plan vigente/M vs Gemini Flash at consultar plan vigente/M for batch processing"</span></li>
+        <li><span class="es">"NLM source grounding vs Claude Projects para analisis de documentos legales"</span><span class="en">"NLM source grounding vs Claude Projects for legal document analysis"</span></li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="callout callout-blue" style="margin-top:1.5rem;">
+    <strong><span class="es">Principios del benchmark [DOC]</span><span class="en">Benchmark principles [DOC]</span></strong>
+    <p><span class="es">Cada afirmacion lleva su tag de evidencia. No se incluyen opiniones sin respaldo. Los datos se cruzan con al menos 2 fuentes independientes cuando es posible. Snapshot valido a abril 2026. El benchmark se actualiza con cada version de las cartillas.</span><span class="en">Every claim carries its evidence tag. No unsupported opinions are included. Data is cross-referenced with at least 2 independent sources when possible. Snapshot valid as of April 2026. The benchmark is updated with each booklet version.</span></p>
+  </div>
+</section>
+</div>
+
+<hr class="divider">
+
+<!-- ═══ 4. PRICING ═══ -->
+<section id="pricing" class="container reveal">
+  <div class="section-header">
+    <span class="chip">Pricing</span>
+    <h2>Pricing <span class="es">Comparado</span><span class="en">Compared</span></h2>
+    <p><span class="es">De gratis a consultar plan vigente: el espectro completo. Datos actualizados a abril 2026. [VACIO] Los precios cambian frecuentemente.</span><span class="en">From free to consult current plan: the full spectrum. Updated April 2026. [VACIO] Prices change frequently.</span></p>
+  </div>
+
+  <!-- Table 1: Consumer Plans -->
+  <h3 style="margin-bottom:.5rem;"><span class="es">Tabla 1 &mdash; Planes de Consumidor [DOC]</span><span class="en">Table 1 &mdash; Consumer Plans [DOC]</span></h3>
+  <table class="perm-table">
+    <thead>
+      <tr>
+        <th><span class="es">Producto</span><span class="en">Product</span></th>
+        <th>Free</th>
+        <th>Individual</th>
+        <th>Pro/Max</th>
+        <th>Team</th>
+        <th>Enterprise</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><strong>ChatGPT</strong></td>
+        <td>consultar plan vigente</td>
+        <td>Plus consultar plan vigente</td>
+        <td>Pro consultar plan vigente</td>
+        <td>Biz ~consultar plan vigente/usuario</td>
+        <td>Custom</td>
+      </tr>
+      <tr>
+        <td><strong>Claude</strong></td>
+        <td>consultar plan vigente</td>
+        <td>Pro consultar plan vigente</td>
+        <td>Max consultar plan vigente</td>
+        <td>Team consultar plan vigente/usuario</td>
+        <td>Custom</td>
+      </tr>
+      <tr>
+        <td><strong>Gemini</strong></td>
+        <td>consultar plan vigente</td>
+        <td class="winner">Plus consultar plan vigente</td>
+        <td>Ultra consultar plan vigente</td>
+        <td>Workspace add-on</td>
+        <td>Custom</td>
+      </tr>
+      <tr>
+        <td><strong>Kimi</strong></td>
+        <td>consultar plan vigente</td>
+        <td>~consultar plan vigente</td>
+        <td>Vivace consultar plan vigente</td>
+        <td>&mdash;</td>
+        <td>&mdash;</td>
+      </tr>
+      <tr>
+        <td><strong>NotebookLM</strong></td>
+        <td>consultar plan vigente</td>
+        <td><span class="es">via Google AI Plus</span><span class="en">via Google AI Plus</span></td>
+        <td><span class="es">via Google AI Pro</span><span class="en">via Google AI Pro</span></td>
+        <td>&mdash;</td>
+        <td>consultar plan vigente/licencia</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <!-- Table 2: API Pricing -->
+  <h3 style="margin-top:2.5rem;margin-bottom:.5rem;"><span class="es">Tabla 2 &mdash; Pricing API por M Tokens [DOC]</span><span class="en">Table 2 &mdash; API Pricing per M Tokens [DOC]</span></h3>
+  <table class="perm-table">
+    <thead>
+      <tr>
+        <th><span class="es">Modelo</span><span class="en">Model</span></th>
+        <th>Input/M</th>
+        <th>Output/M</th>
+        <th><span class="es">Contexto</span><span class="en">Context</span></th>
+        <th><span class="es">Notas</span><span class="en">Notes</span></th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><strong>GPT-5.4</strong></td>
+        <td>consultar plan vigente</td>
+        <td>consultar plan vigente</td>
+        <td>1M</td>
+        <td><span class="es">Flagship unificado. Serie o retirada.</span><span class="en">Unified flagship. o-series retired.</span></td>
+      </tr>
+      <tr>
+        <td><strong>Claude Opus 4.6</strong></td>
+        <td>consultar plan vigente</td>
+        <td>consultar plan vigente</td>
+        <td>1M</td>
+        <td><span class="es">67% mas barato que Opus anterior [DOC]</span><span class="en">67% cheaper than previous Opus [DOC]</span></td>
+      </tr>
+      <tr>
+        <td><strong>Claude Sonnet 4.6</strong></td>
+        <td>consultar plan vigente</td>
+        <td>consultar plan vigente</td>
+        <td>200K</td>
+        <td><span class="es">Tier de balance calidad/precio</span><span class="en">Quality/price balance tier</span></td>
+      </tr>
+      <tr>
+        <td><strong>Gemini 3.1 Pro</strong></td>
+        <td class="winner">consultar plan vigente</td>
+        <td>consultar plan vigente</td>
+        <td>2M</td>
+        <td><span class="es">Mejor relacion precio/contexto [DOC]</span><span class="en">Best price/context ratio [DOC]</span></td>
+      </tr>
+      <tr>
+        <td><strong>Kimi K2.5</strong></td>
+        <td class="winner">consultar plan vigente</td>
+        <td>consultar plan vigente</td>
+        <td>256K</td>
+        <td><span class="es">Open-weight, 4-17x mas barato [DOC]</span><span class="en">Open-weight, 4-17x cheaper [DOC]</span></td>
+      </tr>
+      <tr>
+        <td><strong>NotebookLM</strong></td>
+        <td>N/A</td>
+        <td>N/A</td>
+        <td>1M/fuente</td>
+        <td><span class="es">Sin API publica [DOC]</span><span class="en">No public API [DOC]</span></td>
+      </tr>
+    </tbody>
+  </table>
+
+  <div class="callout callout-blue">
+    <strong><span class="es">Actualizaciones clave abril 2026 [DOC]</span><span class="en">Key updates April 2026 [DOC]</span></strong>
+    <p><span class="es"><strong>OpenAI:</strong> GPT-4o retirado, serie o (o1, o3, o4-mini) retirada (Feb 13, 2026). El flagship es GPT-5.4. GPT-5.2 Thinking es legacy (se retira Jun 5, 2026).<br><strong>Anthropic:</strong> Opus 4.6 = consultar plan vigente/consultar plan vigente por M tokens, caida del 67%. Extended thinking + 1M contexto.<br><strong>Moonshot:</strong> Kimi K2.5 = consultar plan vigente/M input, entre 4x y 17x mas barato. Ideal para volumen alto.<br><strong>Google:</strong> Gemini 3.1 Pro = consultar plan vigente/M input con 2M de contexto. Flash 2.5 aun mas barato para batch.</span><span class="en"><strong>OpenAI:</strong> GPT-4o retired, o-series (o1, o3, o4-mini) retired (Feb 13, 2026). Flagship is GPT-5.4. GPT-5.2 Thinking is legacy (retiring Jun 5, 2026).<br><strong>Anthropic:</strong> Opus 4.6 = consultar plan vigente/consultar plan vigente per M tokens, 67% drop. Extended thinking + 1M context.<br><strong>Moonshot:</strong> Kimi K2.5 = consultar plan vigente/M input, between 4x and 17x cheaper. Ideal for high volume.<br><strong>Google:</strong> Gemini 3.1 Pro = consultar plan vigente/M input with 2M context. Flash 2.5 even cheaper for batch.</span></p>
+    <p class="note" style="margin-top:.75rem;"><span class="es">[VACIO] Los precios cambian frecuentemente. Verificar siempre las paginas oficiales antes de tomar decisiones de compra.</span><span class="en">[VACIO] Prices change frequently. Always verify official pages before making purchasing decisions.</span></p>
+  </div>
+
+  <!-- How to calculate your cost -->
+  <h3 style="margin-top:2.5rem;"><span class="es">Como Calcular tu Costo API [DOC]</span><span class="en">How to Calculate Your API Cost [DOC]</span></h3>
+  <div class="step-grid" style="margin-top:1rem;">
+    <div class="step-card"><div class="step-num">1</div>
+      <h3><span class="es">Estima tokens por query</span><span class="en">Estimate tokens per query</span></h3>
+      <p style="color:var(--text-sec);font-size:.88rem;"><span class="es">1 token ≈ 0.75 palabras en ingles, ≈ 0.6 palabras en espanol. Un documento de 10 paginas ≈ 4,000-6,000 tokens. Un prompt tipico: 500-2,000 tokens input, 500-4,000 tokens output.</span><span class="en">1 token ≈ 0.75 words in English, ≈ 0.6 words in Spanish. A 10-page document ≈ 4,000-6,000 tokens. A typical prompt: 500-2,000 tokens input, 500-4,000 tokens output.</span></p>
+    </div>
+    <div class="step-card"><div class="step-num">2</div>
+      <h3><span class="es">Multiplica por volumen mensual</span><span class="en">Multiply by monthly volume</span></h3>
+      <p style="color:var(--text-sec);font-size:.88rem;"><span class="es">Si procesas 1,000 docs/mes de 5K tokens cada uno = 5M tokens input. Si cada respuesta es 2K tokens = 2M tokens output.</span><span class="en">If you process 1,000 docs/month of 5K tokens each = 5M input tokens. If each response is 2K tokens = 2M output tokens.</span></p>
+    </div>
+    <div class="step-card"><div class="step-num">3</div>
+      <h3><span class="es">Aplica precios</span><span class="en">Apply prices</span></h3>
+      <p style="color:var(--text-sec);font-size:.88rem;"><span class="es"><strong>Ejemplo:</strong> 5M input + 2M output/mes<br>GPT-5.4: (5 x consultar plan vigente) + (2 x consultar plan vigente) = consultar plan vigente<br>Opus 4.6: (5 x consultar plan vigente) + (2 x consultar plan vigente) = consultar plan vigente<br>Gemini 3.1 Pro: (5 x consultar plan vigente) + (2 x consultar plan vigente) = consultar plan vigente<br>Kimi K2.5: (5 x consultar plan vigente) + (2 x consultar plan vigente) = consultar plan vigente</span><span class="en"><strong>Example:</strong> 5M input + 2M output/month<br>GPT-5.4: (5 x consultar plan vigente) + (2 x consultar plan vigente) = consultar plan vigente<br>Opus 4.6: (5 x consultar plan vigente) + (2 x consultar plan vigente) = consultar plan vigente<br>Gemini 3.1 Pro: (5 x consultar plan vigente) + (2 x consultar plan vigente) = consultar plan vigente<br>Kimi K2.5: (5 x consultar plan vigente) + (2 x consultar plan vigente) = consultar plan vigente</span></p>
+    </div>
+  </div>
+  <div class="callout callout-gold" style="margin-top:1rem;">
+    <strong><span class="es">Nota sobre calidad vs precio [INFERENCIA]</span><span class="en">Note on quality vs price [INFERENCE]</span></strong>
+    <p><span class="es">El modelo mas barato no siempre es la mejor opcion. Kimi K2.5 es 4-17x mas barato pero puede requerir mas iteraciones para tareas complejas. Opus 4.6 es mas caro pero puede resolver en una sola iteracion lo que requiere 3-5 en modelos mas baratos. Calcula el costo total incluyendo reintentos.</span><span class="en">The cheapest model is not always the best option. Kimi K2.5 is 4-17x cheaper but may require more iterations for complex tasks. Opus 4.6 is more expensive but can resolve in a single iteration what requires 3-5 on cheaper models. Calculate total cost including retries.</span></p>
+  </div>
+</section>
+
+<hr class="divider">
+
+<!-- ═══ 5. MODELOS ═══ -->
+<div class="section-bg">
+<section id="modelos" class="container reveal">
+  <div class="section-header">
+    <span class="chip"><span class="es">Modelos</span><span class="en">Models</span></span>
+    <h2><span class="es">Modelos Comparados</span><span class="en">Models Compared</span></h2>
+    <p><span class="es">Contexto, razonamiento, multimodalidad y estado actual. Incluye retiros recientes.</span><span class="en">Context, reasoning, multimodality, and current status. Includes recent retirements.</span></p>
+  </div>
+  <table class="perm-table">
+    <thead>
+      <tr>
+        <th><span class="es">Producto</span><span class="en">Product</span></th>
+        <th>Flagship</th>
+        <th><span class="es">Contexto</span><span class="en">Context</span></th>
+        <th><span class="es">Razonamiento</span><span class="en">Reasoning</span></th>
+        <th>Multimodal</th>
+        <th>Status</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><strong>ChatGPT</strong></td>
+        <td>GPT-5.4</td>
+        <td>1M tokens</td>
+        <td>Thinking + Pro modes</td>
+        <td class="winner"><span class="es">Texto, imagen, audio, video</span><span class="en">Text, image, audio, video</span></td>
+        <td><span class="es">GPT-4o retirado. Serie o retirada Feb 13, 2026 [DOC]. GPT-5.2 Thinking legacy, retiro Jun 5, 2026 [DOC].</span><span class="en">GPT-4o retired. o-series retired Feb 13, 2026 [DOC]. GPT-5.2 Thinking legacy, retiring Jun 5, 2026 [DOC].</span></td>
+      </tr>
+      <tr>
+        <td><strong>Claude</strong></td>
+        <td>Opus 4.6</td>
+        <td>1M tokens</td>
+        <td>Extended/Adaptive Thinking</td>
+        <td><span class="es">Texto, imagen, codigo</span><span class="en">Text, image, code</span></td>
+        <td><span class="es">Opus 4.6 = 67% mas barato [DOC]. Sonnet 4.6 tier medio.</span><span class="en">Opus 4.6 = 67% cheaper [DOC]. Sonnet 4.6 mid tier.</span></td>
+      </tr>
+      <tr>
+        <td><strong>Gemini</strong></td>
+        <td>3.1 Pro</td>
+        <td class="winner">2M tokens</td>
+        <td>Deep Think</td>
+        <td class="winner"><span class="es">Texto, imagen, audio, video, codigo</span><span class="en">Text, image, audio, video, code</span></td>
+        <td><span class="es">Contexto mas grande del mercado [DOC]. Flash 2.5 para batch.</span><span class="en">Largest context on market [DOC]. Flash 2.5 for batch.</span></td>
+      </tr>
+      <tr>
+        <td><strong>Kimi</strong></td>
+        <td>K2.5</td>
+        <td>256K tokens</td>
+        <td>K2 Thinking</td>
+        <td><span class="es">Texto, imagen (nativo), video</span><span class="en">Text, image (native), video</span></td>
+        <td><span class="es">Open-weight. Contexto menor pero precio imbatible [DOC].</span><span class="en">Open-weight. Smaller context but unbeatable price [DOC].</span></td>
+      </tr>
+      <tr>
+        <td><strong>NotebookLM</strong></td>
+        <td>Gemini (backend)</td>
+        <td>1M/fuente</td>
+        <td>N/A</td>
+        <td><span class="es">Texto, imagen, audio, PDF</span><span class="en">Text, image, audio, PDF</span></td>
+        <td><span class="es">Source grounding elimina alucinaciones [DOC]. No es general-purpose.</span><span class="en">Source grounding eliminates hallucinations [DOC]. Not general-purpose.</span></td>
+      </tr>
+    </tbody>
+  </table>
+  <div class="callout callout-blue">
+    <strong><span class="es">Destacado [DOC]</span><span class="en">Highlight [DOC]</span></strong>
+    <p><span class="es">Gemini lidera en contexto (2M) y multimodalidad nativa completa. GPT-5.4 absorbe capacidades de razonamiento de la serie o retirada. Opus 4.6 iguala a GPT-5.4 en contexto (1M) con precio 67% menor. Kimi K2.5 es open-weight con el mejor precio del mercado.</span><span class="en">Gemini leads in context (2M) and full native multimodality. GPT-5.4 absorbs reasoning capabilities from retired o-series. Opus 4.6 matches GPT-5.4 in context (1M) at 67% lower price. Kimi K2.5 is open-weight with the best market price.</span></p>
+  </div>
+
+  <!-- Reasoning modes comparison -->
+  <h3 style="margin-top:2rem;"><span class="es">Modos de Razonamiento Comparados [DOC]</span><span class="en">Reasoning Modes Compared [DOC]</span></h3>
+  <table class="perm-table" style="margin-top:.75rem;">
+    <thead>
+      <tr>
+        <th><span class="es">Producto</span><span class="en">Product</span></th>
+        <th><span class="es">Modo de Razonamiento</span><span class="en">Reasoning Mode</span></th>
+        <th><span class="es">Descripcion</span><span class="en">Description</span></th>
+        <th><span class="es">Costo Extra</span><span class="en">Extra Cost</span></th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><strong>ChatGPT</strong></td>
+        <td>GPT-5.4 Thinking / Pro</td>
+        <td><span class="es">Absorbe capacidades de la serie o retirada. Thinking = pensar antes de responder. Pro = razonamiento maximo para tareas complejas.</span><span class="en">Absorbs capabilities from retired o-series. Thinking = think before responding. Pro = maximum reasoning for complex tasks.</span></td>
+        <td><span class="es">Incluido en Plus (consultar plan vigente)</span><span class="en">Included in Plus (consultar plan vigente)</span></td>
+      </tr>
+      <tr>
+        <td><strong>Claude</strong></td>
+        <td>Extended / Adaptive Thinking</td>
+        <td><span class="es">Extended thinking = cadena de pensamiento larga visible. Adaptive = ajusta profundidad automaticamente segun complejidad.</span><span class="en">Extended thinking = long visible chain of thought. Adaptive = automatically adjusts depth based on complexity.</span></td>
+        <td><span class="es">Incluido en Pro (consultar plan vigente)</span><span class="en">Included in Pro (consultar plan vigente)</span></td>
+      </tr>
+      <tr>
+        <td><strong>Gemini</strong></td>
+        <td>Deep Think</td>
+        <td><span class="es">Modo de razonamiento profundo disponible en modelos Pro y Ultra. Integrado con contexto de 2M tokens.</span><span class="en">Deep reasoning mode available in Pro and Ultra models. Integrated with 2M token context.</span></td>
+        <td><span class="es">Incluido en Plus (consultar plan vigente)</span><span class="en">Included in Plus (consultar plan vigente)</span></td>
+      </tr>
+      <tr>
+        <td><strong>Kimi</strong></td>
+        <td>K2 Thinking</td>
+        <td><span class="es">Modo de razonamiento similar a chain-of-thought. Documentacion limitada en ingles [VACIO].</span><span class="en">Chain-of-thought-like reasoning mode. Limited English documentation [GAP].</span></td>
+        <td><span class="es">Incluido en plan</span><span class="en">Included in plan</span></td>
+      </tr>
+      <tr>
+        <td><strong>NotebookLM</strong></td>
+        <td>N/A</td>
+        <td><span class="es">No tiene modo de razonamiento explicito. Su "razonamiento" es la busqueda y citacion dentro de tus fuentes.</span><span class="en">No explicit reasoning mode. Its "reasoning" is search and citation within your sources.</span></td>
+        <td>N/A</td>
+      </tr>
+    </tbody>
+  </table>
+</section>
+</div>
+
+<hr class="divider">
+
+<!-- ═══ 6. TOOL USE ═══ -->
+<section id="tooluse" class="container reveal">
+  <div class="section-header">
+    <span class="chip">Tool Use</span>
+    <h2>Tool Use <span class="es">Comparado</span><span class="en">Compared</span></h2>
+    <p><span class="es">8 capacidades criticas: quien puede navegar, codear, extender y automatizar.</span><span class="en">8 critical capabilities: who can browse, code, extend, and automate.</span></p>
+  </div>
+  <table class="perm-table">
+    <thead>
+      <tr>
+        <th><span class="es">Capacidad</span><span class="en">Capability</span></th>
+        <th>ChatGPT</th>
+        <th>Claude</th>
+        <th>Gemini</th>
+        <th>Kimi</th>
+        <th>NLM</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><strong>Web Browse</strong></td>
+        <td class="tbl-yes">&#10003; <span class="note"><span class="es">nativo</span><span class="en">native</span></span></td>
+        <td class="tbl-yes">&#10003; <span class="note">web search</span></td>
+        <td class="tbl-yes">&#10003; <span class="note">Google Search</span></td>
+        <td class="tbl-yes">&#10003; <span class="note"><span class="es">nativo</span><span class="en">native</span></span></td>
+        <td class="tbl-partial"><span class="es">Via DR solamente</span><span class="en">Via DR only</span></td>
+      </tr>
+      <tr>
+        <td><strong>Code Exec</strong></td>
+        <td class="tbl-yes">&#10003; <span class="note">interpreter/Codex</span></td>
+        <td class="winner tbl-yes">&#10003; <span class="note">Claude Code CLI+IDE</span></td>
+        <td class="tbl-yes">&#10003; <span class="note">AI Studio/Jules</span></td>
+        <td class="tbl-yes">&#10003; <span class="note">Kimi Code</span></td>
+        <td class="tbl-no">&#10007;</td>
+      </tr>
+      <tr>
+        <td><strong>Custom Assistants</strong></td>
+        <td class="tbl-yes"><span class="note">GPTs + GPT Store [DOC]</span></td>
+        <td class="tbl-yes"><span class="note">Projects + Styles [DOC]</span></td>
+        <td class="tbl-yes"><span class="note">Gems [DOC]</span></td>
+        <td class="tbl-no">&#10007;</td>
+        <td class="tbl-partial"><span class="note"><span class="es">Instr. personalizadas</span><span class="en">Custom instructions</span></span></td>
+      </tr>
+      <tr>
+        <td><strong>MCP</strong></td>
+        <td class="tbl-no">&#10007; <span class="note"><span class="es">Usa Actions</span><span class="en">Uses Actions</span></span></td>
+        <td class="winner tbl-yes">&#10003; <span class="note">first-class, local+remote, OAuth 2.1</span></td>
+        <td class="tbl-partial"><span class="note"><span class="es">Parcial, enterprise</span><span class="en">Partial, enterprise</span></span></td>
+        <td class="tbl-no">&#10007;</td>
+        <td class="tbl-no">&#10007;</td>
+      </tr>
+      <tr>
+        <td><strong>Computer Use / CUA</strong></td>
+        <td class="tbl-yes">&#10003; <span class="note">Operator</span></td>
+        <td class="tbl-yes">&#10003; <span class="note">computer use MCP</span></td>
+        <td class="tbl-yes">&#10003; <span class="note">Project Mariner</span></td>
+        <td class="tbl-no">&#10007;</td>
+        <td class="tbl-no">&#10007;</td>
+      </tr>
+      <tr>
+        <td><strong>Deep Research</strong></td>
+        <td class="tbl-yes">&#10003; <span class="note"><span class="es">agente autonomo</span><span class="en">autonomous agent</span></span></td>
+        <td class="tbl-partial"><span class="note"><span class="es">web search, no agente</span><span class="en">web search, not agent</span></span></td>
+        <td class="winner tbl-yes">&#10003; <span class="note"><span class="es">agente+Workspace</span><span class="en">agent+Workspace</span></span></td>
+        <td class="tbl-yes">&#10003; <span class="note">Explorer + Swarm</span></td>
+        <td class="tbl-yes">&#10003; <span class="note">Fast + Deep modes</span></td>
+      </tr>
+      <tr>
+        <td><strong>Agent Mode</strong></td>
+        <td class="tbl-yes">&#10003; <span class="note">Atlas/Codex</span></td>
+        <td class="tbl-yes">&#10003; <span class="note">Cowork + Claude Code</span></td>
+        <td class="tbl-yes">&#10003; <span class="note">Gemini Agent/Jules</span></td>
+        <td class="tbl-yes">&#10003; <span class="note">Swarm (100 agentes)</span></td>
+        <td class="tbl-no">&#10007;</td>
+      </tr>
+      <tr>
+        <td><strong>File Handling</strong></td>
+        <td class="tbl-yes">&#10003; <span class="note"><span class="es">subida+analisis</span><span class="en">upload+analysis</span></span></td>
+        <td class="tbl-yes">&#10003; <span class="note">Projects + Artifacts</span></td>
+        <td class="tbl-yes">&#10003; <span class="note">Drive + <span class="es">subida</span><span class="en">upload</span></span></td>
+        <td class="tbl-yes">&#10003; <span class="note"><span class="es">subida basica</span><span class="en">basic upload</span></span></td>
+        <td class="winner tbl-yes">&#10003; <span class="note"><span class="es">50 fuentes, source grounding</span><span class="en">50 sources, source grounding</span></span></td>
+      </tr>
+    </tbody>
+  </table>
+  <div class="callout callout-gold">
+    <strong><span class="es">Analisis [DOC]</span><span class="en">Analysis [DOC]</span></strong>
+    <p><span class="es">Claude domina en MCP (first-class, unico con local+remote+OAuth) y coding (CLI+IDE nativos). ChatGPT tiene el ecosistema de GPTs mas amplio con marketplace. Gemini integra DR con Workspace. NLM es imbatible en file handling con source grounding. Kimi destaca en agentes paralelos (Swarm).</span><span class="en">Claude dominates in MCP (first-class, only with local+remote+OAuth) and coding (native CLI+IDE). ChatGPT has the broadest GPT ecosystem with marketplace. Gemini integrates DR with Workspace. NLM is unbeatable in file handling with source grounding. Kimi excels in parallel agents (Swarm).</span></p>
+  </div>
+</section>
+
+<hr class="divider">
+
+<!-- ═══ 7. THE MCP QUESTION ═══ -->
+<div class="section-bg">
+<section id="mcp" class="container reveal">
+  <div class="section-header">
+    <span class="chip">MCP</span>
+    <h2><span class="es">La Cuestion MCP</span><span class="en">The MCP Question</span></h2>
+    <p><span class="es">Model Context Protocol: el estandar abierto de interoperabilidad que esta redefiniendo como las IAs se conectan con herramientas externas.</span><span class="en">Model Context Protocol: the open interoperability standard that is redefining how AIs connect with external tools.</span></p>
+  </div>
+
+  <div class="callout callout-blue">
+    <strong><span class="es">Que es MCP y por que importa [DOC]</span><span class="en">What is MCP and why it matters [DOC]</span></strong>
+    <p><span class="es">MCP (Model Context Protocol) es un estandar abierto creado por Anthropic que define como un modelo de IA se comunica con herramientas externas (bases de datos, APIs, archivos, navegadores, calendarios). Es el equivalente de USB-C para IA: un conector universal. Un servidor MCP escrito una vez puede ser usado por cualquier cliente que soporte el protocolo.</span><span class="en">MCP (Model Context Protocol) is an open standard created by Anthropic that defines how an AI model communicates with external tools (databases, APIs, files, browsers, calendars). It is the USB-C equivalent for AI: a universal connector. An MCP server written once can be used by any client that supports the protocol.</span></p>
+  </div>
+
+  <table class="perm-table">
+    <thead>
+      <tr>
+        <th><span class="es">Producto</span><span class="en">Product</span></th>
+        <th>MCP Status</th>
+        <th><span class="es">Detalles</span><span class="en">Details</span></th>
+        <th><span class="es">Alternativa</span><span class="en">Alternative</span></th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><strong>Claude</strong></td>
+        <td class="winner tbl-yes">First-class [DOC]</td>
+        <td><span class="es">Local + remoto, OAuth 2.1, en Desktop, Code, IDE. Miles de servidores MCP disponibles. Ecosistema mas maduro.</span><span class="en">Local + remote, OAuth 2.1, in Desktop, Code, IDE. Thousands of MCP servers available. Most mature ecosystem.</span></td>
+        <td>&mdash;</td>
+      </tr>
+      <tr>
+        <td><strong>Gemini</strong></td>
+        <td class="tbl-partial"><span class="es">Parcial [INFERENCIA]</span><span class="en">Partial [INFERENCE]</span></td>
+        <td><span class="es">Soporte en Vertex AI y Google AI Studio para enterprise. No disponible en app de consumidor.</span><span class="en">Support in Vertex AI and Google AI Studio for enterprise. Not available in consumer app.</span></td>
+        <td>Google Extensions, Workspace add-ons</td>
+      </tr>
+      <tr>
+        <td><strong>ChatGPT</strong></td>
+        <td class="tbl-no"><span class="es">Sin MCP nativo [DOC]</span><span class="en">No native MCP [DOC]</span></td>
+        <td><span class="es">OpenAI ha elegido un ecosistema propietario. Los GPTs usan Actions (API calls definidas por el creador).</span><span class="en">OpenAI has chosen a proprietary ecosystem. GPTs use Actions (API calls defined by the creator).</span></td>
+        <td>Actions + GPT Store (marketplace mas amplio)</td>
+      </tr>
+      <tr>
+        <td><strong>Kimi</strong></td>
+        <td class="tbl-no"><span class="es">Sin MCP [DOC]</span><span class="en">No MCP [DOC]</span></td>
+        <td><span class="es">No hay soporte de MCP documentado. Enfoque en rendimiento por precio.</span><span class="en">No documented MCP support. Focus on performance per price.</span></td>
+        <td><span class="es">API directa</span><span class="en">Direct API</span></td>
+      </tr>
+      <tr>
+        <td><strong>NotebookLM</strong></td>
+        <td class="tbl-no"><span class="es">Sin MCP [DOC]</span><span class="en">No MCP [DOC]</span></td>
+        <td><span class="es">Cerrado por diseno: las fuentes entran al notebook, no se conecta a herramientas externas en tiempo real.</span><span class="en">Closed by design: sources enter the notebook, does not connect to external tools in real time.</span></td>
+        <td><span class="es">Importacion de fuentes (URLs, Drive, PDF)</span><span class="en">Source import (URLs, Drive, PDF)</span></td>
+      </tr>
+    </tbody>
+  </table>
+
+  <div class="callout callout-gold">
+    <strong><span class="es">Trade-off clave [INFERENCIA]</span><span class="en">Key trade-off [INFERENCE]</span></strong>
+    <p><span class="es"><strong>MCP = estandar abierto</strong> &mdash; un servidor MCP funciona con cualquier cliente compatible. Maximo control para desarrolladores. Requiere setup tecnico.<br><strong>Actions = propietario pero accesible</strong> &mdash; el GPT Store de ChatGPT tiene el marketplace mas amplio. Mas facil para no-tecnicos. Pero lock-in al ecosistema OpenAI.<br>La pregunta real: &iquest;necesitas interoperabilidad (MCP) o conveniencia (Actions)? Para equipos tecnicos, MCP. Para usuarios finales, Actions.</span><span class="en"><strong>MCP = open standard</strong> &mdash; one MCP server works with any compatible client. Maximum control for developers. Requires technical setup.<br><strong>Actions = proprietary but accessible</strong> &mdash; ChatGPT's GPT Store has the broadest marketplace. Easier for non-technical users. But lock-in to OpenAI ecosystem.<br>The real question: do you need interoperability (MCP) or convenience (Actions)? For technical teams, MCP. For end users, Actions.</span></p>
+  </div>
+
+  <div class="card-grid" style="grid-template-columns:1fr 1fr;margin-top:1.5rem;">
+    <div class="card">
+      <h3><span class="es">Cuando elegir MCP [INFERENCIA]</span><span class="en">When to choose MCP [INFERENCE]</span></h3>
+      <ul style="list-style:none;padding:0;font-size:.88rem;color:var(--text-sec);">
+        <li style="padding:.35rem 0;border-bottom:1px solid var(--border);"><span class="es">Equipo tecnico que necesita control total</span><span class="en">Technical team needing full control</span></li>
+        <li style="padding:.35rem 0;border-bottom:1px solid var(--border);"><span class="es">Integraciones custom con bases de datos, APIs internas</span><span class="en">Custom integrations with databases, internal APIs</span></li>
+        <li style="padding:.35rem 0;border-bottom:1px solid var(--border);"><span class="es">No quieres vendor lock-in</span><span class="en">You want to avoid vendor lock-in</span></li>
+        <li style="padding:.35rem 0;"><span class="es">Usas Claude como plataforma principal</span><span class="en">You use Claude as your main platform</span></li>
+      </ul>
+    </div>
+    <div class="card">
+      <h3><span class="es">Cuando elegir Actions/GPTs [INFERENCIA]</span><span class="en">When to choose Actions/GPTs [INFERENCE]</span></h3>
+      <ul style="list-style:none;padding:0;font-size:.88rem;color:var(--text-sec);">
+        <li style="padding:.35rem 0;border-bottom:1px solid var(--border);"><span class="es">Usuarios no-tecnicos que necesitan integraciones rapidas</span><span class="en">Non-technical users needing quick integrations</span></li>
+        <li style="padding:.35rem 0;border-bottom:1px solid var(--border);"><span class="es">Quieres acceso al marketplace de GPTs (miles de opciones)</span><span class="en">You want access to the GPT marketplace (thousands of options)</span></li>
+        <li style="padding:.35rem 0;border-bottom:1px solid var(--border);"><span class="es">Setup rapido sin configuracion tecnica</span><span class="en">Quick setup without technical configuration</span></li>
+        <li style="padding:.35rem 0;"><span class="es">Usas ChatGPT como plataforma principal</span><span class="en">You use ChatGPT as your main platform</span></li>
+      </ul>
+    </div>
+  </div>
+</section>
+</div>
+
+<hr class="divider">
+
+<!-- ═══ 8. DEEP RESEARCH ═══ -->
+<section id="research" class="container reveal">
+  <div class="section-header">
+    <span class="chip">Deep Research</span>
+    <h2>Deep Research <span class="es">Comparado</span><span class="en">Compared</span></h2>
+    <p><span class="es">Investigacion profunda: velocidad, fuentes, citas, acceso a documentos personales y costo.</span><span class="en">Deep research: speed, sources, citations, personal document access, and cost.</span></p>
+  </div>
+  <table class="perm-table">
+    <thead>
+      <tr>
+        <th><span class="es">Producto</span><span class="en">Product</span></th>
+        <th><span class="es">Tipo</span><span class="en">Type</span></th>
+        <th><span class="es">Velocidad</span><span class="en">Speed</span></th>
+        <th><span class="es">Fuentes/query</span><span class="en">Sources/query</span></th>
+        <th><span class="es">Citas</span><span class="en">Citations</span></th>
+        <th><span class="es">Docs Personales</span><span class="en">Personal Docs</span></th>
+        <th><span class="es">Costo</span><span class="en">Cost</span></th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><strong>ChatGPT</strong></td>
+        <td><span class="es">Agente web autonomo</span><span class="en">Autonomous web agent</span></td>
+        <td>3-10 min</td>
+        <td class="winner">100+</td>
+        <td>Inline</td>
+        <td class="tbl-no"><span class="es">No [DOC]</span><span class="en">No [DOC]</span></td>
+        <td><span class="es">Limitado por plan [DOC]</span><span class="en">Plan-limited [DOC]</span></td>
+      </tr>
+      <tr>
+        <td><strong>Claude</strong></td>
+        <td>Web search + Projects</td>
+        <td class="winner"><span class="es">Rapido (seg)</span><span class="en">Fast (sec)</span></td>
+        <td>10-20</td>
+        <td><span class="es">Parciales</span><span class="en">Partial</span></td>
+        <td class="tbl-yes"><span class="es">Si (Projects) [DOC]</span><span class="en">Yes (Projects) [DOC]</span></td>
+        <td><span class="es">Incluido en plan [DOC]</span><span class="en">Included in plan [DOC]</span></td>
+      </tr>
+      <tr>
+        <td><strong>Gemini</strong></td>
+        <td><span class="es">Agente web + Workspace</span><span class="en">Web agent + Workspace</span></td>
+        <td>3-10 min</td>
+        <td class="winner">100+</td>
+        <td>Inline</td>
+        <td class="winner tbl-yes"><span class="es">Si (Gmail, Drive, Docs) [DOC]</span><span class="en">Yes (Gmail, Drive, Docs) [DOC]</span></td>
+        <td><span class="es">Limitado por plan [DOC]</span><span class="en">Plan-limited [DOC]</span></td>
+      </tr>
+      <tr>
+        <td><strong>Kimi</strong></td>
+        <td>Explorer + Agent Swarm</td>
+        <td>Variable</td>
+        <td><span class="es">Multiple (paralelo)</span><span class="en">Multiple (parallel)</span></td>
+        <td><span class="es">Parciales</span><span class="en">Partial</span></td>
+        <td class="tbl-no"><span class="es">No [DOC]</span><span class="en">No [DOC]</span></td>
+        <td><span class="es">Limitado por plan [DOC]</span><span class="en">Plan-limited [DOC]</span></td>
+      </tr>
+      <tr>
+        <td><strong>NLM</strong></td>
+        <td>Fast + Deep modes</td>
+        <td>30s - 5min</td>
+        <td>10-40</td>
+        <td class="winner"><span class="es">Exactas + import [DOC]</span><span class="en">Exact + import [DOC]</span></td>
+        <td class="winner tbl-yes"><span class="es">Si (tu corpus) [DOC]</span><span class="en">Yes (your corpus) [DOC]</span></td>
+        <td><span class="es">Limitado por plan [DOC]</span><span class="en">Plan-limited [DOC]</span></td>
+      </tr>
+    </tbody>
+  </table>
+
+  <!-- Source quality ratings -->
+  <h3 style="margin-top:2rem;"><span class="es">Ratings de Calidad de Fuentes [INFERENCIA]</span><span class="en">Source Quality Ratings [INFERENCE]</span></h3>
+  <table class="perm-table" style="margin-top:.75rem;">
+    <thead>
+      <tr>
+        <th><span class="es">Criterio</span><span class="en">Criterion</span></th>
+        <th>ChatGPT</th>
+        <th>Claude</th>
+        <th>Gemini</th>
+        <th>Kimi</th>
+        <th>NLM</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><strong><span class="es">Volumen de fuentes</span><span class="en">Source volume</span></strong></td>
+        <td class="winner"><span class="es">Muy alto</span><span class="en">Very high</span></td>
+        <td><span class="es">Bajo-Medio</span><span class="en">Low-Medium</span></td>
+        <td class="winner"><span class="es">Muy alto</span><span class="en">Very high</span></td>
+        <td><span class="es">Medio</span><span class="en">Medium</span></td>
+        <td><span class="es">Bajo-Medio</span><span class="en">Low-Medium</span></td>
+      </tr>
+      <tr>
+        <td><strong><span class="es">Precision de citas</span><span class="en">Citation accuracy</span></strong></td>
+        <td><span class="es">Alta</span><span class="en">High</span></td>
+        <td><span class="es">Media</span><span class="en">Medium</span></td>
+        <td><span class="es">Alta</span><span class="en">High</span></td>
+        <td><span class="es">Media-Baja</span><span class="en">Medium-Low</span></td>
+        <td class="winner"><span class="es">Exacta (parrafo)</span><span class="en">Exact (paragraph)</span></td>
+      </tr>
+      <tr>
+        <td><strong><span class="es">Docs personales</span><span class="en">Personal docs</span></strong></td>
+        <td class="tbl-no">&#10007;</td>
+        <td class="tbl-yes">Projects</td>
+        <td class="winner tbl-yes">Gmail+Drive+Docs</td>
+        <td class="tbl-no">&#10007;</td>
+        <td class="tbl-yes"><span class="es">Tu corpus</span><span class="en">Your corpus</span></td>
+      </tr>
+      <tr>
+        <td><strong><span class="es">Costo/research</span><span class="en">Cost/research</span></strong></td>
+        <td><span class="es">Incluido (plan limitado)</span><span class="en">Included (plan limited)</span></td>
+        <td class="winner"><span class="es">Incluido sin limites visibles</span><span class="en">Included with no visible limits</span></td>
+        <td><span class="es">Incluido (plan limitado)</span><span class="en">Included (plan limited)</span></td>
+        <td><span class="es">Incluido (plan limitado)</span><span class="en">Included (plan limited)</span></td>
+        <td><span class="es">Incluido (plan limitado)</span><span class="en">Included (plan limited)</span></td>
+      </tr>
+    </tbody>
+  </table>
+
+  <div class="callout callout-gold">
+    <strong><span class="es">Calidad de fuentes [INFERENCIA]</span><span class="en">Source quality [INFERENCE]</span></strong>
+    <p><span class="es"><strong>ChatGPT &amp; Gemini:</strong> navegan 100+ sitios autonomamente. Alta cobertura pero calidad variable (depende de los sitios que encuentran). Reportes extensos y bien estructurados.<br><strong>NLM:</strong> fuentes exactas con citas a parrafo especifico. Cero alucinaciones documentadas cuando las fuentes son correctas. Limitado a lo que subes.<br><strong>Claude:</strong> mas rapido pero menos exhaustivo. Ideal para analisis rapido con contexto largo.<br><strong>Kimi:</strong> el Swarm de 100 agentes paralelos es unico, pero la precision de citas es inferior [INFERENCIA].</span><span class="en"><strong>ChatGPT &amp; Gemini:</strong> browse 100+ sites autonomously. High coverage but variable quality (depends on sites found). Extensive, well-structured reports.<br><strong>NLM:</strong> exact sources with paragraph-level citations. Zero documented hallucinations when sources are correct. Limited to what you upload.<br><strong>Claude:</strong> faster but less exhaustive. Ideal for quick analysis with long context.<br><strong>Kimi:</strong> the 100 parallel agent Swarm is unique, but citation accuracy is lower [INFERENCE].</span></p>
+  </div>
+</section>
+
+<hr class="divider">
+
+<!-- ═══ 9. SUPERFICIES ═══ -->
+<div class="section-bg">
+<section id="superficies" class="container reveal">
+  <div class="section-header">
+    <span class="chip"><span class="es">Superficies</span><span class="en">Surfaces</span></span>
+    <h2><span class="es">Mapa de Superficies</span><span class="en">Surface Map</span></h2>
+    <p><span class="es">Donde puedes usar cada producto: web, movil, desktop, CLI, API. La superficie determina tu experiencia tanto como el modelo. [DOC]</span><span class="en">Where you can use each product: web, mobile, desktop, CLI, API. The surface determines your experience as much as the model. [DOC]</span></p>
+  </div>
+  <table class="perm-table">
+    <thead>
+      <tr>
+        <th><span class="es">Superficie</span><span class="en">Surface</span></th>
+        <th>ChatGPT</th>
+        <th>Claude</th>
+        <th>Gemini</th>
+        <th>Kimi</th>
+        <th>NLM</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr><td><strong>Web</strong></td><td class="tbl-yes">&#10003;</td><td class="tbl-yes">&#10003;</td><td class="tbl-yes">&#10003;</td><td class="tbl-yes">&#10003;</td><td class="tbl-yes">&#10003;</td></tr>
+      <tr><td><strong>iOS</strong></td><td class="tbl-yes">&#10003;</td><td class="tbl-yes">&#10003;</td><td class="tbl-yes">&#10003;</td><td class="tbl-yes">&#10003;</td><td class="tbl-yes">&#10003;</td></tr>
+      <tr><td><strong>Android</strong></td><td class="tbl-yes">&#10003;</td><td class="tbl-yes">&#10003;</td><td class="tbl-yes">&#10003;</td><td class="tbl-yes">&#10003;</td><td class="tbl-yes">&#10003;</td></tr>
+      <tr><td><strong>Mac app</strong></td><td class="tbl-yes">&#10003;</td><td class="winner tbl-yes">&#10003;</td><td class="tbl-no">&#10007;</td><td class="tbl-no">&#10007;</td><td class="tbl-no">&#10007;</td></tr>
+      <tr><td><strong>Windows app</strong></td><td class="tbl-yes">&#10003;</td><td class="tbl-yes">&#10003;</td><td class="tbl-no">&#10007;</td><td class="tbl-no">&#10007;</td><td class="tbl-no">&#10007;</td></tr>
+      <tr><td><strong>CLI</strong></td><td class="tbl-no">&#10007;</td><td class="winner tbl-yes">&#10003; <span class="note">Claude Code</span></td><td class="tbl-no">&#10007;</td><td class="tbl-yes">&#10003; <span class="note">Kimi Code</span></td><td class="tbl-no">&#10007;</td></tr>
+      <tr><td><strong>IDE (VS Code, JB)</strong></td><td class="tbl-no">&#10007;</td><td class="winner tbl-yes">&#10003; <span class="note">VS Code + JetBrains</span></td><td class="tbl-no">&#10007;</td><td class="tbl-no">&#10007;</td><td class="tbl-no">&#10007;</td></tr>
+      <tr><td><strong>API</strong></td><td class="tbl-yes">&#10003;</td><td class="tbl-yes">&#10003;</td><td class="tbl-yes">&#10003;</td><td class="tbl-yes">&#10003;</td><td class="tbl-no">&#10007;</td></tr>
+    </tbody>
+  </table>
+  <div class="callout callout-blue">
+    <strong><span class="es">Destacado [DOC]</span><span class="en">Highlight [DOC]</span></strong>
+    <p><span class="es">Claude es el unico con presencia en CLI + IDE + desktop + mobile + web &mdash; 7 superficies. ChatGPT cubre todas las superficies de consumidor (web, mobile, desktop) pero no tiene CLI ni IDE. NotebookLM no tiene API publica ni apps desktop. Kimi tiene CLI (Kimi Code) pero no IDE ni desktop.</span><span class="en">Claude is the only one with presence across CLI + IDE + desktop + mobile + web &mdash; 7 surfaces. ChatGPT covers all consumer surfaces (web, mobile, desktop) but lacks CLI and IDE. NotebookLM has no public API or desktop apps. Kimi has CLI (Kimi Code) but no IDE or desktop.</span></p>
+  </div>
+</section>
+</div>
+
+<hr class="divider">
+
+<!-- ═══ 10. APRENDIZAJE ═══ -->
+<section id="aprendizaje" class="container reveal">
+  <div class="section-header">
+    <span class="chip"><span class="es">Aprendizaje</span><span class="en">Learning</span></span>
+    <h2><span class="es">Aprendizaje Comparado</span><span class="en">Learning Compared</span></h2>
+    <p><span class="es">Valor pedagogico, tutoring, generacion de artefactos de estudio y sistematicidad de cada producto.</span><span class="en">Pedagogical value, tutoring, study artifact generation, and systematicity of each product.</span></p>
+  </div>
+  <table class="perm-table">
+    <thead>
+      <tr>
+        <th><span class="es">Dimension</span><span class="en">Dimension</span></th>
+        <th>ChatGPT</th>
+        <th>Claude</th>
+        <th>Gemini</th>
+        <th>Kimi</th>
+        <th>NLM</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><strong><span class="es">Valor pedagogico</span><span class="en">Pedagogical value</span></strong></td>
+        <td><span class="es">Alto (Canvas, voice, GPTs educativos)</span><span class="en">High (Canvas, voice, educational GPTs)</span></td>
+        <td><span class="es">Alto (explicaciones profundas, Artifacts)</span><span class="en">High (deep explanations, Artifacts)</span></td>
+        <td><span class="es">Alto (multimedia, voice, Gems)</span><span class="en">High (multimedia, voice, Gems)</span></td>
+        <td><span class="es">Medio [INFERENCIA]</span><span class="en">Medium [INFERENCE]</span></td>
+        <td class="winner"><span class="es">Muy alto (audio, quiz, flashcards, maps, video) [DOC]</span><span class="en">Very high (audio, quiz, flashcards, maps, video) [DOC]</span></td>
+      </tr>
+      <tr>
+        <td><strong>Tutoring</strong></td>
+        <td><span class="es">GPTs educativos + Canvas interactivo</span><span class="en">Educational GPTs + interactive Canvas</span></td>
+        <td><span class="es">Socratic approach + Projects</span><span class="en">Socratic approach + Projects</span></td>
+        <td><span class="es">Gems educativos + Workspace</span><span class="en">Educational Gems + Workspace</span></td>
+        <td><span class="es">Basico [INFERENCIA]</span><span class="en">Basic [INFERENCE]</span></td>
+        <td class="winner"><span class="es">Audio Overview interactivo: aprende escuchando [DOC]</span><span class="en">Interactive Audio Overview: learn by listening [DOC]</span></td>
+      </tr>
+      <tr>
+        <td><strong><span class="es">Sistematicidad</span><span class="en">Systematicity</span></strong></td>
+        <td>Projects + Canvas</td>
+        <td class="winner">Projects + CLAUDE.md + Styles</td>
+        <td>Gems + Workspace</td>
+        <td><span class="es">Limitada [INFERENCIA]</span><span class="en">Limited [INFERENCE]</span></td>
+        <td><span class="es">Notebooks + fuentes ancladas</span><span class="en">Notebooks + anchored sources</span></td>
+      </tr>
+      <tr>
+        <td><strong><span class="es">Artefactos de estudio</span><span class="en">Study artifacts</span></strong></td>
+        <td><span class="es">Canvas, imagenes, voice</span><span class="en">Canvas, images, voice</span></td>
+        <td><span class="es">Artifacts (HTML, code, docs)</span><span class="en">Artifacts (HTML, code, docs)</span></td>
+        <td><span class="es">Slides, audio, Gems</span><span class="en">Slides, audio, Gems</span></td>
+        <td><span class="es">Basica [INFERENCIA]</span><span class="en">Basic [INFERENCE]</span></td>
+        <td class="winner"><span class="es">9 tipos: audio, video, quiz, flashcards, mind maps, briefing, timeline, slides, infographics [DOC]</span><span class="en">9 types: audio, video, quiz, flashcards, mind maps, briefing, timeline, slides, infographics [DOC]</span></td>
+      </tr>
+      <tr>
+        <td><strong><span class="es">Aprendizaje multimodal</span><span class="en">Multimodal learning</span></strong></td>
+        <td><span class="es">Texto + imagen + voice</span><span class="en">Text + image + voice</span></td>
+        <td><span class="es">Texto + codigo + Artifacts</span><span class="en">Text + code + Artifacts</span></td>
+        <td class="winner"><span class="es">Texto + imagen + audio + video nativos</span><span class="en">Native text + image + audio + video</span></td>
+        <td><span class="es">Texto + imagen</span><span class="en">Text + image</span></td>
+        <td><span class="es">Texto + audio + video + slides</span><span class="en">Text + audio + video + slides</span></td>
+      </tr>
+    </tbody>
+  </table>
+  <div class="callout callout-blue">
+    <strong><span class="es">Conclusion [INFERENCIA]</span><span class="en">Conclusion [INFERENCE]</span></strong>
+    <p><span class="es">NotebookLM domina el aprendizaje con 9 tipos de artefactos de estudio &mdash; es la unica herramienta disenada especificamente para aprender de tus propios materiales. Claude destaca en sistematicidad (Projects + CLAUDE.md crean un "segundo cerebro" persistente). ChatGPT ofrece Canvas para edicion colaborativa. Gemini lidera en multimodalidad educativa con texto+imagen+audio+video nativos.</span><span class="en">NotebookLM dominates learning with 9 study artifact types &mdash; it is the only tool specifically designed for learning from your own materials. Claude excels in systematicity (Projects + CLAUDE.md create a persistent "second brain"). ChatGPT offers Canvas for collaborative editing. Gemini leads in educational multimodality with native text+image+audio+video.</span></p>
+  </div>
+</section>
+
+<hr class="divider">
+
+<!-- ═══ 11. VEREDICTO ═══ -->
+<div class="section-bg">
+<section id="veredicto" class="container reveal">
+  <div class="section-header">
+    <span class="chip"><span class="es">Veredicto</span><span class="en">Verdict</span></span>
+    <h2><span class="es">Veredicto por Caso de Uso</span><span class="en">Verdict by Use Case</span></h2>
+    <p><span class="es">No hay un ganador absoluto: cada producto brilla en su territorio. Aqui cada recomendacion tiene su justificacion trazable.</span><span class="en">There is no absolute winner: each product shines in its territory. Here each recommendation has its traceable justification.</span></p>
+  </div>
+  <div class="verdict-grid">
+    <div class="verdict-card">
+      <div class="v-icon chatgpt">&#9733;</div>
+      <div>
+        <h3><span class="es">Investigacion web profunda</span><span class="en">Deep web research</span></h3>
+        <p style="color:var(--text-sec);font-size:.88rem;"><strong>ChatGPT</strong> DR <span class="es">o</span><span class="en">or</span> <strong>Gemini</strong> DR</p>
+        <p class="note"><span class="es"><strong>Justificacion [DOC]:</strong> ambos navegan 100+ sitios autonomamente con reportes estructurados y citas inline. Gemini suma acceso a Workspace.</span><span class="en"><strong>Justification [DOC]:</strong> both browse 100+ sites autonomously with structured reports and inline citations. Gemini adds Workspace access.</span></p>
+      </div>
+    </div>
+    <div class="verdict-card">
+      <div class="v-icon nlm">&#9733;</div>
+      <div>
+        <h3><span class="es">Tus propios documentos</span><span class="en">Your own documents</span></h3>
+        <p style="color:var(--text-sec);font-size:.88rem;"><strong>NotebookLM</strong></p>
+        <p class="note"><span class="es"><strong>Justificacion [DOC]:</strong> source grounding = cero alucinaciones. Citas a parrafo exacto. Hasta 50 fuentes por notebook con 1M tokens cada una.</span><span class="en"><strong>Justification [DOC]:</strong> source grounding = zero hallucinations. Paragraph-level citations. Up to 50 sources per notebook with 1M tokens each.</span></p>
+      </div>
+    </div>
+    <div class="verdict-card">
+      <div class="v-icon claude">&#9733;</div>
+      <div>
+        <h3><span class="es">Desarrollo y coding</span><span class="en">Development &amp; coding</span></h3>
+        <p style="color:var(--text-sec);font-size:.88rem;"><strong>Claude</strong> (Code + MCP + IDE)</p>
+        <p class="note"><span class="es"><strong>Justificacion [DOC]:</strong> unico con CLI nativo (Claude Code) + integracion IDE (VS Code, JetBrains) + worktrees + MCP para herramientas externas.</span><span class="en"><strong>Justification [DOC]:</strong> only one with native CLI (Claude Code) + IDE integration (VS Code, JetBrains) + worktrees + MCP for external tools.</span></p>
+      </div>
+    </div>
+    <div class="verdict-card">
+      <div class="v-icon gemini">&#9733;</div>
+      <div>
+        <h3><span class="es">Google Workspace</span><span class="en">Google Workspace</span></h3>
+        <p style="color:var(--text-sec);font-size:.88rem;"><strong>Gemini</strong></p>
+        <p class="note"><span class="es"><strong>Justificacion [DOC]:</strong> integracion nativa bidireccional con Gmail, Drive, Docs, Sheets, Slides. Busca en tu email, edita tus documentos.</span><span class="en"><strong>Justification [DOC]:</strong> native bidirectional integration with Gmail, Drive, Docs, Sheets, Slides. Searches your email, edits your documents.</span></p>
+      </div>
+    </div>
+    <div class="verdict-card">
+      <div class="v-icon kimi">&#9733;</div>
+      <div>
+        <h3><span class="es">Costo/rendimiento optimo</span><span class="en">Optimal cost/performance</span></h3>
+        <p style="color:var(--text-sec);font-size:.88rem;"><strong>Kimi</strong> K2.5</p>
+        <p class="note"><span class="es"><strong>Justificacion [DOC]:</strong> 4-17x mas barato que competidores directos a rendimiento comparable en benchmarks publicos. Open-weight.</span><span class="en"><strong>Justification [DOC]:</strong> 4-17x cheaper than direct competitors at comparable performance on public benchmarks. Open-weight.</span></p>
+      </div>
+    </div>
+    <div class="verdict-card">
+      <div class="v-icon nlm">&#9733;</div>
+      <div>
+        <h3><span class="es">Aprendizaje y estudio</span><span class="en">Learning &amp; study</span></h3>
+        <p style="color:var(--text-sec);font-size:.88rem;"><strong>NotebookLM</strong></p>
+        <p class="note"><span class="es"><strong>Justificacion [DOC]:</strong> 9 tipos de artefactos: audio overview, video, quiz, flashcards, mind maps, briefing docs, timeline, slides, infographics.</span><span class="en"><strong>Justification [DOC]:</strong> 9 artifact types: audio overview, video, quiz, flashcards, mind maps, briefing docs, timeline, slides, infographics.</span></p>
+      </div>
+    </div>
+    <div class="verdict-card">
+      <div class="v-icon claude">&#9733;</div>
+      <div>
+        <h3><span class="es">Desktop workflows avanzados</span><span class="en">Advanced desktop workflows</span></h3>
+        <p style="color:var(--text-sec);font-size:.88rem;"><strong>Claude</strong> (Code + Cowork + computer use)</p>
+        <p class="note"><span class="es"><strong>Justificacion [DOC]:</strong> superficies CLI + IDE unicas en el mercado. Computer use para automatizar apps nativas. Cowork para tareas background.</span><span class="en"><strong>Justification [DOC]:</strong> unique CLI + IDE surfaces in the market. Computer use for native app automation. Cowork for background tasks.</span></p>
+      </div>
+    </div>
+    <div class="verdict-card">
+      <div class="v-icon gemini">&#9733;</div>
+      <div>
+        <h3><span class="es">Multimodalidad completa</span><span class="en">Full multimodality</span></h3>
+        <p style="color:var(--text-sec);font-size:.88rem;"><strong>Gemini</strong></p>
+        <p class="note"><span class="es"><strong>Justificacion [DOC]:</strong> unico con texto + imagen + audio + video nativos en un solo modelo. 2M contexto permite procesar videos completos.</span><span class="en"><strong>Justification [DOC]:</strong> only one with native text + image + audio + video in a single model. 2M context allows processing entire videos.</span></p>
+      </div>
+    </div>
+  </div>
+
+  <div class="callout callout-blue" style="margin-top:2rem;">
+    <strong><span class="es">Resumen ejecutivo del veredicto [INFERENCIA]</span><span class="en">Executive verdict summary [INFERENCE]</span></strong>
+    <p><span class="es"><strong>ChatGPT</strong> gana en ecosistema (GPTs) y Deep Research web. <strong>Claude</strong> gana en coding (CLI+IDE) y MCP. <strong>Gemini</strong> gana en multimodalidad y precio de entrada. <strong>Kimi</strong> gana en costo API. <strong>NLM</strong> gana en aprendizaje y precision documental. No hay ganador absoluto &mdash; la herramienta correcta depende de tu caso de uso especifico y tu perfil tecnico.</span><span class="en"><strong>ChatGPT</strong> wins in ecosystem (GPTs) and web Deep Research. <strong>Claude</strong> wins in coding (CLI+IDE) and MCP. <strong>Gemini</strong> wins in multimodality and entry price. <strong>Kimi</strong> wins in API cost. <strong>NLM</strong> wins in learning and document accuracy. There is no absolute winner &mdash; the right tool depends on your specific use case and technical profile.</span></p>
+  </div>
+
+  <!-- Scoring summary -->
+  <h3 style="margin-top:2rem;"><span class="es">Tabla de Victorias por Dimension [INFERENCIA]</span><span class="en">Wins by Dimension Table [INFERENCE]</span></h3>
+  <table class="perm-table" style="margin-top:.5rem;">
+    <thead>
+      <tr>
+        <th><span class="es">Dimension</span><span class="en">Dimension</span></th>
+        <th><span class="es">Ganador</span><span class="en">Winner</span></th>
+        <th><span class="es">Segundo</span><span class="en">Runner-up</span></th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr><td><strong><span class="es">Precio consumidor</span><span class="en">Consumer price</span></strong></td><td class="winner">Gemini (consultar plan vigente)</td><td>Kimi (consultar plan vigente)</td></tr>
+      <tr><td><strong><span class="es">Precio API</span><span class="en">API price</span></strong></td><td class="winner">Kimi K2.5 (consultar plan vigente/M)</td><td>Gemini 3.1 Pro (consultar plan vigente/M)</td></tr>
+      <tr><td><strong><span class="es">Contexto maximo</span><span class="en">Max context</span></strong></td><td class="winner">Gemini (2M)</td><td>ChatGPT/Claude (1M)</td></tr>
+      <tr><td><strong>Multimodal</strong></td><td class="winner">Gemini (<span class="es">5 modalidades</span><span class="en">5 modalities</span>)</td><td>ChatGPT (4)</td></tr>
+      <tr><td><strong>Coding / IDE</strong></td><td class="winner">Claude (CLI+IDE+MCP)</td><td>ChatGPT (Codex)</td></tr>
+      <tr><td><strong>MCP</strong></td><td class="winner">Claude (first-class)</td><td>Gemini (<span class="es">parcial</span><span class="en">partial</span>)</td></tr>
+      <tr><td><strong>Deep Research</strong></td><td class="winner">ChatGPT/Gemini (100+ <span class="es">fuentes</span><span class="en">sources</span>)</td><td>NLM (<span class="es">citas exactas</span><span class="en">exact citations</span>)</td></tr>
+      <tr><td><strong><span class="es">Aprendizaje</span><span class="en">Learning</span></strong></td><td class="winner">NLM (9 <span class="es">artefactos</span><span class="en">artifacts</span>)</td><td>Claude (Projects)</td></tr>
+      <tr><td><strong><span class="es">Superficies</span><span class="en">Surfaces</span></strong></td><td class="winner">Claude (7 <span class="es">superficies</span><span class="en">surfaces</span>)</td><td>ChatGPT (5)</td></tr>
+      <tr><td><strong><span class="es">Ecosistema / marketplace</span><span class="en">Ecosystem / marketplace</span></strong></td><td class="winner">ChatGPT (GPT Store)</td><td>Claude (MCP servers)</td></tr>
+    </tbody>
+  </table>
+</section>
+</div>
+
+<hr class="divider">
+
+<!-- ═══ 12. VACIOS Y CONTRADICCIONES ═══ -->
+<section id="vacios" class="container reveal">
+  <div class="section-header">
+    <span class="chip"><span class="es">Vacios</span><span class="en">Gaps</span></span>
+    <h2><span class="es">Vacios y Contradicciones</span><span class="en">Gaps &amp; Contradictions</span></h2>
+    <p><span class="es">Lo que no pudimos resolver con certeza. Transparencia radical sobre las limitaciones de este benchmark.</span><span class="en">What we could not resolve with certainty. Radical transparency about this benchmark's limitations.</span></p>
+  </div>
+
+  <div class="faq-item"><div class="faq-q" onclick="this.parentElement.classList.toggle('open')"><span><span class="es">Context window: "1M+" pero context rot documentado [DOC]</span><span class="en">Context window: "1M+" but documented context rot [DOC]</span></span><span class="arr">&#9662;</span></div><div class="faq-a"><div class="faq-a-inner"><span class="es">Todos anuncian 1M+ tokens de contexto pero la degradacion real ("context rot") no esta documentada uniformemente. El rendimiento cae significativamente en las posiciones medias del contexto (el "lost in the middle" problem). El contexto teorico puede diferir 30-50% del efectivo en tareas de recuperacion de informacion.</span><span class="en">All advertise 1M+ token context but real degradation ("context rot") is not uniformly documented. Performance drops significantly in middle context positions (the "lost in the middle" problem). Theoretical context may differ 30-50% from effective in information retrieval tasks.</span></div></div></div>
+
+  <div class="faq-item"><div class="faq-q" onclick="this.parentElement.classList.toggle('open')"><span><span class="es">MCP: estandar no universal [DOC]</span><span class="en">MCP: standard not universal [DOC]</span></span><span class="arr">&#9662;</span></div><div class="faq-a"><div class="faq-a-inner"><span class="es">Claude es first-class, Gemini parcial (solo enterprise), ChatGPT ausente (prefiere Actions propietarias), Kimi y NLM sin soporte. El estandar aun no es universal, lo que limita la promesa de interoperabilidad total. Pero el ecosistema crece rapido: miles de servidores MCP disponibles en abril 2026.</span><span class="en">Claude is first-class, Gemini partial (enterprise only), ChatGPT absent (prefers proprietary Actions), Kimi and NLM without support. The standard is not yet universal, limiting the promise of full interoperability. But the ecosystem is growing fast: thousands of MCP servers available by April 2026.</span></div></div></div>
+
+  <div class="faq-item"><div class="faq-q" onclick="this.parentElement.classList.toggle('open')"><span><span class="es">Pricing cambiante [VACIO]</span><span class="en">Changing pricing [VACIO]</span></span><span class="arr">&#9662;</span></div><div class="faq-a"><div class="faq-a-inner"><span class="es">Los precios cambian frecuentemente, a veces sin previo aviso. Los datos de esta cartilla son validos a abril 2026. Opus 4.6 bajo 67% de precio en su lanzamiento. Kimi K2.5 ha tenido multiples ajustes. Verificar siempre las paginas oficiales antes de decisiones de compra.</span><span class="en">Prices change frequently, sometimes without notice. Data in this booklet is valid as of April 2026. Opus 4.6 dropped 67% in price at launch. Kimi K2.5 has had multiple adjustments. Always verify official pages before purchasing decisions.</span></div></div></div>
+
+  <div class="faq-item"><div class="faq-q" onclick="this.parentElement.classList.toggle('open')"><span><span class="es">Kimi: documentacion limitada en ES/EN [VACIO]</span><span class="en">Kimi: limited ES/EN documentation [VACIO]</span></span><span class="arr">&#9662;</span></div><div class="faq-a"><div class="faq-a-inner"><span class="es">La documentacion de Kimi en espanol e ingles es limitada comparada con la version en chino. Muchas de nuestras inferencias sobre Kimi provienen de fuentes en ingles, reviews independientes y pruebas directas. Puede haber features no documentadas en nuestras fuentes.</span><span class="en">Kimi documentation in Spanish and English is limited compared to the Chinese version. Many of our inferences about Kimi come from English sources, independent reviews, and direct testing. There may be features not documented in our sources.</span></div></div></div>
+
+  <div class="faq-item"><div class="faq-q" onclick="this.parentElement.classList.toggle('open')"><span><span class="es">NLM vs general-purpose: comparacion no 100% justa [INFERENCIA]</span><span class="en">NLM vs general-purpose: not 100% fair comparison [INFERENCE]</span></span><span class="arr">&#9662;</span></div><div class="faq-a"><div class="faq-a-inner"><span class="es">Comparar NotebookLM con los otros 4 no es 100% justo: NLM es corpus-first (solo responde sobre tus fuentes), los demas son general-purpose (responden sobre cualquier cosa). NLM domina en lo suyo pero no reemplaza un chat conversacional abierto. Lo incluimos porque su valor pedagogico y de investigacion es incomparable en su dominio.</span><span class="en">Comparing NotebookLM with the other 4 is not 100% fair: NLM is corpus-first (only answers about your sources), the others are general-purpose (answer about anything). NLM dominates in its domain but does not replace an open conversational chat. We include it because its pedagogical and research value is incomparable in its domain.</span></div></div></div>
+
+  <div class="faq-item"><div class="faq-q" onclick="this.parentElement.classList.toggle('open')"><span><span class="es">GPT-5.4 "1M context": solo via API/Codex, no en ChatGPT interfaz [CONTRADICCION]</span><span class="en">GPT-5.4 "1M context": only via API/Codex, not in ChatGPT interface [CONTRADICTION]</span></span><span class="arr">&#9662;</span></div><div class="faq-a"><div class="faq-a-inner"><span class="es">OpenAI anuncia 1M de contexto para GPT-5.4 pero en la interfaz de ChatGPT el contexto efectivo es significativamente menor. El 1M completo solo esta disponible via API y Codex. Esto crea una contradiccion entre el marketing ("1M context") y la experiencia real del usuario de ChatGPT.</span><span class="en">OpenAI announces 1M context for GPT-5.4 but in the ChatGPT interface the effective context is significantly smaller. The full 1M is only available via API and Codex. This creates a contradiction between marketing ("1M context") and the actual ChatGPT user experience.</span></div></div></div>
+
+  <div class="faq-item"><div class="faq-q" onclick="this.parentElement.classList.toggle('open')"><span><span class="es">Agent Mode: sin benchmarks estandarizados [VACIO]</span><span class="en">Agent Mode: no standardized benchmarks [VACIO]</span></span><span class="arr">&#9662;</span></div><div class="faq-a"><div class="faq-a-inner"><span class="es">No existen benchmarks publicos estandarizados para medir el success rate de Computer Use Agent (CUA) ni de Agent Mode en general. Cada proveedor reporta sus propias metricas en sus propios tests. Las comparaciones de agentes son, por ahora, anecdoticas y no reproducibles de forma sistematica.</span><span class="en">There are no standardized public benchmarks for measuring Computer Use Agent (CUA) success rate or Agent Mode in general. Each vendor reports its own metrics on its own tests. Agent comparisons are, for now, anecdotal and not systematically reproducible.</span></div></div></div>
+
+  <div class="callout callout-red">
+    <strong>[VACIO]</strong>
+    <p><span class="es">Los vacios identificados no invalidan el benchmark, pero el lector debe considerar estos limites al tomar decisiones. Este es un snapshot a abril 2026. La IA evoluciona semanalmente.</span><span class="en">The identified gaps do not invalidate the benchmark, but the reader should consider these limits when making decisions. This is a snapshot as of April 2026. AI evolves weekly.</span></p>
+  </div>
+</section>
+
+<hr class="divider">
+
+<!-- ═══ 11. GLOSARIO ═══ -->
+<div class="section-bg">
+<section id="glosario" class="container reveal">
+  <div class="section-header">
+    <span class="chip"><span class="es">Glosario</span><span class="en">Glossary</span></span>
+    <h2><span class="es">Glosario Rapido</span><span class="en">Quick Glossary</span></h2>
+    <p><span class="es">Terminos clave que aparecen en esta cartilla. Referencia rapida para no perderse.</span><span class="en">Key terms that appear in this booklet. Quick reference so you don't get lost.</span></p>
+  </div>
+  <table class="perm-table">
+    <thead>
+      <tr>
+        <th><span class="es">Termino</span><span class="en">Term</span></th>
+        <th><span class="es">Definicion</span><span class="en">Definition</span></th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr><td><strong>MCP</strong></td><td><span class="es">Model Context Protocol. Estandar abierto para conectar IAs con herramientas externas. Creado por Anthropic.</span><span class="en">Model Context Protocol. Open standard for connecting AIs with external tools. Created by Anthropic.</span></td></tr>
+      <tr><td><strong>CUA</strong></td><td><span class="es">Computer Use Agent. Capacidad de un modelo de controlar mouse, teclado y pantalla.</span><span class="en">Computer Use Agent. A model's ability to control mouse, keyboard, and screen.</span></td></tr>
+      <tr><td><strong>RAG</strong></td><td><span class="es">Retrieval-Augmented Generation. El modelo busca informacion relevante antes de responder.</span><span class="en">Retrieval-Augmented Generation. The model retrieves relevant information before responding.</span></td></tr>
+      <tr><td><strong>Grounding / Source Grounding</strong></td><td><span class="es">Anclar las respuestas a fuentes especificas. NLM lo hace por diseno.</span><span class="en">Anchoring responses to specific sources. NLM does this by design.</span></td></tr>
+      <tr><td><strong>Tool Calling / Function Calling</strong></td><td><span class="es">Capacidad del modelo de invocar herramientas externas (APIs, bases de datos, archivos).</span><span class="en">The model's ability to invoke external tools (APIs, databases, files).</span></td></tr>
+      <tr><td><strong>Context Rot</strong></td><td><span class="es">Degradacion del rendimiento cuando el contexto crece. "Lost in the middle" problem.</span><span class="en">Performance degradation as context grows. "Lost in the middle" problem.</span></td></tr>
+      <tr><td><strong>Agent Mode</strong></td><td><span class="es">El modelo actua autonomamente: planifica, ejecuta pasos, usa herramientas, itera.</span><span class="en">The model acts autonomously: plans, executes steps, uses tools, iterates.</span></td></tr>
+      <tr><td><strong>Deep Research</strong></td><td><span class="es">Investigacion autonoma donde el agente navega, lee y sintetiza multiples fuentes.</span><span class="en">Autonomous research where the agent browses, reads, and synthesizes multiple sources.</span></td></tr>
+      <tr><td><strong>Source Grounding (NLM)</strong></td><td><span class="es">Mecanismo de NLM: solo responde con informacion de las fuentes que subiste. Cero alucinaciones.</span><span class="en">NLM mechanism: only responds with information from sources you uploaded. Zero hallucinations.</span></td></tr>
+      <tr><td><strong>Extended Thinking</strong></td><td><span class="es">Modo de razonamiento profundo donde el modelo "piensa" antes de responder (Claude, GPT-5.4).</span><span class="en">Deep reasoning mode where the model "thinks" before responding (Claude, GPT-5.4).</span></td></tr>
+      <tr><td><strong>Actions (ChatGPT)</strong></td><td><span class="es">Sistema propietario de OpenAI para que los GPTs llamen APIs externas. Equivalente funcional de MCP pero cerrado.</span><span class="en">OpenAI's proprietary system for GPTs to call external APIs. Functional MCP equivalent but closed.</span></td></tr>
+      <tr><td><strong>Open-weight</strong></td><td><span class="es">Modelo cuyos pesos son publicos (descargables). Ejemplo: Kimi K2.5. Diferente de "open-source" que incluye datos y proceso de entrenamiento.</span><span class="en">Model whose weights are public (downloadable). Example: Kimi K2.5. Different from "open-source" which includes training data and process.</span></td></tr>
+      <tr><td><strong>Worktree</strong></td><td><span class="es">Rama de trabajo paralela en git. Claude Code usa worktrees para tareas background sin interferir con tu trabajo actual.</span><span class="en">Parallel git working branch. Claude Code uses worktrees for background tasks without interfering with your current work.</span></td></tr>
+      <tr><td><strong>Artifacts</strong></td><td><span class="es">Contenido generado que se renderiza en un panel separado: HTML, codigo, documentos, diagramas (Claude).</span><span class="en">Generated content rendered in a separate panel: HTML, code, documents, diagrams (Claude).</span></td></tr>
+      <tr><td><strong>Audio Overview (NLM)</strong></td><td><span class="es">Podcast generado automaticamente por NotebookLM donde dos voces discuten tus fuentes. Herramienta pedagogica unica.</span><span class="en">Automatically generated podcast by NotebookLM where two voices discuss your sources. Unique pedagogical tool.</span></td></tr>
+    </tbody>
+  </table>
+</section>
+</div>
+
+<hr class="divider">
+
+<!-- ═══ 12. PRACTICA ═══ -->
+<section id="practica" class="container reveal">
+  <div class="section-header">
+    <span class="chip"><span class="es">Practica</span><span class="en">Practice</span></span>
+    <h2><span class="es">Pon a Prueba lo que Aprendiste</span><span class="en">Put What You Learned to the Test</span></h2>
+    <p><span class="es">6 ejercicios comparativos con criterios de aceptacion concretos. Usa al menos 2 productos en cada actividad. Cada ejercicio produce un artefacto verificable.</span><span class="en">6 comparative exercises with concrete acceptance criteria. Use at least 2 products in each activity. Each exercise produces a verifiable artifact.</span></p>
+  </div>
+
+  <div style="display:flex;align-items:center;gap:1.5rem;background:var(--white);border:1px solid var(--border);padding:1.5rem;border-radius:var(--radius-lg);border-left:4px solid var(--gold);margin-bottom:2rem;box-shadow:var(--shadow-card);">
+    <img src="https://raw.githubusercontent.com/ejemplo-deo-repo/mao-brand-assets/main/pristino_logo_primary.png" alt="Pristino" style="width:48px;height:48px;border-radius:10px;flex-shrink:0;">
+    <div>
+      <h4 style="font-size:.95rem;margin-bottom:.25rem;"><span class="es">Asistente recomendado: Pristino</span><span class="en">Recommended assistant: Pristino</span></h4>
+      <p class="note"><span class="es">Usa el agente Pristino de MetodologIA para validar tus hallazgos, estructurar tus prompts y triangular informacion entre productos.</span><span class="en">Use the Pristino agent from MetodologIA to validate your findings, structure your prompts, and triangulate information across products.</span></p>
+    </div>
+  </div>
+
+  <div class="step-grid">
+    <div class="step-card"><div class="step-num">1</div>
+      <h3><span class="es">Duelo de Deep Research: ChatGPT vs Gemini vs Kimi</span><span class="en">Deep Research Duel: ChatGPT vs Gemini vs Kimi</span></h3>
+      <p style="color:var(--text-sec);font-size:.9rem;"><span class="es">Lanza la misma query de Deep Research en los 3 productos. Compara: calidad del reporte, numero de fuentes citadas, precision de citas, y velocidad de entrega.</span><span class="en">Launch the same Deep Research query on all 3 products. Compare: report quality, number of cited sources, citation accuracy, and delivery speed.</span></p>
+      <span class="step-action"><span class="es">&#x23F1; 15 min &middot; Criterio: matriz comparativa documentada con scores 1-5 por dimension</span><span class="en">&#x23F1; 15 min &middot; Criteria: documented comparison matrix with 1-5 scores per dimension</span></span>
+    </div>
+    <div class="step-card"><div class="step-num">2</div>
+      <h3><span class="es">Mismo PDF en NLM y Claude Projects</span><span class="en">Same PDF on NLM and Claude Projects</span></h3>
+      <p style="color:var(--text-sec);font-size:.9rem;"><span class="es">Sube el mismo PDF de 50+ paginas a NotebookLM y a Claude Projects. Haz 5 preguntas identicas. Compara: precision de respuestas, calidad de citas, alucinaciones detectadas.</span><span class="en">Upload the same 50+ page PDF to NotebookLM and Claude Projects. Ask 5 identical questions. Compare: response accuracy, citation quality, detected hallucinations.</span></p>
+      <span class="step-action"><span class="es">&#x23F1; 15 min &middot; Criterio: tabla de 5 preguntas, cada una scored 1-5 en precision y citas</span><span class="en">&#x23F1; 15 min &middot; Criteria: table of 5 questions, each scored 1-5 on accuracy and citations</span></span>
+    </div>
+    <div class="step-card"><div class="step-num">3</div>
+      <h3><span class="es">Benchmark de Plan vigente: consultar fuente oficial</span><span class="en">Price benchmark: same task, 3 APIs</span></h3>
+      <p style="color:var(--text-sec);font-size:.9rem;"><span class="es">Define un workflow API realista (ej: procesar 1000 documentos/mes). Calcula el costo mensual en GPT-5.4, Opus 4.6, Gemini 3.1 Pro y Kimi K2.5. Incluye tokens de input y output.</span><span class="en">Define a realistic API workflow (e.g., process 1000 documents/month). Calculate monthly cost on GPT-5.4, Opus 4.6, Gemini 3.1 Pro, and Kimi K2.5. Include input and output tokens.</span></p>
+      <span class="step-action"><span class="es">&#x23F1; 10 min &middot; Criterio: spreadsheet con $/mes por proveedor y costo total anual</span><span class="en">&#x23F1; 10 min &middot; Criteria: spreadsheet with $/month per provider and total annual cost</span></span>
+    </div>
+    <div class="step-card"><div class="step-num">4</div>
+      <h3><span class="es">Coding: Claude Code vs Kimi Code vs ChatGPT Codex</span><span class="en">Coding: Claude Code vs Kimi Code vs ChatGPT Codex</span></h3>
+      <p style="color:var(--text-sec);font-size:.9rem;"><span class="es">Pide la misma tarea de coding compleja (ej: API REST con auth + tests). Evalua: codigo funcional, tiempo, calidad de tests, integracion con tu entorno.</span><span class="en">Request the same complex coding task (e.g., REST API with auth + tests). Evaluate: working code, time, test quality, integration with your environment.</span></p>
+      <span class="step-action"><span class="es">&#x23F1; 20 min &middot; Criterio: codigo funcional + tiempo de completacion + tests passing</span><span class="en">&#x23F1; 20 min &middot; Criteria: working code + completion time + tests passing</span></span>
+    </div>
+    <div class="step-card"><div class="step-num">5</div>
+      <h3><span class="es">Custom Assistant: GPT vs Gem vs Project</span><span class="en">Custom Assistant: GPT vs Gem vs Project</span></h3>
+      <p style="color:var(--text-sec);font-size:.9rem;"><span class="es">Crea el mismo asistente personalizado en ChatGPT (GPT), Gemini (Gem) y Claude (Project). Compara: esfuerzo de configuracion, calidad de output, flexibilidad.</span><span class="en">Create the same custom assistant on ChatGPT (GPT), Gemini (Gem), and Claude (Project). Compare: setup effort, output quality, flexibility.</span></p>
+      <span class="step-action"><span class="es">&#x23F1; 15 min &middot; Criterio: tabla de setup time + 3 queries identicas con output quality scored</span><span class="en">&#x23F1; 15 min &middot; Criteria: table of setup time + 3 identical queries with output quality scored</span></span>
+    </div>
+    <div class="step-card"><div class="step-num">6</div>
+      <h3><span class="es">MCP vs Actions: misma integracion externa</span><span class="en">MCP vs Actions: same external integration</span></h3>
+      <p style="color:var(--text-sec);font-size:.9rem;"><span class="es">Integra la misma herramienta externa (ej: Google Calendar, GitHub) via MCP en Claude y via Actions en ChatGPT. Compara: dificultad de setup, funcionalidad, fiabilidad.</span><span class="en">Integrate the same external tool (e.g., Google Calendar, GitHub) via MCP on Claude and via Actions on ChatGPT. Compare: setup difficulty, functionality, reliability.</span></p>
+      <span class="step-action"><span class="es">&#x23F1; 20 min &middot; Criterio: ambas integraciones funcionando + tabla comparativa de experiencia</span><span class="en">&#x23F1; 20 min &middot; Criteria: both integrations working + comparative experience table</span></span>
+    </div>
+  </div>
+
+  <div class="callout callout-gold">
+    <strong><span class="es">Regla MetodologIA [DOC]</span><span class="en">MetodologIA Rule [DOC]</span></strong>
+    <p><span class="es">No basta con leer. La evidencia es lo que importa. Cada actividad produce un artefacto verificable con criterios de aceptacion concretos. Si no puedes mostrarlo, no lo aprendiste.</span><span class="en">Reading is not enough. Evidence is what matters. Each activity produces a verifiable artifact with concrete acceptance criteria. If you can't show it, you didn't learn it.</span></p>
+  </div>
+</section>
+
+<hr class="divider">
+
+<!-- ═══ 13. CTA ═══ -->
+<section id="cta" style="min-height:50vh;display:flex;align-items:center;background:linear-gradient(135deg,#1F2833,#122562 55%,#1a3580);position:relative;overflow:hidden;">
+  <div style="position:absolute;border-radius:50%;filter:blur(80px);opacity:.07;pointer-events:none;width:400px;height:400px;background:#FFD700;bottom:-150px;left:-80px;"></div>
+  <div class="container" style="width:100%;position:relative;z-index:2;">
+    <h2 style="color:#fff;border-left-color:var(--gold);"><span class="es">Elige y Profundiza</span><span class="en">Choose &amp; Go Deeper</span></h2>
+
+    <div style="background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.12);border-radius:var(--radius-lg);padding:2.5rem;margin-bottom:2rem;">
+      <h3 style="color:var(--gold);margin-bottom:1rem;font-size:1.4rem;"><span class="es">Cada producto tiene su cartilla dedicada</span><span class="en">Each product has a dedicated booklet</span></h3>
+      <p style="color:rgba(255,255,255,.7);font-size:.95rem;max-width:650px;line-height:1.7;margin-bottom:1.5rem;"><span class="es">Elige el producto que mejor resuelve tu necesidad principal y profundiza con su cartilla dedicada.</span><span class="en">Choose the product that best solves your main need and dive deeper with its dedicated booklet.</span></p>
+      <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(140px,1fr));gap:1rem;margin-top:1.5rem;">
+        <a href="cartilla-chatgpt-v3.html" style="text-align:center;background:rgba(116,184,117,.1);border:1px solid rgba(116,184,117,.25);border-radius:var(--radius-md);padding:1.25rem;text-decoration:none;transition:transform .2s;display:block;"><strong style="color:#74B875;display:block;margin-bottom:.25rem;">ChatGPT</strong><span style="font-size:.78rem;color:rgba(255,255,255,.5);"><span class="es">La superapp conversacional</span><span class="en">The conversational superapp</span></span></a>
+        <a href="cartilla-claude-v3.html" style="text-align:center;background:rgba(204,120,76,.1);border:1px solid rgba(204,120,76,.25);border-radius:var(--radius-md);padding:1.25rem;text-decoration:none;transition:transform .2s;display:block;"><strong style="color:#CC784C;display:block;margin-bottom:.25rem;">Claude</strong><span style="font-size:.78rem;color:rgba(255,255,255,.5);"><span class="es">El artesano del codigo</span><span class="en">The code craftsman</span></span></a>
+        <a href="cartilla-gemini-v3.html" style="text-align:center;background:rgba(66,133,244,.1);border:1px solid rgba(66,133,244,.25);border-radius:var(--radius-md);padding:1.25rem;text-decoration:none;transition:transform .2s;display:block;"><strong style="color:#4285F4;display:block;margin-bottom:.25rem;">Gemini</strong><span style="font-size:.78rem;color:rgba(255,255,255,.5);"><span class="es">El nativo multimodal</span><span class="en">The multimodal native</span></span></a>
+        <a href="cartilla-kimi-v3.html" style="text-align:center;background:rgba(98,54,255,.1);border:1px solid rgba(98,54,255,.25);border-radius:var(--radius-md);padding:1.25rem;text-decoration:none;transition:transform .2s;display:block;"><strong style="color:#6236FF;display:block;margin-bottom:.25rem;">Kimi</strong><span style="font-size:.78rem;color:rgba(255,255,255,.5);"><span class="es">El retador economico</span><span class="en">The budget challenger</span></span></a>
+        <a href="cartilla-notebooklm-v3.html" style="text-align:center;background:rgba(234,67,53,.1);border:1px solid rgba(234,67,53,.25);border-radius:var(--radius-md);padding:1.25rem;text-decoration:none;transition:transform .2s;display:block;"><strong style="color:#EA4335;display:block;margin-bottom:.25rem;">NotebookLM</strong><span style="font-size:.78rem;color:rgba(255,255,255,.5);"><span class="es">El maestro del aprendizaje</span><span class="en">The learning master</span></span></a>
+      </div>
+
+      <div style="margin-top:1.5rem;padding-top:1.5rem;border-top:1px solid rgba(255,255,255,.1);">
+        <p style="color:rgba(255,255,255,.5);font-size:.85rem;margin-bottom:.75rem;"><span class="es">Complementa con:</span><span class="en">Complement with:</span></p>
+        <a href="cartilla-tecnicas-estudio-v3.html" style="display:inline-flex;align-items:center;gap:.5rem;background:rgba(255,215,0,.1);border:1px solid rgba(255,215,0,.25);padding:.5rem 1rem;border-radius:8px;color:var(--gold);text-decoration:none;font-size:.85rem;font-weight:600;">
+          <span class="es">Tecnicas de Estudio con IA</span><span class="en">AI Study Techniques</span>
+        </a>
+      </div>
+    </div>
+
+    <!-- Nuevo aqui -->
+    <div style="margin-top:2rem;padding:2rem;border-top:2px solid #FFD700;background:rgba(255,255,255,.04);border-radius:0 0 16px 16px;">
+      <p style="font-size:.72rem;font-weight:700;text-transform:uppercase;letter-spacing:.12em;color:#BBA0CC;margin-bottom:.5rem;"><span class="es">Nuevo aqui</span><span class="en">New here</span></p>
+      <h3 style="color:#fff;margin-bottom:.5rem;font-size:1.25rem;"><span class="es">Alguien te compartio esta cartilla?</span><span class="en">Did someone share this booklet with you?</span></h3>
+      <p style="color:rgba(255,255,255,.65);font-size:.9rem;margin-bottom:1.5rem;max-width:650px;line-height:1.7;"><span class="es">Esta cartilla comparativa es parte del Benchmark de Productos IA de MetodologIA. Si te intereso lo que leiste, el primer paso es vivir un taller de introduccion.</span><span class="en">This comparative booklet is part of MetodologIA's AI Product Benchmark. If what you read interested you, the first step is to experience an intro workshop.</span></p>
+      <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:.75rem;">
+        <a href="https://forms.gle/yeZct7GWgGKQMfEz7" target="_blank" rel="noopener noreferrer" style="display:flex;align-items:center;gap:.75rem;padding:1rem 1.15rem;background:#FFD700;border-radius:10px;color:#122562;text-decoration:none;font-weight:700;font-size:.85rem;transition:opacity .2s;">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#122562" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="flex-shrink:0;"><path d="M12 20h9"/><path d="M16.5 3.5a2.12 2.12 0 0 1 3 3L7 19l-4 1 1-4Z"/></svg>
+          <div><strong style="display:block;font-size:.88rem;color:#122562;"><span class="es">Inscribirme al taller</span><span class="en">Sign up for the workshop</span></strong><span style="font-size:.72rem;color:#122562;opacity:.7;"><span class="es">Sin costo &middot; Plazas limitadas</span><span class="en">No cost &middot; Limited spots</span></span></div>
+        </a>
+        <a href="https://metodologia.info/recursos/asistentes-gpt/index" target="_blank" rel="noopener noreferrer" style="display:flex;align-items:center;gap:.75rem;padding:1rem 1.15rem;background:rgba(19,125,197,.25);border:1px solid rgba(19,125,197,.45);border-radius:10px;color:#fff;text-decoration:none;font-weight:600;font-size:.85rem;transition:opacity .2s;">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#137DC5" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="flex-shrink:0;"><path d="M12 8V4H8"/><rect width="16" height="12" x="4" y="8" rx="2"/><path d="M2 14h2"/><path d="M20 14h2"/><path d="M15 13v2"/><path d="M9 13v2"/></svg>
+          <div><strong style="display:block;font-size:.88rem;color:#fff;"><span class="es">Explorar asistentes IA</span><span class="en">Explore AI assistants</span></strong><span style="font-size:.72rem;color:rgba(255,255,255,.75);"><span class="es">Sin registro &middot; Sin costo</span><span class="en">No sign-up &middot; No cost</span></span></div>
+        </a>
+        <a href="https://calendar.app.google/Fe8X6jpR7ozdYgkq9" target="_blank" rel="noopener noreferrer" style="display:flex;align-items:center;gap:.75rem;padding:1rem 1.15rem;background:rgba(187,160,204,.2);border:1px solid rgba(187,160,204,.4);border-radius:10px;color:#fff;text-decoration:none;font-weight:600;font-size:.85rem;transition:opacity .2s;">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#BBA0CC" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="flex-shrink:0;"><rect width="18" height="18" x="3" y="4" rx="2"/><path d="M16 2v4"/><path d="M8 2v4"/><path d="M3 10h18"/></svg>
+          <div><strong style="display:block;font-size:.88rem;color:#fff;"><span class="es">Hablar con el equipo</span><span class="en">Talk to the team</span></strong><span style="font-size:.72rem;color:rgba(255,255,255,.75);"><span class="es">Agenda una conversacion</span><span class="en">Schedule a conversation</span></span></div>
+        </a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ FOOTER ═══ -->
+<footer class="site-footer">
+<div class="footer-inner">
+  <div class="footer-row" style="display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:1rem;margin-bottom:1.5rem;">
+    <div class="footer-logo" style="color:#fff;">Metodolog<span style="color:var(--gold);">IA</span></div>
+    <div style="display:flex;gap:.5rem;flex-wrap:wrap;">
+      <span style="background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.15);color:rgba(255,255,255,.7);padding:.25rem .75rem;border-radius:4px;font-size:.72rem;font-weight:600;letter-spacing:.5px;">Human First, AI-Next</span>
+      <span style="background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.15);color:rgba(255,255,255,.7);padding:.25rem .75rem;border-radius:4px;font-size:.72rem;font-weight:600;letter-spacing:.5px;">2026</span>
+      <span style="background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.15);color:rgba(255,255,255,.7);padding:.25rem .75rem;border-radius:4px;font-size:.72rem;font-weight:600;letter-spacing:.5px;">CC BY-NC-SA 4.0</span>
+    </div>
+  </div>
+  <div class="footer-bottom" style="display:flex;gap:1.5rem;flex-wrap:wrap;font-size:.82rem;">
+    <span>&copy; 2026 MetodologIA. metodologia.info</span>
+    <a href="https://metodologia.info/nosotros/index" target="_blank" rel="noopener noreferrer" style="color:rgba(255,255,255,.5);">Nosotros</a>
+    <a href="https://metodologia.info/vision" target="_blank" rel="noopener noreferrer" style="color:rgba(255,255,255,.5);">Vision</a>
+    <a href="https://metodologia.info/legal/terminos" target="_blank" rel="noopener noreferrer" style="color:rgba(255,255,255,.5);">Terminos</a>
+    <a href="https://metodologia.info/legal/privacidad" target="_blank" rel="noopener noreferrer" style="color:rgba(255,255,255,.5);">Privacidad</a>
+  </div>
+</div>
+</footer>
+
+<!-- ═══ JAVASCRIPT ═══ -->
+<script>
+(function(){
+  window.toggleLang=function(){var h=document.documentElement;h.setAttribute('lang',h.getAttribute('lang')==='es'?'en':'es');try{localStorage.setItem('mia-comp-lang',h.getAttribute('lang'));}catch(e){}};
+  window.toggleTheme=function(){var h=document.documentElement;h.classList.toggle('dark');var btn=document.getElementById('themeBtn');if(btn)btn.textContent=h.classList.contains('dark')?'\u2600':'\u263E';try{localStorage.setItem('mia-comp-theme',h.classList.contains('dark')?'dark':'light');}catch(e){}};
+  var prog=document.getElementById('scroll-progress');
+  if(prog)window.addEventListener('scroll',function(){var h=document.documentElement.scrollHeight-window.innerHeight;prog.style.width=h>0?(window.scrollY/h*100)+'%':'0%';},{passive:true});
+  var sideLinks=document.querySelectorAll('.sidebar-nav a');
+  var sideObs=new IntersectionObserver(function(entries){entries.forEach(function(entry){if(entry.isIntersecting){sideLinks.forEach(function(l){l.classList.remove('active');});var id=entry.target.getAttribute('id');var match=document.querySelector('.sidebar-nav a[href="#'+id+'"]');if(match)match.classList.add('active');}});},{threshold:0.15,rootMargin:'-80px 0px -55% 0px'});
+  document.querySelectorAll('section[id]').forEach(function(s){sideObs.observe(s);});
+  var ro=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting)e.target.classList.add('visible');});},{threshold:.1});
+  document.querySelectorAll('.reveal').forEach(function(el){ro.observe(el);});
+  try{var sl=localStorage.getItem('mia-comp-lang');if(sl==='en')document.documentElement.setAttribute('lang','en');}catch(e){}
+  try{var st=localStorage.getItem('mia-comp-theme');if(st==='dark'){document.documentElement.classList.add('dark');var btn=document.getElementById('themeBtn');if(btn)btn.textContent='\u2600';}}catch(e){}
+  if(!st)document.documentElement.classList.remove('dark');
+})();
+</script>
+</body>
+</html>
