@@ -1,0 +1,1283 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="color-scheme" content="light dark">
+  <meta name="theme-color" content="#122562">
+  <title>Workbook · Presentación ejecutiva con IA | MetodologIA</title>
+  <meta name="description" content="Workbook interactivo para el workshop Presentación ejecutiva con IA de MetodologIA: agenda, flujo de trabajo y prompts listos para usar.">
+  <meta property="og:title" content="Workbook · Presentación ejecutiva con IA">
+  <meta property="og:description" content="Construye una presentación ejecutiva con claridad, criterio, insumos y prompts por nivel.">
+  <meta property="og:type" content="website">
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="Workbook · Presentación ejecutiva con IA">
+  <meta name="twitter:description" content="Flujo práctico para definir objetivo, ordenar insumos, construir narrativa y mejorar llamados a la acción con IA.">
+  <link rel="icon" type="image/png" href="assets/metodologia_logo_primary.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&family=Poppins:wght@700;800&display=swap" onload="this.onload=null;this.rel='stylesheet'">
+  <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&family=Poppins:wght@700;800&display=swap"></noscript>
+  <script src="https://unpkg.com/lucide@0.469.0/dist/umd/lucide.js" defer></script>
+  <style>
+    :root {
+      --navy: #122562;
+      --navy-2: #1A3580;
+      --navy-deep: #0A122A;
+      --slate: #1F2833;
+      --dark: #1F2833;
+      --ink: #1D2530;
+      --gold: #FFD700;
+      --gold-dark: #8A6400;
+      --blue: #137DC5;
+      --lilac: #BBA0CC;
+      --paper: #F9FAFB;
+      --soft: #F0F0EC;
+      --card: rgba(255,255,255,.94);
+      --text: #1F2833;
+      --text-sec: #4A5568;
+      --text-muted: #697386;
+      --muted: var(--text-sec);
+      --line: rgba(18,37,98,.12);
+      --glass-bg: rgba(255,255,255,.86);
+      --glass-border: rgba(18,37,98,.08);
+      --shadow: 0 1px 3px rgba(0,0,0,.04), 0 12px 30px rgba(18,37,98,.08);
+      --shadow-glow: 0 2px 20px rgba(18,37,98,.08);
+      --font-head: "Poppins", system-ui, sans-serif;
+      --font-body: "Montserrat", system-ui, sans-serif;
+      --font-note: "Trebuchet MS", "Lucida Sans Unicode", sans-serif;
+      --radius-sm: 6px;
+      --radius-md: 8px;
+      --radius-lg: 20px;
+      --sidebar: 56px;
+      --ease: .24s ease;
+    }
+    html.dark {
+      --paper: #0B2545;
+      --soft: #071A33;
+      --card: rgba(11,37,69,.68);
+      --text: #F8FAFC;
+      --text-sec: #CBD5E1;
+      --text-muted: #94A3B8;
+      --muted: var(--text-sec);
+      --line: rgba(255,215,0,.16);
+      --glass-bg: rgba(11,37,69,.88);
+      --gold-dark: #FCD34D;
+      --shadow: 0 1px 3px rgba(0,0,0,.22), 0 12px 30px rgba(0,0,0,.32);
+    }
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; scroll-padding-top: 20px; }
+    body {
+      margin: 0;
+      color: var(--text);
+      background: var(--paper);
+      font-family: var(--font-body);
+      font-size: 17px;
+      line-height: 1.68;
+      letter-spacing: 0;
+    }
+    a { color: inherit; }
+    :focus-visible { outline: 2px solid var(--gold); outline-offset: 3px; }
+    .progress { position: fixed; inset: 0 auto auto 0; height: 4px; width: 0; background: linear-gradient(90deg, var(--gold), var(--blue), var(--lilac)); z-index: 200; }
+    .sidebar-nav {
+      position: fixed; top: 0; left: 0; bottom: 0; width: var(--sidebar); z-index: 100;
+      display: flex; flex-direction: column; align-items: center; gap: 2px;
+      padding: 1.25rem 0 1rem;
+      background: var(--glass-bg);
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
+      border-right: 1px solid var(--line);
+    }
+    .sidebar-logo {
+      display: flex; align-items: center; justify-content: center;
+      margin-bottom: 1rem; padding-bottom: .75rem;
+      border-bottom: 1px solid var(--line);
+      text-decoration: none;
+    }
+    .sidebar-logo img { width: 32px; height: 32px; display: block; border-radius: var(--radius-sm); }
+    .sidebar-links { display: flex; flex: 1; flex-direction: column; justify-content: center; align-items: center; gap: 2px; }
+    .sidebar-nav a {
+      position: relative;
+      display: flex; align-items: center; justify-content: center;
+      width: 40px; height: 40px; border-radius: 10px;
+      color: var(--gold-dark); text-decoration: none;
+      border: 1px solid transparent;
+      transition: color .25s, background .25s, transform .2s;
+    }
+    .sidebar-nav a:hover,
+    .sidebar-nav a.active {
+      color: var(--navy);
+      background: rgba(184,134,11,.08);
+      border-color: rgba(184,134,11,.22);
+      transform: scale(1.08);
+    }
+    html.dark .sidebar-nav a:hover,
+    html.dark .sidebar-nav a.active {
+      color: var(--gold);
+      background: rgba(255,215,0,.08);
+      border-color: rgba(255,215,0,.18);
+    }
+    .sidebar-nav a.active::before {
+      content: ""; position: absolute; left: 0; top: 50%;
+      transform: translateY(-50%);
+      width: 3px; height: 20px; border-radius: 0 2px 2px 0; background: var(--gold);
+    }
+    .sidebar-nav a svg { width: 20px; height: 20px; color: currentColor; }
+    .sidebar-nav a::after {
+      content: attr(data-label);
+      position: absolute; left: calc(100% + 10px); top: 50%;
+      transform: translateY(-50%) translateX(-4px);
+      background: var(--navy); color: white;
+      font-family: var(--font-head); font-size: .7rem; font-weight: 700;
+      padding: .35rem .7rem; border-radius: var(--radius-sm);
+      white-space: nowrap; opacity: 0; pointer-events: none;
+      transition: opacity .2s, transform .2s;
+      box-shadow: 0 2px 8px rgba(0,0,0,.15);
+    }
+    .sidebar-nav a:hover::after { opacity: 1; transform: translateY(-50%) translateX(0); }
+    .sidebar-bottom { display: flex; flex-direction: column; align-items: center; gap: 6px; margin-top: auto; padding-top: .75rem; border-top: 1px solid var(--line); }
+    .sidebar-bottom button {
+      width: 34px; height: 34px; border-radius: 8px;
+      border: 1px solid transparent; background: transparent; color: var(--gold-dark);
+      cursor: pointer; display: flex; align-items: center; justify-content: center;
+      transition: all .2s;
+    }
+    .sidebar-bottom button:hover { background: rgba(184,134,11,.08); color: var(--navy); border-color: rgba(184,134,11,.22); }
+    html.dark .sidebar-bottom button:hover { background: rgba(255,215,0,.08); color: var(--gold); border-color: rgba(255,215,0,.18); }
+    .sidebar-pristino {
+      width: 38px; height: 38px; border-radius: 10px;
+      background: linear-gradient(135deg, #122562 0%, #1F2833 100%);
+      box-shadow: 0 4px 14px rgba(18,37,98,.18);
+      overflow: hidden;
+    }
+    .sidebar-pristino img {
+      width: 100%; height: 100%;
+      display: block; object-fit: cover;
+    }
+    main { padding-left: var(--sidebar); }
+    header, section, footer { padding: clamp(2.8rem, 5vw, 5rem) clamp(1.15rem, 5vw, 4rem); }
+    .wrap { max-width: 1160px; margin: 0 auto; }
+    .hero {
+      min-height: 92vh; display: flex; align-items: center; color: white;
+      position: relative;
+      background:
+        radial-gradient(circle at 84% 18%, rgba(255,215,0,.18), transparent 30%),
+        linear-gradient(135deg, var(--navy), var(--dark));
+      overflow: hidden;
+    }
+    .hero::after {
+      content: "";
+      position: absolute;
+      inset: auto 0 0 0;
+      height: 8px;
+      background: linear-gradient(90deg, var(--gold), var(--blue), var(--lilac), var(--gold));
+    }
+    .hero-grid { display: grid; grid-template-columns: minmax(0, 1.08fr) minmax(300px, .92fr); gap: clamp(1.4rem, 4vw, 3rem); align-items: center; position: relative; z-index: 1; }
+    .wordmark { display: inline-flex; align-items: baseline; font-family: var(--font-head); font-weight: 800; line-height: 1; }
+    .wordmark .ia, .gold { color: var(--gold); }
+    .eyebrow {
+      display: inline-flex; align-items: center; gap: .5rem;
+      margin-bottom: 1.15rem; padding: .42rem .72rem;
+      border-radius: 999px; border: 1px solid rgba(255,215,0,.32);
+      background: rgba(255,215,0,.08); color: var(--gold);
+      font-family: var(--font-note); font-size: .75rem; font-weight: 800;
+      letter-spacing: .08em;
+      text-transform: uppercase;
+    }
+    .eyebrow svg { width: 17px; height: 17px; color: var(--gold); }
+    h1, h2, h3, h4 { margin: 0; font-family: var(--font-head); letter-spacing: 0; line-height: 1.08; }
+    h1 { max-width: 860px; font-size: clamp(2.5rem, 6vw, 5.1rem); }
+    h2 {
+      color: var(--text);
+      font-size: clamp(1.9rem, 4vw, 3.2rem);
+      border-left: 8px solid var(--gold);
+      padding-left: 1.2rem;
+    }
+    h3 { font-size: 1.2rem; color: var(--text); }
+    h4 { font-size: 1rem; color: var(--navy); }
+    html.dark h2, html.dark h4 { color: white; }
+    p { margin: 0; color: var(--text-sec); }
+    .hero p { color: rgba(255,255,255,.84); }
+    .hero-copy { max-width: 780px; margin-top: 1.2rem; font-size: clamp(1.04rem, 2vw, 1.24rem); }
+    .actions { display: flex; flex-wrap: wrap; gap: .75rem; margin-top: 1.55rem; }
+    .btn {
+      display: inline-flex; align-items: center; justify-content: center; gap: .5rem;
+      min-height: 46px; padding: .78rem 1rem;
+      border-radius: var(--radius-md); border: 1px solid transparent;
+      font-weight: 700; font-size: .92rem; text-decoration: none; cursor: pointer;
+      transition: transform var(--ease), box-shadow var(--ease), background var(--ease);
+      font-family: var(--font-body);
+    }
+    .btn:hover { transform: translateY(-1px); box-shadow: var(--shadow-glow); }
+    .btn svg { width: 18px; height: 18px; }
+    .btn-primary { background: var(--gold); color: var(--navy); box-shadow: 0 16px 34px rgba(255,215,0,.2); }
+    .btn-secondary { background: rgba(255,255,255,.1); color: white; border-color: rgba(255,255,255,.26); }
+    .btn-dark { background: var(--navy); color: white; }
+    .btn-light { background: white; color: var(--navy); border-color: var(--line); }
+    html.dark .btn-light { background: rgba(255,255,255,.1); color: white; }
+    .panel, .card, details {
+      background: var(--card); border: 1px solid var(--line);
+      border-radius: var(--radius-lg); box-shadow: var(--shadow);
+    }
+    .hero-card { padding: 1.15rem; color: var(--text); }
+    .mini-kicker {
+      display: inline-flex; align-items: center; gap: .42rem;
+      margin-bottom: .8rem; color: var(--gold-dark);
+      font-family: var(--font-note); font-size: .82rem; font-weight: 700;
+    }
+    .route { display: grid; gap: .8rem; }
+    .route-step {
+      display: grid; grid-template-columns: 38px 1fr; gap: .8rem;
+      padding: .85rem; border: 1px solid var(--line); border-radius: var(--radius-md);
+      background: rgba(19,125,197,.08);
+    }
+    .route-step span {
+      width: 38px; height: 38px; display: grid; place-items: center;
+      border-radius: var(--radius-md); background: var(--navy); color: var(--gold);
+      font-family: var(--font-head); font-weight: 800;
+    }
+    .route-step strong { display: block; margin-bottom: .18rem; color: var(--text); }
+    .section-head { max-width: 800px; margin-bottom: 1.8rem; display: grid; gap: .75rem; }
+    .chip {
+      display: inline-flex; align-items: center; gap: .45rem; width: max-content;
+      padding: .35rem .62rem; border-radius: 999px;
+      background: rgba(255,215,0,.1); border: 1px solid rgba(255,215,0,.26);
+      color: var(--gold-dark); font-family: var(--font-note); font-size: .72rem; font-weight: 800;
+      letter-spacing: .1em;
+      text-transform: uppercase;
+    }
+    .chip svg { width: 16px; height: 16px; }
+    .soft { background: var(--soft); }
+    .grid-3 { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 1rem; }
+    .grid-2 { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 1rem; }
+    .card { padding: 1.05rem; display: grid; gap: .58rem; min-height: 100%; }
+    .card-icon {
+      width: 42px; height: 42px; display: grid; place-items: center;
+      border-radius: var(--radius-md); color: var(--navy);
+      background: linear-gradient(135deg, rgba(255,215,0,.48), rgba(19,125,197,.14));
+    }
+    html.dark .card-icon { color: var(--gold); }
+    .card-icon svg { width: 21px; height: 21px; }
+    .workshop-meta {
+      display: grid; grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: .8rem; margin-top: 1.4rem;
+    }
+    .meta-item { padding: .9rem; border: 1px solid rgba(255,255,255,.2); border-radius: var(--radius-md); background: rgba(255,255,255,.08); }
+    .meta-item strong { display: block; color: white; }
+    .meta-item span { color: rgba(255,255,255,.78); font-size: .9rem; }
+    .flow { display: grid; gap: 1.1rem; }
+    .flow-card {
+      display: grid; grid-template-columns: 72px 1fr; gap: 1rem;
+      padding: 1rem; border-radius: var(--radius-lg);
+    }
+    .flow-num {
+      width: 56px; height: 56px; display: grid; place-items: center;
+      border-radius: 16px; background: var(--navy); color: var(--gold);
+      font-family: var(--font-head); font-size: 1.3rem; font-weight: 800;
+    }
+    .flow-content { display: grid; gap: .8rem; min-width: 0; }
+    .mini-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: .7rem; }
+    .mini-box {
+      padding: .75rem; border: 1px solid var(--line); border-radius: var(--radius-md);
+      background: #F8FAFC;
+    }
+    html.dark .mini-box { background: rgba(255,255,255,.04); }
+    .mini-box strong { display: block; margin-bottom: .2rem; color: var(--text); }
+    .prompt-grid { display: grid; gap: .85rem; }
+    details { overflow: hidden; }
+    summary {
+      cursor: pointer; padding: 1rem;
+      color: var(--navy); font-family: var(--font-head); font-weight: 700;
+    }
+    html.dark summary { color: var(--gold); }
+    .detail-inner { display: grid; gap: 1rem; padding: 0 1rem 1rem; }
+    .copy-block { display: grid; gap: .65rem; }
+    .copy-toolbar { display: flex; justify-content: space-between; align-items: center; gap: .8rem; flex-wrap: wrap; }
+    .copy-content {
+      white-space: pre-wrap; overflow-x: auto;
+      margin: 0; padding: 1rem;
+      background: #101827; color: #F8FAFC;
+      border-radius: var(--radius-md); font-size: .92rem; line-height: 1.58;
+    }
+    .note {
+      font-family: var(--font-note); font-size: .92rem;
+      color: var(--muted);
+    }
+    code {
+      padding: .08rem .28rem; border-radius: 5px;
+      background: rgba(255,215,0,.18); color: var(--gold-dark);
+      font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
+    }
+    .resource-list { display: grid; gap: .7rem; }
+    .resource-list a {
+      display: flex; align-items: center; justify-content: space-between; gap: 1rem;
+      min-height: 54px; padding: .75rem .9rem;
+      border-radius: var(--radius-md); border: 1px solid var(--line);
+      background: var(--card); text-decoration: none; font-weight: 700;
+      color: var(--text);
+    }
+    .resource-list a:hover { border-color: rgba(255,215,0,.62); }
+    .cta-band {
+      display: grid; gap: 1rem;
+      padding: clamp(1.4rem, 3vw, 2.2rem);
+      border-radius: var(--radius-lg);
+      background: linear-gradient(135deg, var(--navy), var(--dark));
+      color: white; box-shadow: var(--shadow);
+    }
+    .cta-band h2 { color: white; border-left: 0; padding-left: 0; }
+    .cta-band p { color: rgba(255,255,255,.82); }
+    footer { background: var(--navy-deep); color: white; }
+    footer p { color: rgba(255,255,255,.72); }
+    .footer-grid { display: grid; grid-template-columns: minmax(0, 1.15fr) minmax(220px, .85fr) minmax(220px, .85fr); gap: 1rem; align-items: start; }
+    .footer-links { display: grid; gap: .5rem; }
+    .footer-links a { color: white; text-decoration: none; display: inline-flex; align-items: center; gap: .45rem; font-weight: 700; }
+    .footer-links a:hover { color: var(--gold); }
+    .footer-links svg { width: 18px; height: 18px; }
+    .footer-note { border: 1px solid rgba(255,255,255,.14); border-radius: var(--radius-md); padding: .9rem; background: rgba(255,255,255,.06); }
+    @media (max-width: 980px) {
+      .hero-grid, .grid-3, .grid-2, .workshop-meta, .mini-grid, .footer-grid { grid-template-columns: 1fr; }
+      .hero { min-height: auto; }
+    }
+    @media (max-width: 720px) {
+      body { font-size: 16px; }
+      .sidebar-nav {
+        top: auto; bottom: 0; left: 0; right: 0; width: 100%; height: 56px;
+        flex-direction: row; padding: 0 .5rem; border-right: 0; border-top: 1px solid var(--line);
+        padding-bottom: env(safe-area-inset-bottom, 0px);
+      }
+      .sidebar-logo { display: none; }
+      .sidebar-links { flex-direction: row; justify-content: space-around; width: 100%; overflow-x: auto; }
+      .sidebar-links a { width: 36px; height: 36px; min-height: 44px; min-width: 44px; }
+      .sidebar-nav a::after { display: none; }
+      .sidebar-nav a.active::before {
+        left: 50%; top: auto; bottom: 0;
+        transform: translateX(-50%);
+        width: 20px; height: 3px; border-radius: 3px 3px 0 0;
+      }
+      .sidebar-bottom { flex-direction: row; margin-top: 0; padding-top: 0; border-top: 0; margin-left: .4rem; }
+      .sidebar-bottom button, .sidebar-pristino { width: 38px; height: 38px; }
+      main { padding-left: 0; padding-bottom: 58px; }
+      header, section, footer { padding: 2.4rem 1rem; }
+      .actions { flex-direction: column; }
+      .btn { width: 100%; }
+      .flow-card { grid-template-columns: 1fr; }
+      .flow-num { width: 48px; height: 48px; }
+      .copy-toolbar { align-items: stretch; }
+    }
+
+    /* ---- Componentes añadidos (v2) ---- */
+    /* Contraste: las tarjetas claras dentro del hero NO deben heredar el texto blanco de .hero p */
+    .hero-card, .hero-card p, .hero-card .route-step p { color: var(--text-sec); }
+    .hero-card .mini-kicker { color: var(--gold-dark); }
+    .hero-card .route-step strong { color: var(--text); }
+    html.dark .hero-card, html.dark .hero-card p { color: var(--text-sec); }
+    .lead-card {
+      display: grid; gap: .6rem; padding: 1.1rem 1.2rem; margin-bottom: 1.4rem;
+      border-radius: var(--radius-lg); border: 1px solid var(--line);
+      border-left: 5px solid var(--gold);
+      background: linear-gradient(135deg, rgba(255,215,0,.08), rgba(19,125,197,.05));
+    }
+    .lead-card p { color: var(--text); }
+    .why-box {
+      margin-top: .2rem; padding: .7rem .85rem; border-radius: var(--radius-md);
+      background: rgba(19,125,197,.08); border: 1px dashed rgba(19,125,197,.34);
+      font-family: var(--font-note); font-size: .92rem; color: var(--text-sec);
+    }
+    .why-box strong { color: var(--blue); }
+    html.dark .why-box { background: rgba(19,125,197,.12); }
+
+    /* Mapa visual de 6 pasos */
+    .stepmap { display: grid; grid-template-columns: repeat(6, minmax(0,1fr)); gap: .6rem; margin-top: .4rem; }
+    .stepmap-node {
+      position: relative; display: grid; gap: .4rem; padding: .85rem .7rem;
+      border-radius: var(--radius-md); border: 1px solid var(--line);
+      background: var(--card); box-shadow: var(--shadow-glow);
+    }
+    .stepmap-node .n {
+      width: 30px; height: 30px; display: grid; place-items: center; border-radius: 8px;
+      background: var(--navy); color: var(--gold); font-family: var(--font-head); font-weight: 800; font-size: .9rem;
+    }
+    .stepmap-node b { color: var(--text); font-family: var(--font-head); font-size: .9rem; line-height: 1.2; }
+    .stepmap-node span { font-size: .76rem; color: var(--text-muted); }
+    .stepmap-node::after {
+      content: "→"; position: absolute; right: -.5rem; top: 50%; transform: translateY(-50%);
+      color: var(--gold-dark); font-weight: 800; z-index: 2;
+    }
+    .stepmap-node:last-child::after { content: ""; }
+    @media (max-width: 900px) {
+      .stepmap { grid-template-columns: 1fr 1fr; }
+      .stepmap-node::after { content: ""; }
+    }
+    @media (max-width: 520px) { .stepmap { grid-template-columns: 1fr; } }
+
+    /* Tabla comparativa de niveles */
+    .table-wrap { overflow-x: auto; border-radius: var(--radius-lg); border: 1px solid var(--line); background: var(--card); box-shadow: var(--shadow); }
+    table.level-table { width: 100%; border-collapse: collapse; min-width: 640px; font-size: .94rem; }
+    .level-table th, .level-table td { text-align: left; padding: .85rem 1rem; vertical-align: top; border-bottom: 1px solid var(--line); }
+    .level-table thead th { background: var(--navy); color: white; font-family: var(--font-head); font-size: .82rem; letter-spacing: .02em; }
+    .level-table thead th:first-child { border-top-left-radius: var(--radius-lg); }
+    .level-table thead th:last-child { border-top-right-radius: var(--radius-lg); }
+    .level-table tbody tr:nth-child(even) { background: rgba(19,125,197,.04); }
+    .level-table td:first-child { font-weight: 700; color: var(--text); white-space: nowrap; }
+    .level-table .tag { display: inline-block; padding: .12rem .5rem; border-radius: 999px; font-size: .72rem; font-weight: 800; font-family: var(--font-note); }
+    .tag-fast { background: rgba(66,211,111,.16); color: #146034; }
+    .tag-ctrl { background: rgba(19,125,197,.16); color: #0E587F; }
+    .tag-spec { background: rgba(255,215,0,.2); color: var(--gold-dark); }
+    html.dark .tag-fast { color: #6EE7A0; } html.dark .tag-ctrl { color: #7CC4F0; } html.dark .tag-spec { color: var(--gold); }
+
+    /* Caso guía (timeline) */
+    .case { display: grid; gap: 0; }
+    .case-step { display: grid; grid-template-columns: 44px 1fr; gap: 1rem; position: relative; padding-bottom: 1.3rem; }
+    .case-step:not(:last-child)::before { content: ""; position: absolute; left: 21px; top: 44px; bottom: 0; width: 2px; background: linear-gradient(var(--gold), rgba(19,125,197,.4)); }
+    .case-dot { width: 44px; height: 44px; display: grid; place-items: center; border-radius: 12px; background: var(--navy); color: var(--gold); font-family: var(--font-head); font-weight: 800; z-index: 1; }
+    .case-body { display: grid; gap: .55rem; padding-bottom: .2rem; }
+    .case-body h4 { color: var(--navy); font-size: 1.02rem; }
+    html.dark .case-body h4 { color: var(--gold); }
+    .ba { display: grid; grid-template-columns: 1fr 1fr; gap: .7rem; }
+    .ba > div { padding: .7rem .8rem; border-radius: var(--radius-md); border: 1px solid var(--line); font-size: .9rem; }
+    .ba .before { background: rgba(220,38,38,.05); border-color: rgba(220,38,38,.22); }
+    .ba .after { background: rgba(66,211,111,.07); border-color: rgba(66,211,111,.28); }
+    .ba .lbl { display: block; font-family: var(--font-note); font-weight: 800; font-size: .72rem; letter-spacing: .08em; text-transform: uppercase; margin-bottom: .25rem; }
+    .ba .before .lbl { color: #B91C1C; } .ba .after .lbl { color: #1B7F45; }
+    @media (max-width: 640px) { .ba { grid-template-columns: 1fr; } }
+
+    /* Guía del facilitador */
+    .fac-list { display: grid; gap: .7rem; }
+    .fac-row { display: grid; grid-template-columns: 92px 1fr; gap: 1rem; padding: .95rem 1.05rem; border-radius: var(--radius-md); border: 1px solid var(--line); background: var(--card); }
+    .fac-time { display: grid; align-content: start; gap: .2rem; }
+    .badge-time { display: inline-flex; align-items: center; gap: .3rem; padding: .25rem .55rem; border-radius: 999px; background: var(--navy); color: var(--gold); font-family: var(--font-head); font-weight: 800; font-size: .8rem; width: max-content; }
+    .fac-time small { color: var(--text-muted); font-size: .72rem; }
+    .fac-row h4 { color: var(--text); margin-bottom: .15rem; }
+    .fac-row .say { font-family: var(--font-note); font-style: italic; color: var(--blue); }
+    .fac-row ul { margin: .35rem 0 0; padding-left: 1.1rem; color: var(--text-sec); font-size: .92rem; }
+    .fac-row ul li { margin-bottom: .2rem; }
+    @media (max-width: 640px) { .fac-row { grid-template-columns: 1fr; } }
+
+    /* Checklists imprimibles */
+    .check-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; }
+    .checklist { padding: 1.1rem 1.2rem; border-radius: var(--radius-lg); border: 1px solid var(--line); background: var(--card); box-shadow: var(--shadow); }
+    .checklist h4 { display: flex; align-items: center; gap: .5rem; color: var(--navy); margin-bottom: .7rem; }
+    html.dark .checklist h4 { color: var(--gold); }
+    .checklist ul { list-style: none; margin: 0; padding: 0; display: grid; gap: .5rem; }
+    .checklist li { display: grid; grid-template-columns: 22px 1fr; gap: .6rem; align-items: start; font-size: .93rem; color: var(--text-sec); }
+    .checklist li::before { content: ""; width: 18px; height: 18px; margin-top: .15rem; border-radius: 5px; border: 2px solid var(--gold-dark); background: rgba(255,215,0,.1); }
+    @media (max-width: 720px) { .check-grid { grid-template-columns: 1fr; } }
+
+    /* Plantillas para llenar */
+    .tmpl { padding: 1.1rem 1.2rem; border-radius: var(--radius-lg); border: 1px solid var(--line); background: var(--card); box-shadow: var(--shadow); display: grid; gap: .8rem; }
+    .tmpl h4 { color: var(--navy); display: flex; align-items: center; gap: .5rem; }
+    html.dark .tmpl h4 { color: var(--gold); }
+    .tmpl .field { display: grid; gap: .25rem; }
+    .tmpl .field label { font-family: var(--font-note); font-weight: 800; font-size: .78rem; letter-spacing: .04em; text-transform: uppercase; color: var(--gold-dark); }
+    .tmpl .line { min-height: 34px; border-bottom: 2px dotted var(--line); }
+    .tmpl .hint { font-size: .82rem; color: var(--text-muted); font-style: italic; }
+
+    .print-actions { display: flex; gap: .6rem; flex-wrap: wrap; margin-top: 1.1rem; }
+
+    .resource-card { display: flex; align-items: center; justify-content: space-between; gap: 1rem; min-height: 56px; padding: .85rem 1rem; border-radius: var(--radius-md); border: 1px solid var(--line); background: var(--card); text-decoration: none; font-weight: 700; color: var(--text); box-shadow: var(--shadow-glow); transition: border-color .2s, transform .2s; }
+    .resource-card:hover { border-color: rgba(255,215,0,.62); transform: translateY(-1px); }
+    .resource-card span { display: inline-flex; align-items: center; gap: .55rem; min-width: 0; }
+    .resource-card svg { width: 18px; height: 18px; flex-shrink: 0; }
+    .resource-card span svg { color: var(--gold-dark); }
+    html.dark .resource-card span svg { color: var(--gold); }
+
+    @media print {
+      .sidebar-nav, .progress, .actions, .print-actions, .hero::after { display: none !important; }
+      main { padding-left: 0 !important; }
+      body { font-size: 12px; background: #fff; color: #000; }
+      header, section, footer { padding: 1rem 0 !important; page-break-inside: avoid; }
+      .hero { min-height: auto; color: #000; background: #fff; }
+      .hero p, .hero-copy { color: #000; }
+      .card, .panel, .checklist, .tmpl, .fac-row, .table-wrap, details { box-shadow: none; border-color: #999; }
+      a[href]::after { content: ""; }
+      details { page-break-inside: avoid; } details:not([open]) > .detail-inner { display: block; }
+    }
+  </style>
+</head>
+<body>
+  <div class="progress" id="progress"></div>
+  <nav class="sidebar-nav" aria-label="Navegación principal">
+    <a class="sidebar-logo" href="https://metodologia.info" target="_blank" rel="noopener noreferrer" aria-label="Abrir metodologia.info en una pestaña nueva"><img src="assets/metodologia_logo_primary.png" alt="Logo MetodologIA"></a>
+    <div class="sidebar-links">
+      <a href="#inicio" data-label="Inicio" aria-label="Inicio"><i data-lucide="home"></i></a>
+      <a href="#agenda" data-label="Agenda" aria-label="Agenda"><i data-lucide="calendar-check"></i></a>
+      <a href="#preparacion" data-label="Preparación" aria-label="Preparación"><i data-lucide="clipboard-list"></i></a>
+      <a href="#flujo" data-label="Flujo" aria-label="Flujo de trabajo"><i data-lucide="route"></i></a>
+      <a href="#caso" data-label="Caso guía" aria-label="Caso guía"><i data-lucide="milestone"></i></a>
+      <a href="#prompts" data-label="Prompts" aria-label="Prompts"><i data-lucide="terminal"></i></a>
+      <a href="#plantillas" data-label="Plantillas" aria-label="Plantillas y checklists"><i data-lucide="clipboard-check"></i></a>
+      <a href="#adjuntos" data-label="Adjuntos" aria-label="Adjuntos"><i data-lucide="paperclip"></i></a>
+      <a href="#facilitador" data-label="Facilitador" aria-label="Guía del facilitador"><i data-lucide="graduation-cap"></i></a>
+      <a href="#cierre" data-label="Cierre" aria-label="Cierre"><i data-lucide="book-open"></i></a>
+      <a href="#fuentes" data-label="Fuentes" aria-label="Fuentes y límites"><i data-lucide="badge-check"></i></a>
+    </div>
+    <div class="sidebar-bottom">
+      <a class="sidebar-pristino" href="https://chatgpt.com/g/g-6985f6a53cd08191a870c64661a2a060-pristino" target="_blank" rel="noopener noreferrer" data-label="Pristino" title="Practica en Pristino" aria-label="Abrir asistente Pristino en una pestaña nueva"><svg viewBox="0 0 38 38" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><rect width="38" height="38" rx="10" fill="#0A122A"/><path d="M13 11h6.4c2.6 0 4.6 1.9 4.6 4.5S22 20 19.4 20H16v7h-3V11zm3 6.3h3.1c1.1 0 1.9-.8 1.9-1.8s-.8-1.8-1.9-1.8H16v3.6z" fill="#F8FAFC"/><circle cx="27" cy="12" r="2.4" fill="#FFD700"/></svg></a>
+      <button id="darkBtn" type="button" aria-label="Cambiar modo claro u oscuro"><i data-lucide="moon"></i></button>
+    </div>
+  </nav>
+
+  <main>
+    <header class="hero" id="inicio">
+      <div class="wrap hero-grid">
+        <div>
+          <div class="eyebrow"><i data-lucide="presentation"></i> Workshop · Miércoles 20 de mayo · 19:00</div>
+          <div class="wordmark" aria-label="MetodologIA">Metodolog<span class="ia">IA</span></div>
+          <h1>Construye una presentación ejecutiva con <span class="gold">IA y criterio</span>.</h1>
+          <p class="hero-copy">Este workbook te guía desde la claridad inicial hasta una estructura ejecutiva: objetivo, audiencia, insumos, mensaje central, narrativa, títulos, argumentos y llamado a la acción. Es la continuación práctica de la masterclass: aquí <strong>aplicas</strong> el método. Te compartimos este HTML para que lo sigas en vivo y lo repitas guiado, a tu ritmo.</p>
+          <div class="actions">
+            <a class="btn btn-primary" href="#flujo"><i data-lucide="route"></i> Empezar el flujo</a>
+            <a class="btn btn-secondary" href="#prompts"><i data-lucide="terminal"></i> Ver prompts</a>
+            <a class="btn btn-secondary" href="https://meet.google.com/hfe-fcvb-kwf" target="_blank" rel="noopener noreferrer"><i data-lucide="video"></i> Entrar al workshop</a>
+            <a class="btn btn-secondary" href="https://drive.google.com/drive/u/0/folders/1pmxhe6O_RQPeGIgAzqKcCA24QVM5LZXI" target="_blank" rel="noopener noreferrer"><i data-lucide="folder-open"></i> Insumos de práctica</a>
+            <a class="btn btn-secondary" href="deck-presentacion-ejecutiva-ia.html"><i data-lucide="projector"></i> Ver la masterclass</a>
+          </div>
+          <div class="workshop-meta" aria-label="Datos del workshop">
+            <div class="meta-item"><strong>Cuándo</strong><span>Miércoles 20 de mayo de 2026 · 19:00 a 19:50</span></div>
+            <div class="meta-item"><strong>Zona horaria</strong><span>America/Bogota</span></div>
+            <div class="meta-item"><strong>Formato</strong><span>Sesión práctica, guiada y visual</span></div>
+          </div>
+        </div>
+        <aside class="panel hero-card" aria-label="Ruta del workbook">
+          <div class="mini-kicker"><i data-lucide="badge-check"></i> Ruta de la sesión</div>
+          <div class="route">
+            <div class="route-step"><span>1</span><div><strong>Claridad antes que diapositivas</strong><p>Define qué quieres decir, para quién y qué decisión quieres facilitar.</p></div></div>
+            <div class="route-step"><span>2</span><div><strong>IA como apoyo</strong><p>Usa la herramienta para ordenar ideas, no para reemplazar tu criterio.</p></div></div>
+            <div class="route-step"><span>3</span><div><strong>Insumos reales</strong><p>Trabaja sobre una idea, informe, propuesta, reunión o presentación en construcción.</p></div></div>
+            <div class="route-step"><span>4</span><div><strong>Salida práctica</strong><p>Llévate estructura, prompts y recursos para seguir practicando.</p></div></div>
+          </div>
+        </aside>
+      </div>
+    </header>
+
+    <section id="agenda">
+      <div class="wrap">
+        <div class="section-head">
+          <div class="chip"><i data-lucide="calendar-check"></i> Agenda oficial</div>
+          <h2>Una presentación ejecutiva empieza en claridad.</h2>
+          <p>No empieza en las diapositivas. Empieza en decidir qué quieres decir, para quién, con qué intención y qué decisión quieres facilitar.</p>
+        </div>
+        <div class="grid-3">
+          <article class="card"><div class="card-icon"><i data-lucide="target"></i></div><h3>Por qué</h3><p>La IA puede acelerar el proceso si primero defines intención, audiencia y resultado esperado.</p></article>
+          <article class="card"><div class="card-icon"><i data-lucide="workflow"></i></div><h3>Qué haremos</h3><p>Construiremos una presentación ejecutiva paso a paso: objetivo, mensaje, narrativa, estructura y llamado a la acción.</p></article>
+          <article class="card"><div class="card-icon"><i data-lucide="briefcase"></i></div><h3>Qué traer</h3><p>Un insumo real de trabajo, estudio, emprendimiento o proyecto. Si no tienes uno, podrás practicar con ejemplos compartidos.</p></article>
+        </div>
+      </div>
+    </section>
+
+    <section class="soft" id="preparacion">
+      <div class="wrap">
+        <div class="section-head">
+          <div class="chip"><i data-lucide="clipboard-list"></i> Preparación</div>
+          <h2>Llega con algo que quieras ordenar.</h2>
+          <p>Puede ser una idea, informe, propuesta, reunión pendiente, presentación por construir o mensaje que necesite más claridad.</p>
+        </div>
+        <div class="grid-2">
+          <article class="card">
+            <h3>Antes de entrar</h3>
+            <p>Elige una tarea concreta. Escribe la audiencia, la decisión que quieres facilitar y los insumos que ya tienes.</p>
+          </article>
+          <article class="card">
+            <h3>Durante la sesión</h3>
+            <p>Usa los prompts como guía. Si un resultado no sirve, no lo deseches todavía: corrige contexto, pide alternativas y ajusta el criterio.</p>
+          </article>
+          <article class="card">
+            <h3>Después de la sesión</h3>
+            <p>Lleva tu estructura o tus dudas a la clínica. Es más útil revisar un borrador imperfecto que esperar una versión completa.</p>
+          </article>
+          <article class="card">
+            <h3>Si no tienes insumos</h3>
+            <p>Usa los <a href="https://drive.google.com/drive/u/0/folders/1pmxhe6O_RQPeGIgAzqKcCA24QVM5LZXI" target="_blank" rel="noopener noreferrer">insumos de práctica en Drive</a>: un transcript de reunión de demo, material para una presentación académica de IA y un brief de propuesta comercial. El objetivo es aprender el método, no forzar información personal.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section id="flujo">
+      <div class="wrap">
+        <div class="section-head">
+          <div class="chip"><i data-lucide="route"></i> Flujo de trabajo</div>
+          <h2>Seis pasos para pasar de idea suelta a presentación ejecutiva.</h2>
+          <p>Cada paso tiene una acción, posibles adjuntos y una salida esperada. Úsalo como guía durante el workshop.</p>
+        </div>
+        <div class="stepmap" aria-label="Mapa de los seis pasos">
+          <div class="stepmap-node"><div class="n">1</div><b>Objetivo</b><span>Qué debe lograr</span></div>
+          <div class="stepmap-node"><div class="n">2</div><b>Audiencia</b><span>Quién decide y qué</span></div>
+          <div class="stepmap-node"><div class="n">3</div><b>Insumos</b><span>Ideas, datos, dudas</span></div>
+          <div class="stepmap-node"><div class="n">4</div><b>Mensaje</b><span>Tesis central</span></div>
+          <div class="stepmap-node"><div class="n">5</div><b>Narrativa</b><span>Orden con propósito</span></div>
+          <div class="stepmap-node"><div class="n">6</div><b>Cierre</b><span>Títulos y acción</span></div>
+        </div>
+        <div class="lead-card" style="margin-top:1.2rem;">
+          <p><strong>Regla de oro:</strong> avanza un paso a la vez y no pidas diapositivas hasta el paso 5. La mayoría de presentaciones flojas saltan directo al diseño sin objetivo, audiencia ni mensaje. La IA solo amplifica lo que tú ya decidiste: si entra ambigüedad, sale ruido bonito.</p>
+        </div>
+        <div class="flow">
+          <article class="panel flow-card"><div class="flow-num">1</div><div class="flow-content"><h3>Definir objetivo de la presentación</h3><div class="mini-grid"><div class="mini-box"><strong>Qué haces</strong><p>Decides qué debe lograr la presentación.</p></div><div class="mini-box"><strong>Qué adjuntas</strong><p>Briefing, correo, agenda, informe o idea inicial.</p></div><div class="mini-box"><strong>Salida</strong><p>Objetivo claro, verificable y útil para decidir.</p></div></div><div class="why-box"><strong>Por qué importa.</strong> Un objetivo difuso vuelve cada decisión posterior una opinión. Con un objetivo claro sabes qué incluir, qué cortar y cómo medir si la presentación funcionó.</div></div></article>
+          <article class="panel flow-card"><div class="flow-num">2</div><div class="flow-content"><h3>Aclarar audiencia, intención y decisión</h3><div class="mini-grid"><div class="mini-box"><strong>Qué haces</strong><p>Entiendes quién escucha y qué debe poder hacer.</p></div><div class="mini-box"><strong>Qué adjuntas</strong><p>Perfil de audiencia, contexto, convocatoria o acta previa.</p></div><div class="mini-box"><strong>Salida</strong><p>Mapa de audiencia, intención, decisión y preocupaciones.</p></div></div><div class="why-box"><strong>Por qué importa.</strong> La misma información se cuenta distinto para un comité directivo, un cliente o tu equipo. Definir quién decide evita que prepares para la audiencia equivocada.</div></div></article>
+          <article class="panel flow-card"><div class="flow-num">3</div><div class="flow-content"><h3>Ordenar insumos</h3><div class="mini-grid"><div class="mini-box"><strong>Qué haces</strong><p>Separas ideas, datos, dudas y material accesorio.</p></div><div class="mini-box"><strong>Qué adjuntas</strong><p>Informe, notas, tabla, propuesta, captura o borrador.</p></div><div class="mini-box"><strong>Salida</strong><p>Inventario ordenado de ideas, evidencia y vacíos.</p></div></div><div class="why-box"><strong>Por qué importa.</strong> Separar evidencia de supuestos te protege de presentar opiniones como hechos. También revela qué datos faltan antes de que alguien los pregunte en la sala.</div></div></article>
+          <article class="panel flow-card"><div class="flow-num">4</div><div class="flow-content"><h3>Formular mensaje central</h3><div class="mini-grid"><div class="mini-box"><strong>Qué haces</strong><p>Conviertes los insumos en una tesis clara.</p></div><div class="mini-box"><strong>Qué adjuntas</strong><p>Objetivo, audiencia, decisión e insumos ordenados.</p></div><div class="mini-box"><strong>Salida</strong><p>Mensaje central y soportes principales.</p></div></div><div class="why-box"><strong>Por qué importa.</strong> Si no puedes resumir tu presentación en una frase, la audiencia tampoco podrá. El mensaje central es el filtro que ordena todo lo demás.</div></div></article>
+          <article class="panel flow-card"><div class="flow-num">5</div><div class="flow-content"><h3>Construir narrativa y estructura ejecutiva</h3><div class="mini-grid"><div class="mini-box"><strong>Qué haces</strong><p>Decides el orden de secciones o diapositivas.</p></div><div class="mini-box"><strong>Qué adjuntas</strong><p>Mensaje, soportes, duración, formato y restricciones.</p></div><div class="mini-box"><strong>Salida</strong><p>Secuencia con propósito, evidencia y transición.</p></div></div><div class="why-box"><strong>Por qué importa.</strong> Una secuencia con propósito guía la decisión; un montón de diapositivas obliga a la audiencia a armar el sentido sola. El orden es argumento, no decoración.</div></div></article>
+          <article class="panel flow-card"><div class="flow-num">6</div><div class="flow-content"><h3>Mejorar títulos, argumentos y llamado a la acción</h3><div class="mini-grid"><div class="mini-box"><strong>Qué haces</strong><p>Revisas si cada sección ayuda a entender, decidir o actuar.</p></div><div class="mini-box"><strong>Qué adjuntas</strong><p>Estructura, títulos actuales, notas o borrador.</p></div><div class="mini-box"><strong>Salida</strong><p>Títulos más claros, argumentos defendibles y una acción final.</p></div></div><div class="why-box"><strong>Por qué importa.</strong> La gente recuerda los títulos y el cierre. Un título que adelanta la idea y una acción concreta convierten "estuvo interesante" en una decisión tomada.</div></div></article>
+        </div>
+      </div>
+    </section>
+
+    <section id="caso">
+      <div class="wrap">
+        <div class="section-head">
+          <div class="chip"><i data-lucide="milestone"></i> Caso guía</div>
+          <h2>Un mismo caso, antes y después de cada paso.</h2>
+          <p>Laura lidera operaciones y debe presentar ante el comité directivo para conseguir aprobación de un piloto que automatice el reporte mensual. Mira cómo cambia su trabajo al pasar por los seis pasos.</p>
+        </div>
+        <div class="lead-card">
+          <p><strong>Lee la columna roja como "lo que casi todos hacen" y la verde como "lo que hace la diferencia".</strong> No es que la IA escriba mejor: es que Laura le da mejor materia prima en cada paso.</p>
+        </div>
+        <div class="case">
+          <div class="case-step">
+            <div class="case-dot">1</div>
+            <div class="case-body">
+              <h4>Definir objetivo</h4>
+              <div class="ba">
+                <div class="before"><span class="lbl">Antes</span>"Quiero hablar de automatización con el comité."</div>
+                <div class="after"><span class="lbl">Después</span>"Conseguir que el comité apruebe un piloto de 6 semanas y el presupuesto para automatizar el reporte mensual."</div>
+              </div>
+              <p class="why-box"><strong>Cambio clave:</strong> pasó de un tema a una decisión concreta y medible.</p>
+            </div>
+          </div>
+          <div class="case-step">
+            <div class="case-dot">2</div>
+            <div class="case-body">
+              <h4>Aclarar audiencia, intención y decisión</h4>
+              <div class="ba">
+                <div class="before"><span class="lbl">Antes</span>Asume que al comité le entusiasma la tecnología y prepara una demo.</div>
+                <div class="after"><span class="lbl">Después</span>El comité decide por impacto en costo y tiempo, y por riesgo operativo. Su mayor miedo: que el piloto interrumpa la operación actual.</div>
+              </div>
+              <p class="why-box"><strong>Cambio clave:</strong> dejó de venderle "tecnología" y empezó a responder "¿qué ganamos y qué arriesgamos?".</p>
+            </div>
+          </div>
+          <div class="case-step">
+            <div class="case-dot">3</div>
+            <div class="case-body">
+              <h4>Ordenar insumos</h4>
+              <div class="ba">
+                <div class="before"><span class="lbl">Antes</span>12 diapositivas con capturas de la herramienta y una lista de funciones.</div>
+                <div class="after"><span class="lbl">Después</span>3 datos duros (40 h/mes en el reporte, 6 errores el último trimestre, costo del piloto), 1 supuesto marcado y 1 dato por confirmar con finanzas.</div>
+              </div>
+              <p class="why-box"><strong>Cambio clave:</strong> separó evidencia de relleno y supo qué dato le faltaba antes de la reunión.</p>
+            </div>
+          </div>
+          <div class="case-step">
+            <div class="case-dot">4</div>
+            <div class="case-body">
+              <h4>Formular mensaje central</h4>
+              <div class="ba">
+                <div class="before"><span class="lbl">Antes</span>"La automatización es el futuro de la operación."</div>
+                <div class="after"><span class="lbl">Después</span>"Automatizar el reporte mensual libera ~40 horas y reduce errores; pido aprobar un piloto acotado de 6 semanas."</div>
+              </div>
+              <p class="why-box"><strong>Cambio clave:</strong> una frase que cabe en la cabeza del comité y ya contiene la petición.</p>
+            </div>
+          </div>
+          <div class="case-step">
+            <div class="case-dot">5</div>
+            <div class="case-body">
+              <h4>Construir narrativa y estructura</h4>
+              <div class="ba">
+                <div class="before"><span class="lbl">Antes</span>Intro a la herramienta → funciones → demo → preguntas.</div>
+                <div class="after"><span class="lbl">Después</span>Situación (40 h/mes manuales) → costo de seguir igual → propuesta de piloto → qué se arriesga y qué no → decisión solicitada.</div>
+              </div>
+              <p class="why-box"><strong>Cambio clave:</strong> el orden ahora conduce a una decisión, no a una demostración.</p>
+            </div>
+          </div>
+          <div class="case-step">
+            <div class="case-dot">6</div>
+            <div class="case-body">
+              <h4>Mejorar títulos, argumentos y llamado a la acción</h4>
+              <div class="ba">
+                <div class="before"><span class="lbl">Antes</span>Título: "Resultados". Cierre: "Gracias, ¿preguntas?".</div>
+                <div class="after"><span class="lbl">Después</span>Título: "El reporte manual nos cuesta 40 horas al mes". Cierre: "Pido aprobar hoy el piloto de 6 semanas; yo coordino el arranque el lunes."</div>
+              </div>
+              <p class="why-box"><strong>Cambio clave:</strong> el título adelanta la idea y el cierre pide algo concreto, con verbo, objeto y fecha.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="soft" id="prompts">
+      <div class="wrap">
+        <div class="section-head">
+          <div class="chip"><i data-lucide="terminal"></i> Prompts por paso</div>
+          <h2>Elige el nivel según tu apetito de control.</h2>
+          <p><strong>Rápido:</strong> Natural sin parámetros. <strong>Controlado:</strong> Natural con campos <code>{[CAMPO]}</code>. <strong>Avanzado:</strong> SPEC MetodologIA con Rol, Situación, Pedido, Ejecución y Criterios. <strong>A prueba de fallos:</strong> si no tienes adjuntos, cada prompt te sugiere cuáles subir; nunca inventa y cierra con una mini-checklist.</p>
+        </div>
+        <div class="table-wrap" style="margin-bottom:1.4rem;">
+          <table class="level-table">
+            <thead>
+              <tr><th>Nivel</th><th>Cuándo usarlo</th><th>Cómo se ve</th><th>Su ventaja</th><th>El cuidado</th></tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td><span class="tag tag-fast">Natural sin parámetros</span></td>
+                <td>Vas rápido o aún no tienes el contexto ordenado.</td>
+                <td>Lenguaje normal, sin campos. La IA te hace preguntas antes de construir.</td>
+                <td>Arrancas en segundos y la IA destapa lo que falta.</td>
+                <td>Si no respondes sus preguntas, el resultado sale genérico.</td>
+              </tr>
+              <tr>
+                <td><span class="tag tag-ctrl">Natural con parámetros</span></td>
+                <td>Ya tienes el contexto a la mano y quieres una respuesta a tu medida.</td>
+                <td>Lenguaje normal con campos <code>{[CAMPO]}</code> que rellenas tú.</td>
+                <td>Más control sin aprender sintaxis nueva.</td>
+                <td>Rellenar mal un campo (o dejarlo vago) sesga toda la salida.</td>
+              </tr>
+              <tr>
+                <td><span class="tag tag-spec">SPEC MetodologIA</span></td>
+                <td>Vas a repetir el proceso o necesitas precisión y calidad exigible.</td>
+                <td>Estructura fija: Rol · Situación · Pedido · Ejecución · Criterios.</td>
+                <td>Reproducible, auditable y exigente con la calidad del resultado.</td>
+                <td>Es más largo de escribir: úsalo cuando el resultado lo justifica.</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+        <div class="prompt-grid">
+          <details open>
+            <summary>1. Definir objetivo de la presentación</summary>
+            <div class="detail-inner">
+              <div class="copy-block">
+                <div class="copy-toolbar"><h4>Natural sin parámetros</h4><div class="actions" style="margin-top:0;"><button class="btn btn-dark copy-button" type="button" data-copy="p1-natural"><i data-lucide="copy-check"></i> Copiar</button><button class="btn btn-light open-ai-button" type="button" data-copy="p1-natural" data-url="https://chatgpt.com/"><i data-lucide="external-link"></i> ChatGPT</button><button class="btn btn-light open-ai-button" type="button" data-copy="p1-natural" data-url="https://gemini.google.com/app"><i data-lucide="external-link"></i> Gemini</button></div></div>
+                <pre class="copy-content" id="p1-natural">Ayúdame a definir el objetivo de mi presentación ejecutiva. Hazme preguntas mínimas sobre propósito, audiencia, decisión esperada y tiempo. Si tengo adjuntos, dime cuáles subir. Luego entrega un objetivo claro y un criterio simple para saber si quedó bien.
+
+A prueba de fallos (no lo omitas): antes de entregar, revisa que tengas lo necesario; si falta un dato o un adjunto, no inventes: pregúntame o dime exactamente qué subir. Si no tengo adjuntos, sugiéreme 2–3 que podría subir y para qué sirve cada uno (p. ej.: briefing o correo de convocatoria; la agenda de la reunión; un informe o la idea inicial). Marca supuestos y datos por confirmar y cierra con una mini-checklist de “listo / falta”.</pre>
+              </div>
+              <div class="copy-block">
+                <div class="copy-toolbar"><h4>Natural con parámetros</h4><div class="actions" style="margin-top:0;"><button class="btn btn-dark copy-button" type="button" data-copy="p1-param"><i data-lucide="copy-check"></i> Copiar</button><button class="btn btn-light open-ai-button" type="button" data-copy="p1-param" data-url="https://chatgpt.com/"><i data-lucide="external-link"></i> ChatGPT</button><button class="btn btn-light open-ai-button" type="button" data-copy="p1-param" data-url="https://gemini.google.com/app"><i data-lucide="external-link"></i> Gemini</button></div></div>
+                <pre class="copy-content" id="p1-param">Estoy preparando una presentación ejecutiva sobre {[TEMA]}. Audiencia: {[AUDIENCIA]}. Decisión a facilitar: {[DECISION_A_FACILITAR]}. Tiempo disponible: {[DURACION]}. Insumos: {[INSUMOS_DISPONIBLES]}. Adjuntos posibles: {[ADJUNTOS_POSIBLES]}. Restricciones: {[RESTRICCIONES]}. Antes de responder, valida si falta un dato crítico y haz máximo tres preguntas. No diseñes diapositivas todavía. Entrega objetivo recomendado, objetivo alternativo, alcance, fuera de alcance, criterio de éxito observable, señal de avance, riesgo si el objetivo queda ambiguo y próximos insumos que debo preparar.
+
+A prueba de fallos (no lo omitas): antes de entregar, revisa que tengas lo necesario; si falta un dato o un adjunto, no inventes: pregúntame o dime exactamente qué subir. Si no tengo adjuntos, sugiéreme 2–3 que podría subir y para qué sirve cada uno (p. ej.: briefing o correo de convocatoria; la agenda de la reunión; un informe o la idea inicial). Marca supuestos y datos por confirmar y cierra con una mini-checklist de “listo / falta”.</pre>
+              </div>
+              <div class="copy-block">
+                <div class="copy-toolbar"><h4>SPEC MetodologIA</h4><div class="actions" style="margin-top:0;"><button class="btn btn-dark copy-button" type="button" data-copy="p1-spec"><i data-lucide="copy-check"></i> Copiar</button><button class="btn btn-light open-ai-button" type="button" data-copy="p1-spec" data-url="https://chatgpt.com/"><i data-lucide="external-link"></i> ChatGPT</button><button class="btn btn-light open-ai-button" type="button" data-copy="p1-spec" data-url="https://gemini.google.com/app"><i data-lucide="external-link"></i> Gemini</button></div></div>
+                <pre class="copy-content" id="p1-spec">Rol: Actúa como facilitador experto de presentaciones ejecutivas.
+Contexto: Preparo una presentación sobre {[TEMA]} para {[AUDIENCIA]} con una duración de {[DURACION]}. Insumos disponibles: {[INSUMOS]}.
+Tarea:
+1. Identifica los vacíos críticos y hazme máximo 3 preguntas antes de continuar.
+2. Propón dos objetivos (uno directo y uno ejecutivo), cada uno con la decisión que debe facilitar.
+3. Define alcance y fuera de alcance.
+4. Entrega un criterio de éxito observable y una señal de avance.
+5. Sugiere qué adjuntos prepararía para reforzar el objetivo.
+Reglas:
+- No diseñes diapositivas todavía.
+- No inventes datos; marca supuestos y datos por confirmar.
+- Si falta un dato crítico, pregúntalo en vez de asumir.
+Formato: encabezados breves y listas; incluye una tabla "Objetivo | Decisión | Criterio de éxito | Riesgo si queda ambiguo".
+Criterios: el objetivo debe ser específico, verificable, conectado con la audiencia, acotado al tiempo y útil para decidir qué entra y qué queda fuera.
+Idioma: español. Tono: profesional, claro y directo.
+
+A prueba de fallos (no lo omitas): antes de entregar, revisa que tengas lo necesario; si falta un dato o un adjunto, no inventes: pregúntame o dime exactamente qué subir. Si no tengo adjuntos, sugiéreme 2–3 que podría subir y para qué sirve cada uno (p. ej.: briefing o correo de convocatoria; la agenda de la reunión; un informe o la idea inicial). Marca supuestos y datos por confirmar y cierra con una mini-checklist de “listo / falta”.</pre>
+              </div>
+            </div>
+          </details>
+
+          <details>
+            <summary>2. Aclarar audiencia, intención y decisión</summary>
+            <div class="detail-inner">
+              <div class="copy-block"><div class="copy-toolbar"><h4>Natural sin parámetros</h4><div class="actions" style="margin-top:0;"><button class="btn btn-dark copy-button" type="button" data-copy="p2-natural"><i data-lucide="copy-check"></i> Copiar</button><button class="btn btn-light open-ai-button" type="button" data-copy="p2-natural" data-url="https://chatgpt.com/"><i data-lucide="external-link"></i> ChatGPT</button><button class="btn btn-light open-ai-button" type="button" data-copy="p2-natural" data-url="https://gemini.google.com/app"><i data-lucide="external-link"></i> Gemini</button></div></div><pre class="copy-content" id="p2-natural">Ayúdame a entender la audiencia de mi presentación. Pregúntame quiénes son, qué saben, qué les importa y qué decisión deben tomar. Si sirve, pídeme agenda, correo o perfil. Luego resume necesidades, preocupaciones, tono y evidencia mínima.
+
+A prueba de fallos (no lo omitas): antes de entregar, revisa que tengas lo necesario; si falta un dato o un adjunto, no inventes: pregúntame o dime exactamente qué subir. Si no tengo adjuntos, sugiéreme 2–3 que podría subir y para qué sirve cada uno (p. ej.: el perfil o los cargos de quienes deciden; un acta de una reunión previa; el correo de contexto). Marca supuestos y datos por confirmar y cierra con una mini-checklist de “listo / falta”.</pre></div>
+              <div class="copy-block"><div class="copy-toolbar"><h4>Natural con parámetros</h4><div class="actions" style="margin-top:0;"><button class="btn btn-dark copy-button" type="button" data-copy="p2-param"><i data-lucide="copy-check"></i> Copiar</button><button class="btn btn-light open-ai-button" type="button" data-copy="p2-param" data-url="https://chatgpt.com/"><i data-lucide="external-link"></i> ChatGPT</button><button class="btn btn-light open-ai-button" type="button" data-copy="p2-param" data-url="https://gemini.google.com/app"><i data-lucide="external-link"></i> Gemini</button></div></div><pre class="copy-content" id="p2-param">Estoy preparando una presentación para {[AUDIENCIA]}. Tema: {[TEMA]}. Intención: {[INTENCION]}. Decisión o acción esperada: {[DECISION_O_ACCION]}. Contexto de la reunión: {[CONTEXTO]}. Nivel de conocimiento: {[NIVEL_DE_CONOCIMIENTO]}. Adjuntos posibles: {[ADJUNTOS_POSIBLES]}. Restricciones: {[RESTRICCIONES]}. Analiza necesidades, preguntas probables, preocupaciones, tono recomendado, evidencia requerida y señales de resistencia. Marca supuestos y datos por confirmar. Cierra con tres recomendaciones para adaptar apertura, nivel de detalle y cierre, una frase inicial sugerida y una pregunta de control.
+
+A prueba de fallos (no lo omitas): antes de entregar, revisa que tengas lo necesario; si falta un dato o un adjunto, no inventes: pregúntame o dime exactamente qué subir. Si no tengo adjuntos, sugiéreme 2–3 que podría subir y para qué sirve cada uno (p. ej.: el perfil o los cargos de quienes deciden; un acta de una reunión previa; el correo de contexto). Marca supuestos y datos por confirmar y cierra con una mini-checklist de “listo / falta”.</pre></div>
+              <div class="copy-block"><div class="copy-toolbar"><h4>SPEC MetodologIA</h4><div class="actions" style="margin-top:0;"><button class="btn btn-dark copy-button" type="button" data-copy="p2-spec"><i data-lucide="copy-check"></i> Copiar</button><button class="btn btn-light open-ai-button" type="button" data-copy="p2-spec" data-url="https://chatgpt.com/"><i data-lucide="external-link"></i> ChatGPT</button><button class="btn btn-light open-ai-button" type="button" data-copy="p2-spec" data-url="https://gemini.google.com/app"><i data-lucide="external-link"></i> Gemini</button></div></div><pre class="copy-content" id="p2-spec">Rol: Actúa como analista de audiencia ejecutiva.
+Contexto: Presentaré {[TEMA]} ante {[AUDIENCIA]} en el contexto {[CONTEXTO]}, con intención {[INTENCION]} y decisión esperada {[DECISION_O_ACCION]}.
+Tarea:
+1. Diferencia intereses, conocimiento previo, preocupaciones y preguntas probables por subgrupo de la audiencia.
+2. Indica la evidencia que cada grupo necesitará para decidir.
+3. Recomienda tono, apertura y nivel de detalle.
+4. Detecta señales de resistencia y cómo responderlas.
+Reglas:
+- Marca supuestos y datos por confirmar.
+- Pide los adjuntos (agenda, perfil, acta) que mejorarían el análisis.
+Formato: tabla "Audiencia | Interés | Preocupación | Evidencia requerida" + tres recomendaciones + una frase de apertura sugerida.
+Criterios: al final debe quedar claro qué enfatizar, qué evitar y cómo abrir la presentación.
+Idioma: español. Tono: profesional y empático.
+
+A prueba de fallos (no lo omitas): antes de entregar, revisa que tengas lo necesario; si falta un dato o un adjunto, no inventes: pregúntame o dime exactamente qué subir. Si no tengo adjuntos, sugiéreme 2–3 que podría subir y para qué sirve cada uno (p. ej.: el perfil o los cargos de quienes deciden; un acta de una reunión previa; el correo de contexto). Marca supuestos y datos por confirmar y cierra con una mini-checklist de “listo / falta”.</pre></div>
+            </div>
+          </details>
+
+          <details>
+            <summary>3. Ordenar insumos</summary>
+            <div class="detail-inner">
+              <div class="copy-block"><div class="copy-toolbar"><h4>Natural sin parámetros</h4><div class="actions" style="margin-top:0;"><button class="btn btn-dark copy-button" type="button" data-copy="p3-natural"><i data-lucide="copy-check"></i> Copiar</button><button class="btn btn-light open-ai-button" type="button" data-copy="p3-natural" data-url="https://chatgpt.com/"><i data-lucide="external-link"></i> ChatGPT</button><button class="btn btn-light open-ai-button" type="button" data-copy="p3-natural" data-url="https://gemini.google.com/app"><i data-lucide="external-link"></i> Gemini</button></div></div><pre class="copy-content" id="p3-natural">Ayúdame a ordenar insumos para una presentación ejecutiva. Te compartiré información parcial o desordenada. Clasifícala en ideas, evidencia, supuestos, dudas, riesgos y datos por confirmar. Si faltan adjuntos, dime cuáles pedir. Luego recomienda qué usar primero.
+
+A prueba de fallos (no lo omitas): antes de entregar, revisa que tengas lo necesario; si falta un dato o un adjunto, no inventes: pregúntame o dime exactamente qué subir. Si no tengo adjuntos, sugiéreme 2–3 que podría subir y para qué sirve cada uno (p. ej.: el informe o la tabla/Excel con datos; tus notas o borrador; una propuesta o capturas previas). Marca supuestos y datos por confirmar y cierra con una mini-checklist de “listo / falta”.</pre></div>
+              <div class="copy-block"><div class="copy-toolbar"><h4>Natural con parámetros</h4><div class="actions" style="margin-top:0;"><button class="btn btn-dark copy-button" type="button" data-copy="p3-param"><i data-lucide="copy-check"></i> Copiar</button><button class="btn btn-light open-ai-button" type="button" data-copy="p3-param" data-url="https://chatgpt.com/"><i data-lucide="external-link"></i> ChatGPT</button><button class="btn btn-light open-ai-button" type="button" data-copy="p3-param" data-url="https://gemini.google.com/app"><i data-lucide="external-link"></i> Gemini</button></div></div><pre class="copy-content" id="p3-param">Quiero ordenar estos insumos para una presentación sobre {[TEMA]}: {[INSUMOS]}. Audiencia: {[AUDIENCIA]}. Objetivo preliminar: {[OBJETIVO]}. Decisión a facilitar: {[DECISION]}. Adjuntos posibles: {[ADJUNTOS_POSIBLES]}. Restricciones: {[RESTRICCIONES]}. Clasifica ideas clave, evidencia, supuestos, dudas, riesgos, mensajes secundarios, datos por confirmar y material descartable. Luego entrega una síntesis de máximo siete puntos, una recomendación de uso, tres preguntas para completar la base y una alerta de información que no debería usarse todavía.
+
+A prueba de fallos (no lo omitas): antes de entregar, revisa que tengas lo necesario; si falta un dato o un adjunto, no inventes: pregúntame o dime exactamente qué subir. Si no tengo adjuntos, sugiéreme 2–3 que podría subir y para qué sirve cada uno (p. ej.: el informe o la tabla/Excel con datos; tus notas o borrador; una propuesta o capturas previas). Marca supuestos y datos por confirmar y cierra con una mini-checklist de “listo / falta”.</pre></div>
+              <div class="copy-block"><div class="copy-toolbar"><h4>SPEC MetodologIA</h4><div class="actions" style="margin-top:0;"><button class="btn btn-dark copy-button" type="button" data-copy="p3-spec"><i data-lucide="copy-check"></i> Copiar</button><button class="btn btn-light open-ai-button" type="button" data-copy="p3-spec" data-url="https://chatgpt.com/"><i data-lucide="external-link"></i> ChatGPT</button><button class="btn btn-light open-ai-button" type="button" data-copy="p3-spec" data-url="https://gemini.google.com/app"><i data-lucide="external-link"></i> Gemini</button></div></div><pre class="copy-content" id="p3-spec">Rol: Actúa como curador de información ejecutiva.
+Contexto: Tengo insumos sobre {[TEMA]} que aún no están listos para convertirse en presentación. Te los comparto a continuación.
+Tarea:
+1. Separa el material en: ideas, evidencia, supuestos, dudas, riesgos, material descartable y datos por confirmar.
+2. Asocia cada idea importante a su evidencia, supuesto o pregunta pendiente.
+3. Indica qué adjuntos faltan.
+4. Entrega una síntesis priorizada de máximo 7 puntos.
+Reglas:
+- No inventes datos.
+- Si algo no se puede sustentar, marcalo como supuesto o pregunta.
+Formato: una tabla por categoría + una síntesis final priorizada + tres preguntas para completar la base.
+Criterios: al final debe quedar claro qué usar, qué excluir y qué pedir.
+Idioma: español. Tono: riguroso y ordenado.
+
+A prueba de fallos (no lo omitas): antes de entregar, revisa que tengas lo necesario; si falta un dato o un adjunto, no inventes: pregúntame o dime exactamente qué subir. Si no tengo adjuntos, sugiéreme 2–3 que podría subir y para qué sirve cada uno (p. ej.: el informe o la tabla/Excel con datos; tus notas o borrador; una propuesta o capturas previas). Marca supuestos y datos por confirmar y cierra con una mini-checklist de “listo / falta”.</pre></div>
+            </div>
+          </details>
+
+          <details>
+            <summary>4. Formular mensaje central</summary>
+            <div class="detail-inner">
+              <div class="copy-block"><div class="copy-toolbar"><h4>Natural sin parámetros</h4><div class="actions" style="margin-top:0;"><button class="btn btn-dark copy-button" type="button" data-copy="p4-natural"><i data-lucide="copy-check"></i> Copiar</button><button class="btn btn-light open-ai-button" type="button" data-copy="p4-natural" data-url="https://chatgpt.com/"><i data-lucide="external-link"></i> ChatGPT</button><button class="btn btn-light open-ai-button" type="button" data-copy="p4-natural" data-url="https://gemini.google.com/app"><i data-lucide="external-link"></i> Gemini</button></div></div><pre class="copy-content" id="p4-natural">Ayúdame a formular el mensaje central de una presentación ejecutiva. Revisa objetivo, audiencia, decisión e insumos. Si falta contexto, pregunta o pide adjuntos. Luego propón un mensaje principal, dos alternativas, soportes necesarios y riesgos de interpretación.
+
+A prueba de fallos (no lo omitas): antes de entregar, revisa que tengas lo necesario; si falta un dato o un adjunto, no inventes: pregúntame o dime exactamente qué subir. Si no tengo adjuntos, sugiéreme 2–3 que podría subir y para qué sirve cada uno (p. ej.: el objetivo y la audiencia ya definidos; los insumos ordenados; la evidencia o cifras disponibles). Marca supuestos y datos por confirmar y cierra con una mini-checklist de “listo / falta”.</pre></div>
+              <div class="copy-block"><div class="copy-toolbar"><h4>Natural con parámetros</h4><div class="actions" style="margin-top:0;"><button class="btn btn-dark copy-button" type="button" data-copy="p4-param"><i data-lucide="copy-check"></i> Copiar</button><button class="btn btn-light open-ai-button" type="button" data-copy="p4-param" data-url="https://chatgpt.com/"><i data-lucide="external-link"></i> ChatGPT</button><button class="btn btn-light open-ai-button" type="button" data-copy="p4-param" data-url="https://gemini.google.com/app"><i data-lucide="external-link"></i> Gemini</button></div></div><pre class="copy-content" id="p4-param">Necesito formular el mensaje central de una presentación sobre {[TEMA]}. Objetivo: {[OBJETIVO]}. Audiencia: {[AUDIENCIA]}. Decisión a facilitar: {[DECISION]}. Insumos principales: {[INSUMOS]}. Evidencia disponible: {[EVIDENCIA]}. Adjuntos posibles: {[ADJUNTOS_POSIBLES]}. Tono deseado: {[TONO]}. Restricciones: {[RESTRICCIONES]}. Propón tres versiones: directa, ejecutiva y pedagógica. Para cada una indica soporte, riesgo de interpretación, dato por confirmar y cuándo conviene usarla. Recomienda una, explica por qué e incluye una prueba de claridad en una frase.
+
+A prueba de fallos (no lo omitas): antes de entregar, revisa que tengas lo necesario; si falta un dato o un adjunto, no inventes: pregúntame o dime exactamente qué subir. Si no tengo adjuntos, sugiéreme 2–3 que podría subir y para qué sirve cada uno (p. ej.: el objetivo y la audiencia ya definidos; los insumos ordenados; la evidencia o cifras disponibles). Marca supuestos y datos por confirmar y cierra con una mini-checklist de “listo / falta”.</pre></div>
+              <div class="copy-block"><div class="copy-toolbar"><h4>SPEC MetodologIA</h4><div class="actions" style="margin-top:0;"><button class="btn btn-dark copy-button" type="button" data-copy="p4-spec"><i data-lucide="copy-check"></i> Copiar</button><button class="btn btn-light open-ai-button" type="button" data-copy="p4-spec" data-url="https://chatgpt.com/"><i data-lucide="external-link"></i> ChatGPT</button><button class="btn btn-light open-ai-button" type="button" data-copy="p4-spec" data-url="https://gemini.google.com/app"><i data-lucide="external-link"></i> Gemini</button></div></div><pre class="copy-content" id="p4-spec">Rol: Actúa como editor estratégico de mensajes ejecutivos.
+Contexto: Tengo objetivo, audiencia e insumos para presentar {[TEMA]}, pero falta una tesis clara y defendible. Te comparto el material.
+Tarea:
+1. Formula el mensaje central en una frase.
+2. Propón tres alternativas (directa, ejecutiva, pedagógica) y compara ventajas.
+3. Lista los soportes principales y la evidencia faltante de cada una.
+4. Recomienda una y explica por qué.
+Reglas:
+- Marca la evidencia faltante; no afirmes más de lo que el dato sustenta.
+- Detecta ambigüedades de interpretación.
+Formato: tabla "Versión | Soporte | Riesgo | Cuándo usarla" + recomendación + una prueba de claridad en una frase.
+Criterios: el mensaje debe ser breve, recordable, conectado con la decisión, ajustado a la audiencia y sustentado por la evidencia disponible o por datos requeridos.
+Idioma: español. Tono: estratégico y conciso.
+
+A prueba de fallos (no lo omitas): antes de entregar, revisa que tengas lo necesario; si falta un dato o un adjunto, no inventes: pregúntame o dime exactamente qué subir. Si no tengo adjuntos, sugiéreme 2–3 que podría subir y para qué sirve cada uno (p. ej.: el objetivo y la audiencia ya definidos; los insumos ordenados; la evidencia o cifras disponibles). Marca supuestos y datos por confirmar y cierra con una mini-checklist de “listo / falta”.</pre></div>
+            </div>
+          </details>
+
+          <details>
+            <summary>5. Construir narrativa y estructura ejecutiva</summary>
+            <div class="detail-inner">
+              <div class="copy-block"><div class="copy-toolbar"><h4>Natural sin parámetros</h4><div class="actions" style="margin-top:0;"><button class="btn btn-dark copy-button" type="button" data-copy="p5-natural"><i data-lucide="copy-check"></i> Copiar</button><button class="btn btn-light open-ai-button" type="button" data-copy="p5-natural" data-url="https://chatgpt.com/"><i data-lucide="external-link"></i> ChatGPT</button><button class="btn btn-light open-ai-button" type="button" data-copy="p5-natural" data-url="https://gemini.google.com/app"><i data-lucide="external-link"></i> Gemini</button></div></div><pre class="copy-content" id="p5-natural">Ayúdame a convertir mi mensaje central en una estructura ejecutiva. No quiero diapositivas sueltas: quiero una narrativa que facilite la decisión. Pregúntame por audiencia, duración, decisión y adjuntos si falta contexto. Luego propón secciones, propósito, transición y evidencia necesaria.
+
+A prueba de fallos (no lo omitas): antes de entregar, revisa que tengas lo necesario; si falta un dato o un adjunto, no inventes: pregúntame o dime exactamente qué subir. Si no tengo adjuntos, sugiéreme 2–3 que podría subir y para qué sirve cada uno (p. ej.: el mensaje central y sus soportes; la duración y el formato (o plantilla corporativa); las restricciones conocidas). Marca supuestos y datos por confirmar y cierra con una mini-checklist de “listo / falta”.</pre></div>
+              <div class="copy-block"><div class="copy-toolbar"><h4>Natural con parámetros</h4><div class="actions" style="margin-top:0;"><button class="btn btn-dark copy-button" type="button" data-copy="p5-param"><i data-lucide="copy-check"></i> Copiar</button><button class="btn btn-light open-ai-button" type="button" data-copy="p5-param" data-url="https://chatgpt.com/"><i data-lucide="external-link"></i> ChatGPT</button><button class="btn btn-light open-ai-button" type="button" data-copy="p5-param" data-url="https://gemini.google.com/app"><i data-lucide="external-link"></i> Gemini</button></div></div><pre class="copy-content" id="p5-param">Construye una estructura ejecutiva para una presentación sobre {[TEMA]}. Mensaje central: {[MENSAJE_CENTRAL]}. Audiencia: {[AUDIENCIA]}. Duración: {[DURACION]}. Decisión a facilitar: {[DECISION]}. Insumos: {[INSUMOS]}. Adjuntos posibles: {[ADJUNTOS_POSIBLES]}. Restricciones: {[RESTRICCIONES]}. Propón apertura, contexto, problema u oportunidad, evidencia, recomendación, decisión solicitada y cierre. Para cada sección indica objetivo, idea clave, evidencia necesaria, transición, riesgo de sobrecarga y posible título. Añade una versión breve de la secuencia y una lectura ejecutiva en una frase.
+
+A prueba de fallos (no lo omitas): antes de entregar, revisa que tengas lo necesario; si falta un dato o un adjunto, no inventes: pregúntame o dime exactamente qué subir. Si no tengo adjuntos, sugiéreme 2–3 que podría subir y para qué sirve cada uno (p. ej.: el mensaje central y sus soportes; la duración y el formato (o plantilla corporativa); las restricciones conocidas). Marca supuestos y datos por confirmar y cierra con una mini-checklist de “listo / falta”.</pre></div>
+              <div class="copy-block"><div class="copy-toolbar"><h4>SPEC MetodologIA</h4><div class="actions" style="margin-top:0;"><button class="btn btn-dark copy-button" type="button" data-copy="p5-spec"><i data-lucide="copy-check"></i> Copiar</button><button class="btn btn-light open-ai-button" type="button" data-copy="p5-spec" data-url="https://chatgpt.com/"><i data-lucide="external-link"></i> ChatGPT</button><button class="btn btn-light open-ai-button" type="button" data-copy="p5-spec" data-url="https://gemini.google.com/app"><i data-lucide="external-link"></i> Gemini</button></div></div><pre class="copy-content" id="p5-spec">Rol: Actúa como diseñador de narrativa ejecutiva.
+Contexto: Debo convertir un mensaje central sobre {[TEMA]} en una presentación clara para {[AUDIENCIA]}, con duración {[DURACION]} y decisión esperada {[DECISION]}.
+Tarea:
+1. Propón la secuencia: apertura, contexto, problema u oportunidad, evidencia, recomendación, decisión solicitada y cierre.
+2. Para cada parte indica objetivo, idea clave, evidencia necesaria, transición y riesgo de sobrecarga.
+3. Sugiere un título por sección.
+4. Añade una versión breve (por si recortan el tiempo).
+Reglas:
+- Mantén continuidad entre secciones.
+- No incluyas secciones que no aporten a la decisión.
+Formato: tabla "Sección | Objetivo | Idea clave | Evidencia | Transición | Título" + una lectura ejecutiva en una frase.
+Criterios: la estructura debe facilitar una decisión, evitar sobrecarga y ajustarse al tiempo disponible.
+Idioma: español. Tono: claro y orientado a la decisión.
+
+A prueba de fallos (no lo omitas): antes de entregar, revisa que tengas lo necesario; si falta un dato o un adjunto, no inventes: pregúntame o dime exactamente qué subir. Si no tengo adjuntos, sugiéreme 2–3 que podría subir y para qué sirve cada uno (p. ej.: el mensaje central y sus soportes; la duración y el formato (o plantilla corporativa); las restricciones conocidas). Marca supuestos y datos por confirmar y cierra con una mini-checklist de “listo / falta”.</pre></div>
+            </div>
+          </details>
+
+          <details>
+            <summary>6. Mejorar títulos, argumentos y llamados a la acción</summary>
+            <div class="detail-inner">
+              <div class="copy-block"><div class="copy-toolbar"><h4>Natural sin parámetros</h4><div class="actions" style="margin-top:0;"><button class="btn btn-dark copy-button" type="button" data-copy="p6-natural"><i data-lucide="copy-check"></i> Copiar</button><button class="btn btn-light open-ai-button" type="button" data-copy="p6-natural" data-url="https://chatgpt.com/"><i data-lucide="external-link"></i> ChatGPT</button><button class="btn btn-light open-ai-button" type="button" data-copy="p6-natural" data-url="https://gemini.google.com/app"><i data-lucide="external-link"></i> Gemini</button></div></div><pre class="copy-content" id="p6-natural">Ayúdame a mejorar títulos, argumentos y llamado a la acción de una presentación ejecutiva. Revisa si cada sección ayuda a entender, decidir o actuar. Si falta contexto, pide adjuntos. Propón mejoras concretas, criterio usado, evidencia faltante y un cierre accionable.
+
+A prueba de fallos (no lo omitas): antes de entregar, revisa que tengas lo necesario; si falta un dato o un adjunto, no inventes: pregúntame o dime exactamente qué subir. Si no tengo adjuntos, sugiéreme 2–3 que podría subir y para qué sirve cada uno (p. ej.: tu borrador o estructura actual; los títulos actuales; la evidencia disponible). Marca supuestos y datos por confirmar y cierra con una mini-checklist de “listo / falta”.</pre></div>
+              <div class="copy-block"><div class="copy-toolbar"><h4>Natural con parámetros</h4><div class="actions" style="margin-top:0;"><button class="btn btn-dark copy-button" type="button" data-copy="p6-param"><i data-lucide="copy-check"></i> Copiar</button><button class="btn btn-light open-ai-button" type="button" data-copy="p6-param" data-url="https://chatgpt.com/"><i data-lucide="external-link"></i> ChatGPT</button><button class="btn btn-light open-ai-button" type="button" data-copy="p6-param" data-url="https://gemini.google.com/app"><i data-lucide="external-link"></i> Gemini</button></div></div><pre class="copy-content" id="p6-param">Tengo esta estructura o borrador: {[BORRADOR]}. Audiencia: {[AUDIENCIA]}. Decisión esperada: {[DECISION]}. Tono deseado: {[TONO]}. Evidencia disponible: {[EVIDENCIA]}. Adjuntos posibles: {[ADJUNTOS_POSIBLES]}. Restricciones: {[RESTRICCIONES]}. Mejora títulos, fortalece argumentos y propone un llamado a la acción de un solo paso. Marca evidencia faltante, partes simplificables, riesgos de interpretación, secciones redundantes y títulos que prometen demasiado. Entrega una versión antes/después por sección, una prioridad de corrección y una prueba final de claridad.
+
+A prueba de fallos (no lo omitas): antes de entregar, revisa que tengas lo necesario; si falta un dato o un adjunto, no inventes: pregúntame o dime exactamente qué subir. Si no tengo adjuntos, sugiéreme 2–3 que podría subir y para qué sirve cada uno (p. ej.: tu borrador o estructura actual; los títulos actuales; la evidencia disponible). Marca supuestos y datos por confirmar y cierra con una mini-checklist de “listo / falta”.</pre></div>
+              <div class="copy-block"><div class="copy-toolbar"><h4>SPEC MetodologIA</h4><div class="actions" style="margin-top:0;"><button class="btn btn-dark copy-button" type="button" data-copy="p6-spec"><i data-lucide="copy-check"></i> Copiar</button><button class="btn btn-light open-ai-button" type="button" data-copy="p6-spec" data-url="https://chatgpt.com/"><i data-lucide="external-link"></i> ChatGPT</button><button class="btn btn-light open-ai-button" type="button" data-copy="p6-spec" data-url="https://gemini.google.com/app"><i data-lucide="external-link"></i> Gemini</button></div></div><pre class="copy-content" id="p6-spec">Rol: Actúa como revisor de claridad ejecutiva.
+Contexto: Tengo un borrador sobre {[TEMA]} para {[AUDIENCIA]} y necesito elevar claridad, argumento y cierre. Te lo comparto.
+Tarea:
+1. Evalúa cada sección con tres preguntas: qué aporta, qué evidencia necesita y qué acción facilita.
+2. Propón títulos alternativos que anticipen la idea.
+3. Fortalece los argumentos y marca la evidencia faltante.
+4. Propón un llamado a la acción de un solo paso.
+Reglas:
+- Señala secciones redundantes y títulos que prometen demasiado.
+- No agregues afirmaciones sin sustento.
+Formato: tabla "Sección | Antes | Después | Por qué" + prioridad de corrección + una prueba final de claridad.
+Criterios: cada título debe anticipar una idea útil; cada argumento debe apoyarse en evidencia o dato requerido; el llamado final debe tener verbo, objeto y contexto/fecha.
+Idioma: español. Tono: directo y constructivo.
+
+A prueba de fallos (no lo omitas): antes de entregar, revisa que tengas lo necesario; si falta un dato o un adjunto, no inventes: pregúntame o dime exactamente qué subir. Si no tengo adjuntos, sugiéreme 2–3 que podría subir y para qué sirve cada uno (p. ej.: tu borrador o estructura actual; los títulos actuales; la evidencia disponible). Marca supuestos y datos por confirmar y cierra con una mini-checklist de “listo / falta”.</pre></div>
+            </div>
+          </details>
+        </div>
+      </div>
+    </section>
+
+    <section class="soft" id="plantillas">
+      <div class="wrap">
+        <div class="section-head">
+          <div class="chip"><i data-lucide="clipboard-check"></i> Plantillas y checklists</div>
+          <h2>Llévate herramientas, no solo ideas.</h2>
+          <p>Imprime estas páginas o guárdalas como PDF y úsalas como apoyo mientras preparas tu próxima presentación.</p>
+        </div>
+        <div class="check-grid">
+          <div class="checklist">
+            <h4><i data-lucide="list-checks"></i> Claridad antes de diseñar</h4>
+            <ul>
+              <li>Mi objetivo cabe en una frase y nombra la decisión a facilitar.</li>
+              <li>Sé quién está en la sala y qué decisión debe poder tomar.</li>
+              <li>Tengo al menos tres datos duros (no opiniones).</li>
+              <li>Puedo decir mi mensaje central en una sola frase.</li>
+              <li>Definí qué queda fuera de la presentación.</li>
+              <li>Marqué los datos que aún debo confirmar.</li>
+            </ul>
+          </div>
+          <div class="checklist">
+            <h4><i data-lucide="bot"></i> IA con criterio</h4>
+            <ul>
+              <li>Le dije a la IA quién es la audiencia y qué decisión busco.</li>
+              <li>Pegué evidencia real; no dejé que inventara datos.</li>
+              <li>Le pedí que marcara supuestos y vacíos.</li>
+              <li>Revisé cada dato antes de usarlo en la presentación.</li>
+              <li>Cuando algo no sirvió, pedí una segunda versión con más contexto.</li>
+              <li>El tono final lo decidí yo, no la herramienta.</li>
+            </ul>
+          </div>
+        </div>
+        <div class="grid-2" style="margin-top:1rem;">
+          <div class="tmpl">
+            <h4><i data-lucide="layout-template"></i> Lienzo: objetivo · audiencia · mensaje</h4>
+            <div class="field"><label>Objetivo (decisión a facilitar)</label><div class="line"></div></div>
+            <div class="field"><label>Audiencia y qué decide</label><div class="line"></div></div>
+            <div class="field"><label>Mensaje central (una frase)</label><div class="line"></div></div>
+            <div class="field"><label>Tres soportes / datos</label><div class="line"></div><div class="line"></div></div>
+            <div class="field"><label>Dato por confirmar</label><div class="line"></div></div>
+            <div class="field"><label>Llamado a la acción (verbo · objeto · fecha)</label><div class="line"></div></div>
+          </div>
+          <div class="tmpl">
+            <h4><i data-lucide="badge-check"></i> Rúbrica: ¿quedó claro?</h4>
+            <p class="hint">Marca sí/no. Si tienes más de un "no", vuelve al paso correspondiente antes de presentar.</p>
+            <div class="checklist" style="box-shadow:none;border:0;padding:0;">
+              <ul>
+                <li>El título de cada sección adelanta la idea, no solo nombra el tema.</li>
+                <li>Cualquiera en la sala sabría qué decisión se le pide.</li>
+                <li>Cada afirmación tiene evidencia o un supuesto marcado.</li>
+                <li>La presentación se puede resumir en una frase.</li>
+                <li>El cierre pide una acción concreta con responsable y fecha.</li>
+                <li>Quité todo lo que no ayuda a entender, decidir o actuar.</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+        <div class="print-actions">
+          <button class="btn btn-dark" type="button" onclick="window.print()"><i data-lucide="printer"></i> Imprimir / Guardar como PDF</button>
+        </div>
+      </div>
+    </section>
+
+    <section id="adjuntos">
+      <div class="wrap">
+        <div class="section-head">
+          <div class="chip"><i data-lucide="paperclip"></i> Con o sin adjuntos</div>
+          <h2>La IA trabaja mejor cuando ve el contexto correcto.</h2>
+          <p>No necesitas tener todo listo. Sí necesitas saber qué información puede ayudar.</p>
+        </div>
+        <div class="lead-card">
+          <p><strong>¿No sabes con qué practicar?</strong> En la <a href="https://drive.google.com/drive/u/0/folders/1pmxhe6O_RQPeGIgAzqKcCA24QVM5LZXI" target="_blank" rel="noopener noreferrer">carpeta de insumos de práctica</a> hay tres casos listos para usar como adjunto: un transcript de reunión de demo (para un follow-up), material para una presentación académica de IA generativa y un brief de propuesta comercial. Los prompts de la <a href="biblioteca-prompts-presentacion-ejecutiva.html">biblioteca</a> sirven para los tres con solo cambiar parámetros.</p>
+        </div>
+        <div class="grid-3">
+          <article class="card"><div class="card-icon"><i data-lucide="file-text"></i></div><h3>Si tienes adjuntos</h3><p>Sube informe, presentación previa, correo, propuesta, tabla, captura, manual, enlace o notas. Pide a la IA que los use solo como contexto.</p></article>
+          <article class="card"><div class="card-icon"><i data-lucide="message-circle-question"></i></div><h3>Si no tienes adjuntos</h3><p>Usa el prompt natural sin parámetros. La IA debe hacerte preguntas antes de construir.</p></article>
+          <article class="card"><div class="card-icon"><i data-lucide="repeat"></i></div><h3>Si el resultado no sirve</h3><p>No empieces de cero. Aclara audiencia, límite, tono, evidencia y criterio. Luego pide una segunda versión.</p></article>
+        </div>
+      </div>
+    </section>
+
+    <section id="facilitador">
+      <div class="wrap">
+        <div class="section-head">
+          <div class="chip"><i data-lucide="graduation-cap"></i> Guía del facilitador</div>
+          <h2>Cómo dictar esta sesión en 50 minutos.</h2>
+          <p>Guion de tiempos, qué decir en cada bloque, preguntas para activar a la audiencia y errores comunes que conviene anticipar. Pensado para la franja 19:00–19:50.</p>
+        </div>
+        <div class="fac-list">
+          <div class="fac-row">
+            <div class="fac-time"><span class="badge-time"><i data-lucide="clock"></i> 5 min</span><small>19:00–19:05</small></div>
+            <div>
+              <h4>Apertura y encuadre</h4>
+              <p class="say">"Hoy no venimos a hacer diapositivas: venimos a aprender a pensar antes de diseñar."</p>
+              <ul>
+                <li><strong>Haz:</strong> da la bienvenida, presenta la regla de oro y pide que cada quien tenga a mano un insumo real.</li>
+                <li><strong>Pregunta:</strong> "¿Quién tiene una presentación o reunión pendiente esta semana?"</li>
+                <li><strong>Error a anticipar:</strong> arrancar explicando la herramienta en vez del método.</li>
+              </ul>
+            </div>
+          </div>
+          <div class="fac-row">
+            <div class="fac-time"><span class="badge-time"><i data-lucide="clock"></i> 7 min</span><small>19:05–19:12</small></div>
+            <div>
+              <h4>Pasos 1–2 · Objetivo y audiencia (demo en vivo)</h4>
+              <p class="say">"Miren cómo la IA me hace preguntas en vez de inventar."</p>
+              <ul>
+                <li><strong>Haz:</strong> pega el prompt natural del paso 1 y muestra cómo la IA pide datos antes de responder.</li>
+                <li><strong>Pregunta:</strong> "¿Cuál es la decisión que quieres que tomen al final?"</li>
+                <li><strong>Error a anticipar:</strong> confundir el tema ("automatización") con el objetivo ("que aprueben el piloto").</li>
+              </ul>
+            </div>
+          </div>
+          <div class="fac-row">
+            <div class="fac-time"><span class="badge-time"><i data-lucide="clock"></i> 10 min</span><small>19:12–19:22</small></div>
+            <div>
+              <h4>Pasos 3–4 · Insumos y mensaje (práctica individual)</h4>
+              <p class="say">"Pega lo que tengas, aunque esté desordenado. Que la IA lo clasifique."</p>
+              <ul>
+                <li><strong>Haz:</strong> cada quien ordena insumos y formula su mensaje central en una frase.</li>
+                <li><strong>Pregunta:</strong> "¿Eso es un dato o una opinión? ¿Qué evidencia lo respalda?"</li>
+                <li><strong>Error a anticipar:</strong> presentar opiniones como hechos; mensajes de dos o tres frases.</li>
+              </ul>
+            </div>
+          </div>
+          <div class="fac-row">
+            <div class="fac-time"><span class="badge-time"><i data-lucide="clock"></i> 12 min</span><small>19:22–19:34</small></div>
+            <div>
+              <h4>Paso 5 · Narrativa y estructura</h4>
+              <p class="say">"La estructura es un argumento, no una lista de slides."</p>
+              <ul>
+                <li><strong>Haz:</strong> usa el prompt controlado; cada quien obtiene una estructura con propósito por sección.</li>
+                <li><strong>Recuerda:</strong> todavía no pedimos diseñar diapositivas.</li>
+                <li><strong>Error a anticipar:</strong> sobrecargar de secciones y perder el hilo de la decisión.</li>
+              </ul>
+            </div>
+          </div>
+          <div class="fac-row">
+            <div class="fac-time"><span class="badge-time"><i data-lucide="clock"></i> 8 min</span><small>19:34–19:42</small></div>
+            <div>
+              <h4>Paso 6 · Títulos, argumentos y llamado a la acción</h4>
+              <p class="say">"Si tu cierre es 'gracias', perdiste la decisión."</p>
+              <ul>
+                <li><strong>Haz:</strong> antes/después de títulos y aplica la rúbrica "¿quedó claro?".</li>
+                <li><strong>Pregunta:</strong> "¿Tu llamado a la acción tiene verbo, objeto y fecha?"</li>
+                <li><strong>Error a anticipar:</strong> títulos que solo nombran el tema; cierres sin pedido concreto.</li>
+              </ul>
+            </div>
+          </div>
+          <div class="fac-row">
+            <div class="fac-time"><span class="badge-time"><i data-lucide="clock"></i> 8 min</span><small>19:42–19:50</small></div>
+            <div>
+              <h4>Clínica y cierre</h4>
+              <p class="say">"Traigan un borrador imperfecto: es más útil que esperar al definitivo."</p>
+              <ul>
+                <li><strong>Haz:</strong> revisa 2–3 casos en vivo y comparte recursos (Drive, asistente de prompts, Pristino, formulario).</li>
+                <li><strong>Pregunta:</strong> "¿Qué se llevan para aplicar mañana?"</li>
+                <li><strong>Error a anticipar:</strong> quedarse sin tiempo: prioriza una clínica corta sobre terminar todo el contenido.</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+        <div class="lead-card" style="margin-top:1.3rem;">
+          <p><strong>Si solo te queda tiempo para una cosa:</strong> haz que cada persona salga con su <em>objetivo en una frase</em> y su <em>mensaje central en una frase</em>. Con eso, el resto del trabajo fluye fuera de la sesión.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="soft" id="cierre">
+      <div class="wrap">
+        <div class="section-head">
+          <div class="chip"><i data-lucide="book-open"></i> Uso durante la sesión</div>
+          <h2>Elige una pieza para llevar a la clínica.</h2>
+          <p>Puede ser un objetivo definido, un mensaje central, una estructura preliminar o un prompt que no funcionó como esperabas.</p>
+        </div>
+        <div class="grid-2">
+          <article class="card">
+            <h3>Cómo elegir el prompt</h3>
+            <p>Si vas rápido, usa Natural sin parámetros. Si ya tienes contexto, usa Natural con campos. Si necesitas repetir el proceso con más precisión, usa SPEC MetodologIA.</p>
+          </article>
+          <article class="card">
+            <h3>Cómo llevarlo a la clínica</h3>
+            <p>Trae el borrador, el prompt usado, la respuesta de IA y la duda concreta. Eso permite corregir con evidencia, no desde memoria.</p>
+          </article>
+        </div>
+        <div class="cta-band" style="margin-top:1rem;">
+          <h2>Recursos para seguir practicando.</h2>
+          <p>Accede al workshop, la carpeta de memorias, el asistente de prompts, Pristino y el formulario para inscribirte a más talleres de onboarding.</p>
+          <div class="actions">
+            <a class="btn btn-primary" href="https://meet.google.com/hfe-fcvb-kwf" target="_blank" rel="noopener noreferrer"><i data-lucide="video"></i> Entrar al workshop</a>
+            <a class="btn btn-secondary" href="https://drive.google.com/drive/u/0/folders/1QlOa6Idtdf3wpVIV5expRgi7qag-EMr_" target="_blank" rel="noopener noreferrer"><i data-lucide="folder-open"></i> Abrir Drive</a>
+            <a class="btn btn-secondary" href="https://chatgpt.com/g/g-68f4434cf0348191a569cf526fa53654-prompting" target="_blank" rel="noopener noreferrer"><i data-lucide="bot"></i> Asistente de prompts</a>
+            <a class="btn btn-secondary" href="https://forms.gle/FHBtHmbvh7LqiAKD9" target="_blank" rel="noopener noreferrer"><i data-lucide="calendar-plus"></i> Más talleres de onboarding</a>
+          </div>
+        </div>
+        <h3 style="margin-top:1.6rem;">Suite del workshop · vive el taller en tu herramienta</h3>
+        <p style="margin-bottom:.8rem;">Cada cartilla te lleva paso a paso por la misma sesión, adaptada a una herramienta, y enlaza un NotebookLM especializado para estudiar a fondo.</p>
+        <div class="grid-2">
+          <a class="resource-card" href="biblioteca-prompts-presentacion-ejecutiva.html"><span><i data-lucide="library"></i> Biblioteca de prompts (HTML)</span><i data-lucide="arrow-right"></i></a>
+          <a class="resource-card" href="prompts-presentacion-ejecutiva.json" download><span><i data-lucide="braces"></i> Prompts en JSON</span><i data-lucide="arrow-right"></i></a>
+          <a class="resource-card" href="cartilla-chatgpt-basico.html"><span><i data-lucide="message-square"></i> Cartilla básica · ChatGPT</span><i data-lucide="arrow-right"></i></a>
+          <a class="resource-card" href="cartilla-gemini-basico.html"><span><i data-lucide="sparkles"></i> Cartilla básica · Gemini</span><i data-lucide="arrow-right"></i></a>
+          <a class="resource-card" href="cartilla-claude-basico.html"><span><i data-lucide="bot"></i> Cartilla básica · Claude</span><i data-lucide="arrow-right"></i></a>
+          <a class="resource-card" href="cartilla-notebooklm-basico.html"><span><i data-lucide="notebook-pen"></i> Cartilla básica · NotebookLM</span><i data-lucide="arrow-right"></i></a>
+          <a class="resource-card" href="deck-presentacion-ejecutiva-ia.html"><span><i data-lucide="projector"></i> Deck para dictar la clase</span><i data-lucide="arrow-right"></i></a>
+          <a class="resource-card" href="deck-presentacion-ejecutiva-ia-1h.html"><span><i data-lucide="timer"></i> Deck 1 hora (con explorador)</span><i data-lucide="arrow-right"></i></a>
+          <a class="resource-card" href="https://notebooklm.google.com/notebook/8f65bdab-00b6-4c0c-956f-bae852cbd537" target="_blank" rel="noopener noreferrer"><span><i data-lucide="external-link"></i> NotebookLM · Prompting operativo</span><i data-lucide="arrow-up-right"></i></a>
+        </div>
+      </div>
+    </section>
+
+    <section id="fuentes">
+      <div class="wrap">
+        <div class="section-head">
+          <div class="chip"><i data-lucide="badge-check"></i> Fuentes y límites</div>
+          <h2>Qué está confirmado y qué debes revisar tú.</h2>
+          <p>El workbook usa la agenda oficial entregada para el workshop, los enlaces confirmados de Meet y Drive, y el sistema visual de las memorias de onboarding.</p>
+        </div>
+        <div class="grid-2">
+          <article class="card">
+            <h3>Confirmado</h3>
+            <p>Workshop del miércoles 20 de mayo de 2026, 19:00 a 19:50 America/Bogota. Meet: <a href="https://meet.google.com/hfe-fcvb-kwf" target="_blank" rel="noopener noreferrer">https://meet.google.com/hfe-fcvb-kwf</a>.</p>
+          </article>
+          <article class="card">
+            <h3>Límite de uso</h3>
+            <p>La IA ayuda a estructurar y revisar, pero tú confirmas datos, ajustas el tono y decides qué presentar ante tu audiencia.</p>
+          </article>
+        </div>
+        <div class="resource-list" style="margin-top:1rem;">
+          <a href="https://chatgpt.com/g/g-6985f6a53cd08191a870c64661a2a060-pristino" target="_blank" rel="noopener noreferrer"><span>Pristino · práctica acompañada</span><i data-lucide="external-link"></i></a>
+          <a href="https://metodologia.info" target="_blank" rel="noopener noreferrer"><span>MetodologIA</span><i data-lucide="external-link"></i></a>
+        </div>
+      </div>
+    </section>
+
+    <footer>
+      <div class="wrap footer-grid">
+        <div>
+          <div class="wordmark" aria-label="MetodologIA">Metodolog<span class="ia">IA</span></div>
+          <p style="margin-top:.75rem;">Workbook para practicar presentaciones ejecutivas con IA, criterio y método.</p>
+        </div>
+        <div class="footer-note">
+          <h3 style="color:white;">Workshop</h3>
+          <p>Miércoles 20 de mayo de 2026 · 19:00 a 19:50 · America/Bogota.</p>
+        </div>
+        <div class="footer-links">
+          <a href="https://meet.google.com/hfe-fcvb-kwf" target="_blank" rel="noopener noreferrer"><i data-lucide="video"></i> Meet del workshop</a>
+          <a href="https://drive.google.com/drive/u/0/folders/1QlOa6Idtdf3wpVIV5expRgi7qag-EMr_" target="_blank" rel="noopener noreferrer"><i data-lucide="folder-open"></i> Drive de memorias</a>
+          <a href="https://forms.gle/FHBtHmbvh7LqiAKD9" target="_blank" rel="noopener noreferrer"><i data-lucide="calendar-plus"></i> Más talleres de onboarding</a>
+        </div>
+      </div>
+    </footer>
+  </main>
+
+  <script>
+    const root = document.documentElement;
+    const progress = document.getElementById('progress');
+    const themeBtn = document.getElementById('darkBtn');
+    const navLinks = Array.from(document.querySelectorAll('.sidebar-links a'));
+    const sections = navLinks.map((link) => document.querySelector(link.getAttribute('href'))).filter(Boolean);
+
+    const savedTheme = localStorage.getItem('metodologia-workbook-theme');
+    if (savedTheme === 'dark') root.classList.add('dark');
+
+    function updateProgress() {
+      const scrollTop = window.scrollY || document.documentElement.scrollTop;
+      const max = document.documentElement.scrollHeight - window.innerHeight;
+      progress.style.width = max > 0 ? `${Math.min(100, (scrollTop / max) * 100)}%` : '0%';
+    }
+
+    function updateActiveLink() {
+      let current = sections[0]?.id;
+      const threshold = Math.min(160, window.innerHeight * 0.25);
+      sections.forEach((section) => {
+        if (section.getBoundingClientRect().top <= threshold) current = section.id;
+      });
+      navLinks.forEach((link, index) => {
+        const matchesSection = link.getAttribute('href') === `#${current}`;
+        link.classList.toggle('active', matchesSection || (!current && index === 0));
+      });
+      if (!document.querySelector('.sidebar-links a.active')) navLinks[0]?.classList.add('active');
+    }
+
+    function setThemeIcon() {
+      if (!themeBtn) return;
+      const iconName = root.classList.contains('dark') ? 'sun' : 'moon';
+      themeBtn.innerHTML = `<i data-lucide="${iconName}"></i>`;
+      if (window.lucide) window.lucide.createIcons();
+    }
+
+    themeBtn.addEventListener('click', () => {
+      root.classList.toggle('dark');
+      localStorage.setItem('metodologia-workbook-theme', root.classList.contains('dark') ? 'dark' : 'light');
+      setThemeIcon();
+    });
+
+    async function copyTarget(targetId) {
+      const target = document.getElementById(targetId);
+      if (!target) return false;
+      try {
+        await navigator.clipboard.writeText(target.innerText.trim());
+      } catch (error) {
+        const range = document.createRange();
+        range.selectNodeContents(target);
+        const selection = window.getSelection();
+        selection.removeAllRanges();
+        selection.addRange(range);
+        document.execCommand('copy');
+        selection.removeAllRanges();
+      }
+      return true;
+    }
+
+    function flashButton(button, label = 'Copiado') {
+      const original = button.innerHTML;
+      button.innerHTML = `<i data-lucide="check"></i> ${label}`;
+      if (window.lucide) window.lucide.createIcons();
+      window.setTimeout(() => {
+        button.innerHTML = original;
+        if (window.lucide) window.lucide.createIcons();
+      }, 1400);
+    }
+
+    document.querySelectorAll('.copy-button').forEach((button) => {
+      button.addEventListener('click', async () => {
+        if (await copyTarget(button.dataset.copy)) flashButton(button);
+      });
+    });
+
+    function buildAiUrl(baseUrl, promptText) {
+      try {
+        const url = new URL(baseUrl, window.location.href);
+        if (url.hostname.includes('chatgpt.com') && promptText) url.searchParams.set('prompt', promptText);
+        return url.toString();
+      } catch (error) {
+        return baseUrl;
+      }
+    }
+
+    document.querySelectorAll('.open-ai-button').forEach((button) => {
+      button.addEventListener('click', async () => {
+        await copyTarget(button.dataset.copy);
+        const promptText = document.getElementById(button.dataset.copy)?.innerText.trim() || '';
+        flashButton(button, 'Prompt copiado');
+        window.open(buildAiUrl(button.dataset.url, promptText), '_blank', 'noopener,noreferrer');
+      });
+    });
+
+    function initNavigationState() {
+      if (window.lucide) window.lucide.createIcons();
+      setThemeIcon();
+      updateProgress();
+      updateActiveLink();
+    }
+
+    window.addEventListener('scroll', () => {
+      updateProgress();
+      updateActiveLink();
+    }, { passive: true });
+    document.addEventListener('DOMContentLoaded', initNavigationState);
+    window.addEventListener('load', initNavigationState);
+    window.setTimeout(initNavigationState, 120);
+  </script>
+</body>
+</html>

@@ -1,0 +1,1085 @@
+<!doctype html>
+<html lang="es" data-theme="light">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="color-scheme" content="dark light">
+  <meta name="theme-color" content="#0A122A">
+  <title>Memorias · Workshop IA | MetodologIA</title>
+  <meta name="description" content="Memoria publica PII-safe del workshop IA, que esta pasando y como sacarle provecho. Metodo SPEC, practica de presentaciones ejecutivas y prompts accionables.">
+  <link rel="icon" type="image/png" href="assets/metodologia_logo_primary.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&family=Poppins:wght@600;700;800&display=swap">
+  <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.min.js" defer></script>
+  <style>
+    :root {
+      --navy-950: #050817;
+      --navy-900: #0A122A;
+      --navy-850: #101A36;
+      --navy-800: #14213D;
+      --slate-700: #334155;
+      --slate-500: #64748B;
+      --slate-300: #CBD5E1;
+      --slate-100: #F1F5F9;
+      --ink: #E5EEF9;
+      --muted: #9FB0C7;
+      --paper: #FFFFFF;
+      --gold: #FFD700;
+      --gold-2: #F5B942;
+      --teal: #2DD4BF;
+      --coral: #FB7185;
+      --green: #86EFAC;
+      --blue: #60A5FA;
+      --panel: rgba(255,255,255,.07);
+      --panel-strong: rgba(255,255,255,.11);
+      --line: rgba(255,255,255,.14);
+      --line-strong: rgba(255,255,255,.24);
+      --shadow: 0 24px 80px rgba(0,0,0,.30);
+      --radius: 8px;
+      --radius-sm: 6px;
+      --max: 1180px;
+      --font-body: Montserrat, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      --font-display: Poppins, Montserrat, ui-sans-serif, system-ui, sans-serif;
+    }
+
+    html[data-theme="light"] {
+      --navy-950: #F7FAFC;
+      --navy-900: #FFFFFF;
+      --navy-850: #F1F5F9;
+      --navy-800: #E2E8F0;
+      --ink: #0A122A;
+      --muted: #4B5E77;
+      --panel: rgba(10,18,42,.055);
+      --panel-strong: rgba(10,18,42,.085);
+      --line: rgba(10,18,42,.14);
+      --line-strong: rgba(10,18,42,.22);
+      --shadow: 0 18px 50px rgba(15,23,42,.12);
+    }
+
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      margin: 0;
+      font-family: var(--font-body);
+      background:
+        linear-gradient(180deg, var(--navy-950) 0%, var(--navy-900) 46%, var(--navy-850) 100%);
+      color: var(--ink);
+      line-height: 1.55;
+      min-width: 320px;
+      padding-top: 78px;
+    }
+    body::before {
+      content: "";
+      position: fixed;
+      inset: 0;
+      pointer-events: none;
+      background-image:
+        linear-gradient(rgba(255,255,255,.035) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255,255,255,.035) 1px, transparent 1px);
+      background-size: 44px 44px;
+      mask-image: linear-gradient(180deg, rgba(0,0,0,.9), transparent 72%);
+    }
+    a { color: inherit; text-decoration: none; }
+    p { margin: 0; }
+    .scroll-progress {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 4px;
+      z-index: 80;
+      background: transparent;
+    }
+    .scroll-progress span {
+      display: block;
+      width: 0;
+      height: 100%;
+      background: linear-gradient(90deg, var(--gold), var(--teal), var(--blue));
+      transition: width .08s linear;
+    }
+    .topbar {
+      position: fixed;
+      top: 12px;
+      left: 50%;
+      width: min(calc(100% - 24px), var(--max));
+      transform: translateX(-50%);
+      z-index: 70;
+      backdrop-filter: blur(18px);
+      background: color-mix(in oklab, var(--navy-950) 90%, transparent);
+      border: 1px solid var(--line);
+      border-radius: 12px;
+      box-shadow: var(--shadow);
+    }
+    .topbar-inner {
+      width: 100%;
+      margin: 0 auto;
+      padding: 10px 12px;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      min-width: 220px;
+    }
+    .brand img {
+      width: 40px;
+      height: 40px;
+      border-radius: 12px;
+      object-fit: cover;
+      box-shadow: 0 0 0 1px rgba(255,255,255,.12), 0 14px 32px rgba(0,0,0,.24);
+      flex: 0 0 auto;
+    }
+    .brand-text strong {
+      display: block;
+      font-family: var(--font-display);
+      font-size: .94rem;
+      letter-spacing: 0;
+    }
+    .brand-text span {
+      display: block;
+      font-size: .72rem;
+      color: var(--muted);
+      white-space: nowrap;
+    }
+    .nav {
+      display: flex;
+      gap: 6px;
+      align-items: center;
+      overflow-x: auto;
+      scrollbar-width: none;
+      flex: 1;
+      justify-content: center;
+    }
+    .nav::-webkit-scrollbar { display: none; }
+    .nav a, .icon-btn, .text-btn {
+      min-height: 38px;
+      border: 1px solid var(--line);
+      background: var(--panel);
+      color: var(--ink);
+      border-radius: var(--radius-sm);
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      padding: 9px 11px;
+      font: 700 .75rem/1 var(--font-body);
+      cursor: pointer;
+      transition: transform .18s ease, border-color .18s ease, background .18s ease;
+      white-space: nowrap;
+    }
+    .nav a[data-label] { position: relative; }
+    .nav a[data-label]::after {
+      content: attr(data-label);
+      position: absolute;
+      top: calc(100% + 9px);
+      left: 50%;
+      transform: translateX(-50%);
+      opacity: 0;
+      pointer-events: none;
+      background: #0A122A;
+      color: #FFFFFF;
+      border-radius: 999px;
+      padding: 6px 9px;
+      font-size: .68rem;
+      box-shadow: 0 10px 26px rgba(0,0,0,.18);
+      transition: opacity .16s ease;
+    }
+    .nav a[data-label]:hover::after { opacity: 1; }
+    .nav a:hover, .icon-btn:hover, .text-btn:hover, .nav a.is-active {
+      transform: translateY(-1px);
+      border-color: var(--line-strong);
+      background: var(--panel-strong);
+    }
+    .icon-btn { width: 38px; padding: 0; flex: 0 0 auto; }
+    .icon-btn svg, .text-btn svg, .nav svg { width: 16px; height: 16px; }
+    .actions { display: flex; gap: 8px; align-items: center; }
+
+    main { position: relative; z-index: 1; }
+    .container {
+      width: min(100%, var(--max));
+      margin: 0 auto;
+      padding: 0 20px;
+    }
+    .hero {
+      min-height: 82svh;
+      display: grid;
+      align-items: center;
+      padding: 64px 0 32px;
+    }
+    .hero-grid {
+      display: grid;
+      grid-template-columns: minmax(0, 1.08fr) minmax(320px, .92fr);
+      gap: 22px;
+      align-items: stretch;
+    }
+    .hero-copy {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      gap: 22px;
+    }
+    .eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      width: fit-content;
+      padding: 8px 10px;
+      border: 1px solid color-mix(in oklab, var(--gold) 42%, var(--line));
+      background: color-mix(in oklab, var(--gold) 10%, transparent);
+      border-radius: var(--radius-sm);
+      color: color-mix(in oklab, var(--gold) 76%, var(--ink));
+      font-weight: 800;
+      font-size: .74rem;
+      text-transform: uppercase;
+      letter-spacing: 0;
+    }
+    h1, h2, h3 { font-family: var(--font-display); line-height: 1.05; margin: 0; letter-spacing: 0; }
+    h1 { font-size: clamp(2.3rem, 5.6vw, 5.9rem); max-width: 820px; }
+    h2 { font-size: clamp(1.7rem, 3vw, 2.7rem); }
+    h3 { font-size: 1.05rem; }
+    .lead { max-width: 720px; font-size: clamp(1rem, 1.7vw, 1.28rem); color: var(--muted); }
+    .hero-actions { display: flex; flex-wrap: wrap; gap: 10px; }
+    .primary-btn, .secondary-btn {
+      border: 1px solid var(--line-strong);
+      border-radius: var(--radius-sm);
+      min-height: 44px;
+      padding: 12px 14px;
+      font-weight: 800;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      white-space: nowrap;
+    }
+    .primary-btn { background: linear-gradient(135deg, var(--gold), var(--gold-2)); color: #101827; border-color: rgba(255,215,0,.4); }
+    .secondary-btn { background: var(--panel); color: var(--ink); }
+    .primary-btn svg, .secondary-btn svg { width: 17px; height: 17px; }
+    .hero-panel {
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      background: linear-gradient(180deg, var(--panel-strong), var(--panel));
+      box-shadow: var(--shadow);
+      padding: 18px;
+      display: grid;
+      gap: 12px;
+      align-content: start;
+    }
+    .logo-lockup {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      padding: 14px;
+      border: 1px solid var(--line);
+      border-radius: var(--radius-sm);
+      background: rgba(255,255,255,.05);
+    }
+    .logo-lockup img { width: 58px; height: 58px; border-radius: 15px; }
+    .logo-lockup strong { display: block; font-family: var(--font-display); font-size: 1.08rem; }
+    .logo-lockup span { display: block; color: var(--muted); font-size: .82rem; }
+    .signal-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
+    .signal {
+      min-height: 116px;
+      padding: 14px;
+      border-radius: var(--radius-sm);
+      border: 1px solid var(--line);
+      background: rgba(255,255,255,.045);
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+    }
+    .signal b { font-family: var(--font-display); font-size: 1.8rem; line-height: 1; color: var(--gold); }
+    .signal span { color: var(--muted); font-size: .82rem; }
+    .source-note {
+      border-left: 4px solid var(--teal);
+      padding: 11px 12px;
+      color: var(--muted);
+      background: color-mix(in oklab, var(--teal) 8%, transparent);
+      border-radius: 0 var(--radius-sm) var(--radius-sm) 0;
+      font-size: .86rem;
+    }
+
+    section { padding: 42px 0; scroll-margin-top: 86px; }
+    .section-head {
+      display: grid;
+      grid-template-columns: minmax(0, .85fr) minmax(260px, .45fr);
+      gap: 18px;
+      align-items: end;
+      margin-bottom: 18px;
+    }
+    .section-head p { color: var(--muted); max-width: 680px; }
+    .section-kicker {
+      color: var(--teal);
+      font-weight: 900;
+      font-size: .74rem;
+      text-transform: uppercase;
+      margin-bottom: 8px;
+      letter-spacing: 0;
+    }
+    .status-pill {
+      justify-self: end;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      border-radius: 999px;
+      padding: 8px 11px;
+      background: color-mix(in oklab, var(--green) 14%, transparent);
+      color: color-mix(in oklab, var(--green) 72%, var(--ink));
+      border: 1px solid color-mix(in oklab, var(--green) 32%, var(--line));
+      font-size: .76rem;
+      font-weight: 800;
+    }
+    .grid-3 { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 12px; }
+    .grid-2 { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 12px; }
+    .card {
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      background: var(--panel);
+      padding: 16px;
+      min-width: 0;
+    }
+    .card.accent-gold { border-top: 3px solid var(--gold); }
+    .card.accent-teal { border-top: 3px solid var(--teal); }
+    .card.accent-coral { border-top: 3px solid var(--coral); }
+    .card.accent-blue { border-top: 3px solid var(--blue); }
+    .card h3 { margin-bottom: 8px; }
+    .card p, .card li { color: var(--muted); font-size: .93rem; }
+    .card ul { margin: 10px 0 0; padding-left: 18px; }
+    .card li + li { margin-top: 6px; }
+    .metric { display: flex; gap: 12px; align-items: flex-start; }
+    .metric .badge {
+      width: 34px;
+      height: 34px;
+      border-radius: var(--radius-sm);
+      display: grid;
+      place-items: center;
+      color: #101827;
+      font-weight: 900;
+      background: var(--gold);
+      flex: 0 0 auto;
+    }
+    .timeline {
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      overflow: hidden;
+      background: var(--panel);
+    }
+    .timeline-item {
+      display: grid;
+      grid-template-columns: 138px minmax(0, 1fr);
+      gap: 16px;
+      padding: 16px;
+      border-bottom: 1px solid var(--line);
+    }
+    .timeline-item:last-child { border-bottom: 0; }
+    .time {
+      color: var(--gold);
+      font-weight: 900;
+      font-size: .78rem;
+      text-transform: uppercase;
+    }
+    .timeline-item h3 { margin-bottom: 5px; }
+    .timeline-item p { color: var(--muted); font-size: .94rem; }
+
+    .tabs {
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      background: var(--panel);
+      overflow: hidden;
+    }
+    .tab-list {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 0;
+      border-bottom: 1px solid var(--line);
+    }
+    .tab-btn {
+      border: 0;
+      border-right: 1px solid var(--line);
+      min-height: 52px;
+      background: transparent;
+      color: var(--muted);
+      font-weight: 900;
+      font-family: var(--font-body);
+      cursor: pointer;
+      padding: 10px;
+    }
+    .tab-btn:last-child { border-right: 0; }
+    .tab-btn[aria-selected="true"] { color: #101827; background: linear-gradient(135deg, var(--gold), var(--gold-2)); }
+    .tab-panel { display: none; padding: 18px; }
+    .tab-panel.is-active { display: grid; gap: 12px; }
+    .tab-panel p { color: var(--muted); }
+
+    .flow {
+      display: grid;
+      grid-template-columns: repeat(6, minmax(0, 1fr));
+      gap: 10px;
+    }
+    .flow-step {
+      position: relative;
+      min-height: 168px;
+      padding: 14px;
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      background: var(--panel);
+    }
+    .flow-step strong {
+      display: inline-grid;
+      place-items: center;
+      width: 28px;
+      height: 28px;
+      margin-bottom: 12px;
+      border-radius: 50%;
+      background: var(--gold);
+      color: #101827;
+      font-weight: 900;
+    }
+    .flow-step h3 { font-size: .94rem; margin-bottom: 8px; }
+    .flow-step p { color: var(--muted); font-size: .84rem; }
+
+    .prompt-grid { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: 12px; }
+    .prompt-card {
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      background: #081126;
+      color: #EAF2FF;
+      overflow: hidden;
+    }
+    html[data-theme="light"] .prompt-card { background: #0A122A; color: #EAF2FF; }
+    .prompt-head {
+      display: flex;
+      justify-content: space-between;
+      gap: 12px;
+      align-items: center;
+      padding: 12px 14px;
+      border-bottom: 1px solid rgba(255,255,255,.12);
+    }
+    .prompt-head h3 { font-size: .98rem; }
+    .prompt-actions {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      flex-wrap: wrap;
+      justify-content: flex-end;
+    }
+    .copy-btn, .open-gpt-btn, .open-tool-btn {
+      min-height: 34px;
+      border: 1px solid rgba(255,255,255,.18);
+      background: rgba(255,255,255,.08);
+      color: #FFFFFF;
+      border-radius: var(--radius-sm);
+      padding: 8px 10px;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      font-weight: 900;
+      cursor: pointer;
+      white-space: nowrap;
+    }
+    .open-gpt-btn { background: linear-gradient(135deg, var(--gold), var(--gold-2)); color: #101827; border-color: rgba(255,215,0,.36); }
+    .open-tool-btn { background: rgba(255,255,255,.05); color: var(--fg); }
+    .copy-btn svg, .open-gpt-btn svg, .open-tool-btn svg { width: 15px; height: 15px; }
+    .copy-status { font-size: .75rem; color: var(--teal); min-width: 74px; text-align: right; }
+    pre {
+      margin: 0;
+      padding: 14px;
+      white-space: pre-wrap;
+      word-break: break-word;
+      overflow-wrap: anywhere;
+      font: 500 .86rem/1.58 ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", monospace;
+      color: #EAF2FF;
+    }
+    .resource-row {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) auto;
+      gap: 12px;
+      align-items: center;
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      padding: 14px;
+      background: var(--panel);
+    }
+    .resource-row + .resource-row { margin-top: 10px; }
+    .resource-row p { color: var(--muted); font-size: .9rem; }
+    .resource-row a { color: var(--gold); font-weight: 900; }
+    .auto-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 12px;
+    }
+    .auto-card {
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      background: linear-gradient(180deg, var(--panel-strong), var(--panel));
+      padding: 18px;
+      min-width: 0;
+    }
+    .auto-card h3 { margin: 8px 0; }
+    .auto-card p { color: var(--muted); font-size: .94rem; }
+    .auto-card .auto-icon {
+      width: 42px;
+      height: 42px;
+      border-radius: var(--radius-sm);
+      display: grid;
+      place-items: center;
+      background: color-mix(in oklab, var(--gold) 24%, transparent);
+      color: #0A122A;
+    }
+    .auto-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 9px;
+      margin-top: 14px;
+    }
+    details {
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      background: var(--panel);
+      padding: 0;
+      overflow: hidden;
+    }
+    details + details { margin-top: 10px; }
+    summary {
+      list-style: none;
+      cursor: pointer;
+      padding: 14px 16px;
+      font-weight: 900;
+      display: flex;
+      justify-content: space-between;
+      gap: 14px;
+      align-items: center;
+    }
+    summary::-webkit-details-marker { display: none; }
+    summary::after { content: "+"; color: var(--gold); font-size: 1.2rem; }
+    details[open] summary::after { content: "-"; }
+    details p { padding: 0 16px 16px; color: var(--muted); }
+    .footer {
+      border-top: 1px solid var(--line);
+      margin-top: 40px;
+      padding: 28px 0 36px;
+      color: var(--muted);
+    }
+    .footer-grid {
+      display: flex;
+      justify-content: space-between;
+      gap: 18px;
+      align-items: center;
+      flex-wrap: wrap;
+    }
+    .footer img { width: 40px; height: 40px; border-radius: 11px; }
+    .footer-brand { display: flex; align-items: center; gap: 10px; color: var(--ink); font-weight: 900; }
+    .reveal { opacity: 0; transform: translateY(14px); transition: opacity .46s ease, transform .46s ease; }
+    .reveal.in { opacity: 1; transform: translateY(0); }
+
+    @media (prefers-reduced-motion: reduce) {
+      *, *::before, *::after { scroll-behavior: auto !important; transition-duration: .01ms !important; animation-duration: .01ms !important; }
+      .reveal { opacity: 1; transform: none; }
+    }
+    @media (max-width: 980px) {
+      body { padding-top: 124px; }
+      .topbar-inner { align-items: flex-start; flex-wrap: wrap; }
+      .brand { min-width: 0; flex: 1; }
+      .nav { order: 3; width: 100%; justify-content: flex-start; }
+      .hero { min-height: auto; padding-top: 44px; }
+      .hero-grid, .section-head, .grid-3, .grid-2, .prompt-grid, .auto-grid { grid-template-columns: 1fr; }
+      .status-pill { justify-self: start; }
+      .flow { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+    }
+    @media (max-width: 640px) {
+      .container, .topbar-inner { padding-left: 14px; padding-right: 14px; }
+      .brand-text span { white-space: normal; }
+      .actions .text-btn { display: none; }
+      .signal-grid, .tab-list, .flow { grid-template-columns: 1fr; }
+      .timeline-item { grid-template-columns: 1fr; gap: 7px; }
+      .hero-actions { flex-direction: column; align-items: stretch; }
+      .primary-btn, .secondary-btn { width: 100%; }
+      .resource-row { grid-template-columns: 1fr; }
+      .prompt-head { align-items: flex-start; flex-direction: column; }
+      .prompt-actions { justify-content: flex-start; }
+      .copy-status { text-align: left; min-width: 0; }
+      h1 { font-size: clamp(2.1rem, 14vw, 3.6rem); }
+      section { padding: 34px 0; }
+    }
+  </style>
+</head>
+<body>
+  <div class="scroll-progress" aria-hidden="true"><span id="progressBar"></span></div>
+  <header class="topbar sidebar-horizontal">
+    <div class="topbar-inner">
+      <a class="brand" href="#top" aria-label="Ir al inicio">
+        <img src="assets/pristino_auto_diseno_logo.jpeg" alt="Pristino">
+        <span class="brand-text"><strong>Pristino</strong><span>Memorias Workshop · MetodologIA</span></span>
+      </a>
+      <nav class="nav" aria-label="Navegacion principal">
+        <a href="#conclusion" data-label="Conclusión"><i data-lucide="sparkles"></i> Conclusión</a>
+        <a href="#recorrido" data-label="Recorrido"><i data-lucide="route"></i> Recorrido</a>
+        <a href="#spec" data-label="SPEC"><i data-lucide="braces"></i> SPEC</a>
+        <a href="#flujo" data-label="Flujo"><i data-lucide="workflow"></i> Flujo</a>
+        <a href="#prompts" data-label="Prompts"><i data-lucide="terminal"></i> Prompts</a>
+        <a href="#recursos" data-label="Recursos"><i data-lucide="folder-open"></i> Recursos</a>
+        <a href="#agenda" data-label="Autoagendamiento"><i data-lucide="calendar-plus"></i> Agenda</a>
+      </nav>
+      <div class="actions">
+        <button class="icon-btn" type="button" id="themeToggle" aria-label="Cambiar tema"><i data-lucide="sun-moon"></i></button>
+        <a class="text-btn" href="README.md"><i data-lucide="file-text"></i> README</a>
+      </div>
+    </div>
+  </header>
+
+  <main id="top">
+    <section class="hero">
+      <div class="container hero-grid">
+        <div class="hero-copy reveal">
+          <span class="eyebrow"><i data-lucide="calendar-days"></i> Workshop · 20 mayo 2026 · PII-safe</span>
+          <h1>IA, qué está pasando y cómo sacarle provecho</h1>
+          <p class="lead">Memoria pública del taller práctico: de entender la IA a delegarle una tarea concreta, con contexto, criterios y un flujo repetible para crear presentaciones ejecutivas.</p>
+          <div class="hero-actions">
+            <a class="primary-btn" href="#prompts"><i data-lucide="copy-check"></i> Copiar prompts de práctica</a>
+            <a class="secondary-btn" href="workbook-presentacion-ejecutiva-ia.html" target="_blank" rel="noopener noreferrer"><i data-lucide="book-open-check"></i> Abrir workbook</a>
+          </div>
+        </div>
+        <aside class="hero-panel reveal" aria-label="Resumen de la sesion">
+          <div class="logo-lockup">
+            <img src="assets/metodologia_logo_primary.png" alt="Logo MetodologIA">
+            <div><strong>Memorias del workshop</strong><span>Documento público curado desde notas generadas por Gemini.</span></div>
+          </div>
+          <div class="signal-grid">
+            <div class="signal"><b>1</b><span>Objetivo central: practicar delegación con IA, no solo hablar de herramientas.</span></div>
+            <div class="signal"><b>4</b><span>Casos convertidos en contextos: empleo, LinkedIn, riesgos y reportes ejecutivos.</span></div>
+            <div class="signal"><b>6</b><span>Pasos operativos para transformar insumos en presentación defendible.</span></div>
+            <div class="signal"><b>20+</b><span>Prompts prometidos como biblioteca de continuidad del programa.</span></div>
+          </div>
+          <p class="source-note"><strong>Nota de evidencia.</strong> Esta memoria se basa en Notas de Gemini y transcripción generada por ordenador. No se publican nombres, correos ni empresas sensibles. Las citas literales deben verificarse contra la grabación antes de usarse.</p>
+        </aside>
+      </div>
+    </section>
+
+    <section id="conclusion">
+      <div class="container">
+        <div class="section-head reveal">
+          <div>
+            <div class="section-kicker">Conclusión ejecutiva</div>
+            <h2>El salto estuvo en delegar con método.</h2>
+          </div>
+          <span class="status-pill"><i data-lucide="shield-check"></i> Versión pública sin PII</span>
+        </div>
+        <div class="grid-3">
+          <article class="card accent-gold reveal">
+            <h3>Tesis del taller</h3>
+            <p>La IA produce mejor cuando recibe situación, pedido, forma de ejecución y criterios de evaluación. La herramienta importa, pero el método decide la calidad de la salida.</p>
+          </article>
+          <article class="card accent-teal reveal">
+            <h3>Resultado observable</h3>
+            <p>En minutos aparecieron estructuras de presentaciones, borradores para audiencia ejecutiva y rutas para convertir objetivos laborales o de proyecto en narrativas accionables.</p>
+          </article>
+          <article class="card accent-coral reveal">
+            <h3>Aprendizaje crítico</h3>
+            <p>Cuando faltan insumos, la IA debe preguntar. Cuando hay documentos, imágenes o contexto, puede contrastar alternativas, mejorar la narrativa y proponer formatos más útiles.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section id="recorrido">
+      <div class="container">
+        <div class="section-head reveal">
+          <div>
+            <div class="section-kicker">Recorrido</div>
+            <h2>De la expectativa al ejercicio en vivo.</h2>
+          </div>
+          <p>El workshop funcionó como puente entre la masterclass reflexiva y la práctica guiada: menos exposición, más fricción real con herramientas y prompts.</p>
+        </div>
+        <div class="timeline reveal">
+          <div class="timeline-item"><div class="time">Apertura</div><div><h3>La sesión cambia de conversación a taller</h3><p>Se enmarcó el espacio como práctica. La meta no era memorizar teoría, sino producir un primer entregable con IA y reconocer el flujo para repetirlo después.</p></div></div>
+          <div class="timeline-item"><div class="time">Expectativas</div><div><h3>Los casos se tradujeron a contextos de trabajo</h3><p>Los intereses giraron alrededor de búsqueda laboral, LinkedIn, reportes para interesados, gestión de riesgos y exploración de automatización. Los casos se curaron como escenarios, no como datos personales.</p></div></div>
+          <div class="timeline-item"><div class="time">Materiales</div><div><h3>Workbook y biblioteca como infraestructura de práctica</h3><p>Se explicó cómo abrir los HTML locales, usar el workbook y apoyarse en insumos de ejemplo o materiales propios cuando estuvieran listos para compartirse con una IA.</p></div></div>
+          <div class="timeline-item"><div class="time">Método</div><div><h3>SPEC aterrizó el criterio de buen prompt</h3><p>La regla base fue explícita: pedir a la IA que no invente, que marque supuestos y que pregunte si falta información antes de producir una salida final.</p></div></div>
+          <div class="timeline-item"><div class="time">Reto</div><div><h3>Dos minutos para producir una presentación</h3><p>El reto mostró diferencias entre usar un prompt abierto, un prompt parametrizado y una versión más estructurada con adjuntos o contexto. La salida varió entre guiones, esquemas, imágenes y formatos exportables.</p></div></div>
+          <div class="timeline-item"><div class="time">Cierre</div><div><h3>La continuidad quedó en practicar y llevar dudas</h3><p>El cierre conectó el ejercicio con la clínica del 2026-05-21, la versión inmersiva del 2026-05-23 y los siguientes temas del programa: productividad y trabajo agéntico.</p></div></div>
+        </div>
+      </div>
+    </section>
+
+    <section id="spec">
+      <div class="container">
+        <div class="section-head reveal">
+          <div>
+            <div class="section-kicker">Método SPEC</div>
+            <h2>Cuatro piezas para que la IA no trabaje a ciegas.</h2>
+          </div>
+          <p>SPEC se usa aquí como estructura mínima para delegar tareas profesionales: define contexto, pedido, modo de ejecución y estándar de calidad.</p>
+        </div>
+        <div class="tabs reveal" data-tabs>
+          <div class="tab-list" role="tablist" aria-label="Piezas SPEC">
+            <button class="tab-btn" type="button" role="tab" aria-selected="true" aria-controls="tab-s" data-tab="s">Situación</button>
+            <button class="tab-btn" type="button" role="tab" aria-selected="false" aria-controls="tab-p" data-tab="p">Pedido</button>
+            <button class="tab-btn" type="button" role="tab" aria-selected="false" aria-controls="tab-e" data-tab="e">Ejecución</button>
+            <button class="tab-btn" type="button" role="tab" aria-selected="false" aria-controls="tab-c" data-tab="c">Criterios</button>
+          </div>
+          <div id="tab-s" class="tab-panel is-active" role="tabpanel"><h3>Situación</h3><p>Describe el escenario real: audiencia, objetivo, restricciones, insumos disponibles, decisión esperada y nivel de confidencialidad. Sin situación, la IA rellena vacíos con supuestos.</p></div>
+          <div id="tab-p" class="tab-panel" role="tabpanel"><h3>Pedido</h3><p>Explica qué debe producir la IA y para qué se usará: presentación ejecutiva, estructura de slides, guion, preguntas para aclarar o contraste de alternativas.</p></div>
+          <div id="tab-e" class="tab-panel" role="tabpanel"><h3>Ejecución</h3><p>Marca el proceso: primero preguntar si falta información, luego proponer estructura, después convertir a formato y finalmente revisar calidad contra criterios.</p></div>
+          <div id="tab-c" class="tab-panel" role="tabpanel"><h3>Criterios</h3><p>Define cómo se evalúa la salida: claridad, brevedad, evidencia, utilidad para la audiencia, cero invenciones, formato editable y siguiente acción clara.</p></div>
+        </div>
+      </div>
+    </section>
+
+    <section id="flujo">
+      <div class="container">
+        <div class="section-head reveal">
+          <div>
+            <div class="section-kicker">Flujo de práctica</div>
+            <h2>La ruta para repetir el taller con un caso propio.</h2>
+          </div>
+          <p>Este flujo convierte el workshop en rutina reutilizable. Sirve para presentaciones laborales, reportes ejecutivos, preparación de entrevistas o síntesis de investigación.</p>
+        </div>
+        <div class="flow reveal" aria-label="Flujo de seis pasos">
+          <article class="flow-step"><strong>1</strong><h3>Elegir un caso</h3><p>Define si trabajarás con un reto real o con un insumo de práctica.</p></article>
+          <article class="flow-step"><strong>2</strong><h3>Ordenar insumos</h3><p>Reúne notas, agenda, captura, documento o brief. Si no hay insumos, dilo.</p></article>
+          <article class="flow-step"><strong>3</strong><h3>Usar SPEC</h3><p>Pide preguntas antes de producir y exige supuestos marcados.</p></article>
+          <article class="flow-step"><strong>4</strong><h3>Generar estructura</h3><p>Solicita narrativa, títulos y secuencia de slides para una audiencia concreta.</p></article>
+          <article class="flow-step"><strong>5</strong><h3>Convertir formato</h3><p>Pide PPT, HTML, guion o notas de speaker según la herramienta disponible.</p></article>
+          <article class="flow-step"><strong>6</strong><h3>Revisar y iterar</h3><p>Evalúa contra criterios, corrige alcance y repite con mejores datos.</p></article>
+        </div>
+      </div>
+    </section>
+
+    <section id="casos">
+      <div class="container">
+        <div class="section-head reveal">
+          <div>
+            <div class="section-kicker">Casos curados</div>
+            <h2>Los aportes se convierten en patrones reutilizables.</h2>
+          </div>
+          <p>La versión pública omite nombres y correos. Los casos se conservan como situaciones profesionales para practicar sin exponer datos personales.</p>
+        </div>
+        <div class="grid-2">
+          <article class="card accent-blue reveal"><h3>Búsqueda laboral y LinkedIn</h3><p>Transformar una inquietud de perfil profesional en presentación o plan de acción: objetivo, audiencia reclutadora, evidencia de experiencia y próximos pasos.</p></article>
+          <article class="card accent-teal reveal"><h3>Reporte ejecutivo de proyecto</h3><p>Convertir gestión de riesgos y avance de proyecto en una narrativa para interesados: situación, riesgos, decisiones necesarias y mensaje ejecutivo.</p></article>
+          <article class="card accent-gold reveal"><h3>CV y filtros de reclutamiento</h3><p>Usar IA para detectar vacíos, adaptar lenguaje a una oportunidad y preparar una presentación personal sin inventar credenciales ni métricas.</p></article>
+          <article class="card accent-coral reveal"><h3>Automatización como investigación</h3><p>Cuando una necesidad excede el alcance del taller, se puede convertir en investigación para una presentación: problema, alternativas, riesgos y primer experimento.</p></article>
+        </div>
+      </div>
+    </section>
+
+    <section id="prompts">
+      <div class="container">
+        <div class="section-head reveal">
+          <div>
+            <div class="section-kicker">Prompts de acción</div>
+            <h2>Cuatro prompts listos para practicar.</h2>
+          </div>
+          <p>Úsalos con ChatGPT, Gemini, Claude o NotebookLM. Reemplaza los campos entre corchetes antes de enviar.</p>
+        </div>
+        <div class="prompt-grid">
+          <article class="prompt-card reveal">
+            <div class="prompt-head"><h3>1. Arranque sin inventar</h3><div class="prompt-actions"><button class="copy-btn" type="button" data-copy-target="prompt1"><i data-lucide="copy"></i> Copiar</button><a class="open-gpt-btn" href="https://chatgpt.com/?prompt=Act%C3%BAa%20como%20asistente%20de%20trabajo%20ejecutivo.%0A%0ASituaci%C3%B3n%3A%20Quiero%20preparar%20una%20presentaci%C3%B3n%20sobre%20%5BTEMA%5D%20para%20%5BAUDIENCIA%5D.%20Tengo%20estos%20insumos%3A%20%5BINSUMOS%20DISPONIBLES%5D.%0A%0APedido%3A%20Antes%20de%20producir%20la%20presentaci%C3%B3n%2C%20revisa%20si%20tienes%20informaci%C3%B3n%20suficiente.%20Si%20falta%20un%20dato%2C%20no%20inventes%3A%20hazme%20m%C3%A1ximo%205%20preguntas%20o%20dime%20qu%C3%A9%20archivo%20debo%20adjuntar.%0A%0AEjecuci%C3%B3n%3A%20Primero%20lista%20lo%20que%20entendiste%2C%20luego%20los%20vac%C3%ADos%2C%20luego%20una%20propuesta%20de%20objetivo%20y%20estructura.%0A%0ACriterios%3A%20claridad%2C%20utilidad%20para%20decidir%2C%20supuestos%20marcados%2C%20cero%20datos%20inventados%20y%20siguiente%20paso%20concreto." target="_blank" rel="noopener noreferrer" data-open-target="prompt1"><i data-lucide="external-link"></i> Abrir GPT</a><a class="open-tool-btn" href="https://gemini.google.com/app" target="_blank" rel="noopener noreferrer" data-open-target="prompt1"><i data-lucide="sparkles"></i> Gemini</a><a class="open-tool-btn" href="https://claude.ai/new" target="_blank" rel="noopener noreferrer" data-open-target="prompt1"><i data-lucide="bot"></i> Claude</a><span class="copy-status" aria-live="polite"></span></div></div>
+            <pre id="prompt1">Actúa como asistente de trabajo ejecutivo.
+
+Situación: Quiero preparar una presentación sobre [TEMA] para [AUDIENCIA]. Tengo estos insumos: [INSUMOS DISPONIBLES].
+
+Pedido: Antes de producir la presentación, revisa si tienes información suficiente. Si falta un dato, no inventes: hazme máximo 5 preguntas o dime qué archivo debo adjuntar.
+
+Ejecución: Primero lista lo que entendiste, luego los vacíos, luego una propuesta de objetivo y estructura.
+
+Criterios: claridad, utilidad para decidir, supuestos marcados, cero datos inventados y siguiente paso concreto.</pre>
+          </article>
+          <article class="prompt-card reveal">
+            <div class="prompt-head"><h3>2. Presentación ejecutiva</h3><div class="prompt-actions"><button class="copy-btn" type="button" data-copy-target="prompt2"><i data-lucide="copy"></i> Copiar</button><a class="open-gpt-btn" href="https://chatgpt.com/?prompt=Rol%3A%20Act%C3%BAa%20como%20estratega%20de%20presentaciones%20ejecutivas.%0AContexto%3A%20Necesito%20convertir%20%5BINSUMO%20O%20IDEA%5D%20en%20una%20presentaci%C3%B3n%20breve%20para%20%5BAUDIENCIA%5D%20que%20debe%20decidir%20%5BDECISION%5D.%0ATarea%3A%20Prop%C3%B3n%20una%20estructura%20de%205%20a%207%20diapositivas%20con%20t%C3%ADtulo%2C%20mensaje%20central%2C%20evidencia%20necesaria%20y%20notas%20para%20quien%20presenta.%0AReglas%3A%20No%20inventes%20cifras%20ni%20nombres.%20Si%20falta%20evidencia%2C%20m%C3%A1rcala%20como%20pendiente.%20Mant%C3%A9n%20el%20lenguaje%20claro%20y%20directo.%0AFormato%3A%20Tabla%20con%20columnas%3A%20slide%2C%20t%C3%ADtulo%2C%20mensaje%2C%20evidencia%2C%20nota%20del%20presentador.%0ACriterios%3A%20La%20presentaci%C3%B3n%20debe%20servir%20para%20decidir%2C%20no%20solo%20informar." target="_blank" rel="noopener noreferrer" data-open-target="prompt2"><i data-lucide="external-link"></i> Abrir GPT</a><a class="open-tool-btn" href="https://gemini.google.com/app" target="_blank" rel="noopener noreferrer" data-open-target="prompt2"><i data-lucide="sparkles"></i> Gemini</a><a class="open-tool-btn" href="https://claude.ai/new" target="_blank" rel="noopener noreferrer" data-open-target="prompt2"><i data-lucide="bot"></i> Claude</a><span class="copy-status" aria-live="polite"></span></div></div>
+            <pre id="prompt2">Rol: Actúa como estratega de presentaciones ejecutivas.
+Contexto: Necesito convertir [INSUMO O IDEA] en una presentación breve para [AUDIENCIA] que debe decidir [DECISION].
+Tarea: Propón una estructura de 5 a 7 diapositivas con título, mensaje central, evidencia necesaria y notas para quien presenta.
+Reglas: No inventes cifras ni nombres. Si falta evidencia, márcala como pendiente. Mantén el lenguaje claro y directo.
+Formato: Tabla con columnas: slide, título, mensaje, evidencia, nota del presentador.
+Criterios: La presentación debe servir para decidir, no solo informar.</pre>
+          </article>
+          <article class="prompt-card reveal">
+            <div class="prompt-head"><h3>3. Revisión crítica</h3><div class="prompt-actions"><button class="copy-btn" type="button" data-copy-target="prompt3"><i data-lucide="copy"></i> Copiar</button><a class="open-gpt-btn" href="https://chatgpt.com/?prompt=Revisa%20esta%20presentaci%C3%B3n%20o%20estructura%3A%20%5BPEGAR%20CONTENIDO%5D.%0A%0AEval%C3%BAala%20como%20si%20fueras%20una%20audiencia%20ejecutiva%20con%20poco%20tiempo.%20Identifica%3A%0A1.%20Qu%C3%A9%20no%20se%20entiende.%0A2.%20Qu%C3%A9%20est%C3%A1%20d%C3%A9bil%20o%20sin%20evidencia.%0A3.%20Qu%C3%A9%20sobra.%0A4.%20Qu%C3%A9%20decisi%C3%B3n%20queda%20confusa.%0A5.%20Qu%C3%A9%20cambio%20har%C3%ADa%20m%C3%A1s%20fuerte%20el%20cierre.%0A%0ANo%20reescribas%20todav%C3%ADa.%20Primero%20entrega%20diagn%C3%B3stico%20y%20preguntas%20de%20aclaraci%C3%B3n." target="_blank" rel="noopener noreferrer" data-open-target="prompt3"><i data-lucide="external-link"></i> Abrir GPT</a><a class="open-tool-btn" href="https://gemini.google.com/app" target="_blank" rel="noopener noreferrer" data-open-target="prompt3"><i data-lucide="sparkles"></i> Gemini</a><a class="open-tool-btn" href="https://claude.ai/new" target="_blank" rel="noopener noreferrer" data-open-target="prompt3"><i data-lucide="bot"></i> Claude</a><span class="copy-status" aria-live="polite"></span></div></div>
+            <pre id="prompt3">Revisa esta presentación o estructura: [PEGAR CONTENIDO].
+
+Evalúala como si fueras una audiencia ejecutiva con poco tiempo. Identifica:
+1. Qué no se entiende.
+2. Qué está débil o sin evidencia.
+3. Qué sobra.
+4. Qué decisión queda confusa.
+5. Qué cambio haría más fuerte el cierre.
+
+No reescribas todavía. Primero entrega diagnóstico y preguntas de aclaración.</pre>
+          </article>
+          <article class="prompt-card reveal">
+            <div class="prompt-head"><h3>4. Plan de práctica</h3><div class="prompt-actions"><button class="copy-btn" type="button" data-copy-target="prompt4"><i data-lucide="copy"></i> Copiar</button><a class="open-gpt-btn" href="https://chatgpt.com/?prompt=Ay%C3%BAdame%20a%20practicar%20el%20flujo%20del%20workshop%20durante%2060%20minutos.%0A%0AMi%20caso%20es%3A%20%5BCASO%5D.%0AMis%20insumos%20son%3A%20%5BINSUMOS%5D.%0AMi%20herramienta%20ser%C3%A1%3A%20%5BCHATGPT%20%2F%20GEMINI%20%2F%20CLAUDE%20%2F%20NOTEBOOKLM%5D.%0A%0ADise%C3%B1a%20una%20sesi%C3%B3n%20en%204%20bloques%3A%20preparar%20contexto%2C%20generar%20estructura%2C%20convertir%20a%20formato%2C%20revisar%20calidad.%20Incluye%20tiempo%20sugerido%2C%20entregable%20de%20cada%20bloque%20y%20criterio%20de%20terminado." target="_blank" rel="noopener noreferrer" data-open-target="prompt4"><i data-lucide="external-link"></i> Abrir GPT</a><a class="open-tool-btn" href="https://gemini.google.com/app" target="_blank" rel="noopener noreferrer" data-open-target="prompt4"><i data-lucide="sparkles"></i> Gemini</a><a class="open-tool-btn" href="https://claude.ai/new" target="_blank" rel="noopener noreferrer" data-open-target="prompt4"><i data-lucide="bot"></i> Claude</a><span class="copy-status" aria-live="polite"></span></div></div>
+            <pre id="prompt4">Ayúdame a practicar el flujo del workshop durante 60 minutos.
+
+Mi caso es: [CASO].
+Mis insumos son: [INSUMOS].
+Mi herramienta será: [CHATGPT / GEMINI / CLAUDE / NOTEBOOKLM].
+
+Diseña una sesión en 4 bloques: preparar contexto, generar estructura, convertir a formato, revisar calidad. Incluye tiempo sugerido, entregable de cada bloque y criterio de terminado.</pre>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section id="recursos">
+      <div class="container">
+        <div class="section-head reveal">
+          <div>
+            <div class="section-kicker">Recursos del taller</div>
+            <h2>Materiales que alimentan esta memoria.</h2>
+          </div>
+          <p>Los enlaces apuntan a los HTML publicados en esta carpeta del repositorio. Funcionan sin servidor y también desde GitHub Pages si el sitio se activa.</p>
+        </div>
+        <div class="reveal">
+          <div class="resource-row"><div><h3>Workbook de presentación ejecutiva</h3><p>Guía paso a paso para usar el caso, plantillas y checklists.</p></div><a href="workbook-presentacion-ejecutiva-ia.html" target="_blank" rel="noopener noreferrer">Abrir</a></div>
+          <div class="resource-row"><div><h3>Biblioteca de prompts</h3><p>Prompts derivados de la fuente JSON del workshop para copiar y adaptar.</p></div><a href="biblioteca-prompts-presentacion-ejecutiva.html" target="_blank" rel="noopener noreferrer">Abrir</a></div>
+          <div class="resource-row"><div><h3>Deck 1 hora</h3><p>Versión de facilitación con explorador de prompts en vivo.</p></div><a href="deck-presentacion-ejecutiva-ia-1h.html" target="_blank" rel="noopener noreferrer">Abrir</a></div>
+          <div class="resource-row"><div><h3>Cartillas por herramienta</h3><p>Guías básicas para ChatGPT, Gemini, Claude y NotebookLM.</p></div><a href="cartilla-chatgpt-basico.html" target="_blank" rel="noopener noreferrer">Abrir ChatGPT</a></div>
+        </div>
+      </div>
+    </section>
+
+    <section id="faq">
+      <div class="container">
+        <div class="section-head reveal">
+          <div>
+            <div class="section-kicker">FAQ</div>
+            <h2>Preguntas que deja el workshop.</h2>
+          </div>
+          <p>Estas respuestas sintetizan el criterio de la sesión sin convertir la transcripción en cita literal.</p>
+        </div>
+        <div class="reveal">
+          <details open><summary>¿Necesito una herramienta paga para practicar?</summary><p>No. La práctica funciona en capas gratuitas si el objetivo es aprender el flujo. Las versiones de pago pueden mejorar formatos, imágenes, archivos editables o capacidad de contexto, pero no reemplazan claridad, insumos y criterio humano.</p></details>
+          <details><summary>¿Qué hago si la IA no genera un PowerPoint?</summary><p>Pide primero estructura, títulos, mensajes y notas. Después solicita un formato exportable o copia la estructura a una herramienta de presentaciones. El entregable útil empieza por la narrativa, no por el archivo.</p></details>
+          <details><summary>¿Puedo usar datos reales de trabajo?</summary><p>Sí, solo si tienes permiso y si el contenido no expone información sensible. Para practicar, conviene anonimizar nombres, contratos, clientes, cifras privadas y cualquier dato que no deba salir de su contexto.</p></details>
+          <details><summary>¿Qué debo llevar a la clínica?</summary><p>Un caso, un borrador generado por IA, las preguntas que aparecieron y el punto donde el flujo se trabó. Eso permite trabajar sobre evidencia, no sobre teoría.</p></details>
+        </div>
+      </div>
+    </section>
+
+    <section id="cierre">
+      <div class="container">
+        <div class="grid-2">
+          <article class="card accent-gold reveal">
+            <h2>Compromiso de práctica</h2>
+            <p>Reserva 60 minutos. Escoge un caso real o un insumo de práctica. Ejecuta el flujo con un prompt natural, luego con SPEC, y compara qué cambió en claridad, formato y utilidad.</p>
+          </article>
+          <article class="card accent-teal reveal">
+            <h2>Continuidad</h2>
+            <p>La clínica del 2026-05-21 debe recoger dudas abiertas. La versión inmersiva del 2026-05-23 puede profundizar el mismo tema con más práctica. La siguiente semana conecta productividad y trabajo agéntico.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section id="agenda">
+      <div class="container">
+        <div class="section-head reveal">
+          <div>
+            <div class="section-kicker">Autoagendamiento</div>
+            <h2>Guarda el siguiente paso antes de cerrar la memoria.</h2>
+          </div>
+          <p>Este cierre está pensado para dos lecturas: quien estuvo en el workshop y quien recibió la memoria compartida después.</p>
+        </div>
+        <div class="auto-grid">
+          <article class="auto-card reveal">
+            <div class="auto-icon"><i data-lucide="graduation-cap"></i></div>
+            <h3>Si estuviste en el workshop</h3>
+            <p>Agenda una hora de práctica y llega a la clínica con un caso, un borrador generado por IA y una pregunta concreta. Ajusta la fecha si el horario sugerido no te sirve.</p>
+            <div class="auto-actions">
+              <a class="primary-btn" href="https://calendar.google.com/calendar/render?action=TEMPLATE&text=Pr%C3%A1ctica%20personal%20%C2%B7%20Workshop%20IA%20con%20MetodologIA&dates=20260522T090000/20260522T100000&ctz=America%2FBogota&details=Repetir%20el%20flujo%20del%20workshop%3A%20elegir%20un%20caso%2C%20ordenar%20insumos%2C%20usar%20SPEC%2C%20generar%20estructura%2C%20convertir%20formato%20y%20revisar%20calidad.%20Ajusta%20la%20fecha%20si%20hace%20falta.&location=Trabajo%20personal" target="_blank" rel="noopener noreferrer"><i data-lucide="calendar-plus"></i> Agendar práctica</a>
+              <a class="secondary-btn" href="https://calendar.google.com/calendar/render?action=TEMPLATE&text=IA%2C%20qu%C3%A9%20est%C3%A1%20pasando%20y%20c%C3%B3mo%20sacarle%20provecho%20%5BCl%C3%ADnica%5D&dates=20260521T190000/20260521T195000&ctz=America%2FBogota&details=Cl%C3%ADnica%20confirmada%20por%20MetodologIA.%20Meet%3A%20https%3A%2F%2Fmeet.google.com%2Fzbm-waea-eci&location=https%3A%2F%2Fmeet.google.com%2Fzbm-waea-eci" target="_blank" rel="noopener noreferrer"><i data-lucide="messages-square"></i> Agendar clínica</a>
+            </div>
+          </article>
+          <article class="auto-card reveal">
+            <div class="auto-icon"><i data-lucide="send"></i></div>
+            <h3>Si te compartieron esta memoria</h3>
+            <p>Empieza por copiar un prompt, abrirlo en tu IA preferida y probarlo con una tarea real. Si quieres entrar al ciclo, guarda el repositorio y pide el siguiente espacio disponible.</p>
+            <div class="auto-actions">
+              <a class="primary-btn" href="#prompts"><i data-lucide="terminal"></i> Probar un prompt</a>
+              <a class="secondary-btn" href="https://forms.gle/FHBtHmbvh7LqiAKD9" target="_blank" rel="noopener noreferrer"><i data-lucide="calendar-plus"></i> Pedir próximo taller</a>
+              <a class="secondary-btn" href="https://drive.google.com/drive/u/0/folders/1QlOa6Idtdf3wpVIV5expRgi7qag-EMr_" target="_blank" rel="noopener noreferrer"><i data-lucide="folder-open"></i> Abrir memorias</a>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="container footer-grid">
+      <div class="footer-brand"><img src="assets/metodologia_logo_primary.png" alt="MetodologIA"><span>MetodologIA · Memorias Workshop</span></div>
+      <p>Fuente privada preservada localmente. Publicación PII-safe. Si llegaste por una persona que te la compartió, empieza por el prompt y agenda tu siguiente espacio.</p>
+    </div>
+  </footer>
+
+  <script>
+    const $ = (selector, scope = document) => scope.querySelector(selector);
+    const $$ = (selector, scope = document) => Array.from(scope.querySelectorAll(selector));
+
+    function refreshIcons() {
+      if (window.lucide && typeof window.lucide.createIcons === 'function') {
+        window.lucide.createIcons({ attrs: { 'stroke-width': 2 } });
+      }
+    }
+
+    function updateProgress() {
+      const total = document.documentElement.scrollHeight - window.innerHeight;
+      const pct = total > 0 ? (window.scrollY / total) * 100 : 0;
+      $('#progressBar').style.width = Math.max(0, Math.min(100, pct)) + '%';
+    }
+
+    function setTheme(theme) {
+      document.documentElement.dataset.theme = theme;
+      localStorage.setItem('workshop-mem-theme-v3', theme);
+    }
+
+    function fallbackCopy(text) {
+      const box = document.createElement('textarea');
+      box.value = text;
+      box.setAttribute('readonly', '');
+      box.style.position = 'fixed';
+      box.style.opacity = '0';
+      document.body.appendChild(box);
+      box.select();
+      let ok = false;
+      try { ok = document.execCommand('copy'); } catch (err) { ok = false; }
+      document.body.removeChild(box);
+      return ok;
+    }
+
+    async function copyText(text) {
+      if (navigator.clipboard && window.isSecureContext) {
+        await navigator.clipboard.writeText(text);
+        return 'Copiado';
+      }
+      return fallbackCopy(text) ? 'Copiado' : 'Copia manual';
+    }
+
+    function initCopyButtons() {
+      $$('.copy-btn').forEach((button) => {
+        button.addEventListener('click', async () => {
+          const target = document.getElementById(button.dataset.copyTarget);
+          const status = button.closest('.prompt-actions')?.querySelector('.copy-status');
+          const text = target ? target.innerText.trim() : '';
+          let label = 'Copia manual';
+          try { label = await copyText(text); } catch (err) { label = 'Copia manual'; }
+          if (status) status.textContent = label;
+          button.classList.add('is-copied');
+          setTimeout(() => { if (status) status.textContent = ''; button.classList.remove('is-copied'); }, 2200);
+        });
+      });
+    }
+
+    function gptUrl(text) {
+      const url = new URL('https://chatgpt.com/');
+      url.searchParams.set('prompt', text);
+      return url.toString();
+    }
+
+    function syncGptLinks() {
+      $$('.open-gpt-btn').forEach((link) => {
+        const target = document.getElementById(link.dataset.openTarget);
+        const text = target ? target.innerText.trim() : '';
+        link.href = gptUrl(text);
+      });
+    }
+
+    function initOpenGptButtons() {
+      $$('.open-gpt-btn').forEach((link) => {
+        link.addEventListener('click', async () => {
+          const target = document.getElementById(link.dataset.openTarget);
+          const status = link.closest('.prompt-actions')?.querySelector('.copy-status');
+          const text = target ? target.innerText.trim() : '';
+          link.href = gptUrl(text);
+          let label = 'Copia manual';
+          try { label = await copyText(text); } catch (err) { label = 'Copia manual'; }
+          if (status) {
+            status.textContent = label;
+            setTimeout(() => { status.textContent = ''; }, 2200);
+          }
+        });
+      });
+    }
+
+    function initOpenToolButtons() {
+      $$('.open-tool-btn').forEach((link) => {
+        link.addEventListener('click', async () => {
+          const target = document.getElementById(link.dataset.openTarget);
+          const status = link.closest('.prompt-actions')?.querySelector('.copy-status');
+          const text = target ? target.innerText.trim() : '';
+          let label = 'Copia manual';
+          try { label = await copyText(text); } catch (err) { label = 'Copia manual'; }
+          if (status) {
+            status.textContent = `${label}; pega el prompt en la herramienta`;
+            setTimeout(() => { status.textContent = ''; }, 2600);
+          }
+        });
+      });
+    }
+
+    function initTabs() {
+      $$('[data-tabs]').forEach((tabs) => {
+        const buttons = $$('.tab-btn', tabs);
+        const panels = $$('.tab-panel', tabs);
+        buttons.forEach((button) => {
+          button.addEventListener('click', () => {
+            const id = button.dataset.tab;
+            buttons.forEach((b) => b.setAttribute('aria-selected', String(b === button)));
+            panels.forEach((panel) => panel.classList.toggle('is-active', panel.id === `tab-${id}`));
+          });
+        });
+      });
+    }
+
+    function initReveal() {
+      const items = $$('.reveal');
+      if (!('IntersectionObserver' in window)) {
+        items.forEach((item) => item.classList.add('in'));
+        return;
+      }
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('in');
+            observer.unobserve(entry.target);
+          }
+        });
+      }, { threshold: .12 });
+      items.forEach((item) => observer.observe(item));
+    }
+
+    function initNavState() {
+      const links = $$('.nav a');
+      const sections = links.map((link) => document.querySelector(link.getAttribute('href'))).filter(Boolean);
+      const observer = new IntersectionObserver((entries) => {
+        const visible = entries.filter((entry) => entry.isIntersecting).sort((a, b) => b.intersectionRatio - a.intersectionRatio)[0];
+        if (!visible) return;
+        links.forEach((link) => link.classList.toggle('is-active', link.getAttribute('href') === `#${visible.target.id}`));
+      }, { rootMargin: '-35% 0px -55% 0px', threshold: [.01, .2, .6] });
+      sections.forEach((section) => observer.observe(section));
+    }
+
+    window.addEventListener('scroll', updateProgress, { passive: true });
+    window.addEventListener('resize', updateProgress);
+    document.addEventListener('DOMContentLoaded', () => {
+      setTheme(localStorage.getItem('workshop-mem-theme-v3') || 'light');
+      $('#themeToggle').addEventListener('click', () => {
+        setTheme(document.documentElement.dataset.theme === 'dark' ? 'light' : 'dark');
+      });
+      initCopyButtons();
+      syncGptLinks();
+      initOpenGptButtons();
+      initOpenToolButtons();
+      initTabs();
+      initReveal();
+      initNavState();
+      updateProgress();
+      refreshIcons();
+    });
+    window.addEventListener('load', refreshIcons);
+  </script>
+</body>
+</html>

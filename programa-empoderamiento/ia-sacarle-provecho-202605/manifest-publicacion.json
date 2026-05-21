@@ -1,0 +1,177 @@
+{
+  "schema_version": "1.0.0",
+  "generated_at": "2026-05-21T13:44:00-05:00",
+  "package": "programa-empoderamiento/ia-sacarle-provecho-202605",
+  "source_policy": "PII-safe public curation; private literal notes and transcripts excluded",
+  "git_preflight": {
+    "primary_worktree_status": "blocked_short_read_while_indexing",
+    "publication_worktree": "clean_clone_origin_main",
+    "pages_enabled": false
+  },
+  "files": [
+    {
+      "path": "README.md",
+      "bytes": 2385,
+      "sha256": "34c42ffde210aafbcf9d9deeb810654346f33a375556aec35f593ecb5e238f38",
+      "kind": "md",
+      "pii_safe": true
+    },
+    {
+      "path": "assets/metodologia_logo_primary.png",
+      "bytes": 38661,
+      "sha256": "938b6e675c04d0c4a52895eb8e092d8c72e835ef9c52a6dd4e28d7c476ab726a",
+      "kind": "png",
+      "pii_safe": true
+    },
+    {
+      "path": "assets/pristino_auto_diseno_logo.jpeg",
+      "bytes": 86741,
+      "sha256": "1756481bb506191c81be33861523b66d8e0063bf5e2e8644a88fada4086b6793",
+      "kind": "jpeg",
+      "pii_safe": true
+    },
+    {
+      "path": "biblioteca-prompts-presentacion-ejecutiva.html",
+      "bytes": 85151,
+      "sha256": "ee3bc6bd3724b030483475e73342789da7498b9baa3c4c51ddd59a8cc277f157",
+      "kind": "html",
+      "pii_safe": true
+    },
+    {
+      "path": "cartilla-chatgpt-basico.html",
+      "bytes": 24342,
+      "sha256": "91eb2e9528e05b7bbf4baa293ceba676f4a5a2c80365b79f0cfe0d672a39343e",
+      "kind": "html",
+      "pii_safe": true
+    },
+    {
+      "path": "cartilla-claude-basico.html",
+      "bytes": 24191,
+      "sha256": "f4ea0001c1575e5313f05dfafb734bf5548a4285fe16b4f7bbeb9a483bc2b12c",
+      "kind": "html",
+      "pii_safe": true
+    },
+    {
+      "path": "cartilla-gemini-basico.html",
+      "bytes": 24192,
+      "sha256": "5830c654e16b166747b495da79d09af44cf723853544f02ea8885e0c36189e1f",
+      "kind": "html",
+      "pii_safe": true
+    },
+    {
+      "path": "cartilla-notebooklm-basico.html",
+      "bytes": 24301,
+      "sha256": "3e9689cb15cc50426e64b0baaace36d07d3d9177a7d1355e3d348eb3a9be4454",
+      "kind": "html",
+      "pii_safe": true
+    },
+    {
+      "path": "deck-masterclass-ia-sacarle-provecho-1h-20260519.html",
+      "bytes": 31567,
+      "sha256": "d95b20a079e8f2ce346544d9bc37badd117b7d38753a1749d1445920acc10740",
+      "kind": "html",
+      "pii_safe": true
+    },
+    {
+      "path": "deck-presentacion-ejecutiva-ia-1h.html",
+      "bytes": 50240,
+      "sha256": "308d21948bebaba29c6ee74bba3d4a2c0cd10dcd4cc9bb7a7b4032a06214ed04",
+      "kind": "html",
+      "pii_safe": true
+    },
+    {
+      "path": "deck-presentacion-ejecutiva-ia.html",
+      "bytes": 33337,
+      "sha256": "c932bcf15e01105dfee1fa2c2fc8da477f8eba24290f71b331839935665675ed",
+      "kind": "html",
+      "pii_safe": true
+    },
+    {
+      "path": "index.html",
+      "bytes": 12521,
+      "sha256": "c0dfc6197756464b6851b83dfc043d5d3f98026039ee2d487521840551c35cc5",
+      "kind": "html",
+      "pii_safe": true
+    },
+    {
+      "path": "memorias-masterclass-ia-sacarle-provecho-20260519.html",
+      "bytes": 38327,
+      "sha256": "f4d773316948340347d2351a706eddc493892c9fa9ba0928fae83fb5f74955eb",
+      "kind": "html",
+      "pii_safe": true
+    },
+    {
+      "path": "memorias-workshop-ia-sacarle-provecho-20260520.html",
+      "bytes": 55347,
+      "sha256": "4a26b87a6d747fddaff0c9212e4bb7dc2b0e62cd15f5feaf070a261875322c80",
+      "kind": "html",
+      "pii_safe": true
+    },
+    {
+      "path": "prompts-presentacion-ejecutiva.json",
+      "bytes": 45091,
+      "sha256": "e81576397d9d623fdfb7e121a5c69aaeff150bd56f2c1f22f7d9b9509e50ba9d",
+      "kind": "json",
+      "pii_safe": true
+    },
+    {
+      "path": "validation-publicacion.md",
+      "bytes": 2319,
+      "sha256": "d59c93a5e7e7500abe381ecabb49b95a42688e6648989868c32ac7f88d2b5ca4",
+      "kind": "md",
+      "pii_safe": true
+    },
+    {
+      "path": "workbook-presentacion-ejecutiva-ia.html",
+      "bytes": 103469,
+      "sha256": "c819ffd14ee7968dcbe671247095e9cae42683289ed7a6a3c6763cd331d4e50c",
+      "kind": "html",
+      "pii_safe": true
+    }
+  ],
+  "checks": [
+    {
+      "id": "files_non_empty",
+      "ok": true,
+      "detail": "16 archivos base > 0 bytes antes de manifest/validation; 17 archivos incluidos en manifest"
+    },
+    {
+      "id": "json_valid",
+      "ok": true,
+      "detail": "prompts-presentacion-ejecutiva.json y manifest-publicacion.json validos"
+    },
+    {
+      "id": "no_local_or_private_paths",
+      "ok": true,
+      "detail": "sin rutas locales privadas, carpetas de descarga ni URLs de archivo"
+    },
+    {
+      "id": "no_private_emails",
+      "ok": true,
+      "detail": "sin correos privados"
+    },
+    {
+      "id": "no_phone_numbers",
+      "ok": true,
+      "detail": "sin telefonos visibles ni tel:"
+    },
+    {
+      "id": "local_links_exist",
+      "ok": true,
+      "detail": "todos los href/src relativos existen"
+    },
+    {
+      "id": "browser_validation",
+      "ok": true,
+      "detail": "12 HTML x 3 viewports; 0 errores consola; 0 404 locales; 0 imagenes rotas; 0 overflow"
+    },
+    {
+      "id": "tool_buttons",
+      "ok": true,
+      "detail": "4 ChatGPT prompt=, 4 Gemini app, 4 Claude new en memoria workshop"
+    }
+  ],
+  "confidence": 0.96,
+  "self_hash_method": "sha256_excluding_manifest_publicacion_json",
+  "sha256_excluding_self": "b2b7b0e88efd752c7fd8dcd1e000d30d48636b0519c73b7d00eeb267ea07096b"
+}

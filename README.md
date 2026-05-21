@@ -27,6 +27,13 @@ Repositorio público con el material educativo abierto de **MetodologIA**: bibli
 | [`playbook-prompting-universal-2026.html`](playbook-prompting-universal-2026.html) | Manual completo de prompting · arquitecturas · superficies · evidencia | Practitioners avanzados |
 | [`playbook-prompting-universal-2026-essentials.html`](playbook-prompting-universal-2026-essentials.html) | Versión didáctica condensada | Iniciados |
 
+### Programa de Empoderamiento
+
+| Recurso | Foco | Audiencia |
+|---|---|---|
+| [`programa-empoderamiento/`](programa-empoderamiento/) | Indice publico del programa | Participantes y personas que reciben memorias compartidas |
+| [`programa-empoderamiento/ia-sacarle-provecho-202605/`](programa-empoderamiento/ia-sacarle-provecho-202605/) | Memorias PII-safe, decks, workbook, biblioteca de prompts y cartillas del ciclo IA 2026-05 | Estudiantes del ciclo y practicantes que quieren repetir el taller |
+
 ### Skills operativas (Claude Code)
 
 | Skill | Función | Métricas |

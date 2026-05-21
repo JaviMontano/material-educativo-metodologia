@@ -1,0 +1,97 @@
+<!doctype html>
+<html lang="es" data-theme="light">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#122562">
+  <title>IA, que esta pasando y como sacarle provecho | MetodologIA</title>
+  <meta name="description" content="Hub publico PII-safe de memorias, decks, workbook, biblioteca y cartillas del ciclo IA que esta pasando y como sacarle provecho.">
+  <link rel="icon" type="image/png" href="assets/metodologia_logo_primary.png">
+  <style>
+    :root{--navy:#122562;--navy-deep:#0A122A;--gold:#FFD700;--gold-soft:#F9DF57;--blue:#137DC5;--teal:#2ED3C6;--paper:#F7FAFC;--panel:#FFFFFF;--ink:#111827;--muted:#526070;--line:rgba(18,37,98,.14);--shadow:0 20px 50px rgba(10,18,42,.08);--radius:8px;color-scheme:light}
+    html[data-theme="dark"]{--paper:#091327;--panel:#0F1B33;--ink:#F8FAFC;--muted:#A7B2C3;--line:rgba(255,255,255,.14);--shadow:0 24px 60px rgba(0,0,0,.32);color-scheme:dark}
+    *{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;font-family:Montserrat,Inter,Arial,sans-serif;background:var(--paper);color:var(--ink);line-height:1.62}a{color:inherit}:focus-visible{outline:2px solid var(--gold);outline-offset:3px}.topbar{position:sticky;top:0;z-index:20;background:color-mix(in srgb,var(--panel) 92%,transparent);border-bottom:1px solid var(--line);backdrop-filter:blur(16px)}.topbar-inner{max-width:1180px;margin:0 auto;padding:.7rem 1rem;display:flex;align-items:center;justify-content:space-between;gap:1rem}.brand{display:inline-flex;align-items:center;gap:.7rem;text-decoration:none;font-weight:900;color:var(--navy)}html[data-theme="dark"] .brand{color:#fff}.brand img{width:38px;height:38px;border-radius:10px}.brand span b{color:var(--gold)}.nav{display:flex;gap:.55rem;align-items:center;overflow-x:auto}.nav a,.theme{border:1px solid var(--line);background:transparent;color:var(--muted);border-radius:var(--radius);padding:.48rem .66rem;text-decoration:none;font-weight:800;font-size:.84rem;white-space:nowrap}.theme{cursor:pointer}.nav a:hover,.theme:hover{color:var(--navy);border-color:rgba(255,215,0,.5)}html[data-theme="dark"] .nav a:hover,html[data-theme="dark"] .theme:hover{color:var(--gold)}.hero{position:relative;overflow:hidden;background:radial-gradient(circle at 78% 18%,rgba(255,215,0,.22),transparent 30%),linear-gradient(135deg,var(--navy-deep),var(--navy));color:#fff;padding:clamp(3rem,7vw,6rem) 1rem 4rem}.hero:after{content:"";position:absolute;inset:auto 0 0;height:8px;background:linear-gradient(90deg,var(--gold),var(--blue),var(--teal),var(--gold))}.wrap{max-width:1180px;margin:0 auto}.hero-grid{display:grid;grid-template-columns:minmax(0,1.2fr) minmax(280px,.8fr);gap:2rem;align-items:center}.eyebrow{display:inline-flex;color:var(--gold);font-size:.76rem;font-weight:900;text-transform:uppercase;letter-spacing:.08em;margin-bottom:.8rem}h1,h2,h3{font-family:Poppins,Montserrat,Arial,sans-serif;line-height:1.08;margin:0}h1{font-size:clamp(2.2rem,6vw,4.8rem);max-width:840px}h2{font-size:clamp(1.7rem,4vw,2.8rem);color:var(--navy-deep)}html[data-theme="dark"] h2{color:#fff}.lead{font-size:1.1rem;color:rgba(255,255,255,.82);max-width:760px;margin-top:1rem}.hero-card{background:rgba(255,255,255,.1);border:1px solid rgba(255,255,255,.18);border-radius:var(--radius);padding:1rem;box-shadow:0 20px 60px rgba(0,0,0,.18)}.hero-card img{width:74px;height:74px;object-fit:cover;border-radius:16px;display:block;margin-bottom:1rem}.hero-card p{color:rgba(255,255,255,.78);margin:.45rem 0 0}.actions{display:flex;flex-wrap:wrap;gap:.7rem;margin-top:1.5rem}.btn{display:inline-flex;align-items:center;justify-content:center;min-height:42px;padding:.7rem .95rem;border-radius:var(--radius);font-weight:900;text-decoration:none;border:1px solid transparent}.btn.primary{background:var(--gold);color:var(--navy-deep)}.btn.secondary{border-color:rgba(255,255,255,.28);color:#fff}.section{padding:clamp(2.6rem,5vw,4.8rem) 1rem}.section-head{display:flex;justify-content:space-between;align-items:end;gap:1rem;margin-bottom:1.2rem}.section-head p{color:var(--muted);max-width:460px;margin:0}.grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:1rem}.card{background:var(--panel);border:1px solid var(--line);border-radius:var(--radius);box-shadow:var(--shadow);padding:1.05rem;display:flex;flex-direction:column;gap:.65rem;min-height:235px}.card small{color:var(--blue);font-weight:900;letter-spacing:.06em;text-transform:uppercase}.card h3{font-size:1.15rem;color:var(--navy-deep)}html[data-theme="dark"] .card h3{color:#fff}.card p{margin:0;color:var(--muted);font-size:.94rem}.links{display:flex;flex-wrap:wrap;gap:.55rem;margin-top:auto}.links a{border:1px solid var(--line);border-radius:var(--radius);padding:.5rem .62rem;font-weight:900;text-decoration:none;color:var(--navy)}html[data-theme="dark"] .links a{color:var(--gold)}.links a:hover{border-color:rgba(255,215,0,.55)}.band{background:linear-gradient(135deg,rgba(255,215,0,.14),rgba(19,125,197,.08));border-top:1px solid var(--line);border-bottom:1px solid var(--line)}.note{background:var(--panel);border-left:5px solid var(--gold);border-radius:var(--radius);padding:1rem 1.1rem;color:var(--muted)}.footer{background:var(--navy-deep);color:#fff;padding:2rem 1rem}.footer p{color:rgba(255,255,255,.72);margin:0}.footer-grid{display:flex;align-items:center;justify-content:space-between;gap:1rem;flex-wrap:wrap}.footer-brand{display:flex;align-items:center;gap:.7rem;font-weight:900}.footer-brand img{width:38px;height:38px;border-radius:10px}@media(max-width:920px){.hero-grid,.grid{grid-template-columns:1fr}.section-head{display:block}.section-head p{margin-top:.5rem}.topbar-inner{align-items:flex-start;flex-wrap:wrap}.nav{width:100%}}
+  </style>
+</head>
+<body>
+  <header class="topbar">
+    <div class="topbar-inner">
+      <a class="brand" href="../index.html"><img src="assets/metodologia_logo_primary.png" alt="Logo MetodologIA"><span>Metodolog<b>IA</b></span></a>
+      <nav class="nav" aria-label="Navegacion principal">
+        <a href="#memorias">Memorias</a>
+        <a href="#workshop">Workshop</a>
+        <a href="#cartillas">Cartillas</a>
+        <a href="#validacion">Validacion</a>
+        <button class="theme" type="button" id="themeToggle">Tema</button>
+      </nav>
+    </div>
+  </header>
+  <main>
+    <section class="hero">
+      <div class="wrap hero-grid">
+        <div>
+          <div class="eyebrow">Ciclo publico · PII-safe · 2026-05</div>
+          <h1>IA, que esta pasando y como sacarle provecho.</h1>
+          <p class="lead">Hub de memorias, decks, workbook, biblioteca de prompts y cartillas. Diseñado para que quien estuvo en el ciclo o quien recibio la memoria pueda practicar con una tarea real.</p>
+          <div class="actions">
+            <a class="btn primary" href="memorias-workshop-ia-sacarle-provecho-20260520.html">Abrir memoria del workshop</a>
+            <a class="btn secondary" href="workbook-presentacion-ejecutiva-ia.html">Abrir workbook</a>
+            <a class="btn secondary" href="https://github.com/JaviMontano/material-educativo-metodologia/tree/main/programa-empoderamiento/ia-sacarle-provecho-202605" target="_blank" rel="noopener noreferrer">Abrir en repo</a>
+          </div>
+        </div>
+        <aside class="hero-card">
+          <img src="assets/pristino_auto_diseno_logo.jpeg" alt="Pristino">
+          <strong>Pristino como siguiente paso</strong>
+          <p>El material deja prompts copiables y rutas de practica. Pristino funciona como acompanante para convertir esa practica en entregables concretos.</p>
+        </aside>
+      </div>
+    </section>
+    <section class="section" id="memorias">
+      <div class="wrap">
+        <div class="section-head"><h2>Memorias y decks.</h2><p>Versiones curadas para consulta publica. Las fuentes literales privadas no estan incluidas.</p></div>
+        <div class="grid">
+          <article class="card"><small>Masterclass</small><h3>Memoria · 19 mayo 2026</h3><p>Recorrido conceptual, cifras citadas en sesion, herramientas, prompts, diagnostico y continuidad.</p><div class="links"><a href="memorias-masterclass-ia-sacarle-provecho-20260519.html">Abrir HTML</a><a href="deck-masterclass-ia-sacarle-provecho-1h-20260519.html">Deck 1h</a></div></article>
+          <article class="card"><small>Workshop</small><h3>Memoria · 20 mayo 2026</h3><p>Practica guiada para delegar una presentacion ejecutiva con SPEC, prompts y autoagendamiento.</p><div class="links"><a href="memorias-workshop-ia-sacarle-provecho-20260520.html">Abrir HTML</a><a href="#workshop">Ver recursos</a></div></article>
+          <article class="card"><small>Repositorio</small><h3>Lectura y trazabilidad</h3><p>README, manifest con hashes SHA-256 y validacion PII-safe del paquete publicado.</p><div class="links"><a href="README.md">README</a><a href="manifest-publicacion.json">Manifest</a><a href="validation-publicacion.md">Validacion</a></div></article>
+        </div>
+      </div>
+    </section>
+    <section class="section band" id="workshop">
+      <div class="wrap">
+        <div class="section-head"><h2>Workshop: presentacion ejecutiva con IA.</h2><p>Materiales navegables sin rutas locales. El workbook y la biblioteca alimentan la memoria; la memoria devuelve cierre, diagnostico y continuidad.</p></div>
+        <div class="grid">
+          <article class="card"><small>Trabajo</small><h3>Workbook ejecutivo</h3><p>Guia paso a paso para convertir insumos en una presentacion defendible.</p><div class="links"><a href="workbook-presentacion-ejecutiva-ia.html">Abrir</a></div></article>
+          <article class="card"><small>Prompts</small><h3>Biblioteca y JSON</h3><p>Prompts parametrizados para copiar, adaptar o consumir programaticamente.</p><div class="links"><a href="biblioteca-prompts-presentacion-ejecutiva.html">Biblioteca</a><a href="prompts-presentacion-ejecutiva.json">JSON</a></div></article>
+          <article class="card"><small>Facilitacion</small><h3>Decks del taller</h3><p>Version completa y version 1 hora con explorador de prompts.</p><div class="links"><a href="deck-presentacion-ejecutiva-ia.html">Completo</a><a href="deck-presentacion-ejecutiva-ia-1h.html">1 hora</a></div></article>
+        </div>
+      </div>
+    </section>
+    <section class="section" id="cartillas">
+      <div class="wrap">
+        <div class="section-head"><h2>Cartillas por herramienta.</h2><p>Guia basica para elegir superficie y ejecutar el mismo flujo en ChatGPT, Gemini, Claude o NotebookLM.</p></div>
+        <div class="grid">
+          <article class="card"><small>OpenAI</small><h3>ChatGPT</h3><p>Primeros pasos, adjuntos, prompts y flujo del taller.</p><div class="links"><a href="cartilla-chatgpt-basico.html">Abrir</a></div></article>
+          <article class="card"><small>Google</small><h3>Gemini</h3><p>Uso desde Gemini web app con copia de prompts como respaldo.</p><div class="links"><a href="cartilla-gemini-basico.html">Abrir</a></div></article>
+          <article class="card"><small>Anthropic</small><h3>Claude y NotebookLM</h3><p>Claude para contexto largo y NotebookLM para trabajo con fuentes.</p><div class="links"><a href="cartilla-claude-basico.html">Claude</a><a href="cartilla-notebooklm-basico.html">NotebookLM</a></div></article>
+        </div>
+      </div>
+    </section>
+    <section class="section band" id="validacion">
+      <div class="wrap">
+        <div class="section-head"><h2>Validacion.</h2><p>Publicacion creada desde un clon limpio porque el worktree local previo tenia un indice Git inestable.</p></div>
+        <div class="note">GitHub Pages no esta habilitado en este repositorio al momento de la publicacion. Los enlaces relativos funcionan en local y quedaran listos para Pages si se activa posteriormente.</div>
+      </div>
+    </section>
+  </main>
+  <footer class="footer"><div class="wrap footer-grid"><div class="footer-brand"><img src="assets/metodologia_logo_primary.png" alt="Logo MetodologIA"><span>MetodologIA</span></div><p>Publicacion PII-safe · CC BY-NC-SA 4.0 · 2026</p></div></footer>
+  <script>
+    const root = document.documentElement;
+    const saved = localStorage.getItem('ia-sacarle-provecho-theme');
+    if (saved) root.dataset.theme = saved;
+    document.getElementById('themeToggle').addEventListener('click', () => {
+      root.dataset.theme = root.dataset.theme === 'dark' ? 'light' : 'dark';
+      localStorage.setItem('ia-sacarle-provecho-theme', root.dataset.theme);
+    });
+  </script>
+</body>
+</html>

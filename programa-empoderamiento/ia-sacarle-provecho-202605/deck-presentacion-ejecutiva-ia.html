@@ -1,0 +1,506 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="theme-color" content="#0A122A">
+<title>Deck · Presentación ejecutiva con IA | MetodologIA</title>
+<meta name="description" content="Deck para dictar el workshop Presentación ejecutiva con IA de MetodologIA. Navega con flechas, espacio o deslizando.">
+<meta name="author" content="Javier Montaño · MetodologIA · 2026">
+<link rel="icon" type="image/png" href="assets/metodologia_logo_primary.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&family=Poppins:wght@700;800&family=JetBrains+Mono:wght@400;600&display=swap">
+<script src="https://unpkg.com/lucide@0.469.0/dist/umd/lucide.js" defer></script>
+<style>
+  :root{
+    --bg:#0A122A; --bg2:#122562; --bg3:#0E1C44;
+    --panel:rgba(255,255,255,.05); --panel-br:rgba(255,255,255,.10);
+    --ink:#F8FAFC; --ink2:#CBD5E1; --ink3:#94A3B8;
+    --gold:#FFD700; --gold-soft:#FDE68A; --blue:#4FA8E0; --lilac:#C9B3D9; --green:#5BD98A; --red:#F87171;
+    --font-head:'Poppins',system-ui,sans-serif; --font-body:'Montserrat',system-ui,sans-serif;
+    --font-note:'Trebuchet MS',sans-serif; --font-mono:'JetBrains Mono',ui-monospace,Menlo,monospace;
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  html,body{width:100%;height:100%;overflow:hidden}
+  body{font-family:var(--font-body);background:var(--bg);color:var(--ink);font-size:22px;line-height:1.5;-webkit-font-smoothing:antialiased}
+  .deck{position:relative;width:100vw;height:100vh}
+  .slide{position:absolute;inset:0;display:flex;flex-direction:column;justify-content:center;padding:8vh 7vw;opacity:0;pointer-events:none;transition:opacity .4s ease;overflow-y:auto;
+    background:radial-gradient(circle at 85% 12%,rgba(255,215,0,.10),transparent 34%),linear-gradient(135deg,var(--bg),var(--bg3));}
+  .slide.active{opacity:1;pointer-events:auto}
+  .slide-inner{max-width:1180px;margin:0 auto;width:100%}
+  .slide-meta{position:absolute;top:3.4vh;left:7vw;right:7vw;display:flex;justify-content:space-between;align-items:center;font-size:.72rem;color:var(--ink3);letter-spacing:.14em;text-transform:uppercase}
+  .slide-meta .brand{display:flex;align-items:center;gap:.55rem;font-family:var(--font-head);font-weight:800;letter-spacing:.02em;color:var(--ink2)}
+  .slide-meta .brand .ia{color:var(--gold)}
+  .slide-meta .brand-dot{width:9px;height:9px;border-radius:50%;background:var(--gold);box-shadow:0 0 14px var(--gold)}
+  .slide-meta .stage{color:var(--gold);font-weight:700}
+  .eyebrow{font-size:.82rem;color:var(--gold);font-weight:700;letter-spacing:.16em;text-transform:uppercase;margin-bottom:1rem;font-family:var(--font-note)}
+  h1{font-family:var(--font-head);font-size:clamp(2.2rem,5.4vw,4.4rem);font-weight:800;line-height:1.04;letter-spacing:-.02em;margin-bottom:1.1rem}
+  h2{font-family:var(--font-head);font-size:clamp(1.7rem,3.6vw,2.8rem);font-weight:700;line-height:1.12;margin-bottom:1rem}
+  h3{font-family:var(--font-head);font-size:clamp(1.05rem,1.6vw,1.35rem);font-weight:700;color:var(--gold);margin-bottom:.5rem}
+  p{font-size:clamp(1rem,1.35vw,1.22rem);color:var(--ink2);margin-bottom:.85rem;max-width:900px}
+  p.lead{font-size:clamp(1.15rem,1.7vw,1.5rem);color:var(--ink);max-width:940px}
+  strong{color:var(--ink);font-weight:700}
+  em{color:var(--gold);font-style:normal}
+  .gold{color:var(--gold)} .blue{color:var(--blue)} .lilac{color:var(--lilac)}
+  code,.mono{font-family:var(--font-mono)}
+  .accent-bar{height:7px;width:120px;border-radius:6px;background:linear-gradient(90deg,var(--gold),var(--blue),var(--lilac));margin-bottom:1.6rem}
+  /* cover */
+  .cover-mark{display:inline-flex;align-items:center;gap:.7rem;font-family:var(--font-head);font-weight:800;font-size:1.05rem;letter-spacing:.02em;color:var(--ink);margin-bottom:1.8rem}
+  .cover-mark .dot{width:13px;height:13px;background:var(--gold);border-radius:50%;box-shadow:0 0 22px var(--gold)}
+  .cover-mark .ia{color:var(--gold)}
+  .cover-h1{font-family:var(--font-head);font-size:clamp(2.6rem,7vw,5.4rem);font-weight:800;line-height:1;letter-spacing:-.03em;margin-bottom:1.3rem}
+  .cover-sub{font-size:clamp(1.1rem,1.8vw,1.5rem);color:var(--ink2);max-width:920px;margin-bottom:2rem}
+  .cover-meta{display:flex;gap:2.2rem;flex-wrap:wrap;font-size:.9rem;color:var(--ink3)}
+  .cover-meta span strong{color:var(--ink);display:block;font-size:1rem}
+  /* grids & cards */
+  .cards{display:grid;gap:1rem;margin-top:.5rem}
+  .cards.c2{grid-template-columns:1fr 1fr}
+  .cards.c3{grid-template-columns:repeat(3,1fr)}
+  .card{background:var(--panel);border:1px solid var(--panel-br);border-radius:18px;padding:1.2rem 1.25rem;display:grid;gap:.5rem}
+  .card .ico{width:44px;height:44px;display:grid;place-items:center;border-radius:12px;background:linear-gradient(135deg,rgba(255,215,0,.4),rgba(79,168,224,.2));color:#0A122A}
+  .card .ico svg{width:22px;height:22px}
+  .card b{font-family:var(--font-head);color:var(--ink);font-size:1.05rem}
+  .card p{font-size:.98rem;margin:0;color:var(--ink2)}
+  /* statement */
+  .statement{font-family:var(--font-head);font-weight:800;font-size:clamp(2rem,4.6vw,3.6rem);line-height:1.12;letter-spacing:-.02em;max-width:1000px}
+  .statement .gold{color:var(--gold)}
+  .attrib{margin-top:1.3rem;color:var(--ink3);font-family:var(--font-note);font-size:1rem}
+  /* step */
+  .step-head{display:flex;align-items:center;gap:1rem;margin-bottom:1.2rem}
+  .step-num{width:64px;height:64px;flex-shrink:0;display:grid;place-items:center;border-radius:16px;background:var(--gold);color:#0A122A;font-family:var(--font-head);font-weight:800;font-size:1.7rem}
+  .step-cols{display:grid;grid-template-columns:repeat(3,1fr);gap:.9rem;margin-top:.3rem}
+  .step-box{background:var(--panel);border:1px solid var(--panel-br);border-radius:14px;padding:1rem}
+  .step-box .lbl{font-family:var(--font-note);font-weight:800;font-size:.74rem;letter-spacing:.08em;text-transform:uppercase;color:var(--gold);margin-bottom:.35rem;display:block}
+  .step-box p{font-size:.96rem;margin:0;color:var(--ink2)}
+  .ba{display:grid;grid-template-columns:1fr 1fr;gap:.9rem;margin-top:1.1rem}
+  .ba > div{padding:.9rem 1rem;border-radius:14px;border:1px solid var(--panel-br)}
+  .ba .before{background:rgba(248,113,113,.08);border-color:rgba(248,113,113,.3)}
+  .ba .after{background:rgba(91,217,138,.09);border-color:rgba(91,217,138,.32)}
+  .ba .lbl{display:block;font-family:var(--font-note);font-weight:800;font-size:.72rem;letter-spacing:.08em;text-transform:uppercase;margin-bottom:.3rem}
+  .ba .before .lbl{color:var(--red)} .ba .after .lbl{color:var(--green)}
+  .ba p{margin:0;font-size:1rem;color:var(--ink)}
+  /* table */
+  .ltable{width:100%;border-collapse:collapse;font-size:1rem;margin-top:.4rem}
+  .ltable th,.ltable td{text-align:left;padding:.85rem 1rem;border-bottom:1px solid var(--panel-br);vertical-align:top}
+  .ltable thead th{background:rgba(255,255,255,.06);color:var(--gold);font-family:var(--font-head);font-size:.92rem}
+  .ltable td:first-child{font-family:var(--font-head);color:var(--ink);font-weight:700;white-space:nowrap}
+  .ltable p{margin:0;font-size:.95rem}
+  /* spec anatomy */
+  .spec{background:#0C1430;border:1px solid var(--panel-br);border-radius:16px;padding:1.2rem 1.3rem;font-family:var(--font-mono);font-size:1rem;line-height:1.7;color:var(--ink2);position:relative}
+  .spec .k{color:var(--gold);font-weight:600}
+  .copy-spec{position:absolute;top:.8rem;right:.8rem}
+  /* resources */
+  .res-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:.8rem;margin-top:.6rem}
+  .res-grid a{display:flex;align-items:center;gap:.6rem;padding:.85rem 1rem;border-radius:12px;border:1px solid var(--panel-br);background:var(--panel);color:var(--ink);text-decoration:none;font-weight:600;font-size:.96rem}
+  .res-grid a:hover{border-color:var(--gold)}
+  .res-grid svg{width:19px;height:19px;color:var(--gold);flex-shrink:0}
+  .pill{display:inline-flex;align-items:center;gap:.4rem;padding:.3rem .7rem;border-radius:999px;background:rgba(255,215,0,.12);border:1px solid rgba(255,215,0,.3);color:var(--gold);font-family:var(--font-note);font-weight:800;font-size:.74rem;letter-spacing:.06em;text-transform:uppercase}
+  .chips{display:flex;flex-wrap:wrap;gap:.5rem;margin-top:1rem}
+  .chips span{padding:.4rem .8rem;border-radius:999px;background:var(--panel);border:1px solid var(--panel-br);font-size:.9rem;color:var(--ink2)}
+  .big-list{list-style:none;display:grid;gap:.7rem;margin-top:.6rem}
+  .big-list li{display:grid;grid-template-columns:30px 1fr;gap:.7rem;align-items:start;font-size:1.08rem;color:var(--ink2)}
+  .big-list li .n{width:30px;height:30px;display:grid;place-items:center;border-radius:8px;background:var(--panel);border:1px solid var(--panel-br);color:var(--gold);font-family:var(--font-head);font-weight:800;font-size:.85rem}
+  /* controls */
+  .progress{position:fixed;top:0;left:0;height:4px;width:0;background:linear-gradient(90deg,var(--gold),var(--blue),var(--lilac));z-index:60;transition:width .3s}
+  .ctrl{position:fixed;bottom:3vh;right:7vw;display:flex;align-items:center;gap:.5rem;z-index:50}
+  .ctrl button{width:44px;height:44px;border-radius:11px;border:1px solid var(--panel-br);background:rgba(255,255,255,.05);color:var(--ink);cursor:pointer;display:grid;place-items:center;transition:all .2s}
+  .ctrl button:hover{background:var(--gold);color:#0A122A;border-color:var(--gold)}
+  .ctrl button svg{width:20px;height:20px}
+  .counter{position:fixed;bottom:3vh;left:7vw;font-family:var(--font-mono);font-size:.85rem;color:var(--ink3);z-index:50;letter-spacing:.1em}
+  .counter b{color:var(--gold)}
+  .hint{position:fixed;bottom:3vh;left:50%;transform:translateX(-50%);font-family:var(--font-note);font-size:.78rem;color:var(--ink3);z-index:40;opacity:.8}
+  .btn-copy{display:inline-flex;align-items:center;gap:.45rem;padding:.5rem .8rem;border-radius:9px;border:1px solid var(--panel-br);background:rgba(255,255,255,.06);color:var(--ink);font-family:var(--font-body);font-weight:700;font-size:.82rem;cursor:pointer}
+  .btn-copy:hover{background:var(--gold);color:#0A122A;border-color:var(--gold)}
+  .btn-copy svg{width:15px;height:15px}
+  @media (max-width:820px){
+    body{font-size:18px}
+    .slide{padding:9vh 6vw 12vh}
+    .cards.c3,.step-cols,.res-grid{grid-template-columns:1fr}
+    .cards.c2,.ba{grid-template-columns:1fr}
+    .ltable{font-size:.88rem} .ltable thead{display:none}
+    .ltable td{display:block;border:none;padding:.25rem 0}
+    .ltable tr{display:block;padding:.7rem 0;border-bottom:1px solid var(--panel-br)}
+    .ltable td:first-child{color:var(--gold);font-size:1.02rem;margin-bottom:.2rem}
+    .ctrl{right:5vw}.counter{left:5vw}.hint{display:none}
+  }
+</style>
+</head>
+<body>
+<div class="progress" id="progress"></div>
+<div class="deck" id="deck">
+
+  <!-- 1 cover -->
+  <section class="slide active" data-stage="Bienvenida">
+    <div class="slide-inner">
+      <div class="cover-mark"><span class="dot"></span> Metodolog<span class="ia">IA</span></div>
+      <div class="accent-bar"></div>
+      <h1 class="cover-h1">Construye una presentación ejecutiva con <span class="gold">IA y criterio</span>.</h1>
+      <p class="cover-sub">Un método de seis pasos para pasar de una idea suelta a una presentación que facilita decisiones. La IA acelera; tu criterio decide.</p>
+      <div class="cover-meta">
+        <span><strong>Workshop</strong> Miércoles 20 de mayo · 19:00–19:50</span>
+        <span><strong>Zona</strong> America/Bogotá</span>
+        <span><strong>Facilita</strong> Javier Montaño</span>
+        <span><strong>Formato</strong> Práctico y guiado</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- cómo trabajamos -->
+  <section class="slide" data-stage="Cómo trabajamos">
+    <div class="slide-inner">
+      <div class="eyebrow">Cómo vamos a trabajar hoy</div>
+      <h2>Te explico, lo practicamos y te lo llevas.</h2>
+      <div class="cards c3">
+        <div class="card"><div class="ico"><i data-lucide="presentation"></i></div><b>1 · Explico</b><p>Recorremos el método paso a paso, con ejemplos.</p></div>
+        <div class="card"><div class="ico"><i data-lucide="hand"></i></div><b>2 · Practicas</b><p>Aplicas cada paso sobre un insumo real o de práctica.</p></div>
+        <div class="card"><div class="ico"><i data-lucide="gift"></i></div><b>3 · Te lo llevas</b><p>Te comparto este HTML para repetirlo guiado, a tu ritmo.</p></div>
+      </div>
+      <p style="margin-top:1.1rem"><strong>Guárdalo:</strong> al final te paso el workbook, la biblioteca de prompts y los insumos de práctica.</p>
+    </div>
+  </section>
+
+  <!-- 2 encuadre statement -->
+  <section class="slide" data-stage="Encuadre">
+    <div class="slide-inner">
+      <div class="eyebrow">La regla de oro</div>
+      <p class="statement">Hoy <span class="gold">no hacemos diapositivas</span>. Aprendemos a pensar antes de diseñar.</p>
+      <p class="attrib">Si entra ambigüedad, sale ruido bonito. La IA solo amplifica lo que tú ya decidiste.</p>
+    </div>
+  </section>
+
+  <!-- 3 el problema -->
+  <section class="slide" data-stage="El problema">
+    <div class="slide-inner">
+      <div class="eyebrow">Por qué fallan tantas presentaciones</div>
+      <h2>El error no es la herramienta. Es el orden.</h2>
+      <div class="ba">
+        <div class="before"><span class="lbl">Lo que casi todos hacen</span><p>Abren el editor, eligen plantilla y empiezan a poner texto y gráficos. El mensaje aparece (o no) al final.</p></div>
+        <div class="after"><span class="lbl">Lo que hace la diferencia</span><p>Primero deciden objetivo, audiencia y mensaje. El diseño llega cuando ya hay algo claro que mostrar.</p></div>
+      </div>
+      <p style="margin-top:1.1rem">Una presentación ejecutiva empieza en <em>claridad</em>, no en diapositivas.</p>
+    </div>
+  </section>
+
+  <!-- 4 objetivo de la sesion -->
+  <section class="slide" data-stage="Objetivo de hoy">
+    <div class="slide-inner">
+      <div class="eyebrow">Qué te llevas hoy</div>
+      <h2>Al salir de esta sesión podrás…</h2>
+      <ul class="big-list">
+        <li><span class="n">1</span><div>Definir el <strong>objetivo</strong> y la <strong>decisión</strong> que tu presentación debe facilitar.</div></li>
+        <li><span class="n">2</span><div>Convertir insumos desordenados en un <strong>mensaje central</strong> de una frase.</div></li>
+        <li><span class="n">3</span><div>Estructurar una <strong>narrativa ejecutiva</strong> que conduzca a una decisión.</div></li>
+        <li><span class="n">4</span><div>Usar la IA en <strong>tres niveles de prompt</strong> según tu apetito de control.</div></li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- 5 mapa 6 pasos -->
+  <section class="slide" data-stage="El método">
+    <div class="slide-inner">
+      <div class="eyebrow">El mapa</div>
+      <h2>Seis pasos, una idea a la vez.</h2>
+      <div class="cards c3">
+        <div class="card"><div class="ico"><i data-lucide="target"></i></div><b>1 · Objetivo</b><p>Qué debe lograr la presentación.</p></div>
+        <div class="card"><div class="ico"><i data-lucide="users"></i></div><b>2 · Audiencia</b><p>Quién decide y qué decide.</p></div>
+        <div class="card"><div class="ico"><i data-lucide="layers"></i></div><b>3 · Insumos</b><p>Ideas, datos, dudas, vacíos.</p></div>
+        <div class="card"><div class="ico"><i data-lucide="message-square-quote"></i></div><b>4 · Mensaje</b><p>La tesis central en una frase.</p></div>
+        <div class="card"><div class="ico"><i data-lucide="route"></i></div><b>5 · Narrativa</b><p>Orden con propósito.</p></div>
+        <div class="card"><div class="ico"><i data-lucide="megaphone"></i></div><b>6 · Cierre</b><p>Títulos, argumentos y acción.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- principio orquestación -->
+  <section class="slide" data-stage="Principio">
+    <div class="slide-inner">
+      <div class="eyebrow">El principio que sostiene el método</div>
+      <h2>Tú diriges, la IA escala.</h2>
+      <div class="cards c2">
+        <div class="card"><div class="ico"><i data-lucide="user-check"></i></div><b>El humano dirige</b><p>Intención, criterio, rumbo, auditoría y aprobación. Tu criterio es el diferenciador.</p></div>
+        <div class="card"><div class="ico"><i data-lucide="cpu"></i></div><b>La IA procesa</b><p>Velocidad y escala. Asegura el <em>output</em>; tú aseguras el <em>outcome</em>.</p></div>
+      </div>
+      <p style="margin-top:1.1rem"><strong>El loop:</strong> Define → la IA asiste → tú validas → mides. Nunca al revés.</p>
+    </div>
+  </section>
+
+  <!-- 6 paso 1 -->
+  <section class="slide" data-stage="Paso 1">
+    <div class="slide-inner">
+      <div class="step-head"><div class="step-num">1</div><div><h2 style="margin:0">Definir el objetivo</h2><p style="margin:.2rem 0 0">Antes de cualquier diapositiva, decide qué quieres lograr.</p></div></div>
+      <div class="step-cols">
+        <div class="step-box"><span class="lbl">Qué haces</span><p>Decides qué debe lograr la presentación y qué decisión facilita.</p></div>
+        <div class="step-box"><span class="lbl">Qué adjuntas</span><p>Briefing, correo, agenda, informe o idea inicial.</p></div>
+        <div class="step-box"><span class="lbl">Salida</span><p>Objetivo claro, verificable y útil para decidir.</p></div>
+      </div>
+      <div class="ba">
+        <div class="before"><span class="lbl">Antes</span><p>"Quiero hablar de automatización con el comité."</p></div>
+        <div class="after"><span class="lbl">Después</span><p>"Que el comité apruebe un piloto de 6 semanas y su presupuesto."</p></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 7 paso 2 -->
+  <section class="slide" data-stage="Paso 2">
+    <div class="slide-inner">
+      <div class="step-head"><div class="step-num">2</div><div><h2 style="margin:0">Aclarar audiencia, intención y decisión</h2><p style="margin:.2rem 0 0">La misma información se cuenta distinto según quién escucha.</p></div></div>
+      <div class="step-cols">
+        <div class="step-box"><span class="lbl">Qué haces</span><p>Entiendes quién escucha y qué debe poder hacer al final.</p></div>
+        <div class="step-box"><span class="lbl">Qué adjuntas</span><p>Perfil de audiencia, contexto, convocatoria o acta previa.</p></div>
+        <div class="step-box"><span class="lbl">Salida</span><p>Mapa de audiencia, intención, decisión y preocupaciones.</p></div>
+      </div>
+      <div class="ba">
+        <div class="before"><span class="lbl">Antes</span><p>Asume que les entusiasma la tecnología y prepara una demo.</p></div>
+        <div class="after"><span class="lbl">Después</span><p>Sabe que deciden por costo, tiempo y riesgo; su miedo es interrumpir la operación.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 8 paso 3 -->
+  <section class="slide" data-stage="Paso 3">
+    <div class="slide-inner">
+      <div class="step-head"><div class="step-num">3</div><div><h2 style="margin:0">Ordenar insumos</h2><p style="margin:.2rem 0 0">Separa evidencia de opinión antes de construir.</p></div></div>
+      <div class="step-cols">
+        <div class="step-box"><span class="lbl">Qué haces</span><p>Separas ideas, datos, dudas y material accesorio.</p></div>
+        <div class="step-box"><span class="lbl">Qué adjuntas</span><p>Informe, notas, tabla, propuesta, captura o borrador.</p></div>
+        <div class="step-box"><span class="lbl">Salida</span><p>Inventario ordenado de ideas, evidencia y vacíos.</p></div>
+      </div>
+      <div class="ba">
+        <div class="before"><span class="lbl">Antes</span><p>12 diapositivas con capturas y una lista de funciones.</p></div>
+        <div class="after"><span class="lbl">Después</span><p>3 datos duros, 1 supuesto marcado y 1 dato por confirmar.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 9 paso 4 -->
+  <section class="slide" data-stage="Paso 4">
+    <div class="slide-inner">
+      <div class="step-head"><div class="step-num">4</div><div><h2 style="margin:0">Formular el mensaje central</h2><p style="margin:.2rem 0 0">Si no cabe en una frase, no cabe en la cabeza de tu audiencia.</p></div></div>
+      <div class="step-cols">
+        <div class="step-box"><span class="lbl">Qué haces</span><p>Conviertes los insumos en una tesis clara y defendible.</p></div>
+        <div class="step-box"><span class="lbl">Qué adjuntas</span><p>Objetivo, audiencia, decisión e insumos ordenados.</p></div>
+        <div class="step-box"><span class="lbl">Salida</span><p>Mensaje central y soportes principales.</p></div>
+      </div>
+      <div class="ba">
+        <div class="before"><span class="lbl">Antes</span><p>"La automatización es el futuro de la operación."</p></div>
+        <div class="after"><span class="lbl">Después</span><p>"Automatizar el reporte libera ~40 h/mes; pido aprobar un piloto de 6 semanas."</p></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 10 paso 5 -->
+  <section class="slide" data-stage="Paso 5">
+    <div class="slide-inner">
+      <div class="step-head"><div class="step-num">5</div><div><h2 style="margin:0">Construir narrativa y estructura</h2><p style="margin:.2rem 0 0">La estructura es un argumento, no una lista de slides.</p></div></div>
+      <div class="step-cols">
+        <div class="step-box"><span class="lbl">Qué haces</span><p>Decides el orden de secciones con propósito.</p></div>
+        <div class="step-box"><span class="lbl">Qué adjuntas</span><p>Mensaje, soportes, duración, formato y restricciones.</p></div>
+        <div class="step-box"><span class="lbl">Salida</span><p>Secuencia con propósito, evidencia y transición.</p></div>
+      </div>
+      <p style="margin-top:1.1rem"><strong>Secuencia ejecutiva:</strong> situación → costo del status quo → propuesta → qué se arriesga y qué no → <span class="gold">decisión solicitada</span>.</p>
+    </div>
+  </section>
+
+  <!-- 11 paso 6 -->
+  <section class="slide" data-stage="Paso 6">
+    <div class="slide-inner">
+      <div class="step-head"><div class="step-num">6</div><div><h2 style="margin:0">Títulos, argumentos y llamado a la acción</h2><p style="margin:.2rem 0 0">La gente recuerda los títulos y el cierre.</p></div></div>
+      <div class="ba">
+        <div class="before"><span class="lbl">Antes</span><p>Título: "Resultados". Cierre: "Gracias, ¿preguntas?".</p></div>
+        <div class="after"><span class="lbl">Después</span><p>Título: "El reporte manual nos cuesta 40 horas al mes". Cierre: "Pido aprobar hoy el piloto; coordino el arranque el lunes."</p></div>
+      </div>
+      <p style="margin-top:1.1rem">Un buen llamado a la acción tiene <em>verbo</em>, <em>objeto</em> y <em>fecha</em>.</p>
+    </div>
+  </section>
+
+  <!-- 12 niveles de prompt -->
+  <section class="slide" data-stage="Prompts">
+    <div class="slide-inner">
+      <div class="eyebrow">Tres niveles, según tu apetito de control</div>
+      <h2>El mismo paso, tres formas de pedirlo.</h2>
+      <table class="ltable">
+        <thead><tr><th>Nivel</th><th>Cuándo</th><th>Su ventaja</th><th>El cuidado</th></tr></thead>
+        <tbody>
+          <tr><td>Natural<br>sin parámetros</td><td><p>Vas rápido o aún no tienes contexto.</p></td><td><p>Arrancas en segundos; la IA te pregunta.</p></td><td><p>Sale genérico si no respondes.</p></td></tr>
+          <tr><td>Natural<br>con campos</td><td><p>Ya tienes el contexto a la mano.</p></td><td><p>Respuesta a tu medida sin sintaxis nueva.</p></td><td><p>Un campo vago sesga todo.</p></td></tr>
+          <tr><td>SPEC<br>MetodologIA</td><td><p>Repites el proceso o necesitas precisión.</p></td><td><p>Reproducible, auditable y exigente.</p></td><td><p>Más largo: úsalo cuando lo vale.</p></td></tr>
+        </tbody>
+      </table>
+    </div>
+  </section>
+
+  <!-- 13 spec anatomy -->
+  <section class="slide" data-stage="SPEC">
+    <div class="slide-inner">
+      <div class="eyebrow">La anatomía de un SPEC MetodologIA</div>
+      <h2>Cinco campos, resultados reproducibles.</h2>
+      <div class="spec" id="specBlock">
+        <button class="btn-copy copy-spec" data-target="specText"><i data-lucide="copy"></i> Copiar</button>
+        <div id="specText"><span class="k">Rol:</span> Actúa como facilitador de presentaciones ejecutivas.
+<span class="k">Situación:</span> Preparo una presentación sobre {[TEMA]} para {[AUDIENCIA]}.
+<span class="k">Pedido:</span> Define el objetivo, la decisión a facilitar y el criterio de éxito.
+<span class="k">Ejecución:</span> Identifica vacíos, pide máximo 3 datos críticos y propón 2 objetivos.
+<span class="k">Criterios:</span> Específico, verificable, conectado con la audiencia y útil para decidir.</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 14 caso -->
+  <section class="slide" data-stage="Caso guía">
+    <div class="slide-inner">
+      <div class="eyebrow">Caso guía · Laura, líder de operaciones</div>
+      <h2>Un mismo caso, antes y después del método.</h2>
+      <div class="ba">
+        <div class="before"><span class="lbl">Sin método</span><p>Demo de la herramienta, 12 slides de funciones, cierre con "gracias". El comité no sabe qué se le pide.</p></div>
+        <div class="after"><span class="lbl">Con método</span><p>Objetivo claro, mensaje en una frase, narrativa que cuesta-beneficia y una decisión concreta: aprobar el piloto hoy.</p></div>
+      </div>
+      <p style="margin-top:1.1rem">No cambió la herramienta. Cambió <em>la materia prima</em> que Laura le dio a la IA en cada paso.</p>
+    </div>
+  </section>
+
+  <!-- 15 adjuntos -->
+  <section class="slide" data-stage="Contexto">
+    <div class="slide-inner">
+      <div class="eyebrow">Con o sin adjuntos</div>
+      <h2>La IA trabaja mejor cuando ve el contexto correcto.</h2>
+      <div class="cards c3">
+        <div class="card"><div class="ico"><i data-lucide="file-text"></i></div><b>Si tienes adjuntos</b><p>Sube informe, correo, propuesta o captura. Pide que los use solo como contexto.</p></div>
+        <div class="card"><div class="ico"><i data-lucide="message-circle-question"></i></div><b>Si no tienes</b><p>Usa el prompt natural: la IA debe preguntarte antes de construir.</p></div>
+        <div class="card"><div class="ico"><i data-lucide="repeat"></i></div><b>Si no sirve</b><p>No empieces de cero: aclara audiencia, tono y criterio, y pide otra versión.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 16 rubrica -->
+  <section class="slide" data-stage="Calidad">
+    <div class="slide-inner">
+      <div class="eyebrow">Rúbrica · ¿quedó claro?</div>
+      <h2>Antes de presentar, revisa estas seis.</h2>
+      <ul class="big-list">
+        <li><span class="n">1</span><div>El título adelanta la idea, no solo nombra el tema.</div></li>
+        <li><span class="n">2</span><div>Cualquiera en la sala sabría qué decisión se le pide.</div></li>
+        <li><span class="n">3</span><div>Cada afirmación tiene evidencia o un supuesto marcado.</div></li>
+        <li><span class="n">4</span><div>La presentación se resume en una sola frase.</div></li>
+        <li><span class="n">5</span><div>El cierre pide una acción con responsable y fecha.</div></li>
+        <li><span class="n">6</span><div>Quitaste todo lo que no ayuda a entender, decidir o actuar.</div></li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- 17 clinica -->
+  <section class="slide" data-stage="Clínica">
+    <div class="slide-inner">
+      <div class="eyebrow">Practiquemos</div>
+      <p class="statement">Trae un <span class="gold">borrador imperfecto</span>. Es más útil que esperar al definitivo.</p>
+      <p class="attrib">Lleva: el prompt que usaste, la respuesta de la IA y tu duda concreta.</p>
+    </div>
+  </section>
+
+  <!-- 18 recursos -->
+  <section class="slide" data-stage="Recursos">
+    <div class="slide-inner">
+      <div class="eyebrow">Para seguir practicando</div>
+      <h2>Recursos del workshop.</h2>
+      <div class="res-grid">
+        <a href="https://meet.google.com/hfe-fcvb-kwf" target="_blank" rel="noopener noreferrer"><i data-lucide="video"></i> Meet del workshop</a>
+        <a href="https://drive.google.com/drive/u/0/folders/1QlOa6Idtdf3wpVIV5expRgi7qag-EMr_" target="_blank" rel="noopener noreferrer"><i data-lucide="folder-open"></i> Drive de memorias</a>
+        <a href="https://chatgpt.com/g/g-68f4434cf0348191a569cf526fa53654-prompting" target="_blank" rel="noopener noreferrer"><i data-lucide="bot"></i> Asistente de prompts</a>
+        <a href="cartilla-chatgpt-basico.html"><i data-lucide="message-square"></i> Cartilla · ChatGPT</a>
+        <a href="cartilla-gemini-basico.html"><i data-lucide="sparkles"></i> Cartilla · Gemini</a>
+        <a href="cartilla-claude-basico.html"><i data-lucide="bot"></i> Cartilla · Claude</a>
+        <a href="cartilla-notebooklm-basico.html"><i data-lucide="notebook-pen"></i> Cartilla · NotebookLM</a>
+        <a href="workbook-presentacion-ejecutiva-ia.html"><i data-lucide="book-open"></i> Workbook completo</a>
+        <a href="biblioteca-prompts-presentacion-ejecutiva.html"><i data-lucide="library"></i> Biblioteca de prompts</a>
+        <a href="deck-presentacion-ejecutiva-ia-1h.html"><i data-lucide="timer"></i> Versión 1 hora</a>
+        <a href="https://drive.google.com/drive/u/0/folders/1pmxhe6O_RQPeGIgAzqKcCA24QVM5LZXI" target="_blank" rel="noopener noreferrer"><i data-lucide="folder-open"></i> Insumos de práctica</a>
+        <a href="https://forms.gle/FHBtHmbvh7LqiAKD9" target="_blank" rel="noopener noreferrer"><i data-lucide="calendar-plus"></i> Más talleres</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- 19 cierre -->
+  <section class="slide" data-stage="Cierre">
+    <div class="slide-inner">
+      <div class="cover-mark"><span class="dot"></span> Metodolog<span class="ia">IA</span></div>
+      <div class="accent-bar"></div>
+      <p class="statement"><span class="gold">Claridad</span> antes que diapositivas.<br>Criterio antes que herramienta.</p>
+      <p class="attrib">Gracias. Lleva una pieza a la clínica y sigue practicando esta semana.</p>
+    </div>
+  </section>
+
+</div>
+
+<div class="counter" id="counter"><b>01</b> / 21</div>
+<div class="hint">← → para navegar · F pantalla completa</div>
+<div class="ctrl">
+  <button id="prev" aria-label="Anterior"><i data-lucide="chevron-left"></i></button>
+  <button id="fs" aria-label="Pantalla completa"><i data-lucide="maximize"></i></button>
+  <button id="next" aria-label="Siguiente"><i data-lucide="chevron-right"></i></button>
+</div>
+
+<script>
+  const slides = Array.from(document.querySelectorAll('.slide'));
+  const total = slides.length;
+  let i = 0;
+  const progress = document.getElementById('progress');
+  const counter = document.getElementById('counter');
+  const meta = () => slides[i].dataset.stage || '';
+
+  function pad(n){ return String(n).padStart(2,'0'); }
+  function render(){
+    slides.forEach((s,idx)=>s.classList.toggle('active', idx===i));
+    progress.style.width = ((i+1)/total*100) + '%';
+    counter.innerHTML = '<b>'+pad(i+1)+'</b> / '+pad(total);
+    if (window.lucide) window.lucide.createIcons();
+    history.replaceState(null,'','#'+(i+1));
+  }
+  function go(n){ i = Math.max(0, Math.min(total-1, n)); render(); }
+  const next = ()=>go(i+1), prev = ()=>go(i-1);
+
+  document.getElementById('next').addEventListener('click', next);
+  document.getElementById('prev').addEventListener('click', prev);
+  document.getElementById('fs').addEventListener('click', ()=>{
+    if(!document.fullscreenElement){ document.documentElement.requestFullscreen?.(); }
+    else { document.exitFullscreen?.(); }
+  });
+
+  document.addEventListener('keydown', (e)=>{
+    if(['ArrowRight','PageDown',' '].includes(e.key)){ e.preventDefault(); next(); }
+    else if(['ArrowLeft','PageUp'].includes(e.key)){ e.preventDefault(); prev(); }
+    else if(e.key==='Home'){ go(0); }
+    else if(e.key==='End'){ go(total-1); }
+    else if(e.key==='f'||e.key==='F'){ document.getElementById('fs').click(); }
+  });
+
+  // touch swipe
+  let x0=null;
+  document.addEventListener('touchstart',e=>{ x0=e.touches[0].clientX; },{passive:true});
+  document.addEventListener('touchend',e=>{
+    if(x0===null) return;
+    const dx = e.changedTouches[0].clientX - x0;
+    if(Math.abs(dx)>50){ dx<0 ? next() : prev(); }
+    x0=null;
+  },{passive:true});
+
+  // copy SPEC
+  document.querySelectorAll('.btn-copy').forEach(btn=>{
+    btn.addEventListener('click', async ()=>{
+      const el = document.getElementById(btn.dataset.target);
+      const text = el ? el.innerText.trim() : '';
+      try{ await navigator.clipboard.writeText(text); }catch(_){}
+      const old = btn.innerHTML;
+      btn.innerHTML = '<i data-lucide="check"></i> Copiado';
+      if(window.lucide) window.lucide.createIcons();
+      setTimeout(()=>{ btn.innerHTML = old; if(window.lucide) window.lucide.createIcons(); }, 1400);
+    });
+  });
+
+  // deep link start
+  const start = parseInt((location.hash||'').replace('#',''),10);
+  if(!isNaN(start) && start>=1 && start<=total) i = start-1;
+  window.addEventListener('load', ()=>{ if(window.lucide) window.lucide.createIcons(); render(); });
+  render();
+</script>
+</body>
+</html>
