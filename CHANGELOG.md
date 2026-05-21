@@ -14,6 +14,7 @@
 | Playbook Aprender · Aprehender · (R)Evolucionar | HTML editorial | `playbook-aprender-aprehender-revolucionar-2026.html` | v2.0 (2026-04-29) |
 | Playbook Prompting Universal · Essentials | HTML didáctico | `playbook-prompting-universal-2026-essentials.html` | 2026 |
 | Playbook Prompting Universal · Completo | HTML editorial | `playbook-prompting-universal-2026.html` | 2026 |
+| Programa de Empoderamiento · IA que esta pasando y como sacarle provecho | Hub publico PII-safe | `programa-empoderamiento/ia-sacarle-provecho-202605/` | 2026-05 |
 | JSON canónico de prompts | Datos | `prompts_universales_v3000.json` | v3.0 |
 | JSON minificado | Datos | `prompts_universales_v3000.min.json` | v3.0 |
 | Bundle Prompster | Datos | `prompts_universales_v2026_prompster.json` | 2026 |
@@ -22,6 +23,36 @@
 ---
 
 ## 📋 Historial de cambios
+
+## [1.4.0] · 2026-05-21 · Publicacion PII-safe del ciclo IA sacarle provecho 2026-05
+
+**Tipo**: paquete publico del Programa de Empoderamiento
+**Editor**: MetodologIA
+**License**: CC BY-NC-SA 4.0
+
+Publicacion curada del ciclo "IA, que esta pasando y como sacarle provecho" bajo `programa-empoderamiento/ia-sacarle-provecho-202605/`.
+
+### Estructura entregada
+
+| Archivo | Funcion |
+|---|---|
+| `index.html` | Hub publico del ciclo. |
+| `memorias-masterclass-ia-sacarle-provecho-20260519.html` | Memoria PII-safe de la masterclass. |
+| `deck-masterclass-ia-sacarle-provecho-1h-20260519.html` | Deck v2 de 1 hora. |
+| `memorias-workshop-ia-sacarle-provecho-20260520.html` | Memoria PII-safe del workshop. |
+| `workbook-presentacion-ejecutiva-ia.html` | Workbook de presentacion ejecutiva con IA. |
+| `biblioteca-prompts-presentacion-ejecutiva.html` | Biblioteca HTML de prompts. |
+| `deck-presentacion-ejecutiva-ia.html` y `deck-presentacion-ejecutiva-ia-1h.html` | Decks de facilitacion. |
+| `cartilla-*-basico.html` | Cartillas para ChatGPT, Gemini, Claude y NotebookLM. |
+| `prompts-presentacion-ejecutiva.json` | Fuente JSON de prompts. |
+| `manifest-publicacion.json` y `validation-publicacion.md` | Hashes SHA-256 y evidencia de validacion. |
+
+### Verificaciones
+
+- Cero rutas locales del equipo, carpetas de descarga o URLs de archivo local.
+- Logo MetodologIA publicado como asset PNG local del paquete.
+- Memoria del workshop con ChatGPT `?prompt=`, Gemini y Claude con copia de prompt.
+- GitHub Pages no estaba activo al validar; el paquete queda listo para activacion posterior.
 
 ## [1.3.0] · 2026-05-04 · Skill metodologia-content-forge v1.0.0 (forja de contenido brand-compliant)
 
@@ -59,7 +90,7 @@ Skill análoga a `sofka-ui-pro-max` pero **MetodologIA-only**, para resolver "me
 
 ### Bundle
 
-`~/Downloads/metodologia-content-forge-v1.0.0.skill` · ~48 KB
+Bundle local `metodologia-content-forge-v1.0.0.skill` · ~48 KB
 
 ### Detalles completos
 

@@ -1,0 +1,242 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="color-scheme" content="light dark">
+<meta name="theme-color" content="#122562">
+<title>Cartilla básica · Claude | MetodologIA</title>
+<meta name="description" content="Cartilla básica de Claude: qué es, cómo empezar, interfaz, primer prompt, adjuntar archivos, límites y cómo vivir el workshop de presentación ejecutiva en Claude. MetodologIA.">
+<link rel="icon" type="image/png" href="assets/metodologia_logo_primary.png">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&family=Poppins:wght@700;800&display=swap">
+<script src="https://unpkg.com/lucide@0.469.0/dist/umd/lucide.js" defer></script>
+<style>
+:root{--navy:#122562;--navy-2:#1A3580;--navy-deep:#0A122A;--gold:#FFD700;--gold-dark:#8A6400;--blue:#137DC5;--lilac:#BBA0CC;
+--paper:#F9FAFB;--soft:#F0F0EC;--card:rgba(255,255,255,.94);--text:#1F2833;--text-sec:#4A5568;--text-muted:#697386;
+--line:rgba(18,37,98,.12);--glass-bg:rgba(255,255,255,.86);--shadow:0 1px 3px rgba(0,0,0,.04),0 12px 30px rgba(18,37,98,.08);
+--shadow-glow:0 2px 20px rgba(18,37,98,.08);--font-head:"Poppins",system-ui,sans-serif;--font-body:"Montserrat",system-ui,sans-serif;
+--font-note:"Trebuchet MS",sans-serif;--radius-md:8px;--radius-lg:20px;--sidebar:56px;}
+html.dark{--paper:#0B2545;--soft:#071A33;--card:rgba(11,37,69,.68);--text:#F8FAFC;--text-sec:#CBD5E1;--text-muted:#94A3B8;
+--line:rgba(255,215,0,.16);--glass-bg:rgba(11,37,69,.88);--gold-dark:#FCD34D;--shadow:0 1px 3px rgba(0,0,0,.22),0 12px 30px rgba(0,0,0,.32);}
+*{box-sizing:border-box}html{scroll-behavior:smooth;scroll-padding-top:20px}
+body{margin:0;color:var(--text);background:var(--paper);font-family:var(--font-body);font-size:17px;line-height:1.66}
+a{color:inherit}:focus-visible{outline:2px solid var(--gold);outline-offset:3px}
+.progress{position:fixed;inset:0 auto auto 0;height:4px;width:0;background:linear-gradient(90deg,var(--gold),var(--blue),var(--lilac));z-index:200}
+.sidebar-nav{position:fixed;top:0;left:0;bottom:0;width:var(--sidebar);z-index:100;display:flex;flex-direction:column;align-items:center;gap:2px;padding:1.25rem 0 1rem;background:var(--glass-bg);backdrop-filter:blur(16px);-webkit-backdrop-filter:blur(16px);border-right:1px solid var(--line)}
+.sidebar-logo{display:flex;align-items:center;justify-content:center;margin-bottom:1rem;padding-bottom:.75rem;border-bottom:1px solid var(--line)}
+.sidebar-logo img{width:32px;height:32px;border-radius:6px}
+.sidebar-links{display:flex;flex:1;flex-direction:column;justify-content:center;align-items:center;gap:2px}
+.sidebar-nav a{position:relative;display:flex;align-items:center;justify-content:center;width:40px;height:40px;border-radius:10px;color:var(--gold-dark);text-decoration:none;border:1px solid transparent;transition:all .25s}
+.sidebar-nav a:hover,.sidebar-nav a.active{color:var(--navy);background:rgba(184,134,11,.08);border-color:rgba(184,134,11,.22);transform:scale(1.08)}
+html.dark .sidebar-nav a:hover,html.dark .sidebar-nav a.active{color:var(--gold);background:rgba(255,215,0,.08);border-color:rgba(255,215,0,.18)}
+.sidebar-nav a.active::before{content:"";position:absolute;left:0;top:50%;transform:translateY(-50%);width:3px;height:20px;border-radius:0 2px 2px 0;background:var(--gold)}
+.sidebar-nav a svg{width:20px;height:20px}
+.sidebar-nav a::after{content:attr(data-label);position:absolute;left:calc(100% + 10px);top:50%;transform:translateY(-50%) translateX(-4px);background:var(--navy);color:#fff;font-family:var(--font-head);font-size:.7rem;font-weight:700;padding:.35rem .7rem;border-radius:6px;white-space:nowrap;opacity:0;pointer-events:none;transition:opacity .2s,transform .2s}
+.sidebar-nav a:hover::after{opacity:1;transform:translateY(-50%) translateX(0)}
+.sidebar-bottom{display:flex;flex-direction:column;align-items:center;gap:6px;margin-top:auto;padding-top:.75rem;border-top:1px solid var(--line)}
+.sidebar-bottom button{width:34px;height:34px;border-radius:8px;border:1px solid transparent;background:transparent;color:var(--gold-dark);cursor:pointer;display:flex;align-items:center;justify-content:center}
+.sidebar-bottom button:hover{background:rgba(184,134,11,.08);color:var(--navy);border-color:rgba(184,134,11,.22)}
+main{padding-left:var(--sidebar)}
+header,section,footer{padding:clamp(2.6rem,5vw,4.4rem) clamp(1.15rem,5vw,4rem)}
+.wrap{max-width:1080px;margin:0 auto}
+.hero{color:#fff;position:relative;background:radial-gradient(circle at 84% 18%,rgba(255,215,0,.18),transparent 30%),linear-gradient(135deg,var(--navy),#1F2833);overflow:hidden}
+.hero::after{content:"";position:absolute;inset:auto 0 0 0;height:8px;background:linear-gradient(90deg,var(--gold),var(--blue),var(--lilac),var(--gold))}
+.wordmark{display:inline-flex;align-items:baseline;font-family:var(--font-head);font-weight:800;line-height:1;color:#fff}
+.wordmark .ia{color:var(--gold)}
+.eyebrow{display:inline-flex;align-items:center;gap:.5rem;margin-bottom:1.1rem;padding:.42rem .72rem;border-radius:999px;border:1px solid rgba(255,215,0,.32);background:rgba(255,215,0,.08);color:var(--gold);font-family:var(--font-note);font-size:.75rem;font-weight:800;letter-spacing:.08em;text-transform:uppercase}
+.eyebrow svg{width:17px;height:17px}
+h1{margin:0;font-family:var(--font-head);font-size:clamp(2.1rem,5vw,3.7rem);line-height:1.06}
+h2{color:var(--text);font-family:var(--font-head);font-size:clamp(1.6rem,4vw,2.5rem);border-left:8px solid var(--gold);padding-left:1.2rem;margin:0 0 1rem}
+html.dark h2{color:#fff}
+h3{font-family:var(--font-head);font-size:1.12rem;color:var(--text);margin:0 0 .2rem}
+html.dark h3{color:#fff}
+p{margin:0;color:var(--text-sec)}
+.hero p{color:rgba(255,255,255,.88)}
+.hero-copy{max-width:760px;margin-top:1rem;font-size:clamp(1.02rem,2vw,1.2rem)}
+.section-head{max-width:820px;margin-bottom:1.5rem;display:grid;gap:.6rem}
+.chip{display:inline-flex;align-items:center;gap:.45rem;width:max-content;padding:.35rem .62rem;border-radius:999px;background:rgba(255,215,0,.1);border:1px solid rgba(255,215,0,.26);color:var(--gold-dark);font-family:var(--font-note);font-size:.72rem;font-weight:800;letter-spacing:.1em;text-transform:uppercase}
+.chip svg{width:16px;height:16px}
+.soft{background:var(--soft)}
+.actions{display:flex;flex-wrap:wrap;gap:.6rem;margin-top:1.3rem}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:.5rem;min-height:44px;padding:.62rem .95rem;border-radius:var(--radius-md);border:1px solid transparent;font-weight:700;font-size:.88rem;text-decoration:none;cursor:pointer;font-family:var(--font-body);transition:transform .2s,box-shadow .2s}
+.btn:hover{transform:translateY(-1px);box-shadow:var(--shadow-glow)}
+.btn svg{width:17px;height:17px}
+.btn-primary{background:var(--gold);color:var(--navy)}
+.btn-secondary{background:rgba(255,255,255,.1);color:#fff;border-color:rgba(255,255,255,.26)}
+.btn-dark{background:var(--navy);color:#fff}
+.btn-light{background:#fff;color:var(--navy);border-color:var(--line)}
+html.dark .btn-light{background:rgba(255,255,255,.1);color:#fff}
+.grid-2{display:grid;grid-template-columns:1fr 1fr;gap:1rem}
+.grid-3{display:grid;grid-template-columns:repeat(3,1fr);gap:1rem}
+.card{background:var(--card);border:1px solid var(--line);border-radius:var(--radius-lg);box-shadow:var(--shadow);padding:1.1rem 1.2rem;display:grid;gap:.45rem}
+.card .ico{width:42px;height:42px;display:grid;place-items:center;border-radius:var(--radius-md);color:var(--navy);background:linear-gradient(135deg,rgba(255,215,0,.48),rgba(19,125,197,.14))}
+html.dark .card .ico{color:var(--gold)}
+.card .ico svg{width:21px;height:21px}
+.card p{font-size:.96rem}
+.steps{display:grid;gap:.6rem}
+.stepline{display:grid;grid-template-columns:34px 1fr;gap:.7rem;align-items:start;background:var(--card);border:1px solid var(--line);border-radius:var(--radius-md);padding:.75rem .9rem}
+.stepline .n{width:34px;height:34px;display:grid;place-items:center;border-radius:9px;background:var(--navy);color:var(--gold);font-family:var(--font-head);font-weight:800;font-size:.85rem}
+.stepline b{color:var(--text)}
+html.dark .stepline b{color:#fff}
+.stepline p{font-size:.95rem}
+.bullets{margin:.2rem 0 0;padding-left:1.15rem;color:var(--text-sec)}
+.bullets li{margin-bottom:.4rem}
+.bullets strong{color:var(--text)}
+html.dark .bullets strong{color:#fff}
+.lead-card{display:grid;gap:.5rem;padding:1.1rem 1.2rem;border-radius:var(--radius-lg);border:1px solid var(--line);border-left:5px solid var(--gold);background:linear-gradient(135deg,rgba(255,215,0,.08),rgba(19,125,197,.05))}
+.lead-card p{color:var(--text)}
+.warn{border-left-color:var(--blue);background:linear-gradient(135deg,rgba(19,125,197,.08),rgba(19,125,197,.03))}
+.copy-content{white-space:pre-wrap;overflow-x:auto;margin:.2rem 0 0;padding:1rem;background:#101827;color:#F8FAFC;border-radius:var(--radius-md);font-size:.9rem;line-height:1.55;font-family:ui-monospace,Menlo,monospace}
+.toolbar{display:flex;gap:.45rem;flex-wrap:wrap;margin-top:.6rem}
+.resource-card{display:flex;align-items:center;justify-content:space-between;gap:1rem;min-height:54px;padding:.8rem 1rem;border-radius:var(--radius-md);border:1px solid var(--line);background:var(--card);text-decoration:none;font-weight:700;color:var(--text);box-shadow:var(--shadow-glow)}
+.resource-card:hover{border-color:rgba(255,215,0,.6);transform:translateY(-1px)}
+.resource-card span{display:inline-flex;align-items:center;gap:.55rem;min-width:0}
+.resource-card svg{width:18px;height:18px;flex-shrink:0}.resource-card span svg{color:var(--gold-dark)}
+html.dark .resource-card span svg{color:var(--gold)}
+.switch{display:flex;flex-wrap:wrap;gap:.4rem;margin-top:1.2rem}
+.switch a{display:inline-flex;align-items:center;gap:.4rem;padding:.4rem .8rem;border-radius:999px;border:1px solid rgba(255,255,255,.26);background:rgba(255,255,255,.08);color:#fff;text-decoration:none;font-size:.82rem;font-weight:700}
+.switch a.cur{background:var(--gold);color:var(--navy);border-color:var(--gold)}
+.switch a svg{width:15px;height:15px}
+footer{background:var(--navy-deep);color:#fff}
+footer p{color:rgba(255,255,255,.72)}
+.footer-grid{display:grid;gap:.5rem;max-width:1080px;margin:0 auto}
+.footer-grid a{color:#fff;text-decoration:none;display:inline-flex;gap:.4rem;align-items:center;font-weight:700}
+.footer-grid a:hover{color:var(--gold)}
+@media (max-width:900px){.grid-3,.grid-2{grid-template-columns:1fr}}
+@media (max-width:720px){
+ .sidebar-nav{top:auto;bottom:0;left:0;right:0;width:100%;height:56px;flex-direction:row;padding:0 .5rem;border-right:0;border-top:1px solid var(--line)}
+ .sidebar-logo{display:none}.sidebar-links{flex-direction:row;justify-content:space-around;width:100%;overflow-x:auto}
+ .sidebar-links a{width:36px;height:36px;min-height:44px;min-width:44px}.sidebar-nav a::after{display:none}
+ .sidebar-bottom{flex-direction:row;margin-top:0;padding-top:0;border-top:0;margin-left:.4rem}
+ main{padding-left:0;padding-bottom:62px}header,section,footer{padding:2.2rem 1rem}.btn{width:auto}
+}
+@media print{.sidebar-nav,.progress,.toolbar,.actions,.switch{display:none!important}main{padding-left:0!important}.card,.lead-card{box-shadow:none}}
+</style>
+</head>
+<body>
+<div class="progress" id="progress"></div>
+<nav class="sidebar-nav" aria-label="Navegación principal">
+  <a class="sidebar-logo" href="https://metodologia.info" target="_blank" rel="noopener noreferrer" aria-label="MetodologIA"><img src="assets/metodologia_logo_primary.png" alt="Logo MetodologIA"></a>
+  <div class="sidebar-links">
+    <a href="#inicio" data-label="Inicio" aria-label="Inicio"><i data-lucide="home"></i></a>
+    <a href="#que-es" data-label="Qué es" aria-label="Qué es"><i data-lucide="help-circle"></i></a>
+    <a href="#empezar" data-label="Empezar" aria-label="Empezar"><i data-lucide="log-in"></i></a>
+    <a href="#usar" data-label="Usar" aria-label="Usar"><i data-lucide="mouse-pointer-click"></i></a>
+    <a href="#especial" data-label="Funciones" aria-label="Funciones"><i data-lucide="star"></i></a>
+    <a href="#limites" data-label="Límites" aria-label="Límites"><i data-lucide="shield-alert"></i></a>
+    <a href="#taller" data-label="El taller aquí" aria-label="El taller aquí"><i data-lucide="route"></i></a>
+    <a href="#afondo" data-label="A fondo" aria-label="A fondo"><i data-lucide="graduation-cap"></i></a>
+  </div>
+  <div class="sidebar-bottom">
+    <button id="darkBtn" type="button" aria-label="Modo claro u oscuro"><i data-lucide="moon"></i></button>
+  </div>
+</nav>
+<main>
+  <header class="hero" id="inicio">
+    <div class="wrap">
+      <div class="eyebrow"><i data-lucide="bot"></i> Cartilla básica</div>
+      <div class="wordmark" style="font-size:1.05rem;margin-bottom:.9rem">Metodolog<span class="ia">IA</span></div>
+      <h1>Claude <span style="color:var(--gold)">desde cero</span>.</h1>
+      <p class="hero-copy">Una guía para empezar a usar Claude: el asistente de Anthropic, fuerte en razonar y analizar documentos largos. Y al final, cómo vivir el workshop de <strong>presentación ejecutiva con IA</strong> usando esta herramienta. El taller se puede hacer en ChatGPT, Gemini, Claude o NotebookLM, de forma indistinta.</p>
+      <div class="actions">
+        <a class="btn btn-primary" href="https://claude.ai/new" target="_blank" rel="noopener noreferrer"><i data-lucide="external-link"></i> Abrir Claude</a>
+        <a class="btn btn-secondary" href="#taller"><i data-lucide="route"></i> Vivir el taller aquí</a>
+        <a class="btn btn-secondary" href="workbook-presentacion-ejecutiva-ia.html"><i data-lucide="book-open"></i> Workbook</a>
+      </div>
+      <div class="switch" aria-label="Otras cartillas"><a class="" href="cartilla-chatgpt-basico.html"><i data-lucide="message-square"></i> ChatGPT</a><a class="" href="cartilla-gemini-basico.html"><i data-lucide="sparkles"></i> Gemini</a><a class="cur" href="cartilla-claude-basico.html"><i data-lucide="bot"></i> Claude</a><a class="" href="cartilla-notebooklm-basico.html"><i data-lucide="notebook-pen"></i> NotebookLM</a></div>
+    </div>
+  </header>
+
+  <section id="que-es">
+    <div class="wrap">
+      <div class="section-head"><div class="chip"><i data-lucide="help-circle"></i> Qué es</div><h2>¿Qué es Claude?</h2></div>
+      <div class="lead-card"><p>Claude es el asistente de Anthropic, diseñado con “IA Constitucional” para ser útil, honesto y seguro. Destaca por razonar, programar y analizar documentos extensos, con una ventana de contexto muy grande.</p></div>
+    </div>
+  </section>
+
+  <section id="empezar" class="soft">
+    <div class="wrap">
+      <div class="section-head"><div class="chip"><i data-lucide="log-in"></i> Cómo empezar</div><h2>Crear cuenta y elegir plan.</h2></div>
+      <ul class="bullets"><li><strong>Cuenta gratuita</strong> en la web (claude.ai) o en apps móvil (iOS/Android) y de escritorio (Mac/Windows).</li><li><strong>Plan Free:</strong> acceso al modelo rápido (Sonnet) con un límite diario de mensajes.</li><li><strong>Plan Pro:</strong> más capacidad, prioridad en horas pico y acceso a modelos más potentes. <em>Verifica precios y planes actuales en el sitio.</em></li><li><strong>Nota:</strong> los límites de uso se reinician cada pocas horas; planéalo si haces tareas largas.</li></ul>
+    </div>
+  </section>
+
+  <section id="usar">
+    <div class="wrap">
+      <div class="section-head"><div class="chip"><i data-lucide="mouse-pointer-click"></i> Usar</div><h2>Interfaz, tu primer prompt y adjuntos.</h2></div>
+      <div class="grid-2">
+        <article class="card"><div class="ico"><i data-lucide="layout"></i></div><h3>La interfaz</h3><p>Conversacional, como una app de mensajería: abajo, la caja de texto; junto a ella, el botón para adjuntar (+).</p></article>
+        <article class="card"><div class="ico"><i data-lucide="paperclip"></i></div><h3>Adjuntar archivos</h3><p>Arrastra el archivo a la pantalla o usa el botón de adjuntar (clip / +). Procesa PDFs, imágenes, hojas de cálculo y documentos de texto extensos.</p></article>
+      </div>
+      <h3 style="margin:1.4rem 0 .4rem">Tu primer prompt</h3>
+      <p>Una buena instrucción tiene <strong>rol</strong>, <strong>tarea</strong> y <strong>formato</strong>. Copia este ejemplo y pruébalo:</p>
+      <pre class="copy-content" id="ejemplo">Actúa como facilitador de presentaciones ejecutivas. Ayúdame a definir el objetivo de mi próxima presentación: hazme máximo 3 preguntas sobre propósito, audiencia y la decisión que quiero facilitar. Luego entrega un objetivo claro y un criterio para saber si quedó bien. Responde en español.</pre>
+      <div class="toolbar">
+        <button class="btn btn-dark" type="button" id="copyBtn"><i data-lucide="copy-check"></i> Copiar</button>
+        <a class="btn btn-light" href="https://claude.ai/new" target="_blank" rel="noopener noreferrer"><i data-lucide="external-link"></i> Abrir Claude</a>
+        <a class="btn btn-light" href="biblioteca-prompts-presentacion-ejecutiva.html"><i data-lucide="library"></i> Más prompts</a>
+      </div>
+    </div>
+  </section>
+
+  <section id="especial" class="soft">
+    <div class="wrap">
+      <div class="section-head"><div class="chip"><i data-lucide="star"></i> Funciones clave</div><h2>Projects y Artifacts</h2></div>
+      <ul class="bullets"><li><strong>Projects:</strong> espacios donde agrupas chats, subes una base de conocimiento y das instrucciones para que Claude tenga siempre ese contexto.</li><li><strong>Artifacts:</strong> un panel lateral interactivo donde Claude crea código, páginas, documentos o diagramas que puedes previsualizar y editar sin perder el chat.</li><li><strong>Cowork:</strong> modo colaborativo para trabajar contigo en proyectos más largos manteniendo el contexto.</li></ul>
+    </div>
+  </section>
+
+  <section id="limites">
+    <div class="wrap">
+      <div class="section-head"><div class="chip"><i data-lucide="shield-alert"></i> Límites y cuidados</div><h2>Úsala con criterio.</h2></div>
+      <ul class="bullets"><li><strong>Privacidad:</strong> por defecto no entrena con los datos de los planes de trabajo/empresa; en consumo revisa tu configuración. No subas datos sensibles sin confirmarlo.</li><li><strong>Alucinaciones:</strong> como toda IA, puede inventar datos con seguridad. Verifica lo importante.</li><li><strong>Límites de uso:</strong> todos los planes tienen tope de mensajes que se reinicia cada pocas horas.</li></ul>
+      <div class="lead-card warn" style="margin-top:1rem"><p><strong>Regla MetodologIA:</strong> la IA asegura el <em>output</em>; tú aseguras el <em>outcome</em>. Tu criterio es el diferenciador: revisa, decide y aprueba siempre tú.</p></div>
+    </div>
+  </section>
+
+  <section id="taller" class="soft">
+    <div class="wrap">
+      <div class="section-head"><div class="chip"><i data-lucide="route"></i> El taller, aquí</div><h2>Vive el workshop en Claude.</h2>
+      <p>Los seis pasos de “Presentación ejecutiva con IA”, aplicados en Claude. Usa un insumo real o los de práctica.</p></div>
+      <div class="steps"><div class="stepline"><div class="n">1</div><div><b>Define objetivo</b><p>Pega el prompt del Paso 1 de la biblioteca. Responde las preguntas que te haga la IA.</p></div></div><div class="stepline"><div class="n">2</div><div><b>Aclara audiencia</b><p>Describe quién decide y qué decisión buscas. Adjunta agenda o perfil si lo tienes.</p></div></div><div class="stepline"><div class="n">3</div><div><b>Ordena insumos</b><p>Sube tu insumo (o uno de práctica) y pide que separe ideas, evidencia, supuestos y vacíos.</p></div></div><div class="stepline"><div class="n">4</div><div><b>Mensaje central</b><p>Pide tu tesis en una frase y tres soportes.</p></div></div><div class="stepline"><div class="n">5</div><div><b>Narrativa</b><p>Pide la estructura ejecutiva: situación → costo → propuesta → riesgo → decisión.</p></div></div><div class="stepline"><div class="n">6</div><div><b>Títulos y cierre</b><p>Mejora títulos y pide un llamado a la acción con verbo, objeto y fecha.</p></div></div></div>
+      <div class="lead-card" style="margin-top:1rem"><p>En Claude: crea un <strong>Project</strong> con tus insumos y deja que arme la estructura en un <strong>Artifact</strong>.</p></div>
+    </div>
+  </section>
+
+  <section id="afondo">
+    <div class="wrap">
+      <div class="section-head"><div class="chip"><i data-lucide="graduation-cap"></i> Estudia a fondo</div><h2>Profundiza y practica.</h2>
+      <p>Tu NotebookLM especializado en Claude responde con citas sobre fuentes reales. Y el resto de la suite del workshop te espera.</p></div>
+      <div class="grid-2">
+        <a class="resource-card" href="https://notebooklm.google.com/notebook/d2d6182e-f97f-4c68-a180-7f2d5450a2ab" target="_blank" rel="noopener noreferrer"><span><i data-lucide="notebook-pen"></i> NotebookLM · PROD-Claude · Caracterización de producto</span><i data-lucide="arrow-up-right"></i></a>
+        <a class="resource-card" href="workbook-presentacion-ejecutiva-ia.html"><span><i data-lucide="book-open"></i> Workbook del taller</span><i data-lucide="arrow-right"></i></a>
+        <a class="resource-card" href="biblioteca-prompts-presentacion-ejecutiva.html"><span><i data-lucide="library"></i> Biblioteca de prompts</span><i data-lucide="arrow-right"></i></a>
+        <a class="resource-card" href="https://drive.google.com/drive/u/0/folders/1pmxhe6O_RQPeGIgAzqKcCA24QVM5LZXI" target="_blank" rel="noopener noreferrer"><span><i data-lucide="folder-open"></i> Insumos de práctica</span><i data-lucide="arrow-up-right"></i></a>
+      </div>
+      <h3 style="margin:1.4rem 0 .5rem">Otras cartillas</h3>
+      <div class="grid-2"><a class="resource-card" href="cartilla-chatgpt-basico.html"><span><i data-lucide="message-square"></i> Cartilla · ChatGPT</span><i data-lucide="arrow-right"></i></a><a class="resource-card" href="cartilla-gemini-basico.html"><span><i data-lucide="sparkles"></i> Cartilla · Gemini</span><i data-lucide="arrow-right"></i></a><a class="resource-card" href="cartilla-notebooklm-basico.html"><span><i data-lucide="notebook-pen"></i> Cartilla · NotebookLM</span><i data-lucide="arrow-right"></i></a></div>
+    </div>
+  </section>
+
+  <footer>
+    <div class="footer-grid">
+      <div class="wordmark">Metodolog<span class="ia">IA</span></div>
+      <p>Cartilla básica de Claude · parte del workshop “Presentación ejecutiva con IA”. Verifica precios, planes y límites en el sitio oficial.</p>
+      <a href="workbook-presentacion-ejecutiva-ia.html"><i data-lucide="book-open"></i> Volver al workbook</a>
+    </div>
+  </footer>
+</main>
+<script>
+  const root=document.documentElement,progress=document.getElementById('progress'),themeBtn=document.getElementById('darkBtn');
+  if(localStorage.getItem('metodologia-cartilla-theme')==='dark')root.classList.add('dark');
+  function setIcon(){if(!themeBtn)return;themeBtn.innerHTML='<i data-lucide="'+(root.classList.contains('dark')?'sun':'moon')+'"></i>';if(window.lucide)lucide.createIcons();}
+  themeBtn.addEventListener('click',()=>{root.classList.toggle('dark');localStorage.setItem('metodologia-cartilla-theme',root.classList.contains('dark')?'dark':'light');setIcon();});
+  window.addEventListener('scroll',()=>{const m=document.documentElement.scrollHeight-window.innerHeight;progress.style.width=m>0?Math.min(100,(scrollY/m)*100)+'%':'0%';},{passive:true});
+  const cb=document.getElementById('copyBtn');
+  if(cb)cb.addEventListener('click',async()=>{const t=document.getElementById('ejemplo').innerText.trim();try{await navigator.clipboard.writeText(t);}catch(e){}const o=cb.innerHTML;cb.innerHTML='<i data-lucide="check"></i> Copiado';if(window.lucide)lucide.createIcons();setTimeout(()=>{cb.innerHTML=o;if(window.lucide)lucide.createIcons();},1400);});
+  function init(){if(window.lucide)lucide.createIcons();setIcon();}
+  document.addEventListener('DOMContentLoaded',init);window.addEventListener('load',init);setTimeout(init,120);
+</script>
+</body>
+</html>

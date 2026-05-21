@@ -1,0 +1,405 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="theme-color" content="#0A122A">
+<title>Deck 1 h · Presentación ejecutiva con IA | MetodologIA</title>
+<meta name="description" content="Versión concisa (1 hora) del deck Presentación ejecutiva con IA, con explorador de prompts en vivo. MetodologIA.">
+<link rel="icon" type="image/png" href="assets/metodologia_logo_primary.png">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&family=Poppins:wght@700;800&family=JetBrains+Mono:wght@400;600&display=swap">
+<script src="https://unpkg.com/lucide@0.469.0/dist/umd/lucide.js" defer></script>
+<style>
+  :root{
+    --bg:#0A122A; --bg2:#122562; --bg3:#0E1C44;
+    --panel:rgba(255,255,255,.05); --panel-br:rgba(255,255,255,.10);
+    --ink:#F8FAFC; --ink2:#CBD5E1; --ink3:#94A3B8;
+    --gold:#FFD700; --gold-soft:#FDE68A; --blue:#4FA8E0; --lilac:#C9B3D9; --green:#5BD98A; --red:#F87171;
+    --font-head:'Poppins',system-ui,sans-serif; --font-body:'Montserrat',system-ui,sans-serif;
+    --font-note:'Trebuchet MS',sans-serif; --font-mono:'JetBrains Mono',ui-monospace,Menlo,monospace;
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  html,body{width:100%;height:100%;overflow:hidden}
+  body{font-family:var(--font-body);background:var(--bg);color:var(--ink);font-size:22px;line-height:1.5;-webkit-font-smoothing:antialiased}
+  .deck{position:relative;width:100vw;height:100vh}
+  .slide{position:absolute;inset:0;display:flex;flex-direction:column;justify-content:center;padding:8vh 7vw;opacity:0;pointer-events:none;transition:opacity .4s ease;overflow-y:auto;
+    background:radial-gradient(circle at 85% 12%,rgba(255,215,0,.10),transparent 34%),linear-gradient(135deg,var(--bg),var(--bg3));}
+  .slide.active{opacity:1;pointer-events:auto}
+  .slide-inner{max-width:1180px;margin:0 auto;width:100%}
+  .slide-meta{position:absolute;top:3.4vh;left:7vw;right:7vw;display:flex;justify-content:space-between;align-items:center;font-size:.72rem;color:var(--ink3);letter-spacing:.14em;text-transform:uppercase}
+  .slide-meta .brand{display:flex;align-items:center;gap:.55rem;font-family:var(--font-head);font-weight:800;letter-spacing:.02em;color:var(--ink2)}
+  .slide-meta .brand .ia{color:var(--gold)}
+  .slide-meta .brand-dot{width:9px;height:9px;border-radius:50%;background:var(--gold);box-shadow:0 0 14px var(--gold)}
+  .slide-meta .stage{color:var(--gold);font-weight:700}
+  .eyebrow{font-size:.82rem;color:var(--gold);font-weight:700;letter-spacing:.16em;text-transform:uppercase;margin-bottom:1rem;font-family:var(--font-note)}
+  h1{font-family:var(--font-head);font-size:clamp(2.2rem,5.4vw,4.4rem);font-weight:800;line-height:1.04;letter-spacing:-.02em;margin-bottom:1.1rem}
+  h2{font-family:var(--font-head);font-size:clamp(1.7rem,3.6vw,2.8rem);font-weight:700;line-height:1.12;margin-bottom:1rem}
+  h3{font-family:var(--font-head);font-size:clamp(1.05rem,1.6vw,1.35rem);font-weight:700;color:var(--gold);margin-bottom:.5rem}
+  p{font-size:clamp(1rem,1.35vw,1.22rem);color:var(--ink2);margin-bottom:.85rem;max-width:900px}
+  p.lead{font-size:clamp(1.15rem,1.7vw,1.5rem);color:var(--ink);max-width:940px}
+  strong{color:var(--ink);font-weight:700}
+  em{color:var(--gold);font-style:normal}
+  .gold{color:var(--gold)} .blue{color:var(--blue)} .lilac{color:var(--lilac)}
+  code,.mono{font-family:var(--font-mono)}
+  .accent-bar{height:7px;width:120px;border-radius:6px;background:linear-gradient(90deg,var(--gold),var(--blue),var(--lilac));margin-bottom:1.6rem}
+  /* cover */
+  .cover-mark{display:inline-flex;align-items:center;gap:.7rem;font-family:var(--font-head);font-weight:800;font-size:1.05rem;letter-spacing:.02em;color:var(--ink);margin-bottom:1.8rem}
+  .cover-mark .dot{width:13px;height:13px;background:var(--gold);border-radius:50%;box-shadow:0 0 22px var(--gold)}
+  .cover-mark .ia{color:var(--gold)}
+  .cover-h1{font-family:var(--font-head);font-size:clamp(2.6rem,7vw,5.4rem);font-weight:800;line-height:1;letter-spacing:-.03em;margin-bottom:1.3rem}
+  .cover-sub{font-size:clamp(1.1rem,1.8vw,1.5rem);color:var(--ink2);max-width:920px;margin-bottom:2rem}
+  .cover-meta{display:flex;gap:2.2rem;flex-wrap:wrap;font-size:.9rem;color:var(--ink3)}
+  .cover-meta span strong{color:var(--ink);display:block;font-size:1rem}
+  /* grids & cards */
+  .cards{display:grid;gap:1rem;margin-top:.5rem}
+  .cards.c2{grid-template-columns:1fr 1fr}
+  .cards.c3{grid-template-columns:repeat(3,1fr)}
+  .card{background:var(--panel);border:1px solid var(--panel-br);border-radius:18px;padding:1.2rem 1.25rem;display:grid;gap:.5rem}
+  .card .ico{width:44px;height:44px;display:grid;place-items:center;border-radius:12px;background:linear-gradient(135deg,rgba(255,215,0,.4),rgba(79,168,224,.2));color:#0A122A}
+  .card .ico svg{width:22px;height:22px}
+  .card b{font-family:var(--font-head);color:var(--ink);font-size:1.05rem}
+  .card p{font-size:.98rem;margin:0;color:var(--ink2)}
+  /* statement */
+  .statement{font-family:var(--font-head);font-weight:800;font-size:clamp(2rem,4.6vw,3.6rem);line-height:1.12;letter-spacing:-.02em;max-width:1000px}
+  .statement .gold{color:var(--gold)}
+  .attrib{margin-top:1.3rem;color:var(--ink3);font-family:var(--font-note);font-size:1rem}
+  /* step */
+  .step-head{display:flex;align-items:center;gap:1rem;margin-bottom:1.2rem}
+  .step-num{width:64px;height:64px;flex-shrink:0;display:grid;place-items:center;border-radius:16px;background:var(--gold);color:#0A122A;font-family:var(--font-head);font-weight:800;font-size:1.7rem}
+  .step-cols{display:grid;grid-template-columns:repeat(3,1fr);gap:.9rem;margin-top:.3rem}
+  .step-box{background:var(--panel);border:1px solid var(--panel-br);border-radius:14px;padding:1rem}
+  .step-box .lbl{font-family:var(--font-note);font-weight:800;font-size:.74rem;letter-spacing:.08em;text-transform:uppercase;color:var(--gold);margin-bottom:.35rem;display:block}
+  .step-box p{font-size:.96rem;margin:0;color:var(--ink2)}
+  .ba{display:grid;grid-template-columns:1fr 1fr;gap:.9rem;margin-top:1.1rem}
+  .ba > div{padding:.9rem 1rem;border-radius:14px;border:1px solid var(--panel-br)}
+  .ba .before{background:rgba(248,113,113,.08);border-color:rgba(248,113,113,.3)}
+  .ba .after{background:rgba(91,217,138,.09);border-color:rgba(91,217,138,.32)}
+  .ba .lbl{display:block;font-family:var(--font-note);font-weight:800;font-size:.72rem;letter-spacing:.08em;text-transform:uppercase;margin-bottom:.3rem}
+  .ba .before .lbl{color:var(--red)} .ba .after .lbl{color:var(--green)}
+  .ba p{margin:0;font-size:1rem;color:var(--ink)}
+  /* table */
+  .ltable{width:100%;border-collapse:collapse;font-size:1rem;margin-top:.4rem}
+  .ltable th,.ltable td{text-align:left;padding:.85rem 1rem;border-bottom:1px solid var(--panel-br);vertical-align:top}
+  .ltable thead th{background:rgba(255,255,255,.06);color:var(--gold);font-family:var(--font-head);font-size:.92rem}
+  .ltable td:first-child{font-family:var(--font-head);color:var(--ink);font-weight:700;white-space:nowrap}
+  .ltable p{margin:0;font-size:.95rem}
+  /* spec anatomy */
+  .spec{background:#0C1430;border:1px solid var(--panel-br);border-radius:16px;padding:1.2rem 1.3rem;font-family:var(--font-mono);font-size:1rem;line-height:1.7;color:var(--ink2);position:relative}
+  .spec .k{color:var(--gold);font-weight:600}
+  .copy-spec{position:absolute;top:.8rem;right:.8rem}
+  /* resources */
+  .res-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:.8rem;margin-top:.6rem}
+  .res-grid a{display:flex;align-items:center;gap:.6rem;padding:.85rem 1rem;border-radius:12px;border:1px solid var(--panel-br);background:var(--panel);color:var(--ink);text-decoration:none;font-weight:600;font-size:.96rem}
+  .res-grid a:hover{border-color:var(--gold)}
+  .res-grid svg{width:19px;height:19px;color:var(--gold);flex-shrink:0}
+  .pill{display:inline-flex;align-items:center;gap:.4rem;padding:.3rem .7rem;border-radius:999px;background:rgba(255,215,0,.12);border:1px solid rgba(255,215,0,.3);color:var(--gold);font-family:var(--font-note);font-weight:800;font-size:.74rem;letter-spacing:.06em;text-transform:uppercase}
+  .chips{display:flex;flex-wrap:wrap;gap:.5rem;margin-top:1rem}
+  .chips span{padding:.4rem .8rem;border-radius:999px;background:var(--panel);border:1px solid var(--panel-br);font-size:.9rem;color:var(--ink2)}
+  .big-list{list-style:none;display:grid;gap:.7rem;margin-top:.6rem}
+  .big-list li{display:grid;grid-template-columns:30px 1fr;gap:.7rem;align-items:start;font-size:1.08rem;color:var(--ink2)}
+  .big-list li .n{width:30px;height:30px;display:grid;place-items:center;border-radius:8px;background:var(--panel);border:1px solid var(--panel-br);color:var(--gold);font-family:var(--font-head);font-weight:800;font-size:.85rem}
+  /* controls */
+  .progress{position:fixed;top:0;left:0;height:4px;width:0;background:linear-gradient(90deg,var(--gold),var(--blue),var(--lilac));z-index:60;transition:width .3s}
+  .ctrl{position:fixed;bottom:3vh;right:7vw;display:flex;align-items:center;gap:.5rem;z-index:50}
+  .ctrl button{width:44px;height:44px;border-radius:11px;border:1px solid var(--panel-br);background:rgba(255,255,255,.05);color:var(--ink);cursor:pointer;display:grid;place-items:center;transition:all .2s}
+  .ctrl button:hover{background:var(--gold);color:#0A122A;border-color:var(--gold)}
+  .ctrl button svg{width:20px;height:20px}
+  .counter{position:fixed;bottom:3vh;left:7vw;font-family:var(--font-mono);font-size:.85rem;color:var(--ink3);z-index:50;letter-spacing:.1em}
+  .counter b{color:var(--gold)}
+  .hint{position:fixed;bottom:3vh;left:50%;transform:translateX(-50%);font-family:var(--font-note);font-size:.78rem;color:var(--ink3);z-index:40;opacity:.8}
+  .btn-copy{display:inline-flex;align-items:center;gap:.45rem;padding:.5rem .8rem;border-radius:9px;border:1px solid var(--panel-br);background:rgba(255,255,255,.06);color:var(--ink);font-family:var(--font-body);font-weight:700;font-size:.82rem;cursor:pointer}
+  .btn-copy:hover{background:var(--gold);color:#0A122A;border-color:var(--gold)}
+  .btn-copy svg{width:15px;height:15px}
+  @media (max-width:820px){
+    body{font-size:18px}
+    .slide{padding:9vh 6vw 12vh}
+    .cards.c3,.step-cols,.res-grid{grid-template-columns:1fr}
+    .cards.c2,.ba{grid-template-columns:1fr}
+    .ltable{font-size:.88rem} .ltable thead{display:none}
+    .ltable td{display:block;border:none;padding:.25rem 0}
+    .ltable tr{display:block;padding:.7rem 0;border-bottom:1px solid var(--panel-br)}
+    .ltable td:first-child{color:var(--gold);font-size:1.02rem;margin-bottom:.2rem}
+    .ctrl{right:5vw}.counter{left:5vw}.hint{display:none}
+  }
+
+  /* explorador de prompts */
+  .explorer{background:var(--panel);border:1px solid var(--panel-br);border-radius:18px;padding:1rem 1.1rem;display:grid;gap:.7rem}
+  .exp-row{display:flex;flex-wrap:wrap;gap:.4rem;align-items:center}
+  .exp-row .lbl{font-family:var(--font-note);font-weight:800;font-size:.72rem;letter-spacing:.08em;text-transform:uppercase;color:var(--ink3);margin-right:.2rem}
+  .exp-btn{cursor:pointer;border:1px solid var(--panel-br);background:rgba(255,255,255,.04);color:var(--ink2);border-radius:999px;padding:.35rem .8rem;font-family:var(--font-body);font-weight:700;font-size:.84rem}
+  .exp-btn.active{background:var(--gold);color:#0A122A;border-color:var(--gold)}
+  .exp-label{font-family:var(--font-note);font-weight:800;letter-spacing:.08em;text-transform:uppercase;color:var(--gold);font-size:.78rem}
+  .exp-pre{max-height:30vh;overflow:auto;font-size:.85rem;line-height:1.5;margin:0;padding:.9rem 1rem;background:#0C1430;border:1px solid var(--panel-br);border-radius:12px;color:var(--ink);font-family:var(--font-mono);white-space:pre-wrap}
+  .exp-adj{font-size:.82rem;color:var(--ink3);font-style:italic}
+  .exp-tools{display:flex;flex-wrap:wrap;gap:.45rem}
+  .exp-tools .btn-copy{text-decoration:none}
+</style>
+</head>
+<body>
+<div class="progress" id="progress"></div>
+<div class="deck" id="deck">
+
+  <!-- 1 cover -->
+  <section class="slide active" data-stage="Bienvenida">
+    <div class="slide-inner">
+      <div class="cover-mark"><span class="dot"></span> Metodolog<span class="ia">IA</span></div>
+      <div class="accent-bar"></div>
+      <h1 class="cover-h1">Presentación ejecutiva con <span class="gold">IA y criterio</span>.</h1>
+      <p class="cover-sub">Versión de 1 hora. Un método de seis pasos para pasar de una idea suelta a una presentación que facilita decisiones. La IA acelera; tu criterio decide.</p>
+      <div class="cover-meta">
+        <span><strong>Sesión</strong> 60 minutos</span>
+        <span><strong>Facilita</strong> Javier Montaño</span>
+        <span><strong>Formato</strong> Guiado y práctico</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- 2 cómo trabajamos -->
+  <section class="slide" data-stage="Cómo trabajamos">
+    <div class="slide-inner">
+      <div class="eyebrow">Cómo vamos a trabajar</div>
+      <h2>Te explico, exploramos y te lo llevas.</h2>
+      <div class="cards c3">
+        <div class="card"><div class="ico"><i data-lucide="presentation"></i></div><b>1 · Explico</b><p>El método y los prompts, con ejemplos.</p></div>
+        <div class="card"><div class="ico"><i data-lucide="hand"></i></div><b>2 · Exploramos</b><p>Abrimos la biblioteca de prompts y la recorremos juntos.</p></div>
+        <div class="card"><div class="ico"><i data-lucide="gift"></i></div><b>3 · Te lo llevas</b><p>Te comparto este HTML y el workbook para repetirlo guiado.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 3 regla de oro -->
+  <section class="slide" data-stage="Encuadre">
+    <div class="slide-inner">
+      <div class="eyebrow">La regla de oro</div>
+      <p class="statement">Una presentación ejecutiva empieza en <span class="gold">claridad</span>, no en diapositivas.</p>
+      <p class="attrib">Si entra ambigüedad, sale ruido bonito. La IA solo amplifica lo que tú ya decidiste.</p>
+    </div>
+  </section>
+
+  <!-- 4 método -->
+  <section class="slide" data-stage="El método">
+    <div class="slide-inner">
+      <div class="eyebrow">El mapa</div>
+      <h2>Seis pasos, una idea a la vez.</h2>
+      <div class="cards c3">
+        <div class="card"><div class="ico"><i data-lucide="target"></i></div><b>1 · Objetivo</b><p>Qué debe lograr.</p></div>
+        <div class="card"><div class="ico"><i data-lucide="users"></i></div><b>2 · Audiencia</b><p>Quién decide y qué.</p></div>
+        <div class="card"><div class="ico"><i data-lucide="layers"></i></div><b>3 · Insumos</b><p>Ideas, datos, vacíos.</p></div>
+        <div class="card"><div class="ico"><i data-lucide="message-square-quote"></i></div><b>4 · Mensaje</b><p>La tesis en una frase.</p></div>
+        <div class="card"><div class="ico"><i data-lucide="route"></i></div><b>5 · Narrativa</b><p>Orden con propósito.</p></div>
+        <div class="card"><div class="ico"><i data-lucide="megaphone"></i></div><b>6 · Cierre</b><p>Títulos y acción.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 5 niveles -->
+  <section class="slide" data-stage="Prompts">
+    <div class="slide-inner">
+      <div class="eyebrow">Tres niveles, según tu apetito de control</div>
+      <h2>El mismo paso, tres formas de pedirlo.</h2>
+      <table class="ltable">
+        <thead><tr><th>Nivel</th><th>Cuándo</th><th>Su ventaja</th></tr></thead>
+        <tbody>
+          <tr><td>Natural</td><td><p>Vas rápido o aún no tienes contexto.</p></td><td><p>Arrancas en segundos; la IA te pregunta.</p></td></tr>
+          <tr><td>Con campos</td><td><p>Ya tienes el contexto a la mano.</p></td><td><p>Respuesta a tu medida sin sintaxis nueva.</p></td></tr>
+          <tr><td>SPEC</td><td><p>Repites el proceso o necesitas precisión.</p></td><td><p>Reproducible, auditable y a prueba de fallos.</p></td></tr>
+        </tbody>
+      </table>
+    </div>
+  </section>
+
+  <!-- 6 EXPLORADOR (clave) -->
+  <section class="slide" data-stage="Explora los prompts">
+    <div class="slide-inner">
+      <div class="eyebrow">Exploremos juntos</div>
+      <h2 style="margin-bottom:.7rem">Explora los prompts.</h2>
+      <div class="explorer">
+        <div class="exp-row" id="stepRow"><span class="lbl">Paso</span></div>
+        <div class="exp-row" id="levelRow"><span class="lbl">Nivel</span></div>
+        <div class="exp-label" id="expLabel"></div>
+        <pre class="exp-pre" id="expPre"></pre>
+        <div class="exp-adj" id="expAdj"></div>
+        <div class="exp-tools">
+          <button class="btn-copy" id="expCopy"><i data-lucide="copy"></i> Copiar</button>
+          <a class="btn-copy" id="expGPT" target="_blank" rel="noopener noreferrer"><i data-lucide="external-link"></i> ChatGPT</a>
+          <a class="btn-copy" href="https://gemini.google.com/app" target="_blank" rel="noopener noreferrer"><i data-lucide="external-link"></i> Gemini</a>
+          <a class="btn-copy" href="https://claude.ai/new" target="_blank" rel="noopener noreferrer"><i data-lucide="external-link"></i> Claude</a>
+          <a class="btn-copy" href="biblioteca-prompts-presentacion-ejecutiva.html"><i data-lucide="library"></i> Biblioteca completa</a>
+        </div>
+      </div>
+      <p class="attrib" style="margin-top:.6rem">Abre la biblioteca en tu equipo y exploremos. Si no tienes adjuntos, el prompt te sugiere cuáles subir; nunca inventa.</p>
+    </div>
+  </section>
+
+  <!-- 7 caso -->
+  <section class="slide" data-stage="Caso guía">
+    <div class="slide-inner">
+      <div class="eyebrow">Caso guía · Laura, líder de operaciones</div>
+      <h2>Un mismo caso, antes y después del método.</h2>
+      <div class="ba">
+        <div class="before"><span class="lbl">Sin método</span><p>Demo de la herramienta, 12 slides de funciones, cierre con "gracias". El comité no sabe qué se le pide.</p></div>
+        <div class="after"><span class="lbl">Con método</span><p>Objetivo claro, mensaje en una frase y una decisión concreta: aprobar el piloto de 6 semanas hoy.</p></div>
+      </div>
+      <p style="margin-top:1rem">No cambió la herramienta. Cambió <em>la materia prima</em> que le dio a la IA.</p>
+    </div>
+  </section>
+
+  <!-- 8 adjuntos + poka-yoke -->
+  <section class="slide" data-stage="A prueba de fallos">
+    <div class="slide-inner">
+      <div class="eyebrow">Con o sin adjuntos · a prueba de fallos</div>
+      <h2>La IA te cuida de ti mismo.</h2>
+      <div class="cards c3">
+        <div class="card"><div class="ico"><i data-lucide="file-text"></i></div><b>Si tienes adjuntos</b><p>Súbelos como contexto: informe, correo, propuesta, captura.</p></div>
+        <div class="card"><div class="ico"><i data-lucide="message-circle-question"></i></div><b>Si no tienes</b><p>El prompt te sugiere 2–3 que podrías subir y para qué sirve cada uno.</p></div>
+        <div class="card"><div class="ico"><i data-lucide="shield-check"></i></div><b>Nunca inventa</b><p>Marca supuestos, pide lo que falta y cierra con checklist "listo / falta".</p></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 9 principio -->
+  <section class="slide" data-stage="Principio">
+    <div class="slide-inner">
+      <div class="eyebrow">El principio que sostiene el método</div>
+      <h2>Tú diriges, la IA escala.</h2>
+      <div class="cards c2">
+        <div class="card"><div class="ico"><i data-lucide="user-check"></i></div><b>El humano dirige</b><p>Intención, criterio, rumbo, auditoría y aprobación.</p></div>
+        <div class="card"><div class="ico"><i data-lucide="cpu"></i></div><b>La IA procesa</b><p>Velocidad y escala. Asegura el <em>output</em>; tú aseguras el <em>outcome</em>.</p></div>
+      </div>
+      <p style="margin-top:1.1rem"><strong>El loop:</strong> Define → la IA asiste → tú validas → mides.</p>
+    </div>
+  </section>
+
+  <!-- 10 rúbrica -->
+  <section class="slide" data-stage="Calidad">
+    <div class="slide-inner">
+      <div class="eyebrow">Rúbrica · ¿quedó claro?</div>
+      <h2>Antes de presentar, revisa estas seis.</h2>
+      <ul class="big-list">
+        <li><span class="n">1</span><div>El título adelanta la idea, no solo el tema.</div></li>
+        <li><span class="n">2</span><div>Cualquiera sabría qué decisión se le pide.</div></li>
+        <li><span class="n">3</span><div>Cada afirmación tiene evidencia o supuesto marcado.</div></li>
+        <li><span class="n">4</span><div>La presentación se resume en una frase.</div></li>
+        <li><span class="n">5</span><div>El cierre pide una acción con responsable y fecha.</div></li>
+        <li><span class="n">6</span><div>Quitaste lo que no ayuda a entender, decidir o actuar.</div></li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- 11 clínica -->
+  <section class="slide" data-stage="Clínica">
+    <div class="slide-inner">
+      <div class="eyebrow">Practiquemos</div>
+      <p class="statement">Trae un <span class="gold">borrador imperfecto</span>. Es más útil que esperar al definitivo.</p>
+      <p class="attrib">¿No tienes insumo? Usa los de práctica (transcript, presentación académica, propuesta).</p>
+    </div>
+  </section>
+
+  <!-- 12 recursos -->
+  <section class="slide" data-stage="Recursos">
+    <div class="slide-inner">
+      <div class="eyebrow">Para seguir practicando</div>
+      <h2>Lo que te llevas.</h2>
+      <div class="res-grid">
+        <a href="workbook-presentacion-ejecutiva-ia.html"><i data-lucide="book-open"></i> Workbook completo</a>
+        <a href="biblioteca-prompts-presentacion-ejecutiva.html"><i data-lucide="library"></i> Biblioteca de prompts</a>
+        <a href="https://drive.google.com/drive/u/0/folders/1pmxhe6O_RQPeGIgAzqKcCA24QVM5LZXI" target="_blank" rel="noopener noreferrer"><i data-lucide="folder-open"></i> Insumos de práctica</a>
+        <a href="cartilla-chatgpt-basico.html"><i data-lucide="message-square"></i> Cartilla · ChatGPT</a>
+        <a href="cartilla-gemini-basico.html"><i data-lucide="sparkles"></i> Cartilla · Gemini</a>
+        <a href="cartilla-claude-basico.html"><i data-lucide="bot"></i> Cartilla · Claude</a>
+        <a href="cartilla-notebooklm-basico.html"><i data-lucide="notebook-pen"></i> Cartilla · NotebookLM</a>
+        <a href="https://meet.google.com/hfe-fcvb-kwf" target="_blank" rel="noopener noreferrer"><i data-lucide="video"></i> Meet del workshop</a>
+        <a href="https://forms.gle/FHBtHmbvh7LqiAKD9" target="_blank" rel="noopener noreferrer"><i data-lucide="calendar-plus"></i> Más talleres</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- 13 cierre -->
+  <section class="slide" data-stage="Cierre">
+    <div class="slide-inner">
+      <div class="cover-mark"><span class="dot"></span> Metodolog<span class="ia">IA</span></div>
+      <div class="accent-bar"></div>
+      <p class="statement"><span class="gold">Claridad</span> antes que diapositivas.<br>Criterio antes que herramienta.</p>
+      <p class="attrib">Gracias. Abre el workbook y la biblioteca, y practica esta semana.</p>
+    </div>
+  </section>
+
+</div>
+<div class="counter" id="counter"><b>01</b> / 13</div>
+<div class="hint">← → para navegar · F pantalla completa</div>
+<div class="ctrl">
+  <button id="prev" aria-label="Anterior"><i data-lucide="chevron-left"></i></button>
+  <button id="fs" aria-label="Pantalla completa"><i data-lucide="maximize"></i></button>
+  <button id="next" aria-label="Siguiente"><i data-lucide="chevron-right"></i></button>
+</div>
+<script>
+
+  // ---- explorador de prompts ----
+  const P = {"1-natural": {"label": "PASO 1 · NATURAL", "texto": "Ayúdame a definir el objetivo de mi presentación ejecutiva. Hazme preguntas mínimas sobre propósito, audiencia, decisión esperada y tiempo. Si tengo adjuntos, dime cuáles subir. Luego entrega un objetivo claro y un criterio simple para saber si quedó bien.\n\nA prueba de fallos (no lo omitas): antes de entregar, revisa que tengas lo necesario; si falta un dato o un adjunto, no inventes: pregúntame o dime exactamente qué subir. Si no tengo adjuntos, sugiéreme 2–3 que podría subir y para qué sirve cada uno (p. ej.: briefing o correo de convocatoria; la agenda de la reunión; un informe o la idea inicial). Marca supuestos y datos por confirmar y cierra con una mini-checklist de “listo / falta”.", "adj": ["briefing o correo de convocatoria", "la agenda de la reunión", "un informe o la idea inicial"]}, "1-parametros": {"label": "PASO 1 · CON CAMPOS", "texto": "Estoy preparando una presentación ejecutiva sobre {[TEMA]}. Audiencia: {[AUDIENCIA]}. Decisión a facilitar: {[DECISION_A_FACILITAR]}. Tiempo disponible: {[DURACION]}. Insumos: {[INSUMOS_DISPONIBLES]}. Adjuntos posibles: {[ADJUNTOS_POSIBLES]}. Restricciones: {[RESTRICCIONES]}. Antes de responder, valida si falta un dato crítico y haz máximo tres preguntas. No diseñes diapositivas todavía. Entrega objetivo recomendado, objetivo alternativo, alcance, fuera de alcance, criterio de éxito observable, señal de avance, riesgo si el objetivo queda ambiguo y próximos insumos que debo preparar.\n\nA prueba de fallos (no lo omitas): antes de entregar, revisa que tengas lo necesario; si falta un dato o un adjunto, no inventes: pregúntame o dime exactamente qué subir. Si no tengo adjuntos, sugiéreme 2–3 que podría subir y para qué sirve cada uno (p. ej.: briefing o correo de convocatoria; la agenda de la reunión; un informe o la idea inicial). Marca supuestos y datos por confirmar y cierra con una mini-checklist de “listo / falta”.", "adj": ["briefing o correo de convocatoria", "la agenda de la reunión", "un informe o la idea inicial"]}, "1-spec": {"label": "PASO 1 · SPEC METODOLOGÍA", "texto": "Rol: Actúa como facilitador experto de presentaciones ejecutivas.\nContexto: Preparo una presentación sobre {[TEMA]} para {[AUDIENCIA]} con una duración de {[DURACION]}. Insumos disponibles: {[INSUMOS]}.\nTarea:\n1. Identifica los vacíos críticos y hazme máximo 3 preguntas antes de continuar.\n2. Propón dos objetivos (uno directo y uno ejecutivo), cada uno con la decisión que debe facilitar.\n3. Define alcance y fuera de alcance.\n4. Entrega un criterio de éxito observable y una señal de avance.\n5. Sugiere qué adjuntos prepararía para reforzar el objetivo.\nReglas:\n- No diseñes diapositivas todavía.\n- No inventes datos; marca supuestos y datos por confirmar.\n- Si falta un dato crítico, pregúntalo en vez de asumir.\nFormato: encabezados breves y listas; incluye una tabla \"Objetivo | Decisión | Criterio de éxito | Riesgo si queda ambiguo\".\nCriterios: el objetivo debe ser específico, verificable, conectado con la audiencia, acotado al tiempo y útil para decidir qué entra y qué queda fuera.\nIdioma: español. Tono: profesional, claro y directo.\n\nA prueba de fallos (no lo omitas): antes de entregar, revisa que tengas lo necesario; si falta un dato o un adjunto, no inventes: pregúntame o dime exactamente qué subir. Si no tengo adjuntos, sugiéreme 2–3 que podría subir y para qué sirve cada uno (p. ej.: briefing o correo de convocatoria; la agenda de la reunión; un informe o la idea inicial). Marca supuestos y datos por confirmar y cierra con una mini-checklist de “listo / falta”.", "adj": ["briefing o correo de convocatoria", "la agenda de la reunión", "un informe o la idea inicial"]}, "2-natural": {"label": "PASO 2 · NATURAL", "texto": "Ayúdame a entender la audiencia de mi presentación. Pregúntame quiénes son, qué saben, qué les importa y qué decisión deben tomar. Si sirve, pídeme agenda, correo o perfil. Luego resume necesidades, preocupaciones, tono y evidencia mínima.\n\nA prueba de fallos (no lo omitas): antes de entregar, revisa que tengas lo necesario; si falta un dato o un adjunto, no inventes: pregúntame o dime exactamente qué subir. Si no tengo adjuntos, sugiéreme 2–3 que podría subir y para qué sirve cada uno (p. ej.: el perfil o los cargos de quienes deciden; un acta de una reunión previa; el correo de contexto). Marca supuestos y datos por confirmar y cierra con una mini-checklist de “listo / falta”.", "adj": ["el perfil o los cargos de quienes deciden", "un acta de una reunión previa", "el correo de contexto"]}, "2-parametros": {"label": "PASO 2 · CON CAMPOS", "texto": "Estoy preparando una presentación para {[AUDIENCIA]}. Tema: {[TEMA]}. Intención: {[INTENCION]}. Decisión o acción esperada: {[DECISION_O_ACCION]}. Contexto de la reunión: {[CONTEXTO]}. Nivel de conocimiento: {[NIVEL_DE_CONOCIMIENTO]}. Adjuntos posibles: {[ADJUNTOS_POSIBLES]}. Restricciones: {[RESTRICCIONES]}. Analiza necesidades, preguntas probables, preocupaciones, tono recomendado, evidencia requerida y señales de resistencia. Marca supuestos y datos por confirmar. Cierra con tres recomendaciones para adaptar apertura, nivel de detalle y cierre, una frase inicial sugerida y una pregunta de control.\n\nA prueba de fallos (no lo omitas): antes de entregar, revisa que tengas lo necesario; si falta un dato o un adjunto, no inventes: pregúntame o dime exactamente qué subir. Si no tengo adjuntos, sugiéreme 2–3 que podría subir y para qué sirve cada uno (p. ej.: el perfil o los cargos de quienes deciden; un acta de una reunión previa; el correo de contexto). Marca supuestos y datos por confirmar y cierra con una mini-checklist de “listo / falta”.", "adj": ["el perfil o los cargos de quienes deciden", "un acta de una reunión previa", "el correo de contexto"]}, "2-spec": {"label": "PASO 2 · SPEC METODOLOGÍA", "texto": "Rol: Actúa como analista de audiencia ejecutiva.\nContexto: Presentaré {[TEMA]} ante {[AUDIENCIA]} en el contexto {[CONTEXTO]}, con intención {[INTENCION]} y decisión esperada {[DECISION_O_ACCION]}.\nTarea:\n1. Diferencia intereses, conocimiento previo, preocupaciones y preguntas probables por subgrupo de la audiencia.\n2. Indica la evidencia que cada grupo necesitará para decidir.\n3. Recomienda tono, apertura y nivel de detalle.\n4. Detecta señales de resistencia y cómo responderlas.\nReglas:\n- Marca supuestos y datos por confirmar.\n- Pide los adjuntos (agenda, perfil, acta) que mejorarían el análisis.\nFormato: tabla \"Audiencia | Interés | Preocupación | Evidencia requerida\" + tres recomendaciones + una frase de apertura sugerida.\nCriterios: al final debe quedar claro qué enfatizar, qué evitar y cómo abrir la presentación.\nIdioma: español. Tono: profesional y empático.\n\nA prueba de fallos (no lo omitas): antes de entregar, revisa que tengas lo necesario; si falta un dato o un adjunto, no inventes: pregúntame o dime exactamente qué subir. Si no tengo adjuntos, sugiéreme 2–3 que podría subir y para qué sirve cada uno (p. ej.: el perfil o los cargos de quienes deciden; un acta de una reunión previa; el correo de contexto). Marca supuestos y datos por confirmar y cierra con una mini-checklist de “listo / falta”.", "adj": ["el perfil o los cargos de quienes deciden", "un acta de una reunión previa", "el correo de contexto"]}, "3-natural": {"label": "PASO 3 · NATURAL", "texto": "Ayúdame a ordenar insumos para una presentación ejecutiva. Te compartiré información parcial o desordenada. Clasifícala en ideas, evidencia, supuestos, dudas, riesgos y datos por confirmar. Si faltan adjuntos, dime cuáles pedir. Luego recomienda qué usar primero.\n\nA prueba de fallos (no lo omitas): antes de entregar, revisa que tengas lo necesario; si falta un dato o un adjunto, no inventes: pregúntame o dime exactamente qué subir. Si no tengo adjuntos, sugiéreme 2–3 que podría subir y para qué sirve cada uno (p. ej.: el informe o la tabla/Excel con datos; tus notas o borrador; una propuesta o capturas previas). Marca supuestos y datos por confirmar y cierra con una mini-checklist de “listo / falta”.", "adj": ["el informe o la tabla/Excel con datos", "tus notas o borrador", "una propuesta o capturas previas"]}, "3-parametros": {"label": "PASO 3 · CON CAMPOS", "texto": "Quiero ordenar estos insumos para una presentación sobre {[TEMA]}: {[INSUMOS]}. Audiencia: {[AUDIENCIA]}. Objetivo preliminar: {[OBJETIVO]}. Decisión a facilitar: {[DECISION]}. Adjuntos posibles: {[ADJUNTOS_POSIBLES]}. Restricciones: {[RESTRICCIONES]}. Clasifica ideas clave, evidencia, supuestos, dudas, riesgos, mensajes secundarios, datos por confirmar y material descartable. Luego entrega una síntesis de máximo siete puntos, una recomendación de uso, tres preguntas para completar la base y una alerta de información que no debería usarse todavía.\n\nA prueba de fallos (no lo omitas): antes de entregar, revisa que tengas lo necesario; si falta un dato o un adjunto, no inventes: pregúntame o dime exactamente qué subir. Si no tengo adjuntos, sugiéreme 2–3 que podría subir y para qué sirve cada uno (p. ej.: el informe o la tabla/Excel con datos; tus notas o borrador; una propuesta o capturas previas). Marca supuestos y datos por confirmar y cierra con una mini-checklist de “listo / falta”.", "adj": ["el informe o la tabla/Excel con datos", "tus notas o borrador", "una propuesta o capturas previas"]}, "3-spec": {"label": "PASO 3 · SPEC METODOLOGÍA", "texto": "Rol: Actúa como curador de información ejecutiva.\nContexto: Tengo insumos sobre {[TEMA]} que aún no están listos para convertirse en presentación. Te los comparto a continuación.\nTarea:\n1. Separa el material en: ideas, evidencia, supuestos, dudas, riesgos, material descartable y datos por confirmar.\n2. Asocia cada idea importante a su evidencia, supuesto o pregunta pendiente.\n3. Indica qué adjuntos faltan.\n4. Entrega una síntesis priorizada de máximo 7 puntos.\nReglas:\n- No inventes datos.\n- Si algo no se puede sustentar, marcalo como supuesto o pregunta.\nFormato: una tabla por categoría + una síntesis final priorizada + tres preguntas para completar la base.\nCriterios: al final debe quedar claro qué usar, qué excluir y qué pedir.\nIdioma: español. Tono: riguroso y ordenado.\n\nA prueba de fallos (no lo omitas): antes de entregar, revisa que tengas lo necesario; si falta un dato o un adjunto, no inventes: pregúntame o dime exactamente qué subir. Si no tengo adjuntos, sugiéreme 2–3 que podría subir y para qué sirve cada uno (p. ej.: el informe o la tabla/Excel con datos; tus notas o borrador; una propuesta o capturas previas). Marca supuestos y datos por confirmar y cierra con una mini-checklist de “listo / falta”.", "adj": ["el informe o la tabla/Excel con datos", "tus notas o borrador", "una propuesta o capturas previas"]}, "4-natural": {"label": "PASO 4 · NATURAL", "texto": "Ayúdame a formular el mensaje central de una presentación ejecutiva. Revisa objetivo, audiencia, decisión e insumos. Si falta contexto, pregunta o pide adjuntos. Luego propón un mensaje principal, dos alternativas, soportes necesarios y riesgos de interpretación.\n\nA prueba de fallos (no lo omitas): antes de entregar, revisa que tengas lo necesario; si falta un dato o un adjunto, no inventes: pregúntame o dime exactamente qué subir. Si no tengo adjuntos, sugiéreme 2–3 que podría subir y para qué sirve cada uno (p. ej.: el objetivo y la audiencia ya definidos; los insumos ordenados; la evidencia o cifras disponibles). Marca supuestos y datos por confirmar y cierra con una mini-checklist de “listo / falta”.", "adj": ["el objetivo y la audiencia ya definidos", "los insumos ordenados", "la evidencia o cifras disponibles"]}, "4-parametros": {"label": "PASO 4 · CON CAMPOS", "texto": "Necesito formular el mensaje central de una presentación sobre {[TEMA]}. Objetivo: {[OBJETIVO]}. Audiencia: {[AUDIENCIA]}. Decisión a facilitar: {[DECISION]}. Insumos principales: {[INSUMOS]}. Evidencia disponible: {[EVIDENCIA]}. Adjuntos posibles: {[ADJUNTOS_POSIBLES]}. Tono deseado: {[TONO]}. Restricciones: {[RESTRICCIONES]}. Propón tres versiones: directa, ejecutiva y pedagógica. Para cada una indica soporte, riesgo de interpretación, dato por confirmar y cuándo conviene usarla. Recomienda una, explica por qué e incluye una prueba de claridad en una frase.\n\nA prueba de fallos (no lo omitas): antes de entregar, revisa que tengas lo necesario; si falta un dato o un adjunto, no inventes: pregúntame o dime exactamente qué subir. Si no tengo adjuntos, sugiéreme 2–3 que podría subir y para qué sirve cada uno (p. ej.: el objetivo y la audiencia ya definidos; los insumos ordenados; la evidencia o cifras disponibles). Marca supuestos y datos por confirmar y cierra con una mini-checklist de “listo / falta”.", "adj": ["el objetivo y la audiencia ya definidos", "los insumos ordenados", "la evidencia o cifras disponibles"]}, "4-spec": {"label": "PASO 4 · SPEC METODOLOGÍA", "texto": "Rol: Actúa como editor estratégico de mensajes ejecutivos.\nContexto: Tengo objetivo, audiencia e insumos para presentar {[TEMA]}, pero falta una tesis clara y defendible. Te comparto el material.\nTarea:\n1. Formula el mensaje central en una frase.\n2. Propón tres alternativas (directa, ejecutiva, pedagógica) y compara ventajas.\n3. Lista los soportes principales y la evidencia faltante de cada una.\n4. Recomienda una y explica por qué.\nReglas:\n- Marca la evidencia faltante; no afirmes más de lo que el dato sustenta.\n- Detecta ambigüedades de interpretación.\nFormato: tabla \"Versión | Soporte | Riesgo | Cuándo usarla\" + recomendación + una prueba de claridad en una frase.\nCriterios: el mensaje debe ser breve, recordable, conectado con la decisión, ajustado a la audiencia y sustentado por la evidencia disponible o por datos requeridos.\nIdioma: español. Tono: estratégico y conciso.\n\nA prueba de fallos (no lo omitas): antes de entregar, revisa que tengas lo necesario; si falta un dato o un adjunto, no inventes: pregúntame o dime exactamente qué subir. Si no tengo adjuntos, sugiéreme 2–3 que podría subir y para qué sirve cada uno (p. ej.: el objetivo y la audiencia ya definidos; los insumos ordenados; la evidencia o cifras disponibles). Marca supuestos y datos por confirmar y cierra con una mini-checklist de “listo / falta”.", "adj": ["el objetivo y la audiencia ya definidos", "los insumos ordenados", "la evidencia o cifras disponibles"]}, "5-natural": {"label": "PASO 5 · NATURAL", "texto": "Ayúdame a convertir mi mensaje central en una estructura ejecutiva. No quiero diapositivas sueltas: quiero una narrativa que facilite la decisión. Pregúntame por audiencia, duración, decisión y adjuntos si falta contexto. Luego propón secciones, propósito, transición y evidencia necesaria.\n\nA prueba de fallos (no lo omitas): antes de entregar, revisa que tengas lo necesario; si falta un dato o un adjunto, no inventes: pregúntame o dime exactamente qué subir. Si no tengo adjuntos, sugiéreme 2–3 que podría subir y para qué sirve cada uno (p. ej.: el mensaje central y sus soportes; la duración y el formato (o plantilla corporativa); las restricciones conocidas). Marca supuestos y datos por confirmar y cierra con una mini-checklist de “listo / falta”.", "adj": ["el mensaje central y sus soportes", "la duración y el formato (o plantilla corporativa)", "las restricciones conocidas"]}, "5-parametros": {"label": "PASO 5 · CON CAMPOS", "texto": "Construye una estructura ejecutiva para una presentación sobre {[TEMA]}. Mensaje central: {[MENSAJE_CENTRAL]}. Audiencia: {[AUDIENCIA]}. Duración: {[DURACION]}. Decisión a facilitar: {[DECISION]}. Insumos: {[INSUMOS]}. Adjuntos posibles: {[ADJUNTOS_POSIBLES]}. Restricciones: {[RESTRICCIONES]}. Propón apertura, contexto, problema u oportunidad, evidencia, recomendación, decisión solicitada y cierre. Para cada sección indica objetivo, idea clave, evidencia necesaria, transición, riesgo de sobrecarga y posible título. Añade una versión breve de la secuencia y una lectura ejecutiva en una frase.\n\nA prueba de fallos (no lo omitas): antes de entregar, revisa que tengas lo necesario; si falta un dato o un adjunto, no inventes: pregúntame o dime exactamente qué subir. Si no tengo adjuntos, sugiéreme 2–3 que podría subir y para qué sirve cada uno (p. ej.: el mensaje central y sus soportes; la duración y el formato (o plantilla corporativa); las restricciones conocidas). Marca supuestos y datos por confirmar y cierra con una mini-checklist de “listo / falta”.", "adj": ["el mensaje central y sus soportes", "la duración y el formato (o plantilla corporativa)", "las restricciones conocidas"]}, "5-spec": {"label": "PASO 5 · SPEC METODOLOGÍA", "texto": "Rol: Actúa como diseñador de narrativa ejecutiva.\nContexto: Debo convertir un mensaje central sobre {[TEMA]} en una presentación clara para {[AUDIENCIA]}, con duración {[DURACION]} y decisión esperada {[DECISION]}.\nTarea:\n1. Propón la secuencia: apertura, contexto, problema u oportunidad, evidencia, recomendación, decisión solicitada y cierre.\n2. Para cada parte indica objetivo, idea clave, evidencia necesaria, transición y riesgo de sobrecarga.\n3. Sugiere un título por sección.\n4. Añade una versión breve (por si recortan el tiempo).\nReglas:\n- Mantén continuidad entre secciones.\n- No incluyas secciones que no aporten a la decisión.\nFormato: tabla \"Sección | Objetivo | Idea clave | Evidencia | Transición | Título\" + una lectura ejecutiva en una frase.\nCriterios: la estructura debe facilitar una decisión, evitar sobrecarga y ajustarse al tiempo disponible.\nIdioma: español. Tono: claro y orientado a la decisión.\n\nA prueba de fallos (no lo omitas): antes de entregar, revisa que tengas lo necesario; si falta un dato o un adjunto, no inventes: pregúntame o dime exactamente qué subir. Si no tengo adjuntos, sugiéreme 2–3 que podría subir y para qué sirve cada uno (p. ej.: el mensaje central y sus soportes; la duración y el formato (o plantilla corporativa); las restricciones conocidas). Marca supuestos y datos por confirmar y cierra con una mini-checklist de “listo / falta”.", "adj": ["el mensaje central y sus soportes", "la duración y el formato (o plantilla corporativa)", "las restricciones conocidas"]}, "6-natural": {"label": "PASO 6 · NATURAL", "texto": "Ayúdame a mejorar títulos, argumentos y llamado a la acción de una presentación ejecutiva. Revisa si cada sección ayuda a entender, decidir o actuar. Si falta contexto, pide adjuntos. Propón mejoras concretas, criterio usado, evidencia faltante y un cierre accionable.\n\nA prueba de fallos (no lo omitas): antes de entregar, revisa que tengas lo necesario; si falta un dato o un adjunto, no inventes: pregúntame o dime exactamente qué subir. Si no tengo adjuntos, sugiéreme 2–3 que podría subir y para qué sirve cada uno (p. ej.: tu borrador o estructura actual; los títulos actuales; la evidencia disponible). Marca supuestos y datos por confirmar y cierra con una mini-checklist de “listo / falta”.", "adj": ["tu borrador o estructura actual", "los títulos actuales", "la evidencia disponible"]}, "6-parametros": {"label": "PASO 6 · CON CAMPOS", "texto": "Tengo esta estructura o borrador: {[BORRADOR]}. Audiencia: {[AUDIENCIA]}. Decisión esperada: {[DECISION]}. Tono deseado: {[TONO]}. Evidencia disponible: {[EVIDENCIA]}. Adjuntos posibles: {[ADJUNTOS_POSIBLES]}. Restricciones: {[RESTRICCIONES]}. Mejora títulos, fortalece argumentos y propone un llamado a la acción de un solo paso. Marca evidencia faltante, partes simplificables, riesgos de interpretación, secciones redundantes y títulos que prometen demasiado. Entrega una versión antes/después por sección, una prioridad de corrección y una prueba final de claridad.\n\nA prueba de fallos (no lo omitas): antes de entregar, revisa que tengas lo necesario; si falta un dato o un adjunto, no inventes: pregúntame o dime exactamente qué subir. Si no tengo adjuntos, sugiéreme 2–3 que podría subir y para qué sirve cada uno (p. ej.: tu borrador o estructura actual; los títulos actuales; la evidencia disponible). Marca supuestos y datos por confirmar y cierra con una mini-checklist de “listo / falta”.", "adj": ["tu borrador o estructura actual", "los títulos actuales", "la evidencia disponible"]}, "6-spec": {"label": "PASO 6 · SPEC METODOLOGÍA", "texto": "Rol: Actúa como revisor de claridad ejecutiva.\nContexto: Tengo un borrador sobre {[TEMA]} para {[AUDIENCIA]} y necesito elevar claridad, argumento y cierre. Te lo comparto.\nTarea:\n1. Evalúa cada sección con tres preguntas: qué aporta, qué evidencia necesita y qué acción facilita.\n2. Propón títulos alternativos que anticipen la idea.\n3. Fortalece los argumentos y marca la evidencia faltante.\n4. Propón un llamado a la acción de un solo paso.\nReglas:\n- Señala secciones redundantes y títulos que prometen demasiado.\n- No agregues afirmaciones sin sustento.\nFormato: tabla \"Sección | Antes | Después | Por qué\" + prioridad de corrección + una prueba final de claridad.\nCriterios: cada título debe anticipar una idea útil; cada argumento debe apoyarse en evidencia o dato requerido; el llamado final debe tener verbo, objeto y contexto/fecha.\nIdioma: español. Tono: directo y constructivo.\n\nA prueba de fallos (no lo omitas): antes de entregar, revisa que tengas lo necesario; si falta un dato o un adjunto, no inventes: pregúntame o dime exactamente qué subir. Si no tengo adjuntos, sugiéreme 2–3 que podría subir y para qué sirve cada uno (p. ej.: tu borrador o estructura actual; los títulos actuales; la evidencia disponible). Marca supuestos y datos por confirmar y cierra con una mini-checklist de “listo / falta”.", "adj": ["tu borrador o estructura actual", "los títulos actuales", "la evidencia disponible"]}};
+  const PASOS = {"1": "Definir objetivo de la presentación", "2": "Aclarar audiencia, intención y decisión", "3": "Ordenar insumos", "4": "Formular mensaje central", "5": "Construir narrativa y estructura ejecutiva", "6": "Mejorar títulos, argumentos y llamado a la acción"};
+  const LEVELS = [["natural","Natural"],["parametros","Con campos"],["spec","SPEC"]];
+  let curStep = "1", curLevel = "natural";
+  const stepRow = document.getElementById('stepRow');
+  const levelRow = document.getElementById('levelRow');
+  const expLabel = document.getElementById('expLabel');
+  const expPre = document.getElementById('expPre');
+  const expAdj = document.getElementById('expAdj');
+  const expCopy = document.getElementById('expCopy');
+  const expGPT = document.getElementById('expGPT');
+  if (stepRow) {
+    for (let s = 1; s <= 6; s++) {
+      const b = document.createElement('button');
+      b.className = 'exp-btn' + (s == 1 ? ' active' : '');
+      b.textContent = s;
+      b.title = PASOS[s] || ('Paso ' + s);
+      b.dataset.step = s;
+      b.addEventListener('click', () => { curStep = String(s); document.querySelectorAll('#stepRow .exp-btn').forEach(x=>x.classList.remove('active')); b.classList.add('active'); renderExp(); });
+      stepRow.appendChild(b);
+    }
+    LEVELS.forEach(([v,label],i) => {
+      const b = document.createElement('button');
+      b.className = 'exp-btn' + (i == 0 ? ' active' : '');
+      b.textContent = label; b.dataset.level = v;
+      b.addEventListener('click', () => { curLevel = v; document.querySelectorAll('#levelRow .exp-btn').forEach(x=>x.classList.remove('active')); b.classList.add('active'); renderExp(); });
+      levelRow.appendChild(b);
+    });
+  }
+  function renderExp(){
+    const k = curStep + '-' + curLevel; const dta = P[k]; if(!dta) return;
+    expLabel.textContent = dta.label;
+    expPre.textContent = dta.texto;
+    expAdj.textContent = (dta.adj && dta.adj.length) ? ('Si no tienes adjuntos, sube: ' + dta.adj.join(', ')) : '';
+    if (expGPT) expGPT.href = 'https://chatgpt.com/?prompt=' + encodeURIComponent(dta.texto);
+  }
+  if (expCopy) expCopy.addEventListener('click', async () => {
+    try { await navigator.clipboard.writeText(expPre.textContent); } catch(e){}
+    const o = expCopy.innerHTML; expCopy.innerHTML = '<i data-lucide="check"></i> Copiado';
+    if (window.lucide) lucide.createIcons(); setTimeout(()=>{ expCopy.innerHTML = o; if(window.lucide) lucide.createIcons(); }, 1400);
+  });
+  renderExp();
+
+
+  const slides = Array.from(document.querySelectorAll('.slide'));
+  const total = slides.length; let i = 0;
+  const progress = document.getElementById('progress'); const counter = document.getElementById('counter');
+  function pad(n){ return String(n).padStart(2,'0'); }
+  function render(){ slides.forEach((s,idx)=>s.classList.toggle('active', idx===i)); progress.style.width=((i+1)/total*100)+'%'; counter.innerHTML='<b>'+pad(i+1)+'</b> / '+pad(total); if(window.lucide) lucide.createIcons(); history.replaceState(null,'','#'+(i+1)); }
+  function go(n){ i=Math.max(0,Math.min(total-1,n)); render(); }
+  const next=()=>go(i+1), prev=()=>go(i-1);
+  document.getElementById('next').addEventListener('click',next);
+  document.getElementById('prev').addEventListener('click',prev);
+  document.getElementById('fs').addEventListener('click',()=>{ if(!document.fullscreenElement){document.documentElement.requestFullscreen&&document.documentElement.requestFullscreen();}else{document.exitFullscreen&&document.exitFullscreen();} });
+  document.addEventListener('keydown',(e)=>{ const tag=(e.target.tagName||'').toLowerCase(); if(tag==='input'||tag==='textarea') return;
+    if(['ArrowRight','PageDown',' '].includes(e.key)){e.preventDefault();next();}
+    else if(['ArrowLeft','PageUp'].includes(e.key)){e.preventDefault();prev();}
+    else if(e.key==='Home'){go(0);} else if(e.key==='End'){go(total-1);}
+    else if(e.key==='f'||e.key==='F'){document.getElementById('fs').click();} });
+  let x0=null; document.addEventListener('touchstart',e=>{x0=e.touches[0].clientX;},{passive:true});
+  document.addEventListener('touchend',e=>{ if(x0===null) return; const dx=e.changedTouches[0].clientX-x0; if(Math.abs(dx)>50){ dx<0?next():prev(); } x0=null; },{passive:true});
+  const startH=parseInt((location.hash||'').replace('#',''),10); if(!isNaN(startH)&&startH>=1&&startH<=total) i=startH-1;
+  window.addEventListener('load',()=>{ if(window.lucide) lucide.createIcons(); render(); });
+
+</script>
+</body>
+</html>
