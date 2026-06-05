@@ -10,7 +10,8 @@
 
 | Material | Tipo | Archivo / carpeta | Última versión |
 |---|---|---|---|
-| Biblioteca Universal de Prompting 2026 | HTML self-contained | `biblioteca-universal-prompting-2026.html` | v3.0 (2026-04-25) |
+| Biblioteca Universal · ligera (recomendada offline) | Shell + JSON externo | `biblioteca-ligera/` | 2026-06-05 |
+| Biblioteca Universal de Prompting 2026 (**legacy**) | HTML self-contained 38 MB | `biblioteca-universal-prompting-2026.html` | v3.0 (2026-04-25) |
 | Playbook Aprender · Aprehender · (R)Evolucionar | HTML editorial | `playbook-aprender-aprehender-revolucionar-2026.html` | v2.0 (2026-04-29) |
 | Playbook Prompting Universal · Essentials | HTML didáctico | `playbook-prompting-universal-2026-essentials.html` | 2026 |
 | Playbook Prompting Universal · Completo | HTML editorial | `playbook-prompting-universal-2026.html` | 2026 |
@@ -22,6 +23,19 @@
 ---
 
 ## 📋 Historial de cambios
+
+## [1.4.0] · 2026-06-05 · Biblioteca ligera + capa de comandos parametrizada
+
+**Tipo**: nueva variante ligera + sincronización con la experiencia canónica
+**Editor**: Javier Montaño · MetodologIA
+**License**: CC BY-NC-SA 4.0
+
+- **`biblioteca-ligera/`** — derivado del monolito 38 MB a arquitectura ligera: shell de 28 KB + `biblioteca-data.json` externo (2026 prompts, dataset normalizado). Búsqueda en cuerpo, filtros por categoría/rail, command palette (⌘K / `/`), deep-linking, prompt editable, exportar (copiar/.md/ChatGPT/Claude/Gemini). Reusa el design system `estilos/doc.css`.
+- **Capa de comandos parametrizada** (77 registros: `/0–/9` + verbos + `/a–/z`): cada uno con **2–4 parámetros con defaults escritos en el texto** (parámetros, NO inputs; cero fricción — funcionan tal cual y se ajustan editando el textarea). UI: explicación + línea «Ajustables: …» (read-only) + prompt editable.
+- **Monolito 38 MB marcado como legacy**; experiencia canónica y mantenida = [Prompt Amplificado · Biblioteca](https://javimontano.github.io/prompt-amplificado/biblioteca-prompts.html).
+- **Paridad verificada**: 2026 prompts en monolito legacy, `prompts_universales_v3000.json` y `biblioteca-ligera/biblioteca-data.json`.
+
+---
 
 ## [1.3.0] · 2026-05-04 · Skill metodologia-content-forge v1.0.0 (forja de contenido brand-compliant)
 

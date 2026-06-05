@@ -32,3 +32,7 @@ apply_*.py
 generate_*.py
 integrate_*.py
 rename_*.py
+
+# Biblioteca ligera · backups locales
+*.bak
+.playwright-mcp/

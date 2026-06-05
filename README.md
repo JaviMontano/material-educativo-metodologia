@@ -12,12 +12,17 @@ Repositorio público con el material educativo abierto de **MetodologIA**: bibli
 
 ### Bibliotecas (datos + UI)
 
+> **Experiencia canónica (mantenida):** [Prompt Amplificado · Biblioteca](https://javimontano.github.io/prompt-amplificado/biblioteca-prompts.html) — catálogo navegable de 2026 prompts en 4 formatos, búsqueda en cuerpo, command palette, deep-linking. Versión viva y recomendada.
+
 | Recurso | Tipo | Uso recomendado |
 |---|---|---|
-| [`biblioteca-universal-prompting-2026.html`](biblioteca-universal-prompting-2026.html) | HTML self-contained · 2026 prompts | Abrir offline · explorar por categorías · copiar prompts manualmente |
-| [`prompts_universales_v3000.json`](prompts_universales_v3000.json) | JSON canónico v3.0 · 10.46 MB | Integraciones · auditoría · consumo programático |
-| [`prompts_universales_v3000.min.json`](prompts_universales_v3000.min.json) | JSON minificado · 9.75 MB | Embebido en producción |
-| [`prompts_universales_v2026_prompster.json`](prompts_universales_v2026_prompster.json) | Bundle Prompster · 9 MB | Cargar en extensión Prompster · operar por slash command |
+| [`biblioteca-ligera/`](biblioteca-ligera/) | **Shell + JSON externo · 2026 prompts** | **Recomendado offline.** Misma data, arquitectura ligera (28 KB shell + datos externos). Búsqueda, filtros, command palette, prompt editable. Sirve por HTTP. |
+| [`biblioteca-universal-prompting-2026.html`](biblioteca-universal-prompting-2026.html) | HTML self-contained · 38 MB · **legacy** | Archivo histórico. Abrir por `file://`. Preferir la versión ligera o la canónica. |
+| [`prompts_universales_v3000.json`](prompts_universales_v3000.json) | JSON canónico v3.0 · 2026 prompts | Integraciones · auditoría · consumo programático |
+| [`prompts_universales_v3000.min.json`](prompts_universales_v3000.min.json) | JSON minificado | Embebido en producción |
+| [`prompts_universales_v2026_prompster.json`](prompts_universales_v2026_prompster.json) | Bundle Prompster | Cargar en extensión Prompster · operar por slash command |
+
+> Paridad verificada: **2026 prompts** en el monolito legacy, `prompts_universales_v3000.json` y `biblioteca-ligera/biblioteca-data.json`. La capa de comandos (`/0–/9`, verbos, `/a–/z`) lleva parámetros con defaults editables en texto (cero fricción).
 
 ### Playbooks editoriales
 
