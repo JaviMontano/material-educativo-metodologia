@@ -1,5 +1,5 @@
 # Formato Dupla — system / user para API y agentes
-> La versión para integraciones: rol y guardrails en system, tarea en user.
+> Para trabajo agéntico (APIs, SDKs, agentes): rol y guardrails en `system`, tarea en `user`.
 
 ## Guidelines
 - `system`: rol experto + principios + guardrails + protocolo.

@@ -44,7 +44,7 @@
  },
  "natural": {
   "title": "Formato Natural — prosa pronta para colar",
-  "intro": "A versão de fricção zero: uma instrução imperativa que se cola e rende.",
+  "intro": "Para começar rápido (uso imediato, sem configurar): instrução imperativa de zero atrito que você cola e já entrega resultado.",
   "guidelines": [
    "Imperativo e direto: comande a ação (\"Ordene por impacto real…\", não \"Este prompt ordena…\").",
    "Defaults em prosa: inclua os valores padrão dentro da frase (top 3, formato matriz…).",
@@ -74,7 +74,7 @@
  },
  "parametros": {
   "title": "Formato Parâmetros — config explícita e editável",
-  "intro": "Os mesmos resultados, com os parâmetros visíveis para ajustar em tempo real.",
+  "intro": "Para usuários intermediários que personalizam o comportamento, fazem ajustes ou dão entradas na hora: parâmetros visíveis e editáveis, com padrões que já entregam resultado.",
   "guidelines": [
    "Liste os parâmetros como linhas rotuladas com seu valor padrão.",
    "Default = inferência amplificada: a IA completa o que não foi preenchido e só pergunta se a confiança ficar < 0.85.",
@@ -101,7 +101,7 @@
  },
  "spec": {
   "title": "Formato SPEC — o contrato de alto desempenho",
-  "intro": "A versão profunda: estrutura completa para execução rigorosa e auditável.",
+  "intro": "Para quem domina o prompting de alto desempenho: estrutura completa, controle total e execução rigorosa e auditável.",
   "guidelines": [
    "Anatomia S·P·E·C: Situação · Pedido · Execução · Critério.",
    "Inclui PAPEL, SUPOSIÇÕES, LIMITES, EXECUÇÃO passo a passo, CASOS-LIMITE, SAÍDA e CRITÉRIOS DE ACEITAÇÃO observáveis.",
@@ -131,7 +131,7 @@
  },
  "dupla": {
   "title": "Formato Dupla — system / user para API e agentes",
-  "intro": "A versão para integrações: papel e guardrails no system, tarefa no user.",
+  "intro": "Para trabalho agêntico (APIs, SDKs, agentes): papel e guardrails no `system`, tarefa no `user`.",
   "guidelines": [
    "`system`: papel de especialista + princípios + guardrails + protocolo.",
    "`user`: o pedido concreto + inputs com seu valor padrão.",

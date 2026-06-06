@@ -44,7 +44,7 @@
  },
  "natural": {
   "title": "Formato Natural — prosa lista para pegar",
-  "intro": "La versión de cero fricción: una instrucción imperativa que se pega y rinde.",
+  "intro": "Para empezar rápido (uso inmediato, sin configurar): instrucción imperativa de cero fricción que se pega y rinde.",
   "guidelines": [
    "Imperativo y directo: ordena la acción (\"Ordena por impacto real…\", no \"Este prompt ordena…\").",
    "Defaults en prosa: incluye los valores por defecto dentro de la frase (top 3, formato matriz…).",
@@ -74,7 +74,7 @@
  },
  "parametros": {
   "title": "Formato Parámetros — config explícita y editable",
-  "intro": "Los mismos resultados, con los parámetros visibles para ajustar al vuelo.",
+  "intro": "Para usuarios intermedios que personalizan el comportamiento, ajustan o dan inputs al vuelo: parámetros visibles y editables, con defaults que ya rinden.",
   "guidelines": [
    "Lista los parámetros como líneas etiquetadas con su valor por defecto.",
    "Default = inferencia amplificada: la IA completa lo no llenado y solo pregunta si la confianza queda < 0.85.",
@@ -101,7 +101,7 @@
  },
  "spec": {
   "title": "Formato SPEC — el contrato de alto rendimiento",
-  "intro": "La versión profunda: estructura completa para ejecución rigurosa y auditable.",
+  "intro": "Para quienes dominan el prompting de alto rendimiento: estructura completa, control total y ejecución rigurosa y auditable.",
   "guidelines": [
    "Anatomía S·P·E·C: Situación · Pedido · Ejecución · Criterio.",
    "Incluye ROL, SUPUESTOS, LÍMITES, EJECUCIÓN paso a paso, CASOS BORDE, SALIDA y CRITERIOS DE ACEPTACIÓN observables.",
@@ -131,7 +131,7 @@
  },
  "dupla": {
   "title": "Formato Dupla — system / user para API y agentes",
-  "intro": "La versión para integraciones: rol y guardrails en system, tarea en user.",
+  "intro": "Para trabajo agéntico (APIs, SDKs, agentes): rol y guardrails en `system`, tarea en `user`.",
   "guidelines": [
    "`system`: rol experto + principios + guardrails + protocolo.",
    "`user`: el pedido concreto + inputs con su valor por defecto.",

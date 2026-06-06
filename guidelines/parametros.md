@@ -1,5 +1,5 @@
 # Formato Parámetros — config explícita y editable
-> Los mismos resultados, con los parámetros visibles para ajustar al vuelo.
+> Para usuarios intermedios que personalizan el comportamiento, ajustan o dan inputs al vuelo: parámetros visibles y editables, con defaults que ya rinden.
 
 ## Guidelines
 - Lista los parámetros como líneas etiquetadas con su valor por defecto.

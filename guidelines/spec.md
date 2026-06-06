@@ -1,5 +1,5 @@
 # Formato SPEC — el contrato de alto rendimiento
-> La versión profunda: estructura completa para ejecución rigurosa y auditable.
+> Para quienes dominan el prompting de alto rendimiento: estructura completa, control total y ejecución rigurosa y auditable.
 
 ## Guidelines
 - Anatomía S·P·E·C: Situación · Pedido · Ejecución · Criterio.

@@ -1,5 +1,5 @@
 # Formato Natural — prosa lista para pegar
-> La versión de cero fricción: una instrucción imperativa que se pega y rinde.
+> Para empezar rápido (uso inmediato, sin configurar): instrucción imperativa de cero fricción que se pega y rinde.
 
 ## Guidelines
 - Imperativo y directo: ordena la acción ("Ordena por impacto real…", no "Este prompt ordena…").

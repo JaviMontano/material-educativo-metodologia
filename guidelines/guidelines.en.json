@@ -44,7 +44,7 @@
  },
  "natural": {
   "title": "Natural Format — paste-ready prose",
-  "intro": "The zero-friction version: an imperative instruction you paste and it delivers.",
+  "intro": "For a fast start (use it right away, no setup): a zero-friction imperative instruction that you paste and it delivers.",
   "guidelines": [
    "Imperative and direct: command the action (\"Sort by real impact…\", not \"This prompt sorts…\").",
    "Defaults in prose: include the default values within the sentence (top 3, matrix format…).",
@@ -74,7 +74,7 @@
  },
  "parametros": {
   "title": "Parameter Format — explicit, editable config",
-  "intro": "The same results, with the parameters visible so you can tune them on the fly.",
+  "intro": "For intermediate users who customize behavior, fine-tune, or feed inputs on the fly: visible, editable parameters with defaults that already deliver.",
   "guidelines": [
    "List the parameters as labeled lines with their default value.",
    "Default = amplified inference: the AI completes whatever is left unfilled and only asks when confidence falls below 0.85.",
@@ -101,7 +101,7 @@
  },
  "spec": {
   "title": "SPEC Format — the high-performance contract",
-  "intro": "The deep version: a complete structure for rigorous, auditable execution.",
+  "intro": "For those who have mastered high-performance prompting: full structure, total control, and rigorous, auditable execution.",
   "guidelines": [
    "S·P·E·C anatomy: Situation · Petition · Execution · Criterion.",
    "Includes ROLE, ASSUMPTIONS, BOUNDARIES, step-by-step EXECUTION, EDGE CASES, OUTPUT, and observable ACCEPTANCE CRITERIA.",
@@ -131,7 +131,7 @@
  },
  "dupla": {
   "title": "Pair Format — system / user for API and Agents",
-  "intro": "The version for integrations: role and guardrails in system, the task in user.",
+  "intro": "For agentic work (APIs, SDKs, agents): role and guardrails in `system`, task in `user`.",
   "guidelines": [
    "`system`: expert role + principles + guardrails + protocol.",
    "`user`: the concrete request + inputs with their default value.",
