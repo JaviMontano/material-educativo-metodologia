@@ -35,6 +35,10 @@ Repositorio público con el material educativo abierto de **MetodologIA**: bibli
 
 Página publicada (trilingüe): **[Crear prompts](https://javimontano.github.io/prompt-amplificado/crear-prompts.html)** · sección §04 en la [Biblioteca](https://javimontano.github.io/prompt-amplificado/biblioteca-prompts.html).
 
+
+
+**Meta-prompts** (`guidelines/meta.{es,en,pt}.json`): 4 constructores por formato (`/crear-natural` · `/crear-parametros` · `/crear-spec` · `/crear-dupla`) + maestro `/elegir-formato` (elige el mejor formato según el caso). Trilingüe; reflejados en el catálogo y en crear-prompts.
+
 ### Playbooks editoriales
 
 | Recurso | Foco | Audiencia |
