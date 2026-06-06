@@ -1,0 +1,158 @@
+{
+ "general": {
+  "title": "General standard for creating prompts",
+  "intro": "How to design a MetodologIA prompt that performs with zero friction and can be audited.",
+  "guidelines": [
+   "Start with intent: define the outcome you want and for whom, in a single sentence.",
+   "Defaults first: the prompt works as is; parameters live in the text with their default value.",
+   "Demonstrate, don't describe: the body executes the behavior; it does not self-describe (\"this prompt is a macro that…\").",
+   "One intent per prompt; if there are two, they are two prompts.",
+   "MetodologIA voice: direct, professional, dense; every word earns its place."
+  ],
+  "guardrails": [
+   "Don't make things up: mark {SUPUESTO} or {VACIO_CRITICO} when data is missing; don't claim access to memory, attachments, or tools that aren't present.",
+   "Evidence: every factual claim with a source or provenance tag; zero fabricated citations.",
+   "Privacy: detect and anonymize PII by default.",
+   "Separate fact from inference and state confidence (0.0–1.0).",
+   "No metadiscourse or process traces in the output."
+  ],
+  "workflow": [
+   "Intent — outcome, audience, and success criterion in 1 sentence.",
+   "Structure — choose the format (natural · parameters · SPEC · pair) based on the use case.",
+   "Defaults — set the default values in the text (zero friction) and mark what is adjustable.",
+   "Blank run — execute it without filling in anything: it must perform on its own.",
+   "Bucle de Excelencia — self-assess with the 10-point rubric, iterate to 10/10, deliver only the final version."
+  ],
+  "acceptance": [
+   "Grounding — every claim backed up or marked as an assumption.",
+   "Truthfulness — nothing fabricated or oversold.",
+   "Quality — solid anatomy (role, task, format, criterion).",
+   "Density — zero filler; nothing can be deleted without loss.",
+   "Simplicity — the simplest thing that works.",
+   "Clarity — understandable in a single read.",
+   "Precision — exact terms; concrete criteria and numbers.",
+   "Depth — covers the essentials + edge cases.",
+   "Coherence — the 4 versions aligned with each other and with title/description.",
+   "Value — direct practical usefulness; usable with the defaults."
+  ],
+  "dod": [
+   "Performs with defaults without asking the user for anything.",
+   "Adjustable by editing text (no widgets or empty fields).",
+   "Passes the 10-point rubric; no metadiscourse; guardrails applied.",
+   "Traceability: every claim with provenance or a marked assumption."
+  ]
+ },
+ "natural": {
+  "title": "Natural Format — paste-ready prose",
+  "intro": "The zero-friction version: an imperative instruction you paste and it delivers.",
+  "guidelines": [
+   "Imperative and direct: command the action (\"Sort by real impact…\", not \"This prompt sorts…\").",
+   "Defaults in prose: include the default values within the sentence (top 3, matrix format…).",
+   "Self-contained: works without a prior thread; if there is one, it capitalizes on it.",
+   "Brief: the minimum that delivers."
+  ],
+  "guardrails": [
+   "No empty `{{inputs}}`: adjustments are edited in the text, not \"filled in\".",
+   "Don't describe yourself; demonstrate the behavior.",
+   "Close with the MetodologIA Protocol."
+  ],
+  "workflow": [
+   "Write the action in 1–3 imperative sentences.",
+   "Insert the defaults inline (quantity, format, criteria).",
+   "Add the expected output in one sentence.",
+   "Blank test: does it deliver without editing? If not, simplify."
+  ],
+  "acceptance": [
+   "Pasteable and executable as-is.",
+   "Zero empty tokens.",
+   "Demonstrates (does not describe) the intent."
+  ],
+  "dod": [
+   "A human pastes it and gets the result without filling in fields.",
+   "Adjusting = editing one value in the text."
+  ]
+ },
+ "parametros": {
+  "title": "Parameter Format — explicit, editable config",
+  "intro": "The same results, with the parameters visible so you can tune them on the fly.",
+  "guidelines": [
+   "List the parameters as labeled lines with their default value.",
+   "Default = amplified inference: the AI completes whatever is left unfilled and only asks when confidence falls below 0.85.",
+   "Declare the active clauses (Bucle de Excelencia, Evidence/Citations, Privacy...) as adjustable on the fly."
+  ],
+  "guardrails": [
+   "Every parameter has a real default (never a mandatory blank).",
+   "Keep the keys stable; the user changes the value, not the key.",
+   "Mark whatever the AI infers as {AUTOCOMPLETADO}."
+  ],
+  "workflow": [
+   "Extract the adjustable axes from the prompt (what a user would change).",
+   "Give them a label + default value.",
+   "Add the active-clauses block with their parameters.",
+   "Verify that, with the defaults, the result matches the natural version."
+  ],
+  "acceptance": [
+   "Every parameter has a default and clear alternatives.",
+   "It works without touching anything; adjustable by editing values in the text."
+  ],
+  "dod": [
+   "2-4 parameters with defaults; clauses declared; performs out of the box."
+  ]
+ },
+ "spec": {
+  "title": "SPEC Format — the high-performance contract",
+  "intro": "The deep version: a complete structure for rigorous, auditable execution.",
+  "guidelines": [
+   "S·P·E·C anatomy: Situation · Petition · Execution · Criterion.",
+   "Includes ROLE, ASSUMPTIONS, BOUNDARIES, step-by-step EXECUTION, EDGE CASES, OUTPUT, and observable ACCEPTANCE CRITERIA.",
+   "Provenance tags throughout the output + reasoning METADATA at the close.",
+   "Cross-cutting clauses with defaults (override on the fly)."
+  ],
+  "guardrails": [
+   "Executable by a third party with no extra context.",
+   "Global confidence declared; if it falls below the threshold, state the weakness and the plan to close it.",
+   "Do not present as solid anything you cannot defend with provenance."
+  ],
+  "workflow": [
+   "S — situation, context, and constraints.",
+   "P — petition: expert role + concrete deliverable + scope (DOES/DOES NOT include).",
+   "E — execution: steps, protocol, and edge cases.",
+   "C — criterion: format, audience, observable acceptance criteria, and DoD.",
+   "Cross-cutting clauses + reasoning metadata."
+  ],
+  "acceptance": [
+   "Each section present and case-specific (not generic).",
+   "Observable acceptance criteria and explicit DoD.",
+   "Traceability for every claim."
+  ],
+  "dod": [
+   "A third party executes it and reproduces the result in 1 step, auditably."
+  ]
+ },
+ "dupla": {
+  "title": "Pair Format — system / user for API and Agents",
+  "intro": "The version for integrations: role and guardrails in system, the task in user.",
+  "guidelines": [
+   "`system`: expert role + principles + guardrails + protocol.",
+   "`user`: the concrete request + inputs with their default value.",
+   "No meta-discourse; ready for API, SDK, or agent."
+  ],
+  "guardrails": [
+   "`system` does not change across invocations; `user` carries what varies.",
+   "Guardrails (no-hallucination, evidence, PII) live in `system`.",
+   "Direct output, with no conversational preambles."
+  ],
+  "workflow": [
+   "Draft `system`: who it is, how it operates, what it never does.",
+   "Draft `user`: the task + parameters with defaults.",
+   "Test as a pair (system+user) in an API or agent."
+  ],
+  "acceptance": [
+   "`system` reusable; `user` self-contained.",
+   "Performs via API without manual editing."
+  ],
+  "dod": [
+   "Pasteable as a pair into an SDK/agent and produces the deliverable."
+  ]
+ }
+}

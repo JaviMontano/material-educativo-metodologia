@@ -24,6 +24,17 @@ Repositorio público con el material educativo abierto de **MetodologIA**: bibli
 
 > Paridad verificada: **2026 prompts** en el monolito legacy, `prompts_universales_v3000.json` y `biblioteca-ligera/biblioteca-data.json`. La capa de comandos (`/0–/9`, verbos, `/a–/z`) lleva parámetros con defaults editables en texto (cero fricción).
 
+### Estándar para crear prompts
+
+`guidelines/` — estándar por formato (natural · parámetros · SPEC · dupla) + general: **guidelines · guardrails · workflow · criterios de aceptación · Definition of Done**. Fuente `.md` (ES) + JSON estructurado ES·EN·PT. Reusa la rúbrica de 10 y las cláusulas transversales.
+
+| Recurso | Tipo |
+|---|---|
+| [`guidelines/00-general.md`](guidelines/00-general.md) + `natural` · `parametros` · `spec` · `dupla` | Estándar legible (fuente de verdad) |
+| [`guidelines/guidelines.{es,en,pt}.json`](guidelines/) | Estándar estructurado trilingüe |
+
+Página publicada (trilingüe): **[Crear prompts](https://javimontano.github.io/prompt-amplificado/crear-prompts.html)** · sección §04 en la [Biblioteca](https://javimontano.github.io/prompt-amplificado/biblioteca-prompts.html).
+
 ### Playbooks editoriales
 
 | Recurso | Foco | Audiencia |

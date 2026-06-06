@@ -1,0 +1,158 @@
+{
+ "general": {
+  "title": "Estándar general para crear prompts",
+  "intro": "Cómo diseñar un prompt MetodologIA que rinda con cero fricción y se pueda auditar.",
+  "guidelines": [
+   "Empieza por la intención: define el resultado que quieres y para quién, en una frase.",
+   "Defaults primero: el prompt funciona tal cual; los parámetros viven en el texto con su valor por defecto.",
+   "Demuestra, no describas: el cuerpo ejecuta el comportamiento; no se autodescribe (\"este prompt es una macro que…\").",
+   "Una intención por prompt; si hay dos, son dos prompts.",
+   "Voz MetodologIA: directa, profesional, densa; cada palabra se gana su lugar."
+  ],
+  "guardrails": [
+   "No inventes: marca {SUPUESTO} o {VACIO_CRITICO} ante falta de datos; no afirmes acceso a memoria, adjuntos o herramientas ausentes.",
+   "Evidencia: toda afirmación factual con fuente o etiqueta de procedencia; cero citas inventadas.",
+   "Privacidad: detecta y anonimiza PII por defecto.",
+   "Separa hecho de inferencia y declara confianza (0.0–1.0).",
+   "Sin metadiscurso ni trazas del proceso en la salida."
+  ],
+  "workflow": [
+   "Intención — resultado, audiencia y criterio de éxito en 1 frase.",
+   "Estructura — elige el formato (natural · parámetros · SPEC · dupla) según el uso.",
+   "Defaults — fija los valores por defecto en el texto (cero fricción) y marca qué es ajustable.",
+   "Prueba en blanco — ejecútalo sin llenar nada: debe rendir solo.",
+   "Bucle de Excelencia — autoevalúa con la rúbrica de 10, itera hasta 10/10, entrega solo la versión final."
+  ],
+  "acceptance": [
+   "Fundamento — toda afirmación con base o marcada como supuesto.",
+   "Veracidad — nada inventado ni sobrevendido.",
+   "Calidad — anatomía sólida (rol, tarea, formato, criterio).",
+   "Densidad — cero relleno; no se puede borrar nada sin pérdida.",
+   "Simplicidad — lo más simple que funcione.",
+   "Claridad — comprensible en una lectura.",
+   "Precisión — términos exactos; criterios y números concretos.",
+   "Profundidad — cubre lo esencial + casos borde.",
+   "Coherencia — las 4 versiones alineadas entre sí y con título/desc.",
+   "Valor — utilidad práctica directa; usable con los defaults."
+  ],
+  "dod": [
+   "Rinde con defaults sin pedir nada al usuario.",
+   "Ajustable editando texto (sin widgets ni campos vacíos).",
+   "Pasa la rúbrica de 10; sin metadiscurso; guardrails aplicados.",
+   "Trazabilidad: cada afirmación con procedencia o supuesto marcado."
+  ]
+ },
+ "natural": {
+  "title": "Formato Natural — prosa lista para pegar",
+  "intro": "La versión de cero fricción: una instrucción imperativa que se pega y rinde.",
+  "guidelines": [
+   "Imperativo y directo: ordena la acción (\"Ordena por impacto real…\", no \"Este prompt ordena…\").",
+   "Defaults en prosa: incluye los valores por defecto dentro de la frase (top 3, formato matriz…).",
+   "Autocontenido: funciona sin hilo previo; si lo hay, lo capitaliza.",
+   "Breve: lo mínimo que rinde."
+  ],
+  "guardrails": [
+   "Sin `{{inputs}}` vacíos: los ajustes se editan en el texto, no se \"rellenan\".",
+   "No te describas; demuestra el comportamiento.",
+   "Cierra con el Protocolo MetodologIA."
+  ],
+  "workflow": [
+   "Escribe la acción en 1–3 frases imperativas.",
+   "Inserta los defaults inline (cantidad, formato, criterios).",
+   "Añade la salida esperada en una frase.",
+   "Prueba en blanco: ¿rinde sin editar? Si no, simplifica."
+  ],
+  "acceptance": [
+   "Pegable y ejecutable tal cual.",
+   "Cero tokens vacíos.",
+   "Demuestra (no describe) la intención."
+  ],
+  "dod": [
+   "Un humano lo pega y obtiene el resultado sin llenar campos.",
+   "Ajustar = editar un valor en el texto."
+  ]
+ },
+ "parametros": {
+  "title": "Formato Parámetros — config explícita y editable",
+  "intro": "Los mismos resultados, con los parámetros visibles para ajustar al vuelo.",
+  "guidelines": [
+   "Lista los parámetros como líneas etiquetadas con su valor por defecto.",
+   "Default = inferencia amplificada: la IA completa lo no llenado y solo pregunta si la confianza queda < 0.85.",
+   "Declara las cláusulas activas (Bucle de Excelencia, Evidencia/Citas, Privacidad…) como ajustables al vuelo."
+  ],
+  "guardrails": [
+   "Cada parámetro con un default real (nunca un vacío obligatorio).",
+   "Mantén las claves estables; el usuario cambia el valor, no la clave.",
+   "Marca {AUTOCOMPLETADO} lo que la IA infiera."
+  ],
+  "workflow": [
+   "Extrae los ejes ajustables del prompt (qué cambiaría un usuario).",
+   "Dales etiqueta + valor por defecto.",
+   "Añade el bloque de cláusulas activas con sus parámetros.",
+   "Verifica que con los defaults el resultado iguale a la versión natural."
+  ],
+  "acceptance": [
+   "Cada parámetro tiene default y alternativas claras.",
+   "Funciona sin tocar nada; ajustable editando valores en el texto."
+  ],
+  "dod": [
+   "2–4 parámetros con default; cláusulas declaradas; rinde en blanco."
+  ]
+ },
+ "spec": {
+  "title": "Formato SPEC — el contrato de alto rendimiento",
+  "intro": "La versión profunda: estructura completa para ejecución rigurosa y auditable.",
+  "guidelines": [
+   "Anatomía S·P·E·C: Situación · Pedido · Ejecución · Criterio.",
+   "Incluye ROL, SUPUESTOS, LÍMITES, EJECUCIÓN paso a paso, CASOS BORDE, SALIDA y CRITERIOS DE ACEPTACIÓN observables.",
+   "Etiquetas de procedencia en todo el output + METADATA de razonamiento al cierre.",
+   "Cláusulas transversales con defaults (override al vuelo)."
+  ],
+  "guardrails": [
+   "Ejecutable por un tercero sin contexto extra.",
+   "Confianza global declarada; si queda bajo el umbral, declara la debilidad y el plan de cierre.",
+   "No presentes como sólido lo que no puedas defender con procedencia."
+  ],
+  "workflow": [
+   "S — situación, contexto y restricciones.",
+   "P — pedido: rol experto + entregable concreto + alcance (SÍ/NO incluye).",
+   "E — ejecución: pasos, protocolo y casos borde.",
+   "C — criterio: formato, audiencia, criterios de aceptación observables y DoD.",
+   "Cláusulas transversales + metadata de razonamiento."
+  ],
+  "acceptance": [
+   "Cada sección presente y específica del caso (no genérica).",
+   "Criterios de aceptación observables y DoD explícitos.",
+   "Trazabilidad de cada afirmación."
+  ],
+  "dod": [
+   "Un tercero lo ejecuta y reproduce el resultado en 1 paso, de forma auditable."
+  ]
+ },
+ "dupla": {
+  "title": "Formato Dupla — system / user para API y agentes",
+  "intro": "La versión para integraciones: rol y guardrails en system, tarea en user.",
+  "guidelines": [
+   "`system`: rol experto + principios + guardrails + protocolo.",
+   "`user`: el pedido concreto + inputs con su valor por defecto.",
+   "Sin metadiscurso; listo para API, SDK o agente."
+  ],
+  "guardrails": [
+   "`system` no cambia entre invocaciones; `user` porta lo variable.",
+   "Guardrails (no-alucinación, evidencia, PII) viven en `system`.",
+   "Salida directa, sin preámbulos conversacionales."
+  ],
+  "workflow": [
+   "Redacta `system`: quién es, cómo opera, qué nunca hace.",
+   "Redacta `user`: la tarea + parámetros con default.",
+   "Prueba como par (system+user) en una API o agente."
+  ],
+  "acceptance": [
+   "`system` reutilizable; `user` autocontenido.",
+   "Rinde vía API sin edición manual."
+  ],
+  "dod": [
+   "Pegable como par en un SDK/agente y produce el entregable."
+  ]
+ }
+}

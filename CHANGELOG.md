@@ -24,6 +24,17 @@
 
 ## 📋 Historial de cambios
 
+## [1.5.0] · 2026-06-06 · Estándar para crear prompts por formato
+
+**Tipo**: estándar/guidelines · documentación
+**Editor**: Javier Montaño · MetodologIA · **License**: CC BY-NC-SA 4.0
+
+- `guidelines/` — estándar por formato (natural · parámetros · SPEC · dupla) + general, con **guidelines · guardrails · workflow · criterios de aceptación · DoD**. Fuente `.md` (ES) + JSON estructurado **ES·EN·PT**.
+- Reusa la rúbrica de 10 (criterios de aceptación) y las cláusulas transversales (guardrails).
+- Publicado en la experiencia canónica: página **crear-prompts.html** + sección §04 en la Biblioteca (Prompt Amplificado).
+
+---
+
 ## [1.4.0] · 2026-06-05 · Biblioteca ligera + capa de comandos parametrizada
 
 **Tipo**: nueva variante ligera + sincronización con la experiencia canónica
