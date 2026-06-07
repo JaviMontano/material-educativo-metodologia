@@ -1,0 +1,37 @@
+{
+ "name": "MetodologIA · Biblioteca de Prompts",
+ "version": "v-actual",
+ "generated": "2026-06-07",
+ "license": "CC BY-NC-SA 4.0",
+ "source": "biblioteca-data.json",
+ "attribution": "Javier Montaño · MetodologIA",
+ "total_records": 2031,
+ "files": [
+  "es/natural.json",
+  "es/parametros.json",
+  "es/spec.json",
+  "es/dupla.json",
+  "en/natural.json",
+  "en/parametros.json",
+  "en/spec.json",
+  "en/dupla.json",
+  "pt/natural.json",
+  "pt/parametros.json",
+  "pt/spec.json",
+  "pt/dupla.json"
+ ],
+ "counts": {
+  "es/natural": 2031,
+  "es/parametros": 2031,
+  "es/spec": 2031,
+  "es/dupla": 2031,
+  "en/natural": 2031,
+  "en/parametros": 2031,
+  "en/spec": 2031,
+  "en/dupla": 2031,
+  "pt/natural": 2031,
+  "pt/parametros": 2031,
+  "pt/spec": 2031,
+  "pt/dupla": 2031
+ }
+}
