@@ -43,6 +43,8 @@ Página publicada (trilingüe): **[Crear prompts](https://javimontano.github.io/
 
 | Recurso | Foco | Audiencia |
 |---|---|---|
+| [`workshop-multimedia-ai-native-2026.html`](workshop-multimedia-ai-native-2026.html) | Workshop Prompt Amplificado + Multimedia con IA · estrategia UX/UI · parrilla 30 dias para LinkedIn/Instagram/YouTube/TikTok · Nano Banana en Gemini · Veo en Gemini · musica con Lyria/MusicFX/Suno · NotebookLM · Pomelli de Google Labs · Google Stitch · 6 prompts por paso · Markdown operativo + HTML consultivo · CTAs claros y agenda de practica | Participantes del taller, emprendedores, operadores creativos y equipos que producen campañas, piezas sociales, videos y contenidos multimodales |
+| [`workbook-multimedia-ai-native-2026.html`](workbook-multimedia-ai-native-2026.html) | Workbook operativo cross-modal · imagen/fotografía · video · música/audio · contratos multimedia · smoke tests · evidencia | Operadores creativos, facilitadores y equipos que producen multimedia con IA |
 | [`playbook-aprender-aprehender-revolucionar-2026.html`](playbook-aprender-aprehender-revolucionar-2026.html) | Ciclo completo del conocimiento profesional con IA · 6 técnicas cognitivas · 10 escalas de maestría · 14 prompts | Profesionales de cualquier disciplina |
 | [`playbook-prompting-universal-2026.html`](playbook-prompting-universal-2026.html) | Manual completo de prompting · arquitecturas · superficies · evidencia | Practitioners avanzados |
 | [`playbook-prompting-universal-2026-essentials.html`](playbook-prompting-universal-2026-essentials.html) | Versión didáctica condensada | Iniciados |

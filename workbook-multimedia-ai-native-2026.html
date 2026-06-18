@@ -1,0 +1,1020 @@
+<!DOCTYPE html>
+<html lang="es" data-theme="light">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Workbook guiado para producir multimedia con IA: brief, matriz de modalidad, contrato semantico, asset board, prompt contract, adaptadores, smoke test y handoff.">
+<meta name="author" content="Javier Montaño · MetodologIA">
+<title>Multimedia con IA · Workbook</title>
+<meta name="metodologia:evidence-source" content="MET-Prompting Multimedia Alta Precision">
+<meta name="metodologia:reference-html" content="workbook-discovery-producto.html">
+<link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 36 36'%3E%3Cdefs%3E%3ClinearGradient id='g' x1='0%25' y1='0%25' x2='100%25' y2='100%25'%3E%3Cstop offset='0%25' stop-color='%23122562'/%3E%3Cstop offset='100%25' stop-color='%23137DC5'/%3E%3C/linearGradient%3E%3C/defs%3E%3Crect width='36' height='36' rx='10' fill='url(%23g)'/%3E%3Cpath d='M8 10h8v6H8v-6zm12 0h8v16h-8V10zM8 20h8v6H8v-6z' fill='%23fff'/%3E%3Ccircle cx='18' cy='18' r='3' fill='%23FFD700'/%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&family=Poppins:wght@600;700;800&family=JetBrains+Mono:wght@400;600&display=swap">
+<script src="https://unpkg.com/lucide@0.469.0/dist/umd/lucide.js" defer></script>
+<style>
+:root{
+  --navy:#122562;
+  --gold:#FFD700;
+  --gold-dark:#8a6500;
+  --blue:#137DC5;
+  --paper:#F9FAFB;
+  --ink:#1F2833;
+  --muted:#5B6677;
+  --line:rgba(18,37,98,.14);
+  --soft:#FFF8D6;
+  --ok:#15803d;
+  --warn:#B45309;
+  --risk:#B91C1C;
+  --lilac:#BBA0CC;
+  --teal:#0F766E;
+  --font-head:'Poppins',system-ui,sans-serif;
+  --font-body:'Montserrat',system-ui,sans-serif;
+  --font-mono:'JetBrains Mono',ui-monospace,monospace;
+  --shadow:0 10px 28px rgba(18,37,98,.07);
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;background:var(--paper);color:var(--ink);font-family:var(--font-body);line-height:1.65;padding-left:56px}
+h1,h2,h3{font-family:var(--font-head);line-height:1.15;color:var(--navy);margin:0;letter-spacing:0}
+h1{font-size:clamp(2.2rem,5vw,4.25rem);max-width:12ch}
+h2{font-size:clamp(1.45rem,3vw,2.15rem)}
+h3{font-size:1.08rem}
+p{margin:.65rem 0 0}
+a{color:var(--blue)}
+code{font-family:var(--font-mono);font-size:.92em}
+strong{font-weight:800}
+.en{display:none}
+body.lang-en .es{display:none!important}
+body.lang-en .en{display:inline!important}
+.cover{background:linear-gradient(135deg,#fff 0%,#f3f6fb 56%,#fff8d6 100%);border-bottom:1px solid var(--line)}
+.cover-inner{max-width:1080px;margin:auto;padding:4.8rem 1rem 3.1rem;display:grid;grid-template-columns:minmax(0,1.1fr) minmax(280px,.9fr);gap:1.4rem;align-items:end}
+.badge{display:inline-flex;align-items:center;gap:.35rem;padding:.35rem .7rem;border-radius:999px;background:rgba(255,215,0,.18);border:1px solid rgba(255,215,0,.45);font-size:.72rem;text-transform:uppercase;letter-spacing:.1em;font-weight:800;color:var(--gold-dark);margin-bottom:1rem}
+.lead{font-size:1.05rem;color:var(--muted);max-width:76ch}
+.cover-panel{background:#fff;border:1px solid var(--line);border-radius:12px;padding:1.15rem;box-shadow:var(--shadow)}
+.cover-panel ul{margin:.6rem 0 0;padding-left:1.1rem;color:var(--muted);font-size:.94rem}
+.docset-bar{display:flex;flex-wrap:wrap;gap:.5rem;margin-top:1.1rem}
+.chip{display:inline-flex;align-items:center;gap:.35rem;border:1px solid var(--line);background:#fff;border-radius:999px;padding:.38rem .68rem;color:var(--muted);font-size:.78rem;font-weight:700}
+.chip svg{width:14px;height:14px}
+.wrap{max-width:1080px;margin:auto;padding:2.6rem 1rem;scroll-margin-top:32px}
+.section-head{display:flex;align-items:flex-start;justify-content:space-between;gap:1rem;margin-bottom:1rem}
+.section-head p{max-width:72ch}
+.grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:1rem}
+.grid-3{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:1rem}
+.grid-4{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:1rem}
+.card{background:#fff;border:1px solid var(--line);border-radius:12px;padding:1.15rem;box-shadow:var(--shadow);min-width:0}
+.card p,.card li{color:var(--muted);font-size:.94rem}
+.card ul{margin:.55rem 0 0;padding-left:1.05rem}
+.card-head{display:flex;align-items:center;gap:.65rem;margin-bottom:.45rem}
+.card-head svg{width:20px;height:20px;color:var(--blue);flex:0 0 auto}
+.metric{display:flex;align-items:baseline;gap:.45rem;margin-top:.75rem}
+.metric strong{font-family:var(--font-head);font-size:1.4rem;color:var(--navy)}
+.metric span{color:var(--muted);font-size:.82rem}
+.step{display:grid;grid-template-columns:64px minmax(0,1fr);gap:1rem;background:#fff;border:1px solid var(--line);border-radius:12px;padding:1rem;margin:1rem 0;box-shadow:var(--shadow);min-width:0}
+.num{width:48px;height:48px;border-radius:10px;background:var(--navy);color:var(--gold);display:flex;align-items:center;justify-content:center;font-family:var(--font-head);font-weight:800}
+.step-body{min-width:0}
+.step-kicker{font-family:var(--font-mono);font-size:.76rem;color:var(--blue);font-weight:700;text-transform:uppercase;letter-spacing:.04em;margin-bottom:.15rem}
+.mini-list{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:.55rem;margin-top:.8rem}
+.mini-list span{display:block;border:1px solid var(--line);background:#fbfdff;border-radius:10px;padding:.55rem;color:var(--muted);font-size:.82rem}
+.fields{display:grid;gap:.8rem;margin-top:1rem}
+label{font-weight:800;color:var(--navy);font-size:.86rem}
+textarea,input,select{width:100%;border:1px solid var(--line);border-radius:10px;padding:.75rem;font:inherit;background:#fff;color:var(--ink)}
+textarea{min-height:96px;resize:vertical}
+.hint{font-size:.82rem;color:var(--muted);margin-top:.25rem}
+.prompt{background:#0A122A;color:#E8EEF8;border-radius:12px;overflow:hidden;border:1px solid #24324f;margin-top:.9rem;min-width:0}
+.prompt-head{display:flex;justify-content:space-between;align-items:center;gap:1rem;background:#142044;padding:.65rem .8rem}
+.fmt-tabs{display:flex;align-items:center;gap:.35rem;flex-wrap:wrap;min-width:0}
+.fmt-label{font-family:var(--font-mono);font-size:.76rem;color:var(--gold);margin-right:.2rem}
+button{font-family:var(--font-body)}
+button.fmt{border:1px solid rgba(255,255,255,.2);background:transparent;color:#dbe5f6;border-radius:999px;padding:.28rem .52rem;cursor:pointer;font-weight:800;font-size:.72rem}
+button.fmt.active{background:var(--gold);color:#122562;border-color:var(--gold)}
+button.copy{border:1px solid #53617c;background:transparent;color:#dbe5f6;border-radius:7px;padding:.35rem .6rem;cursor:pointer;font-weight:800;white-space:nowrap}
+button.copy:hover,button.copy.ok{background:var(--gold);color:#122562;border-color:var(--gold)}
+pre{margin:0;padding:1rem;white-space:pre-wrap;overflow:auto;font-family:var(--font-mono);font-size:.82rem;line-height:1.55;max-width:100%}
+.checklist{display:grid;gap:.55rem;margin-top:1rem}
+.check{display:flex;align-items:flex-start;gap:.55rem;background:#fff;border:1px solid var(--line);border-radius:10px;padding:.8rem}
+.check input{width:auto;margin-top:.3rem}
+.callout{background:var(--soft);border-left:5px solid var(--gold);border-radius:10px;padding:1rem 1.15rem}
+.callout.risk{background:#FFF1F2;border-left-color:var(--risk)}
+.callout.info{background:#ECFEFF;border-left-color:var(--teal)}
+.evidence-grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:1rem}
+.evidence-card{border-top:5px solid var(--blue)}
+.evidence-card:nth-child(2){border-top-color:var(--teal)}
+.evidence-card:nth-child(3){border-top-color:var(--gold)}
+.evidence-card:nth-child(4){border-top-color:var(--risk)}
+.table{overflow:auto;border:1px solid var(--line);border-radius:12px;background:#fff;box-shadow:var(--shadow)}
+.table table{width:100%;border-collapse:collapse;min-width:760px}
+.table th{background:var(--navy);color:var(--gold);text-align:left;font-family:var(--font-head);font-size:.82rem}
+.table th,.table td{padding:.75rem;border-bottom:1px solid var(--line);vertical-align:top}
+.table td{color:var(--muted);font-size:.92rem}
+.table tr:last-child td{border-bottom:0}
+.glossary-tools{display:flex;gap:.6rem;align-items:center;margin:1rem 0}
+.glossary-tools input{max-width:420px}
+.faq details{background:#fff;border:1px solid var(--line);border-radius:10px;padding:.85rem 1rem;margin:.7rem 0;box-shadow:0 6px 18px rgba(18,37,98,.05)}
+.faq summary{cursor:pointer;font-weight:800;color:var(--navy)}
+.faq p{color:var(--muted)}
+.footer{background:#0A122A;color:rgba(255,255,255,.72);padding:2rem 1rem;margin-top:1rem}
+.footer div{max-width:1080px;margin:auto}
+.footer strong{color:var(--gold)}
+.footer a{color:#fff}
+.sidebar-nav{position:fixed;top:0;left:0;bottom:0;width:56px;z-index:1000;display:flex;flex-direction:column;align-items:center;padding:1.25rem 0 1rem;gap:2px;background:rgba(255,251,240,.94);backdrop-filter:blur(16px);-webkit-backdrop-filter:blur(16px);border-right:1px solid rgba(18,37,98,.10);overflow:visible}
+.sidebar-logo{width:36px;height:36px;margin-bottom:1rem;padding-bottom:.75rem;border-bottom:1px solid var(--line);box-sizing:content-box;flex:0 0 auto}
+.sidebar-logo svg{width:100%;height:100%;display:block}
+.sidebar-links{display:flex;flex-direction:column;align-items:center;gap:2px;flex:1;justify-content:center}
+.sidebar-nav a{position:relative;display:flex;align-items:center;justify-content:center;width:40px;height:40px;border-radius:10px;color:#6B5300;text-decoration:none;border:none!important;transition:color .25s,background .25s,transform .2s}
+.sidebar-nav a:hover{color:#0A122A;background:rgba(255,215,0,.18);transform:scale(1.08)}
+.sidebar-nav a.active{color:#0A122A;background:rgba(255,215,0,.12)}
+.sidebar-nav a.active::before{content:'';position:absolute;left:0;top:50%;transform:translateY(-50%);width:3px;height:20px;border-radius:0 2px 2px 0;background:var(--gold)}
+.sidebar-nav a svg{width:20px;height:20px;color:inherit;flex-shrink:0;stroke-width:2}
+.sidebar-nav a::after{content:attr(data-label);position:absolute;left:calc(100% + 10px);top:50%;transform:translateY(-50%) translateX(-4px);background:#0A122A;color:#fff;font-family:var(--font-head);font-size:.7rem;font-weight:600;padding:.32rem .65rem;border-radius:6px;white-space:nowrap;opacity:0;pointer-events:none;transition:opacity .2s,transform .2s;box-shadow:0 4px 12px rgba(0,0,0,.18)}
+.sidebar-nav a:hover::after,.sidebar-nav a:focus-visible::after{opacity:1;transform:translateY(-50%) translateX(0)}
+.sidebar-bottom{display:flex;flex-direction:column;align-items:center;justify-content:center;gap:.35rem;flex:0 0 auto;padding-top:.75rem;border-top:1px solid var(--line)}
+.sidebar-bottom button{width:34px;height:34px;border-radius:8px;border:1px solid var(--line);background:#fff;color:var(--navy);cursor:pointer;font-family:var(--font-head);font-size:.65rem;font-weight:800;display:flex;align-items:center;justify-content:center;transition:all .2s}
+.sidebar-bottom button:hover{background:var(--gold);border-color:var(--gold);transform:translateY(-1px)}
+.sidebar-bottom button svg{width:16px;height:16px}
+html[data-theme="dark"]{--paper:#0A122A;--ink:#E8EEF8;--muted:#CBD5E1;--line:rgba(255,215,0,.22)}
+html[data-theme="dark"] body{background:#0A122A;color:#E8EEF8}
+html[data-theme="dark"] .cover{background:linear-gradient(135deg,#101b3d 0%,#0A122A 55%,#2a2740 100%)}
+html[data-theme="dark"] .cover h1,html[data-theme="dark"] .cover h2{color:#fff}
+html[data-theme="dark"] .sidebar-nav{background:rgba(31,40,51,.94);border-right-color:rgba(255,215,0,.14)}
+html[data-theme="dark"] .sidebar-nav a{color:#FFD700}
+html[data-theme="dark"] .sidebar-nav a:hover,html[data-theme="dark"] .sidebar-nav a.active{color:#FFD700;background:rgba(255,215,0,.14)}
+html[data-theme="dark"] .sidebar-bottom button{background:#101b3d;color:#FFD700;border-color:rgba(255,215,0,.22)}
+html[data-theme="dark"] .card,html[data-theme="dark"] .cover-panel,html[data-theme="dark"] .step,html[data-theme="dark"] .table,html[data-theme="dark"] .check,html[data-theme="dark"] textarea,html[data-theme="dark"] input,html[data-theme="dark"] select,html[data-theme="dark"] .faq details,html[data-theme="dark"] .mini-list span{background:#fff;color:#1F2833}
+html[data-theme="dark"] .card h3,html[data-theme="dark"] .step h3,html[data-theme="dark"] .cover-panel h3,html[data-theme="dark"] .metric strong,html[data-theme="dark"] label,html[data-theme="dark"] h2,html[data-theme="dark"] h3,html[data-theme="dark"] .faq summary{color:#122562}
+html[data-theme="dark"] .card p,html[data-theme="dark"] .card li,html[data-theme="dark"] .table td,html[data-theme="dark"] .hint,html[data-theme="dark"] .mini-list span,html[data-theme="dark"] .faq p{color:#5B6677}
+@media(max-width:980px){.cover-inner{grid-template-columns:1fr}.grid-4{grid-template-columns:repeat(2,minmax(0,1fr))}.evidence-grid{grid-template-columns:repeat(2,minmax(0,1fr))}.mini-list{grid-template-columns:1fr}}
+@media(max-width:780px){body{padding-left:0;padding-bottom:60px}.cover-inner{padding-top:3.4rem}.grid,.grid-3,.grid-4,.step,.evidence-grid{grid-template-columns:1fr}.section-head{display:block}.num{width:42px;height:42px}.prompt-head{align-items:flex-start;flex-direction:column}.copy{align-self:flex-start}.sidebar-nav{top:auto;bottom:0;left:0;right:0;width:100%;height:56px;flex-direction:row;padding:0 .35rem;border-right:none;border-top:1px solid rgba(18,37,98,.10)}.sidebar-logo,.sidebar-bottom{display:none}.sidebar-links{flex-direction:row;gap:0;justify-content:space-around;width:100%}.sidebar-nav a{width:38px;height:38px;min-width:42px;min-height:42px}.sidebar-nav a svg{width:18px;height:18px}.sidebar-nav a::after{display:none}.sidebar-nav a.active::before{left:50%;top:auto;bottom:0;transform:translateX(-50%);width:20px;height:3px;border-radius:3px 3px 0 0}.table table{min-width:680px}h1{max-width:14ch}}
+@media(max-width:430px){.wrap{padding:2.15rem .8rem}.cover-inner{padding-left:.8rem;padding-right:.8rem}.card,.step,.cover-panel{padding:.95rem}.fmt-tabs{gap:.28rem}button.fmt{padding:.24rem .42rem;font-size:.68rem}pre{font-size:.76rem}.table table{min-width:620px}}
+@media print{.sidebar-nav,.copy,.fmt{display:none!important}body{padding-left:0}.cover,.footer{background:#fff;color:#000}.card,.step,.table{box-shadow:none}}
+</style>
+</head>
+<body class="brand-has-shell">
+<nav class="sidebar-nav" aria-label="Navegacion principal">
+  <div class="sidebar-logo" aria-hidden="true">
+    <svg viewBox="0 0 36 36" role="img" aria-label="MetodologIA">
+      <defs><linearGradient id="logo-g" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" stop-color="#122562"/><stop offset="100%" stop-color="#137DC5"/></linearGradient></defs>
+      <rect width="36" height="36" rx="10" fill="url(#logo-g)"></rect>
+      <path d="M9 11h8v5H9v-5zm10 0h8v14h-8V11zM9 20h8v5H9v-5z" fill="#fff"></path>
+      <circle cx="18" cy="18" r="3" fill="#FFD700"></circle>
+    </svg>
+  </div>
+  <div class="sidebar-links">
+    <a href="#cover" data-label="Inicio" class="active"><i data-lucide="home"></i></a>
+    <a href="#partida" data-label="Partida"><i data-lucide="play-circle"></i></a>
+    <a href="#repo" data-label="Repo"><i data-lucide="folder-tree"></i></a>
+    <a href="#recorrido" data-label="Recorrido"><i data-lucide="route"></i></a>
+    <a href="#evidencia" data-label="Evidencia"><i data-lucide="shield-check"></i></a>
+    <a href="#artefactos" data-label="Artefactos"><i data-lucide="table-2"></i></a>
+    <a href="#glosario" data-label="Glosario"><i data-lucide="search"></i></a>
+    <a href="#cierre" data-label="Cierre"><i data-lucide="check-check"></i></a>
+  </div>
+  <div class="sidebar-bottom">
+    <button type="button" onclick="toggleTheme()" aria-label="Cambiar tema" title="Cambiar tema"><i data-lucide="moon"></i></button>
+    <button type="button" onclick="toggleLang()" aria-label="Cambiar idioma" title="Cambiar idioma" id="langBtn">ES</button>
+  </div>
+</nav>
+
+<header class="cover" id="cover">
+  <div class="cover-inner">
+    <div>
+      <span class="badge"><i data-lucide="sparkles"></i> <span class="es">Workbook guiado · cross-modal</span><span class="en">Guided workbook · cross-modal</span></span>
+      <h1><span class="es">Conduce tu Multimedia con IA</span><span class="en">Run AI Multimedia Workflows</span></h1>
+      <p class="lead"><span class="es">Un cuaderno operativo para pasar de una intencion creativa ambigua a un contrato multimedia defendible: brief, modalidad lider, coherencia entre assets, prompt contract, adaptadores por motor, smoke test y handoff de produccion. Metodo primero, IA despues.</span><span class="en">An operational workbook to turn an ambiguous creative intent into a defensible multimedia contract: brief, leading modality, asset coherence, prompt contract, model adapters, smoke test and production handoff. Method first, AI later.</span></p>
+      <div class="docset-bar" aria-label="Fuentes y alcance">
+        <span class="chip"><i data-lucide="image"></i> Imagen/Fotografia</span>
+        <span class="chip"><i data-lucide="video"></i> Video</span>
+        <span class="chip"><i data-lucide="music"></i> Musica/Audio</span>
+        <span class="chip"><i data-lucide="network"></i> Coherencia cross-modal</span>
+      </div>
+    </div>
+    <aside class="cover-panel">
+      <h3>Criterio de cierre</h3>
+      <ul>
+        <li>Ocho archivos <code>.md</code> listos para versionar. [SUPUESTO]</li>
+        <li>Variables canonicas completas antes de generar. [CONFIG]</li>
+        <li>Adaptador elegido sin inventar capacidades oficiales. [CONFIG]</li>
+        <li>Smoke test pequeño antes de escalar produccion. [CONFIG]</li>
+      </ul>
+    </aside>
+  </div>
+</header>
+
+<main>
+  <section class="wrap" id="partida">
+    <div class="section-head">
+      <div>
+        <span class="badge"><i data-lucide="compass"></i> Punto de partida</span>
+        <h2>Dos formas de entrar</h2>
+        <p class="lead">No necesitas tener un sistema creativo maduro. Entras con una idea o con assets previos; la IA te entrevista, estructura el contrato y mantiene visibles los supuestos.</p>
+      </div>
+    </div>
+    <div class="grid">
+      <article class="card">
+        <div class="card-head"><i data-lucide="lightbulb"></i><h3>Tengo una pieza en mente</h3></div>
+        <p>Quieres producir una foto, un reel, una secuencia, una banda sonora, un clip o una campana. El primer trabajo es convertir esa intencion en un brief con audiencia, canal, restriccion y criterio de exito.</p>
+      </article>
+      <article class="card">
+        <div class="card-head"><i data-lucide="layers"></i><h3>Tengo assets o prompts previos</h3></div>
+        <p>Traes imagenes, guiones, referencias, audio, identidad visual o prompts existentes. La IA no los copia sin criterio: extrae anclas permitidas, limites de estilo, gaps y riesgos de coherencia.</p>
+      </article>
+    </div>
+    <div class="grid" style="margin-top:1rem">
+      <article class="card">
+        <div class="card-head"><i data-lucide="lock-keyhole"></i><h3>Protege identidad y derechos</h3></div>
+        <p>No subas datos personales, material confidencial ni assets con permisos dudosos si no son indispensables. Licencias, permisos comerciales y uso de imagen se marcan como <code>[DATO REQUERIDO]</code> cuando no hay fuente local.</p>
+      </article>
+      <article class="card">
+        <div class="card-head"><i data-lucide="user-check"></i><h3>Decision humana</h3></div>
+        <p>La IA puede proponer estructura, pero la decision sobre concepto, permisos, riesgo reputacional, calidad y publicacion queda en la persona o equipo responsable.</p>
+      </article>
+    </div>
+    <h3 style="margin-top:1.4rem">Captura ligera antes de empezar</h3>
+    <p class="hint">Usa placeholders para datos sensibles. Si no tienes evidencia o permisos, escríbelo como gap.</p>
+    <div class="fields">
+      <div><label for="start-mode">1. ¿Cual es tu modo de arranque?</label><input id="start-mode" placeholder="Pieza en mente · assets previos · prompt anterior · experimento exploratorio"></div>
+      <div><label for="start-assets">2. ¿Que tienes hoy?</label><textarea id="start-assets" placeholder="Brief, referencias, assets, tono, audiencia, canal, restricciones, fuentes, permisos, objetivos o dudas."></textarea></div>
+    </div>
+    <div class="prompt">
+      <div class="prompt-head">
+        <div class="fmt-tabs">
+          <span class="fmt-label">Prompt 0 · Arranque</span>
+          <button type="button" class="fmt active" data-fmt="natural">Natural</button>
+          <button type="button" class="fmt" data-fmt="parametros">Parametros</button>
+          <button type="button" class="fmt" data-fmt="spec">SPEC</button>
+          <button type="button" class="fmt" data-fmt="dupla">System/User</button>
+        </div>
+        <button type="button" class="copy" data-copy>Copiar</button>
+      </div>
+      <pre data-variant="natural">Quiero que me acompañes a crear una pieza multimedia con IA, paso a paso. No empieces generando prompts finales. Primero entrevístame para entender: objetivo, audiencia, pieza, canal, restricciones, assets existentes, permisos, riesgos y criterio de exito.
+
+Trabaja con estas reglas:
+1. Hazme una ronda corta de preguntas, maximo 6.
+2. Separa lo observado de lo inferido y de lo supuesto.
+3. No inventes precios, capacidades oficiales, licencias, permisos comerciales ni claims legales.
+4. Si falta una fuente o permiso, marca coverage_gap o [DATO REQUERIDO].
+5. Al final de cada paso, entregame un gate de confirmacion antes de avanzar.
+
+Primero dime que entendiste de mi punto de partida y haz la primera ronda de preguntas para construir `brief-multimedia.md`.</pre>
+      <pre data-variant="parametros" hidden>Objetivo: crear un workbook operativo para producir multimedia con IA sin saltar directo a prompts finales.
+
+Entrada:
+- Modo de arranque: {{modo_arranque}}
+- Pieza deseada: {{pieza}}
+- Audiencia: {{audiencia}}
+- Canal/plataforma: {{canal}}
+- Assets existentes: {{assets}}
+- Restricciones: {{restricciones}}
+- Evidencia/permisos disponibles: {{evidencia_permisos}}
+
+Instrucciones:
+1. Entrevistame en rondas de maximo 6 preguntas.
+2. Clasifica cada dato como Observado, Inferido, Supuesto o Dato requerido.
+3. Marca coverage_gap cuando falte evidencia para precios, capacidades oficiales, licencias, permisos comerciales o claims legales.
+4. No propongas motor/modelo hasta tener brief y matriz de modalidad.
+5. Cierra con un gate: "Confirmas este brief para avanzar a matriz-modalidad.md?"
+
+Salida esperada: primera ronda de preguntas para construir `brief-multimedia.md`.</pre>
+      <pre data-variant="spec" hidden>[inputs]
+- modo_arranque: {{modo_arranque}}
+- pieza: {{pieza}}
+- audiencia: {{audiencia}}
+- canal: {{canal}}
+- assets: {{assets}}
+- restricciones: {{restricciones}}
+- evidencia_permisos: {{evidencia_permisos}}
+
+[prompt]
+--- S | SITUACION ---
+Voy a producir multimedia con IA y necesito un flujo riguroso antes de generar. El objetivo es evitar prompts ambiguos, assets incoherentes y claims sin evidencia.
+
+--- P | PEDIDO ---
+Actua como facilitador de produccion multimedia con IA. Entrevistame para iniciar `brief-multimedia.md`, separando Observado / Inferido / Supuesto / Dato requerido.
+
+--- E | EJECUCION ---
+1. Resume mi punto de partida en 3-5 lineas.
+2. Haz una ronda de maximo 6 preguntas.
+3. Pregunta por objetivo, audiencia, pieza, canal, restricciones, assets, permisos y criterio de exito.
+4. No inventes precios, capacidades oficiales, licencias ni permisos.
+5. Declara coverage_gap donde falte soporte.
+
+--- C | CRITERIO ---
+- [ ] Datos clasificados por evidencia.
+- [ ] No hay promesas ni capacidades oficiales inventadas.
+- [ ] Hay gate de confirmacion para avanzar.</pre>
+      <pre data-variant="dupla" hidden>SYSTEM:
+Eres un facilitador senior de produccion multimedia con IA. Tu trabajo es entrevistar, estructurar y controlar evidencia antes de generar. Usas Observado / Inferido / Supuesto / Dato requerido. No inventas precios, capacidades oficiales, permisos, licencias ni claims legales. Si falta soporte, declaras coverage_gap. Trabajas paso a paso y cierras cada paso con gate de confirmacion.
+
+USER:
+Arranquemos un workbook de Multimedia con IA.
+- Modo de arranque: {{modo_arranque}}
+- Pieza deseada: {{pieza}}
+- Audiencia: {{audiencia}}
+- Canal/plataforma: {{canal}}
+- Assets existentes: {{assets}}
+- Restricciones: {{restricciones}}
+- Evidencia/permisos disponibles: {{evidencia_permisos}}
+
+Primero ayudame a construir `brief-multimedia.md`. Resume lo que entiendes y hazme maximo 6 preguntas. No propongas motor ni prompt final todavia.</pre>
+    </div>
+  </section>
+
+  <section class="wrap" id="repo">
+    <span class="badge"><i data-lucide="folder-git-2"></i> Repositorio de trabajo</span>
+    <h2>Trabaja dentro del proyecto que va a producir</h2>
+    <p class="lead">El workbook debe vivir junto a los assets, decisiones y outputs reales. Si se publica o se entrega a un cliente, debe quedar trazabilidad de brief, permisos, prompts, adapters, pruebas y gaps.</p>
+    <div class="grid">
+      <article class="card">
+        <h3>Estructura sugerida</h3>
+        <div class="prompt" style="margin-top:.8rem">
+          <pre>multimedia-ia/
+├── 00_descubrimiento/
+│   ├── brief-multimedia.md
+│   └── matriz-modalidad.md
+├── 01_contrato/
+│   ├── contrato-semantico.md
+│   ├── asset-anchor-board.md
+│   └── prompt-contract.md
+├── 02_generacion-validacion/
+│   ├── adaptadores-modelo.md
+│   ├── smoke-test-y-evaluacion.md
+│   └── handoff-produccion.md
+└── README.md</pre>
+        </div>
+      </article>
+      <article class="card">
+        <h3>Regla de versionado</h3>
+        <p>Cada output generado debe poder rastrearse a: brief, contrato semantico, prompt contract, adapter usado, motor/plataforma, fecha, evaluacion y decision humana.</p>
+        <div class="callout info" style="margin-top:1rem">
+          <strong>Dato requerido:</strong> si el motor, plan, politica de uso o licencia cambia, no lo afirmes desde memoria. Verifica fuente oficial o marca <code>coverage_gap</code>.
+        </div>
+      </article>
+    </div>
+  </section>
+
+  <section class="wrap" id="recorrido">
+    <div class="section-head">
+      <div>
+        <span class="badge"><i data-lucide="route"></i> Recorrido guiado</span>
+        <h2>Ocho entregables encadenados</h2>
+        <p class="lead">Cada paso entrevista, produce un archivo, declara evidencia y termina con gate. No se salta del deseo estetico al prompt final: se construye un contrato que pueda adaptarse a imagen, video, musica/audio y combinaciones.</p>
+      </div>
+    </div>
+    <div class="grid-4">
+      <article class="card"><h3>Natural</h3><p>Para conversar con fluidez y arrancar la entrevista.</p></article>
+      <article class="card"><h3>Parametros</h3><p>Para repetir el paso con variables editables.</p></article>
+      <article class="card"><h3>SPEC</h3><p>Para exigir situacion, pedido, ejecucion y criterio.</p></article>
+      <article class="card"><h3>System/User</h3><p>Para asistentes, GPTs o flujos con rol persistente.</p></article>
+    </div>
+
+    <article class="step" id="brief">
+      <div class="num">1</div>
+      <div class="step-body">
+        <div class="step-kicker">brief-multimedia.md</div>
+        <h3>Brief multimedia</h3>
+        <p>Define objetivo, audiencia, pieza, canal, restricciones, evidencia, permisos y criterio de exito. Es el ancla de todo lo que sigue.</p>
+        <div class="mini-list"><span>Output: una pagina clara.</span><span>Gate: alcance y decision humana.</span><span>Riesgo: pedir belleza sin objetivo.</span></div>
+        <div class="prompt">
+          <div class="prompt-head"><div class="fmt-tabs"><span class="fmt-label">Prompt 1</span><button type="button" class="fmt active" data-fmt="natural">Natural</button><button type="button" class="fmt" data-fmt="parametros">Parametros</button><button type="button" class="fmt" data-fmt="spec">SPEC</button><button type="button" class="fmt" data-fmt="dupla">System/User</button></div><button type="button" class="copy" data-copy>Copiar</button></div>
+          <pre data-variant="natural">Ayudame a crear `brief-multimedia.md`. Entrevistame antes de escribirlo. Necesito que el brief deje claro: objetivo, audiencia, pieza, canal, contexto, restricciones, assets disponibles, permisos, no negociables, criterio de exito y riesgos.
+
+Clasifica la informacion en Observado / Inferido / Supuesto / Dato requerido. Si pregunto por precios, licencias, permisos comerciales, capacidades oficiales o claims legales sin fuente oficial, marca coverage_gap.
+
+Cuando tengas suficiente, entrega:
+1. Brief en formato Markdown.
+2. Tabla de decisiones y gaps.
+3. Gate: "Confirmas este brief para avanzar a matriz-modalidad.md?"</pre>
+          <pre data-variant="parametros" hidden>Crea `brief-multimedia.md` usando:
+- objetivo: {{objetivo}}
+- audiencia: {{audiencia}}
+- pieza: {{pieza}}
+- canal: {{canal}}
+- contexto: {{contexto}}
+- assets: {{assets}}
+- restricciones: {{restricciones}}
+- permisos: {{permisos}}
+- criterio_exito: {{criterio_exito}}
+
+Antes de redactar, pregunta por cualquier variable faltante critica. Clasifica cada afirmacion como Observado / Inferido / Supuesto / Dato requerido. Marca coverage_gap para permisos, licencias, precios, capacidades oficiales o claims legales sin soporte. Cierra con gate para avanzar a `matriz-modalidad.md`.</pre>
+          <pre data-variant="spec" hidden>[inputs] objetivo, audiencia, pieza, canal, contexto, assets, restricciones, permisos, criterio_exito
+
+[prompt]
+--- S | SITUACION ---
+Necesito convertir una intencion creativa multimedia en un brief operativo antes de decidir modalidad o modelo.
+
+--- P | PEDIDO ---
+Produce `brief-multimedia.md` en Markdown, despues de entrevistarme sobre variables faltantes.
+
+--- E | EJECUCION ---
+1. Detecta faltantes criticos.
+2. Pregunta maximo 6 cosas.
+3. Redacta el brief con secciones: objetivo, audiencia, pieza, canal, restricciones, assets, permisos, evidencia, criterio de exito, riesgos.
+4. Separa Observado / Inferido / Supuesto / Dato requerido.
+5. Declara coverage_gap donde aplique.
+
+--- C | CRITERIO ---
+- [ ] El brief cabe en una pagina.
+- [ ] No hay afirmaciones oficiales sin fuente.
+- [ ] El gate para avanzar esta visible.</pre>
+          <pre data-variant="dupla" hidden>SYSTEM:
+Eres facilitador de produccion multimedia con IA. Tu primer entregable es un brief operativo. Entrevistas antes de escribir y marcas evidencia. No inventas permisos, licencias, precios, capacidades oficiales ni claims legales.
+
+USER:
+Construyamos `brief-multimedia.md`.
+Datos disponibles:
+- objetivo: {{objetivo}}
+- audiencia: {{audiencia}}
+- pieza: {{pieza}}
+- canal: {{canal}}
+- contexto/assets/restricciones/permisos: {{contexto_assets_restricciones}}
+- criterio de exito: {{criterio_exito}}
+
+Pregunta lo faltante, redacta el brief y cierra con gate para avanzar a matriz de modalidad.</pre>
+        </div>
+      </div>
+    </article>
+
+    <article class="step" id="matriz">
+      <div class="num">2</div>
+      <div class="step-body">
+        <div class="step-kicker">matriz-modalidad.md</div>
+        <h3>Matriz de modalidad y anti-alcance</h3>
+        <p>Define modalidad lider, modalidades soporte y lo que queda fuera. Evita pedirle a cada medio que haga todo.</p>
+        <div class="mini-list"><span>Output: matriz lider/soporte.</span><span>Gate: una modalidad manda.</span><span>Riesgo: sobreproducir.</span></div>
+        <div class="prompt">
+          <div class="prompt-head"><div class="fmt-tabs"><span class="fmt-label">Prompt 2</span><button type="button" class="fmt active" data-fmt="natural">Natural</button><button type="button" class="fmt" data-fmt="parametros">Parametros</button><button type="button" class="fmt" data-fmt="spec">SPEC</button><button type="button" class="fmt" data-fmt="dupla">System/User</button></div><button type="button" class="copy" data-copy>Copiar</button></div>
+          <pre data-variant="natural">Con base en `brief-multimedia.md`, ayudame a crear `matriz-modalidad.md`. Decide conmigo cual es la modalidad lider y cuales son soporte: imagen/fotografia, video, musica/audio, texto, voz, subtitulos u otras.
+
+No elijas por moda. Elige por objetivo, canal, audiencia, restricciones y criterio de exito. Incluye anti-alcance: que NO vamos a producir y que NO debe prometer cada modalidad.
+
+Entrega una matriz con columnas: modalidad, rol, aporta, no debe hacer, variables criticas, evidencia, riesgos y decision. Cierra con gate para avanzar a `contrato-semantico.md`.</pre>
+          <pre data-variant="parametros" hidden>Crea `matriz-modalidad.md` con:
+- objetivo: {{objetivo}}
+- canal: {{canal}}
+- pieza: {{pieza}}
+- audiencia: {{audiencia}}
+- restricciones: {{restricciones}}
+- assets: {{assets}}
+- criterio_exito: {{criterio_exito}}
+
+Evalua modalidades candidatas: imagen/fotografia, video, musica/audio, texto, voz, subtitulos. Define `leading_modality`, soportes y anti-alcance. No inventes capacidades oficiales de motores. Cierra con gate para `contrato-semantico.md`.</pre>
+          <pre data-variant="spec" hidden>[inputs] brief-multimedia.md
+
+--- S | SITUACION ---
+El brief existe, pero todavia no sabemos que modalidad debe liderar la pieza.
+
+--- P | PEDIDO ---
+Produce `matriz-modalidad.md` con modalidad lider, modalidades soporte y anti-alcance.
+
+--- E | EJECUCION ---
+1. Extrae objetivo, canal, audiencia, restricciones y criterio de exito.
+2. Evalua imagen, video, musica/audio, texto, voz y subtitulos.
+3. Define `leading_modality`.
+4. Declara que aporta y que NO debe hacer cada modalidad.
+5. Marca gaps de evidencia o permisos.
+
+--- C | CRITERIO ---
+- [ ] Hay una modalidad lider explicita.
+- [ ] Las modalidades soporte tienen rol limitado.
+- [ ] El anti-alcance evita inflar la produccion.
+- [ ] Hay gate de confirmacion.</pre>
+          <pre data-variant="dupla" hidden>SYSTEM:
+Eres un estratega cross-modal. No eliges modalidad por novedad, sino por objetivo, canal, audiencia y restricciones. Tu salida debe separar modalidad lider, soporte y anti-alcance.
+
+USER:
+Usa este brief: {{brief_multimedia}}
+
+Crea `matriz-modalidad.md` con columnas: modalidad, rol, aporta, no debe hacer, variables criticas, evidencia, riesgos y decision. Marca `leading_modality` y cierra con gate.</pre>
+        </div>
+      </div>
+    </article>
+
+    <article class="step" id="contrato">
+      <div class="num">3</div>
+      <div class="step-body">
+        <div class="step-kicker">contrato-semantico.md</div>
+        <h3>Contrato semantico cross-modal</h3>
+        <p>Convierte la intencion en variables canonicas: <code>leading_modality</code>, <code>visual_anchor</code>, <code>audio_cues</code>, <code>shot_or_frame</code>, <code>style</code>, <code>constraints</code> y <code>cross_modal_consistency</code>.</p>
+        <div class="mini-list"><span>Output: contrato de variables.</span><span>Gate: consistencia entre medios.</span><span>Riesgo: estilo sin limites.</span></div>
+        <div class="prompt">
+          <div class="prompt-head"><div class="fmt-tabs"><span class="fmt-label">Prompt 3</span><button type="button" class="fmt active" data-fmt="natural">Natural</button><button type="button" class="fmt" data-fmt="parametros">Parametros</button><button type="button" class="fmt" data-fmt="spec">SPEC</button><button type="button" class="fmt" data-fmt="dupla">System/User</button></div><button type="button" class="copy" data-copy>Copiar</button></div>
+          <pre data-variant="natural">Ayudame a crear `contrato-semantico.md`. Usa el brief y la matriz de modalidad para definir las variables canonicas del proyecto:
+- leading_modality
+- visual_anchor
+- audio_cues
+- shot_or_frame
+- style
+- constraints
+- cross_modal_consistency
+
+Para cada variable, especifica valor, fuente/evidencia, razon de decision, riesgos y que no debe cambiar entre adaptadores. Si una variable no aplica, explica por que. Si falta informacion, marca [DATO REQUERIDO]. Cierra con gate.</pre>
+          <pre data-variant="parametros" hidden>Crea `contrato-semantico.md` desde:
+- brief: {{brief}}
+- matriz_modalidad: {{matriz_modalidad}}
+- leading_modality: {{leading_modality}}
+- visual_anchor: {{visual_anchor}}
+- audio_cues: {{audio_cues}}
+- shot_or_frame: {{shot_or_frame}}
+- style: {{style}}
+- constraints: {{constraints}}
+- cross_modal_consistency: {{cross_modal_consistency}}
+
+Devuelve tabla variable / valor / fuente / razon / riesgo / no debe cambiar. Marca [DATO REQUERIDO] y coverage_gap si falta soporte.</pre>
+          <pre data-variant="spec" hidden>[inputs] brief, matriz_modalidad, variables canonicas
+
+--- S | SITUACION ---
+Necesitamos un contrato semantico estable para que imagen, video y audio no se contradigan.
+
+--- P | PEDIDO ---
+Produce `contrato-semantico.md` con variables canonicas, evidencia y limites de cambio.
+
+--- E | EJECUCION ---
+1. Lee brief y matriz.
+2. Completa variables canonicas.
+3. Para cada variable, escribe valor, evidencia, razon, riesgos y limites.
+4. Declara gaps.
+5. Cierra con gate.
+
+--- C | CRITERIO ---
+- [ ] Las siete variables canonicas estan tratadas.
+- [ ] La coherencia cross-modal es verificable.
+- [ ] No hay estilo sin limites.
+- [ ] Gate visible.</pre>
+          <pre data-variant="dupla" hidden>SYSTEM:
+Eres arquitecto de contratos semanticos multimedia. Mantienes variables canonicas estables para que los adapters no deformen la intencion. Separas evidencia y gaps.
+
+USER:
+Con este brief y matriz:
+{{brief_y_matriz}}
+
+Crea `contrato-semantico.md` con las variables canonicas: leading_modality, visual_anchor, audio_cues, shot_or_frame, style, constraints y cross_modal_consistency. Incluye evidencia, riesgo y limites de cambio. Cierra con gate.</pre>
+        </div>
+      </div>
+    </article>
+
+    <article class="step" id="assets">
+      <div class="num">4</div>
+      <div class="step-body">
+        <div class="step-kicker">asset-anchor-board.md</div>
+        <h3>Asset anchor board</h3>
+        <p>Ordena referencias permitidas, limites de estilo, identidad, elementos que preservar y elementos prohibidos. No todo asset debe ser usado como referencia generativa.</p>
+        <div class="mini-list"><span>Output: tablero de anclas.</span><span>Gate: permisos y limites.</span><span>Riesgo: style bleed.</span></div>
+        <div class="prompt">
+          <div class="prompt-head"><div class="fmt-tabs"><span class="fmt-label">Prompt 4</span><button type="button" class="fmt active" data-fmt="natural">Natural</button><button type="button" class="fmt" data-fmt="parametros">Parametros</button><button type="button" class="fmt" data-fmt="spec">SPEC</button><button type="button" class="fmt" data-fmt="dupla">System/User</button></div><button type="button" class="copy" data-copy>Copiar</button></div>
+          <pre data-variant="natural">Ayudame a crear `asset-anchor-board.md`. Quiero una tabla de referencias y assets que se puedan usar para orientar la produccion, pero con limites claros.
+
+Para cada asset o referencia, define: tipo, descripcion, rol, permiso/licencia, que se puede extraer, que NO se debe copiar, limites de identidad, riesgo de style bleed y decision: usar / reemplazar / descartar / [DATO REQUERIDO].
+
+No asumas permisos. Si no hay licencia o autorizacion, marca [DATO REQUERIDO]. Cierra con gate para `prompt-contract.md`.</pre>
+          <pre data-variant="parametros" hidden>Crea `asset-anchor-board.md` con:
+- assets: {{assets}}
+- referencias: {{referencias}}
+- identidad: {{identidad}}
+- limites_estilo: {{limites_estilo}}
+- permisos_disponibles: {{permisos_disponibles}}
+- restricciones: {{restricciones}}
+
+Para cada item, define rol, permitido, prohibido, riesgo, permiso/licencia y decision. No asumas derechos. Marca [DATO REQUERIDO] si falta soporte. Cierra con gate.</pre>
+          <pre data-variant="spec" hidden>[inputs] assets, referencias, identidad, permisos, restricciones
+
+--- S | SITUACION ---
+Hay referencias y assets, pero no sabemos cuales pueden orientar la generacion ni bajo que limites.
+
+--- P | PEDIDO ---
+Produce `asset-anchor-board.md` con anclas permitidas, limites de estilo e identidad y permisos.
+
+--- E | EJECUCION ---
+1. Lista assets y referencias.
+2. Evalua rol, permiso, que extraer y que no copiar.
+3. Marca riesgos de style bleed, identidad y derechos.
+4. Decide usar/reemplazar/descartar/dato requerido.
+
+--- C | CRITERIO ---
+- [ ] No se asumen permisos.
+- [ ] Cada referencia tiene limite.
+- [ ] Identidad y consistencia quedan protegidas.
+- [ ] Gate visible.</pre>
+          <pre data-variant="dupla" hidden>SYSTEM:
+Eres auditor de assets para produccion multimedia con IA. Distingues inspiracion, referencia tecnica, identidad y material protegido. No asumes permisos.
+
+USER:
+Estos son mis assets/referencias: {{assets_referencias}}
+Identidad y restricciones: {{identidad_restricciones}}
+
+Crea `asset-anchor-board.md` con rol, permiso, que extraer, que no copiar, riesgos y decision. Cierra con gate para prompt contract.</pre>
+        </div>
+      </div>
+    </article>
+
+    <article class="step" id="prompt-contract">
+      <div class="num">5</div>
+      <div class="step-body">
+        <div class="step-kicker">prompt-contract.md</div>
+        <h3>Prompt contract maestro</h3>
+        <p>Une Markdown/XML para instrucciones humanas con JSON para validacion. Es el contrato maestro antes de traducir por motor.</p>
+        <div class="mini-list"><span>Output: contrato maestro.</span><span>Gate: estructura valida.</span><span>Riesgo: prompt monolitico.</span></div>
+        <div class="prompt">
+          <div class="prompt-head"><div class="fmt-tabs"><span class="fmt-label">Prompt 5</span><button type="button" class="fmt active" data-fmt="natural">Natural</button><button type="button" class="fmt" data-fmt="parametros">Parametros</button><button type="button" class="fmt" data-fmt="spec">SPEC</button><button type="button" class="fmt" data-fmt="dupla">System/User</button></div><button type="button" class="copy" data-copy>Copiar</button></div>
+          <pre data-variant="natural">Crea `prompt-contract.md` a partir del brief, matriz, contrato semantico y asset board. Quiero dos capas:
+
+1. Markdown/XML: instrucciones legibles, contexto, limites, criterios de salida, negativos y evidencia.
+2. JSON: schema de validacion con variables canonicas, restricciones, outputs esperados, pass/fail y trazabilidad.
+
+No lo adaptes todavia a un modelo especifico. Primero valida que el contrato maestro sea coherente, completo y sin claims oficiales no soportados. Cierra con gate para `adaptadores-modelo.md`.</pre>
+          <pre data-variant="parametros" hidden>Crea `prompt-contract.md` usando:
+- brief: {{brief}}
+- matriz_modalidad: {{matriz_modalidad}}
+- contrato_semantico: {{contrato_semantico}}
+- asset_anchor_board: {{asset_anchor_board}}
+- formato_salida: Markdown/XML + JSON
+
+Incluye: intent, audience, canonical variables, constraints, references, negatives, output requirements, evaluation rubric, traceability and coverage_gap. No adaptes a modelo especifico todavia. Cierra con gate.</pre>
+          <pre data-variant="spec" hidden>[inputs] brief, matriz, contrato_semantico, asset_board
+
+--- S | SITUACION ---
+Ya existe la intencion multimedia y sus variables; falta un contrato maestro portable.
+
+--- P | PEDIDO ---
+Produce `prompt-contract.md` con capa Markdown/XML y JSON de validacion.
+
+--- E | EJECUCION ---
+1. Integra las decisiones anteriores.
+2. Redacta instrucciones legibles.
+3. Define JSON con variables canonicas, restricciones, outputs, rubrica y trazabilidad.
+4. Valida estructura y declara gaps.
+
+--- C | CRITERIO ---
+- [ ] El contrato no depende de un motor especifico.
+- [ ] JSON permite validar antes de generar.
+- [ ] Hay criterios pass/fail.
+- [ ] Gate visible.</pre>
+          <pre data-variant="dupla" hidden>SYSTEM:
+Eres diseñador de Prompt Contracts. Separas instrucciones legibles de schema validable. Tu contrato maestro debe ser portable antes de adaptarse a motores.
+
+USER:
+Con estos insumos:
+{{brief_matriz_contrato_assets}}
+
+Crea `prompt-contract.md` en dos capas: Markdown/XML + JSON de validacion. Incluye variables canonicas, restricciones, negativos, rubrica, trazabilidad y coverage_gap. No adaptes a ningun modelo todavia. Cierra con gate.</pre>
+        </div>
+      </div>
+    </article>
+
+    <article class="step" id="adaptadores">
+      <div class="num">6</div>
+      <div class="step-body">
+        <div class="step-kicker">adaptadores-modelo.md</div>
+        <h3>Adaptadores por motor/modalidad</h3>
+        <p>Traduce el contrato maestro al lenguaje de la herramienta elegida, sin inventar capacidades oficiales ni politicas actuales.</p>
+        <div class="mini-list"><span>Output: adapter por destino.</span><span>Gate: fuente oficial o gap.</span><span>Riesgo: hacks no verificados.</span></div>
+        <div class="prompt">
+          <div class="prompt-head"><div class="fmt-tabs"><span class="fmt-label">Prompt 6</span><button type="button" class="fmt active" data-fmt="natural">Natural</button><button type="button" class="fmt" data-fmt="parametros">Parametros</button><button type="button" class="fmt" data-fmt="spec">SPEC</button><button type="button" class="fmt" data-fmt="dupla">System/User</button></div><button type="button" class="copy" data-copy>Copiar</button></div>
+          <pre data-variant="natural">Ayudame a crear `adaptadores-modelo.md`. A partir del `prompt-contract.md`, genera adaptadores por modalidad o motor objetivo, pero solo con capacidades que yo pueda verificar o que declare como supuesto.
+
+Para cada adapter, incluye: destino, modalidad, que conserva del contrato, que traduce, parametros/controles permitidos, limitaciones, datos requeridos, riesgo y prompt adaptado.
+
+Si no hay fuente oficial viva para una capacidad, precio, licencia, uso comercial, resolucion, duracion o politica, escribe coverage_gap y no lo afirmes. Cierra con gate para smoke test.</pre>
+          <pre data-variant="parametros" hidden>Crea `adaptadores-modelo.md` con:
+- prompt_contract: {{prompt_contract}}
+- destinos: {{destinos}}
+- modalidad_lider: {{leading_modality}}
+- fuentes_oficiales_disponibles: {{fuentes_oficiales}}
+- restricciones: {{restricciones}}
+
+Para cada destino, traduce sin inventar capacidades oficiales. Incluye adapter, limites, parametros verificables, coverage_gap y prompt final. Cierra con gate para `smoke-test-y-evaluacion.md`.</pre>
+          <pre data-variant="spec" hidden>[inputs] prompt_contract, destinos, fuentes_oficiales, restricciones
+
+--- S | SITUACION ---
+El contrato maestro es portable, pero cada motor/plataforma exige traduccion.
+
+--- P | PEDIDO ---
+Produce `adaptadores-modelo.md` con adapters por destino sin inventar capacidades oficiales.
+
+--- E | EJECUCION ---
+1. Identifica destinos y modalidad.
+2. Conserva variables canonicas.
+3. Traduce formato/parametros solo cuando esten soportados o marcados como supuesto.
+4. Declara coverage_gap para precio, permisos, limites, politicas o capacidades no verificadas.
+5. Entrega prompt adaptado y riesgos.
+
+--- C | CRITERIO ---
+- [ ] Cada adapter conserva el contrato.
+- [ ] Cada claim oficial tiene fuente o coverage_gap.
+- [ ] No hay hacks no documentados presentados como verdad.
+- [ ] Gate visible.</pre>
+          <pre data-variant="dupla" hidden>SYSTEM:
+Eres especialista en adapters de prompts multimedia. Traducir no es inventar. Mantienes el contrato semantico y declaras coverage_gap cuando una capacidad, precio, licencia o politica no esta soportada por fuente oficial viva.
+
+USER:
+Este es mi prompt contract: {{prompt_contract}}
+Destinos candidatos: {{destinos}}
+Fuentes oficiales disponibles: {{fuentes_oficiales}}
+
+Crea `adaptadores-modelo.md` con adapter por destino, limites, parametros verificables, gaps y prompt adaptado. Cierra con gate para smoke test.</pre>
+        </div>
+      </div>
+    </article>
+
+    <article class="step" id="smoke">
+      <div class="num">7</div>
+      <div class="step-body">
+        <div class="step-kicker">smoke-test-y-evaluacion.md</div>
+        <h3>Smoke test y evaluacion</h3>
+        <p>Prueba pequeno, evalua estructura antes de estetica y reintenta solo la variable que falla.</p>
+        <div class="mini-list"><span>Output: prueba + rubrica.</span><span>Gate: pass/fail.</span><span>Riesgo: escalar basura.</span></div>
+        <div class="prompt">
+          <div class="prompt-head"><div class="fmt-tabs"><span class="fmt-label">Prompt 7</span><button type="button" class="fmt active" data-fmt="natural">Natural</button><button type="button" class="fmt" data-fmt="parametros">Parametros</button><button type="button" class="fmt" data-fmt="spec">SPEC</button><button type="button" class="fmt" data-fmt="dupla">System/User</button></div><button type="button" class="copy" data-copy>Copiar</button></div>
+          <pre data-variant="natural">Crea `smoke-test-y-evaluacion.md`. Disena una prueba pequena antes de produccion completa. La evaluacion debe mirar primero estructura y contrato, despues calidad estetica.
+
+Incluye: objetivo del smoke test, input minimo, output esperado, rubrica pass/fail, evidencias a revisar, variables que no deben cambiar, reglas de retry y decision: continuar / ajustar / detener.
+
+Si falla, no reescribas todo el prompt por ansiedad. Identifica la variable o capa que fallo y propón un retry minimo. Cierra con gate para handoff.</pre>
+          <pre data-variant="parametros" hidden>Crea `smoke-test-y-evaluacion.md` usando:
+- prompt_contract: {{prompt_contract}}
+- adapters: {{adaptadores}}
+- output_smoke: {{output_smoke}}
+- criterio_exito: {{criterio_exito}}
+- riesgos: {{riesgos}}
+
+Incluye rubrica pass/fail, checklist de evidencia, retry por variable, decision y gate. Evalua primero estructura/contrato, luego estetica.</pre>
+          <pre data-variant="spec" hidden>[inputs] prompt_contract, adaptadores, output_smoke, criterio_exito
+
+--- S | SITUACION ---
+Antes de producir completo, necesitamos una prueba pequena que detecte fallos de contrato.
+
+--- P | PEDIDO ---
+Produce `smoke-test-y-evaluacion.md` con prueba, rubrica, pass/fail y retry minimo.
+
+--- E | EJECUCION ---
+1. Define output smoke.
+2. Evalua estructura, variables canonicas y coherencia cross-modal.
+3. Evalua estetica solo despues.
+4. Identifica variable/capa fallida.
+5. Decide continuar, ajustar o detener.
+
+--- C | CRITERIO ---
+- [ ] Hay pass/fail objetivo.
+- [ ] Retry no reescribe todo.
+- [ ] Hay evidencia revisable.
+- [ ] Gate visible.</pre>
+          <pre data-variant="dupla" hidden>SYSTEM:
+Eres evaluador de multimedia con IA. Evalúas contrato antes de gusto estetico. Cuando algo falla, aislas la variable o capa y propones retry minimo.
+
+USER:
+Con este contrato y adapters:
+{{prompt_contract_adaptadores}}
+
+Crea `smoke-test-y-evaluacion.md` con prueba pequena, rubrica pass/fail, evidencia, retry por variable y decision. Cierra con gate para handoff.</pre>
+        </div>
+      </div>
+    </article>
+
+    <article class="step" id="handoff">
+      <div class="num">8</div>
+      <div class="step-body">
+        <div class="step-kicker">handoff-produccion.md</div>
+        <h3>Handoff de produccion</h3>
+        <p>Entrega paquete final con decisiones, gaps, prompts, adapters, evaluacion, trazabilidad y proximo experimento.</p>
+        <div class="mini-list"><span>Output: paquete versionable.</span><span>Gate: listo para producir.</span><span>Riesgo: perder trazabilidad.</span></div>
+        <div class="prompt">
+          <div class="prompt-head"><div class="fmt-tabs"><span class="fmt-label">Prompt 8</span><button type="button" class="fmt active" data-fmt="natural">Natural</button><button type="button" class="fmt" data-fmt="parametros">Parametros</button><button type="button" class="fmt" data-fmt="spec">SPEC</button><button type="button" class="fmt" data-fmt="dupla">System/User</button></div><button type="button" class="copy" data-copy>Copiar</button></div>
+          <pre data-variant="natural">Crea `handoff-produccion.md`. Necesito un paquete final que otra persona pueda usar sin perder criterio.
+
+Incluye: resumen ejecutivo, decision final, archivos producidos, prompt contract, adapters, smoke test, resultados, gaps, permisos pendientes, riesgos, proximo experimento y checklist de publicacion.
+
+No cierres como "listo" si hay permisos, licencias, claims legales, precios o capacidades oficiales sin verificar. Esos puntos quedan como [DATO REQUERIDO] o coverage_gap. Termina con una recomendacion: producir / ajustar / detener.</pre>
+          <pre data-variant="parametros" hidden>Crea `handoff-produccion.md` usando:
+- brief: {{brief}}
+- contrato: {{contrato}}
+- adapters: {{adaptadores}}
+- smoke_test: {{smoke_test}}
+- outputs: {{outputs}}
+- gaps: {{gaps}}
+- decision_humana: {{decision_humana}}
+
+Incluye resumen, trazabilidad, checklist, riesgos, dato requerido y recomendacion producir/ajustar/detener. No marques listo si hay gaps bloqueantes.</pre>
+          <pre data-variant="spec" hidden>[inputs] brief, contrato, adaptadores, smoke_test, outputs, gaps, decision_humana
+
+--- S | SITUACION ---
+El flujo llego a prueba pequena y necesita handoff versionable.
+
+--- P | PEDIDO ---
+Produce `handoff-produccion.md` con paquete final, gaps y recomendacion.
+
+--- E | EJECUCION ---
+1. Resume decisiones.
+2. Lista archivos, prompts, adapters y outputs.
+3. Reporta smoke test y evidencia.
+4. Declara gaps bloqueantes y no bloqueantes.
+5. Recomienda producir, ajustar o detener.
+
+--- C | CRITERIO ---
+- [ ] La trazabilidad esta completa.
+- [ ] Gaps y dato requerido son visibles.
+- [ ] No se afirma listo con permisos pendientes.
+- [ ] Hay proximo experimento.</pre>
+          <pre data-variant="dupla" hidden>SYSTEM:
+Eres responsable de handoff de produccion multimedia con IA. No cierras sin trazabilidad. Si hay gaps de permisos, licencias, claims legales, precios o capacidades oficiales, los declaras y no los escondes.
+
+USER:
+Con estos entregables:
+{{entregables_multimedia}}
+
+Crea `handoff-produccion.md` con resumen ejecutivo, decision, archivos, prompt contract, adapters, smoke test, outputs, gaps, riesgos, permisos pendientes, proximo experimento y recomendacion final: producir / ajustar / detener.</pre>
+        </div>
+      </div>
+    </article>
+  </section>
+
+  <section class="wrap" id="evidencia">
+    <span class="badge"><i data-lucide="shield-check"></i> Auditoria de evidencia</span>
+    <h2>Separa afirmaciones antes de producir</h2>
+    <p class="lead">Este workbook usa la politica del cuaderno multimedia: toda recomendacion sustantiva debe declarar base, inferencia o gap. Si falta soporte, no se disfraza como certeza.</p>
+    <div class="evidence-grid" style="margin-top:1rem">
+      <article class="card evidence-card"><h3>Observado</h3><p>Dato leido en brief, asset, fuente local, output generado o validacion ejecutada.</p></article>
+      <article class="card evidence-card"><h3>Inferido</h3><p>Conclusion razonable a partir de fuentes observadas. Debe poder discutirse.</p></article>
+      <article class="card evidence-card"><h3>Supuesto</h3><p>Default operativo aceptado para avanzar, pendiente de confirmacion humana.</p></article>
+      <article class="card evidence-card"><h3>Dato requerido</h3><p>Elemento bloqueante o sensible: permisos, licencias, fuente oficial, capacidad, precio, politica o claim legal.</p></article>
+    </div>
+    <div class="callout risk" style="margin-top:1rem">
+      <strong>coverage_gap obligatorio:</strong> precios, capacidades oficiales de modelos, permisos comerciales, licencias, derechos de imagen, claims legales, hacks no documentados y politicas de plataforma no se afirman sin fuente oficial viva.
+    </div>
+  </section>
+
+  <section class="wrap" id="artefactos">
+    <span class="badge"><i data-lucide="table-2"></i> Entregables finales</span>
+    <h2>Que debe quedar al cierre</h2>
+    <div class="table" style="margin-top:1rem">
+      <table>
+        <thead><tr><th>Archivo esperado</th><th>Que contiene</th><th>Done cuando</th></tr></thead>
+        <tbody>
+          <tr><td><code>brief-multimedia.md</code></td><td>Objetivo, audiencia, pieza, canal, restricciones, assets, permisos, criterio de exito.</td><td>El alcance es claro y los gaps bloqueantes estan visibles.</td></tr>
+          <tr><td><code>matriz-modalidad.md</code></td><td>Modalidad lider, modalidades soporte, anti-alcance y riesgos.</td><td>Una modalidad manda y las demas tienen rol limitado.</td></tr>
+          <tr><td><code>contrato-semantico.md</code></td><td>Variables canonicas y limites de cambio.</td><td><code>leading_modality</code>, <code>visual_anchor</code>, <code>audio_cues</code>, <code>shot_or_frame</code>, <code>style</code>, <code>constraints</code> y <code>cross_modal_consistency</code> estan tratadas.</td></tr>
+          <tr><td><code>asset-anchor-board.md</code></td><td>Referencias permitidas, permisos, limites de estilo, identidad y riesgos.</td><td>Ningun asset se usa sin decision y permiso/gap visible.</td></tr>
+          <tr><td><code>prompt-contract.md</code></td><td>Contrato maestro Markdown/XML + JSON de validacion.</td><td>La estructura valida antes de adaptar por motor.</td></tr>
+          <tr><td><code>adaptadores-modelo.md</code></td><td>Traduccion por destino/modalidad con limites y gaps.</td><td>Cada adapter conserva contrato y no inventa capacidades oficiales.</td></tr>
+          <tr><td><code>smoke-test-y-evaluacion.md</code></td><td>Prueba pequena, rubrica, pass/fail, retry y decision.</td><td>Hay evidencia para continuar, ajustar o detener.</td></tr>
+          <tr><td><code>handoff-produccion.md</code></td><td>Paquete final, decisiones, prompts, adapters, outputs, gaps y proximo experimento.</td><td>Otra persona puede producir sin perder trazabilidad.</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </section>
+
+  <section class="wrap" id="glosario">
+    <span class="badge"><i data-lucide="search"></i> Glosario y FAQ</span>
+    <h2>Busca conceptos antes de adaptar</h2>
+    <div class="glossary-tools">
+      <input id="glossarySearch" placeholder="Buscar: adapter, coverage_gap, visual_anchor...">
+    </div>
+    <div class="grid-3" id="glossaryGrid">
+      <article class="card glossary-item" data-terms="leading modality modalidad lider"><h3>leading_modality</h3><p>Modalidad que gobierna la pieza: imagen, video, musica/audio u otra. Las demas soportan.</p></article>
+      <article class="card glossary-item" data-terms="visual anchor ancla visual"><h3>visual_anchor</h3><p>Elemento visual que debe conservar identidad, composicion o atmosfera entre outputs.</p></article>
+      <article class="card glossary-item" data-terms="audio cues musica audio"><h3>audio_cues</h3><p>Pistas de mood, ritmo, energia, textura, voz, silencio o transicion que guian audio/video.</p></article>
+      <article class="card glossary-item" data-terms="shot frame plano encuadre"><h3>shot_or_frame</h3><p>Plano, encuadre, composicion o momento temporal que define la intencion visual.</p></article>
+      <article class="card glossary-item" data-terms="adapter adaptador modelo motor"><h3>Adapter</h3><p>Traduccion del contrato maestro a una herramienta o modalidad especifica sin perder variables canonicas.</p></article>
+      <article class="card glossary-item" data-terms="coverage gap dato requerido evidencia"><h3>coverage_gap</h3><p>Declaracion explicita de evidencia insuficiente. No es falla: es honestidad operacional.</p></article>
+    </div>
+    <div class="faq" style="margin-top:1rem">
+      <details>
+        <summary>¿Puedo saltar directo al prompt final?</summary>
+        <p>Puedes, pero este workbook existe para evitar prompts fragiles. Si el brief, modalidad lider, contrato y permisos no estan claros, el output puede verse bien y aun asi ser inutilizable.</p>
+      </details>
+      <details>
+        <summary>¿Que pasa si no tengo fuentes oficiales de un modelo?</summary>
+        <p>No afirmes capacidades, precios, licencias ni politicas. Usa <code>coverage_gap</code>, genera una version condicionada o pide la fuente oficial antes de producir.</p>
+      </details>
+      <details>
+        <summary>¿Como se reintenta un output fallido?</summary>
+        <p>Primero identifica si fallo estructura, variable canonica, adapter, asset, permiso o estetica. Reintenta solo esa capa para no degradar lo que ya funciona.</p>
+      </details>
+    </div>
+  </section>
+
+  <section class="wrap" id="cierre">
+    <span class="badge"><i data-lucide="check-check"></i> Cierre operativo</span>
+    <h2>Lo que de verdad debe quedar</h2>
+    <p class="lead">El resultado no es un prompt bonito. Es un sistema minimo para producir multimedia con IA de forma repetible, auditable y defendible.</p>
+    <div class="grid">
+      <article class="card">
+        <h3>Checklist final</h3>
+        <div class="checklist">
+          <label class="check"><input type="checkbox">Los ocho archivos existen y estan versionados.</label>
+          <label class="check"><input type="checkbox">Las variables canonicas estan completas o marcadas como gap.</label>
+          <label class="check"><input type="checkbox">Los adapters no inventan capacidades oficiales.</label>
+          <label class="check"><input type="checkbox">El smoke test tiene decision: producir, ajustar o detener.</label>
+          <label class="check"><input type="checkbox">Permisos/licencias/claims quedan resueltos o como [DATO REQUERIDO].</label>
+        </div>
+      </article>
+      <article class="card">
+        <h3>Proximo experimento</h3>
+        <p>Produce un smoke output pequeno con una sola variable critica en foco. Si el contrato falla, ajusta el contrato; si el adapter falla, ajusta el adapter; si falta permiso, no publiques.</p>
+        <div class="callout" style="margin-top:1rem">
+          <strong>Metodo primero:</strong> la calidad multimedia no aparece por acumular adjetivos. Aparece por controlar decision, evidencia, modalidad, contrato, adapter y evaluacion.
+        </div>
+      </article>
+    </div>
+  </section>
+</main>
+
+<footer class="footer">
+  <div>
+    <strong>MetodologIA · Workbook Multimedia con IA · 2026</strong>
+    <p>Material educativo abierto bajo CC BY-NC-SA 4.0. Usa evidencia, declara gaps y valida antes de producir.</p>
+  </div>
+</footer>
+
+<script>
+function bootIcons(){
+  if(window.lucide && typeof window.lucide.createIcons === 'function'){
+    window.lucide.createIcons();
+  }
+}
+
+function getPromptText(promptEl){
+  var active = promptEl.querySelector('.fmt.active');
+  var key = active ? active.getAttribute('data-fmt') : 'natural';
+  return promptEl.querySelector('[data-variant="' + key + '"]');
+}
+
+function fallbackCopy(text){
+  var area = document.createElement('textarea');
+  area.value = text;
+  area.setAttribute('readonly','');
+  area.style.position = 'fixed';
+  area.style.left = '-9999px';
+  document.body.appendChild(area);
+  area.select();
+  var ok = document.execCommand('copy');
+  document.body.removeChild(area);
+  return ok;
+}
+
+document.addEventListener('click', function(event){
+  var tab = event.target.closest('.fmt');
+  if(tab){
+    var prompt = tab.closest('.prompt');
+    var key = tab.getAttribute('data-fmt');
+    prompt.querySelectorAll('.fmt').forEach(function(btn){ btn.classList.toggle('active', btn === tab); });
+    prompt.querySelectorAll('[data-variant]').forEach(function(pre){ pre.hidden = pre.getAttribute('data-variant') !== key; });
+  }
+  var copy = event.target.closest('[data-copy]');
+  if(copy){
+    var promptEl = copy.closest('.prompt');
+    var pre = getPromptText(promptEl);
+    var text = pre ? pre.innerText : '';
+    var done = function(){
+      copy.classList.add('ok');
+      copy.textContent = 'Copiado';
+      setTimeout(function(){ copy.classList.remove('ok'); copy.textContent = 'Copiar'; }, 1400);
+    };
+    if(navigator.clipboard && window.isSecureContext){
+      navigator.clipboard.writeText(text).then(done).catch(function(){ if(fallbackCopy(text)){ done(); } });
+    }else if(fallbackCopy(text)){
+      done();
+    }
+  }
+});
+
+function toggleTheme(){
+  var html = document.documentElement;
+  html.setAttribute('data-theme', html.getAttribute('data-theme') === 'dark' ? 'light' : 'dark');
+}
+
+function toggleLang(){
+  document.body.classList.toggle('lang-en');
+  var isEn = document.body.classList.contains('lang-en');
+  document.documentElement.lang = isEn ? 'en' : 'es';
+  var btn = document.getElementById('langBtn');
+  if(btn){ btn.textContent = isEn ? 'EN' : 'ES'; }
+}
+
+var sections = Array.from(document.querySelectorAll('header[id], section[id]'));
+var navLinks = Array.from(document.querySelectorAll('.sidebar-links a'));
+var observer = new IntersectionObserver(function(entries){
+  entries.forEach(function(entry){
+    if(entry.isIntersecting){
+      var id = '#' + entry.target.id;
+      navLinks.forEach(function(link){ link.classList.toggle('active', link.getAttribute('href') === id); });
+    }
+  });
+},{rootMargin:'-42% 0px -50% 0px', threshold:.01});
+sections.forEach(function(section){ observer.observe(section); });
+
+var glossarySearch = document.getElementById('glossarySearch');
+if(glossarySearch){
+  glossarySearch.addEventListener('input', function(){
+    var q = glossarySearch.value.trim().toLowerCase();
+    document.querySelectorAll('.glossary-item').forEach(function(item){
+      var haystack = (item.textContent + ' ' + item.getAttribute('data-terms')).toLowerCase();
+      item.hidden = q && haystack.indexOf(q) === -1;
+    });
+  });
+}
+
+window.addEventListener('DOMContentLoaded', bootIcons);
+window.addEventListener('load', bootIcons);
+</script>
+</body>
+</html>

@@ -15,6 +15,8 @@
 | Playbook Aprender · Aprehender · (R)Evolucionar | HTML editorial | `playbook-aprender-aprehender-revolucionar-2026.html` | v2.0 (2026-04-29) |
 | Playbook Prompting Universal · Essentials | HTML didáctico | `playbook-prompting-universal-2026-essentials.html` | 2026 |
 | Playbook Prompting Universal · Completo | HTML editorial | `playbook-prompting-universal-2026.html` | 2026 |
+| Workshop Multimedia AI-Native | HTML workshop self-contained | `workshop-multimedia-ai-native-2026.html` | v1.0 (2026-06-12) |
+| Workbook Multimedia AI-Native | HTML workbook self-contained | `workbook-multimedia-ai-native-2026.html` | v1.0 (2026-06-12) |
 | JSON canónico de prompts | Datos | `prompts_universales_v3000.json` | v3.0 |
 | JSON minificado | Datos | `prompts_universales_v3000.min.json` | v3.0 |
 | Bundle Prompster | Datos | `prompts_universales_v2026_prompster.json` | 2026 |
@@ -23,6 +25,37 @@
 ---
 
 ## 📋 Historial de cambios
+
+## [1.7.0] · 2026-06-12 · Workshop Multimedia AI-Native
+
+**Tipo**: workshop HTML self-contained · continuidad Discovery
+**Editor**: Javier Montaño · MetodologIA · **License**: CC BY-NC-SA 4.0
+
+- `workshop-multimedia-ai-native-2026.html` — workshop operativo homologado al workbook Discovery y con ritmo editorial del playbook Aprender/Aprehender/(R)Evolucionar.
+- Estructura un taller de continuidad que usa “Pregunta lo que sea” y “UX/UI” como apoyos, arranca en Nano Banana en Gemini, salta a Veo en Gemini para clips, consolida en NotebookLM y cierra con prompt puente para Pomelli de Google Labs y Google Stitch.
+- Reordena la lectura como flujo process-first: cada etapa declara hook, herramienta activa, prompt recomendado, paquete esperado y gate antes de mostrar los prompts copiables.
+- Adopta el branding operativo de Prompt Amplificado: “metodo primero, (Gen)IA despues”, cero friccion, defaults editables, trazabilidad, SPEC y Dupla System/User.
+- Cambia el taller a una ruta consultiva de 8 pasos: estrategia UX/UI, parrilla de contenidos 30 dias, flyers/carousels/infografias/cheatsheets, photo shoot de producto, mini clips con Veo en Gemini, musica con Lyria/MusicFX/Suno, NotebookLM como sala de estrategia y Pomelli de Google Labs / Google Stitch con follow-up post-taller.
+- La parrilla de 30 dias cubre LinkedIn, Instagram, YouTube y TikTok con formato, dimensiones, duracion, CTA, KPI y pieza madre/derivada.
+- Cada paso pasa de 4 a 6 prompts copiables: Natural, Paramétrico, SPEC, Dupla System/User, Follow-up de mejora y Follow-up de continuidad.
+- Incluye 8 paquetes duales: Markdown operativo para trazabilidad + HTML consultivo para lectura ejecutiva, visual y publicable.
+- Cada paso conserva los 4 formatos canónicos de la biblioteca MetodologIA: Natural, Paramétrico, SPEC y Dupla System/User, y añade dos follow-ups operativos para mejora y continuidad.
+- Mejora UX de los antiguos botones técnicos: reemplaza etiquetas confusas por CTAs claros (`Copiar prompt guía`, `Preparar prompt`, `Agendar práctica`) y agrega rituales de práctica en Google Calendar.
+- La variante Natural queda lista para pegar; Paramétrico agrega defaults editables; SPEC conserva contrato auditable; Dupla separa guardrails en system y pedido variable en user.
+- Los prompts piden HTML vertical de maximo 8 secciones, con KPIs, insights, matriz de riesgos, checklist visual, comparativas y diagrama SVG inline optimizado o Mermaid como alternativa documentada.
+- Mantiene panel visible de evidencia: Observado / Inferido / Supuesto / Dato requerido, con gaps para capacidades oficiales, permisos, licencias, terminos, precios, nombre oficial de Nano Banana en Gemini, disponibilidad de Veo en Gemini, Pomelli de Google Labs, Google Stitch y capturas no limpias.
+- Fuentes de contenido: notas Drive de Jun 9 y Jun 10 en la semana multimedia con IA, mas el workspace NotebookLM `MET-Prompting Multimedia Alta Precision`.
+
+## [1.6.0] · 2026-06-12 · Workbook Multimedia AI-Native
+
+**Tipo**: workbook HTML self-contained · educación operativa
+**Editor**: Javier Montaño · MetodologIA · **License**: CC BY-NC-SA 4.0
+
+- `workbook-multimedia-ai-native-2026.html` — workbook homologado al patrón de Discovery: shell MetodologIA, navegación lateral, cards, prompts copiables, tabs por formato, gates, dark/lang toggle, FAQ/details, glosario y tabla final de artefactos.
+- Estructura el flujo en 8 entregables: `brief-multimedia.md`, `matriz-modalidad.md`, `contrato-semantico.md`, `asset-anchor-board.md`, `prompt-contract.md`, `adaptadores-modelo.md`, `smoke-test-y-evaluacion.md` y `handoff-produccion.md`.
+- Enfocado en producción cross-modal: imagen/fotografía, video, música/audio y coherencia entre assets.
+- Incluye panel visible de evidencia: Observado / Inferido / Supuesto / Dato requerido, con `coverage_gap` para precios, capacidades oficiales, licencias, permisos comerciales, claims legales y prácticas no soportadas por fuente oficial.
+- Fuente de contenido: workspace NotebookLM `MET-Prompting Multimedia Alta Precision`; referencia visual/funcional: `workbook-discovery-producto.html`.
 
 ## [1.5.0] · 2026-06-06 · Estándar para crear prompts por formato
 

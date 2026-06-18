@@ -1,0 +1,1110 @@
+<!DOCTYPE html>
+<html lang="es" data-theme="light">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<meta name="description" content="Workshop guiado MetodologIA para crear estrategia UX/UI, parrilla de 30 dias y contenidos multimodales con IA: Nano Banana en Gemini, Veo en Gemini, Lyria/MusicFX, Suno, NotebookLM, Pomelli de Google Labs y Google Stitch.">
+<meta name="author" content="Javier Montaño · MetodologIA">
+<meta name="metodologia:reference-html" content="workbook-discovery-producto.html">
+<meta name="metodologia:evidence-policy" content="Observado · Inferido · Supuesto · Dato requerido">
+<title>Workshop Multimedia con IA · MetodologIA</title>
+<link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 36 36'%3E%3Cdefs%3E%3ClinearGradient id='g' x1='0%25' y1='0%25' x2='100%25' y2='100%25'%3E%3Cstop offset='0%25' stop-color='%230A122A'/%3E%3Cstop offset='100%25' stop-color='%231E293B'/%3E%3C/linearGradient%3E%3C/defs%3E%3Crect width='36' height='36' rx='10' fill='url(%23g)'/%3E%3Cpath d='M10 12h3v12h-3V12zm6 0h3v8h-3v-8zm0 10h3v2h-3v-2zm6-10h3v6h-3v-6zm0 8h3v4h-3v-4z' fill='%23fff'/%3E%3Ccircle cx='18' cy='8' r='2' fill='%23FFD700'/%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&family=Poppins:wght@600;700;800&family=JetBrains+Mono:wght@400;600&display=swap">
+<script src="https://unpkg.com/lucide@0.469.0/dist/umd/lucide.js" defer></script>
+<style>
+:root{
+  --navy:#122562;
+  --navy-deep:#0A122A;
+  --gold:#FFD700;
+  --gold-dark:#8A6400;
+  --blue:#137DC5;
+  --lilac:#BBA0CC;
+  --paper:#F9FAFB;
+  --white:#FFFFFF;
+  --ink:#1F2833;
+  --muted:#5B6677;
+  --line:rgba(18,37,98,.14);
+  --soft:#FFF8D6;
+  --cyan:#ECFEFF;
+  --risk:#B91C1C;
+  --warn:#B45309;
+  --ok:#15803D;
+  --shadow:0 10px 28px rgba(18,37,98,.07);
+  --font-head:'Poppins',system-ui,sans-serif;
+  --font-body:'Montserrat',system-ui,sans-serif;
+  --font-mono:'JetBrains Mono',ui-monospace,monospace;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth;-webkit-font-smoothing:antialiased}
+body{margin:0;background:var(--paper);color:var(--ink);font-family:var(--font-body);line-height:1.65;padding-left:56px}
+body.modal-open{overflow:hidden}
+h1,h2,h3{font-family:var(--font-head);line-height:1.13;color:var(--navy);margin:0;letter-spacing:0}
+h1{font-size:clamp(2.2rem,5vw,4.4rem);max-width:12ch}
+h2{font-size:clamp(1.45rem,3vw,2.2rem)}
+h3{font-size:1.08rem}
+p{margin:.65rem 0 0}
+a{color:var(--blue);font-weight:700}
+code{font-family:var(--font-mono);font-size:.92em}
+strong{font-weight:800}
+button{font-family:var(--font-body)}
+.en{display:none}
+body.lang-en .es{display:none!important}
+body.lang-en .en{display:inline!important}
+body.lang-en .en-block{display:block!important}
+body.lang-en .es-block{display:none!important}
+.en-block{display:none!important}
+#scroll-progress{position:fixed;top:0;left:0;height:3px;background:linear-gradient(90deg,var(--gold),var(--blue));z-index:1400;width:0%;transition:width .1s}
+.cover{background:linear-gradient(135deg,#fff 0%,#F3F6FB 55%,#FFF8D6 100%);border-bottom:1px solid var(--line)}
+.cover-inner{max-width:1120px;margin:auto;padding:4.9rem 1rem 3.4rem;display:grid;grid-template-columns:minmax(0,1.05fr) minmax(290px,.95fr);gap:1.4rem;align-items:end}
+.badge{display:inline-flex;align-items:center;gap:.35rem;padding:.35rem .7rem;border-radius:999px;background:rgba(255,215,0,.18);border:1px solid rgba(255,215,0,.45);font-size:.72rem;text-transform:uppercase;letter-spacing:.1em;font-weight:800;color:var(--gold-dark);margin-bottom:1rem}
+.lead{font-size:1.05rem;color:var(--muted);max-width:78ch}
+.docset-bar{display:flex;flex-wrap:wrap;gap:.5rem;margin-top:1.15rem}
+.chip{display:inline-flex;align-items:center;gap:.35rem;border:1px solid var(--line);background:#fff;border-radius:999px;padding:.38rem .68rem;color:var(--muted);font-size:.78rem;font-weight:800}
+.chip svg{width:14px;height:14px}
+.cover-actions{display:flex;flex-wrap:wrap;gap:.65rem;margin-top:1.25rem}
+.cover-panel{background:#fff;border:1px solid var(--line);border-radius:12px;padding:1.15rem;box-shadow:var(--shadow)}
+.cover-panel ul{margin:.6rem 0 0;padding-left:1.1rem;color:var(--muted);font-size:.94rem}
+.wrap{max-width:1120px;margin:auto;padding:2.6rem 1rem;scroll-margin-top:24px}
+.section-head{display:flex;align-items:flex-start;justify-content:space-between;gap:1rem;margin-bottom:1rem}
+.section-head p{max-width:78ch}
+.grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:1rem}
+.grid-3{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:1rem}
+.grid-4{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:1rem}
+.card{background:#fff;border:1px solid var(--line);border-radius:12px;padding:1.15rem;box-shadow:var(--shadow);min-width:0}
+.card p,.card li{color:var(--muted);font-size:.94rem}
+.card ul{margin:.55rem 0 0;padding-left:1.05rem}
+.card-head{display:flex;align-items:center;gap:.65rem;margin-bottom:.45rem}
+.card-head svg{width:20px;height:20px;color:var(--blue);flex:0 0 auto}
+.callout{background:var(--soft);border-left:5px solid var(--gold);border-radius:10px;padding:1rem 1.15rem}
+.callout.info{background:var(--cyan);border-left-color:var(--blue)}
+.callout.risk{background:#FFF1F2;border-left-color:var(--risk)}
+.evidence-grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:1rem}
+.evidence-card{border-top:5px solid var(--blue)}
+.evidence-card:nth-child(2){border-top-color:#0F766E}
+.evidence-card:nth-child(3){border-top-color:var(--gold)}
+.evidence-card:nth-child(4){border-top-color:var(--risk)}
+.source-note{font-family:var(--font-mono);font-size:.72rem;color:var(--muted);margin-top:.65rem}
+.timeline{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:.8rem;margin-top:1rem}
+.timeline .card{padding:.95rem}
+.timeline strong{display:block;color:var(--navy);font-family:var(--font-head)}
+.step{display:grid;grid-template-columns:64px minmax(0,1fr);gap:1rem;background:#fff;border:1px solid var(--line);border-radius:12px;padding:1rem;margin:1rem 0;box-shadow:var(--shadow);min-width:0}
+.num{width:48px;height:48px;border-radius:10px;background:var(--navy);color:var(--gold);display:flex;align-items:center;justify-content:center;font-family:var(--font-head);font-weight:800}
+.step-body{min-width:0}
+.step-kicker{font-family:var(--font-mono);font-size:.76rem;color:var(--blue);font-weight:800;text-transform:uppercase;letter-spacing:.04em;margin-bottom:.16rem}
+.mini-list{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:.55rem;margin-top:.85rem}
+.mini-list span{display:block;border:1px solid var(--line);background:#FBFDFF;border-radius:10px;padding:.55rem;color:var(--muted);font-size:.82rem}
+.prompt{background:var(--navy-deep);color:#E8EEF8;border-radius:12px;overflow:hidden;border:1px solid #24324F;margin-top:.9rem;min-width:0}
+.prompt-head{display:flex;justify-content:space-between;align-items:center;gap:1rem;background:#142044;padding:.65rem .8rem}
+.fmt-tabs{display:flex;align-items:center;gap:.35rem;flex-wrap:wrap;min-width:0}
+.fmt-label{font-family:var(--font-mono);font-size:.76rem;color:var(--gold);margin-right:.2rem}
+button.fmt{border:1px solid rgba(255,255,255,.2);background:transparent;color:#DBE5F6;border-radius:999px;padding:.28rem .52rem;cursor:pointer;font-weight:800;font-size:.72rem}
+button.fmt.active{background:var(--gold);color:var(--navy);border-color:var(--gold)}
+button.copy,.prepare-btn{border:1px solid #53617C;background:transparent;color:#DBE5F6;border-radius:7px;padding:.35rem .6rem;cursor:pointer;font-weight:800;white-space:nowrap}
+button.copy:hover,button.copy.ok,.prepare-btn:hover{background:var(--gold);color:var(--navy);border-color:var(--gold)}
+.prompt-actions{display:flex;gap:.45rem;align-items:center;flex-wrap:wrap}
+pre{margin:0;padding:1rem;white-space:pre-wrap;overflow:auto;font-family:var(--font-mono);font-size:.82rem;line-height:1.55;max-width:100%}
+.table{overflow:auto;border:1px solid var(--line);border-radius:12px;background:#fff;box-shadow:var(--shadow)}
+.table table{width:100%;border-collapse:collapse;min-width:780px}
+.table th{background:var(--navy);color:var(--gold);text-align:left;font-family:var(--font-head);font-size:.82rem}
+.table th,.table td{padding:.75rem;border-bottom:1px solid var(--line);vertical-align:top}
+.table td{color:var(--muted);font-size:.92rem}
+.table tr:last-child td{border-bottom:0}
+.checklist{display:grid;gap:.55rem;margin-top:1rem}
+.check{display:flex;align-items:flex-start;gap:.55rem;background:#fff;border:1px solid var(--line);border-radius:10px;padding:.8rem;color:var(--muted);font-size:.92rem}
+.check input{width:auto;margin-top:.3rem}
+.glossary-tools{display:flex;gap:.6rem;align-items:center;margin:1rem 0;flex-wrap:wrap}
+input,textarea{width:100%;border:1px solid var(--line);border-radius:10px;padding:.75rem;font:inherit;background:#fff;color:var(--ink)}
+.glossary-tools input{max-width:440px}
+.faq details{background:#fff;border:1px solid var(--line);border-radius:10px;padding:.85rem 1rem;margin:.7rem 0;box-shadow:0 6px 18px rgba(18,37,98,.05)}
+.faq summary{cursor:pointer;font-weight:800;color:var(--navy)}
+.faq p{color:var(--muted)}
+.mi-support-panel{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:1rem;margin-top:1rem}
+.mi-support{border:1px solid var(--line);background:#fff;border-radius:12px;padding:1rem;box-shadow:var(--shadow)}
+.mi-support button{width:100%;border:1px solid var(--line);background:#fff;color:var(--navy);border-radius:10px;padding:.7rem .8rem;font-weight:800;cursor:pointer;margin-top:.75rem}
+.mi-support button:hover{background:var(--gold);border-color:var(--gold)}
+.stitch-board{display:grid;grid-template-columns:minmax(0,1fr) minmax(290px,.8fr);gap:1rem;align-items:stretch;margin-top:1rem}
+.stitch-placeholder{border:1px dashed rgba(18,37,98,.28);background:#fff;border-radius:12px;min-height:220px;padding:1rem;display:flex;flex-direction:column;justify-content:center;align-items:flex-start;box-shadow:var(--shadow)}
+.stitch-placeholder .stamp{font-family:var(--font-mono);font-size:.78rem;color:var(--risk);font-weight:800}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:.45rem;border-radius:10px;padding:.72rem 1rem;border:1px solid var(--line);background:#fff;color:var(--navy);text-decoration:none;font-weight:800;cursor:pointer;min-height:44px}
+.btn-primary{background:var(--navy);color:#fff;border-color:var(--navy)}
+.btn-primary:hover{background:var(--gold);color:var(--navy);border-color:var(--gold)}
+.practice-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:.85rem;margin:1rem 0}
+.practice-card{display:flex;align-items:flex-start;gap:.75rem;padding:1rem;background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.18);border-radius:12px;color:#fff;text-decoration:none}
+.practice-card:hover{background:rgba(255,215,0,.13);border-color:rgba(255,215,0,.42)}
+.practice-card i{color:var(--gold);flex:0 0 auto;margin-top:.15rem}
+.practice-card strong{display:block;color:#fff;font-size:.92rem}
+.practice-card span{display:block;color:rgba(255,255,255,.64);font-size:.78rem;margin-top:.1rem}
+.modal-backdrop{position:fixed;inset:0;background:rgba(10,18,42,.64);backdrop-filter:blur(8px);display:none;align-items:center;justify-content:center;z-index:1500;padding:1rem}
+.modal-backdrop.open{display:flex}
+.modal{width:min(760px,100%);max-height:86vh;overflow:auto;background:#fff;border-radius:14px;border:1px solid var(--line);box-shadow:0 24px 80px rgba(0,0,0,.28)}
+.modal-head{display:flex;align-items:center;justify-content:space-between;gap:1rem;padding:1rem;border-bottom:1px solid var(--line)}
+.modal-body{padding:1rem}
+.modal-tools{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:.6rem;margin:.85rem 0}
+.modal-tools button{border:1px solid var(--line);background:#fff;color:var(--navy);border-radius:10px;padding:.7rem .55rem;font-weight:800;cursor:pointer}
+.modal-tools button:hover{background:var(--gold);border-color:var(--gold)}
+.modal textarea{min-height:180px;font-family:var(--font-mono);font-size:.82rem}
+.sidebar-nav{position:fixed;top:0;left:0;bottom:0;width:56px;z-index:1000;display:flex;flex-direction:column;align-items:center;padding:1.25rem 0 1rem;gap:2px;background:rgba(255,251,240,.94);backdrop-filter:blur(16px);-webkit-backdrop-filter:blur(16px);border-right:1px solid rgba(18,37,98,.10);overflow:visible}
+.sidebar-logo{width:36px;height:36px;margin-bottom:1rem;padding-bottom:.75rem;border-bottom:1px solid var(--line);box-sizing:content-box;flex:0 0 auto}
+.sidebar-logo svg{width:100%;height:100%;display:block}
+.sidebar-links{display:flex;flex-direction:column;align-items:center;gap:2px;flex:1;justify-content:center}
+.sidebar-nav a{position:relative;display:flex;align-items:center;justify-content:center;width:40px;height:40px;border-radius:10px;color:#6B5300;text-decoration:none;border:none!important;transition:color .25s,background .25s,transform .2s}
+.sidebar-nav a:hover{color:var(--navy-deep);background:rgba(255,215,0,.18);transform:scale(1.08)}
+.sidebar-nav a.active{color:var(--navy-deep);background:rgba(255,215,0,.12)}
+.sidebar-nav a.active::before{content:'';position:absolute;left:0;top:50%;transform:translateY(-50%);width:3px;height:20px;border-radius:0 2px 2px 0;background:var(--gold)}
+.sidebar-nav a svg{width:20px;height:20px;color:inherit;flex-shrink:0;stroke-width:2}
+.sidebar-nav a::after{content:attr(data-label);position:absolute;left:calc(100% + 10px);top:50%;transform:translateY(-50%) translateX(-4px);background:var(--navy-deep);color:#fff;font-family:var(--font-head);font-size:.7rem;font-weight:600;padding:.32rem .65rem;border-radius:6px;white-space:nowrap;opacity:0;pointer-events:none;transition:opacity .2s,transform .2s;box-shadow:0 4px 12px rgba(0,0,0,.18)}
+.sidebar-nav a:hover::after,.sidebar-nav a:focus-visible::after{opacity:1;transform:translateY(-50%) translateX(0)}
+.sidebar-bottom{display:flex;flex-direction:column;align-items:center;justify-content:center;gap:.35rem;flex:0 0 auto;padding-top:.75rem;border-top:1px solid var(--line)}
+.sidebar-pristino{background:#fff!important;border:1px solid rgba(18,37,98,.14)!important}
+.sidebar-pristino svg{width:24px!important;height:24px!important}
+.sidebar-bottom button{width:34px;height:34px;border-radius:8px;border:1px solid var(--line);background:#fff;color:var(--navy);cursor:pointer;font-family:var(--font-head);font-size:.65rem;font-weight:800;display:flex;align-items:center;justify-content:center;transition:all .2s}
+.sidebar-bottom button:hover{background:var(--gold);border-color:var(--gold);transform:translateY(-1px)}
+.sidebar-bottom button svg{width:16px;height:16px}
+.pm-cta-close{background:linear-gradient(135deg,var(--navy-deep),#162B68);color:#fff;border-radius:14px;padding:1.4rem;border:1px solid rgba(255,215,0,.24);box-shadow:0 18px 48px rgba(10,18,42,.18)}
+.pm-cta-close h2{color:#fff}
+.pm-cta-close p{color:rgba(255,255,255,.78)}
+.pm-footer-manifesto{margin-top:1rem;text-align:center;font-family:var(--font-head);font-size:clamp(1.3rem,3vw,2rem);font-weight:800;color:var(--navy);background:linear-gradient(135deg,#fff,#FFF8D6);border:1px solid var(--line);border-radius:14px;padding:1.2rem}
+.pm-facilitator{margin-top:1rem;background:#0A122A;color:#E8EEF8;border-radius:14px;padding:1.2rem;border:1px solid rgba(255,215,0,.22)}
+.pm-facilitator h3{color:#fff}
+.pm-facilitator p{color:rgba(255,255,255,.74)}
+.pm-footer-meta{display:flex;flex-wrap:wrap;gap:.5rem;margin-top:1rem}
+.site-footer{background:#0A122A;color:rgba(255,255,255,.72);padding:1.2rem;border-radius:14px;margin-top:1rem}
+.site-footer strong{color:var(--gold)}
+.site-footer a{color:#fff}
+html[data-theme="dark"]{--paper:#0A122A;--ink:#E8EEF8;--muted:#CBD5E1;--line:rgba(255,215,0,.22)}
+html[data-theme="dark"] body{background:#0A122A;color:#E8EEF8}
+html[data-theme="dark"] .cover{background:linear-gradient(135deg,#101B3D 0%,#0A122A 56%,#2A2740 100%)}
+html[data-theme="dark"] .cover h1,html[data-theme="dark"] .cover h2{color:#fff}
+html[data-theme="dark"] .card,html[data-theme="dark"] .cover-panel,html[data-theme="dark"] .step,html[data-theme="dark"] .table,html[data-theme="dark"] .check,html[data-theme="dark"] input,html[data-theme="dark"] textarea,html[data-theme="dark"] .faq details,html[data-theme="dark"] .mini-list span,html[data-theme="dark"] .mi-support,html[data-theme="dark"] .modal,html[data-theme="dark"] .stitch-placeholder{background:#fff;color:#1F2833}
+html[data-theme="dark"] .card h3,html[data-theme="dark"] .step h3,html[data-theme="dark"] .cover-panel h3,html[data-theme="dark"] h2,html[data-theme="dark"] h3,html[data-theme="dark"] .faq summary{color:#122562}
+html[data-theme="dark"] .card p,html[data-theme="dark"] .card li,html[data-theme="dark"] .table td,html[data-theme="dark"] .mini-list span,html[data-theme="dark"] .faq p{color:#5B6677}
+html[data-theme="dark"] .sidebar-nav{background:rgba(31,40,51,.94);border-right-color:rgba(255,215,0,.14)}
+html[data-theme="dark"] .sidebar-nav a{color:#FFD700}
+html[data-theme="dark"] .sidebar-nav a:hover,html[data-theme="dark"] .sidebar-nav a.active{color:#FFD700;background:rgba(255,215,0,.14)}
+html[data-theme="dark"] .sidebar-bottom button{background:#101B3D;color:#FFD700;border-color:rgba(255,215,0,.22)}
+@media(max-width:1000px){.cover-inner,.stitch-board{grid-template-columns:1fr}.grid-4,.timeline,.mini-list,.practice-grid{grid-template-columns:repeat(2,minmax(0,1fr))}.evidence-grid{grid-template-columns:repeat(2,minmax(0,1fr))}.mi-support-panel{grid-template-columns:1fr}}
+@media(max-width:780px){body{padding-left:0;padding-bottom:60px}.cover-inner{padding-top:3.4rem}.grid,.grid-3,.grid-4,.step,.evidence-grid,.timeline,.mini-list,.practice-grid{grid-template-columns:1fr}.section-head{display:block}.num{width:42px;height:42px}.prompt-head{align-items:flex-start;flex-direction:column}.copy{align-self:flex-start}.modal-tools{grid-template-columns:repeat(2,minmax(0,1fr))}.sidebar-nav{top:auto;bottom:0;left:0;right:0;width:100%;height:56px;flex-direction:row;padding:0 .35rem;border-right:none;border-top:1px solid rgba(18,37,98,.10)}.sidebar-logo,.sidebar-bottom{display:none}.sidebar-links{flex-direction:row;gap:0;justify-content:space-around;width:100%}.sidebar-nav a{width:34px;height:44px;min-width:34px;min-height:44px}.sidebar-nav a svg{width:17px;height:17px}.sidebar-nav a::after{display:none}.sidebar-nav a.active::before{left:50%;top:auto;bottom:0;transform:translateX(-50%);width:20px;height:3px;border-radius:3px 3px 0 0}.table table{min-width:680px}h1{max-width:14ch}}
+@media(max-width:430px){.wrap{padding:2.15rem .8rem}.cover-inner{padding-left:.8rem;padding-right:.8rem}.card,.step,.cover-panel{padding:.95rem}.fmt-tabs{gap:.28rem}button.fmt{padding:.24rem .42rem;font-size:.68rem}pre{font-size:.76rem}.table table{min-width:620px}.modal-tools{grid-template-columns:1fr}}
+</style>
+</head>
+<body class="brand-has-shell">
+<div id="scroll-progress" aria-hidden="true"></div>
+<nav class="sidebar-nav" aria-label="Navegacion principal">
+  <div class="sidebar-logo" aria-hidden="true">
+    <svg viewBox="0 0 36 36" role="img" aria-label="MetodologIA">
+      <defs><linearGradient id="logo-g" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" stop-color="#0A122A"/><stop offset="100%" stop-color="#1E293B"/></linearGradient></defs>
+      <rect width="36" height="36" rx="10" fill="url(#logo-g)"></rect>
+      <path d="M10 12h3v12h-3V12zm6 0h3v8h-3v-8zm0 10h3v2h-3v-2zm6-10h3v6h-3v-6zm0 8h3v4h-3v-4z" fill="#fff"></path>
+      <circle cx="18" cy="8" r="2" fill="#FFD700"></circle>
+    </svg>
+  </div>
+  <div class="sidebar-links">
+    <a href="#cover" data-label="Inicio" class="active"><i data-lucide="home"></i></a>
+    <a href="#evidencia" data-label="Evidencia"><i data-lucide="shield-check"></i></a>
+    <a href="#preparacion" data-label="Preparacion"><i data-lucide="clipboard-check"></i></a>
+    <a href="#recorrido" data-label="Recorrido"><i data-lucide="route"></i></a>
+    <a href="#prompts" data-label="Prompts"><i data-lucide="terminal-square"></i></a>
+    <a href="#asistentes" data-label="Asistentes"><i data-lucide="bot"></i></a>
+    <a href="#stitch" data-label="Pomelli de Google Labs + Google Stitch"><i data-lucide="layout-template"></i></a>
+    <a href="#glosario" data-label="Glosario"><i data-lucide="search"></i></a>
+    <a href="#faq" data-label="FAQ"><i data-lucide="help-circle"></i></a>
+    <a href="#cierre" data-label="Cierre"><i data-lucide="check-check"></i></a>
+  </div>
+  <div class="sidebar-bottom">
+    <a class="sidebar-pristino" href="#cierre" data-label="Tu paso" title="Tu siguiente paso" aria-label="Ir al cierre">
+      <svg viewBox="0 0 36 36" aria-hidden="true"><rect width="36" height="36" rx="10" fill="#0A122A"></rect><path d="M10 12h3v12h-3V12zm6 0h3v8h-3v-8zm0 10h3v2h-3v-2zm6-10h3v6h-3v-6zm0 8h3v4h-3v-4z" fill="#fff"></path><circle cx="18" cy="8" r="2" fill="#FFD700"></circle></svg>
+    </a>
+    <button type="button" onclick="toggleTheme()" aria-label="Cambiar tema" title="Cambiar tema"><i data-lucide="moon"></i></button>
+    <button type="button" onclick="toggleLang()" aria-label="Cambiar idioma" title="Cambiar idioma" id="langBtn">ES</button>
+  </div>
+</nav>
+
+<header class="cover" id="cover">
+  <div class="cover-inner">
+    <div>
+      <span class="badge"><i data-lucide="sparkles"></i> <span class="es">Workshop guiado · Prompt Amplificado</span><span class="en">Guided workshop · Prompt Amplificado</span></span>
+      <h1><span class="es">Multimedia con IA</span><span class="en">AI Multimedia</span></h1>
+      <p class="lead"><span class="es">Un taller operativo para salir con estrategia UX/UI, parrilla de 30 dias y primeras piezas multimodales listas para iterar. Metodo primero, (Gen)IA despues: define campaña, calendario, formatos por canal, visuales, video, musica, cuaderno de continuidad y prompt puente para creatividades publicitarias.</span><span class="en">An operational workshop to leave with UX/UI strategy, a 30-day content calendar and first multimodal assets ready to iterate. Method first, (Gen)AI second: define campaign, calendar, channel formats, visuals, video, music, continuity notebook and bridge prompt for ad creatives.</span></p>
+      <div class="docset-bar" aria-label="Modulos del taller">
+        <span class="chip"><i data-lucide="library"></i> Prompt Amplificado</span>
+        <span class="chip"><i data-lucide="message-circle-question"></i> Pregunta lo que sea</span>
+        <span class="chip"><i data-lucide="calendar-days"></i> Parrilla 30 dias</span>
+        <span class="chip"><i data-lucide="camera"></i> Nano Banana en Gemini</span>
+        <span class="chip"><i data-lucide="film"></i> Veo en Gemini</span>
+        <span class="chip"><i data-lucide="music-2"></i> Lyria / MusicFX / Suno</span>
+        <span class="chip"><i data-lucide="notebook-tabs"></i> NotebookLM</span>
+        <span class="chip"><i data-lucide="layout-template"></i> Pomelli de Google Labs</span>
+        <span class="chip"><i data-lucide="panels-top-left"></i> Google Stitch</span>
+      </div>
+      <div class="cover-actions" aria-label="Acciones principales">
+        <a class="btn btn-primary" href="#recorrido"><i data-lucide="route"></i> Empezar por la estrategia</a>
+        <a class="btn" href="#agenda-practica"><i data-lucide="calendar-plus"></i> Agendar práctica</a>
+        <a class="btn" href="https://javimontano.github.io/prompt-amplificado/biblioteca-prompts.html" target="_blank" rel="noopener noreferrer"><i data-lucide="library"></i> Ver biblioteca Prompt Amplificado</a>
+      </div>
+    </div>
+    <aside class="cover-panel">
+      <h3>Criterio de cierre</h3>
+      <ul>
+        <li>Estrategia UX/UI compacta como consultora de diseño y publicidad.</li>
+        <li>Parrilla de 30 dias para LinkedIn, Instagram, YouTube y TikTok.</li>
+        <li>Ocho paquetes duales: <code>.md</code> operativo + <code>.html</code> consultivo.</li>
+        <li>Seis prompts por paso: Natural, Paramétrico, SPEC, Dupla, mejora y continuidad.</li>
+        <li>Primeras piezas: flyers, carousels, infografias, cheatsheets, fotos, clips, musica y creatividades.</li>
+        <li>HTML vertical, visual, ejecutivo, con KPIs, insights, diagramas y follow-up.</li>
+        <li>Permisos, licencias y capacidades marcadas como <code>[DATO REQUERIDO]</code> cuando falte fuente.</li>
+      </ul>
+    </aside>
+  </div>
+</header>
+
+<main>
+  <section class="wrap" id="evidencia">
+    <span class="badge"><i data-lucide="shield-check"></i> Evidencia y limites</span>
+    <h2>Lo que sabemos, lo que inferimos y lo que falta</h2>
+    <p class="lead">Este HTML separa evidencia de inferencia. No afirma haber validado permisos, precios, disponibilidad ni capacidades oficiales de herramientas si no hay fuente oficial viva. El estándar de prompts se toma de Prompt Amplificado: cuatro formatos, cero fricción, defaults, trazabilidad y criterio de aceptación.</p>
+    <div class="evidence-grid" style="margin-top:1rem">
+      <article class="card evidence-card"><h3>Observado</h3><p>El workbook Discovery aporta shell, prompts copiables, tabs, gates y cierre. La biblioteca Prompt Amplificado aporta 4 formatos, método primero y prompts con defaults auditables. [CÓDIGO][DOC]</p></article>
+      <article class="card evidence-card"><h3>Inferido</h3><p>El taller debe pasar de pregunta asistida a estrategia, parrilla editorial, produccion visual, video, musica, cuaderno de fuentes y prompts publicitarios. [INFERENCIA]</p></article>
+      <article class="card evidence-card"><h3>Supuesto</h3><p>El participante trabaja con un proyecto propio o caso guia y opera con las capacidades disponibles en su cuenta. [SUPUESTO]</p></article>
+      <article class="card evidence-card"><h3>Dato requerido</h3><p>Capacidades oficiales, precios, terminos, permisos comerciales, derechos de imagen/voz, musica, nombre oficial de Nano Banana en Gemini, disponibilidad de Veo en Gemini, Pomelli de Google Labs y Google Stitch quedan pendientes. [DATO REQUERIDO]</p></article>
+    </div>
+    <div class="timeline">
+      <article class="card"><strong>Biblioteca</strong><p>Prompt Amplificado declara Natural, Paramétrico, SPEC y Dupla como formatos canónicos; el taller agrega follow-ups de mejora y continuidad.</p></article>
+      <article class="card"><strong>Canales</strong><p>LinkedIn, Instagram, YouTube y TikTok se tratan como contextos distintos: formato, duracion, estilo, CTA y KPI cambian por canal.</p></article>
+      <article class="card"><strong>Produccion</strong><p>Nano Banana en Gemini, Veo en Gemini, Lyria/MusicFX, Suno, NotebookLM, Pomelli de Google Labs y Google Stitch son estaciones del flujo, no el centro editorial.</p></article>
+      <article class="card"><strong>Fuentes</strong><p>Documentacion oficial de Google, Suno y Pomelli de Google Labs se usa como referencia de capacidades; Google Stitch se trata como contexto de prototipo con permisos pendientes.</p></article>
+    </div>
+    <div class="callout risk" style="margin-top:1rem">
+      <strong>coverage_gap:</strong> capacidades actuales de Nano Banana en Gemini, Veo en Gemini, Lyria/MusicFX, Suno, NotebookLM, Pomelli de Google Labs y Google Stitch, mas permisos comerciales, exportacion y licencias de outputs, siguen como <code>[DATO REQUERIDO]</code> hasta confirmar fuente oficial y condiciones de la cuenta usada.
+    </div>
+    <p class="source-note">Referencias editoriales para validar fuera del taller: <a href="https://javimontano.github.io/prompt-amplificado/biblioteca-prompts.html" target="_blank" rel="noopener">Prompt Amplificado</a> · <a href="https://ai.google.dev/gemini-api/docs/video" target="_blank" rel="noopener">Veo en Gemini API</a> · <a href="https://ai.google.dev/gemini-api/docs/music-generation" target="_blank" rel="noopener">Lyria en Gemini API</a> · <a href="https://labs.google/fx/es/tools/music-fx" target="_blank" rel="noopener">MusicFX</a> · <a href="https://suno.com/terms-of-service" target="_blank" rel="noopener">Suno Terms</a> · <a href="https://help.suno.com/en/categories/550145-rights-ownership" target="_blank" rel="noopener">Suno Rights &amp; Ownership</a> · <a href="https://support.google.com/labs/answer/16715058?hl=en" target="_blank" rel="noopener">Pomelli de Google Labs Help</a>.</p>
+  </section>
+
+  <section class="wrap" id="preparacion">
+    <div class="section-head">
+      <div>
+        <span class="badge"><i data-lucide="clipboard-check"></i> Preparacion</span>
+        <h2>Lee el flujo antes de copiar prompts</h2>
+        <p class="lead">El taller no empieza por una herramienta. Empieza por una decision de campaña: que debe entender la audiencia, en que canal, con que pieza y que accion debe tomar. Si falta material, usa un caso guia pequeño y declara supuestos.</p>
+      </div>
+    </div>
+    <div class="grid-3">
+      <article class="card"><div class="card-head"><i data-lucide="message-circle-question"></i><h3>Apoyos</h3></div><p>“Pregunta lo que sea” abre el caso; “UX/UI” convierte contexto en criterio visual. No reemplazan el proceso: lo sostienen.</p></article>
+      <article class="card"><div class="card-head"><i data-lucide="calendar-days"></i><h3>Parrilla 30 dias</h3></div><p>La estrategia se convierte en calendario por canal: objetivo, formato, dimensiones, duracion, CTA, KPI y pieza madre/derivada.</p></article>
+      <article class="card"><div class="card-head"><i data-lucide="shield-alert"></i><h3>Permisos</h3></div><p>Derechos de imagen, marcas, claims sensibles, musica, voces y licencias. Lo no resuelto se marca antes de publicar.</p></article>
+    </div>
+    <div class="grid-4" style="margin-top:1rem">
+      <article class="card"><span class="chip">2026 prompts</span><h3>Prompt Amplificado</h3><p>Usa el lenguaje de biblioteca: catálogo operativo, no trucos. Método primero, (Gen)IA despues.</p></article>
+      <article class="card"><span class="chip">4 formatos</span><h3>Natural · Paramétrico · SPEC · Dupla</h3><p>Cada paso conserva las cuatro versiones canónicas y agrega follow-ups de ejecución.</p></article>
+      <article class="card"><span class="chip">Cero fricción</span><h3>Defaults reales</h3><p>Los prompts funcionan sin llenar campos vacios; lo ajustable se edita en texto.</p></article>
+      <article class="card"><span class="chip">Protocolo</span><h3>Interpreta &gt; Planifica &gt; Ejecuta</h3><p>La IA reformula intención, propone plan, ejecuta y cierra con criterio de aceptación.</p></article>
+    </div>
+    <div class="callout info" style="margin-top:1rem">
+      <strong>Modo clase:</strong> trabaja en pantalla dividida. Izquierda: workbook. Derecha: herramienta activa. Lee el hook de la etapa, abre la herramienta indicada, usa el prompt recomendado y no avances si el gate no esta cerrado.
+    </div>
+    <div class="grid-4" style="margin-top:1rem">
+      <article class="card"><span class="chip">Hook</span><h3>Por que importa</h3><p>Cada etapa abre con la decision que protege: claridad, marca, conversion, evidencia o publicacion.</p></article>
+      <article class="card"><span class="chip">Accion</span><h3>Que haces</h3><p>La instruccion dice que mirar, que adjuntar y que salida esperar antes de tocar la siguiente herramienta.</p></article>
+      <article class="card"><span class="chip">Herramienta</span><h3>Donde trabajas</h3><p>La herramienta activa aparece como estacion del flujo, no como centro de la clase.</p></article>
+      <article class="card"><span class="chip">Gate</span><h3>Cuando avanzar</h3><p>Avanzas solo si la decision, la evidencia y el siguiente prompt quedan claros.</p></article>
+    </div>
+  </section>
+
+  <section class="wrap" id="recorrido">
+    <span class="badge"><i data-lucide="route"></i> Recorrido</span>
+    <h2>Ocho etapas, una ruta de produccion multimodal</h2>
+    <p class="lead">Sigue la ruta de izquierda a derecha: estrategia, calendario, piezas visuales, producto, video, musica, cuaderno y salida publicitaria. El objetivo no es coleccionar prompts; es que una persona vea como crear multimodalmente y pueda continuar despues del taller.</p>
+    <div class="table" style="margin-top:1rem">
+      <table>
+        <thead><tr><th>Etapa</th><th>Herramienta</th><th>Prompts del paso</th><th>Canales y piezas</th><th>Paquete + follow-up</th><th>Done cuando</th></tr></thead>
+        <tbody id="artifactRows"></tbody>
+      </table>
+    </div>
+  </section>
+
+  <section class="wrap" id="contrato-html">
+    <span class="badge"><i data-lucide="panel-top"></i> Contrato HTML consultivo</span>
+    <h2>El output consultivo debe poder leerse en 5 minutos</h2>
+    <p class="lead">Cada prompt pide un HTML autocontenido, responsive y vertical, pensado como informe compacto de consultora de diseño y publicidad. El Markdown conserva trazabilidad; el HTML sintetiza campaña, parrilla, assets, KPIs, riesgos y decisiones.</p>
+    <div class="grid-4" style="margin-top:1rem">
+      <article class="card"><span class="chip">01</span><h3>Hero ejecutivo</h3><p>Nombre del caso, decision a tomar, estado pass/fail y resumen en una frase.</p></article>
+      <article class="card"><span class="chip">02</span><h3>Estrategia</h3><p>Audiencia, oferta, mensaje, tono, criterio visual y canal prioritario.</p></article>
+      <article class="card"><span class="chip">03</span><h3>Calendario/KPIs</h3><p>Parrilla, cadencia, formato, dimensiones, duracion, CTA y señales de desempeño.</p></article>
+      <article class="card"><span class="chip">04</span><h3>Piezas por canal</h3><p>LinkedIn, Instagram, YouTube y TikTok con variantes por formato y objetivo.</p></article>
+      <article class="card"><span class="chip">05</span><h3>Matriz de assets</h3><p>Flyers, carousels, infografias, cheatsheets, fotos, clips, musica y handoff.</p></article>
+      <article class="card"><span class="chip">06</span><h3>Diagrama</h3><p>SVG inline optimizado; Mermaid solo como alternativa si el entorno lo soporta.</p></article>
+      <article class="card"><span class="chip">07</span><h3>Riesgos y gaps</h3><p>Permisos, claims, licencias, capacidades no verificadas y datos faltantes.</p></article>
+      <article class="card"><span class="chip">08</span><h3>Decision</h3><p>Producir, ajustar o detener, con siguiente accion concreta y responsable.</p></article>
+    </div>
+  </section>
+
+  <section class="wrap" id="prompts">
+    <span class="badge"><i data-lucide="terminal-square"></i> Prompts copiables</span>
+    <h2>Seis prompts por paso: crear, evaluar y continuar</h2>
+    <p class="lead">Primero entiende la etapa; luego elige formato. Natural para avanzar rapido, Paramétrico para ajustar con defaults, SPEC para auditar, Dupla System/User para configurar asistente/cuaderno, Mejora para iterar resultados y Continuidad para llevar el output al siguiente paso.</p>
+    <p class="source-note">Alineado con Prompt Amplificado: <code>natural</code>, <code>parametros</code>, <code>spec</code>, <code>dupla</code>, defaults editables, cero campos vacios, criterio de aceptacion y trazabilidad.</p>
+    <div class="grid-4" style="margin-top:1rem">
+      <article class="card"><span class="chip">Natural</span><h3>Pegar y correr</h3><p>Lenguaje normal. La IA pregunta lo que falta antes de producir.</p></article>
+      <article class="card"><span class="chip">Paramétrico</span><h3>Defaults editables</h3><p>Parámetros con valores por defecto que funcionan sin llenar campos vacíos.</p></article>
+      <article class="card"><span class="chip">SPEC</span><h3>Auditable</h3><p>Situacion, Pedido, Ejecucion y Criterio con checklist.</p></article>
+      <article class="card"><span class="chip">Dupla</span><h3>System/User</h3><p>Contrato estable mas pedido variable para Gems, GPTs o agentes.</p></article>
+      <article class="card"><span class="chip">Mejora</span><h3>Follow-up de calidad</h3><p>Evalua el resultado contra KPIs, canal, derechos y criterio visual.</p></article>
+      <article class="card"><span class="chip">Continuidad</span><h3>Follow-up siguiente paso</h3><p>Convierte el output actual en insumo listo para la siguiente estacion.</p></article>
+    </div>
+    <div id="stepsMount" style="margin-top:1.2rem"></div>
+  </section>
+
+  <section class="wrap" id="asistentes">
+    <span class="badge"><i data-lucide="bot"></i> Activa tus asistentes</span>
+    <h2>Apoyos del proceso, sin depender de un enlace directo</h2>
+    <p class="lead">Estos apoyos no son atajos para saltarse el metodo. Uno pregunta mejor; el otro convierte contexto en criterio visual. Copia el prompt guia y pegalo en la herramienta que estes usando.</p>
+    <div class="mi-support-panel">
+      <article class="mi-support"><h3>Pregunta lo que sea</h3><p>Abre la entrevista, pide contexto, propone benchmarking y evita alucinaciones por falta de fuentes.</p><button type="button" data-guide-static="interviewer">Copiar prompt de entrevista</button></article>
+      <article class="mi-support"><h3>UX/UI</h3><p>Convierte la conversacion previa en criterio de marca, composicion, jerarquia visual y consistencia.</p><button type="button" data-guide-static="auditor">Copiar prompt de criterio visual</button></article>
+      <article class="mi-support"><h3>System prompt multimedia</h3><p>Ayuda a que NotebookLM cree un asistente especializado en prompts de creacion publicitaria y parrilla de contenidos.</p><button type="button" data-guide-static="slides">Copiar prompt para NotebookLM</button></article>
+    </div>
+  </section>
+
+  <section class="wrap" id="stitch">
+    <span class="badge"><i data-lucide="layout-template"></i> Pomelli de Google Labs + Google Stitch</span>
+    <h2>Del cuaderno a creatividades publicitarias</h2>
+    <p class="lead">Pomelli de Google Labs y Google Stitch entran al final, cuando NotebookLM ya consolidó estrategia, parrilla, fuentes, imagenes, videos, musica, infografias, carousels y system prompt. La creatividad publicitaria no debe inventar capacidades ni esconder gaps.</p>
+    <div class="stitch-board">
+      <article class="card">
+        <h3>Prompt puente</h3>
+        <p>NotebookLM debe crear un prompt para Pomelli de Google Labs y Google Stitch usando estrategia, parrilla de 30 dias, contrato visual, piezas de Nano Banana en Gemini y Veo en Gemini, musica, infografias, carousels y evaluacion pass/fail.</p>
+        <p style="margin-top:1rem"><button class="btn btn-primary" type="button" data-guide-static="pomelli"><i data-lucide="copy"></i> Preparar prompt para Pomelli de Google Labs</button></p>
+      </article>
+      <aside class="stitch-placeholder">
+        <span class="stamp">[DATO REQUERIDO]</span>
+        <h3>Capacidades no verificadas</h3>
+        <p>Disponibilidad, permisos, formatos aceptados, limites comerciales, exportacion y relacion con cuentas Google quedan como fuente pendiente. Se documenta el prompt, no se afirma funcionalidad oficial.</p>
+      </aside>
+    </div>
+  </section>
+
+  <section class="wrap" id="glosario">
+    <span class="badge"><i data-lucide="search"></i> Glosario</span>
+    <h2>Busca antes de adaptar</h2>
+    <div class="glossary-tools">
+      <input id="glossarySearch" placeholder="Buscar: flyer, NotebookLM, Nano Banana en Gemini, Google Stitch...">
+      <span class="source-note" id="glossaryCount"></span>
+    </div>
+    <div class="grid-3" id="glossaryGrid">
+      <article class="card glossary-item" data-terms="pregunta lo que sea entrevista fuentes"><h3>Pregunta lo que sea</h3><p>Asistente de apoyo para abrir preguntas, pedir fuentes, evitar invenciones y ordenar el caso antes de generar.</p></article>
+      <article class="card glossary-item" data-terms="ux ui diseno marca consistencia"><h3>UX/UI</h3><p>Asistente de apoyo para traducir contexto en criterio visual: jerarquia, espacio, contraste, voz y consistencia de marca.</p></article>
+      <article class="card glossary-item" data-terms="nano banana en gemini edicion imagen"><h3>Nano Banana en Gemini</h3><p>Termino del taller para edicion/generacion visual dentro del arranque en Gemini. Capacidades oficiales, nombre y terminos: <code>[DATO REQUERIDO]</code>.</p></article>
+      <article class="card glossary-item" data-terms="veo en gemini video mini clip inmersivo"><h3>Veo en Gemini</h3><p>Salida de video en Gemini para mini clips y video inmersivo. Disponibilidad y restricciones por cuenta: <code>[DATO REQUERIDO]</code>.</p></article>
+      <article class="card glossary-item" data-terms="lyria musicfx suno musica audio jingle loop"><h3>Musica IA</h3><p>Ruta de audio para acompañar videos: brief musical, loop, jingle, licencia y sincronía. Uso comercial: <code>[DATO REQUERIDO]</code>.</p></article>
+      <article class="card glossary-item" data-terms="notebooklm cuaderno infografia carousel system prompt"><h3>NotebookLM</h3><p>Cuaderno donde se consolidan fuentes, outputs, infografias, carousels, videos y el system prompt publicitario.</p></article>
+      <article class="card glossary-item" data-terms="pomelli google labs creatividad pieza publicitaria"><h3>Pomelli de Google Labs</h3><p>Salida final para creatividades y piezas publicitarias guiadas por prompt. Acceso, terminos y permisos comerciales: <code>[DATO REQUERIDO]</code>.</p></article>
+      <article class="card glossary-item" data-terms="google stitch prototipo piezas publicitarias exportacion"><h3>Google Stitch</h3><p>Entorno de continuidad para prototipo y piezas publicitarias. Permisos, exportacion, limites y uso comercial: <code>[DATO REQUERIDO]</code>.</p></article>
+    </div>
+  </section>
+
+  <section class="wrap faq" id="faq">
+    <span class="badge"><i data-lucide="help-circle"></i> FAQ</span>
+    <h2>Preguntas frecuentes</h2>
+    <details open><summary>¿El taller enseña herramientas o proceso?</summary><p>Proceso. Las herramientas aparecen como estaciones: estrategia, calendario, piezas, video, musica, cuaderno y salida publicitaria. Si una herramienta no esta disponible, el paquete conserva el contrato para ejecutarlo despues.</p></details>
+    <details><summary>¿Por que usar “Pregunta lo que sea” y “UX/UI” antes de Gemini?</summary><p>Porque ayudan a preguntar, ordenar fuentes, definir criterio visual y evitar piezas bonitas pero desconectadas del caso.</p></details>
+    <details><summary>¿Por que no empezar por los prompts?</summary><p>Porque el prompt es una palanca, no el metodo. Primero identifica decision, lector, evidencia y herramienta activa; despues copia el formato que corresponda.</p></details>
+    <details><summary>¿Puedo usar marcas, personas o musica de terceros?</summary><p>Solo si tienes permiso suficiente para el uso previsto. Si no, marca <code>[DATO REQUERIDO]</code>, usa placeholders o cambia el alcance.</p></details>
+    <details><summary>¿Que hago si Veo en Gemini, Lyria, MusicFX o Suno no aparecen en mi cuenta?</summary><p>Conserva el paquete del paso como contrato de produccion y marca disponibilidad, permisos y condiciones como <code>[DATO REQUERIDO]</code>. El taller no debe ocultar capacidades no disponibles.</p></details>
+    <details><summary>¿Para que entra NotebookLM?</summary><p>Para consolidar fuentes y outputs, generar infografias/carousels, comparar piezas, crear video inmersivo, producir el system prompt publicitario y preparar el prompt puente hacia Pomelli de Google Labs y Google Stitch.</p></details>
+    <details><summary>¿Que pasa despues del taller?</summary><p>Cada etapa incluye follow-ups. El cierre deja prompts para iterar resultados, ejecutar 7 dias de publicacion y revisar la parrilla completa de 30 dias.</p></details>
+  </section>
+
+  <section class="wrap" id="cierre" data-mi-footer-std="1">
+    <div class="pm-cta-close">
+      <span class="badge"><i data-lucide="check-check"></i> Cierre operativo</span>
+      <h2>Deja un paquete que otra persona pueda ejecutar</h2>
+      <p>El resultado no es una pieza bonita aislada. Es un paquete trazable y consultivo: estrategia, calendario de 30 dias, Markdown para evidencia, HTML para lectura ejecutiva, prompts, outputs, evaluacion, permisos y proximo experimento.</p>
+      <div class="checklist">
+        <label class="check"><input type="checkbox">Los ocho paquetes duales existen o quedan como pendientes explicitos.</label>
+        <label class="check"><input type="checkbox">Cada HTML consultivo tiene maximo 8 secciones, KPIs, insights y diagrama SVG/Mermaid.</label>
+        <label class="check"><input type="checkbox">La parrilla de 30 dias cubre LinkedIn, Instagram, YouTube y TikTok con formato, duracion, CTA y KPI.</label>
+        <label class="check"><input type="checkbox">Cada output tiene fuente, prompt, canal, decision humana y follow-up.</label>
+        <label class="check"><input type="checkbox">No hay permisos, licencias o claims escondidos.</label>
+        <label class="check"><input type="checkbox">El smoke test define producir, ajustar o detener.</label>
+      </div>
+      <div id="agenda-practica" style="margin-top:1.4rem">
+        <h3 style="color:#fff">Agenda tu práctica</h3>
+        <p>Si no esta agendado, no existe. Cada boton abre Google Calendar con una practica sugerida; elige hora y guarda.</p>
+        <div class="practice-grid">
+          <a class="practice-card" href="#" data-calendar-template="multimedia-practice" target="_blank" rel="noopener noreferrer">
+            <i data-lucide="sparkles"></i>
+            <div><strong>Práctica Multimedia con IA</strong><span>90 min · Ejecutar pasos 1-6</span></div>
+          </a>
+          <a class="practice-card" href="#" data-calendar-template="calendar-review" target="_blank" rel="noopener noreferrer">
+            <i data-lucide="calendar-days"></i>
+            <div><strong>Revisión de parrilla 30 días</strong><span>Semanal x 4 · Ajustar calendario</span></div>
+          </a>
+          <a class="practice-card" id="cta-agendamiento" href="https://calendar.app.google/Fe8X6jpR7ozdYgkq9" target="_blank" rel="noopener noreferrer">
+            <i data-lucide="calendar-plus"></i>
+            <div><strong>Agendar 1 hora de orientación</strong><span>Conversación con MetodologIA</span></div>
+          </a>
+        </div>
+      </div>
+    </div>
+    <div class="pm-footer-manifesto">Metodo primero. IA despues. Evidencia siempre.</div>
+    <div class="pm-facilitator">
+      <h3>Javier Montaño · MetodologIA</h3>
+      <p>Diseñador de metodologia abierta para apropiacion practica de IA. Este material es educativo, abierto y auditable.</p>
+    </div>
+    <div class="pm-footer-meta">
+      <span class="chip">Workshop Multimedia con IA</span>
+      <span class="chip">CC BY-NC-SA 4.0</span>
+      <span class="chip">GitHub Pages ready</span>
+    </div>
+    <footer class="site-footer mi-site-footer">
+      <strong>MetodologIA · 2026</strong>
+      <p>Material educativo abierto bajo CC BY-NC-SA 4.0. Usa evidencia, declara gaps y valida antes de publicar.</p>
+    </footer>
+  </section>
+</main>
+
+<div class="modal-backdrop" id="promptModal" role="dialog" aria-modal="true" aria-labelledby="promptModalTitle">
+  <div class="modal">
+    <div class="modal-head">
+      <h3 id="promptModalTitle">Copiar prompt para tu asistente</h3>
+      <button class="btn" type="button" id="closePromptModal" aria-label="Cerrar">Cerrar</button>
+    </div>
+    <div class="modal-body">
+      <p class="lead" style="font-size:.94rem">Copia este prompt y pegalo en la herramienta que estes usando. Los botones no abren enlaces directos: solo copian y preparan el destino sugerido.</p>
+      <div class="modal-tools">
+        <button type="button" data-modal-copy="copy">Copiar</button>
+        <button type="button" data-modal-copy="ChatGPT">Copiar para ChatGPT</button>
+        <button type="button" data-modal-copy="Claude">Copiar para Claude</button>
+        <button type="button" data-modal-copy="Gemini">Copiar para Gemini</button>
+      </div>
+      <textarea id="promptModalText" spellcheck="false"></textarea>
+      <p class="source-note" id="promptModalStatus">Listo para copiar.</p>
+    </div>
+  </div>
+</div>
+
+<script>
+var staticPromptGuides = {
+  interviewer: 'Actua como el asistente "Pregunta lo que sea" para un workshop de multimedia con IA. No produzcas piezas todavia. Ubica el caso, detecta la decision de campaña, identifica audiencia, canales, oferta, restricciones y fuentes. Formula maximo 5 preguntas por ronda; si puedes avanzar, declara supuestos. Cierra con: etapa recomendada, herramienta activa, prompt sugerido, datos listos, datos faltantes, riesgo principal y siguiente accion.',
+  auditor: 'Actua como asistente UX/UI para estrategia y piezas multimedia. No evalues la herramienta; evalua claridad, jerarquia, espacio, contraste, voz de marca, CTA, canal, formato, ritmo, consistencia entre flyer/foto/video/carousel/infografia y riesgo de derechos. Devuelve criterio visual, recomendaciones accionables y checklist pass/fail por canal.',
+  slides: 'Actua como creador de system prompt para NotebookLM. Crea un asistente publicitario multimedia que guie 8 etapas: estrategia UX/UI, parrilla 30 dias, piezas visuales, photo shoot, clips, musica, cuaderno de continuidad y prompt puente para Pomelli de Google Labs y Google Stitch. Debe pedir fuentes, separar Observado/Inferido/Supuesto/Dato requerido y producir salidas duales Markdown + HTML consultivo compacto.',
+  pomelli: 'Actua como NotebookLM consolidando fuentes de un workshop multimedia. Resume estrategia, parrilla 30 dias, piezas de Nano Banana en Gemini, videos de Veo en Gemini, musica, infografias, carousels, system prompt, permisos y gaps. Luego crea un prompt puente para Pomelli de Google Labs y Google Stitch orientado a creatividades publicitarias por canal. No inventes capacidades oficiales; marca [DATO REQUERIDO] y cierra con follow-up de 7 dias y revision de 30 dias.'
+};
+
+var workshopSteps = [
+  {
+    n:'01',
+    mdFile:'estrategia-uxui-campania.md',
+    htmlFile:'estrategia-uxui-campania.html',
+    title:'Estrategia UX/UI y campaña base',
+    action:'Convertir un proyecto real en una estrategia compacta de campaña: audiencia, oferta, promesa, tono, criterio visual, canales, riesgos y KPIs.',
+    attach:'Idea del proyecto, oferta, audiencia, referencias visuales, canales previstos, restricciones de marca, piezas previas y fuentes disponibles.',
+    output:'Paquete dual con estrategia UX/UI, brief publicitario, criterio visual, matriz de riesgos, KPIs y siguiente prompt para parrilla de 30 dias.',
+    visualGoal:'Informe ejecutivo de consultora: decision de campaña, audiencia, tono, pilares de contenido, criterio visual y riesgos.',
+    kpis:'Claridad de audiencia, fuerza de oferta, coherencia de canal, foco de CTA, riesgo de supuestos, calidad del criterio visual.',
+    sections:'Hero ejecutivo; estrategia; audiencia/oferta; criterio UX/UI; KPIs; riesgos; diagrama; siguiente accion.',
+    diagram:'SVG/Mermaid de proyecto -> audiencia -> oferta -> criterio visual -> campaña.',
+    tool:'Pregunta lo que sea -> UX/UI',
+    channels:'Todos como marco; priorizar canal principal y secundarios.',
+    assetTypes:'Brief, estrategia, criterio visual, matriz de riesgos, KPIs.',
+    promptSet:'Entrevista, estrategia visual, SPEC de campaña, dupla de asesor publicitario, follow-up de claridad, follow-up para parrilla.',
+    followUps:'Mejorar claridad de audiencia/oferta; convertir estrategia en parrilla de 30 dias.',
+    calendarOutput:'Base editorial para calendario de 30 dias.',
+    htmlConsultivo:'HTML compacto estilo consultora de diseño/publicidad.',
+    mdOperativo:'MD con decisiones, evidencia, gaps, permisos y checklist.',
+    rightsCheck:'Marcas, claims, imagenes de terceros, promesas sensibles y permisos de uso.',
+    promptUse:'Natural para abrir entrevista; Paramétrico si ya tienes audiencia, canal y fuentes; SPEC para cerrar campaña.',
+    readerHook:'Antes de generar, decide que debe entender y hacer la audiencia.',
+    why:'La creatividad mejora cuando la IA pregunta, recibe contexto y evita piezas sin decision.',
+    gate:'Audiencia, oferta, CTA, tono, canales, criterio visual, riesgos y KPIs quedan claros en MD y HTML.',
+    focus:'estrategia UX/UI, campaña, audiencia, oferta, tono, criterio visual, KPIs, derechos y canales',
+    fields:['PROYECTO','AUDIENCIA','OFERTA','CANALES','OBJETIVO_30_DIAS','REFERENCIAS']
+  },
+  {
+    n:'02',
+    mdFile:'parrilla-contenidos-30-dias.md',
+    htmlFile:'parrilla-contenidos-30-dias.html',
+    title:'Parrilla de contenidos 30 dias',
+    action:'Transformar la estrategia en un calendario editorial de 30 dias por canal, con objetivos, formatos, dimensiones, duraciones, CTA, KPI y pieza madre/derivada.',
+    attach:'Estrategia UX/UI, audiencia, oferta, canales, recursos disponibles, frecuencia deseada, restricciones y fechas clave.',
+    output:'Paquete dual con calendario de 30 dias para LinkedIn, Instagram, YouTube y TikTok, mapa de formatos y lote inicial de prompts por pieza.',
+    visualGoal:'Calendario ejecutivo con matriz canal/formato, cadencia, objetivos, piezas madre, derivados y KPIs.',
+    kpis:'Cobertura 30 dias, balance de canales, reutilizacion de assets, claridad de CTA, variedad de formatos, carga operativa realista.',
+    sections:'Hero del calendario; estrategia; matriz de canales; 30 dias; KPIs; riesgos; diagrama; lote inicial.',
+    diagram:'SVG/Mermaid de estrategia -> pilares -> calendario -> piezas -> medicion.',
+    tool:'UX/UI + Gemini para planificacion',
+    channels:'LinkedIn, Instagram, YouTube, TikTok.',
+    assetTypes:'Post, reel/short, carousel, flyer, infografia, cheatsheet, video corto, video inmersivo.',
+    promptSet:'Calendario natural, parametros por canal, SPEC editorial, dupla de planificador, follow-up de balance, follow-up de produccion.',
+    followUps:'Balancear canales y carga; convertir dias priorizados en prompts de produccion.',
+    calendarOutput:'Calendario 30 dias con dimension, duracion, estilo, CTA, KPI y pieza madre/derivada.',
+    htmlConsultivo:'HTML de calendario con tablero visual y KPIs por canal.',
+    mdOperativo:'MD con tabla completa, supuestos, gaps y tareas.',
+    rightsCheck:'Fechas, claims, marcas, audio, imagenes, permisos de talento y reutilizacion de assets.',
+    promptUse:'Paramétrico para canales y cadencia; SPEC para auditar la parrilla editorial.',
+    readerHook:'Una campaña no se sostiene con una pieza: se sostiene con cadencia y reutilizacion inteligente.',
+    why:'La parrilla evita improvisar y muestra como cada asset alimenta varias publicaciones.',
+    gate:'El calendario tiene 30 dias, 4 canales, formatos/dimensiones/duraciones, CTA, KPI y prioridades de produccion.',
+    focus:'parrilla 30 dias, calendario editorial, LinkedIn, Instagram, YouTube, TikTok, dimensiones, duraciones, CTA, KPI',
+    fields:['ESTRATEGIA','CANALES','CADENCIA','PILARES','RECURSOS','FECHAS_CLAVE']
+  },
+  {
+    n:'03',
+    mdFile:'piezas-visuales-sociales.md',
+    htmlFile:'piezas-visuales-sociales.html',
+    title:'Flyers, carousels, infografias y cheatsheets',
+    action:'Crear las primeras piezas visuales de la campaña: flyer de evento/oferta, carousel vertical, infografia ejecutiva y cheatsheet reutilizable.',
+    attach:'Estrategia, parrilla, texto obligatorio, logo, referencias permitidas, canal, formato esperado y restricciones.',
+    output:'Paquete dual con prompts para Nano Banana en Gemini, variantes visuales, comparativa por canal y checklist de legibilidad.',
+    visualGoal:'Reporte compacto de piezas: jerarquia, lectura movil, CTA, densidad de informacion, canal y riesgos.',
+    kpis:'Legibilidad movil, fuerza del CTA, coherencia de marca, densidad, escaneabilidad, riesgo de permisos.',
+    sections:'Hero de piezas; brief; variantes; comparativa; KPIs; riesgos; diagrama; prompts finales.',
+    diagram:'SVG/Mermaid de calendario -> pieza madre -> derivados -> canal -> decision.',
+    tool:'Nano Banana en Gemini',
+    channels:'Instagram, TikTok, LinkedIn, YouTube Community/Shorts support.',
+    assetTypes:'Flyer, carousel, infografia, cheatsheet, portada vertical/cuadrada.',
+    promptSet:'Flyer evento, carousel vertical, infografia ejecutiva, cheatsheet, follow-up de legibilidad, follow-up de variantes.',
+    followUps:'Mejorar lectura y jerarquia; generar variantes por canal y dia de calendario.',
+    calendarOutput:'Piezas iniciales conectadas a dias prioritarios de la parrilla.',
+    htmlConsultivo:'HTML comparativo con cards de insights y matriz de piezas.',
+    mdOperativo:'MD con prompts, decisiones, fuentes, variantes y checklist.',
+    rightsCheck:'Logos, fotografias, textos obligatorios, claims, referencias de estilo y uso de marca.',
+    promptUse:'Natural para primera version; Paramétrico para formato/canal; Mejora para legibilidad.',
+    readerHook:'El contenido visual debe explicar rapido: si necesita contexto extra, todavia no funciona.',
+    why:'La primera tanda visual prueba si la estrategia comunica sin saturar.',
+    gate:'Existen primeras piezas o contratos de pieza; cada una tiene canal, CTA, KPI, riesgo y follow-up.',
+    focus:'flyer, carousel, infografia, cheatsheet, Nano Banana en Gemini, jerarquia visual, CTA, canales sociales',
+    fields:['PIEZA','CANAL','FORMATO','TEXTO_OBLIGATORIO','CTA','REFERENCIAS']
+  },
+  {
+    n:'04',
+    mdFile:'photoshoot-editorial-producto.md',
+    htmlFile:'photoshoot-editorial-producto.html',
+    title:'Photo shoot editorial de producto fisico',
+    action:'Generar fotos de producto para tienda virtual y redes con textura, escala, contexto de uso, iluminacion editorial y restricciones de no alterar.',
+    attach:'Fotos del producto, empaque, medidas, materiales, marca, canal de venta, referencias permitidas y restricciones de fidelidad.',
+    output:'Paquete dual con shot list, prompts de foto, variantes de estudio, version vertical ready y criterios de calidad editorial sin claims no verificados.',
+    visualGoal:'Press de estudio consultivo: producto, usos, variantes, riesgos de alteracion y seleccion editorial.',
+    kpis:'Fidelidad del producto, textura visible, escala, consistencia de iluminacion, aptitud e-commerce/social, riesgo de alteracion.',
+    sections:'Hero de producto; atributos; shot list; variantes; KPIs; comparativa; riesgos; lote siguiente.',
+    diagram:'SVG/Mermaid de producto -> escena -> luz -> variante -> canal.',
+    tool:'Nano Banana en Gemini',
+    channels:'Tienda virtual, Instagram, TikTok, LinkedIn segun caso.',
+    assetTypes:'Foto hero, detalle, uso, empaque, comparativa, vertical ready.',
+    promptSet:'Shot list, producto no-alterar, estudio premium, e-commerce/social, follow-up de fidelidad, follow-up de batch.',
+    followUps:'Corregir fidelidad y escala; crear batch de fotos para calendario y tienda.',
+    calendarOutput:'Assets de producto asociados a publicaciones de venta, educacion y prueba social.',
+    htmlConsultivo:'HTML de seleccion editorial con matriz de variantes.',
+    mdOperativo:'MD con restricciones no-alterar, prompts, riesgos y checklist.',
+    rightsCheck:'Marca, empaque, claims, modelos/personas, superficies de terceros y permisos de venta.',
+    promptUse:'Paramétrico para fijar no-alterar; SPEC si el producto tiene riesgos de marca o permisos.',
+    readerHook:'La foto debe vender sin mentir: textura, escala y uso pesan mas que el efecto.',
+    why:'La foto vende cuando muestra objeto, contexto y confianza sin deformar el producto.',
+    gate:'Producto conserva identidad, proporciones, textura, marca y claims permitidos; el HTML explica la seleccion.',
+    focus:'producto fisico, tienda virtual, Instagram, TikTok, press de estudio, calidad editorial, no alterar',
+    fields:['PRODUCTO','ATRIBUTOS','USO','FONDO','ILUMINACION','NO_ALTERAR']
+  },
+  {
+    n:'05',
+    mdFile:'mini-clips-video-corto.md',
+    htmlFile:'mini-clips-video-corto.html',
+    title:'Mini clips y video corto',
+    action:'Convertir imagenes aprobadas en video corto con hook de 3 segundos, movimiento, ritmo, CTA y continuidad visual.',
+    attach:'Flyer, foto o pieza aprobada, canal, duracion objetivo, CTA, movimiento deseado, restricciones y audio cues.',
+    output:'Paquete dual con prompt para Veo en Gemini, storyboard corto, contrato de video vertical y rubrica pass/fail.',
+    visualGoal:'Reporte de video corto: narrativa, movimiento, continuidad, CTA, audio cues y decision pass/fail.',
+    kpis:'Claridad del hook, continuidad visual, ritmo, comprension sin audio, CTA, duracion, riesgo de terminos.',
+    sections:'Hero de clip; imagen base; storyboard; movimiento; KPIs; riesgos; prompt de Veo en Gemini; decision.',
+    diagram:'SVG/Mermaid de imagen base -> plano -> movimiento -> clip -> CTA.',
+    tool:'Veo en Gemini',
+    channels:'Instagram Reels, TikTok, YouTube Shorts, LinkedIn video corto.',
+    assetTypes:'Mini clip vertical, short, teaser, bumper, loop.',
+    promptSet:'Image-to-video, hook de 3 segundos, guion visual, audio cues, follow-up de ritmo, follow-up de publicacion.',
+    followUps:'Ajustar ritmo y continuidad; preparar versiones de publicacion por canal.',
+    calendarOutput:'Clips conectados a dias de mayor impacto de la parrilla.',
+    htmlConsultivo:'HTML de storyboard, continuidad y pass/fail.',
+    mdOperativo:'MD con prompt, restricciones, disponibilidad y criterios.',
+    rightsCheck:'Derechos de imagen, personas, musica, marcas, terminos de herramienta y uso comercial.',
+    promptUse:'SPEC para controlar movimiento, duracion, hook, audio cues y CTA antes de generar.',
+    readerHook:'El video no necesita mas movimiento: necesita una accion clara en pocos segundos.',
+    why:'Video sin contrato tiende a agregar movimiento que distrae o contradice la pieza.',
+    gate:'Mini clip creado o contratado; disponibilidad, permisos y condiciones quedan confirmados o marcados.',
+    focus:'Veo en Gemini, mini clip, hook 3 segundos, movimiento, CTA, ritmo, continuidad visual',
+    fields:['IMAGEN_BASE','DURACION','MOVIMIENTO','HOOK','CTA','AUDIO_CUES']
+  },
+  {
+    n:'06',
+    mdFile:'musica-ia-video-social.md',
+    htmlFile:'musica-ia-video-social.html',
+    title:'Musica para acompañar videos',
+    action:'Crear un brief musical y prompts para generar musica de apoyo a clips y videos, con mood, ritmo, loop, jingle, sincronía y permisos visibles.',
+    attach:'Mini clip, storyboard, audiencia, marca, mood, ritmo deseado, duracion, canales y restricciones de derechos.',
+    output:'Paquete dual con brief musical, prompts para Lyria/MusicFX o Suno, checklist de licencia/uso y plan de sincronía.',
+    visualGoal:'Informe de audio: moodboard, uso por pieza, riesgos de licencia, sincronía y decision de publicacion.',
+    kpis:'Coherencia con marca, sincronía con video, recordacion, no saturacion, riesgo de derechos, adaptacion por canal.',
+    sections:'Hero musical; mood; usos; prompts; KPIs; derechos; diagrama; decision.',
+    diagram:'SVG/Mermaid de pieza -> mood -> prompt musical -> revision -> uso por canal.',
+    tool:'Gemini/Lyria o MusicFX; Suno como alternativa',
+    channels:'Reels, TikTok, Shorts, video inmersivo, anuncios y piezas de apoyo.',
+    assetTypes:'Loop, jingle, bed musical, intro/outro, audio cues.',
+    promptSet:'Mood musical, jingle corto, loop para reels, licencia/uso, follow-up de sincronía, follow-up de derechos.',
+    followUps:'Ajustar sincronía y mood; resolver permisos antes de publicar.',
+    calendarOutput:'Audio asignado a clips, videos y piezas de mayor prioridad.',
+    htmlConsultivo:'HTML de decision musical con riesgos y matriz de uso.',
+    mdOperativo:'MD con prompt, versiones, permisos, gaps y checklist.',
+    rightsCheck:'Licencia musical, uso comercial, autoria, voz, samples, plan de cuenta y terminos vigentes.',
+    promptUse:'Natural para brief musical; Paramétrico para mood/duracion; Mejora para sincronía y derechos.',
+    readerHook:'La musica no decora: guia ritmo, recuerdo y emocion sin tapar el mensaje.',
+    why:'Audio mal elegido puede romper la pieza aunque el visual funcione.',
+    gate:'El brief musical, prompt, uso por canal y estado de licencia quedan claros; lo no confirmado se marca.',
+    focus:'musica IA, Lyria, MusicFX, Suno, jingle, loop, audio cues, derechos, video social',
+    fields:['VIDEO_BASE','MOOD','DURACION','CANAL','USO_MUSICAL','RESTRICCIONES']
+  },
+  {
+    n:'07',
+    mdFile:'notebooklm-sala-estrategia.md',
+    htmlFile:'notebooklm-sala-estrategia.html',
+    title:'NotebookLM como sala de estrategia',
+    action:'Consolidar estrategia, parrilla, piezas, clips, musica, decisiones, gaps y fuentes en un cuaderno que produzca informes, infografias, carousels, video inmersivo y system prompt publicitario.',
+    attach:'Todos los paquetes anteriores, outputs visuales, mini clips, brief musical, prompts, evaluaciones, permisos y gaps.',
+    output:'Paquete dual con mapa del cuaderno, fuentes, etiquetas, informe ejecutivo, infografias/carousels, contrato de video inmersivo y system prompt publicitario.',
+    visualGoal:'Panel consultivo del cuaderno: fuentes, estado, etiquetas, outputs, gaps, tareas y trazabilidad.',
+    kpis:'Cobertura de fuentes, calidad de etiquetas, privacidad, continuidad entre outputs, utilidad del system prompt, gaps bloqueantes.',
+    sections:'Hero del cuaderno; inventario; etiquetas; outputs; KPIs; gaps; system prompt; siguiente uso.',
+    diagram:'SVG/Mermaid de paquetes -> fuentes NotebookLM -> outputs -> system prompt -> decisiones.',
+    tool:'NotebookLM',
+    channels:'Todos los canales del calendario.',
+    assetTypes:'Informe ejecutivo, infografias, carousels, video inmersivo, system prompt, briefs.',
+    promptSet:'Carga de fuentes, informe ejecutivo HTML, infografias, carousels, video inmersivo, system prompt publicitario.',
+    followUps:'Corregir gaps y etiquetas; preparar prompt puente para Pomelli de Google Labs y Google Stitch.',
+    calendarOutput:'Cuaderno de continuidad que soporta toda la parrilla y piezas derivadas.',
+    htmlConsultivo:'HTML de sala de estrategia con mapa de fuentes y outputs.',
+    mdOperativo:'MD con inventario, etiquetas, privacidad, gaps y prompts.',
+    rightsCheck:'PII, fuentes privadas, imagen/voz, musica, marcas, claims, permisos y terminos.',
+    promptUse:'Dupla para fijar reglas del cuaderno; SPEC para auditar outputs y evidencia.',
+    readerHook:'El cuaderno vuelve consultable lo que antes eran piezas sueltas.',
+    why:'NotebookLM da continuidad cuando assets, decisiones y evidencia quedan en una sala consultable.',
+    gate:'Fuentes, etiquetas, gaps, outputs esperados y system prompt quedan listos y auditables.',
+    focus:'NotebookLM, sala de estrategia, fuentes, etiquetas, infografias, carousels, video inmersivo, system prompt publicitario',
+    fields:['PAQUETES','FUENTES','ETIQUETAS','OUTPUTS','GAPS','PRIVACIDAD']
+  },
+  {
+    n:'08',
+    mdFile:'pomelli-google-labs-stitch-handoff-followup.md',
+    htmlFile:'pomelli-google-labs-stitch-handoff-followup.html',
+    title:'Pomelli de Google Labs, Google Stitch y follow-up post-taller',
+    action:'Crear el prompt puente para Pomelli de Google Labs y Google Stitch, empaquetar creatividades publicitarias por canal y dejar follow-ups para ejecutar 7 dias y revisar 30 dias.',
+    attach:'Cuaderno NotebookLM, system prompt publicitario, estrategia, parrilla, assets, evaluacion, permisos y restricciones.',
+    output:'Paquete dual con prompt puente, criterios de creatividad on-brand, variantes por canal, lote de piezas, handoff y plan de seguimiento.',
+    visualGoal:'Handoff ejecutivo: prompt puente, assets, riesgos, KPIs, decision, plan 7 dias y revision 30 dias.',
+    kpis:'Listo para producir, claridad del prompt puente, riesgo legal, completitud de assets, canalizacion, accion siguiente.',
+    sections:'Hero de handoff; prompt puente; assets; canales; KPIs; riesgos; follow-ups; proximo experimento.',
+    diagram:'SVG/Mermaid de cuaderno -> prompt Pomelli de Google Labs / Google Stitch -> creatividad -> publicacion -> revision.',
+    tool:'NotebookLM -> Pomelli de Google Labs / Google Stitch',
+    channels:'LinkedIn, Instagram, YouTube, TikTok y canal prioritario del caso.',
+    assetTypes:'Creatividades on-brand, anuncios, variantes por canal, lote de piezas, handoff.',
+    promptSet:'Prompt puente, creatividad on-brand, variantes por canal, lote de piezas, follow-up 7 dias, follow-up 30 dias.',
+    followUps:'Ejecutar 7 dias de publicaciones; revisar 30 dias y ajustar parrilla.',
+    calendarOutput:'Handoff operativo para ejecutar y medir la parrilla completa.',
+    htmlConsultivo:'HTML final de campaña con decision y siguientes acciones.',
+    mdOperativo:'MD con prompt puente, assets, permisos, gaps, responsables y seguimiento.',
+    rightsCheck:'Disponibilidad Pomelli de Google Labs y Google Stitch, terminos, permisos comerciales, exportacion, claims, marcas, musica, imagen/voz.',
+    promptUse:'Dupla para prompt puente; Paramétrico para variantes de creatividad, canal y restricciones.',
+    readerHook:'La salida publicitaria solo avanza si otra persona puede producir sin pedir contexto critico.',
+    why:'La salida necesita trazabilidad: que se creo, por que, con que fuentes y que falta validar.',
+    gate:'Otra persona puede producir, publicar 7 dias y revisar la parrilla sin pedir contexto critico.',
+    focus:'Pomelli de Google Labs, Google Stitch, creatividades, piezas publicitarias, parrilla 30 dias, follow-up 7 dias, handoff',
+    fields:['CUADERNO','SYSTEM_PROMPT','PARRILLA','ASSETS','GAPS','PROMPT_POMELLI_GOOGLE_LABS_STITCH']
+  }
+];
+
+function esc(value){
+  return String(value).replace(/[&<>"']/g,function(ch){
+    return {'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[ch];
+  });
+}
+
+function fieldLines(step){
+  return step.fields.map(function(field){ return '- ' + field + ': {[' + field + ']}'; }).join('\n');
+}
+
+function fieldDefaultLines(step){
+  return step.fields.map(function(field){
+    return '- ' + field + ': usa el dato disponible del caso; si falta y no es bloqueante, completa con inferencia marcada {AUTOCOMPLETADO}; si es bloqueante, pregunta antes de producir.';
+  }).join('\n');
+}
+
+function packageContract(step){
+  return 'ENTREGABLES OBLIGATORIOS\n' +
+    '1. `' + step.mdFile + '` — Markdown operativo: resumen ejecutivo, decisiones, fuentes, Observado/Inferido/Supuesto/Dato requerido, prompts usados, gaps, derechos/licencias, criterios pass/fail, follow-ups y checklist listo/falta.\n' +
+    '2. `' + step.htmlFile + '` — HTML consultivo autocontenido: informe compacto, vertical, responsive, maximo 8 secciones, CSS interno o estilos inline, sin dependencias externas y listo para abrir en navegador.\n\n' +
+    'CONTRATO DEL HTML CONSULTIVO COMPACTO\n' +
+    '- Hero ejecutivo: decision, estado, insight y siguiente accion.\n' +
+    '- Estrategia: audiencia, oferta, tono, canal y criterio visual.\n' +
+    '- Calendario/KPIs: ' + step.calendarOutput + '\n' +
+    '- Piezas por canal: ' + step.channels + '\n' +
+    '- Matriz de assets: ' + step.assetTypes + '\n' +
+    '- Riesgos/licencias: ' + step.rightsCheck + '\n' +
+    '- Diagrama: ' + step.diagram + '. Usa SVG inline optimizado; Mermaid solo si el entorno lo soporta o como bloque fuente documentado.\n' +
+    '- Decision final: producir, ajustar o detener, con follow-up concreto.\n\n' +
+    'PROPOSITO VISUAL: ' + step.visualGoal + '\n' +
+    'SECCIONES SUGERIDAS: ' + step.sections + '\n' +
+    'DONE: ' + step.gate;
+}
+
+function naturalPrompt(step){
+  return 'Completa el paso ' + step.n + ' — ' + step.title + ' — para mi campaña multimedia con IA. Intencion: ' + step.action + '\n\n' +
+    'Metodo primero, (Gen)IA despues. Interpreta mi caso, planifica la salida y ejecuta solo cuando tengas contexto suficiente. Si falta un dato critico, haz maximo 5 preguntas; si puedes avanzar, usa defaults razonables y marca [SUPUESTO], [AUTOCOMPLETADO] o [DATO REQUERIDO]. No inventes capacidades oficiales, precios, permisos, licencias ni claims.\n\n' +
+    'Contexto que puedo adjuntar: ' + step.attach + '\n' +
+    'Herramienta activa: ' + step.tool + '\n' +
+    'Canales: ' + step.channels + '\n' +
+    'Piezas esperadas: ' + step.assetTypes + '\n' +
+    'KPIs: ' + step.kpis + '\n\n' +
+    'No me entregues solo texto plano. Entrega el paquete dual: `' + step.mdFile + '` para trazabilidad y `' + step.htmlFile + '` como informe ejecutivo visual. El HTML debe ser autocontenido, vertical, responsive, de maximo 8 secciones, con KPIs, insights, matriz de riesgos, checklist visual, decision final y diagrama SVG inline optimizado o Mermaid documentado.\n\n' +
+    'Cierra con checklist listo/falta, decision producir/ajustar/detener y follow-up recomendado: ' + step.followUps;
+}
+
+function parametrosPrompt(step){
+  return 'Ejecuta el paso ' + step.n + ' — ' + step.title + ' — con parametros editables y defaults que ya rinden. No dejes campos obligatorios vacios; si falta algo, infiere con {AUTOCOMPLETADO} o pregunta solo si confianza < 0.85.\n\n' +
+    'PARAMETROS\n' +
+    '- caso: proyecto actual; si no hay datos, usar caso guia pequeño marcado [SUPUESTO].\n' +
+    '- herramienta_activa: ' + step.tool + '\n' +
+    '- canales: ' + step.channels + '\n' +
+    '- piezas: ' + step.assetTypes + '\n' +
+    '- salida_md: `' + step.mdFile + '`\n' +
+    '- salida_html: `' + step.htmlFile + '`\n' +
+    '- modo_evidencia: Observado / Inferido / Supuesto / Dato requerido.\n\n' +
+    'INPUTS DEL PASO CON DEFAULTS\n' + fieldDefaultLines(step) + '\n\n' +
+    'CLAUSULAS ACTIVAS\n' +
+    '- Metodo: Interpreta > Planifica > Ejecuta.\n' +
+    '- Cero friccion: funciona con defaults y permite editar valores en texto.\n' +
+    '- Evidencia: no inventar capacidades, precios, permisos, licencias ni claims.\n' +
+    '- Privacidad: anonimizar PII innecesaria.\n' +
+    '- Visual consultivo: KPIs, insights, matriz de riesgos, piezas por canal, checklist y decision.\n' +
+    '- Continuidad: cerrar con follow-up de mejora y de siguiente paso.\n\n' +
+    packageContract(step);
+}
+
+function specPrompt(step){
+  return '[inputs]\n' + fieldLines(step) + '\n\n[prompt]\n\n' +
+    '--- S | SITUACION ---\n' +
+    'Estoy produciendo una campaña multimedia con IA. El paso actual es ' + step.n + ': ' + step.title + '. Debe sostener continuidad entre estrategia UX/UI, parrilla de 30 dias, piezas por canal, evidencia, derechos y publicacion.\n\n' +
+    '--- P | PEDIDO ---\n' +
+    'Arquetipo: estratega de contenido multimedia, diseñador instruccional, consultor UX/UI, sintetizador ejecutivo y auditor de evidencia.\n' +
+    'Tarea: ' + step.action + '\n' +
+    'Herramienta activa: ' + step.tool + '\n' +
+    'Canales: ' + step.channels + '\n' +
+    'Piezas: ' + step.assetTypes + '\n' +
+    'Entregable: paquete dual `' + step.mdFile + '` + `' + step.htmlFile + '`.\n' +
+    'Salida esperada: ' + step.output + '\n\n' +
+    '--- E | EJECUCION ---\n' +
+    '1. Interpreta > Planifica > Ejecuta.\n' +
+    '2. Formula maximo 5 preguntas solo si falta informacion critica.\n' +
+    '3. Produce Markdown operativo con decisiones, fuentes, gaps, derechos y checklist.\n' +
+    '4. Produce HTML consultivo compacto, vertical, responsive, maximo 8 secciones.\n' +
+    '5. Incluye KPIs: ' + step.kpis + '.\n' +
+    '6. Incluye follow-ups: ' + step.followUps + '.\n' +
+    '7. No inventes datos, capacidades, permisos, precios ni claims.\n\n' +
+    '--- C | CRITERIO Y FORMATO ---\n' +
+    packageContract(step) + '\n\n' +
+    '- [ ] El Markdown responde al objetivo del paso y conserva trazabilidad.\n' +
+    '- [ ] El HTML se puede abrir solo, sin dependencias externas.\n' +
+    '- [ ] La salida sirve al canal y pieza definidos.\n' +
+    '- [ ] La parrilla, calendario o follow-up queda conectado cuando aplique.\n' +
+    '- [ ] Los derechos, licencias y datos faltantes son visibles.\n' +
+    '- [ ] Lo no confirmado esta marcado.\n' +
+    '- [ ] El gate queda claro: ' + step.gate + '\n' +
+    '- [ ] Cierra con pass/fail, producir/ajustar/detener y proximo paso.';
+}
+
+function duoPrompt(step){
+  return 'SYSTEM PROMPT:\n' +
+    'Eres estratega MetodologIA de contenido multimedia, consultor UX/UI, diseñador instruccional y auditor de evidencia. Operas bajo Prompt Amplificado: metodo primero, (Gen)IA despues; Interpreta > Planifica > Ejecuta; cero friccion con defaults; salida trazable. Nunca inventas capacidades oficiales, precios, terminos, permisos, licencias ni claims. Separas Observado / Inferido / Supuesto / Dato requerido. Proteges PII y evitas rutas locales o enlaces directos a herramientas IA. Tu salida estandar es dual: Markdown operativo para trazabilidad y HTML consultivo autocontenido, compacto, responsive y de maximo 8 secciones. Cada entrega debe incluir KPIs, insights, matriz de riesgos, piezas por canal, decision final, follow-up y diagrama SVG inline optimizado o Mermaid documentado.\n\n' +
+    'USER PROMPT:\n' +
+    'Completemos el paso ' + step.n + ': ' + step.title + '.\n' +
+    'Herramienta activa: ' + step.tool + '\n' +
+    'Canales: ' + step.channels + '\n' +
+    'Piezas: ' + step.assetTypes + '\n' +
+    'Objetivo: ' + step.action + '\n' +
+    'Inputs disponibles con defaults:\n' + fieldDefaultLines(step) + '\n\n' +
+    'Si falta informacion critica, hazme maximo 5 preguntas. Si puedes avanzar, declara supuestos y entrega `' + step.mdFile + '` y `' + step.htmlFile + '`.\n\n' +
+    packageContract(step) + '\n\n' +
+    'Salida esperada: ' + step.output + '\n' +
+    'Gate: ' + step.gate;
+}
+
+function improveFollowUpPrompt(step){
+  return 'Mejora el resultado del paso ' + step.n + ' — ' + step.title + ' — sin rehacerlo desde cero.\n\n' +
+    'Evalua el ultimo output contra estos criterios:\n' +
+    '- Intencion del paso: ' + step.action + '\n' +
+    '- Canales: ' + step.channels + '\n' +
+    '- Piezas: ' + step.assetTypes + '\n' +
+    '- KPIs: ' + step.kpis + '\n' +
+    '- Derechos/licencias: ' + step.rightsCheck + '\n' +
+    '- Gate: ' + step.gate + '\n\n' +
+    'Devuelve una tabla con OK / Ajustar / Detener. Luego entrega solo los cambios necesarios: texto corregido, prompt ajustado, variantes priorizadas y checklist de publicacion. No inventes informacion faltante; marca [DATO REQUERIDO]. Cierra con version recomendada y una accion inmediata.';
+}
+
+function nextStepFollowUpPrompt(step){
+  var nextIndex = workshopSteps.findIndex(function(item){ return item.n === step.n; }) + 1;
+  var next = workshopSteps[nextIndex];
+  var nextLabel = next ? ('paso ' + next.n + ' — ' + next.title) : 'seguimiento post-taller de 7 y 30 dias';
+  return 'Convierte el resultado del paso ' + step.n + ' — ' + step.title + ' — en insumo listo para ' + nextLabel + '.\n\n' +
+    'Primero resume en 8 bullets maximo: decision tomada, assets disponibles, fuentes, gaps, riesgos, permisos, KPIs y prompts usados. Luego prepara el paquete de continuidad:\n' +
+    '- que copiar al siguiente prompt;\n' +
+    '- que adjuntar;\n' +
+    '- que no esta confirmado;\n' +
+    '- que debe revisar una persona antes de publicar;\n' +
+    '- cual es el siguiente prompt recomendado.\n\n' +
+    'Si ya es el ultimo paso, crea dos follow-ups post-taller: uno para ejecutar publicaciones durante 7 dias y otro para revisar la parrilla completa de 30 dias. Mantén el estilo Prompt Amplificado: directo, denso, con defaults y sin metadiscurso.';
+}
+
+function promptText(step, key){
+  if(key === 'parametros'){ return parametrosPrompt(step); }
+  if(key === 'spec'){ return specPrompt(step); }
+  if(key === 'duo'){ return duoPrompt(step); }
+  if(key === 'mejora'){ return improveFollowUpPrompt(step); }
+  if(key === 'continuidad'){ return nextStepFollowUpPrompt(step); }
+  return naturalPrompt(step);
+}
+
+function renderArtifacts(){
+  var tbody = document.getElementById('artifactRows');
+  if(!tbody){ return; }
+  tbody.innerHTML = workshopSteps.map(function(step){
+    return '<tr><td><strong>' + esc(step.n) + '</strong><br>' + esc(step.title) + '<br><span class="source-note">' + esc(step.readerHook) + '</span></td><td>' + esc(step.tool) + '</td><td>' + esc(step.promptSet) + '</td><td><strong>Canales:</strong> ' + esc(step.channels) + '<br><strong>Piezas:</strong> ' + esc(step.assetTypes) + '</td><td><code>' + esc(step.mdFile) + '</code><br><code>' + esc(step.htmlFile) + '</code><br><strong>Follow-up:</strong> ' + esc(step.followUps) + '</td><td>' + esc(step.gate) + '</td></tr>';
+  }).join('');
+}
+
+function renderSteps(){
+  var mount = document.getElementById('stepsMount');
+  if(!mount){ return; }
+  mount.innerHTML = workshopSteps.map(function(step, idx){
+    var variants = ['natural','parametros','spec','duo','mejora','continuidad'].map(function(key){
+      return '<pre data-variant="' + key + '"' + (key === 'natural' ? '' : ' hidden') + '>' + esc(promptText(step,key)) + '</pre>';
+    }).join('');
+    return '<article class="step" data-step-index="' + idx + '">' +
+      '<div class="num">' + esc(step.n) + '</div>' +
+      '<div class="step-body">' +
+      '<div class="step-kicker">' + esc(step.mdFile) + ' + ' + esc(step.htmlFile) + '</div>' +
+      '<h3>' + esc(step.title) + '</h3>' +
+      '<p>' + esc(step.action) + '</p>' +
+      '<div class="mini-list">' +
+        '<span><strong>Hook:</strong><br>' + esc(step.readerHook) + '</span>' +
+        '<span><strong>Herramienta:</strong><br>' + esc(step.tool) + '</span>' +
+        '<span><strong>Canales:</strong><br>' + esc(step.channels) + '</span>' +
+        '<span><strong>Piezas:</strong><br>' + esc(step.assetTypes) + '</span>' +
+      '</div>' +
+      '<div class="prompt">' +
+        '<div class="prompt-head">' +
+          '<div class="fmt-tabs"><span class="fmt-label">Prompt ' + esc(step.n) + '</span>' +
+          '<button class="fmt active" type="button" data-fmt="natural">Natural</button>' +
+          '<button class="fmt" type="button" data-fmt="parametros">Paramétrico</button>' +
+          '<button class="fmt" type="button" data-fmt="spec">SPEC</button>' +
+          '<button class="fmt" type="button" data-fmt="duo">Dupla</button>' +
+          '<button class="fmt" type="button" data-fmt="mejora">Mejora</button>' +
+          '<button class="fmt" type="button" data-fmt="continuidad">Continuidad</button></div>' +
+          '<div class="prompt-actions"><button class="prepare-btn" type="button" data-prepare>Preparar prompt</button><button class="copy" type="button" data-copy>Copiar</button></div>' +
+        '</div>' +
+        variants +
+      '</div>' +
+      '</div></article>';
+  }).join('');
+}
+
+function getPromptText(promptEl){
+  var active = promptEl.querySelector('.fmt.active');
+  var key = active ? active.getAttribute('data-fmt') : 'natural';
+  return promptEl.querySelector('[data-variant="' + key + '"]');
+}
+
+function fallbackCopy(text){
+  var area = document.createElement('textarea');
+  area.value = text;
+  area.setAttribute('readonly','');
+  area.style.position = 'fixed';
+  area.style.left = '-9999px';
+  document.body.appendChild(area);
+  area.select();
+  var ok = false;
+  try{ ok = document.execCommand('copy'); }catch(err){ ok = false; }
+  document.body.removeChild(area);
+  return ok;
+}
+
+function copyText(text, done){
+  if(navigator.clipboard && window.isSecureContext){
+    navigator.clipboard.writeText(text).then(done).catch(function(){ if(fallbackCopy(text)){ done(); } });
+  }else if(fallbackCopy(text)){
+    done();
+  }
+}
+
+function openPromptModal(text){
+  var modal = document.getElementById('promptModal');
+  var textarea = document.getElementById('promptModalText');
+  var status = document.getElementById('promptModalStatus');
+  textarea.value = text || '';
+  status.textContent = 'Listo para copiar.';
+  modal.classList.add('open');
+  document.body.classList.add('modal-open');
+  textarea.focus();
+  textarea.select();
+}
+
+function closePromptModal(){
+  var modal = document.getElementById('promptModal');
+  modal.classList.remove('open');
+  document.body.classList.remove('modal-open');
+}
+
+function calendarUrl(title, details, recur){
+  var base = 'https://calendar.google.com/calendar/u/0/r/eventedit';
+  var params = new URLSearchParams();
+  params.set('text', title);
+  params.set('details', details);
+  if(recur){ params.set('recur', recur); }
+  return base + '?' + params.toString();
+}
+
+function bootCalendarLinks(){
+  var templates = {
+    'multimedia-practice': {
+      title: 'Practica Multimedia con IA — MetodologIA',
+      details: 'PRACTICA GUIADA — Multimedia con IA (90 min)\\n\\nObjetivo: ejecutar una sesion compacta del workshop.\\n\\nPasos sugeridos:\\n1. Revisar estrategia UX/UI.\\n2. Ajustar parrilla de 30 dias.\\n3. Crear o mejorar una pieza visual.\\n4. Preparar un mini clip o brief musical.\\n5. Documentar decisiones, gaps y siguiente accion.\\n\\nRegla: metodo primero, IA despues. Cerrar con producir / ajustar / detener.',
+      recur: ''
+    },
+    'calendar-review': {
+      title: 'Revision de parrilla 30 dias — MetodologIA',
+      details: 'RUTINA SEMANAL — Revision de parrilla 30 dias (45 min)\\n\\nObjetivo: revisar publicaciones, KPIs, piezas pendientes y ajustes de canal.\\n\\nChecklist:\\n1. Revisar publicaciones ejecutadas.\\n2. Comparar KPI esperado vs observado.\\n3. Detectar piezas que necesitan iteracion.\\n4. Ajustar proximos 7 dias.\\n5. Registrar gaps de permisos, musica, imagen, claims o fuentes.\\n\\nCierre: una accion concreta para la proxima semana.',
+      recur: 'RRULE:FREQ=WEEKLY;COUNT=4'
+    }
+  };
+  document.querySelectorAll('[data-calendar-template]').forEach(function(link){
+    var template = templates[link.getAttribute('data-calendar-template')];
+    if(template){ link.href = calendarUrl(template.title, template.details, template.recur); }
+  });
+}
+
+document.addEventListener('click', function(event){
+  var tab = event.target.closest('.fmt');
+  if(tab){
+    var prompt = tab.closest('.prompt');
+    var key = tab.getAttribute('data-fmt');
+    prompt.querySelectorAll('.fmt').forEach(function(btn){ btn.classList.toggle('active', btn === tab); });
+    prompt.querySelectorAll('[data-variant]').forEach(function(pre){ pre.hidden = pre.getAttribute('data-variant') !== key; });
+  }
+  var copy = event.target.closest('[data-copy]');
+  if(copy){
+    var promptEl = copy.closest('.prompt');
+    var pre = getPromptText(promptEl);
+    var text = pre ? pre.innerText : '';
+    copyText(text, function(){
+      copy.classList.add('ok');
+      copy.textContent = 'Copiado';
+      setTimeout(function(){ copy.classList.remove('ok'); copy.textContent = 'Copiar'; }, 1400);
+    });
+  }
+  var prepare = event.target.closest('[data-prepare]');
+  if(prepare){
+    var promptNode = prepare.closest('.prompt');
+    var activePre = getPromptText(promptNode);
+    openPromptModal(activePre ? activePre.innerText : '');
+  }
+  var staticGuide = event.target.closest('[data-guide-static]');
+  if(staticGuide){
+    openPromptModal(staticPromptGuides[staticGuide.getAttribute('data-guide-static')] || '');
+  }
+  if(event.target.id === 'closePromptModal' || event.target.id === 'promptModal'){
+    closePromptModal();
+  }
+  var modalCopy = event.target.closest('[data-modal-copy]');
+  if(modalCopy){
+    var target = modalCopy.getAttribute('data-modal-copy');
+    var textArea = document.getElementById('promptModalText');
+    var status = document.getElementById('promptModalStatus');
+    copyText(textArea.value, function(){
+      status.textContent = target === 'copy' ? 'Copiado. Ahora pegalo en tu asistente.' : 'Copiado para ' + target + '. Ahora pegalo en tu asistente.';
+    });
+  }
+});
+
+document.addEventListener('keydown', function(event){
+  if(event.key === 'Escape'){ closePromptModal(); }
+});
+
+function toggleTheme(){
+  var html = document.documentElement;
+  html.setAttribute('data-theme', html.getAttribute('data-theme') === 'dark' ? 'light' : 'dark');
+}
+
+function toggleLang(){
+  document.body.classList.toggle('lang-en');
+  var isEn = document.body.classList.contains('lang-en');
+  document.documentElement.lang = isEn ? 'en' : 'es';
+  var btn = document.getElementById('langBtn');
+  if(btn){ btn.textContent = isEn ? 'EN' : 'ES'; }
+}
+
+function updateProgress(){
+  var doc = document.documentElement;
+  var total = doc.scrollHeight - doc.clientHeight;
+  var progress = total > 0 ? (doc.scrollTop / total) * 100 : 0;
+  var bar = document.getElementById('scroll-progress');
+  if(bar){ bar.style.width = progress + '%'; }
+}
+
+function bootIcons(){
+  if(window.lucide && typeof window.lucide.createIcons === 'function'){
+    window.lucide.createIcons();
+  }
+}
+
+function bootNav(){
+  var sections = Array.from(document.querySelectorAll('header[id], section[id]'));
+  var navLinks = Array.from(document.querySelectorAll('.sidebar-links a'));
+  var observer = new IntersectionObserver(function(entries){
+    entries.forEach(function(entry){
+      if(entry.isIntersecting){
+        var id = '#' + entry.target.id;
+        navLinks.forEach(function(link){ link.classList.toggle('active', link.getAttribute('href') === id); });
+      }
+    });
+  },{rootMargin:'-42% 0px -50% 0px', threshold:.01});
+  sections.forEach(function(section){ observer.observe(section); });
+}
+
+function bootGlossary(){
+  var input = document.getElementById('glossarySearch');
+  var count = document.getElementById('glossaryCount');
+  var items = Array.from(document.querySelectorAll('.glossary-item'));
+  function apply(){
+    var q = input.value.trim().toLowerCase();
+    var visible = 0;
+    items.forEach(function(item){
+      var haystack = (item.textContent + ' ' + item.getAttribute('data-terms')).toLowerCase();
+      var show = !q || haystack.indexOf(q) !== -1;
+      item.hidden = !show;
+      if(show){ visible += 1; }
+    });
+    count.textContent = visible + ' conceptos visibles';
+  }
+  if(input){ input.addEventListener('input', apply); apply(); }
+}
+
+document.addEventListener('DOMContentLoaded', function(){
+  renderArtifacts();
+  renderSteps();
+  bootCalendarLinks();
+  bootNav();
+  bootGlossary();
+  bootIcons();
+  updateProgress();
+});
+window.addEventListener('scroll', updateProgress, {passive:true});
+window.addEventListener('load', bootIcons);
+</script>
+</body>
+</html>
