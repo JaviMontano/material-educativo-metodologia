@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""progress_tracker.py · MetodologIA · Aprender·Aprehender·(R)Evolucionar · v1.1.0.
+"""progress_tracker.py · MetodologIA · Aprender·Aprehender·(R)Evolucionar · v1.2.0.
 
 Lee/actualiza .aprender-state.json con progreso en las 10 escalas de maestría.
 
@@ -23,13 +23,18 @@ from __future__ import annotations
 import argparse
 import datetime as dt
 import json
+import os
 import sys
+import tempfile
 from pathlib import Path
 from typing import Any
 
-VERSION = "1.1.0"
-SKILL_DIR = Path.home() / ".claude/skills/aprender-aprehender-revolucionar"
-STATE_FILE = SKILL_DIR / ".aprender-state.json"
+VERSION = "1.2.0"
+STATE_FILE = (
+    Path(os.environ["APRENDER_STATE_FILE"]).expanduser().resolve()
+    if os.environ.get("APRENDER_STATE_FILE")
+    else None
+)
 
 ESCALAS: dict[int, tuple[str, str]] = {
     0: ("Ignorante", "Unaware"),
@@ -83,16 +88,16 @@ def now_iso() -> str:
     return dt.datetime.now(dt.timezone.utc).isoformat()
 
 
-def load_state() -> dict[str, Any]:
-    """Carga estado desde STATE_FILE · crea estado default si no existe."""
-    if not STATE_FILE.exists():
+def load_state(state_file: Path | None = None) -> dict[str, Any]:
+    """Carga estado explícito; sin ruta, opera en memoria."""
+    target = state_file or STATE_FILE
+    if target is None or not target.exists():
         return _default_state()
     try:
-        return json.loads(STATE_FILE.read_text(encoding="utf-8"))
+        return json.loads(target.read_text(encoding="utf-8"))
     except json.JSONDecodeError as e:
         raise ProgressTrackerError(
-            f"Estado corrupto en {STATE_FILE}: {e}. "
-            f"Backup manual y reinicia con --status."
+            f"Estado corrupto en {target}: {e}. No se sobrescribió."
         ) from e
 
 
@@ -113,17 +118,31 @@ def _default_state() -> dict[str, Any]:
     }
 
 
-def save_state(state: dict[str, Any]) -> None:
-    """Persiste estado · valida estructura mínima · ascii-safe."""
+def save_state(state: dict[str, Any], state_file: Path | None = None) -> None:
+    """Persiste estado solo en ruta explícita y mediante reemplazo atómico."""
+    target = state_file or STATE_FILE
+    if target is None:
+        raise ProgressTrackerError(
+            "Persistencia desactivada. Usa --state-file <ruta> o APRENDER_STATE_FILE."
+        )
     if "temas_activos" not in state:
         raise ProgressTrackerError("Estado inválido · falta 'temas_activos'")
     state["ultima_invocacion"] = now_iso()
     state["version"] = VERSION
-    STATE_FILE.parent.mkdir(parents=True, exist_ok=True)
-    STATE_FILE.write_text(
-        json.dumps(state, indent=2, ensure_ascii=False),
-        encoding="utf-8",
+    target.parent.mkdir(parents=True, exist_ok=True)
+    payload = json.dumps(state, indent=2, ensure_ascii=False) + "\n"
+    handle = tempfile.NamedTemporaryFile(
+        "w", encoding="utf-8", dir=target.parent, delete=False
     )
+    temp_path = Path(handle.name)
+    try:
+        with handle:
+            handle.write(payload)
+            handle.flush()
+            os.fsync(handle.fileno())
+        os.replace(temp_path, target)
+    finally:
+        temp_path.unlink(missing_ok=True)
 
 
 def find_tema(state: dict[str, Any], tema: str) -> dict[str, Any] | None:
@@ -333,11 +352,17 @@ def main() -> int:
     parser.add_argument(
         "--export", action="store_true", help="Exportar estado completo (md)"
     )
+    parser.add_argument(
+        "--state-file",
+        type=Path,
+        help="Ruta explícita para leer/persistir estado; omitida = sesión efímera",
+    )
 
     args = parser.parse_args()
 
     try:
-        state = load_state()
+        state_file = args.state_file.expanduser().resolve() if args.state_file else None
+        state = load_state(state_file)
 
         if args.status:
             print(cmd_status(state))
@@ -345,7 +370,7 @@ def main() -> int:
             state = cmd_add_tema(
                 state, args.add_tema, args.objetivo, args.horas_obj
             )
-            save_state(state)
+            save_state(state, state_file)
         elif args.update:
             kwargs: dict[str, Any] = {}
             if args.escala is not None:
@@ -357,13 +382,13 @@ def main() -> int:
             if args.notas:
                 kwargs["notas"] = args.notas
             state = cmd_update(state, args.update, **kwargs)
-            save_state(state)
+            save_state(state, state_file)
         elif args.add_horas:
             if args.horas is None:
                 print("ERROR: --horas requerido con --add-horas", file=sys.stderr)
                 return 1
             state = cmd_add_horas(state, args.add_horas, args.horas)
-            save_state(state)
+            save_state(state, state_file)
         elif args.export:
             print(cmd_export(state))
         else:

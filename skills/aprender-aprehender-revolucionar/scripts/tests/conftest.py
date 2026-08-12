@@ -18,6 +18,5 @@ def isolated_state_file(monkeypatch: pytest.MonkeyPatch) -> Generator[Path, None
     """[NUEVO-APORTE v1.1] Aísla cada test del estado real del usuario."""
     with tempfile.TemporaryDirectory() as tmp:
         tmp_path = Path(tmp) / "test-state.json"
-        monkeypatch.setenv("HOME", tmp)
-        # Re-import progress_tracker para que use HOME mockeado
+        monkeypatch.delenv("APRENDER_STATE_FILE", raising=False)
         yield tmp_path

@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
-"""triangulation.py · MetodologIA · v1.1.0.
+"""triangulation.py · MetodologIA · v1.2.0.
 
-Genera tabla de triangulación para comparar respuestas de 3+ IAs.
+Genera una tabla para comparar respuestas de varios modelos.
 Soporta input desde archivos o stdin.
 
 Usage:
@@ -9,7 +9,7 @@ Usage:
     python triangulation.py --files *.md --output triangulacion.md
 
 [FUENTE-PRIMARIA] Playbook v2.0.0 §katas/kata-triangulacion-3ias.md.
-[LÍMITE] 2 archivos = empate 1-1 sin desempate · mínimo 3 archivos requeridos.
+[LÍMITE] El acuerdo entre modelos no constituye evidencia independiente.
 [SUPUESTO] Archivos contienen respuestas a la MISMA pregunta · si difieren, output sin valor.
 [TRADE-OFF] Heurística de matching por palabras claves · falsos positivos/negativos posibles.
 
@@ -24,7 +24,7 @@ import re
 import sys
 from pathlib import Path
 
-VERSION = "1.1.0"
+VERSION = "1.2.0"
 
 
 def extraer_items(texto: str) -> list[str]:
@@ -112,13 +112,13 @@ def triangulacion(archivos: list[Path]) -> str:
                 row.append("❌")
 
         if count == len(respuestas):
-            veredicto = "🟢 CONFIRMED · 3/3"
+            veredicto = f"🔵 ACUERDO DE MODELOS · {count}/{len(respuestas)} · verificar fuente"
             confirmed += 1
         elif count >= 2:
-            veredicto = "🟡 REVISAR · validar fuente primaria"
+            veredicto = "🟡 DISCREPANCIA · validar fuente primaria"
             revisar += 1
         elif count == 1:
-            veredicto = "🔴 SOSPECHOSO · 1/3 · posible hallucination"
+            veredicto = f"🔴 MENCIÓN AISLADA · 1/{len(respuestas)} · verificar fuente"
             sospechoso += 1
         else:
             veredicto = "❓ NO APARECE"
@@ -132,18 +132,18 @@ def triangulacion(archivos: list[Path]) -> str:
     out.append("")
     total = confirmed + revisar + sospechoso
     if total > 0:
-        out.append(f"- 🟢 **CONFIRMED**: {confirmed} ({confirmed/total:.0%})")
-        out.append(f"- 🟡 **REVISAR**: {revisar} ({revisar/total:.0%})")
-        out.append(f"- 🔴 **SOSPECHOSO**: {sospechoso} ({sospechoso/total:.0%})")
+        out.append(f"- 🔵 **ACUERDO DE MODELOS**: {confirmed} ({confirmed/total:.0%})")
+        out.append(f"- 🟡 **DISCREPANCIA**: {revisar} ({revisar/total:.0%})")
+        out.append(f"- 🔴 **MENCIÓN AISLADA**: {sospechoso} ({sospechoso/total:.0%})")
 
     out.append("")
     out.append("## Acciones recomendadas")
     out.append("")
-    out.append("- **CONFIRMED**: usar con confianza · alta probabilidad de verdad")
-    out.append("- **REVISAR**: validar manualmente fuente primaria antes de citar")
-    out.append("- **SOSPECHOSO**: alta probabilidad de hallucination · verificar manual o descartar")
+    out.append("- **ACUERDO DE MODELOS**: localizar evidencia externa antes de usar")
+    out.append("- **DISCREPANCIA**: inspeccionar definiciones, fechas y fuentes primarias")
+    out.append("- **MENCIÓN AISLADA**: tratar como hipótesis hasta verificar")
     out.append("")
-    out.append("Para SOSPECHOSO + REVISAR: ejecutar Prompt #4 (Cross Fact-Check) con 4ª IA independiente.")
+    out.append("Para todo claim material: ejecutar Prompt #4 y verificar una fuente primaria; otra IA sigue siendo una herramienta, no una fuente independiente.")
     out.append("")
     out.append("---")
     out.append("")
@@ -154,7 +154,7 @@ def triangulacion(archivos: list[Path]) -> str:
 
 def main():
     parser = argparse.ArgumentParser(
-        description="Triangulación de respuestas de 3+ IAs"
+        description="Comparación de respuestas de varios modelos; no sustituye fuentes"
     )
     parser.add_argument(
         "--files",

@@ -1,17 +1,19 @@
 # Aprender · Aprehender · (R)Evolucionar
 
-> **Companion personal de aprendizaje y desatraso · MetodologIA v3.0**
-> *El playbook te dice qué hacer. Esta skill lo hace contigo.*
+> **Companion de aprendizaje profesional · MetodologIA v3.0**
+> *El playbook define el método. Esta skill lo convierte en práctica guiada y verificable.*
 
 [![License: CC BY-NC-SA 4.0](https://img.shields.io/badge/License-CC%20BY--NC--SA%204.0-lightgrey.svg)](LICENSE.md)
 [![Brand: MetodologIA](https://img.shields.io/badge/Brand-MetodologIA%20v3.0-122562)](https://metodologia.info)
-[![Version: 1.1.0](https://img.shields.io/badge/version-1.1.0-FFD700)](CHANGELOG.md)
+[![Version: 1.2.0](https://img.shields.io/badge/version-1.2.0-FFD700)](CHANGELOG.md)
 
 ---
 
 ## Qué es esto
 
-Una **skill de Claude Code** que activa el ciclo completo del conocimiento profesional: **adquirir** con método, **retener** para defender bajo presión, **soltar** lo que ya no sirve.
+Una skill portable que activa el ciclo del conocimiento profesional: **adquirir**
+con método, **practicar** hasta producir evidencia y **revisar** lo que ya no
+sirve.
 
 Basada fielmente en el **Playbook *Aprender · Aprehender · (R)Evolucionar* v2.0.0** (CC BY-NC-SA 4.0) diseñado por Javier Montaño · MetodologIA.
 
@@ -21,7 +23,8 @@ Basada fielmente en el **Playbook *Aprender · Aprehender · (R)Evolucionar* v2.
 
 ## Cómo invocarla
 
-Una vez instalada en `~/.claude/skills/aprender-aprehender-revolucionar/`, Claude la activa automáticamente cuando detecta señales como:
+Una vez instalada en el directorio de skills del asistente, se activa cuando
+detecta señales como:
 
 | Lo que dices | Lo que pasa |
 |---|---|
@@ -43,11 +46,11 @@ O explícitamente:
 
 ## Las 3 fases
 
-### 1 · APRENDER · 1–4h
+### 1 · APRENDER · presupuesto inicial 1–4 h
 Transición Ignorante (Escala 0) → Curioso (Escala 1).
 Salida: Blueprint declarado · BoK triangulado · glosario 30 términos · concept map · 3-5 fuentes primarias.
 
-### 2 · APREHENDER · 20–64h
+### 2 · APREHENDER · presupuesto orientativo 20–64 h
 Transición Curioso (Escala 1) → Iniciado (Escala 3).
 Salida: explicar sin notas (Feynman) · defender ante hostil · quiz progresivo aprobado.
 
@@ -59,17 +62,18 @@ Salida: 3+ skills evaluadas con framework 4-D · decisiones [MANTENER/ACTUALIZAR
 
 ## Modos de desatraso (catch-up)
 
-Cuando llegas atrasado a un tema, la skill te ofrece tres modos:
+Cuando llegas atrasado a un tema, la skill ofrece tres presupuestos de práctica.
+No garantizan dominio, retención ni desempeño:
 
 | Modo | Tiempo | Salida |
 |---|---|---|
-| **Express** | 4 horas | Mapa conceptual + glosario + 3 fuentes primarias |
-| **Sprint** | 20 horas | Defender sin notas en 4 semanas (1h × 5 días) |
-| **Marathon** | 64 horas | Hábito instalado · cualquier tema futuro en 4h |
+| **Express** | 4 horas | Primer mapa + glosario + fuentes iniciales |
+| **Sprint** | 20 horas | Investigación revisada + práctica + transferencia inicial |
+| **Marathon** | 64 horas | Iteraciones sostenidas + evidencia acumulada |
 
 Invocar:
 ```bash
-python ~/.claude/skills/aprender-aprehender-revolucionar/scripts/desatraso_planner.py \
+python <ruta-skill>/scripts/desatraso_planner.py \
   --tema="LLMs 2026" \
   --tiempo=4h
 ```
