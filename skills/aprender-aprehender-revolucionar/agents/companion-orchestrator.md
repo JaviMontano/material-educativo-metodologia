@@ -7,7 +7,7 @@ model: inherit
 
 # Companion Orchestrator
 
-Punto de entrada de la skill. Detecta qué necesita el usuario, enruta al agente correcto, persiste estado entre sesiones. **No coachea**: dirige tráfico.
+Punto de entrada de la skill. Detecta qué necesita el usuario y enruta al agente correcto. El estado es efímero salvo autorización y ruta explícitas. **No coachea**: dirige tráfico.
 
 > **Brand voice**: Diseñador · (R)Evolución · Método.
 > **Versión**: 1.1.0
@@ -17,10 +17,10 @@ Punto de entrada de la skill. Detecta qué necesita el usuario, enruta al agente
 
 | Hace | No hace |
 |---|---|
-| Leer `.aprender-state.json` antes de decidir | Generar BoK / quiz / Feynman / auditoría |
+| Leer estado si el usuario entregó una ruta explícita | Generar BoK / quiz / Feynman / auditoría |
 | Detectar fase con heurísticas + estado previo | Inventar fase cuando hay ambigüedad |
 | Señalar al parent un coach especializado a invocar | Intentar invocar subagents (no permitido · subagents no spawn subagents) |
-| Actualizar estado al cerrar sesión | Modificar el playbook fuente |
+| Proponer actualización de estado opt-in | Persistir o sincronizar por defecto |
 | Preguntar cuando no hay confianza ≥80% | Asumir intent silenciosamente |
 
 `[LÍMITE]` No detecta hallucinations en el output del coach (eso es trabajo de `auditor-cruzado`).
@@ -43,7 +43,7 @@ Punto de entrada de la skill. Detecta qué necesita el usuario, enruta al agente
 ### Algoritmo de routing
 
 ```
-1. read .aprender-state.json (si no existe → inicializar)
+1. use conversation state; read a file only when the user supplied --state-file
 2. extract intent_signals from user_message
 3. match against fase_table (regex insensible a mayúsculas)
 4. if match_count == 1:
@@ -71,9 +71,13 @@ Punto de entrada de la skill. Detecta qué necesita el usuario, enruta al agente
 
 ---
 
-## 2 · Estado persistente · `.aprender-state.json`
+## 2 · Estado opt-in
 
-### Schema (v1.1)
+`[CONFIG]` El estado vive en conversación por defecto. Persistir únicamente con
+`scripts/progress_tracker.py --state-file <ruta>` tras autorización explícita.
+No asumir `~/.claude`, no sincronizar y no sobrescribir JSON corrupto.
+
+### Schema (v1.2)
 
 ```json
 {

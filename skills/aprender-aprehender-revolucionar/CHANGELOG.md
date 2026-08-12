@@ -6,6 +6,17 @@ Formato: [Keep a Changelog](https://keepachangelog.com/es-ES/1.1.0/) · Versiona
 
 ---
 
+## [1.2.0] · 2026-08-12 · Evidencia, privacidad y portabilidad
+
+- Reduce `SKILL.md` a un router de disclosure progresivo.
+- Añade un contrato operativo fail-closed para fuentes, tiempos y privacidad.
+- Desactiva persistencia por defecto; exige `--state-file` explícito.
+- Hace atómicas las escrituras y conserva intacto cualquier JSON corrupto.
+- Corrige la prueba rota del schema `perfil` y añade negativos de persistencia.
+- Reclasifica consenso entre modelos como acuerdo, no corroboración externa.
+- Presenta 4 h, 20 h y 64 h como presupuestos orientativos, no garantías.
+- Mantiene licencia CC BY-NC-SA 4.0 y compatibilidad estructural.
+
 ## [1.1.0] · 2026-05-04 · Elevación 10× · robustez + trazabilidad
 
 **Tipo**: refactor sustantivo · sin cambios estructurales · profundidad > extensión.

@@ -28,6 +28,8 @@ from progress_tracker import (  # type: ignore
     cmd_update,
     detect_regression,
     find_tema,
+    load_state,
+    save_state,
     validate_escala,
     validate_tema_name,
 )
@@ -37,7 +39,7 @@ def test_default_state_structure() -> None:
     """Estado default tiene campos mínimos."""
     state = _default_state()
     assert "temas_activos" in state
-    assert "javier" in state
+    assert "perfil" in state
     assert state["temas_activos"] == []
 
 
@@ -141,3 +143,29 @@ def test_add_horas_accumulates() -> None:
     t = find_tema(state, "Rust")
     assert t is not None
     assert t["horas_invertidas"] == 10
+
+
+def test_persistence_is_opt_in(tmp_path: Path, monkeypatch: pytest.MonkeyPatch) -> None:
+    """Sin ruta explícita, la skill no persiste estado."""
+    monkeypatch.delenv("APRENDER_STATE_FILE", raising=False)
+    with pytest.raises(ProgressTrackerError, match="Persistencia desactivada"):
+        save_state(_default_state(), None)
+    assert list(tmp_path.iterdir()) == []
+
+
+def test_explicit_state_roundtrip(tmp_path: Path) -> None:
+    """Ruta explícita permite escritura y lectura verificables."""
+    target = tmp_path / "state.json"
+    state = cmd_add_tema(_default_state(), "Rust")
+    save_state(state, target)
+    assert find_tema(load_state(target), "Rust") is not None
+
+
+def test_corrupt_state_fails_closed(tmp_path: Path) -> None:
+    """Estado corrupto no se sobrescribe silenciosamente."""
+    target = tmp_path / "state.json"
+    target.write_text("{broken", encoding="utf-8")
+    before = target.read_bytes()
+    with pytest.raises(ProgressTrackerError, match="Estado corrupto"):
+        load_state(target)
+    assert target.read_bytes() == before
